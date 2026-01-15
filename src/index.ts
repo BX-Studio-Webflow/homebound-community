@@ -1,7 +1,8 @@
-import { greetUser } from '$utils/greet';
+import { NavbarAnimationController } from '$utils/navbar-animation';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
-  const name = 'John Doe';
-  greetUser(name);
+  // Initialize navbar animations
+  const navbarController = new NavbarAnimationController();
+  navbarController.init();
 });
