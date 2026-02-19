@@ -1,8 +1,8 @@
-import { NavbarAnimationController } from '$utils/navbar-animation';
+import { StickyNavController } from '$utils/sticky-nav';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
-  // Initialize navbar animations
-  const navbarController = new NavbarAnimationController();
-  navbarController.init();
+
+  const stickyNavController = new StickyNavController();
+  stickyNavController.init();
 });

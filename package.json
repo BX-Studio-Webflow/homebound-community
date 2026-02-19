@@ -1,21 +1,10 @@
 {
-  "name": "@bx/larson-client",
+  "name": "@homebound-sticky-nav",
   "version": "0.0.1",
-  "description": "Developer starter template for Finsweet projects.",
-  "homepage": "https://github.com/finsweet/developer-starter#readme",
+  "description": "Sticky navigation controller for Homebound projects.",
+  "homepage": "https://github.com/homebound-sticky-nav#readme",
   "license": "ISC",
   "keywords": [],
-  "author": {
-    "name": "Finsweet",
-    "url": "https://finsweet.com/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/finsweet/developer-starter.git"
-  },
-  "bugs": {
-    "url": "https://github.com/finsweet/developer-starter/issues"
-  },
   "type": "module",
   "main": "src/index.ts",
   "module": "src/index.ts",

@@ -4,6 +4,50 @@ A starter template for both Client & Power projects.
 
 Before starting to work with this template, please take some time to read through the documentation.
 
+## Sticky Navigation (`src/utils/sticky-nav.ts`)
+
+The `StickyNavController` class drives the sticky tab bar on the community page. It handles two behaviours: keeping the correct link highlighted as the user scrolls, and smooth-scrolling to the right section when a link is clicked or tapped.
+
+### How it works
+
+#### Active link on scroll
+
+An `IntersectionObserver` watches each page section. It uses a `rootMargin` of `-10% 0px -85% 0px`, which shrinks the observable viewport to a narrow band near the top of the screen. A section fires as "intersecting" the moment its top edge enters that band — the natural point at which a reader considers themselves to be inside that section.
+
+All currently intersecting sections are tracked in a `Set`. Whichever section appears **earliest** in the defined page order wins the active state, so the highlight stays consistent even when multiple sections overlap the trigger zone (e.g. on very tall screens or during fast scrolling).
+
+#### Active link on click / tap
+
+When a link is clicked the controller:
+
+1. Prevents the default `href="#"` anchor jump.
+2. Looks up the target section ID from `sectionMap`.
+3. Measures the sticky nav bar's own rendered height and subtracts it from the scroll offset so the section heading is never hidden behind the bar.
+4. Calls `window.scrollTo` with `behavior: 'smooth'`.
+5. Immediately applies `is-active` to the clicked link so the UI responds at the moment of interaction, before the scroll animation completes.
+
+#### Nav link → section ID mapping
+
+| `dev-target` (HTML) | Section `id` (DOM) |
+|---|---|
+| `overview` | `overview-section` |
+| `floor-plans` | `floor-plans-section` |
+| `amentities` | `amentities-section` |
+| `personalisation` | `personalization-section` |
+| `browse-homes` | `lots-section` |
+| `process` *(future)* | `process-section` |
+
+The map handles the spelling mismatches between Webflow's nav markup (`personalisation`, `amentities`) and the actual section IDs in the DOM. Both `browse-homes` and `process` are mapped so the code keeps working before and after any Webflow designer updates to that last link.
+
+#### Updating the nav order or adding a section
+
+Two places need to stay in sync inside `StickyNavController`:
+
+- **`sectionMap`** — add a `dev-target → section-id` entry for every new link/section pair.
+- **`sectionOrder`** — list the `dev-target` keys in the exact **top-to-bottom order the sections appear on the page**. This order is what the "topmost visible section wins" logic relies on.
+
+---
+
 ## Reference
 
 - [Included tools](#included-tools)
