@@ -1,45 +1,49 @@
 import Swiper from 'swiper';
 import { Keyboard, Navigation, Pagination, Thumbs } from 'swiper/modules';
 
+interface GalleryConfig {
+  /** dev-target value on the clickable trigger container */
+  trigger: string;
+  /** dev-target value on each <img> inside the hidden CMS list */
+  imageAttr: string;
+  /** CSS class of the Webflow CMS wrapper to observe for late-rendered items */
+  containerClass: string;
+}
+
+const GALLERY_CONFIGS: GalleryConfig[] = [
+  {
+    trigger: 'image-gallery',
+    imageAttr: 'hidden-main-gallery-images',
+    containerClass: '.hidden-main-gallery-collection',
+  },
+  {
+    trigger: 'community-gallery',
+    imageAttr: 'hidden-community-gallery-images',
+    containerClass: '.hidden-community-gallery-collection',
+  },
+];
+
 /**
  * Full-screen image gallery controller.
  *
- * Clicking any image inside [dev-target="image-gallery"] opens the gallery.
- * Slides are sourced from img[dev-target="hidden-main-gallery-images"] elements
- * (the dev-target is on the <img> itself inside the Webflow CMS list).
- * A MutationObserver on .hidden-main-gallery-collection keeps the cache fresh
- * for images that render after initial page paint.
+ * Supports multiple independent gallery triggers on the same page.
+ * Each trigger is configured via GALLERY_CONFIGS above — add a new entry
+ * to support a new gallery without touching any other code.
  */
 export class GalleryController {
   private overlay: HTMLElement | null = null;
   private swiper: Swiper | null = null;
   private thumbsSwiper: Swiper | null = null;
-  private cachedImgs: HTMLImageElement[] = [];
-  private imgObserver: MutationObserver | null = null;
+
+  /** Per-config image cache, keyed by trigger dev-target value */
+  private caches: Map<string, HTMLImageElement[]> = new Map();
+  private observers: MutationObserver[] = [];
 
   init(): void {
-    const galleries = document.querySelectorAll<HTMLElement>('[dev-target="image-gallery"]');
-
-    if (!galleries.length) {
-      console.error('GalleryController: No [dev-target="image-gallery"] elements found.');
-      return;
-    }
-
-    this.observeGalleryImages();
-
-    galleries.forEach((gallery) => {
-      gallery.addEventListener('click', (e) => {
-        if (!(e.target as HTMLElement).closest('img')) return;
-
-        if (!this.cachedImgs.length) {
-          console.error(
-            'GalleryController: No images found in img[dev-target="hidden-main-gallery-images"].'
-          );
-          return;
-        }
-
-        this.open(this.cachedImgs, 0);
-      });
+    GALLERY_CONFIGS.forEach((config) => {
+      this.caches.set(config.trigger, []);
+      this.observeImages(config);
+      this.bindTrigger(config);
     });
 
     document.addEventListener('keydown', (e) => {
@@ -48,28 +52,51 @@ export class GalleryController {
   }
 
   /**
-   * Cache all img[dev-target="hidden-main-gallery-images"] elements.
-   * The dev-target is on each <img> directly (Webflow CMS list pattern).
-   * Observes .hidden-main-gallery-collection so dynamically rendered
-   * CMS items are picked up after the initial page paint.
+   * Seed and maintain the image cache for a single gallery config.
+   * Observes the Webflow CMS wrapper so images added after page paint are captured.
    */
-  private observeGalleryImages(): void {
+  private observeImages(config: GalleryConfig): void {
     const refresh = () => {
-      this.cachedImgs = Array.from(
-        document.querySelectorAll<HTMLImageElement>('img[dev-target="hidden-main-gallery-images"]')
+      this.caches.set(
+        config.trigger,
+        Array.from(
+          document.querySelectorAll<HTMLImageElement>(`img[dev-target="${config.imageAttr}"]`)
+        )
       );
     };
 
     refresh();
 
-    const container = document.querySelector<HTMLElement>('.hidden-main-gallery-collection');
+    const container = document.querySelector<HTMLElement>(config.containerClass);
     if (!container) {
-      console.error('GalleryController: .hidden-main-gallery-collection not found.');
+      console.error(`GalleryController: "${config.containerClass}" not found.`);
       return;
     }
 
-    this.imgObserver = new MutationObserver(refresh);
-    this.imgObserver.observe(container, { childList: true, subtree: true });
+    const observer = new MutationObserver(refresh);
+    observer.observe(container, { childList: true, subtree: true });
+    this.observers.push(observer);
+  }
+
+  /** Attach a click listener to all trigger elements for a config. */
+  private bindTrigger(config: GalleryConfig): void {
+    const triggers = document.querySelectorAll<HTMLElement>(`[dev-target="${config.trigger}"]`);
+
+    if (!triggers.length) return;
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', (e) => {
+        if (!(e.target as HTMLElement).closest('img')) return;
+
+        const imgs = this.caches.get(config.trigger) ?? [];
+        if (!imgs.length) {
+          console.error(`GalleryController: No images cached for "${config.trigger}".`);
+          return;
+        }
+
+        this.open(imgs, 0);
+      });
+    });
   }
 
   private open(imgs: HTMLImageElement[], startIndex: number): void {
@@ -100,7 +127,6 @@ export class GalleryController {
     )!;
 
     imgs.forEach((img) => {
-      // Main slide
       const slide = document.createElement('div');
       slide.className = 'swiper-slide';
       const slideImg = document.createElement('img');
@@ -111,7 +137,6 @@ export class GalleryController {
       slide.appendChild(slideImg);
       mainWrapper.appendChild(slide);
 
-      // Thumb slide
       const thumbSlide = document.createElement('div');
       thumbSlide.className = 'swiper-slide';
       const thumbImg = document.createElement('img');
@@ -129,7 +154,6 @@ export class GalleryController {
       if (e.target === this.overlay) this.close();
     });
 
-    // Init thumbs swiper first so it can be passed to the main swiper
     this.thumbsSwiper = new Swiper('.hb-gallery-thumbs', {
       slidesPerView: 'auto',
       spaceBetween: 8,
@@ -179,8 +203,8 @@ export class GalleryController {
   }
 
   destroy(): void {
-    this.imgObserver?.disconnect();
-    this.imgObserver = null;
+    this.observers.forEach((o) => o.disconnect());
+    this.observers = [];
     this.close();
   }
 }
