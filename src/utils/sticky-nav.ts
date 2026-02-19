@@ -151,8 +151,14 @@ export class StickyNavController {
   }
 
   /**
-   * On mobile (≤767px), scroll the active link to the centre of the tab-left
-   * strip so it is always fully visible without the user needing to swipe.
+   * On mobile (≤767px), scroll the strip so the active link is centred in the
+   * visible area.
+   *
+   * The strip has `position: relative` (set in CSS), which makes it the
+   * offsetParent for its children. This means `link.offsetLeft` is always
+   * measured from the strip's own left edge — no ancestor-chain ambiguity.
+   *
+   * Clamped to [0, maxScroll] so we never show blank space at either end.
    */
   private scrollLinkIntoStrip(link: HTMLElement): void {
     if (window.innerWidth > 767) return;
@@ -160,8 +166,13 @@ export class StickyNavController {
     const strip = link.closest('[dev-target="tab-left"]') as HTMLElement | null;
     if (!strip) return;
 
-    const targetScrollLeft = link.offsetLeft - strip.offsetWidth / 2 + link.offsetWidth / 2;
-    strip.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+    const targetScrollLeft = link.offsetLeft + link.offsetWidth / 2 - strip.offsetWidth / 2;
+
+    const maxScroll = strip.scrollWidth - strip.offsetWidth;
+    strip.scrollTo({
+      left: Math.min(Math.max(0, targetScrollLeft), maxScroll),
+      behavior: 'smooth',
+    });
   }
 
   private getDevTargetBySectionId(sectionId: string): string | null {

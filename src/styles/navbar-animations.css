@@ -1,11 +1,10 @@
 /* Sticky nav — mobile horizontal scroll (≤767px) */
 @media (max-width: 767px) {
   [dev-target="tab-left"] {
+    position: relative; /* anchors offsetLeft of child links to the strip itself */
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
     white-space: nowrap;
-    /* Hide scrollbar track while keeping scroll functionality */
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
