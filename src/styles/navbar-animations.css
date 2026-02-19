@@ -5,7 +5,6 @@
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
     white-space: nowrap;
-    padding-left: 22rem;
     /* Hide scrollbar track while keeping scroll functionality */
     scrollbar-width: none;
     -ms-overflow-style: none;
