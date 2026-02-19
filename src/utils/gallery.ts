@@ -46,6 +46,8 @@ export class GalleryController {
       this.bindTrigger(config);
     });
 
+    this.bindSlideGalleries();
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') this.close();
     });
@@ -96,6 +98,29 @@ export class GalleryController {
 
         this.open(imgs, 0);
       });
+    });
+  }
+
+  /**
+   * Per-slide gallery: clicking [dev-target="slide-image-wrapper"] opens a gallery
+   * populated from that slide's own [dev-target="slide-gallery-collection-image"] images.
+   * Images are queried at click time so no cache or MutationObserver is needed.
+   */
+  private bindSlideGalleries(): void {
+    document.addEventListener('click', (e) => {
+      const wrapper = (e.target as HTMLElement).closest('[dev-target="slide-image-wrapper"]');
+      if (!wrapper) return;
+
+      const slide = wrapper.closest('.swiper-slide');
+      if (!slide) return;
+
+      const imgs = Array.from(
+        slide.querySelectorAll<HTMLImageElement>('img[dev-target="slide-gallery-collection-image"]')
+      );
+
+      if (!imgs.length) return;
+
+      this.open(imgs, 0);
     });
   }
 
