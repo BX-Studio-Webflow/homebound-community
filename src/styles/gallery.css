@@ -109,6 +109,7 @@
 
 .hb-gallery-thumbs .swiper-wrapper {
   align-items: center;
+  justify-content: center;
 }
 
 .hb-gallery-thumbs .swiper-slide {
