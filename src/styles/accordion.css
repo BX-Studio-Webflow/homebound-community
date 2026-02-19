@@ -1,0 +1,9 @@
+/* Amenities accordion */
+
+[dev-target="accordion-description"] {
+  display: none;
+}
+
+[dev-target="accordion-item"].is-active [dev-target="accordion-description"] {
+  display: block;
+}

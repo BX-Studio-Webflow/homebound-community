@@ -1,5 +1,7 @@
+import '$styles/accordion.css';
 import '$styles/gallery.css';
 
+import { AccordionController } from '$utils/accordion';
 import { GalleryController } from '$utils/gallery';
 import { StickyNavController } from '$utils/sticky-nav';
 
@@ -10,4 +12,7 @@ window.Webflow.push(() => {
 
   const galleryController = new GalleryController();
   galleryController.init();
+
+  const accordionController = new AccordionController();
+  accordionController.init();
 });
