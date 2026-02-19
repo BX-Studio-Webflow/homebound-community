@@ -1,0 +1,143 @@
+/* Swiper core + navigation/pagination/thumbs styles */
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'swiper/css/thumbs';
+
+/* ─── Full-screen overlay ─────────────────────────────────── */
+.hb-gallery-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.95);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  cursor: default;
+}
+
+.hb-gallery-overlay.is-open {
+  opacity: 1;
+}
+
+/* ─── Close button ────────────────────────────────────────── */
+.hb-gallery-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.hb-gallery-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ─── Swiper container ────────────────────────────────────── */
+.hb-gallery-swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.hb-gallery-swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.hb-gallery-swiper .swiper-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ─── Navigation arrows ───────────────────────────────────── */
+.hb-gallery-swiper .swiper-button-prev,
+.hb-gallery-swiper .swiper-button-next {
+  color: #fff;
+}
+
+.hb-gallery-swiper .swiper-button-prev::after,
+.hb-gallery-swiper .swiper-button-next::after {
+  display: none;
+}
+
+/* ─── Fraction pagination ─────────────────────────────────── */
+.hb-gallery-swiper .swiper-pagination {
+  bottom: 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
+/* ─── Main wrap (image + thumbs stacked) ──────────────────── */
+.hb-gallery-main-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── Thumb strip ─────────────────────────────────────────── */
+.hb-gallery-thumbs {
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  box-sizing: border-box;
+}
+
+.hb-gallery-thumbs .swiper-wrapper {
+  align-items: center;
+}
+
+.hb-gallery-thumbs .swiper-slide {
+  width: auto;
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity 0.2s ease;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.hb-gallery-thumbs .swiper-slide-thumb-active {
+  opacity: 1;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.hb-gallery-thumbs .swiper-slide img {
+  display: block;
+  height: 64px;
+  width: auto;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+/* Shrink main swiper to share vertical space with thumbs */
+.hb-gallery-main-wrap .hb-gallery-swiper {
+  flex: 1;
+  min-height: 0;
+}
