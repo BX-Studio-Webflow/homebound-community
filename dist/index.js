@@ -5416,7 +5416,7 @@
       let startClient = { x: 0, y: 0 };
       let startVb = { ...this.vb };
       svg.addEventListener("mousedown", (e) => {
-        if (e.button !== 0) return;
+        if (e.button !== 0 && e.button !== 1) return;
         e.preventDefault();
         this.isPanning = true;
         startClient = { x: e.clientX, y: e.clientY };
@@ -5430,11 +5430,12 @@
         this.vb.y = startVb.y - (e.clientY - startClient.y) / rect.height * startVb.h;
         this.applyViewBox();
       });
-      window.addEventListener("mouseup", () => {
-        if (!this.isPanning) return;
+      window.addEventListener("mouseup", (e) => {
+        if (!this.isPanning || e.button !== 0 && e.button !== 1) return;
         this.isPanning = false;
         svg.classList.remove("lot-map__svg--panning");
       });
+      let isTouching = false;
       let lastDist = 0;
       let lastMid = { x: 0, y: 0 };
       const touchDist = (t) => Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
@@ -5446,7 +5447,9 @@
         "touchstart",
         (e) => {
           e.preventDefault();
+          isTouching = true;
           if (e.touches.length === 2) {
+            this.isPanning = false;
             lastDist = touchDist(e.touches);
             lastMid = touchMid(e.touches);
           } else {
@@ -5457,9 +5460,10 @@
         },
         { passive: false }
       );
-      svg.addEventListener(
+      window.addEventListener(
         "touchmove",
         (e) => {
+          if (!isTouching) return;
           e.preventDefault();
           if (e.touches.length === 2) {
             this.isPanning = false;
@@ -5476,14 +5480,18 @@
             lastMid = mid;
           } else if (e.touches.length === 1 && this.isPanning) {
             const rect = svg.getBoundingClientRect();
-            this.vb.x = startVb.x - (e.touches[0].clientX - startClient.x) / rect.width * startVb.w;
-            this.vb.y = startVb.y - (e.touches[0].clientY - startClient.y) / rect.height * startVb.h;
+            const dx = (e.touches[0].clientX - startClient.x) / rect.width * startVb.w;
+            const dy = (e.touches[0].clientY - startClient.y) / rect.height * startVb.h;
+            this.vb.x = startVb.x - dx;
+            this.vb.y = startVb.y - dy;
             this.applyViewBox();
           }
         },
         { passive: false }
       );
-      svg.addEventListener("touchend", () => {
+      window.addEventListener("touchend", () => {
+        if (!isTouching) return;
+        isTouching = false;
         this.isPanning = false;
       });
     }

@@ -195,7 +195,10 @@ export class LotMapController {
     let startVb: ViewBox = { ...this.vb };
 
     svg.addEventListener('mousedown', (e: MouseEvent) => {
-      if (e.button !== 0) return;
+      // Accept left click (0) or middle click (1).
+      // Middle click MUST call preventDefault() here — before the browser
+      // activates its native autoscroll mode, which fires on mousedown.
+      if (e.button !== 0 && e.button !== 1) return;
       e.preventDefault();
       this.isPanning = true;
       startClient = { x: e.clientX, y: e.clientY };
@@ -211,13 +214,22 @@ export class LotMapController {
       this.applyViewBox();
     });
 
-    window.addEventListener('mouseup', () => {
-      if (!this.isPanning) return;
+    window.addEventListener('mouseup', (e: MouseEvent) => {
+      // Clear on any button release that could have started a pan
+      if (!this.isPanning || (e.button !== 0 && e.button !== 1)) return;
       this.isPanning = false;
       svg.classList.remove('lot-map__svg--panning');
     });
 
     // ── Touch pinch-to-zoom + single-finger pan ──────────────────────────
+    //
+    // touchmove / touchend are bound to WINDOW (not svg) so that if a finger
+    // slides outside the SVG boundary the events keep firing and the browser
+    // cannot fall back to page-scroll mid-gesture.
+    // preventDefault() is only called when a touch STARTED on the SVG map
+    // (guarded by isTouching) so other page scroll is never affected.
+
+    let isTouching = false;
     let lastDist = 0;
     let lastMid = { x: 0, y: 0 };
 
@@ -229,11 +241,15 @@ export class LotMapController {
       y: (t[0].clientY + t[1].clientY) / 2,
     });
 
+    // touchstart fires on the SVG — mark interaction as ours
     svg.addEventListener(
       'touchstart',
       (e: TouchEvent) => {
         e.preventDefault();
+        isTouching = true;
+
         if (e.touches.length === 2) {
+          this.isPanning = false;
           lastDist = touchDist(e.touches);
           lastMid = touchMid(e.touches);
         } else {
@@ -245,9 +261,12 @@ export class LotMapController {
       { passive: false }
     );
 
-    svg.addEventListener(
+    // touchmove on WINDOW — preventDefault stops page scroll even when the
+    // finger wanders outside the SVG element
+    window.addEventListener(
       'touchmove',
       (e: TouchEvent) => {
+        if (!isTouching) return;
         e.preventDefault();
 
         if (e.touches.length === 2) {
@@ -255,12 +274,10 @@ export class LotMapController {
           const dist = touchDist(e.touches);
           const mid = touchMid(e.touches);
 
-          // Pinch scale
           const scale = lastDist / dist;
           const origin = this.toSvgPoint(mid.x, mid.y);
           this.zoomAround(scale, origin.x, origin.y);
 
-          // Translate with midpoint movement
           const rect = svg.getBoundingClientRect();
           this.vb.x -= ((mid.x - lastMid.x) / rect.width) * this.vb.w;
           this.vb.y -= ((mid.y - lastMid.y) / rect.height) * this.vb.h;
@@ -270,15 +287,20 @@ export class LotMapController {
           lastMid = mid;
         } else if (e.touches.length === 1 && this.isPanning) {
           const rect = svg.getBoundingClientRect();
-          this.vb.x = startVb.x - ((e.touches[0].clientX - startClient.x) / rect.width) * startVb.w;
-          this.vb.y = startVb.y - ((e.touches[0].clientY - startClient.y) / rect.height) * startVb.h; // prettier-ignore
+          const dx = ((e.touches[0].clientX - startClient.x) / rect.width) * startVb.w;
+          const dy = ((e.touches[0].clientY - startClient.y) / rect.height) * startVb.h;
+          this.vb.x = startVb.x - dx;
+          this.vb.y = startVb.y - dy;
           this.applyViewBox();
         }
       },
       { passive: false }
     );
 
-    svg.addEventListener('touchend', () => {
+    // touchend on WINDOW — clear flags regardless of where finger lifted
+    window.addEventListener('touchend', () => {
+      if (!isTouching) return;
+      isTouching = false;
       this.isPanning = false;
     });
   }
