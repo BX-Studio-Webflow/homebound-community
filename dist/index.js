@@ -5312,6 +5312,16 @@
   var LotMapController = class {
     svgEl = null;
     activeId = null;
+    isPanning = false;
+    // Original SVG dimensions from the viewBox attribute
+    ORIGINAL_W = 1162.54;
+    ORIGINAL_H = 912.76;
+    MIN_ZOOM = 0.4;
+    // most zoomed-out factor (viewBox wider than original)
+    MAX_ZOOM = 8;
+    // most zoomed-in factor
+    vb = { x: 0, y: 0, w: this.ORIGINAL_W, h: this.ORIGINAL_H };
+    // ─── Entry point ─────────────────────────────────────────────────────────
     init() {
       if (!this.injectSvg()) return;
       const cards = document.querySelectorAll('[dev-target="one-lot"][data-lot-id]');
@@ -5322,15 +5332,10 @@
       }
       this.bindSvgHover();
       this.bindCardHover(cards);
+      this.bindZoom();
+      this.injectZoomControls();
     }
     // ─── SVG injection ───────────────────────────────────────────────────────
-    /**
-     * Reads the SVG markup from the hidden text holder, decodes any HTML
-     * entities, injects it into the target wrapper, and stores a reference
-     * to the live <svg> element.
-     *
-     * Returns true on success, false if required elements are missing.
-     */
     injectSvg() {
       const textHolder = document.querySelector('[dev-target="svg-text-holder"]');
       const targetWrapper = document.querySelector('[dev-target="svg-target-wrapper"]');
@@ -5356,9 +5361,158 @@
         console.error("LotMapController: SVG injection failed \u2014 no <svg> found after injection.");
         return false;
       }
+      this.svgEl.style.width = "100%";
+      this.svgEl.style.height = "100%";
+      this.svgEl.style.display = "block";
       return true;
     }
-    // ─── SVG side ────────────────────────────────────────────────────────────
+    // ─── Zoom / pan ──────────────────────────────────────────────────────────
+    applyViewBox() {
+      const { x, y, w, h } = this.vb;
+      this.svgEl?.setAttribute("viewBox", `${x} ${y} ${w} ${h}`);
+    }
+    /** Convert a screen-space client point to SVG-space coordinates. */
+    toSvgPoint(clientX, clientY) {
+      const rect = this.svgEl.getBoundingClientRect();
+      return {
+        x: this.vb.x + (clientX - rect.left) / rect.width * this.vb.w,
+        y: this.vb.y + (clientY - rect.top) / rect.height * this.vb.h
+      };
+    }
+    /** Zoom by a scale factor around a given SVG-space origin point. */
+    zoomAround(scale, originX, originY) {
+      const newW = this.vb.w * scale;
+      const zoom = this.ORIGINAL_W / newW;
+      if (zoom < this.MIN_ZOOM || zoom > this.MAX_ZOOM) return;
+      this.vb.x = originX + (this.vb.x - originX) * scale;
+      this.vb.y = originY + (this.vb.y - originY) * scale;
+      this.vb.w = newW;
+      this.vb.h = this.vb.h * scale;
+      this.applyViewBox();
+    }
+    /** Zoom by a scale factor around the current viewBox centre (used by buttons). */
+    zoomBy(scale) {
+      const cx = this.vb.x + this.vb.w / 2;
+      const cy = this.vb.y + this.vb.h / 2;
+      this.zoomAround(scale, cx, cy);
+    }
+    resetZoom() {
+      this.vb = { x: 0, y: 0, w: this.ORIGINAL_W, h: this.ORIGINAL_H };
+      this.applyViewBox();
+    }
+    bindZoom() {
+      if (!this.svgEl) return;
+      const svg = this.svgEl;
+      svg.addEventListener(
+        "wheel",
+        (e) => {
+          e.preventDefault();
+          const scale = e.deltaY < 0 ? 0.85 : 1 / 0.85;
+          const { x, y } = this.toSvgPoint(e.clientX, e.clientY);
+          this.zoomAround(scale, x, y);
+        },
+        { passive: false }
+      );
+      let startClient = { x: 0, y: 0 };
+      let startVb = { ...this.vb };
+      svg.addEventListener("mousedown", (e) => {
+        if (e.button !== 0) return;
+        e.preventDefault();
+        this.isPanning = true;
+        startClient = { x: e.clientX, y: e.clientY };
+        startVb = { ...this.vb };
+        svg.classList.add("lot-map__svg--panning");
+      });
+      window.addEventListener("mousemove", (e) => {
+        if (!this.isPanning) return;
+        const rect = svg.getBoundingClientRect();
+        this.vb.x = startVb.x - (e.clientX - startClient.x) / rect.width * startVb.w;
+        this.vb.y = startVb.y - (e.clientY - startClient.y) / rect.height * startVb.h;
+        this.applyViewBox();
+      });
+      window.addEventListener("mouseup", () => {
+        if (!this.isPanning) return;
+        this.isPanning = false;
+        svg.classList.remove("lot-map__svg--panning");
+      });
+      let lastDist = 0;
+      let lastMid = { x: 0, y: 0 };
+      const touchDist = (t) => Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
+      const touchMid = (t) => ({
+        x: (t[0].clientX + t[1].clientX) / 2,
+        y: (t[0].clientY + t[1].clientY) / 2
+      });
+      svg.addEventListener(
+        "touchstart",
+        (e) => {
+          e.preventDefault();
+          if (e.touches.length === 2) {
+            lastDist = touchDist(e.touches);
+            lastMid = touchMid(e.touches);
+          } else {
+            this.isPanning = true;
+            startClient = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+            startVb = { ...this.vb };
+          }
+        },
+        { passive: false }
+      );
+      svg.addEventListener(
+        "touchmove",
+        (e) => {
+          e.preventDefault();
+          if (e.touches.length === 2) {
+            this.isPanning = false;
+            const dist = touchDist(e.touches);
+            const mid = touchMid(e.touches);
+            const scale = lastDist / dist;
+            const origin = this.toSvgPoint(mid.x, mid.y);
+            this.zoomAround(scale, origin.x, origin.y);
+            const rect = svg.getBoundingClientRect();
+            this.vb.x -= (mid.x - lastMid.x) / rect.width * this.vb.w;
+            this.vb.y -= (mid.y - lastMid.y) / rect.height * this.vb.h;
+            this.applyViewBox();
+            lastDist = dist;
+            lastMid = mid;
+          } else if (e.touches.length === 1 && this.isPanning) {
+            const rect = svg.getBoundingClientRect();
+            this.vb.x = startVb.x - (e.touches[0].clientX - startClient.x) / rect.width * startVb.w;
+            this.vb.y = startVb.y - (e.touches[0].clientY - startClient.y) / rect.height * startVb.h;
+            this.applyViewBox();
+          }
+        },
+        { passive: false }
+      );
+      svg.addEventListener("touchend", () => {
+        this.isPanning = false;
+      });
+    }
+    /** Injects +/− and reset buttons as a sibling of the <svg> element. */
+    injectZoomControls() {
+      const wrapper = this.svgEl?.parentElement;
+      if (!wrapper) return;
+      if (getComputedStyle(wrapper).position === "static") {
+        wrapper.style.position = "relative";
+      }
+      const controls = document.createElement("div");
+      controls.className = "lot-map__zoom-controls";
+      controls.setAttribute("aria-label", "Map zoom controls");
+      controls.innerHTML = `
+      <button class="lot-map__zoom-btn" data-zoom="in"    title="Zoom in"   aria-label="Zoom in">+</button>
+      <button class="lot-map__zoom-btn" data-zoom="reset" title="Reset zoom" aria-label="Reset zoom">\u2299</button>
+      <button class="lot-map__zoom-btn" data-zoom="out"   title="Zoom out"  aria-label="Zoom out">\u2212</button>
+    `;
+      controls.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-zoom]");
+        if (!btn) return;
+        const { zoom } = btn.dataset;
+        if (zoom === "in") this.zoomBy(0.7);
+        else if (zoom === "out") this.zoomBy(1 / 0.7);
+        else if (zoom === "reset") this.resetZoom();
+      });
+      wrapper.appendChild(controls);
+    }
+    // ─── SVG lot hover ───────────────────────────────────────────────────────
     bindSvgHover() {
       if (!this.svgEl) return;
       const allGroups = Array.from(this.svgEl.querySelectorAll("g[id]"));
@@ -5375,7 +5529,7 @@
         labelGroup.addEventListener("mouseleave", () => this.clearHighlight());
       });
     }
-    // ─── Right panel side ────────────────────────────────────────────────────
+    // ─── Right-panel card hover ──────────────────────────────────────────────
     bindCardHover(cards) {
       cards.forEach((card) => {
         const { lotId } = card.dataset;
@@ -5386,6 +5540,7 @@
     }
     // ─── Highlight / clear ───────────────────────────────────────────────────
     highlight(lotId) {
+      if (this.isPanning) return;
       if (this.activeId === lotId) return;
       this.clearHighlight();
       this.activeId = lotId;

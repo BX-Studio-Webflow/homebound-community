@@ -651,6 +651,15 @@
 }
 
 /* src/styles/lot-map.css */
+[dev-target=svg-target-wrapper] svg {
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+[dev-target=svg-target-wrapper] svg.lot-map__svg--panning,
+[dev-target=svg-target-wrapper] svg.lot-map__svg--panning * {
+  cursor: grabbing !important;
+}
 .lot-map__shape--active polygon,
 .lot-map__shape--active path,
 .lot-map__shape--active rect,
@@ -671,5 +680,45 @@
   background-color: #f0f5ec;
   box-shadow: inset 3px 0 0 0 #657839;
   transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+.lot-map__zoom-controls {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 10;
+}
+.lot-map__zoom-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: #fff;
+  border: 1px solid #dfdfe2;
+  border-radius: 6px;
+  color: #3a3a3a;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  transition:
+    background 0.1s ease,
+    border-color 0.1s ease,
+    color 0.1s ease;
+}
+.lot-map__zoom-btn:hover {
+  background: #657839;
+  border-color: #657839;
+  color: #fff;
+}
+.lot-map__zoom-btn:active {
+  transform: scale(0.93);
+}
+.lot-map__zoom-btn[data-zoom=reset] {
+  font-size: 14px;
 }
 /*# sourceMappingURL=index.css.map */

@@ -1,13 +1,22 @@
 /* ─────────────────────────────────────────────────────────────────────────
-   Lot Map — hover & active states
+   Lot Map — zoom controls, cursor states, hover/active states
    ─────────────────────────────────────────────────────────────────────────
-
    Classes are applied by LotMapController (src/utils/lot-map.ts).
-
-   .lot-map__shape--active  → the lot polygon/path <g> inside the SVG
-   .lot-map__label--active  → the pill badge <g> inside the SVG
-   .lot-map__card--active   → the CMS lot card in the right panel
    ───────────────────────────────────────────────────────────────────────── */
+
+/* ── SVG cursor states ───────────────────────────────────────────────── */
+
+[dev-target='svg-target-wrapper'] svg {
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* While dragging: override every child's cursor (including lot pointer) */
+[dev-target='svg-target-wrapper'] svg.lot-map__svg--panning,
+[dev-target='svg-target-wrapper'] svg.lot-map__svg--panning * {
+  cursor: grabbing !important;
+}
 
 /* ── SVG lot shape highlight ─────────────────────────────────────────── */
 
@@ -26,12 +35,10 @@
 /* ── SVG lot label badge highlight ───────────────────────────────────── */
 
 .lot-map__label--active {
-  /* Scale the whole pill group up slightly around its own centre */
   transform-box: fill-box;
   transform-origin: center;
   transform: scale(1.2);
   transition: transform 0.15s ease;
-  /* Drop shadow glow */
   filter: drop-shadow(0 0 5px rgba(101, 120, 57, 0.7));
 }
 
@@ -43,4 +50,52 @@
   transition:
     background-color 0.15s ease,
     box-shadow 0.15s ease;
+}
+
+/* ── Zoom controls ───────────────────────────────────────────────────── */
+
+.lot-map__zoom-controls {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 10;
+}
+
+.lot-map__zoom-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: #fff;
+  border: 1px solid #dfdfe2;
+  border-radius: 6px;
+  color: #3a3a3a;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  transition:
+    background 0.1s ease,
+    border-color 0.1s ease,
+    color 0.1s ease;
+}
+
+.lot-map__zoom-btn:hover {
+  background: #657839;
+  border-color: #657839;
+  color: #fff;
+}
+
+.lot-map__zoom-btn:active {
+  transform: scale(0.93);
+}
+
+/* Reset button uses a slightly smaller icon */
+.lot-map__zoom-btn[data-zoom='reset'] {
+  font-size: 14px;
 }
