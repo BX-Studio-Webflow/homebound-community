@@ -1,0 +1,46 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   Lot Map — hover & active states
+   ─────────────────────────────────────────────────────────────────────────
+
+   Classes are applied by LotMapController (src/utils/lot-map.ts).
+
+   .lot-map__shape--active  → the lot polygon/path <g> inside the SVG
+   .lot-map__label--active  → the pill badge <g> inside the SVG
+   .lot-map__card--active   → the CMS lot card in the right panel
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* ── SVG lot shape highlight ─────────────────────────────────────────── */
+
+.lot-map__shape--active polygon,
+.lot-map__shape--active path,
+.lot-map__shape--active rect,
+.lot-map__shape--active polyline {
+  fill: rgba(101, 120, 57, 0.18);
+  stroke: #657839;
+  stroke-width: 2.5;
+  transition:
+    fill 0.15s ease,
+    stroke 0.15s ease;
+}
+
+/* ── SVG lot label badge highlight ───────────────────────────────────── */
+
+.lot-map__label--active {
+  /* Scale the whole pill group up slightly around its own centre */
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(1.2);
+  transition: transform 0.15s ease;
+  /* Drop shadow glow */
+  filter: drop-shadow(0 0 5px rgba(101, 120, 57, 0.7));
+}
+
+/* ── Right-panel CMS card highlight ─────────────────────────────────── */
+
+.lot-map__card--active {
+  background-color: #f0f5ec;
+  box-shadow: inset 3px 0 0 0 #657839;
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
