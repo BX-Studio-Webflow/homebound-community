@@ -1,51 +1,36 @@
 /**
- * Lot Map controller.
+ * Interactive lot map controller for Webflow CMS pages.
  *
- * Handles three responsibilities:
- *   1. SVG INJECTION — reads the SVG markup stored as escaped text inside
- *      [dev-target="svg-text-holder"], decodes it, and writes the live SVG
- *      into [dev-target="svg-target-wrapper"].
+ * Responsibilities:
+ * - Parses SVG markup from a hidden holder element and injects it into the DOM.
+ * - Enables mouse-wheel zoom, click/middle-click drag pan, and touch pinch-to-zoom.
+ * - Injects +/− zoom control buttons at runtime.
+ * - Wires bidirectional hover between SVG lot groups and right-panel CMS cards.
  *
- *   2. ZOOM / PAN — mouse wheel zooms around cursor, click-drag pans,
- *      pinch-to-zoom on touch. +/− reset buttons are injected automatically.
+ * @example
+ * ```ts
+ * const lotMap = new LotMapController();
+ * lotMap.init();
+ * ```
  *
- *   3. BIDIRECTIONAL HOVER — wires mouseenter/mouseleave between SVG lot
- *      groups and the right-panel CMS lot cards.
+ * **Required Webflow attributes**
  *
- * ─────────────────────────────────────────────────────────────────────────
- * WEBFLOW SETUP
- * ─────────────────────────────────────────────────────────────────────────
+ * | Element | Attribute | Value |
+ * |---|---|---|
+ * | Hidden HTML Embed with raw SVG text | `dev-target` | `svg-text-holder` |
+ * | Empty wrapper where SVG is rendered | `dev-target` | `svg-target-wrapper` |
+ * | Each CMS lot card | `dev-target` | `one-lot` |
+ * | Each CMS lot card | `lot-number` | e.g. `B1` — must match SVG `<g id="B1">` |
  *
- * 1. SVG text source (hidden)
- *    Attribute: dev-target="svg-text-holder"
- *    Class:     hide  (visibility:hidden or display:none)
- *    Content:   paste the raw SVG markup inside an HTML Embed component.
- *
- * 2. SVG render target (empty wrapper)
- *    Attribute: dev-target="svg-target-wrapper"
- *    The controller injects the live <svg> element here at runtime.
- *
- * 3. Right-panel lot cards (CMS Collection List items)
- *    Attribute: dev-target="one-lot"
- *    Attribute: data-lot-id="B1"  ← must match the SVG <g id="B1">
- *
- * ─────────────────────────────────────────────────────────────────────────
- * ZOOM CONTROLS
- * ─────────────────────────────────────────────────────────────────────────
- *
- * Injected automatically as a sibling of the <svg>. Style via lot-map.css:
- *   .lot-map__zoom-controls   wrapper
- *   .lot-map__zoom-btn        each button  (data-zoom="in|out|reset")
- *
- * ─────────────────────────────────────────────────────────────────────────
- * HOVER CLASSES  (styled in lot-map.css)
- * ─────────────────────────────────────────────────────────────────────────
- *
- *   .lot-map__shape--active   → lot shape <g>
- *   .lot-map__label--active   → lot label <g>
- *   .lot-map__card--active    → CMS lot card element
+ * **CSS classes applied (style in lot-map.css)**
+ * - `.lot-map__shape--active` — active lot shape `<g>`
+ * - `.lot-map__label--active` — active lot label `<g>`
+ * - `.lot-map__card--active`  — active CMS lot card
+ * - `.lot-map__zoom-controls` — injected zoom button wrapper
+ * - `.lot-map__zoom-btn`      — each zoom button (`data-zoom="in|out|reset"`)
  */
 
+/** SVG viewBox state. */
 interface ViewBox {
   x: number;
   y: number;
@@ -58,25 +43,30 @@ export class LotMapController {
   private activeId: string | null = null;
   private isPanning = false;
 
-  // Original SVG dimensions from the viewBox attribute
+  /** Native width of the SVG viewBox. */
   private readonly ORIGINAL_W = 1162.54;
+  /** Native height of the SVG viewBox. */
   private readonly ORIGINAL_H = 912.76;
-  private readonly MIN_ZOOM = 0.4; // most zoomed-out factor (viewBox wider than original)
-  private readonly MAX_ZOOM = 8; // most zoomed-in factor
+  /** Minimum zoom factor — prevents zooming out past the full map. */
+  private readonly MIN_ZOOM = 0.4;
+  /** Maximum zoom factor. */
+  private readonly MAX_ZOOM = 8;
 
   private vb: ViewBox = { x: 0, y: 0, w: this.ORIGINAL_W, h: this.ORIGINAL_H };
 
-  // ─── Entry point ─────────────────────────────────────────────────────────
-
+  /**
+   * Initialises the controller: injects the SVG, wires hover and zoom.
+   * Must be called after the DOM is ready (e.g. inside `window.Webflow.push`).
+   */
   init(): void {
     if (!this.injectSvg()) return;
 
-    const cards = document.querySelectorAll<HTMLElement>('[dev-target="one-lot"][data-lot-id]');
+    const cards = document.querySelectorAll<HTMLElement>('[dev-target="one-lot"][lot-number]');
 
     if (!cards.length) {
       console.error(
-        'LotMapController: No [dev-target="one-lot"][data-lot-id] found — ' +
-          'add data-lot-id to each CMS lot card to enable bidirectional hover.'
+        'LotMapController: No [dev-target="one-lot"][lot-number] found — ' +
+          'add lot-number to each CMS lot card to enable bidirectional hover.'
       );
     }
 
@@ -86,8 +76,13 @@ export class LotMapController {
     this.injectZoomControls();
   }
 
-  // ─── SVG injection ───────────────────────────────────────────────────────
-
+  /**
+   * Reads SVG markup from `[dev-target="svg-text-holder"]`, sanitises it,
+   * and injects it into `[dev-target="svg-target-wrapper"]`.
+   *
+   * @returns `true` on success, `false` if a required element is missing or
+   *   the holder does not contain valid SVG markup.
+   */
   private injectSvg(): boolean {
     const textHolder = document.querySelector<HTMLElement>('[dev-target="svg-text-holder"]');
     const targetWrapper = document.querySelector<HTMLElement>('[dev-target="svg-target-wrapper"]');
@@ -102,7 +97,6 @@ export class LotMapController {
       return false;
     }
 
-    // textContent decodes HTML entities (&lt; → <) giving us raw SVG markup.
     const rawMarkup = textHolder.textContent?.trim() ?? '';
 
     if (!rawMarkup.includes('<svg')) {
@@ -112,11 +106,11 @@ export class LotMapController {
       return false;
     }
 
-    // Fix malformed attribute values like width=0"1162.54" → width="1162.54"
+    // Webflow's HTML Embed editor sometimes inserts a stray digit before the
+    // opening quote of an attribute value (e.g. width=0"1162.54"). Strip them.
     const svgMarkup = rawMarkup.replace(/=\d+"/g, '="');
 
     targetWrapper.innerHTML = svgMarkup;
-
     this.svgEl = targetWrapper.querySelector<SVGSVGElement>('svg');
 
     if (!this.svgEl) {
@@ -124,7 +118,6 @@ export class LotMapController {
       return false;
     }
 
-    // Make SVG fill its container and allow overflow to be clipped
     this.svgEl.style.width = '100%';
     this.svgEl.style.height = '100%';
     this.svgEl.style.display = 'block';
@@ -132,14 +125,22 @@ export class LotMapController {
     return true;
   }
 
-  // ─── Zoom / pan ──────────────────────────────────────────────────────────
-
+  /**
+   * Writes the current {@link ViewBox} state back to the SVG `viewBox` attribute.
+   */
   private applyViewBox(): void {
     const { x, y, w, h } = this.vb;
     this.svgEl?.setAttribute('viewBox', `${x} ${y} ${w} ${h}`);
   }
 
-  /** Convert a screen-space client point to SVG-space coordinates. */
+  /**
+   * Converts a screen-space client coordinate to SVG-space coordinates,
+   * accounting for the current viewBox pan and zoom.
+   *
+   * @param clientX - Horizontal client coordinate (e.g. from a mouse event).
+   * @param clientY - Vertical client coordinate.
+   * @returns The equivalent point in SVG user units.
+   */
   private toSvgPoint(clientX: number, clientY: number): { x: number; y: number } {
     const rect = this.svgEl!.getBoundingClientRect();
     return {
@@ -148,7 +149,14 @@ export class LotMapController {
     };
   }
 
-  /** Zoom by a scale factor around a given SVG-space origin point. */
+  /**
+   * Scales the viewBox by `scale` around a fixed SVG-space origin point,
+   * clamped to {@link MIN_ZOOM} / {@link MAX_ZOOM}.
+   *
+   * @param scale   - Multiplier applied to the viewBox dimensions (< 1 zooms in).
+   * @param originX - SVG-space X coordinate to zoom around.
+   * @param originY - SVG-space Y coordinate to zoom around.
+   */
   private zoomAround(scale: number, originX: number, originY: number): void {
     const newW = this.vb.w * scale;
     const zoom = this.ORIGINAL_W / newW;
@@ -161,24 +169,40 @@ export class LotMapController {
     this.applyViewBox();
   }
 
-  /** Zoom by a scale factor around the current viewBox centre (used by buttons). */
+  /**
+   * Zooms by `scale` around the centre of the current viewBox.
+   * Used by the +/− buttons.
+   *
+   * @param scale - Multiplier applied to the viewBox dimensions (< 1 zooms in).
+   */
   private zoomBy(scale: number): void {
     const cx = this.vb.x + this.vb.w / 2;
     const cy = this.vb.y + this.vb.h / 2;
     this.zoomAround(scale, cx, cy);
   }
 
+  /**
+   * Resets the viewBox to the original full-map dimensions.
+   */
   private resetZoom(): void {
     this.vb = { x: 0, y: 0, w: this.ORIGINAL_W, h: this.ORIGINAL_H };
     this.applyViewBox();
   }
 
+  /**
+   * Attaches mouse-wheel zoom, left/middle-click drag pan, and touch
+   * pinch-to-zoom / single-finger pan event listeners to the SVG.
+   *
+   * Mouse and touch move/end listeners are bound to `window` so gestures
+   * continue working when the pointer leaves the SVG boundary.
+   * `preventDefault()` is only called when an interaction originated on
+   * the SVG, leaving all other page scroll unaffected.
+   */
   private bindZoom(): void {
     if (!this.svgEl) return;
 
     const svg = this.svgEl;
 
-    // ── Mouse wheel zoom ─────────────────────────────────────────────────
     svg.addEventListener(
       'wheel',
       (e: WheelEvent) => {
@@ -190,14 +214,13 @@ export class LotMapController {
       { passive: false }
     );
 
-    // ── Mouse pan ────────────────────────────────────────────────────────
     let startClient = { x: 0, y: 0 };
     let startVb: ViewBox = { ...this.vb };
 
     svg.addEventListener('mousedown', (e: MouseEvent) => {
-      // Accept left click (0) or middle click (1).
-      // Middle click MUST call preventDefault() here — before the browser
-      // activates its native autoscroll mode, which fires on mousedown.
+      // Left click (0) and middle click (1) both pan.
+      // preventDefault on mousedown suppresses the browser's native
+      // autoscroll cursor that fires immediately on middle-click.
       if (e.button !== 0 && e.button !== 1) return;
       e.preventDefault();
       this.isPanning = true;
@@ -215,19 +238,10 @@ export class LotMapController {
     });
 
     window.addEventListener('mouseup', (e: MouseEvent) => {
-      // Clear on any button release that could have started a pan
       if (!this.isPanning || (e.button !== 0 && e.button !== 1)) return;
       this.isPanning = false;
       svg.classList.remove('lot-map__svg--panning');
     });
-
-    // ── Touch pinch-to-zoom + single-finger pan ──────────────────────────
-    //
-    // touchmove / touchend are bound to WINDOW (not svg) so that if a finger
-    // slides outside the SVG boundary the events keep firing and the browser
-    // cannot fall back to page-scroll mid-gesture.
-    // preventDefault() is only called when a touch STARTED on the SVG map
-    // (guarded by isTouching) so other page scroll is never affected.
 
     let isTouching = false;
     let lastDist = 0;
@@ -241,7 +255,6 @@ export class LotMapController {
       y: (t[0].clientY + t[1].clientY) / 2,
     });
 
-    // touchstart fires on the SVG — mark interaction as ours
     svg.addEventListener(
       'touchstart',
       (e: TouchEvent) => {
@@ -261,8 +274,6 @@ export class LotMapController {
       { passive: false }
     );
 
-    // touchmove on WINDOW — preventDefault stops page scroll even when the
-    // finger wanders outside the SVG element
     window.addEventListener(
       'touchmove',
       (e: TouchEvent) => {
@@ -297,7 +308,6 @@ export class LotMapController {
       { passive: false }
     );
 
-    // touchend on WINDOW — clear flags regardless of where finger lifted
     window.addEventListener('touchend', () => {
       if (!isTouching) return;
       isTouching = false;
@@ -305,12 +315,14 @@ export class LotMapController {
     });
   }
 
-  /** Injects +/− and reset buttons as a sibling of the <svg> element. */
+  /**
+   * Creates and appends +/− and reset zoom buttons as a sibling of the `<svg>`.
+   * Forces the parent wrapper to `position: relative` if it is `static`.
+   */
   private injectZoomControls(): void {
     const wrapper = this.svgEl?.parentElement;
     if (!wrapper) return;
 
-    // Ensure the wrapper can contain absolutely-positioned controls
     if (getComputedStyle(wrapper).position === 'static') {
       wrapper.style.position = 'relative';
     }
@@ -336,8 +348,11 @@ export class LotMapController {
     wrapper.appendChild(controls);
   }
 
-  // ─── SVG lot hover ───────────────────────────────────────────────────────
-
+  /**
+   * Auto-discovers all lot shape/label `<g>` pairs in the SVG and attaches
+   * `mouseenter`/`mouseleave` listeners. A group is treated as a lot shape
+   * when a sibling group named `${id}Label` exists.
+   */
   private bindSvgHover(): void {
     if (!this.svgEl) return;
 
@@ -361,22 +376,29 @@ export class LotMapController {
     });
   }
 
-  // ─── Right-panel card hover ──────────────────────────────────────────────
-
+  /**
+   * Attaches `mouseenter`/`mouseleave` listeners to the CMS lot cards.
+   *
+   * @param cards - All `[dev-target="one-lot"][lot-number]` elements on the page.
+   */
   private bindCardHover(cards: NodeListOf<HTMLElement>): void {
     cards.forEach((card) => {
-      const { lotId } = card.dataset;
-      if (!lotId) return;
+      const lotNumber = card.getAttribute('lot-number');
+      if (!lotNumber) return;
 
-      card.addEventListener('mouseenter', () => this.highlight(lotId));
+      card.addEventListener('mouseenter', () => this.highlight(lotNumber));
       card.addEventListener('mouseleave', () => this.clearHighlight());
     });
   }
 
-  // ─── Highlight / clear ───────────────────────────────────────────────────
-
+  /**
+   * Activates the SVG shape, label, and CMS card for the given lot ID.
+   * Scrolls the card into view if it is outside the visible area.
+   * No-ops if the lot is already active or if a pan is in progress.
+   *
+   * @param lotId - Lot identifier matching both the SVG `<g id>` and `lot-number` attribute.
+   */
   private highlight(lotId: string): void {
-    // Suppress highlights while the user is dragging/panning
     if (this.isPanning) return;
     if (this.activeId === lotId) return;
 
@@ -394,7 +416,7 @@ export class LotMapController {
     }
 
     const card = document.querySelector<HTMLElement>(
-      `[dev-target="one-lot"][data-lot-id="${lotId}"]`
+      `[dev-target="one-lot"][lot-number="${lotId}"]`
     );
 
     if (card) {
@@ -403,6 +425,9 @@ export class LotMapController {
     }
   }
 
+  /**
+   * Removes all active highlight classes and resets {@link activeId}.
+   */
   private clearHighlight(): void {
     this.activeId = null;
 

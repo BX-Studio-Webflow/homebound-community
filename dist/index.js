@@ -5313,21 +5313,25 @@
     svgEl = null;
     activeId = null;
     isPanning = false;
-    // Original SVG dimensions from the viewBox attribute
+    /** Native width of the SVG viewBox. */
     ORIGINAL_W = 1162.54;
+    /** Native height of the SVG viewBox. */
     ORIGINAL_H = 912.76;
+    /** Minimum zoom factor — prevents zooming out past the full map. */
     MIN_ZOOM = 0.4;
-    // most zoomed-out factor (viewBox wider than original)
+    /** Maximum zoom factor. */
     MAX_ZOOM = 8;
-    // most zoomed-in factor
     vb = { x: 0, y: 0, w: this.ORIGINAL_W, h: this.ORIGINAL_H };
-    // ─── Entry point ─────────────────────────────────────────────────────────
+    /**
+     * Initialises the controller: injects the SVG, wires hover and zoom.
+     * Must be called after the DOM is ready (e.g. inside `window.Webflow.push`).
+     */
     init() {
       if (!this.injectSvg()) return;
-      const cards = document.querySelectorAll('[dev-target="one-lot"][data-lot-id]');
+      const cards = document.querySelectorAll('[dev-target="one-lot"][lot-number]');
       if (!cards.length) {
         console.error(
-          'LotMapController: No [dev-target="one-lot"][data-lot-id] found \u2014 add data-lot-id to each CMS lot card to enable bidirectional hover.'
+          'LotMapController: No [dev-target="one-lot"][lot-number] found \u2014 add lot-number to each CMS lot card to enable bidirectional hover.'
         );
       }
       this.bindSvgHover();
@@ -5335,7 +5339,13 @@
       this.bindZoom();
       this.injectZoomControls();
     }
-    // ─── SVG injection ───────────────────────────────────────────────────────
+    /**
+     * Reads SVG markup from `[dev-target="svg-text-holder"]`, sanitises it,
+     * and injects it into `[dev-target="svg-target-wrapper"]`.
+     *
+     * @returns `true` on success, `false` if a required element is missing or
+     *   the holder does not contain valid SVG markup.
+     */
     injectSvg() {
       const textHolder = document.querySelector('[dev-target="svg-text-holder"]');
       const targetWrapper = document.querySelector('[dev-target="svg-target-wrapper"]');
@@ -5366,12 +5376,21 @@
       this.svgEl.style.display = "block";
       return true;
     }
-    // ─── Zoom / pan ──────────────────────────────────────────────────────────
+    /**
+     * Writes the current {@link ViewBox} state back to the SVG `viewBox` attribute.
+     */
     applyViewBox() {
       const { x, y, w, h } = this.vb;
       this.svgEl?.setAttribute("viewBox", `${x} ${y} ${w} ${h}`);
     }
-    /** Convert a screen-space client point to SVG-space coordinates. */
+    /**
+     * Converts a screen-space client coordinate to SVG-space coordinates,
+     * accounting for the current viewBox pan and zoom.
+     *
+     * @param clientX - Horizontal client coordinate (e.g. from a mouse event).
+     * @param clientY - Vertical client coordinate.
+     * @returns The equivalent point in SVG user units.
+     */
     toSvgPoint(clientX, clientY) {
       const rect = this.svgEl.getBoundingClientRect();
       return {
@@ -5379,7 +5398,14 @@
         y: this.vb.y + (clientY - rect.top) / rect.height * this.vb.h
       };
     }
-    /** Zoom by a scale factor around a given SVG-space origin point. */
+    /**
+     * Scales the viewBox by `scale` around a fixed SVG-space origin point,
+     * clamped to {@link MIN_ZOOM} / {@link MAX_ZOOM}.
+     *
+     * @param scale   - Multiplier applied to the viewBox dimensions (< 1 zooms in).
+     * @param originX - SVG-space X coordinate to zoom around.
+     * @param originY - SVG-space Y coordinate to zoom around.
+     */
     zoomAround(scale, originX, originY) {
       const newW = this.vb.w * scale;
       const zoom = this.ORIGINAL_W / newW;
@@ -5390,16 +5416,33 @@
       this.vb.h = this.vb.h * scale;
       this.applyViewBox();
     }
-    /** Zoom by a scale factor around the current viewBox centre (used by buttons). */
+    /**
+     * Zooms by `scale` around the centre of the current viewBox.
+     * Used by the +/− buttons.
+     *
+     * @param scale - Multiplier applied to the viewBox dimensions (< 1 zooms in).
+     */
     zoomBy(scale) {
       const cx = this.vb.x + this.vb.w / 2;
       const cy = this.vb.y + this.vb.h / 2;
       this.zoomAround(scale, cx, cy);
     }
+    /**
+     * Resets the viewBox to the original full-map dimensions.
+     */
     resetZoom() {
       this.vb = { x: 0, y: 0, w: this.ORIGINAL_W, h: this.ORIGINAL_H };
       this.applyViewBox();
     }
+    /**
+     * Attaches mouse-wheel zoom, left/middle-click drag pan, and touch
+     * pinch-to-zoom / single-finger pan event listeners to the SVG.
+     *
+     * Mouse and touch move/end listeners are bound to `window` so gestures
+     * continue working when the pointer leaves the SVG boundary.
+     * `preventDefault()` is only called when an interaction originated on
+     * the SVG, leaving all other page scroll unaffected.
+     */
     bindZoom() {
       if (!this.svgEl) return;
       const svg = this.svgEl;
@@ -5495,7 +5538,10 @@
         this.isPanning = false;
       });
     }
-    /** Injects +/− and reset buttons as a sibling of the <svg> element. */
+    /**
+     * Creates and appends +/− and reset zoom buttons as a sibling of the `<svg>`.
+     * Forces the parent wrapper to `position: relative` if it is `static`.
+     */
     injectZoomControls() {
       const wrapper = this.svgEl?.parentElement;
       if (!wrapper) return;
@@ -5520,7 +5566,11 @@
       });
       wrapper.appendChild(controls);
     }
-    // ─── SVG lot hover ───────────────────────────────────────────────────────
+    /**
+     * Auto-discovers all lot shape/label `<g>` pairs in the SVG and attaches
+     * `mouseenter`/`mouseleave` listeners. A group is treated as a lot shape
+     * when a sibling group named `${id}Label` exists.
+     */
     bindSvgHover() {
       if (!this.svgEl) return;
       const allGroups = Array.from(this.svgEl.querySelectorAll("g[id]"));
@@ -5537,16 +5587,26 @@
         labelGroup.addEventListener("mouseleave", () => this.clearHighlight());
       });
     }
-    // ─── Right-panel card hover ──────────────────────────────────────────────
+    /**
+     * Attaches `mouseenter`/`mouseleave` listeners to the CMS lot cards.
+     *
+     * @param cards - All `[dev-target="one-lot"][lot-number]` elements on the page.
+     */
     bindCardHover(cards) {
       cards.forEach((card) => {
-        const { lotId } = card.dataset;
-        if (!lotId) return;
-        card.addEventListener("mouseenter", () => this.highlight(lotId));
+        const lotNumber = card.getAttribute("lot-number");
+        if (!lotNumber) return;
+        card.addEventListener("mouseenter", () => this.highlight(lotNumber));
         card.addEventListener("mouseleave", () => this.clearHighlight());
       });
     }
-    // ─── Highlight / clear ───────────────────────────────────────────────────
+    /**
+     * Activates the SVG shape, label, and CMS card for the given lot ID.
+     * Scrolls the card into view if it is outside the visible area.
+     * No-ops if the lot is already active or if a pan is in progress.
+     *
+     * @param lotId - Lot identifier matching both the SVG `<g id>` and `lot-number` attribute.
+     */
     highlight(lotId) {
       if (this.isPanning) return;
       if (this.activeId === lotId) return;
@@ -5557,13 +5617,16 @@
         this.svgEl.querySelector(`#${CSS.escape(lotId)}Label`)?.classList.add("lot-map__label--active");
       }
       const card = document.querySelector(
-        `[dev-target="one-lot"][data-lot-id="${lotId}"]`
+        `[dev-target="one-lot"][lot-number="${lotId}"]`
       );
       if (card) {
         card.classList.add("lot-map__card--active");
         card.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
     }
+    /**
+     * Removes all active highlight classes and resets {@link activeId}.
+     */
     clearHighlight() {
       this.activeId = null;
       this.svgEl?.querySelector(".lot-map__shape--active")?.classList.remove("lot-map__shape--active");
