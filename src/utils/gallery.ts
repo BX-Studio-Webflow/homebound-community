@@ -47,6 +47,7 @@ export class GalleryController {
     });
 
     this.bindSlideGalleries();
+    this.bindMobileGallery();
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') this.close();
@@ -121,6 +122,37 @@ export class GalleryController {
       if (!imgs.length) return;
 
       this.open(imgs, 0);
+    });
+  }
+
+  /**
+   * Mobile gallery: clicking `[dev-target="mobile-slide-image-wrapper"]` opens a lightbox
+   * with all `[dev-target="mobile-slide-image"]` images from the parent
+   * `[dev-target="mobile-swiper"]`, starting at the clicked slide's index.
+   */
+  private bindMobileGallery(): void {
+    document.addEventListener('click', (e) => {
+      const wrapper = (e.target as HTMLElement).closest(
+        '[dev-target="mobile-slide-image-wrapper"]'
+      );
+      if (!wrapper) return;
+
+      const swiper = wrapper.closest('[dev-target="mobile-swiper"]');
+      if (!swiper) return;
+
+      const allSlides = Array.from(
+        swiper.querySelectorAll<HTMLElement>('[dev-target="mobile-slide"]')
+      );
+      const clickedSlide = wrapper.closest('[dev-target="mobile-slide"]');
+      const startIndex = clickedSlide ? allSlides.indexOf(clickedSlide as HTMLElement) : 0;
+
+      const imgs = allSlides
+        .map((slide) => slide.querySelector<HTMLImageElement>('[dev-target="mobile-slide-image"]'))
+        .filter((img): img is HTMLImageElement => img !== null);
+
+      if (!imgs.length) return;
+
+      this.open(imgs, Math.max(0, startIndex));
     });
   }
 
