@@ -74,6 +74,42 @@ export class LotMapController {
     this.bindCardHover(cards);
     this.bindZoom();
     this.injectZoomControls();
+    this.bindFilter();
+  }
+
+  private bindFilter(): void {
+    const map: Record<string, string> = {
+      available: 'For Sale',
+      reserved: 'Not Available for Sale',
+      sold: 'Under Contract',
+      'model-home': 'Not Available',
+    };
+
+    let activeKey: string | null = null;
+
+    const applyFilter = () => {
+      document.querySelectorAll<HTMLElement>('[dev-target="one-lot"]').forEach((lot) => {
+        const matches = activeKey === null || lot.getAttribute('availability') === map[activeKey];
+        lot.classList.toggle('hide', !matches);
+      });
+    };
+
+    Object.keys(map).forEach((key) => {
+      const pill = document.querySelector<HTMLElement>(`[dev-target="${key}"]`);
+      if (!pill) return;
+
+      pill.addEventListener('click', () => {
+        document
+          .querySelector<HTMLElement>(`[dev-target="${activeKey}"]`)
+          ?.classList.remove('is-active');
+
+        activeKey = activeKey === key ? null : key;
+
+        if (activeKey) pill.classList.add('is-active');
+
+        applyFilter();
+      });
+    });
   }
 
   /**
