@@ -38,6 +38,13 @@ interface ViewBox {
   h: number;
 }
 
+const AVAILABILITY_COLORS: Record<string, string> = {
+  'For Sale': '#657839',
+  'Not Available for Sale': '#d17520',
+  'Under Contract': '#8b514e',
+  'Not Available': '#657839',
+};
+
 export class LotMapController {
   private svgEl: SVGSVGElement | null = null;
   private activeId: string | null = null;
@@ -70,6 +77,7 @@ export class LotMapController {
       );
     }
 
+    this.applyLabelColors();
     this.bindSvgHover();
     this.bindCardHover(cards);
     this.bindZoom();
@@ -96,7 +104,10 @@ export class LotMapController {
 
     Object.keys(map).forEach((key) => {
       const pill = document.querySelector<HTMLElement>(`[dev-target="${key}"]`);
-      if (!pill) return;
+      if (!pill) {
+        console.error(`LotMapController: no filter pill found for dev-target="${key}".`);
+        return;
+      }
 
       pill.addEventListener('click', () => {
         document
@@ -109,6 +120,33 @@ export class LotMapController {
 
         applyFilter();
       });
+    });
+  }
+
+  /**
+   * Sets each SVG label group's rect fill color based on the lot's availability
+   * from the CMS cards. Uses {@link AVAILABILITY_COLORS}; unknown values default to #657839.
+   */
+  private applyLabelColors(): void {
+    if (!this.svgEl) {
+      console.error('LotMapController: applyLabelColors called but svgEl is null.');
+      return;
+    }
+
+    const lotToAvailability = new Map<string, string>();
+    document.querySelectorAll<HTMLElement>('[dev-target="one-lot"][lot-number]').forEach((card) => {
+      const lotNumber = card.getAttribute('lot-number');
+      const availability = card.getAttribute('availability');
+      if (lotNumber && availability) lotToAvailability.set(lotNumber, availability);
+    });
+
+    this.svgEl.querySelectorAll<SVGGElement>('g[id$="Label"]').forEach((labelGroup) => {
+      const { id } = labelGroup;
+      const lotNumber = id.replace(/Label$/, '');
+      const availability = lotToAvailability.get(lotNumber);
+      const color = availability ? (AVAILABILITY_COLORS[availability] ?? '#657839') : '#657839';
+
+      labelGroup.querySelector('rect')?.setAttribute('fill', color);
     });
   }
 
@@ -235,7 +273,10 @@ export class LotMapController {
    * the SVG, leaving all other page scroll unaffected.
    */
   private bindZoom(): void {
-    if (!this.svgEl) return;
+    if (!this.svgEl) {
+      console.error('LotMapController: bindZoom called but svgEl is null.');
+      return;
+    }
 
     const svg = this.svgEl;
 
@@ -357,7 +398,10 @@ export class LotMapController {
    */
   private injectZoomControls(): void {
     const wrapper = this.svgEl?.parentElement;
-    if (!wrapper) return;
+    if (!wrapper) {
+      console.error('LotMapController: injectZoomControls called but SVG has no parent.');
+      return;
+    }
 
     if (getComputedStyle(wrapper).position === 'static') {
       wrapper.style.position = 'relative';
@@ -390,7 +434,10 @@ export class LotMapController {
    * when a sibling group named `${id}Label` exists.
    */
   private bindSvgHover(): void {
-    if (!this.svgEl) return;
+    if (!this.svgEl) {
+      console.error('LotMapController: bindSvgHover called but svgEl is null.');
+      return;
+    }
 
     const allGroups = Array.from(this.svgEl.querySelectorAll<SVGGElement>('g[id]'));
 
