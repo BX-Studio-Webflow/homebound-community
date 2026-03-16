@@ -42,7 +42,7 @@ const AVAILABILITY_COLORS: Record<string, string> = {
   'For Sale': '#657839',
   'Not Available for Sale': '#d17520',
   'Under Contract': '#8b514e',
-  'Not Available': '#657839',
+  'Not Available': '#3A759D',
 };
 
 export class LotMapController {
@@ -96,10 +96,15 @@ export class LotMapController {
     let activeKey: string | null = null;
 
     const applyFilter = () => {
+      let visibleCount = 0;
       document.querySelectorAll<HTMLElement>('[dev-target="one-lot"]').forEach((lot) => {
         const matches = activeKey === null || lot.getAttribute('availability') === map[activeKey];
         lot.classList.toggle('hide', !matches);
+        if (matches) visibleCount += 1;
       });
+
+      const noItems = document.querySelector<HTMLElement>('[dev-target="no-items-found"]');
+      noItems?.classList.toggle('hide', visibleCount > 0);
     };
 
     Object.keys(map).forEach((key) => {
@@ -121,6 +126,8 @@ export class LotMapController {
         applyFilter();
       });
     });
+
+    //applyFilter();
   }
 
   /**
@@ -461,16 +468,22 @@ export class LotMapController {
 
   /**
    * Attaches `mouseenter`/`mouseleave` listeners to the CMS lot cards.
+   * - If the lot price is 'Inquire for Pricing', it will hide the 'Starting from' text.
    *
    * @param cards - All `[dev-target="one-lot"][lot-number]` elements on the page.
    */
   private bindCardHover(cards: NodeListOf<HTMLElement>): void {
     cards.forEach((card) => {
       const lotNumber = card.getAttribute('lot-number');
+      const price = card.getAttribute('price');
       if (!lotNumber) return;
 
       card.addEventListener('mouseenter', () => this.highlight(lotNumber));
       card.addEventListener('mouseleave', () => this.clearHighlight());
+
+      if (price === 'Inquire for Pricing') {
+        card.querySelector<HTMLElement>('[dev-target="starting-from-text"]')?.classList.add('hide');
+      }
     });
   }
 
