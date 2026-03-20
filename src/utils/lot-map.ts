@@ -511,7 +511,7 @@ export class LotMapController {
    */
   private highlight(lotId: string, scrollToCard = false): void {
     if (this.isPanning) return;
-    if (this.activeId === lotId) return;
+    if (this.activeId === lotId && !scrollToCard) return;
 
     this.clearHighlight();
     this.activeId = lotId;
@@ -533,7 +533,8 @@ export class LotMapController {
     if (card) {
       card.classList.add('lot-map__card--active');
       if (scrollToCard) {
-        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        card.classList.remove('hide');
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     }
   }
