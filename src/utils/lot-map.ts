@@ -54,10 +54,12 @@ export class LotMapController {
   private readonly ORIGINAL_W = 1162.54;
   /** Native height of the SVG viewBox. */
   private readonly ORIGINAL_H = 912.76;
-  /** Minimum zoom factor — prevents zooming out past the full map. */
-  private readonly MIN_ZOOM = 0.4;
+  /** Minimum zoom factor — prevents zooming out past the full map (1 = full map). */
+  private readonly MIN_ZOOM = 1;
   /** Maximum zoom factor. */
   private readonly MAX_ZOOM = 8;
+  /** Zoom factor for the zoom buttons. */
+  private readonly DISABLE_ZOOM_WITH_MOUSE_SCROLL = true;
 
   private vb: ViewBox = { x: 0, y: 0, w: this.ORIGINAL_W, h: this.ORIGINAL_H };
 
@@ -270,6 +272,12 @@ export class LotMapController {
     this.applyViewBox();
   }
 
+  /** Returns true when zoomed out to the minimum (full map) — pan is disabled at this level. */
+  private isAtMinZoom(): boolean {
+    const zoom = this.ORIGINAL_W / this.vb.w;
+    return zoom <= this.MIN_ZOOM + 0.01;
+  }
+
   /**
    * Attaches mouse-wheel zoom, left/middle-click drag pan, and touch
    * pinch-to-zoom / single-finger pan event listeners to the SVG.
@@ -290,6 +298,7 @@ export class LotMapController {
     svg.addEventListener(
       'wheel',
       (e: WheelEvent) => {
+        if (this.DISABLE_ZOOM_WITH_MOUSE_SCROLL) return;
         e.preventDefault();
         const scale = e.deltaY < 0 ? 0.85 : 1 / 0.85;
         const { x, y } = this.toSvgPoint(e.clientX, e.clientY);
@@ -306,6 +315,7 @@ export class LotMapController {
       // preventDefault on mousedown suppresses the browser's native
       // autoscroll cursor that fires immediately on middle-click.
       if (e.button !== 0 && e.button !== 1) return;
+      if (this.isAtMinZoom()) return;
       e.preventDefault();
       this.isPanning = true;
       startClient = { x: e.clientX, y: e.clientY };
@@ -350,7 +360,7 @@ export class LotMapController {
           lastDist = touchDist(e.touches);
           lastMid = touchMid(e.touches);
         } else {
-          this.isPanning = true;
+          this.isPanning = !this.isAtMinZoom();
           startClient = { x: e.touches[0].clientX, y: e.touches[0].clientY };
           startVb = { ...this.vb };
         }
@@ -459,10 +469,14 @@ export class LotMapController {
       group.style.cursor = 'pointer';
       group.addEventListener('mouseenter', () => this.highlight(id));
       group.addEventListener('mouseleave', () => this.clearHighlight());
+      group.addEventListener('mousedown', (e) => e.stopPropagation());
+      group.addEventListener('click', () => this.highlight(id, true));
 
       labelGroup.style.cursor = 'pointer';
       labelGroup.addEventListener('mouseenter', () => this.highlight(id));
       labelGroup.addEventListener('mouseleave', () => this.clearHighlight());
+      labelGroup.addEventListener('mousedown', (e) => e.stopPropagation());
+      labelGroup.addEventListener('click', () => this.highlight(id, true));
     });
   }
 
@@ -489,12 +503,13 @@ export class LotMapController {
 
   /**
    * Activates the SVG shape, label, and CMS card for the given lot ID.
-   * Scrolls the card into view if it is outside the visible area.
+   * Optionally scrolls the card into view (only when triggered by map click, not hover).
    * No-ops if the lot is already active or if a pan is in progress.
    *
    * @param lotId - Lot identifier matching both the SVG `<g id>` and `lot-number` attribute.
+   * @param scrollToCard - When true, scrolls the lot card into view in the list. Use for map clicks only.
    */
-  private highlight(lotId: string): void {
+  private highlight(lotId: string, scrollToCard = false): void {
     if (this.isPanning) return;
     if (this.activeId === lotId) return;
 
@@ -517,7 +532,9 @@ export class LotMapController {
 
     if (card) {
       card.classList.add('lot-map__card--active');
-      card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      if (scrollToCard) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
     }
   }
 
