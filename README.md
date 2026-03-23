@@ -48,6 +48,36 @@ Two places need to stay in sync inside `StickyNavController`:
 
 ---
 
+## Explore Tabs (`src/utils/explore-tabs.ts`)
+
+The `ExploreTabsController` class drives the Explore Plans / Available Homes tab system. Clicking a header trigger switches the visible panel and updates the active trigger styling.
+
+### How it works
+
+- **Triggers** — "Explore Plans" and "Available Homes" header elements. Clicking one adds `is-active` to it and removes it from the other.
+- **Panels** — The corresponding panel is shown; the other receives the `hide` class.
+- **Initial state** — Uses the first trigger with `is-active` in the HTML, or defaults to Explore Plans.
+
+### Required Webflow attributes
+
+| Element | Attribute | Value |
+|---------|-----------|-------|
+| Tab header wrapper | `dev-target` | `explore-tab-header` |
+| Tab body wrapper | `dev-target` | `explore-tab-body` |
+| "Explore Plans" trigger | `dev-target` | `explore-plans-trigger` |
+| "Available Homes" trigger | `dev-target` | `explore-homes-trigger` |
+| Explore Plans panel | `dev-target` | `explore-plans-tab` |
+| Available Homes panel | `dev-target` | `explore-homes-tab` |
+
+### Usage
+
+```ts
+const exploreTabs = new ExploreTabsController();
+exploreTabs.init();
+```
+
+---
+
 ## Lot Map (`src/utils/lot-map.ts`)
 
 The `LotMapController` class powers the interactive lot map on the community browse-homes section. It injects an SVG map, handles zoom and pan, and wires bidirectional highlighting between lot shapes on the map and CMS lot cards in the right-panel list.
@@ -118,6 +148,7 @@ Call `init()` after the DOM is ready (e.g. inside `window.Webflow.push`).
 ## Reference
 
 - [Sticky Navigation](#sticky-navigation-srcutilssticky-navts)
+- [Explore Tabs](#explore-tabs-srcutilsexplore-tabsts)
 - [Lot Map](#lot-map-srcutilslot-mapts)
 - [Included tools](#included-tools)
 - [Requirements](#requirements)

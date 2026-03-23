@@ -1,0 +1,7 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   Explore Tabs — Explore Plans / Available Homes
+   ─────────────────────────────────────────────────────────────────────────
+   Classes are applied by ExploreTabsController (src/utils/explore-tabs.ts).
+   Uses the `hide` class (Webflow utility) for non-active panels.
+   Style `is-active` on triggers in your Webflow project.
+   ───────────────────────────────────────────────────────────────────────── */
