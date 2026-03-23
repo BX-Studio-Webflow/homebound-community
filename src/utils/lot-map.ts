@@ -217,6 +217,16 @@ export class LotMapController {
   }
 
   /**
+   * Clamps the viewBox so the visible area stays within map bounds.
+   * Prevents panning the map out of view at any zoom level.
+   */
+  private clampViewBox(): void {
+    this.vb.x = Math.max(0, Math.min(this.vb.x, this.ORIGINAL_W - this.vb.w));
+    this.vb.y = Math.max(0, Math.min(this.vb.y, this.ORIGINAL_H - this.vb.h));
+    this.applyViewBox();
+  }
+
+  /**
    * Converts a screen-space client coordinate to SVG-space coordinates,
    * accounting for the current viewBox pan and zoom.
    *
@@ -243,13 +253,16 @@ export class LotMapController {
   private zoomAround(scale: number, originX: number, originY: number): void {
     const newW = this.vb.w * scale;
     const zoom = this.ORIGINAL_W / newW;
-    if (zoom < this.MIN_ZOOM || zoom > this.MAX_ZOOM) return;
+    if (zoom < this.MIN_ZOOM || zoom > this.MAX_ZOOM) {
+      this.clampViewBox();
+      return;
+    }
 
     this.vb.x = originX + (this.vb.x - originX) * scale;
     this.vb.y = originY + (this.vb.y - originY) * scale;
     this.vb.w = newW;
     this.vb.h = this.vb.h * scale;
-    this.applyViewBox();
+    this.clampViewBox();
   }
 
   /**
@@ -270,12 +283,6 @@ export class LotMapController {
   private resetZoom(): void {
     this.vb = { x: 0, y: 0, w: this.ORIGINAL_W, h: this.ORIGINAL_H };
     this.applyViewBox();
-  }
-
-  /** Returns true when zoomed out to the minimum (full map) — pan is disabled at this level. */
-  private isAtMinZoom(): boolean {
-    const zoom = this.ORIGINAL_W / this.vb.w;
-    return zoom <= this.MIN_ZOOM + 0.01;
   }
 
   /**
@@ -315,7 +322,6 @@ export class LotMapController {
       // preventDefault on mousedown suppresses the browser's native
       // autoscroll cursor that fires immediately on middle-click.
       if (e.button !== 0 && e.button !== 1) return;
-      if (this.isAtMinZoom()) return;
       e.preventDefault();
       this.isPanning = true;
       startClient = { x: e.clientX, y: e.clientY };
@@ -328,7 +334,7 @@ export class LotMapController {
       const rect = svg.getBoundingClientRect();
       this.vb.x = startVb.x - ((e.clientX - startClient.x) / rect.width) * startVb.w;
       this.vb.y = startVb.y - ((e.clientY - startClient.y) / rect.height) * startVb.h;
-      this.applyViewBox();
+      this.clampViewBox();
     });
 
     window.addEventListener('mouseup', (e: MouseEvent) => {
@@ -360,7 +366,7 @@ export class LotMapController {
           lastDist = touchDist(e.touches);
           lastMid = touchMid(e.touches);
         } else {
-          this.isPanning = !this.isAtMinZoom();
+          this.isPanning = true;
           startClient = { x: e.touches[0].clientX, y: e.touches[0].clientY };
           startVb = { ...this.vb };
         }
@@ -386,7 +392,7 @@ export class LotMapController {
           const rect = svg.getBoundingClientRect();
           this.vb.x -= ((mid.x - lastMid.x) / rect.width) * this.vb.w;
           this.vb.y -= ((mid.y - lastMid.y) / rect.height) * this.vb.h;
-          this.applyViewBox();
+          this.clampViewBox();
 
           lastDist = dist;
           lastMid = mid;
@@ -396,7 +402,7 @@ export class LotMapController {
           const dy = ((e.touches[0].clientY - startClient.y) / rect.height) * startVb.h;
           this.vb.x = startVb.x - dx;
           this.vb.y = startVb.y - dy;
-          this.applyViewBox();
+          this.clampViewBox();
         }
       },
       { passive: false }
