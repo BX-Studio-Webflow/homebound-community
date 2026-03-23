@@ -48,8 +48,77 @@ Two places need to stay in sync inside `StickyNavController`:
 
 ---
 
+## Lot Map (`src/utils/lot-map.ts`)
+
+The `LotMapController` class powers the interactive lot map on the community browse-homes section. It injects an SVG map, handles zoom and pan, and wires bidirectional highlighting between lot shapes on the map and CMS lot cards in the right-panel list.
+
+### How it works
+
+#### SVG injection
+
+The controller reads raw SVG markup from a hidden HTML Embed element and injects it into a target wrapper. This lets you store the SVG in Webflow’s CMS or as embed content while keeping the markup editable.
+
+#### Zoom and pan
+
+- **Zoom** — Use the injected +/− buttons (mouse-wheel zoom can be disabled via `DISABLE_ZOOM_WITH_MOUSE_SCROLL`).
+- **Pan** — Left-click or middle-click drag on the map.
+- **Touch** — Single-finger pan and two-finger pinch-to-zoom on mobile.
+- **View clamping** — The visible area is always clamped to map bounds, so the map never pans out of view. Zoom is limited between full map (1×) and 8×.
+
+#### Hover and click
+
+- **Hover** — Hovering a lot shape/label on the map highlights the corresponding card in the list (and vice versa). The list does not auto-scroll on hover.
+- **Click** — Clicking a lot on the map scrolls the corresponding card into view, removes its `hide` class if filtered, and highlights it.
+
+#### Filter pills
+
+Filter pills (e.g. For Sale, Under Contract) show/hide lots by `availability`. Each lot card needs an `availability` attribute that matches one of the filter values.
+
+### Required Webflow attributes
+
+| Element | Attribute | Value |
+|---------|-----------|-------|
+| Hidden HTML Embed with raw SVG text | `dev-target` | `svg-text-holder` |
+| Empty wrapper where SVG is rendered | `dev-target` | `svg-target-wrapper` |
+| Each CMS lot card | `dev-target` | `one-lot` |
+| Each CMS lot card | `lot-number` | e.g. `B1` — must match SVG `<g id="B1">` |
+| Each CMS lot card | `availability` | e.g. `For Sale`, `Under Contract` — used by filter pills |
+| Filter pill (For Sale) | `dev-target` | `available` |
+| Filter pill (Not Available for Sale) | `dev-target` | `reserved` |
+| Filter pill (Under Contract) | `dev-target` | `sold` |
+| Filter pill (Model Home) | `dev-target` | `model-home` |
+| No results message | `dev-target` | `no-items-found` |
+
+### SVG structure
+
+The SVG must use `<g id="X">` for each lot shape and `<g id="XLabel">` for each lot label (e.g. `B1` and `B1Label`). The controller discovers lot groups automatically by pairing shapes with their label siblings.
+
+### CSS classes (style in `src/styles/lot-map.css`)
+
+| Class | Purpose |
+|-------|---------|
+| `.lot-map__shape--active` | Active lot shape `<g>` on the map |
+| `.lot-map__label--active` | Active lot label `<g>` on the map |
+| `.lot-map__card--active` | Active CMS lot card in the list |
+| `.lot-map__zoom-controls` | Injected zoom button wrapper |
+| `.lot-map__zoom-btn` | Each zoom button (`data-zoom="in"`, `"out"`, or `"reset"`) |
+| `.lot-map__svg--panning` | Applied to SVG while drag-panning (e.g. cursor override) |
+
+### Usage
+
+```ts
+const lotMap = new LotMapController();
+lotMap.init();
+```
+
+Call `init()` after the DOM is ready (e.g. inside `window.Webflow.push`).
+
+---
+
 ## Reference
 
+- [Sticky Navigation](#sticky-navigation-srcutilssticky-navts)
+- [Lot Map](#lot-map-srcutilslot-mapts)
 - [Included tools](#included-tools)
 - [Requirements](#requirements)
 - [Getting started](#getting-started)
