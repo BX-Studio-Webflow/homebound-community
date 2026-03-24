@@ -28,14 +28,14 @@ When a link is clicked the controller:
 
 #### Nav link → section ID mapping
 
-| `dev-target` (HTML) | Section `id` (DOM) |
-|---|---|
-| `overview` | `overview-section` |
-| `floor-plans` | `floor-plans-section` |
-| `amentities` | `amentities-section` |
-| `personalisation` | `personalization-section` |
-| `browse-homes` | `lots-section` |
-| `process` *(future)* | `process-section` |
+| `dev-target` (HTML)  | Section `id` (DOM)        |
+| -------------------- | ------------------------- |
+| `overview`           | `overview-section`        |
+| `floor-plans`        | `floor-plans-section`     |
+| `amentities`         | `amentities-section`      |
+| `personalisation`    | `personalization-section` |
+| `browse-homes`       | `lots-section`            |
+| `process` _(future)_ | `process-section`         |
 
 The map handles the spelling mismatches between Webflow's nav markup (`personalisation`, `amentities`) and the actual section IDs in the DOM. Both `browse-homes` and `process` are mapped so the code keeps working before and after any Webflow designer updates to that last link.
 
@@ -60,14 +60,14 @@ The `ExploreTabsController` class drives the Explore Plans / Available Homes tab
 
 ### Required Webflow attributes
 
-| Element | Attribute | Value |
-|---------|-----------|-------|
-| Tab header wrapper | `dev-target` | `explore-tab-header` |
-| Tab body wrapper | `dev-target` | `explore-tab-body` |
-| "Explore Plans" trigger | `dev-target` | `explore-plans-trigger` |
+| Element                   | Attribute    | Value                   |
+| ------------------------- | ------------ | ----------------------- |
+| Tab header wrapper        | `dev-target` | `explore-tab-header`    |
+| Tab body wrapper          | `dev-target` | `explore-tab-body`      |
+| "Explore Plans" trigger   | `dev-target` | `explore-plans-trigger` |
 | "Available Homes" trigger | `dev-target` | `explore-homes-trigger` |
-| Explore Plans panel | `dev-target` | `explore-plans-tab` |
-| Available Homes panel | `dev-target` | `explore-homes-tab` |
+| Explore Plans panel       | `dev-target` | `explore-plans-tab`     |
+| Available Homes panel     | `dev-target` | `explore-homes-tab`     |
 
 ### Usage
 
@@ -106,18 +106,18 @@ Filter pills (e.g. For Sale, Under Contract) show/hide lots by `availability`. E
 
 ### Required Webflow attributes
 
-| Element | Attribute | Value |
-|---------|-----------|-------|
-| Hidden HTML Embed with raw SVG text | `dev-target` | `svg-text-holder` |
-| Empty wrapper where SVG is rendered | `dev-target` | `svg-target-wrapper` |
-| Each CMS lot card | `dev-target` | `one-lot` |
-| Each CMS lot card | `lot-number` | e.g. `B1` — must match SVG `<g id="B1">` |
-| Each CMS lot card | `availability` | e.g. `For Sale`, `Under Contract` — used by filter pills |
-| Filter pill (For Sale) | `dev-target` | `available` |
-| Filter pill (Not Available for Sale) | `dev-target` | `reserved` |
-| Filter pill (Under Contract) | `dev-target` | `sold` |
-| Filter pill (Model Home) | `dev-target` | `model-home` |
-| No results message | `dev-target` | `no-items-found` |
+| Element                              | Attribute      | Value                                                    |
+| ------------------------------------ | -------------- | -------------------------------------------------------- |
+| Hidden HTML Embed with raw SVG text  | `dev-target`   | `svg-text-holder`                                        |
+| Empty wrapper where SVG is rendered  | `dev-target`   | `svg-target-wrapper`                                     |
+| Each CMS lot card                    | `dev-target`   | `one-lot`                                                |
+| Each CMS lot card                    | `lot-number`   | e.g. `B1` — must match SVG `<g id="B1">`                 |
+| Each CMS lot card                    | `availability` | e.g. `For Sale`, `Under Contract` — used by filter pills |
+| Filter pill (For Sale)               | `dev-target`   | `available`                                              |
+| Filter pill (Not Available for Sale) | `dev-target`   | `reserved`                                               |
+| Filter pill (Under Contract)         | `dev-target`   | `sold`                                                   |
+| Filter pill (Model Home)             | `dev-target`   | `model-home`                                             |
+| No results message                   | `dev-target`   | `no-items-found`                                         |
 
 ### SVG structure
 
@@ -125,14 +125,14 @@ The SVG must use `<g id="X">` for each lot shape and `<g id="XLabel">` for each 
 
 ### CSS classes (style in `src/styles/lot-map.css`)
 
-| Class | Purpose |
-|-------|---------|
-| `.lot-map__shape--active` | Active lot shape `<g>` on the map |
-| `.lot-map__label--active` | Active lot label `<g>` on the map |
-| `.lot-map__card--active` | Active CMS lot card in the list |
-| `.lot-map__zoom-controls` | Injected zoom button wrapper |
-| `.lot-map__zoom-btn` | Each zoom button (`data-zoom="in"`, `"out"`, or `"reset"`) |
-| `.lot-map__svg--panning` | Applied to SVG while drag-panning (e.g. cursor override) |
+| Class                     | Purpose                                                    |
+| ------------------------- | ---------------------------------------------------------- |
+| `.lot-map__shape--active` | Active lot shape `<g>` on the map                          |
+| `.lot-map__label--active` | Active lot label `<g>` on the map                          |
+| `.lot-map__card--active`  | Active CMS lot card in the list                            |
+| `.lot-map__zoom-controls` | Injected zoom button wrapper                               |
+| `.lot-map__zoom-btn`      | Each zoom button (`data-zoom="in"`, `"out"`, or `"reset"`) |
+| `.lot-map__svg--panning`  | Applied to SVG while drag-panning (e.g. cursor override)   |
 
 ### Usage
 
