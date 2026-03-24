@@ -542,6 +542,11 @@ export class LotMapController {
         card.classList.remove('hide');
         card.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
+    } else if (scrollToCard) {
+      console.error(
+        'LotMapController: No CMS lot card for map lot — expected ' +
+          `[dev-target="one-lot"][lot-number="${lotId}"].`
+      );
     }
   }
 
