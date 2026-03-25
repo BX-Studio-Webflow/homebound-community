@@ -1,0 +1,75 @@
+import '$styles/accordion.css';
+import '$styles/explore-tabs.css';
+import '$styles/gallery.css';
+import '$styles/lot-map.css';
+
+import { type ColorSchemeBinding, ColorSchemeController } from '$utils/color-scheme';
+import { ExploreTabsController } from '$utils/explore-tabs';
+import { type GalleryConfig, GalleryController } from '$utils/gallery';
+import { LotMapController } from '$utils/lot-map';
+import { StickyNavController } from '$utils/sticky-nav';
+
+const galleryConfigs: GalleryConfig[] = [
+  {
+    triggerSelector: '[dev-target="house-plan-gallery"]',
+    imageSelector: '[dev-target="hidden-gallery-images"]',
+    containerSelector: '[dev-target="hidden-gallery-collection"]',
+  },
+];
+
+window.Webflow ||= [];
+window.Webflow.push(() => {
+  const stickyNavController = new StickyNavController();
+  stickyNavController.init();
+
+  const galleryController = new GalleryController(galleryConfigs);
+  galleryController.init();
+
+  const exploreTabsController = new ExploreTabsController();
+  exploreTabsController.init();
+
+  const slideEls = Array.from(
+    document.querySelectorAll<HTMLElement>('[dev-target="other-swiper-slide"]')
+  );
+  const colorSchemeBindings: ColorSchemeBinding[] = slideEls.flatMap((slide) => {
+    const forwardImage = slide.querySelector<HTMLImageElement>('img[dev-target="forward-image"]');
+    if (!forwardImage) return [];
+
+    const schemeButtons = Array.from(
+      slide.querySelectorAll<HTMLElement>('[dev-target$="-scheme"]')
+    );
+    if (!schemeButtons.length) return [];
+
+    const schemeImagesByToken = new Map<string, HTMLImageElement>();
+    schemeButtons.forEach((btn) => {
+      const token = btn.getAttribute('dev-target');
+      if (!token) return;
+
+      const schemeImg = slide.querySelector<HTMLImageElement>(`img[dev-target="${token}-image"]`);
+      if (!schemeImg) {
+        console.error(
+          `ColorSchemeController (house-plans): no hidden scheme image for token "${token}".`
+        );
+        return;
+      }
+
+      schemeImagesByToken.set(token, schemeImg);
+    });
+
+    if (!schemeImagesByToken.size) return [];
+
+    return [
+      {
+        forwardImage,
+        schemeButtons,
+        schemeImagesByToken,
+      },
+    ];
+  });
+
+  const colorSchemeController = new ColorSchemeController({ bindings: colorSchemeBindings });
+  colorSchemeController.init();
+
+  const lotMapController = new LotMapController();
+  lotMapController.init();
+});

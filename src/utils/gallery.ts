@@ -1,47 +1,38 @@
 import Swiper from 'swiper';
 import { Keyboard, Navigation, Pagination, Thumbs } from 'swiper/modules';
 
-interface GalleryConfig {
-  /** dev-target value on the clickable trigger container */
-  trigger: string;
-  /** dev-target value on each <img> inside the hidden CMS list */
-  imageAttr: string;
-  /** CSS class of the Webflow CMS wrapper to observe for late-rendered items */
-  containerClass: string;
+export interface GalleryConfig {
+  /** Full selector for the clickable trigger region (e.g. `[dev-target="image-gallery"]`). */
+  triggerSelector: string;
+  /** Full selector for each gallery image in the hidden CMS list (e.g. `img[dev-target="…"]`). */
+  imageSelector: string;
+  /** Full selector for the CMS list wrapper to observe for late-rendered items (class or attribute). */
+  containerSelector: string;
 }
-
-const GALLERY_CONFIGS: GalleryConfig[] = [
-  {
-    trigger: 'image-gallery',
-    imageAttr: 'hidden-main-gallery-images',
-    containerClass: '.hidden-main-gallery-collection',
-  },
-  {
-    trigger: 'community-gallery',
-    imageAttr: 'hidden-community-gallery-images',
-    containerClass: '.hidden-community-gallery-collection',
-  },
-];
 
 /**
  * Full-screen image gallery controller.
  *
  * Supports multiple independent gallery triggers on the same page.
- * Each trigger is configured via GALLERY_CONFIGS above — add a new entry
- * to support a new gallery without touching any other code.
+ * Pass a {@link GalleryConfig} array from the entry script (e.g. `index.ts`) for each
+ * trigger + hidden CMS list pair. Slide / mobile lightbox behaviour is always wired.
  */
 export class GalleryController {
   private overlay: HTMLElement | null = null;
   private swiper: Swiper | null = null;
   private thumbsSwiper: Swiper | null = null;
 
-  /** Per-config image cache, keyed by trigger dev-target value */
+  /** Per-config image cache, keyed by {@link GalleryConfig.triggerSelector} */
   private caches: Map<string, HTMLImageElement[]> = new Map();
   private observers: MutationObserver[] = [];
 
+  constructor(private readonly configs: GalleryConfig[]) {
+    this.configs = configs;
+  }
+
   init(): void {
-    GALLERY_CONFIGS.forEach((config) => {
-      this.caches.set(config.trigger, []);
+    this.configs.forEach((config) => {
+      this.caches.set(config.triggerSelector, []);
       this.observeImages(config);
       this.bindTrigger(config);
     });
@@ -61,18 +52,16 @@ export class GalleryController {
   private observeImages(config: GalleryConfig): void {
     const refresh = () => {
       this.caches.set(
-        config.trigger,
-        Array.from(
-          document.querySelectorAll<HTMLImageElement>(`img[dev-target="${config.imageAttr}"]`)
-        )
+        config.triggerSelector,
+        Array.from(document.querySelectorAll<HTMLImageElement>(config.imageSelector))
       );
     };
 
     refresh();
 
-    const container = document.querySelector<HTMLElement>(config.containerClass);
+    const container = document.querySelector<HTMLElement>(config.containerSelector);
     if (!container) {
-      console.error(`GalleryController: "${config.containerClass}" not found.`);
+      console.error(`GalleryController: container not found — ${config.containerSelector}`);
       return;
     }
 
@@ -83,7 +72,7 @@ export class GalleryController {
 
   /** Attach a click listener to all trigger elements for a config. */
   private bindTrigger(config: GalleryConfig): void {
-    const triggers = document.querySelectorAll<HTMLElement>(`[dev-target="${config.trigger}"]`);
+    const triggers = document.querySelectorAll<HTMLElement>(config.triggerSelector);
 
     if (!triggers.length) return;
 
@@ -91,9 +80,11 @@ export class GalleryController {
       trigger.addEventListener('click', (e) => {
         if (!(e.target as HTMLElement).closest('img')) return;
 
-        const imgs = this.caches.get(config.trigger) ?? [];
+        const imgs = this.caches.get(config.triggerSelector) ?? [];
         if (!imgs.length) {
-          console.error(`GalleryController: No images cached for "${config.trigger}".`);
+          console.error(
+            `GalleryController: No images cached for trigger ${config.triggerSelector}.`
+          );
           return;
         }
 
