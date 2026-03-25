@@ -3,6 +3,7 @@ import '$styles/explore-tabs.css';
 import '$styles/gallery.css';
 import '$styles/lot-map.css';
 
+import { AccordionController } from '$utils/accordion';
 import { type ColorSchemeBinding, ColorSchemeController } from '$utils/color-scheme';
 import { ExploreTabsController } from '$utils/explore-tabs';
 import { type GalleryConfig, GalleryController } from '$utils/gallery';
@@ -72,4 +73,7 @@ window.Webflow.push(() => {
 
   const lotMapController = new LotMapController();
   lotMapController.init();
+
+  const accordionController = new AccordionController();
+  accordionController.init();
 });
