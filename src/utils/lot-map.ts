@@ -13,6 +13,20 @@
  * lotMap.init();
  * ```
  *
+ * **Single-lot / home detail (zoom + highlight on load)**
+ *
+ * Pass {@link LotMapConfig} to focus the map on one lot’s SVG region and apply the
+ * same highlight classes as hover/click. Use on CMS templates where one home’s lot
+ * should be obvious when the section loads.
+ *
+ * ```ts
+ * new LotMapController({
+ *   isZoomMode: true,
+ *   focusLotNumber: 'B1',
+ *   focusZoomFactor: 4,
+ * }).init();
+ * ```
+ *
  * **Required Webflow attributes**
  *
  * | Element | Attribute | Value |
@@ -45,10 +59,29 @@ const AVAILABILITY_COLORS: Record<string, string> = {
   'Not Available': '#3A759D',
 };
 
+/** Options for {@link LotMapController}. */
+export type LotMapConfig = {
+  /**
+   * When true and {@link focusLotNumber} is set, pans/zooms the initial view to that
+   * lot’s bounds and highlights it (same classes as map hover).
+   */
+  isZoomMode?: boolean;
+  /** Lot id matching SVG `<g id="…">` and CMS `lot-number` (e.g. `B1`). */
+  focusLotNumber?: string;
+  /**
+   * How far to zoom in toward the lot: visible width ≈ full map width / this factor,
+   * expanded if the lot bbox is large. Clamped so zoom never exceeds the maximum zoom level.
+   * @defaultValue 3.5
+   */
+  focusZoomFactor?: number;
+};
+
 export class LotMapController {
   private svgEl: SVGSVGElement | null = null;
   private activeId: string | null = null;
   private isPanning = false;
+
+  private readonly config: LotMapConfig;
 
   /** Native width of the SVG viewBox. */
   private readonly ORIGINAL_W = 1162.54;
@@ -62,6 +95,10 @@ export class LotMapController {
   private readonly DISABLE_ZOOM_WITH_MOUSE_SCROLL = true;
 
   private vb: ViewBox = { x: 0, y: 0, w: this.ORIGINAL_W, h: this.ORIGINAL_H };
+
+  constructor(config: LotMapConfig = {}) {
+    this.config = config;
+  }
 
   /**
    * Initialises the controller: injects the SVG, wires hover and zoom.
@@ -85,6 +122,65 @@ export class LotMapController {
     this.bindZoom();
     this.injectZoomControls();
     this.bindFilter();
+
+    const { isZoomMode, focusLotNumber, focusZoomFactor = 3.5 } = this.config;
+    if (isZoomMode && focusLotNumber) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          this.focusViewOnLot(focusLotNumber, focusZoomFactor);
+          this.highlight(focusLotNumber, false);
+        });
+      });
+    } else if (isZoomMode && !focusLotNumber) {
+      console.error(
+        'LotMapController: isZoomMode is true but focusLotNumber is missing — ' +
+          'set focusLotNumber or a CMS `lot-number` on [dev-target="one-lot"].'
+      );
+    }
+  }
+
+  /**
+   * Sets the viewBox to frame the lot shape group in SVG space, with padding and a
+   * zoom level derived from {@link focusZoomFactor}.
+   */
+  private focusViewOnLot(lotId: string, zoomFactor: number): void {
+    if (!this.svgEl) return;
+
+    const shape = this.svgEl.querySelector<SVGGElement>(`#${CSS.escape(lotId)}`);
+    if (!shape) {
+      console.error(`LotMapController: No SVG lot group #${lotId} — cannot focus view.`);
+      return;
+    }
+
+    let bbox: DOMRect;
+    try {
+      bbox = shape.getBBox();
+    } catch {
+      return;
+    }
+
+    if (bbox.width <= 0 && bbox.height <= 0) {
+      console.error(`LotMapController: Empty geometry for lot #${lotId} — cannot focus view.`);
+      return;
+    }
+
+    const cx = bbox.x + bbox.width / 2;
+    const cy = bbox.y + bbox.height / 2;
+
+    const minWFromMaxZoom = this.ORIGINAL_W / this.MAX_ZOOM;
+    const fromMapZoom = this.ORIGINAL_W / Math.max(zoomFactor, 1);
+    const fromLotPadding = Math.max(bbox.width, bbox.height) * 3;
+    const targetW = Math.min(
+      this.ORIGINAL_W,
+      Math.max(minWFromMaxZoom, Math.max(fromMapZoom, fromLotPadding))
+    );
+    const targetH = (targetW * this.ORIGINAL_H) / this.ORIGINAL_W;
+
+    this.vb.x = cx - targetW / 2;
+    this.vb.y = cy - targetH / 2;
+    this.vb.w = targetW;
+    this.vb.h = targetH;
+    this.clampViewBox();
   }
 
   private bindFilter(): void {
@@ -537,7 +633,9 @@ export class LotMapController {
     );
 
     if (card) {
-      card.classList.add('lot-map__card--active');
+      if (!this.config.isZoomMode) {
+        card.classList.add('lot-map__card--active');
+      }
       if (scrollToCard) {
         card.classList.remove('hide');
         card.scrollIntoView({ behavior: 'smooth', block: 'center' });

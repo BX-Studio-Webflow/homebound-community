@@ -12,6 +12,7 @@ const ENTRY_POINTS = [
   'src/house-plans.ts',
   'src/rebuild.ts',
   'src/sooner-accordion.ts',
+  'src/homes.ts',
 ];
 
 // Config dev serving

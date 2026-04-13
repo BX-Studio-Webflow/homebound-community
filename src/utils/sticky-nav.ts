@@ -3,6 +3,35 @@
  * Handles scroll-based active link highlighting and click/tap navigation
  */
 
+export type StickyNavConfig = {
+  linkSelector: string;
+  navContainerSelector: string;
+  stripSelector: string;
+  mobileBreakpoint: number;
+  observerRootMargin: string;
+  observerThreshold: number;
+  sectionMap: Record<string, string>;
+  sectionOrder: string[];
+};
+
+const defaultStickyNavConfig: StickyNavConfig = {
+  linkSelector: '.tab-links[dev-target]',
+  navContainerSelector: '.tab-header',
+  stripSelector: '[dev-target="tab-left"]',
+  mobileBreakpoint: 767,
+  observerRootMargin: '-10% 0px -85% 0px',
+  observerThreshold: 0,
+  sectionMap: {
+    overview: 'overview-section',
+    'floor-plans': 'floor-plans-section',
+    amentities: 'amentities-section',
+    personalisation: 'personalization-section',
+    'browse-homes': 'lots-section',
+    process: 'process-section',
+  },
+  sectionOrder: ['overview', 'floor-plans', 'amentities', 'personalisation', 'browse-homes'],
+};
+
 export class StickyNavController {
   private links: Element[] = [];
   private observer: IntersectionObserver | null = null;
@@ -12,29 +41,43 @@ export class StickyNavController {
    * Maps dev-target attribute values to their corresponding section IDs.
    * Handles spelling mismatches between the nav markup and section IDs.
    */
-  private readonly sectionMap: Record<string, string> = {
-    overview: 'overview-section',
-    'floor-plans': 'floor-plans-section',
-    amentities: 'amentities-section',
-    personalisation: 'personalization-section',
-    'browse-homes': 'lots-section',
-    process: 'process-section',
-  };
+  private readonly sectionMap: Record<string, string>;
 
   /**
    * Ordered list of dev-target values matching the top-to-bottom page section order.
    * Used to determine which section is "topmost" when multiple are visible at once.
    */
-  private readonly sectionOrder: string[] = [
-    'overview',
-    'floor-plans',
-    'amentities',
-    'personalisation',
-    'browse-homes',
-  ];
+  private readonly sectionOrder: string[];
+  private readonly linkSelector: string;
+  private readonly navContainerSelector: string;
+  private readonly stripSelector: string;
+  private readonly mobileBreakpoint: number;
+  private readonly observerRootMargin: string;
+  private readonly observerThreshold: number;
+
+  constructor(config?: Partial<StickyNavConfig>) {
+    const resolvedConfig: StickyNavConfig = {
+      ...defaultStickyNavConfig,
+      ...config,
+      sectionMap: {
+        ...defaultStickyNavConfig.sectionMap,
+        ...config?.sectionMap,
+      },
+      sectionOrder: config?.sectionOrder ?? defaultStickyNavConfig.sectionOrder,
+    };
+
+    this.linkSelector = resolvedConfig.linkSelector;
+    this.navContainerSelector = resolvedConfig.navContainerSelector;
+    this.stripSelector = resolvedConfig.stripSelector;
+    this.mobileBreakpoint = resolvedConfig.mobileBreakpoint;
+    this.observerRootMargin = resolvedConfig.observerRootMargin;
+    this.observerThreshold = resolvedConfig.observerThreshold;
+    this.sectionMap = resolvedConfig.sectionMap;
+    this.sectionOrder = resolvedConfig.sectionOrder;
+  }
 
   init(): void {
-    this.links = Array.from(document.querySelectorAll('.tab-links[dev-target]'));
+    this.links = Array.from(document.querySelectorAll(this.linkSelector));
 
     if (!this.links.length) {
       console.error('StickyNavController: No tab links found.');
@@ -81,7 +124,7 @@ export class StickyNavController {
           return;
         }
 
-        const navBar = link.closest('.tab-header') as HTMLElement | null;
+        const navBar = link.closest(this.navContainerSelector) as HTMLElement | null;
         const navHeight = navBar ? navBar.offsetHeight : 0;
 
         const sectionTop = section.getBoundingClientRect().top + window.scrollY - navHeight;
@@ -125,8 +168,8 @@ export class StickyNavController {
         }
       },
       {
-        rootMargin: '-10% 0px -85% 0px',
-        threshold: 0,
+        rootMargin: this.observerRootMargin,
+        threshold: this.observerThreshold,
       }
     );
 
@@ -161,9 +204,9 @@ export class StickyNavController {
    * Clamped to [0, maxScroll] so we never show blank space at either end.
    */
   private scrollLinkIntoStrip(link: HTMLElement): void {
-    if (window.innerWidth > 767) return;
+    if (window.innerWidth > this.mobileBreakpoint) return;
 
-    const strip = link.closest('[dev-target="tab-left"]') as HTMLElement | null;
+    const strip = link.closest(this.stripSelector) as HTMLElement | null;
     if (!strip) return;
 
     const targetScrollLeft = link.offsetLeft + link.offsetWidth / 2 - strip.offsetWidth / 2;
