@@ -8,10 +8,19 @@
  *   [dev-target="sooner-header-text"] — step title
  *   [dev-target="circle"]            — active indicator circle
  *   [dev-target="sooner-body"]        — collapsible body
+ *
+ * Desktop (fine pointer + hover): first item opens on load, then the open step
+ * advances every {@link AUTO_CYCLE_MS}. Hovering any accordion item pauses cycling;
+ * leaving all items resumes after a short delay.
  */
+
+const AUTO_CYCLE_MS = 5000;
 
 export class SoonerAccordionController {
   private soonerItems: HTMLElement[] = [];
+  private activeIndex = 0;
+  private cycleIntervalId: ReturnType<typeof setInterval> | null = null;
+  private resumeAfterLeaveId: ReturnType<typeof setTimeout> | null = null;
 
   init(): void {
     this.initSoonerAccordionItems();
@@ -31,6 +40,27 @@ export class SoonerAccordionController {
       const circle = item.querySelector<HTMLElement>('[dev-target="circle"]');
 
       if (!header) return;
+
+      // Pause auto-cycle while pointer is over this item (moving between items stays paused)
+      item.addEventListener('mouseenter', () => {
+        if (!this.isHoverable()) return;
+        if (this.resumeAfterLeaveId !== null) {
+          clearTimeout(this.resumeAfterLeaveId);
+          this.resumeAfterLeaveId = null;
+        }
+        this.stopAutoCycle();
+      });
+
+      item.addEventListener('mouseleave', () => {
+        if (!this.isHoverable()) return;
+        if (this.resumeAfterLeaveId !== null) {
+          clearTimeout(this.resumeAfterLeaveId);
+        }
+        this.resumeAfterLeaveId = window.setTimeout(() => {
+          this.resumeAfterLeaveId = null;
+          this.startAutoCycle();
+        }, 150);
+      });
 
       // Desktop: hover opens step
       header.addEventListener('mouseenter', () => {
@@ -59,9 +89,26 @@ export class SoonerAccordionController {
       }
     });
 
-    // Make first item active by default
+    // Make first item active by default, then auto-advance on hover-capable devices
     if (items.length > 0) {
       this.openSoonerItem(items[0]);
+      this.startAutoCycle();
+    }
+  }
+
+  private startAutoCycle(): void {
+    if (!this.isHoverable() || this.soonerItems.length <= 1) return;
+    this.stopAutoCycle();
+    this.cycleIntervalId = window.setInterval(() => {
+      this.activeIndex = (this.activeIndex + 1) % this.soonerItems.length;
+      this.openSoonerItem(this.soonerItems[this.activeIndex]);
+    }, AUTO_CYCLE_MS);
+  }
+
+  private stopAutoCycle(): void {
+    if (this.cycleIntervalId !== null) {
+      clearInterval(this.cycleIntervalId);
+      this.cycleIntervalId = null;
     }
   }
 
@@ -74,6 +121,9 @@ export class SoonerAccordionController {
   }
 
   private openSoonerItem(item: HTMLElement): void {
+    const idx = this.soonerItems.indexOf(item);
+    if (idx >= 0) this.activeIndex = idx;
+
     this.soonerItems.forEach((sibling) => {
       sibling.classList.remove('is-open');
       const siblingCircle = sibling.querySelector<HTMLElement>('[dev-target="circle"]');
@@ -104,6 +154,11 @@ export class SoonerAccordionController {
   }
 
   destroy(): void {
+    this.stopAutoCycle();
+    if (this.resumeAfterLeaveId !== null) {
+      clearTimeout(this.resumeAfterLeaveId);
+      this.resumeAfterLeaveId = null;
+    }
     this.soonerItems = [];
   }
 }
