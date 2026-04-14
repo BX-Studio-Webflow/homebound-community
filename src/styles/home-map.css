@@ -1,7 +1,15 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   Home Map — SVG room highlight + CMS card highlight
+   ─────────────────────────────────────────────────────────────────────────
+   Classes are applied by HomeMapController (src/utils/home-map.ts).
+   ───────────────────────────────────────────────────────────────────────── */
+
 .home-map__svg {
   user-select: none;
   -webkit-user-select: none;
 }
+
+/* ── SVG room shape highlight ────────────────────────────────────────── */
 
 .home-map__shape {
   transition:
@@ -27,4 +35,14 @@
 .home-map__shape--active ellipse {
   fill: rgba(208, 214, 161, 0.72);
   stroke: rgba(95, 109, 55, 0.9);
+}
+
+/* ── CMS feature card highlight ──────────────────────────────────────── */
+
+.home-map__card--active {
+  background-color: #f0f5ec;
+  box-shadow: inset 3px 0 0 0 #657839;
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
