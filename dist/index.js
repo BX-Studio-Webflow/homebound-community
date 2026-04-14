@@ -5303,8 +5303,7 @@
       const triggers = document.querySelectorAll(config.triggerSelector);
       if (!triggers.length) return;
       triggers.forEach((trigger) => {
-        trigger.addEventListener("click", (e) => {
-          if (!e.target.closest("img")) return;
+        trigger.addEventListener("click", () => {
           const imgs = this.caches.get(config.triggerSelector) ?? [];
           if (!imgs.length) {
             console.error(

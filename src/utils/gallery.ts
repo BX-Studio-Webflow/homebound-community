@@ -77,9 +77,7 @@ export class GalleryController {
     if (!triggers.length) return;
 
     triggers.forEach((trigger) => {
-      trigger.addEventListener('click', (e) => {
-        if (!(e.target as HTMLElement).closest('img')) return;
-
+      trigger.addEventListener('click', () => {
         const imgs = this.caches.get(config.triggerSelector) ?? [];
         if (!imgs.length) {
           console.error(
