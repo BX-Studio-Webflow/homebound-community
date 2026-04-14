@@ -18,6 +18,8 @@ export interface GalleryConfig {
  * trigger + hidden CMS list pair. Slide / mobile lightbox behaviour is always wired.
  */
 export class GalleryController {
+  private static readonly MAX_GALLERY_IMAGES = 25;
+
   private overlay: HTMLElement | null = null;
   private swiper: Swiper | null = null;
   private thumbsSwiper: Swiper | null = null;
@@ -146,6 +148,11 @@ export class GalleryController {
   }
 
   private open(imgs: HTMLImageElement[], startIndex: number): void {
+    const limitedImgs = imgs.slice(0, GalleryController.MAX_GALLERY_IMAGES);
+    if (!limitedImgs.length) return;
+
+    const boundedStartIndex = Math.min(Math.max(0, startIndex), limitedImgs.length - 1);
+
     this.close();
 
     this.overlay = document.createElement('div');
@@ -172,7 +179,7 @@ export class GalleryController {
       '.hb-gallery-thumbs .swiper-wrapper'
     )!;
 
-    imgs.forEach((img) => {
+    limitedImgs.forEach((img) => {
       const slide = document.createElement('div');
       slide.className = 'swiper-slide';
       const slideImg = document.createElement('img');
@@ -209,8 +216,8 @@ export class GalleryController {
 
     this.swiper = new Swiper('.hb-gallery-swiper', {
       modules: [Navigation, Pagination, Keyboard, Thumbs],
-      initialSlide: startIndex,
-      loop: imgs.length > 1,
+      initialSlide: boundedStartIndex,
+      loop: limitedImgs.length > 1,
       keyboard: { enabled: true },
       navigation: {
         nextEl: '.swiper-button-next',
