@@ -11219,4 +11219,19 @@
       </g>
     </g>
   </g>
+
+  <!-- Room overlay groups for HomeMapController -->
+  <g id="ROOM-OVERLAYS" style="pointer-events:none">
+    <g id="PRIMARY-BATH" style="pointer-events:all"><rect x="246.61" y="376.65" width="41.18" height="41.18" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="PRIMARY-CLOSET" style="pointer-events:all"><rect x="243.44" y="262.87" width="41.18" height="41.18" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="KITCHEN" style="pointer-events:all"><rect x="26.29" y="535.60" width="64.71" height="70.60" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="LAUNDRY-ROOM" style="pointer-events:all"><rect x="172.85" y="262.97" width="58.83" height="58.83" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="GARAGE" style="pointer-events:all"><rect x="161.99" y="45.93" width="94.13" height="117.66" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="DINING-ROOM" style="pointer-events:all"><rect x="44.65" y="387.40" width="64.71" height="70.60" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="GREAT-ROOM" style="pointer-events:all"><rect x="32.38" y="258.65" width="82.36" height="94.13" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="UNCOVERED-PATIO" style="pointer-events:all"><rect x="172.20" y="601.40" width="139.91" height="89.84" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="PRIMARY-BEDROOM" style="pointer-events:all"><rect x="173.62" y="478.36" width="76.48" height="82.36" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="COVERED-PATIO" style="pointer-events:all"><rect x="-4.38" y="-4.78" width="76.07" height="138.63" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="POWDER-ROOM" style="pointer-events:all"><rect x="54.33" y="142.38" width="41.18" height="41.18" fill="rgba(0,0,0,0)" stroke="none"/></g>
+  </g>
 </svg>

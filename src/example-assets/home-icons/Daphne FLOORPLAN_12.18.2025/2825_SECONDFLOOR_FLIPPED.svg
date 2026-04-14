@@ -8246,4 +8246,17 @@
       <text class="cls-14" transform="translate(34.88 365.35)"><tspan x="0" y="0">B</tspan><tspan class="cls-17" x="9.93" y="0">a</tspan><tspan class="cls-24" x="17.4" y="0">t</tspan><tspan x="23.05" y="0">h 4</tspan></text>
     </g>
   </g>
+
+  <!-- Room overlay groups for HomeMapController -->
+  <g id="ROOM-OVERLAYS" style="pointer-events:none">
+    <g id="BEDROOM-3" style="pointer-events:all"><rect x="43.33" y="137.40" width="106.77" height="114.99" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="BEDROOM-2" style="pointer-events:all"><rect x="252.24" y="401.26" width="106.77" height="114.99" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="BATH-2" style="pointer-events:all"><rect x="233.16" y="274.60" width="57.49" height="57.49" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="BATH-3" style="pointer-events:all"><rect x="6.92" y="284.36" width="148.17" height="122.17" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="MECH" style="pointer-events:all"><rect x="317.11" y="282.65" width="57.49" height="57.49" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="LOFT" style="pointer-events:all"><rect x="249.38" y="123.48" width="90.35" height="98.56" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="BEDROOM-4" style="pointer-events:all"><rect x="5.34" y="448.18" width="173.52" height="158.88" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="CLOSET" style="pointer-events:all"><rect x="-11.72" y="-34.66" width="190.78" height="160.21" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="BATH-4" style="pointer-events:all"><rect x="17.63" y="330.85" width="57.49" height="57.49" fill="rgba(0,0,0,0)" stroke="none"/></g>
+  </g>
 </svg>

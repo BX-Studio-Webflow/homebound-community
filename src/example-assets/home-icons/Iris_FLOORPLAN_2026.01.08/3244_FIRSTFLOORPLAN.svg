@@ -22069,4 +22069,22 @@
       <text class="cls-19" transform="translate(74.36 554.65)"><tspan class="cls-61" x="0" y="0">1</tspan><tspan x="3.24" y="0">1&apos; 7&quot; x 12&apos; 6&quot;</tspan></text>
     </g>
   </g>
+
+  <!-- Room overlay groups for HomeMapController -->
+  <g id="ROOM-OVERLAYS" style="pointer-events:none">
+    <g id="PRIMARY-BATH" style="pointer-events:all"><rect x="224.67" y="39.79" width="92.22" height="195.38" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="FOYER" style="pointer-events:all"><rect x="218.92" y="604.73" width="102.38" height="180.18" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="PORCH" style="pointer-events:all"><rect x="141.04" y="738.65" width="174.36" height="46.58" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="COVERED-PATIO" style="pointer-events:all"><rect x="211.21" y="378.42" width="109.99" height="221.98" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="KITCHEN" style="pointer-events:all"><rect x="136.43" y="393.71" width="70.38" height="76.78" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="LAUNDRY-ROOM" style="pointer-events:all"><rect x="76.06" y="260.97" width="63.98" height="63.98" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="PRIMARY-BEDROOM" style="pointer-events:all"><rect x="196.74" y="252.54" width="83.18" height="89.58" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="GARAGE" style="pointer-events:all"><rect x="44.28" y="39.79" width="92.22" height="195.38" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="DINING-ROOM" style="pointer-events:all"><rect x="38.53" y="381.11" width="112.41" height="222.01" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="OFFICE" style="pointer-events:all"><rect x="232.83" y="511.78" width="63.98" height="63.98" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="GREAT-ROOM" style="pointer-events:all"><rect x="35.91" y="604.73" width="106.34" height="180.18" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="PANTRY" style="pointer-events:all"><rect x="103.08" y="311.15" width="44.79" height="44.79" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="POWDER-ROOM" style="pointer-events:all"><rect x="151.38" y="231.84" width="44.79" height="44.79" fill="rgba(0,0,0,0)" stroke="none"/></g>
+    <g id="PRIMARY-RETREAT" style="pointer-events:all"><rect x="40.69" y="397.22" width="63.98" height="63.98" fill="rgba(0,0,0,0)" stroke="none"/></g>
+  </g>
 </svg>
