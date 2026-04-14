@@ -12,11 +12,20 @@ import { StickyNavController } from '$utils/sticky-nav';
 
 const galleryConfigs: GalleryConfig[] = [
   {
-    triggerSelector: '[dev-target="house-plan-gallery"]',
-    imageSelector: '[dev-target="hidden-gallery-images"]',
-    containerSelector: '[dev-target="hidden-gallery-collection"]',
+    triggerSelector: '[dev-target="image-gallery"]',
+    imageSelector: '[dev-target="hidden-main-gallery-images"]',
+    containerSelector: '[hero-swiper]',
   },
 ];
+
+//confrim the elements are exist in dom before initializing the gallery controller
+galleryConfigs.forEach((config) => {
+  const element = document.querySelector(config.triggerSelector);
+  if (!element) {
+    console.error(`GalleryController: element not found — ${config.triggerSelector}`);
+    return;
+  }
+});
 
 window.Webflow ||= [];
 window.Webflow.push(() => {

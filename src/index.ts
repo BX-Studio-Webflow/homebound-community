@@ -13,8 +13,8 @@ import { StickyNavController } from '$utils/sticky-nav';
 const galleryConfigs: GalleryConfig[] = [
   {
     triggerSelector: '[dev-target="image-gallery"]',
-    imageSelector: 'img[dev-target="hidden-main-gallery-images"]',
-    containerSelector: '.hidden-main-gallery-collection',
+    imageSelector: '[dev-target="hidden-main-gallery-images"]',
+    containerSelector: '[hero-swiper]',
   },
   {
     triggerSelector: '[dev-target="community-gallery"]',
@@ -22,6 +22,15 @@ const galleryConfigs: GalleryConfig[] = [
     containerSelector: '.hidden-community-gallery-collection',
   },
 ];
+
+//confrim the elements are exist in dom before initializing the gallery controller
+galleryConfigs.forEach((config) => {
+  const element = document.querySelector(config.triggerSelector);
+  if (!element) {
+    console.error(`GalleryController: element not found — ${config.triggerSelector}`);
+    return;
+  }
+});
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
