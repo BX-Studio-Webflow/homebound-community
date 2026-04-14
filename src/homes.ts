@@ -7,6 +7,7 @@ import '$styles/lot-map.css';
 import { ExploreTabsController } from '$utils/explore-tabs';
 /*import { type GalleryConfig } from '$utils/gallery';*/
 import { HomeMapController } from '$utils/home-map';
+import { type LotMapConfig, LotMapController } from '$utils/lot-map';
 import { type StickyNavConfig, StickyNavController } from '$utils/sticky-nav';
 
 /*const galleryConfigs: GalleryConfig[] = [
@@ -49,6 +50,24 @@ const stickyNavConfig: StickyNavConfig = {
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
+  const lot = document.querySelector('[dev-target="one-lot"]');
+  if (!lot) {
+    console.error('LotMapController: No [dev-target="one-lot"] found.');
+    return;
+  }
+  const lotNumber = lot.getAttribute('lot-number');
+  if (!lotNumber) {
+    console.error('LotMapController: No data-lot-number found.');
+    return;
+  }
+  const lotMapConfig: LotMapConfig = {
+    focusLotNumber: lotNumber,
+    isZoomMode: true,
+    focusZoomFactor: 2.5,
+  };
+
+  const lotMapController = new LotMapController(lotMapConfig);
+  lotMapController.init();
   const stickyNavController = new StickyNavController(stickyNavConfig);
   stickyNavController.init();
 

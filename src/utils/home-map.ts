@@ -1,14 +1,16 @@
 /**
  * Home floor-map hover controller.
  *
- * Reads inline SVG markup from a hidden holder element, injects it into a
- * target wrapper, and applies hover/active classes to room groups.
+ * Reads inline SVG markup from hidden holder elements, injects each into its
+ * matching target wrapper, and applies hover/active classes to room groups.
+ * Both first-floor and second-floor SVGs are injected independently so each
+ * floor works regardless of tab visibility order.
  *
  * **Required Webflow attributes**
  *
  * | Element | Attribute | Value |
  * |---|---|---|
- * | Tab body wrapping one floor | `dev-target` | `explore-tab-body` |
+ * | Tab body wrapping both floors | `dev-target` | `explore-tab-body` |
  * | Hidden HTML Embed with raw SVG text (1st floor) | `dev-target` | `first-floor-svg-text-holder` |
  * | Hidden HTML Embed with raw SVG text (2nd floor) | `dev-target` | `second-floor-svg-text-holder` |
  * | Empty wrapper where SVG is rendered (1st floor) | `dev-target` | `first-floor-svg-target-wrapper` |
@@ -20,7 +22,9 @@
  * - `.home-map__shape--active`  — hovered room `<g>`
  */
 export class HomeMapController {
-  private svgEl: SVGSVGElement | null = null;
+  private static readonly FLOORS = ['first-floor', 'second-floor'] as const;
+
+  private svgEls: SVGSVGElement[] = [];
   private activeGroup: SVGGElement | null = null;
   private readonly root: ParentNode;
 
@@ -33,14 +37,14 @@ export class HomeMapController {
    * Must be called after the DOM is ready (e.g. inside `window.Webflow.push`).
    */
   init(): void {
-    if (!this.injectSvg()) return;
+    if (!this.injectSvgs()) return;
     this.bindSvgHover();
   }
 
   /**
-   * Initialises all map roots on the page (first-floor and second-floor tabs).
-   * Each `[dev-target="explore-tab-body"]` that contains a holder element
-   * becomes its own {@link HomeMapController} instance.
+   * Initialises all map roots on the page.
+   * Each `[dev-target="explore-tab-body"]` that contains at least one holder
+   * element becomes its own {@link HomeMapController} instance.
    */
   static initAll(rootSelector = '[dev-target="explore-tab-body"]'): void {
     const holderSelector =
@@ -59,83 +63,89 @@ export class HomeMapController {
   }
 
   /**
-   * Reads SVG markup from the floor's text holder, sanitises it,
-   * and injects it into the corresponding target wrapper.
+   * Iterates over each floor, reads SVG markup from its text holder,
+   * sanitises it, and injects it into the corresponding target wrapper.
    *
-   * @returns `true` on success, `false` if a required element is missing or
-   *   the holder does not contain valid SVG markup.
+   * @returns `true` if at least one floor was injected successfully.
    */
-  private injectSvg(): boolean {
-    const textHolder = this.root.querySelector<HTMLElement>(
-      '[dev-target="first-floor-svg-text-holder"], [dev-target="second-floor-svg-text-holder"]'
-    );
-    const targetWrapper = this.root.querySelector<HTMLElement>(
-      '[dev-target="first-floor-svg-target-wrapper"], [dev-target="second-floor-svg-target-wrapper"]'
-    );
+  private injectSvgs(): boolean {
+    let injected = false;
 
-    if (!textHolder) {
-      console.error(
-        'HomeMapController: No [dev-target="first-floor-svg-text-holder"] or ' +
-          '[dev-target="second-floor-svg-text-holder"] element found.'
+    for (const floor of HomeMapController.FLOORS) {
+      const textHolder = this.root.querySelector<HTMLElement>(
+        `[dev-target="${floor}-svg-text-holder"]`
       );
-      return false;
-    }
-
-    if (!targetWrapper) {
-      console.error(
-        'HomeMapController: No [dev-target="first-floor-svg-target-wrapper"] or ' +
-          '[dev-target="second-floor-svg-target-wrapper"] element found.'
+      const targetWrapper = this.root.querySelector<HTMLElement>(
+        `[dev-target="${floor}-svg-target-wrapper"]`
       );
-      return false;
+
+      if (!textHolder || !targetWrapper) {
+        console.error(
+          `HomeMapController: Missing element for "${floor}". ` +
+            `holder=${!!textHolder}, wrapper=${!!targetWrapper}`
+        );
+        continue;
+      }
+
+      const rawMarkup = textHolder.textContent?.trim() ?? '';
+
+      if (!rawMarkup.includes('<svg')) {
+        console.error(`HomeMapController: "${floor}" SVG text holder does not contain SVG markup.`);
+        continue;
+      }
+
+      // Webflow's HTML Embed editor sometimes inserts a stray digit before the
+      // opening quote of an attribute value (e.g. width=0"1162.54"). Strip them.
+      const svgMarkup = rawMarkup.replace(/=\d+"/g, '="');
+
+      targetWrapper.innerHTML = svgMarkup;
+      const svgEl = targetWrapper.querySelector<SVGSVGElement>('svg');
+
+      if (!svgEl) {
+        console.error(
+          `HomeMapController: "${floor}" SVG injection failed — no <svg> found after injection.`
+        );
+        continue;
+      }
+
+      svgEl.classList.add('home-map__svg');
+      svgEl.style.width = '100%';
+      svgEl.style.height = '100%';
+      svgEl.style.display = 'block';
+      this.svgEls.push(svgEl);
+      injected = true;
     }
 
-    const rawMarkup = textHolder.textContent?.trim() ?? '';
-
-    if (!rawMarkup.includes('<svg')) {
-      console.error('HomeMapController: SVG text holder does not contain SVG markup.');
-      return false;
+    if (!injected) {
+      console.error('HomeMapController: No floor SVGs were successfully injected.');
     }
 
-    // Webflow's HTML Embed editor sometimes inserts a stray digit before the
-    // opening quote of an attribute value (e.g. width=0"1162.54"). Strip them.
-    const svgMarkup = rawMarkup.replace(/=\d+"/g, '="');
-
-    targetWrapper.innerHTML = svgMarkup;
-    this.svgEl = targetWrapper.querySelector<SVGSVGElement>('svg');
-
-    if (!this.svgEl) {
-      console.error('HomeMapController: SVG injection failed — no <svg> found after injection.');
-      return false;
-    }
-
-    this.svgEl.classList.add('home-map__svg');
-    this.svgEl.style.width = '100%';
-    this.svgEl.style.height = '100%';
-    this.svgEl.style.display = 'block';
-    return true;
+    return injected;
   }
 
   /**
-   * Auto-discovers all interactive room `<g>` groups in the SVG and attaches
-   * `mouseenter`/`mouseleave` listeners. Non-interactive groups (hatches,
-   * walls, doors, etc.) are excluded via {@link isInteractiveGroup}.
+   * Auto-discovers all interactive room `<g>` groups in every injected SVG
+   * and attaches `mouseenter`/`mouseleave` listeners. Non-interactive groups
+   * (hatches, walls, doors, etc.) are excluded via {@link isInteractiveGroup}.
    */
   private bindSvgHover(): void {
-    if (!this.svgEl) {
-      console.error('HomeMapController: bindSvgHover called but svgEl is null.');
+    if (!this.svgEls.length) {
+      console.error('HomeMapController: bindSvgHover called but no SVGs are injected.');
       return;
     }
 
-    const interactiveGroups = Array.from(this.svgEl.querySelectorAll<SVGGElement>('g[id]')).filter(
-      (group) => this.isInteractiveGroup(group.id)
-    );
+    for (const svgEl of this.svgEls) {
+      const interactiveGroups = Array.from(svgEl.querySelectorAll<SVGGElement>('g[id]')).filter(
+        (group) => this.isInteractiveGroup(group.id)
+      );
 
-    interactiveGroups.forEach((group) => {
-      group.classList.add('home-map__shape');
-      group.style.cursor = 'pointer';
-      group.addEventListener('mouseenter', () => this.setActive(group));
-      group.addEventListener('mouseleave', () => this.clearActive(group));
-    });
+      interactiveGroups.forEach((group) => {
+        group.classList.add('home-map__shape');
+        group.style.cursor = 'pointer';
+        group.addEventListener('mouseenter', () => this.setActive(group));
+        group.addEventListener('mouseleave', () => this.clearActive(group));
+      });
+    }
   }
 
   /**
