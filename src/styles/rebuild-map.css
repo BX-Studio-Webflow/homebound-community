@@ -28,3 +28,45 @@
   color: #657839;
   font-weight: 600;
 }
+
+.rebuild-map__tooltip {
+  position: absolute;
+  z-index: 12;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-2px);
+  transition:
+    opacity 0.12s ease,
+    transform 0.12s ease;
+  min-width: 128px;
+  background: #f6f6f4;
+  border: 1px solid #d1d2cd;
+  border-radius: 3px;
+  padding: 4px 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.rebuild-map__tooltip.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rebuild-map__tooltip-title {
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #444642;
+  white-space: nowrap;
+}
+
+.rebuild-map__tooltip-subtitle {
+  font-size: 9px;
+  line-height: 1.2;
+  color: #696b67;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.rebuild-map__tooltip-subtitle:empty {
+  display: none;
+}

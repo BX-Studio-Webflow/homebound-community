@@ -5345,6 +5345,7 @@
     isPanning = false;
     markerById = /* @__PURE__ */ new Map();
     cardById = /* @__PURE__ */ new Map();
+    tooltipEl = null;
     MIN_ZOOM = 1;
     MAX_ZOOM = 8;
     DISABLE_ZOOM_WITH_MOUSE_SCROLL = true;
@@ -5375,6 +5376,7 @@
       this.svgEl.style.height = "100%";
       this.svgEl.style.display = "block";
       this.svgEl.classList.add("rebuild-map__svg");
+      this.ensureTooltip();
       const viewBoxTokens = this.svgEl.getAttribute("viewBox")?.split(/[\s,]+/).map((token) => Number.parseFloat(token)).filter((token) => Number.isFinite(token));
       if (viewBoxTokens?.length === 4) {
         const [x, y, w, h] = viewBoxTokens;
@@ -5383,6 +5385,18 @@
         this.applyViewBox();
       }
       return true;
+    }
+    ensureTooltip() {
+      const wrapper = this.svgEl?.parentElement;
+      if (!wrapper) return;
+      if (getComputedStyle(wrapper).position === "static") {
+        wrapper.style.position = "relative";
+      }
+      const tooltip = document.createElement("div");
+      tooltip.className = "rebuild-map__tooltip";
+      tooltip.setAttribute("aria-hidden", "true");
+      wrapper.appendChild(tooltip);
+      this.tooltipEl = tooltip;
     }
     bindMarkers() {
       if (!this.svgEl) return;
@@ -5452,6 +5466,7 @@
       this.clearHighlight();
       this.activeId = pointId;
       this.markerById.get(pointId)?.classList.add("rebuild-map__marker--active");
+      this.showTooltip(pointId);
       const card = this.cardById.get(pointId);
       if (card) {
         card.classList.add("rebuild-map__card--active");
@@ -5464,6 +5479,42 @@
       this.activeId = null;
       this.svgEl?.querySelector(".rebuild-map__marker--active")?.classList.remove("rebuild-map__marker--active");
       document.querySelector(".rebuild-map__card--active")?.classList.remove("rebuild-map__card--active");
+      this.hideTooltip();
+    }
+    showTooltip(pointId) {
+      if (!this.svgEl || !this.tooltipEl) return;
+      const marker = this.markerById.get(pointId);
+      const point = MAP_POINTS.find((entry) => entry.id === pointId);
+      if (!marker || !point) return;
+      const markerRect = marker.getBoundingClientRect();
+      const wrapperRect = this.svgEl.parentElement?.getBoundingClientRect();
+      if (!wrapperRect) return;
+      const [title, subtitle] = this.splitLabel(point.label);
+      this.tooltipEl.innerHTML = `
+      <div class="rebuild-map__tooltip-title">${title}</div>
+      <div class="rebuild-map__tooltip-subtitle">${subtitle.toUpperCase()}</div>
+    `;
+      const left = markerRect.left - wrapperRect.left + markerRect.width + 8;
+      const top = markerRect.top - wrapperRect.top - 8;
+      this.tooltipEl.style.left = `${left}px`;
+      this.tooltipEl.style.top = `${top}px`;
+      this.tooltipEl.classList.add("is-visible");
+    }
+    hideTooltip() {
+      this.tooltipEl?.classList.remove("is-visible");
+    }
+    splitLabel(label) {
+      if (label.includes(" - ")) {
+        const [title, subtitle] = label.split(/\s-\s(.+)/);
+        return [title.trim(), subtitle.trim()];
+      }
+      const commaIndex = label.indexOf(",");
+      if (commaIndex >= 0) {
+        const title = label.slice(0, commaIndex).trim();
+        const subtitle = label.slice(commaIndex + 1).trim();
+        return [title, subtitle];
+      }
+      return [label.trim(), ""];
     }
     applyViewBox() {
       const { x, y, w, h } = this.vb;
