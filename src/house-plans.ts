@@ -7,6 +7,7 @@ import { AccordionController } from '$utils/accordion';
 import { type ColorSchemeBinding, ColorSchemeController } from '$utils/color-scheme';
 import { ExploreTabsController } from '$utils/explore-tabs';
 import { type GalleryConfig, GalleryController } from '$utils/gallery';
+import { HomeMapController } from '$utils/home-map';
 import { LotMapController } from '$utils/lot-map';
 import { StickyNavController } from '$utils/sticky-nav';
 
@@ -85,4 +86,6 @@ window.Webflow.push(() => {
 
   const accordionController = new AccordionController();
   accordionController.init();
+
+  HomeMapController.initAll();
 });
