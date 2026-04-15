@@ -145,6 +145,15 @@ export class RebuildMapController {
       marker.addEventListener('mouseenter', () => this.highlight(point.id));
       marker.addEventListener('mouseleave', () => this.clearHighlight());
       marker.addEventListener('mousedown', (event) => event.stopPropagation());
+      marker.addEventListener(
+        'touchstart',
+        (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          this.highlight(point.id, true);
+        },
+        { passive: false }
+      );
       marker.addEventListener('click', () => this.highlight(point.id, true));
     });
   }
@@ -292,11 +301,11 @@ export class RebuildMapController {
   private clampViewBox(): void {
     this.vb.x = Math.max(
       this.originalViewBox.x,
-      Math.min(this.vb.x, this.originalViewBox.w - this.vb.w)
+      Math.min(this.vb.x, this.originalViewBox.x + this.originalViewBox.w - this.vb.w)
     );
     this.vb.y = Math.max(
       this.originalViewBox.y,
-      Math.min(this.vb.y, this.originalViewBox.h - this.vb.h)
+      Math.min(this.vb.y, this.originalViewBox.y + this.originalViewBox.h - this.vb.h)
     );
     this.applyViewBox();
   }
@@ -371,6 +380,81 @@ export class RebuildMapController {
 
     window.addEventListener('mouseup', (event: MouseEvent) => {
       if (!this.isPanning || (event.button !== 0 && event.button !== 1)) return;
+      this.isPanning = false;
+      svg.classList.remove('lot-map__svg--panning');
+    });
+
+    let isTouching = false;
+    let lastDist = 0;
+    let lastMid = { x: 0, y: 0 };
+
+    const touchDist = (touches: TouchList) =>
+      Math.hypot(touches[0].clientX - touches[1].clientX, touches[0].clientY - touches[1].clientY);
+
+    const touchMid = (touches: TouchList) => ({
+      x: (touches[0].clientX + touches[1].clientX) / 2,
+      y: (touches[0].clientY + touches[1].clientY) / 2,
+    });
+
+    svg.addEventListener(
+      'touchstart',
+      (event: TouchEvent) => {
+        event.preventDefault();
+        isTouching = true;
+
+        if (event.touches.length === 2) {
+          this.isPanning = false;
+          lastDist = touchDist(event.touches);
+          lastMid = touchMid(event.touches);
+        } else {
+          this.isPanning = true;
+          startClient = { x: event.touches[0].clientX, y: event.touches[0].clientY };
+          startVb = { ...this.vb };
+          svg.classList.add('lot-map__svg--panning');
+        }
+      },
+      { passive: false }
+    );
+
+    window.addEventListener(
+      'touchmove',
+      (event: TouchEvent) => {
+        if (!isTouching) return;
+        event.preventDefault();
+
+        if (event.touches.length === 2) {
+          this.isPanning = false;
+          svg.classList.remove('lot-map__svg--panning');
+
+          const dist = touchDist(event.touches);
+          const mid = touchMid(event.touches);
+
+          const scale = lastDist / dist;
+          const origin = this.toSvgPoint(mid.x, mid.y);
+          this.zoomAround(scale, origin.x, origin.y);
+
+          const rect = svg.getBoundingClientRect();
+          this.vb.x -= ((mid.x - lastMid.x) / rect.width) * this.vb.w;
+          this.vb.y -= ((mid.y - lastMid.y) / rect.height) * this.vb.h;
+          this.clampViewBox();
+
+          lastDist = dist;
+          lastMid = mid;
+        } else if (event.touches.length === 1 && this.isPanning) {
+          const rect = svg.getBoundingClientRect();
+          const dx = ((event.touches[0].clientX - startClient.x) / rect.width) * startVb.w;
+          const dy = ((event.touches[0].clientY - startClient.y) / rect.height) * startVb.h;
+          this.vb.x = startVb.x - dx;
+          this.vb.y = startVb.y - dy;
+          this.clampViewBox();
+        }
+      },
+      { passive: false }
+    );
+
+    window.addEventListener('touchend', () => {
+      if (!isTouching) return;
+      isTouching = false;
       this.isPanning = false;
       svg.classList.remove('lot-map__svg--panning');
     });
