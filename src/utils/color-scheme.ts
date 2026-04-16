@@ -217,7 +217,7 @@ export class ColorSchemeController {
   }
 
   private preloadContextImageUrls(binding: ColorSchemeBinding): void {
-    const context = binding.context;
+    const { context } = binding;
     if (!context?.imageUrlByContextAndScheme) return;
     if (context.preloadImageUrls === false) return;
 
