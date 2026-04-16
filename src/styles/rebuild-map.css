@@ -1,5 +1,7 @@
 .rebuild-map__marker {
   cursor: pointer;
+  fill: #e4a389 !important;
+  stroke: #ffffff !important;
   transition:
     r 0.15s ease,
     fill 0.15s ease,
