@@ -33,6 +33,8 @@ export interface ColorSchemeContextConfig {
   titleByContextAndScheme?: Record<string, Record<string, string>>;
   /** Optional direct image URL mapping by context token then scheme token. */
   imageUrlByContextAndScheme?: Record<string, Record<string, string>>;
+  /** Preload mapped images to make scheme switches feel instant (default: true). */
+  preloadImageUrls?: boolean;
 }
 
 export interface ColorSchemeControllerConfig {
@@ -50,6 +52,7 @@ export interface ColorSchemeControllerConfig {
  */
 export class ColorSchemeController {
   private hasInit = false;
+  private readonly preloadedImageUrls = new Set<string>();
 
   private readonly config: ColorSchemeControllerConfig;
 
@@ -63,6 +66,8 @@ export class ColorSchemeController {
 
     this.config.bindings.forEach((binding) => {
       if (!binding.schemeButtons.length) return;
+
+      this.preloadContextImageUrls(binding);
 
       const { context } = binding;
       if (context?.contextButtons.length) {
@@ -209,6 +214,24 @@ export class ColorSchemeController {
 
   private hasContextButton(context: ColorSchemeContextConfig, token: string): boolean {
     return context.contextButtons.some((btn) => btn.getAttribute('dev-target') === token);
+  }
+
+  private preloadContextImageUrls(binding: ColorSchemeBinding): void {
+    const context = binding.context;
+    if (!context?.imageUrlByContextAndScheme) return;
+    if (context.preloadImageUrls === false) return;
+
+    Object.values(context.imageUrlByContextAndScheme).forEach((schemeMap) => {
+      Object.values(schemeMap).forEach((imageUrl) => {
+        if (!imageUrl || this.preloadedImageUrls.has(imageUrl)) return;
+
+        this.preloadedImageUrls.add(imageUrl);
+        const image = new Image();
+        image.src = imageUrl;
+        // Trigger decode early to reduce visible delay on first swap.
+        void image.decode?.().catch(() => {});
+      });
+    });
   }
 
   private syncButtonVisuals(binding: ColorSchemeBinding, activeBtn?: HTMLElement): void {
