@@ -35,10 +35,25 @@
       this.hasInit = true;
       this.config.bindings.forEach((binding) => {
         if (!binding.schemeButtons.length) return;
-        const activeBtn = binding.schemeButtons.find((b) => b.classList.contains("is-active"));
-        if (activeBtn) {
-          const token = activeBtn.getAttribute("dev-target");
-          if (token) this.apply(binding, token, activeBtn);
+        const { context } = binding;
+        if (context?.contextButtons.length) {
+          const initialContextToken = this.getInitialContextToken(context);
+          if (initialContextToken) this.setActiveContextToken(context, initialContextToken);
+          context.contextButtons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const contextToken = btn.getAttribute("dev-target");
+              if (!contextToken) return;
+              this.setActiveContextToken(context, contextToken);
+              const shouldResetScheme = context.resetSchemeOnContextChange ?? true;
+              const nextSchemeToken = shouldResetScheme ? this.getDefaultSchemeToken(binding) : this.getActiveSchemeToken(binding) ?? this.getDefaultSchemeToken(binding);
+              if (!nextSchemeToken) return;
+              this.apply(binding, nextSchemeToken, contextToken);
+            });
+          });
+        }
+        const initialSchemeToken = this.getDefaultSchemeToken(binding);
+        if (initialSchemeToken) {
+          this.apply(binding, initialSchemeToken, this.getActiveContextToken(binding.context));
         } else {
           this.syncButtonVisuals(binding);
         }
@@ -49,22 +64,72 @@
               console.error("ColorSchemeController: scheme button is missing dev-target attribute.");
               return;
             }
-            this.apply(binding, token, btn);
+            this.apply(binding, token, this.getActiveContextToken(binding.context));
           });
         });
       });
     }
-    apply(binding, token, activeBtn) {
-      const schemeImg = binding.schemeImagesByToken.get(token);
-      if (!schemeImg) {
-        console.error(`ColorSchemeController: no hidden scheme image for token "${token}".`);
+    apply(binding, token, contextToken) {
+      const activeBtn = binding.schemeButtons.find((btn) => btn.getAttribute("dev-target") === token);
+      if (!activeBtn) {
+        console.error(`ColorSchemeController: no scheme button found for token "${token}".`);
         return;
       }
-      binding.forwardImage.src = schemeImg.src;
-      if (schemeImg.srcset) binding.forwardImage.srcset = schemeImg.srcset;
-      if (schemeImg.sizes) binding.forwardImage.sizes = schemeImg.sizes;
-      if (schemeImg.alt) binding.forwardImage.alt = schemeImg.alt;
+      const contextualImageUrl = contextToken ? binding.context?.imageUrlByContextAndScheme?.[contextToken]?.[token] : void 0;
+      if (contextualImageUrl) {
+        binding.forwardImage.src = contextualImageUrl;
+        binding.forwardImage.removeAttribute("srcset");
+        binding.forwardImage.removeAttribute("sizes");
+      } else {
+        const schemeImg = binding.schemeImagesByToken.get(token);
+        if (!schemeImg) {
+          console.error(`ColorSchemeController: no hidden scheme image for token "${token}".`);
+          return;
+        }
+        binding.forwardImage.src = schemeImg.src;
+        if (schemeImg.srcset) binding.forwardImage.srcset = schemeImg.srcset;
+        if (schemeImg.sizes) binding.forwardImage.sizes = schemeImg.sizes;
+        if (schemeImg.alt) binding.forwardImage.alt = schemeImg.alt;
+      }
+      if (contextToken && binding.context?.titleElement && binding.context?.titleByContextAndScheme) {
+        const title = binding.context.titleByContextAndScheme[contextToken]?.[token];
+        if (title) binding.context.titleElement.textContent = title;
+      }
       this.syncButtonVisuals(binding, activeBtn);
+    }
+    getDefaultSchemeToken(binding) {
+      const contextDefault = binding.context?.defaultSchemeToken;
+      if (contextDefault && this.hasSchemeButton(binding, contextDefault)) return contextDefault;
+      const activeToken = this.getActiveSchemeToken(binding);
+      if (activeToken) return activeToken;
+      return binding.schemeButtons.find((btn) => btn.getAttribute("dev-target"))?.getAttribute("dev-target") ?? void 0;
+    }
+    getActiveSchemeToken(binding) {
+      return binding.schemeButtons.find((btn) => btn.classList.contains("is-active"))?.getAttribute("dev-target") ?? void 0;
+    }
+    hasSchemeButton(binding, token) {
+      return binding.schemeButtons.some((btn) => btn.getAttribute("dev-target") === token);
+    }
+    getInitialContextToken(context) {
+      if (context.defaultContextToken && this.hasContextButton(context, context.defaultContextToken)) {
+        return context.defaultContextToken;
+      }
+      const activeContextToken = context.contextButtons.find((btn) => btn.classList.contains("is-active"))?.getAttribute("dev-target") ?? void 0;
+      if (activeContextToken) return activeContextToken;
+      return context.contextButtons.find((btn) => btn.getAttribute("dev-target"))?.getAttribute("dev-target") ?? void 0;
+    }
+    getActiveContextToken(context) {
+      if (!context) return void 0;
+      return context.contextButtons.find((btn) => btn.classList.contains("is-active"))?.getAttribute("dev-target") ?? void 0;
+    }
+    setActiveContextToken(context, token) {
+      context.contextButtons.forEach((btn) => {
+        const btnToken = btn.getAttribute("dev-target") ?? "";
+        btn.classList.toggle("is-active", btnToken === token);
+      });
+    }
+    hasContextButton(context, token) {
+      return context.contextButtons.some((btn) => btn.getAttribute("dev-target") === token);
     }
     syncButtonVisuals(binding, activeBtn) {
       const { activeStrokeWidth, inactiveStrokeWidth, activeCircleRadius, inactiveCircleRadius } = this.getVisuals(binding);

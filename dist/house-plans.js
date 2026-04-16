@@ -35,10 +35,25 @@
       this.hasInit = true;
       this.config.bindings.forEach((binding) => {
         if (!binding.schemeButtons.length) return;
-        const activeBtn = binding.schemeButtons.find((b) => b.classList.contains("is-active"));
-        if (activeBtn) {
-          const token = activeBtn.getAttribute("dev-target");
-          if (token) this.apply(binding, token, activeBtn);
+        const { context } = binding;
+        if (context?.contextButtons.length) {
+          const initialContextToken = this.getInitialContextToken(context);
+          if (initialContextToken) this.setActiveContextToken(context, initialContextToken);
+          context.contextButtons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const contextToken = btn.getAttribute("dev-target");
+              if (!contextToken) return;
+              this.setActiveContextToken(context, contextToken);
+              const shouldResetScheme = context.resetSchemeOnContextChange ?? true;
+              const nextSchemeToken = shouldResetScheme ? this.getDefaultSchemeToken(binding) : this.getActiveSchemeToken(binding) ?? this.getDefaultSchemeToken(binding);
+              if (!nextSchemeToken) return;
+              this.apply(binding, nextSchemeToken, contextToken);
+            });
+          });
+        }
+        const initialSchemeToken = this.getDefaultSchemeToken(binding);
+        if (initialSchemeToken) {
+          this.apply(binding, initialSchemeToken, this.getActiveContextToken(binding.context));
         } else {
           this.syncButtonVisuals(binding);
         }
@@ -49,22 +64,72 @@
               console.error("ColorSchemeController: scheme button is missing dev-target attribute.");
               return;
             }
-            this.apply(binding, token, btn);
+            this.apply(binding, token, this.getActiveContextToken(binding.context));
           });
         });
       });
     }
-    apply(binding, token, activeBtn) {
-      const schemeImg = binding.schemeImagesByToken.get(token);
-      if (!schemeImg) {
-        console.error(`ColorSchemeController: no hidden scheme image for token "${token}".`);
+    apply(binding, token, contextToken) {
+      const activeBtn = binding.schemeButtons.find((btn) => btn.getAttribute("dev-target") === token);
+      if (!activeBtn) {
+        console.error(`ColorSchemeController: no scheme button found for token "${token}".`);
         return;
       }
-      binding.forwardImage.src = schemeImg.src;
-      if (schemeImg.srcset) binding.forwardImage.srcset = schemeImg.srcset;
-      if (schemeImg.sizes) binding.forwardImage.sizes = schemeImg.sizes;
-      if (schemeImg.alt) binding.forwardImage.alt = schemeImg.alt;
+      const contextualImageUrl = contextToken ? binding.context?.imageUrlByContextAndScheme?.[contextToken]?.[token] : void 0;
+      if (contextualImageUrl) {
+        binding.forwardImage.src = contextualImageUrl;
+        binding.forwardImage.removeAttribute("srcset");
+        binding.forwardImage.removeAttribute("sizes");
+      } else {
+        const schemeImg = binding.schemeImagesByToken.get(token);
+        if (!schemeImg) {
+          console.error(`ColorSchemeController: no hidden scheme image for token "${token}".`);
+          return;
+        }
+        binding.forwardImage.src = schemeImg.src;
+        if (schemeImg.srcset) binding.forwardImage.srcset = schemeImg.srcset;
+        if (schemeImg.sizes) binding.forwardImage.sizes = schemeImg.sizes;
+        if (schemeImg.alt) binding.forwardImage.alt = schemeImg.alt;
+      }
+      if (contextToken && binding.context?.titleElement && binding.context?.titleByContextAndScheme) {
+        const title = binding.context.titleByContextAndScheme[contextToken]?.[token];
+        if (title) binding.context.titleElement.textContent = title;
+      }
       this.syncButtonVisuals(binding, activeBtn);
+    }
+    getDefaultSchemeToken(binding) {
+      const contextDefault = binding.context?.defaultSchemeToken;
+      if (contextDefault && this.hasSchemeButton(binding, contextDefault)) return contextDefault;
+      const activeToken = this.getActiveSchemeToken(binding);
+      if (activeToken) return activeToken;
+      return binding.schemeButtons.find((btn) => btn.getAttribute("dev-target"))?.getAttribute("dev-target") ?? void 0;
+    }
+    getActiveSchemeToken(binding) {
+      return binding.schemeButtons.find((btn) => btn.classList.contains("is-active"))?.getAttribute("dev-target") ?? void 0;
+    }
+    hasSchemeButton(binding, token) {
+      return binding.schemeButtons.some((btn) => btn.getAttribute("dev-target") === token);
+    }
+    getInitialContextToken(context) {
+      if (context.defaultContextToken && this.hasContextButton(context, context.defaultContextToken)) {
+        return context.defaultContextToken;
+      }
+      const activeContextToken = context.contextButtons.find((btn) => btn.classList.contains("is-active"))?.getAttribute("dev-target") ?? void 0;
+      if (activeContextToken) return activeContextToken;
+      return context.contextButtons.find((btn) => btn.getAttribute("dev-target"))?.getAttribute("dev-target") ?? void 0;
+    }
+    getActiveContextToken(context) {
+      if (!context) return void 0;
+      return context.contextButtons.find((btn) => btn.classList.contains("is-active"))?.getAttribute("dev-target") ?? void 0;
+    }
+    setActiveContextToken(context, token) {
+      context.contextButtons.forEach((btn) => {
+        const btnToken = btn.getAttribute("dev-target") ?? "";
+        btn.classList.toggle("is-active", btnToken === token);
+      });
+    }
+    hasContextButton(context, token) {
+      return context.contextButtons.some((btn) => btn.getAttribute("dev-target") === token);
     }
     syncButtonVisuals(binding, activeBtn) {
       const { activeStrokeWidth, inactiveStrokeWidth, activeCircleRadius, inactiveCircleRadius } = this.getVisuals(binding);
@@ -6387,32 +6452,77 @@
     const slideEls = Array.from(
       document.querySelectorAll('[dev-target="other-swiper-slide"]')
     );
+    const schemeTokens = [
+      "white-scheme",
+      "soft-cream-scheme",
+      "ochre-scheme",
+      "charcoal-scheme"
+    ];
+    const schemeTitleByToken = {
+      "white-scheme": "Warm Transitional",
+      "soft-cream-scheme": "Light Transitional",
+      "ochre-scheme": "Bold Transitional",
+      "charcoal-scheme": "Refined Transitional"
+    };
+    const interiorImageUrls = {
+      "kitchen-interior": {
+        "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9b0ab4a5be30bcf9b3f_Lakeside_Plan%202_A_Kitchen.jpg",
+        "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9cc0f07ad276ee8c9de_Lakeside_Plan%202_B_Kitchen.jpg",
+        "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9ec00ea527abfe075ed_Lakeside_Plan2_C_Kitchen.jpg",
+        "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba27d22c956cb24df231_Lakeside%20Plan%202_D_Kitchen.jpg"
+      },
+      "bedroom-interior": {
+        "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9af1c8c47abb0a2e9fc_Lakeside_Plan%202_A_Bedroom.jpg",
+        "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9ccf135e0a6dcc36535_Lakeside_Plan%202_B_Primary_Bedroom.jpg",
+        "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9ebc8de67c028cec4c0_Lakeside_Plan2_C_Primary_Bedroom.jpg",
+        "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba274efd57e0baa871bf_Lakeside%20Plan%202_D_Primary_Bed.jpg"
+      },
+      "living-interior": {
+        "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9b02410ba14aaa226d5_Lakeside_Plan%202_A_Great.jpg",
+        "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9cc37c90f8bf7028f7e_Lakeside_Plan%202_B_Great.jpg",
+        "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9eb469a39c917f2e99b_Lakeside_Plan2_C_Great.jpg",
+        "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba28da5822300a5f5b79_Lakeside%20Plan%202_D_Great.jpg"
+      },
+      "bathroom-interior": {
+        "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9abf8fc3a0c688c5407_Lakeside_Plan%202_A_Primary_Bath.jpg",
+        "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9c7d96ba1672ecc593c_Lakeside_Plan%202_B_Primary_Bath.jpg",
+        "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9e7cea72de2d80ee381_Lakeside_Plan2_C_Primary_Bath.jpg",
+        "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba225f0fa8776fb8292f_Lakeside%20Plan%202_D_Primary_Bath.jpg"
+      }
+    };
+    const packageTitleByInteriorAndScheme = {
+      "kitchen-interior": { ...schemeTitleByToken },
+      "bedroom-interior": { ...schemeTitleByToken },
+      "living-interior": { ...schemeTitleByToken },
+      "bathroom-interior": { ...schemeTitleByToken }
+    };
+    const defaultInteriorToken = "kitchen-interior";
+    const defaultSchemeToken = "white-scheme";
+    const schemeButtonSelector = schemeTokens.map((token) => `[dev-target="${token}"]`).join(",");
+    const interiorButtons = Array.from(
+      document.querySelectorAll('[dev-target$="-interior"]')
+    );
     const colorSchemeBindings = slideEls.flatMap((slide2) => {
-      const forwardImage = slide2.querySelector('img[dev-target="forward-image"]');
+      const forwardImage = slide2.querySelector('img[dev-target="interior-image"]');
       if (!forwardImage) return [];
-      const schemeButtons = Array.from(
-        slide2.querySelectorAll('[dev-target$="-scheme"]')
-      );
+      const packageTitleEl = slide2.querySelector('[dev-target="package-title"]');
+      const schemeButtons = Array.from(slide2.querySelectorAll(schemeButtonSelector));
       if (!schemeButtons.length) return [];
       const schemeImagesByToken = /* @__PURE__ */ new Map();
-      schemeButtons.forEach((btn) => {
-        const token = btn.getAttribute("dev-target");
-        if (!token) return;
-        const schemeImg = slide2.querySelector(`img[dev-target="${token}-image"]`);
-        if (!schemeImg) {
-          console.error(
-            `ColorSchemeController (house-plans): no hidden scheme image for token "${token}".`
-          );
-          return;
-        }
-        schemeImagesByToken.set(token, schemeImg);
-      });
-      if (!schemeImagesByToken.size) return [];
       return [
         {
           forwardImage,
           schemeButtons,
-          schemeImagesByToken
+          schemeImagesByToken,
+          context: {
+            contextButtons: interiorButtons,
+            defaultContextToken: defaultInteriorToken,
+            defaultSchemeToken,
+            resetSchemeOnContextChange: true,
+            titleElement: packageTitleEl ?? void 0,
+            titleByContextAndScheme: packageTitleByInteriorAndScheme,
+            imageUrlByContextAndScheme: interiorImageUrls
+          }
         }
       ];
     });
