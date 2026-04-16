@@ -31,8 +31,16 @@ const TRIGGER_TO_PANEL: Record<string, string> = {
   'explore-homes-trigger': 'explore-homes-tab',
 };
 
+interface ExploreTabsOptions {
+  isHousePlansGallery?: boolean;
+  firstTabSelector?: string;
+  secondTabSelector?: string;
+}
+
 export class ExploreTabsController {
   private activeTrigger: string | null = null;
+
+  constructor(private readonly options: ExploreTabsOptions = {}) {}
 
   /**
    * Initialises the controller: wires tab triggers to panels.
@@ -103,6 +111,22 @@ export class ExploreTabsController {
       panel?.classList.toggle('hide', target !== panelTarget);
     });
 
+    this.toggleHousePlansCompanionTabs(triggerTarget);
+
     this.activeTrigger = triggerTarget;
+  }
+
+  private toggleHousePlansCompanionTabs(triggerTarget: string): void {
+    if (!this.options.isHousePlansGallery) return;
+    if (!this.options.firstTabSelector || !this.options.secondTabSelector) return;
+
+    const firstTab = document.querySelector<HTMLElement>(this.options.firstTabSelector);
+    const secondTab = document.querySelector<HTMLElement>(this.options.secondTabSelector);
+
+    if (!firstTab || !secondTab) return;
+
+    const isExplorePlansActive = triggerTarget === 'explore-plans-trigger';
+    firstTab.classList.toggle('hide', !isExplorePlansActive);
+    secondTab.classList.toggle('hide', isExplorePlansActive);
   }
 }

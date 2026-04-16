@@ -36,7 +36,11 @@ window.Webflow.push(() => {
   const galleryController = new GalleryController(galleryConfigs);
   galleryController.init();
 
-  const exploreTabsController = new ExploreTabsController();
+  const exploreTabsController = new ExploreTabsController({
+    isHousePlansGallery: true,
+    firstTabSelector: '[dev-target="first-tab"]',
+    secondTabSelector: '[dev-target="second-tab"]',
+  });
   exploreTabsController.init();
 
   const slideEls = Array.from(
