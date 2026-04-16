@@ -52,7 +52,11 @@
     box-shadow 0.15s ease;
 }
 
-.home-map__shape--active {
-  fill: rgba(208, 214, 161, 0.72);
-  stroke: rgba(95, 109, 55, 0.9);
+.home-map__shape.home-map__shape--active,
+.home-map__shape.home-map__shape--active * {
+  fill: rgba(208, 214, 161, 0.72) !important;
+  stroke: rgba(95, 109, 55, 0.9) !important;
+  stroke-width: 1.5px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
