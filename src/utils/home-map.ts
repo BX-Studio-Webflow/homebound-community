@@ -32,13 +32,18 @@
  */
 export class HomeMapController {
   private static readonly FLOORS = ['first-floor', 'second-floor'] as const;
+  private readonly floors: ReadonlyArray<(typeof HomeMapController.FLOORS)[number]>;
 
   private svgEls: SVGSVGElement[] = [];
   private activeFeature: string | null = null;
   private readonly root: ParentNode;
 
-  constructor(root: ParentNode = document) {
+  constructor(
+    root: ParentNode = document,
+    floors: ReadonlyArray<(typeof HomeMapController.FLOORS)[number]> = HomeMapController.FLOORS
+  ) {
     this.root = root;
+    this.floors = floors;
   }
 
   /**
@@ -56,7 +61,10 @@ export class HomeMapController {
    * Each `[dev-target="explore-tab-body"]` that contains at least one holder
    * element becomes its own {@link HomeMapController} instance.
    */
-  static initAll(rootSelector = '[dev-target="explore-tab-body"]'): void {
+  static initAll(
+    rootSelector = '[dev-target="explore-tab-body"]',
+    floors: ReadonlyArray<(typeof HomeMapController.FLOORS)[number]> = HomeMapController.FLOORS
+  ): void {
     const holderSelector =
       '[dev-target="first-floor-svg-text-holder"], [dev-target="second-floor-svg-text-holder"]';
 
@@ -65,11 +73,11 @@ export class HomeMapController {
     );
 
     if (!roots.length) {
-      new HomeMapController(document).init();
+      new HomeMapController(document, floors).init();
       return;
     }
 
-    roots.forEach((root) => new HomeMapController(root).init());
+    roots.forEach((root) => new HomeMapController(root, floors).init());
   }
 
   /**
@@ -88,6 +96,64 @@ export class HomeMapController {
     return svgId.toLowerCase();
   }
 
+  private static escapeRegExp(value: string): string {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  /**
+   * Prevent cross-SVG style collisions by namespacing auto-generated classes
+   * (e.g. `.cls-1`) per floor before event wiring runs.
+   */
+  private namespaceSvgClasses(
+    svgEl: SVGSVGElement,
+    floor: (typeof HomeMapController.FLOORS)[number]
+  ): void {
+    const classMap = new Map<string, string>();
+    const prefix = `hm-${floor}-`;
+
+    svgEl.querySelectorAll<SVGElement>('[class]').forEach((el) => {
+      const classAttr = el.getAttribute('class');
+      if (!classAttr) return;
+
+      classAttr
+        .split(/\s+/)
+        .map((token) => token.trim())
+        .filter(Boolean)
+        .forEach((token) => {
+          if (!token.startsWith('cls-')) return;
+          if (classMap.has(token)) return;
+          classMap.set(token, `${prefix}${token}`);
+        });
+    });
+
+    if (!classMap.size) return;
+
+    svgEl.querySelectorAll<SVGElement>('[class]').forEach((el) => {
+      const classAttr = el.getAttribute('class');
+      if (!classAttr) return;
+
+      const namespaced = classAttr
+        .split(/\s+/)
+        .map((token) => token.trim())
+        .filter(Boolean)
+        .map((token) => classMap.get(token) ?? token);
+
+      el.setAttribute('class', namespaced.join(' '));
+    });
+
+    svgEl.querySelectorAll('style').forEach((styleEl) => {
+      let cssText = styleEl.textContent ?? '';
+      classMap.forEach((namespacedClass, originalClass) => {
+        const classSelector = new RegExp(
+          `\\.${HomeMapController.escapeRegExp(originalClass)}(?![\\w-])`,
+          'g'
+        );
+        cssText = cssText.replace(classSelector, `.${namespacedClass}`);
+      });
+      styleEl.textContent = cssText;
+    });
+  }
+
   /**
    * Iterates over each floor, reads SVG markup from its text holder,
    * sanitises it, and injects it into the corresponding target wrapper.
@@ -97,7 +163,7 @@ export class HomeMapController {
   private injectSvgs(): boolean {
     let injected = false;
 
-    for (const floor of HomeMapController.FLOORS) {
+    for (const floor of this.floors) {
       const textHolder = this.root.querySelector<HTMLElement>(
         `[dev-target="${floor}-svg-text-holder"]`
       );
@@ -134,6 +200,7 @@ export class HomeMapController {
         continue;
       }
 
+      this.namespaceSvgClasses(svgEl, floor);
       svgEl.classList.add('home-map__svg');
       svgEl.style.width = '100%';
       svgEl.style.height = '100%';

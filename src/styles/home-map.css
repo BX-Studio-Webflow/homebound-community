@@ -7,6 +7,11 @@
 .home-map__svg {
   user-select: none;
   -webkit-user-select: none;
+  shape-rendering: geometricPrecision;
+}
+
+.home-map__svg text {
+  text-rendering: geometricPrecision;
 }
 
 /* ── SVG room shape highlight ────────────────────────────────────────── */

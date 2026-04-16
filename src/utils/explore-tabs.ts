@@ -39,8 +39,11 @@ interface ExploreTabsOptions {
 
 export class ExploreTabsController {
   private activeTrigger: string | null = null;
+  private readonly options: ExploreTabsOptions;
 
-  constructor(private readonly options: ExploreTabsOptions = {}) {}
+  constructor(options: ExploreTabsOptions = {}) {
+    this.options = options;
+  }
 
   /**
    * Initialises the controller: wires tab triggers to panels.
@@ -123,7 +126,12 @@ export class ExploreTabsController {
     const firstTab = document.querySelector<HTMLElement>(this.options.firstTabSelector);
     const secondTab = document.querySelector<HTMLElement>(this.options.secondTabSelector);
 
-    if (!firstTab || !secondTab) return;
+    if (!firstTab || !secondTab) {
+      console.error(
+        'ExploreTabsController: No [dev-target="first-tab"] or [dev-target="second-tab"] found.'
+      );
+      return;
+    }
 
     const isExplorePlansActive = triggerTarget === 'explore-plans-trigger';
     firstTab.classList.toggle('hide', !isExplorePlansActive);

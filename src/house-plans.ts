@@ -1,6 +1,7 @@
 import '$styles/accordion.css';
 import '$styles/explore-tabs.css';
 import '$styles/gallery.css';
+import '$styles/home-map.css';
 import '$styles/lot-map.css';
 
 import { AccordionController } from '$utils/accordion';
