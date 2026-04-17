@@ -61,7 +61,6 @@
 .home-map__shape.home-map__shape--active * {
   fill: #f7e9d5 !important;
   stroke: rgba(95, 109, 55, 0.9) !important;
-  stroke-width: 1.5px !important;
   opacity: 1 !important;
   visibility: visible !important;
 }

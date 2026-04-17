@@ -8,8 +8,9 @@
  *
  * **Naming convention**
  *
- * The CMS card's `id` value must match the SVG highlight group's `id` exactly.
- * Example: card `id="highlight-garage"` maps to
+ * The CMS card's `feature` value should match the SVG highlight group's `id`
+ * exactly. Card `id` is supported as a fallback.
+ * Example: card `feature="highlight-garage"` maps to
  * `<g id="highlight-garage" data-attribute="feature">...</g>`.
  *
  * **Required Webflow attributes**
@@ -22,7 +23,7 @@
  * | Empty wrapper for rendered SVG (1st) | `dev-target` | `first-floor-svg-target-wrapper` |
  * | Empty wrapper for rendered SVG (2nd) | `dev-target` | `second-floor-svg-target-wrapper` |
  * | Each CMS feature card | `dev-target` | `feature-collection-item` |
- * | Each CMS feature card | `id` | highlight id matching the SVG group id |
+ * | Each CMS feature card | `feature` | highlight id matching the SVG group id |
  *
  * **CSS classes applied (style in home-map.css)**
  * - `.home-map__svg`             — injected `<svg>` element
@@ -82,6 +83,17 @@ export class HomeMapController {
 
   private static escapeRegExp(value: string): string {
     return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  /**
+   * Resolves the highlight identifier from a CMS card.
+   * Prefers `feature`, then falls back to `id` for backward compatibility.
+   */
+  private getCardHighlightId(card: HTMLElement): string | null {
+    const featureValue = card.getAttribute('feature')?.trim();
+    if (featureValue) return featureValue;
+    const idValue = card.id.trim();
+    return idValue || null;
   }
 
   /**
@@ -227,23 +239,19 @@ export class HomeMapController {
 
   /**
    * Attaches `mouseenter`/`mouseleave` listeners to CMS feature cards so
-   * hovering a card highlights the corresponding SVG group by matching IDs.
+   * hovering a card highlights the corresponding SVG group by matching
+   * `feature` (with `id` as fallback).
    */
   private bindCardHover(): void {
-    const cards = this.root.querySelectorAll<HTMLElement>(
-      '[dev-target="feature-collection-item"][id]'
-    );
+    const cards = document.querySelectorAll<HTMLElement>('[dev-target="feature-collection-item"]');
 
     if (!cards.length) {
-      console.error(
-        'HomeMapController: No [dev-target="feature-collection-item"][id] cards found — ' +
-          'add an id that matches a SVG highlight group id.'
-      );
+      console.error('HomeMapController: No [dev-target="feature-collection-item"] cards found.');
       return;
     }
 
     cards.forEach((card) => {
-      const highlightId = card.id.trim();
+      const highlightId = this.getCardHighlightId(card);
       if (!highlightId) return;
       card.addEventListener('mouseenter', () => this.highlight(highlightId));
       card.addEventListener('mouseleave', () => this.clearHighlight());
@@ -254,8 +262,8 @@ export class HomeMapController {
    * Activates the SVG group and CMS card for the given highlight id.
    * No-ops if the id is already active.
    *
-   * @param highlightId - Value shared by the card `id` and
-   *   SVG `<g id data-attribute="feature">`.
+   * @param highlightId - Value shared by the card `feature` (or fallback `id`)
+   *   and SVG `<g id data-attribute="feature">`.
    */
   private highlight(highlightId: string): void {
     if (this.activeHighlightId === highlightId) return;
@@ -268,10 +276,13 @@ export class HomeMapController {
         ?.classList.add('home-map__shape--active');
     }
 
-    const escapedId = CSS.escape(highlightId);
     this.root
-      .querySelector<HTMLElement>(`[dev-target="feature-collection-item"]#${escapedId}`)
-      ?.classList.add('home-map__card--active');
+      .querySelectorAll<HTMLElement>('[dev-target="feature-collection-item"]')
+      .forEach((card) => {
+        if (this.getCardHighlightId(card) === highlightId) {
+          card.classList.add('home-map__card--active');
+        }
+      });
   }
 
   /**
