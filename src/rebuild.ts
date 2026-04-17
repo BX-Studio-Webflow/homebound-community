@@ -9,9 +9,9 @@ import { RebuildMapController } from '$utils/rebuild-map';
 
 const galleryConfigs: GalleryConfig[] = [
   {
-    triggerSelector: '[dev-target="image-gallery"]',
-    imageSelector: '[dev-target="slide-gallery-collection-image"]',
-    containerSelector: '[dev-target="slide-gallery-collection-list-wrapper"]',
+    triggerSelector: '[dev-target="slide-image-wrapper"]',
+    imageSelector: '[dev-target="forward-image"]',
+    containerSelector: '[explore-swiper]',
   },
 ];
 
