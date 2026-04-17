@@ -4,7 +4,7 @@ import '$styles/gallery.css';
 import '$styles/lot-map.css';
 import '$styles/rebuild-map.css';
 
-import { type GalleryConfig, GalleryController } from '$utils/gallery';
+import { type GalleryConfig } from '$utils/gallery';
 import { RebuildMapController } from '$utils/rebuild-map';
 
 const galleryConfigs: GalleryConfig[] = [
@@ -26,8 +26,8 @@ galleryConfigs.forEach((config) => {
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
-  const galleryController = new GalleryController(galleryConfigs);
-  galleryController.init();
+  //const galleryController = new GalleryController(galleryConfigs);
+  //galleryController.init();
 
   const rebuildMapController = new RebuildMapController();
   rebuildMapController.init();
