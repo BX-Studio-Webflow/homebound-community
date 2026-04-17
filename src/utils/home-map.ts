@@ -3,14 +3,14 @@
  *
  * Reads inline SVG markup from hidden holder elements, injects each into its
  * matching target wrapper, and wires bidirectional hover between CMS feature
- * cards and SVG room groups. Both first-floor and second-floor SVGs are
+ * cards and SVG highlight groups. Both first-floor and second-floor SVGs are
  * injected independently so each floor works regardless of tab visibility.
  *
  * **Naming convention**
  *
- * The CMS card's `feature` attribute (kebab-case, e.g. `kitchen`) is converted
- * to an uppercase SVG group ID (e.g. `KITCHEN`) via {@link toSvgId}. Each SVG
- * must contain `<g id="KITCHEN">` (or whichever room) for the link to work.
+ * The CMS card's `id` value must match the SVG highlight group's `id` exactly.
+ * Example: card `id="highlight-garage"` maps to
+ * `<g id="highlight-garage" data-attribute="feature">...</g>`.
  *
  * **Required Webflow attributes**
  *
@@ -22,7 +22,7 @@
  * | Empty wrapper for rendered SVG (1st) | `dev-target` | `first-floor-svg-target-wrapper` |
  * | Empty wrapper for rendered SVG (2nd) | `dev-target` | `second-floor-svg-target-wrapper` |
  * | Each CMS feature card | `dev-target` | `feature-collection-item` |
- * | Each CMS feature card | `feature` | kebab-case room id, e.g. `kitchen` |
+ * | Each CMS feature card | `id` | highlight id matching the SVG group id |
  *
  * **CSS classes applied (style in home-map.css)**
  * - `.home-map__svg`             — injected `<svg>` element
@@ -35,7 +35,7 @@ export class HomeMapController {
   private readonly floors: ReadonlyArray<(typeof HomeMapController.FLOORS)[number]>;
 
   private svgEls: SVGSVGElement[] = [];
-  private activeFeature: string | null = null;
+  private activeHighlightId: string | null = null;
   private readonly root: ParentNode;
 
   constructor(
@@ -78,22 +78,6 @@ export class HomeMapController {
     }
 
     roots.forEach((root) => new HomeMapController(root, floors).init());
-  }
-
-  /**
-   * Converts a kebab-case `feature` attribute value to the matching SVG
-   * group ID. `"primary-bedroom"` → `"PRIMARY-BEDROOM"`.
-   */
-  private static toSvgId(feature: string): string {
-    return feature.toUpperCase();
-  }
-
-  /**
-   * Converts an SVG group ID back to the kebab-case `feature` value.
-   * `"PRIMARY-BEDROOM"` → `"primary-bedroom"`.
-   */
-  private static toFeature(svgId: string): string {
-    return svgId.toLowerCase();
   }
 
   private static escapeRegExp(value: string): string {
@@ -217,9 +201,9 @@ export class HomeMapController {
   }
 
   /**
-   * Discovers which feature cards exist, then for each SVG finds the matching
-   * `<g>` groups and wires `mouseenter`/`mouseleave` to {@link highlight}.
-   * Only groups whose ID maps to a card's `feature` attribute become interactive.
+   * Discovers SVG highlight groups and wires `mouseenter`/`mouseleave` to
+   * {@link highlight}. Only `<g data-attribute="feature" id="...">` groups
+   * are considered highlight targets.
    */
   private bindSvgHover(): void {
     if (!this.svgEls.length) {
@@ -227,87 +211,83 @@ export class HomeMapController {
       return;
     }
 
-    const features = new Set<string>();
-    document
-      .querySelectorAll<HTMLElement>('[dev-target="feature-collection-item"][feature]')
-      .forEach((card) => {
-        const f = card.getAttribute('feature');
-        if (f) features.add(f);
-      });
-
     for (const svgEl of this.svgEls) {
-      for (const feature of features) {
-        const svgId = HomeMapController.toSvgId(feature);
-        const group = svgEl.querySelector<SVGGElement>(`#${CSS.escape(svgId)}`);
-        if (!group) continue;
+      const groups = svgEl.querySelectorAll<SVGGElement>('g[data-attribute="feature"][id]');
+      groups.forEach((group) => {
+        const highlightId = group.id.trim();
+        if (!highlightId) return;
 
         group.classList.add('home-map__shape');
         group.style.cursor = 'pointer';
-        group.addEventListener('mouseenter', () => this.highlight(feature));
+        group.addEventListener('mouseenter', () => this.highlight(highlightId));
         group.addEventListener('mouseleave', () => this.clearHighlight());
-      }
+      });
     }
   }
 
   /**
    * Attaches `mouseenter`/`mouseleave` listeners to CMS feature cards so
-   * hovering a card highlights the corresponding SVG room group.
+   * hovering a card highlights the corresponding SVG group by matching IDs.
    */
   private bindCardHover(): void {
-    const cards = document.querySelectorAll<HTMLElement>(
-      '[dev-target="feature-collection-item"][feature]'
+    const cards = this.root.querySelectorAll<HTMLElement>(
+      '[dev-target="feature-collection-item"][id]'
     );
 
     if (!cards.length) {
       console.error(
-        'HomeMapController: No [dev-target="feature-collection-item"][feature] cards found — ' +
-          'add a feature attribute to each CMS card to enable bidirectional hover.'
+        'HomeMapController: No [dev-target="feature-collection-item"][id] cards found — ' +
+          'add an id that matches a SVG highlight group id.'
       );
       return;
     }
 
     cards.forEach((card) => {
-      const feature = card.getAttribute('feature');
-      if (!feature) return;
-      card.addEventListener('mouseenter', () => this.highlight(feature));
+      const highlightId = card.id.trim();
+      if (!highlightId) return;
+      card.addEventListener('mouseenter', () => this.highlight(highlightId));
       card.addEventListener('mouseleave', () => this.clearHighlight());
     });
   }
 
   /**
-   * Activates the SVG room shape and CMS card for the given feature.
-   * No-ops if the feature is already active.
+   * Activates the SVG group and CMS card for the given highlight id.
+   * No-ops if the id is already active.
    *
-   * @param feature - Kebab-case feature id matching both the card `feature`
-   *   attribute and the SVG `<g id>` (uppercased).
+   * @param highlightId - Value shared by the card `id` and
+   *   SVG `<g id data-attribute="feature">`.
    */
-  private highlight(feature: string): void {
-    if (this.activeFeature === feature) return;
+  private highlight(highlightId: string): void {
+    if (this.activeHighlightId === highlightId) return;
     this.clearHighlight();
-    this.activeFeature = feature;
+    this.activeHighlightId = highlightId;
 
-    const svgId = HomeMapController.toSvgId(feature);
     for (const svgEl of this.svgEls) {
       svgEl
-        .querySelector<SVGGElement>(`#${CSS.escape(svgId)}`)
+        .querySelector<SVGGElement>(`g#${CSS.escape(highlightId)}[data-attribute="feature"]`)
         ?.classList.add('home-map__shape--active');
     }
 
-    document
-      .querySelector<HTMLElement>(`[dev-target="feature-collection-item"][feature="${feature}"]`)
+    const escapedId = CSS.escape(highlightId);
+    this.root
+      .querySelector<HTMLElement>(`[dev-target="feature-collection-item"]#${escapedId}`)
       ?.classList.add('home-map__card--active');
   }
 
   /**
-   * Removes all active highlight classes and resets {@link activeFeature}.
+   * Removes all active highlight classes and resets {@link activeHighlightId}.
    */
   private clearHighlight(): void {
-    this.activeFeature = null;
+    this.activeHighlightId = null;
 
     for (const svgEl of this.svgEls) {
-      svgEl.querySelector('.home-map__shape--active')?.classList.remove('home-map__shape--active');
+      svgEl
+        .querySelectorAll('.home-map__shape--active')
+        .forEach((el) => el.classList.remove('home-map__shape--active'));
     }
 
-    document.querySelector('.home-map__card--active')?.classList.remove('home-map__card--active');
+    this.root
+      .querySelectorAll('.home-map__card--active')
+      .forEach((el) => el.classList.remove('home-map__card--active'));
   }
 }

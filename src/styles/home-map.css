@@ -16,10 +16,15 @@
 
 /* ── SVG room shape highlight ────────────────────────────────────────── */
 
-.home-map__shape {
+[data-attribute="feature"] {
+  display: none;
   transition:
     opacity 0.16s ease,
     transform 0.16s ease;
+}
+
+.home-map__shape--active {
+  display: block;
 }
 
 .home-map__shape path,
@@ -54,7 +59,7 @@
 
 .home-map__shape.home-map__shape--active,
 .home-map__shape.home-map__shape--active * {
-  fill: rgba(208, 214, 161, 0.72) !important;
+  fill: #f7e9d5 !important;
   stroke: rgba(95, 109, 55, 0.9) !important;
   stroke-width: 1.5px !important;
   opacity: 1 !important;
