@@ -86,6 +86,14 @@ export class HomeMapController {
   }
 
   /**
+   * SVG editors commonly emit class names like `cls-1` or `st11`.
+   * Namespace these to avoid style collisions between floor SVGs.
+   */
+  private static isSvgGeneratedClassToken(token: string): boolean {
+    return /^cls-\d+$/.test(token) || /^st\d+$/.test(token);
+  }
+
+  /**
    * Resolves the highlight identifier from a CMS card.
    * Prefers `feature`, then falls back to `id` for backward compatibility.
    */
@@ -116,7 +124,7 @@ export class HomeMapController {
         .map((token) => token.trim())
         .filter(Boolean)
         .forEach((token) => {
-          if (!token.startsWith('cls-')) return;
+          if (!HomeMapController.isSvgGeneratedClassToken(token)) return;
           if (classMap.has(token)) return;
           classMap.set(token, `${prefix}${token}`);
         });
