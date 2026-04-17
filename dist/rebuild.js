@@ -5315,6 +5315,13 @@
       containerSelector: "[explore-swiper]"
     }
   ];
+  galleryConfigs.forEach((config) => {
+    const element = document.querySelector(config.triggerSelector);
+    if (!element) {
+      console.error(`GalleryController: element not found \u2014 ${config.triggerSelector}`);
+      return;
+    }
+  });
   window.Webflow ||= [];
   window.Webflow.push(() => {
     const galleryController = new GalleryController(galleryConfigs);
