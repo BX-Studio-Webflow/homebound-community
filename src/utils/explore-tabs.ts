@@ -26,12 +26,18 @@
  * ```
  */
 
-const TRIGGER_TO_PANEL: Record<string, string> = {
+const DEFAULT_TRIGGER_TO_PANEL: Record<string, string> = {
   'explore-plans-trigger': 'explore-plans-tab',
   'explore-homes-trigger': 'explore-homes-tab',
 };
 
 interface ExploreTabsOptions {
+  /**
+   * Maps each trigger's `dev-target` value to the `dev-target` value of the
+   * panel it should reveal. Defaults to the standard explore-plans /
+   * explore-homes pair.
+   */
+  triggerToPanel?: Record<string, string>;
   isHousePlansGallery?: boolean;
   firstTabSelector?: string;
   secondTabSelector?: string;
@@ -40,9 +46,11 @@ interface ExploreTabsOptions {
 export class ExploreTabsController {
   private activeTrigger: string | null = null;
   private readonly options: ExploreTabsOptions;
+  private readonly triggerToPanel: Record<string, string>;
 
   constructor(options: ExploreTabsOptions = {}) {
     this.options = options;
+    this.triggerToPanel = options.triggerToPanel ?? DEFAULT_TRIGGER_TO_PANEL;
   }
 
   /**
@@ -63,7 +71,7 @@ export class ExploreTabsController {
       return;
     }
 
-    Object.entries(TRIGGER_TO_PANEL).forEach(([triggerTarget, panelTarget]) => {
+    Object.entries(this.triggerToPanel).forEach(([triggerTarget, panelTarget]) => {
       const trigger = document.querySelector<HTMLElement>(`[dev-target="${triggerTarget}"]`);
       const panel = document.querySelector<HTMLElement>(`[dev-target="${panelTarget}"]`);
 
@@ -80,16 +88,19 @@ export class ExploreTabsController {
       trigger.addEventListener('click', () => this.activate(triggerTarget));
     });
 
-    // Set initial state from the first trigger marked is-active, or default to explore-plans
-    const initialTrigger =
-      document.querySelector<HTMLElement>('[dev-target="explore-plans-trigger"].is-active') ??
-      document.querySelector<HTMLElement>('[dev-target="explore-homes-trigger"].is-active');
+    // Set initial state from the first trigger already marked is-active, or
+    // fall back to the first entry in the map.
+    const triggerKeys = Object.keys(this.triggerToPanel);
+    const initialTrigger = triggerKeys
+      .map((key) => document.querySelector<HTMLElement>(`[dev-target="${key}"].is-active`))
+      .find(Boolean);
 
     if (initialTrigger) {
       const target = initialTrigger.getAttribute('dev-target');
       if (target) this.activate(target);
     } else {
-      this.activate('explore-plans-trigger');
+      const firstKey = triggerKeys[0];
+      if (firstKey) this.activate(firstKey);
     }
   }
 
@@ -99,17 +110,17 @@ export class ExploreTabsController {
   private activate(triggerTarget: string): void {
     if (this.activeTrigger === triggerTarget) return;
 
-    const panelTarget = TRIGGER_TO_PANEL[triggerTarget];
+    const panelTarget = this.triggerToPanel[triggerTarget];
     if (!panelTarget) return;
 
     // Update triggers: remove is-active from all, add to clicked
-    Object.keys(TRIGGER_TO_PANEL).forEach((key) => {
+    Object.keys(this.triggerToPanel).forEach((key) => {
       const trigger = document.querySelector<HTMLElement>(`[dev-target="${key}"]`);
       trigger?.classList.toggle('is-active', key === triggerTarget);
     });
 
     // Update panels: hide all, show the active one
-    Object.values(TRIGGER_TO_PANEL).forEach((target) => {
+    Object.values(this.triggerToPanel).forEach((target) => {
       const panel = document.querySelector<HTMLElement>(`[dev-target="${target}"]`);
       panel?.classList.toggle('hide', target !== panelTarget);
     });
@@ -133,7 +144,8 @@ export class ExploreTabsController {
       return;
     }
 
-    const isExplorePlansActive = triggerTarget === 'explore-plans-trigger';
+    const firstTriggerKey = Object.keys(this.triggerToPanel)[0];
+    const isExplorePlansActive = triggerTarget === firstTriggerKey;
     firstTab.classList.toggle('hide', !isExplorePlansActive);
     secondTab.classList.toggle('hide', isExplorePlansActive);
   }
