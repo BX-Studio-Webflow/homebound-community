@@ -59,6 +59,7 @@ export class HomeMapController {
     if (!this.injectSvgs()) return;
     this.bindSvgHover();
     this.bindCardHover();
+    this.bindCardClick();
     this.bindCheckboxClick();
     this.clearInitialState();
   }
@@ -361,6 +362,48 @@ export class HomeMapController {
           if (this.getCardHighlightId(card) === highlightId) card.classList.remove(cardClass);
         });
     }
+  }
+
+  /**
+   * Makes the entire feature card row behave as a checkbox toggle.
+   *
+   * Clicks that already originate from the checkbox `<input>`, its Webflow
+   * visual wrapper `.w-checkbox-input`, or a `<label>` element (which the
+   * browser handles natively) are ignored to avoid double-toggling.
+   * All other clicks on the card toggle the checkbox visuals and call
+   * {@link setCheckedHighlight} directly — no `change` event is dispatched to
+   * avoid Webflow or parent listeners firing a second toggle.
+   */
+  private bindCardClick(): void {
+    document
+      .querySelectorAll<HTMLElement>('[dev-target="feature-collection-item"]')
+      .forEach((card) => {
+        card.style.cursor = 'pointer';
+
+        card.addEventListener('click', (e) => {
+          const target = e.target as HTMLElement;
+
+          // Clicks on the checkbox input, its Webflow visual wrapper, or a
+          // label are handled natively — the resulting `change` event is picked
+          // up by bindCheckboxClick. Don't also handle them here.
+          if (target.closest('input[type="checkbox"], .w-checkbox-input, label')) return;
+
+          const input = card.querySelector<HTMLInputElement>('input[type="checkbox"]');
+          const highlightId = this.getCardHighlightId(card);
+          if (!input || !highlightId) return;
+
+          // Use the visual class as the source of truth — `input.checked` can
+          // drift out of sync with `w--redirected-checked` during Webflow init.
+          const checkboxDiv = card.querySelector<HTMLElement>('.w-checkbox-input');
+          const wasChecked =
+            checkboxDiv?.classList.contains('w--redirected-checked') ?? input.checked;
+          const nowChecked = !wasChecked;
+
+          input.checked = nowChecked;
+          checkboxDiv?.classList.toggle('w--redirected-checked', nowChecked);
+          this.setCheckedHighlight(highlightId, nowChecked);
+        });
+      });
   }
 
   /**
