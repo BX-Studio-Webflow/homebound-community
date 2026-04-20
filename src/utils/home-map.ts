@@ -28,8 +28,10 @@
  * **CSS classes applied (style in home-map.css)**
  * - `.home-map__svg`             — injected `<svg>` element
  * - `.home-map__shape`           — each interactive room `<g>`
- * - `.home-map__shape--active`   — highlighted room `<g>`
- * - `.home-map__card--active`    — highlighted CMS feature card
+ * - `.home-map__shape--hover`    — room `<g>` highlighted by hover
+ * - `.home-map__shape--active`   — room `<g>` highlighted by checked checkbox
+ * - `.home-map__card--hover`     — CMS card highlighted by hover
+ * - `.home-map__card--active`    — CMS card highlighted by checked checkbox
  */
 export class HomeMapController {
   private static readonly FLOORS = ['first-floor', 'second-floor'] as const;
@@ -37,6 +39,8 @@ export class HomeMapController {
 
   private svgEls: SVGSVGElement[] = [];
   private activeHighlightId: string | null = null;
+  /** Persists the highlight for a checked checkbox across mouseleave events. */
+  private checkedHighlightId: string | null = null;
   private readonly root: ParentNode;
 
   constructor(
@@ -55,6 +59,8 @@ export class HomeMapController {
     if (!this.injectSvgs()) return;
     this.bindSvgHover();
     this.bindCardHover();
+    this.bindCheckboxClick();
+    this.clearInitialState();
   }
 
   /**
@@ -267,46 +273,111 @@ export class HomeMapController {
   }
 
   /**
-   * Activates the SVG group and CMS card for the given highlight id.
-   * No-ops if the id is already active.
-   *
-   * @param highlightId - Value shared by the card `feature` (or fallback `id`)
-   *   and SVG `<g id data-attribute="feature">`.
+   * Applies a transient hover highlight to the SVG group and CMS card.
+   * No-ops if the same id is already hover-highlighted.
    */
   private highlight(highlightId: string): void {
     if (this.activeHighlightId === highlightId) return;
-    this.clearHighlight();
+    this.applyClasses(null, 'hover');
     this.activeHighlightId = highlightId;
+    this.applyClasses(highlightId, 'hover');
+  }
+
+  /**
+   * Removes the transient hover highlight. The persistent checkbox highlight
+   * (if any) is left untouched because it lives on separate CSS classes.
+   */
+  private clearHighlight(): void {
+    this.activeHighlightId = null;
+    this.applyClasses(null, 'hover');
+  }
+
+  /**
+   * Low-level helper that removes then (optionally) re-applies one layer of
+   * highlight classes — either the hover layer or the checked/persistent layer.
+   *
+   * @param highlightId - Target feature id, or `null` to only clear.
+   * @param layer       - `'hover'` uses `--hover` classes;
+   *                      `'checked'` uses `--active` classes.
+   */
+  private applyClasses(highlightId: string | null, layer: 'hover' | 'checked'): void {
+    const shapeClass = layer === 'hover' ? 'home-map__shape--hover' : 'home-map__shape--active';
+    const cardClass = layer === 'hover' ? 'home-map__card--hover' : 'home-map__card--active';
+
+    for (const svgEl of this.svgEls) {
+      svgEl.querySelectorAll(`.${shapeClass}`).forEach((el) => el.classList.remove(shapeClass));
+    }
+    this.root.querySelectorAll(`.${cardClass}`).forEach((el) => el.classList.remove(cardClass));
+
+    if (!highlightId) return;
 
     for (const svgEl of this.svgEls) {
       svgEl
         .querySelector<SVGGElement>(`g#${CSS.escape(highlightId)}[data-attribute="feature"]`)
-        ?.classList.add('home-map__shape--active');
+        ?.classList.add(shapeClass);
     }
 
     this.root
       .querySelectorAll<HTMLElement>('[dev-target="feature-collection-item"]')
       .forEach((card) => {
         if (this.getCardHighlightId(card) === highlightId) {
-          card.classList.add('home-map__card--active');
+          card.classList.add(cardClass);
         }
       });
   }
 
   /**
-   * Removes all active highlight classes and resets {@link activeHighlightId}.
+   * Wires `change` events on checkbox inputs inside feature cards so that
+   * checking a box persistently highlights the matched SVG group and unchecking
+   * removes the persistent highlight (hover behaviour is unaffected).
+   *
+   * Webflow fires a native `change` event on the hidden `<input>` whenever the
+   * custom checkbox wrapper is clicked, so this is the reliable integration point.
    */
-  private clearHighlight(): void {
-    this.activeHighlightId = null;
+  private bindCheckboxClick(): void {
+    document
+      .querySelectorAll<HTMLElement>('[dev-target="feature-collection-item"]')
+      .forEach((card) => {
+        const highlightId = this.getCardHighlightId(card);
+        if (!highlightId) return;
 
-    for (const svgEl of this.svgEls) {
-      svgEl
-        .querySelectorAll('.home-map__shape--active')
-        .forEach((el) => el.classList.remove('home-map__shape--active'));
-    }
+        card.querySelectorAll<HTMLInputElement>('input[type="checkbox"]').forEach((input) => {
+          input.addEventListener('change', () => {
+            if (input.checked) {
+              this.checkedHighlightId = highlightId;
+              this.applyClasses(highlightId, 'checked');
+            } else {
+              this.checkedHighlightId = null;
+              this.applyClasses(null, 'checked');
+            }
+          });
+        });
+      });
+  }
 
-    this.root
-      .querySelectorAll('.home-map__card--active')
-      .forEach((el) => el.classList.remove('home-map__card--active'));
+  /**
+   * Strips any pre-existing active highlight and checked states from the DOM
+   * so that the page loads with nothing selected.
+   *
+   * Handles:
+   * - `home-map__shape--active` on injected SVG groups
+   * - `home-map__card--active` on CMS feature cards
+   * - `w--redirected-checked` on Webflow custom-checkbox wrappers
+   * - `checked` property on the underlying `<input type="checkbox">` elements
+   */
+  private clearInitialState(): void {
+    this.applyClasses(null, 'hover');
+    this.applyClasses(null, 'checked');
+
+    document
+      .querySelectorAll<HTMLElement>('[dev-target="feature-collection-item"]')
+      .forEach((card) => {
+        card.querySelectorAll<HTMLElement>('.w-checkbox-input').forEach((checkboxDiv) => {
+          checkboxDiv.classList.remove('w--redirected-checked');
+        });
+        card.querySelectorAll<HTMLInputElement>('input[type="checkbox"]').forEach((input) => {
+          input.checked = false;
+        });
+      });
   }
 }

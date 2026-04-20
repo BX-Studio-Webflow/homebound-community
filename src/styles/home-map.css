@@ -49,6 +49,16 @@
 
 /* ── CMS feature card highlight ──────────────────────────────────────── */
 
+/* hover — transient, triggered by mouse */
+.home-map__card--hover {
+  background-color: #f5f8f0;
+  box-shadow: inset 3px 0 0 0 rgba(101, 120, 57, 0.5);
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* active — persistent, triggered by checked checkbox */
 .home-map__card--active {
   background-color: #f0f5ec;
   box-shadow: inset 3px 0 0 0 #657839;
@@ -56,6 +66,22 @@
     background-color 0.15s ease,
     box-shadow 0.15s ease;
 }
+
+/* ── SVG room shape — hover ──────────────────────────────────────────── */
+
+.home-map__shape.home-map__shape--hover {
+  display: block;
+}
+
+.home-map__shape.home-map__shape--hover,
+.home-map__shape.home-map__shape--hover * {
+  fill: rgba(247, 233, 213, 0.6) !important;
+  stroke: rgba(95, 109, 55, 0.6) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* ── SVG room shape — active (checkbox) ─────────────────────────────── */
 
 .home-map__shape.home-map__shape--active,
 .home-map__shape.home-map__shape--active * {
