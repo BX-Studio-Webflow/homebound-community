@@ -39,8 +39,8 @@ export class HomeMapController {
 
   private svgEls: SVGSVGElement[] = [];
   private activeHighlightId: string | null = null;
-  /** Persists the highlight for a checked checkbox across mouseleave events. */
-  private checkedHighlightId: string | null = null;
+  /** All feature ids whose checkboxes are currently checked. */
+  private readonly checkedHighlightIds = new Set<string>();
   private readonly root: ParentNode;
 
   constructor(
@@ -327,6 +327,43 @@ export class HomeMapController {
   }
 
   /**
+   * Adds or removes the persistent `--active` highlight for a single feature
+   * without touching any other checked items.
+   */
+  private setCheckedHighlight(highlightId: string, checked: boolean): void {
+    const shapeClass = 'home-map__shape--active';
+    const cardClass = 'home-map__card--active';
+
+    if (checked) {
+      this.checkedHighlightIds.add(highlightId);
+
+      for (const svgEl of this.svgEls) {
+        svgEl
+          .querySelector<SVGGElement>(`g#${CSS.escape(highlightId)}[data-attribute="feature"]`)
+          ?.classList.add(shapeClass);
+      }
+      this.root
+        .querySelectorAll<HTMLElement>('[dev-target="feature-collection-item"]')
+        .forEach((card) => {
+          if (this.getCardHighlightId(card) === highlightId) card.classList.add(cardClass);
+        });
+    } else {
+      this.checkedHighlightIds.delete(highlightId);
+
+      for (const svgEl of this.svgEls) {
+        svgEl
+          .querySelector<SVGGElement>(`g#${CSS.escape(highlightId)}[data-attribute="feature"]`)
+          ?.classList.remove(shapeClass);
+      }
+      this.root
+        .querySelectorAll<HTMLElement>('[dev-target="feature-collection-item"]')
+        .forEach((card) => {
+          if (this.getCardHighlightId(card) === highlightId) card.classList.remove(cardClass);
+        });
+    }
+  }
+
+  /**
    * Wires `change` events on checkbox inputs inside feature cards so that
    * checking a box persistently highlights the matched SVG group and unchecking
    * removes the persistent highlight (hover behaviour is unaffected).
@@ -342,15 +379,9 @@ export class HomeMapController {
         if (!highlightId) return;
 
         card.querySelectorAll<HTMLInputElement>('input[type="checkbox"]').forEach((input) => {
-          input.addEventListener('change', () => {
-            if (input.checked) {
-              this.checkedHighlightId = highlightId;
-              this.applyClasses(highlightId, 'checked');
-            } else {
-              this.checkedHighlightId = null;
-              this.applyClasses(null, 'checked');
-            }
-          });
+          input.addEventListener('change', () =>
+            this.setCheckedHighlight(highlightId, input.checked)
+          );
         });
       });
   }
@@ -368,6 +399,7 @@ export class HomeMapController {
   private clearInitialState(): void {
     this.applyClasses(null, 'hover');
     this.applyClasses(null, 'checked');
+    this.checkedHighlightIds.clear();
 
     document
       .querySelectorAll<HTMLElement>('[dev-target="feature-collection-item"]')
