@@ -12,6 +12,7 @@
  * exactly. Card `id` is supported as a fallback.
  * Example: card `feature="highlight-garage"` maps to
  * `<g id="highlight-garage" data-attribute="feature">...</g>`.
+ * Multiple groups: `feature="highlight-a,highlight-b"` highlights both.
  *
  * **Required Webflow attributes**
  *
@@ -23,7 +24,8 @@
  * | Empty wrapper for rendered SVG (1st) | `dev-target` | `first-floor-svg-target-wrapper` |
  * | Empty wrapper for rendered SVG (2nd) | `dev-target` | `second-floor-svg-target-wrapper` |
  * | Each CMS feature card | `dev-target` | `feature-collection-item` |
- * | Each CMS feature card | `feature` | highlight id matching the SVG group id |
+ * | Each CMS feature card | `feature` | one highlight id, or several comma-separated
+ *   ids (e.g. `highlight-a,highlight-b`) matching SVG group ids — all highlight together |
  *
  * **CSS classes applied (style in home-map.css)**
  * - `.home-map__svg`             — injected `<svg>` element
@@ -38,7 +40,8 @@ export class HomeMapController {
   private readonly floors: ReadonlyArray<(typeof HomeMapController.FLOORS)[number]>;
 
   private svgEls: SVGSVGElement[] = [];
-  private activeHighlightId: string | null = null;
+  /** Normalised key for the current hover layer (sorted ids, comma-joined) or `null`. */
+  private activeHighlightKey: string | null = null;
   /** All feature ids whose checkboxes are currently checked. */
   private readonly checkedHighlightIds = new Set<string>();
   private readonly root: ParentNode;
@@ -101,14 +104,28 @@ export class HomeMapController {
   }
 
   /**
-   * Resolves the highlight identifier from a CMS card.
-   * Prefers `feature`, then falls back to `id` for backward compatibility.
+   * Splits a `feature` attribute by commas (trimmed, empty tokens removed).
+   * Example: `highlight-a, highlight-b` → `['highlight-a', 'highlight-b']`.
    */
-  private getCardHighlightId(card: HTMLElement): string | null {
+  private static parseFeatureAttribute(value: string): string[] {
+    return value
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean);
+  }
+
+  /**
+   * Resolves highlight id(s) from a CMS card.
+   * `feature` may be one id or a comma-separated list; if absent, `id` is used as a single id.
+   */
+  private getCardFeatureIds(card: HTMLElement): string[] {
     const featureValue = card.getAttribute('feature')?.trim();
-    if (featureValue) return featureValue;
+    if (featureValue) {
+      const parsed = HomeMapController.parseFeatureAttribute(featureValue);
+      if (parsed.length) return parsed;
+    }
     const idValue = card.id.trim();
-    return idValue || null;
+    return idValue ? [idValue] : [];
   }
 
   /**
@@ -266,22 +283,28 @@ export class HomeMapController {
     }
 
     cards.forEach((card) => {
-      const highlightId = this.getCardHighlightId(card);
-      if (!highlightId) return;
-      card.addEventListener('mouseenter', () => this.highlight(highlightId));
+      const highlightIds = this.getCardFeatureIds(card);
+      if (!highlightIds.length) return;
+      card.addEventListener('mouseenter', () => this.highlight(highlightIds));
       card.addEventListener('mouseleave', () => this.clearHighlight());
     });
   }
 
   /**
-   * Applies a transient hover highlight to the SVG group and CMS card.
-   * No-ops if the same id is already hover-highlighted.
+   * Applies a transient hover highlight to the SVG group(s) and matching CMS
+   * card(s). One id (from the SVG) or several (comma-separated on a card).
+   * No-ops if the same set of ids is already hover-highlighted.
    */
-  private highlight(highlightId: string): void {
-    if (this.activeHighlightId === highlightId) return;
+  private highlight(highlightIdOrIds: string | ReadonlyArray<string>): void {
+    const ids = (
+      Array.isArray(highlightIdOrIds) ? [...highlightIdOrIds] : [highlightIdOrIds]
+    ).filter(Boolean);
+    if (!ids.length) return;
+    const key = ids.slice().sort().join('\u0000');
+    if (this.activeHighlightKey === key) return;
     this.applyClasses(null, 'hover');
-    this.activeHighlightId = highlightId;
-    this.applyClasses(highlightId, 'hover');
+    this.activeHighlightKey = key;
+    this.applyClasses(ids, 'hover');
   }
 
   /**
@@ -289,7 +312,7 @@ export class HomeMapController {
    * (if any) is left untouched because it lives on separate CSS classes.
    */
   private clearHighlight(): void {
-    this.activeHighlightId = null;
+    this.activeHighlightKey = null;
     this.applyClasses(null, 'hover');
   }
 
@@ -297,11 +320,11 @@ export class HomeMapController {
    * Low-level helper that removes then (optionally) re-applies one layer of
    * highlight classes — either the hover layer or the checked/persistent layer.
    *
-   * @param highlightId - Target feature id, or `null` to only clear.
-   * @param layer       - `'hover'` uses `--hover` classes;
+   * @param highlightIds - Target feature id(s), or `null` / `[]` to only clear.
+   * @param layer        - `'hover'` uses `--hover` classes;
    *                      `'checked'` uses `--active` classes.
    */
-  private applyClasses(highlightId: string | null, layer: 'hover' | 'checked'): void {
+  private applyClasses(highlightIds: string[] | null, layer: 'hover' | 'checked'): void {
     const shapeClass = layer === 'hover' ? 'home-map__shape--hover' : 'home-map__shape--active';
     const cardClass = layer === 'hover' ? 'home-map__card--hover' : 'home-map__card--active';
 
@@ -310,58 +333,53 @@ export class HomeMapController {
     }
     this.root.querySelectorAll(`.${cardClass}`).forEach((el) => el.classList.remove(cardClass));
 
-    if (!highlightId) return;
+    if (!highlightIds?.length) return;
 
-    for (const svgEl of this.svgEls) {
-      svgEl
-        .querySelector<SVGGElement>(`g#${CSS.escape(highlightId)}[data-attribute="feature"]`)
-        ?.classList.add(shapeClass);
+    const want = new Set(highlightIds);
+
+    for (const id of want) {
+      for (const svgEl of this.svgEls) {
+        svgEl
+          .querySelector<SVGGElement>(`g#${CSS.escape(id)}[data-attribute="feature"]`)
+          ?.classList.add(shapeClass);
+      }
     }
 
     this.root
       .querySelectorAll<HTMLElement>('[dev-target="feature-collection-item"]')
       .forEach((card) => {
-        if (this.getCardHighlightId(card) === highlightId) {
+        const cardIds = this.getCardFeatureIds(card);
+        if (cardIds.some((cid) => want.has(cid))) {
           card.classList.add(cardClass);
         }
       });
   }
 
   /**
-   * Adds or removes the persistent `--active` highlight for a single feature
-   * without touching any other checked items.
+   * Updates the set of id(s) that should be persistently highlighted for one
+   * feature card, then re-syncs the checked layer from the set (one card can
+   * contribute several comma-separated ids).
    */
-  private setCheckedHighlight(highlightId: string, checked: boolean): void {
-    const shapeClass = 'home-map__shape--active';
-    const cardClass = 'home-map__card--active';
-
-    if (checked) {
-      this.checkedHighlightIds.add(highlightId);
-
-      for (const svgEl of this.svgEls) {
-        svgEl
-          .querySelector<SVGGElement>(`g#${CSS.escape(highlightId)}[data-attribute="feature"]`)
-          ?.classList.add(shapeClass);
-      }
-      this.root
-        .querySelectorAll<HTMLElement>('[dev-target="feature-collection-item"]')
-        .forEach((card) => {
-          if (this.getCardHighlightId(card) === highlightId) card.classList.add(cardClass);
-        });
-    } else {
-      this.checkedHighlightIds.delete(highlightId);
-
-      for (const svgEl of this.svgEls) {
-        svgEl
-          .querySelector<SVGGElement>(`g#${CSS.escape(highlightId)}[data-attribute="feature"]`)
-          ?.classList.remove(shapeClass);
-      }
-      this.root
-        .querySelectorAll<HTMLElement>('[dev-target="feature-collection-item"]')
-        .forEach((card) => {
-          if (this.getCardHighlightId(card) === highlightId) card.classList.remove(cardClass);
-        });
+  private updateCheckedSetForCard(card: HTMLElement, checked: boolean): void {
+    const ids = this.getCardFeatureIds(card);
+    if (!ids.length) return;
+    for (const id of ids) {
+      if (checked) this.checkedHighlightIds.add(id);
+      else this.checkedHighlightIds.delete(id);
     }
+    this.syncCheckedLayer();
+  }
+
+  /**
+   * Reapplies `home-map__shape--active` / `home-map__card--active` from
+   * {@link checkedHighlightIds} so unchecking a multi-id card does not leave
+   * shapes/cards in a half-cleared state.
+   */
+  private syncCheckedLayer(): void {
+    this.applyClasses(
+      this.checkedHighlightIds.size ? Array.from(this.checkedHighlightIds) : null,
+      'checked'
+    );
   }
 
   /**
@@ -371,7 +389,7 @@ export class HomeMapController {
    * visual wrapper `.w-checkbox-input`, or a `<label>` element (which the
    * browser handles natively) are ignored to avoid double-toggling.
    * All other clicks on the card toggle the checkbox visuals and call
-   * {@link setCheckedHighlight} directly — no `change` event is dispatched to
+   * {@link updateCheckedSetForCard} directly — no `change` event is dispatched to
    * avoid Webflow or parent listeners firing a second toggle.
    */
   private bindCardClick(): void {
@@ -389,8 +407,8 @@ export class HomeMapController {
           if (target.closest('input[type="checkbox"], .w-checkbox-input, label')) return;
 
           const input = card.querySelector<HTMLInputElement>('input[type="checkbox"]');
-          const highlightId = this.getCardHighlightId(card);
-          if (!input || !highlightId) return;
+          const featureIds = this.getCardFeatureIds(card);
+          if (!input || !featureIds.length) return;
 
           // Use the visual class as the source of truth — `input.checked` can
           // drift out of sync with `w--redirected-checked` during Webflow init.
@@ -401,7 +419,7 @@ export class HomeMapController {
 
           input.checked = nowChecked;
           checkboxDiv?.classList.toggle('w--redirected-checked', nowChecked);
-          this.setCheckedHighlight(highlightId, nowChecked);
+          this.updateCheckedSetForCard(card, nowChecked);
         });
       });
   }
@@ -418,13 +436,10 @@ export class HomeMapController {
     document
       .querySelectorAll<HTMLElement>('[dev-target="feature-collection-item"]')
       .forEach((card) => {
-        const highlightId = this.getCardHighlightId(card);
-        if (!highlightId) return;
+        if (!this.getCardFeatureIds(card).length) return;
 
         card.querySelectorAll<HTMLInputElement>('input[type="checkbox"]').forEach((input) => {
-          input.addEventListener('change', () =>
-            this.setCheckedHighlight(highlightId, input.checked)
-          );
+          input.addEventListener('change', () => this.updateCheckedSetForCard(card, input.checked));
         });
       });
   }
@@ -440,9 +455,10 @@ export class HomeMapController {
    * - `checked` property on the underlying `<input type="checkbox">` elements
    */
   private clearInitialState(): void {
+    this.activeHighlightKey = null;
     this.applyClasses(null, 'hover');
-    this.applyClasses(null, 'checked');
     this.checkedHighlightIds.clear();
+    this.syncCheckedLayer();
 
     document
       .querySelectorAll<HTMLElement>('[dev-target="feature-collection-item"]')
