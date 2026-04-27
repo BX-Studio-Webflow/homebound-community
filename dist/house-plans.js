@@ -6628,32 +6628,89 @@
       "ochre-scheme": "Bold Transitional",
       "charcoal-scheme": "Refined Transitional"
     };
-    const interiorImageUrls = {
-      "kitchen-interior": {
-        "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9b0ab4a5be30bcf9b3f_Lakeside_Plan%202_A_Kitchen.avif",
-        "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9cc0f07ad276ee8c9de_Lakeside_Plan%202_B_Kitchen.avif",
-        "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9ec00ea527abfe075ed_Lakeside_Plan2_C_Kitchen.avif",
-        "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba27d22c956cb24df231_Lakeside%20Plan%202_D_Kitchen.avif"
+    const housePlanImageUrlsBySlug = {
+      iris: {
+        "kitchen-interior": {
+          "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9b0ab4a5be30bcf9b3f_Lakeside_Plan%202_A_Kitchen.avif",
+          "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9cc0f07ad276ee8c9de_Lakeside_Plan%202_B_Kitchen.avif",
+          "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9ec00ea527abfe075ed_Lakeside_Plan2_C_Kitchen.avif",
+          "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba27d22c956cb24df231_Lakeside%20Plan%202_D_Kitchen.avif"
+        },
+        "bedroom-interior": {
+          "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9af1c8c47abb0a2e9fc_Lakeside_Plan%202_A_Bedroom.avif",
+          "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9ccf135e0a6dcc36535_Lakeside_Plan%202_B_Primary_Bedroom.avif",
+          "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9ebc8de67c028cec4c0_Lakeside_Plan2_C_Primary_Bedroom.avif",
+          "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba274efd57e0baa871bf_Lakeside%20Plan%202_D_Primary_Bed.avif"
+        },
+        "living-interior": {
+          "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9b02410ba14aaa226d5_Lakeside_Plan%202_A_Great.avif",
+          "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9cc37c90f8bf7028f7e_Lakeside_Plan%202_B_Great.avif",
+          "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9eb469a39c917f2e99b_Lakeside_Plan2_C_Great.avif",
+          "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba28da5822300a5f5b79_Lakeside%20Plan%202_D_Great.avif"
+        },
+        "bathroom-interior": {
+          "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9abf8fc3a0c688c5407_Lakeside_Plan%202_A_Primary_Bath.avif",
+          "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9c7d96ba1672ecc593c_Lakeside_Plan%202_B_Primary_Bath.avif",
+          "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9e7cea72de2d80ee381_Lakeside_Plan2_C_Primary_Bath.avif",
+          "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba225f0fa8776fb8292f_Lakeside%20Plan%202_D_Primary_Bath.avif"
+        }
       },
-      "bedroom-interior": {
-        "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9af1c8c47abb0a2e9fc_Lakeside_Plan%202_A_Bedroom.avif",
-        "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9ccf135e0a6dcc36535_Lakeside_Plan%202_B_Primary_Bedroom.avif",
-        "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9ebc8de67c028cec4c0_Lakeside_Plan2_C_Primary_Bedroom.avif",
-        "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba274efd57e0baa871bf_Lakeside%20Plan%202_D_Primary_Bed.avif"
+      daphne: {
+        "kitchen-interior": {
+          "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69ef90d666dc79d1467ab387_01_Kitchen.webp",
+          "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69ef90e61071956a56e9368c_01_Kitchen%20(1).webp",
+          "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69ef90fbf01e48e8adfffa76_01_Kitchen%20(2).webp",
+          "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69ef910b05faf89ae1e163be_01_Kitchen%20(3).webp"
+        },
+        "bedroom-interior": {
+          "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69ef90d63194db681b01a946_03_Primary_Bedroom.webp",
+          "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69ef90e6924894609d6a9052_03_Primary_Bedroom%20(1).webp",
+          "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69ef90fbf77b5f49d85d294e_03_Primary_Bedroom%20(2).webp",
+          "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69ef910c3a4ad147ce6f9fbe_03_Primary_Bedroom%20(3).webp"
+        },
+        "living-interior": {
+          "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69ef90d6a8a147379c9fcfb9_02_Great.webp",
+          "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69ef90e61071956a56e93691_02_Great%20(1).webp",
+          "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69ef90fbd04207dba0f0beb9_02_Great%20(2).webp",
+          "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69ef910cac3cd82f989b4751_02_Great%20(3).webp"
+        },
+        "bathroom-interior": {
+          "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69ef90d71eeaf783d1560f92_04_Primary_Bath.webp",
+          "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69ef90e56a98cd0c1bfcc95c_04_Primary_Bath%20(1).webp",
+          "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69ef90fadc7d53b55f8e1562_04_Primary_Bath%20(2).webp",
+          "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69ef910a28b8724daebd3dfd_04_Primary_Bath%20(3).webp"
+        }
       },
-      "living-interior": {
-        "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9b02410ba14aaa226d5_Lakeside_Plan%202_A_Great.avif",
-        "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9cc37c90f8bf7028f7e_Lakeside_Plan%202_B_Great.avif",
-        "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9eb469a39c917f2e99b_Lakeside_Plan2_C_Great.avif",
-        "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba28da5822300a5f5b79_Lakeside%20Plan%202_D_Great.avif"
-      },
-      "bathroom-interior": {
-        "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9abf8fc3a0c688c5407_Lakeside_Plan%202_A_Primary_Bath.avif",
-        "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9c7d96ba1672ecc593c_Lakeside_Plan%202_B_Primary_Bath.avif",
-        "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9e7cea72de2d80ee381_Lakeside_Plan2_C_Primary_Bath.avif",
-        "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba225f0fa8776fb8292f_Lakeside%20Plan%202_D_Primary_Bath.avif"
+      // TODO: replace with Sienna-specific CDN URLs once uploaded to the "Interiors - Sienna" Webflow folder
+      sienna: {
+        "kitchen-interior": {
+          "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9b0ab4a5be30bcf9b3f_Lakeside_Plan%202_A_Kitchen.avif",
+          "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9cc0f07ad276ee8c9de_Lakeside_Plan%202_B_Kitchen.avif",
+          "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9ec00ea527abfe075ed_Lakeside_Plan2_C_Kitchen.avif",
+          "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba27d22c956cb24df231_Lakeside%20Plan%202_D_Kitchen.avif"
+        },
+        "bedroom-interior": {
+          "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9af1c8c47abb0a2e9fc_Lakeside_Plan%202_A_Bedroom.avif",
+          "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9ccf135e0a6dcc36535_Lakeside_Plan%202_B_Primary_Bedroom.avif",
+          "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9ebc8de67c028cec4c0_Lakeside_Plan2_C_Primary_Bedroom.avif",
+          "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba274efd57e0baa871bf_Lakeside%20Plan%202_D_Primary_Bed.avif"
+        },
+        "living-interior": {
+          "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9b02410ba14aaa226d5_Lakeside_Plan%202_A_Great.avif",
+          "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9cc37c90f8bf7028f7e_Lakeside_Plan%202_B_Great.avif",
+          "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9eb469a39c917f2e99b_Lakeside_Plan2_C_Great.avif",
+          "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba28da5822300a5f5b79_Lakeside%20Plan%202_D_Great.avif"
+        },
+        "bathroom-interior": {
+          "white-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9abf8fc3a0c688c5407_Lakeside_Plan%202_A_Primary_Bath.avif",
+          "soft-cream-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9c7d96ba1672ecc593c_Lakeside_Plan%202_B_Primary_Bath.avif",
+          "ochre-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9e7cea72de2d80ee381_Lakeside_Plan2_C_Primary_Bath.avif",
+          "charcoal-scheme": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba225f0fa8776fb8292f_Lakeside%20Plan%202_D_Primary_Bath.avif"
+        }
       }
     };
+    const housePlanSlug = window.location.pathname.toLowerCase().split("/house-plans/")[1]?.split("/")[0] ?? "";
+    const interiorImageUrls = housePlanImageUrlsBySlug[housePlanSlug] ?? housePlanImageUrlsBySlug.iris;
     const packageTitleByInteriorAndScheme = {
       "kitchen-interior": { ...schemeTitleByToken },
       "bedroom-interior": { ...schemeTitleByToken },
