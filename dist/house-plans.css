@@ -6,6 +6,52 @@
   display: block;
 }
 
+/* src/styles/exterior-scheme.css */
+.slider-image_plan-footer.is-open {
+  cursor: pointer;
+}
+.slider-image_plan-footer.is-closed {
+  cursor: pointer;
+}
+.slider-image_plan-footer.is-open [dev-target=scheme-arrow] svg {
+  transform: rotate(180deg);
+  transition: transform 0.2s ease;
+}
+.slider-image_plan-footer.is-closed [dev-target=scheme-arrow] svg {
+  transform: rotate(0deg);
+  transition: transform 0.2s ease;
+}
+[dev-target=scheme-body] {
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+[dev-target=scheme-body].hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+[dev-target=scheme-body].is-open {
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+  pointer-events: auto;
+}
+[dev-target=scheme-header].is-open {
+  background-color: #F5F6F0;
+}
+[dev-target=scheme-body].is-closed {
+  opacity: 0;
+  visibility: visible;
+  display: none;
+  pointer-events: none;
+}
+[dev-target=scheme-body] {
+  opacity: 1;
+  display: flex;
+}
+[dev-target=scheme-item].active-scheme > .modal-scheme_text {
+  font-weight: 700;
+}
+
 /* src/styles/explore-tabs.css */
 
 /* node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/swiper.css */

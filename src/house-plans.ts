@@ -1,4 +1,5 @@
 import '$styles/accordion.css';
+import '$styles/exterior-scheme.css';
 import '$styles/explore-tabs.css';
 import '$styles/gallery.css';
 import '$styles/home-map.css';
@@ -10,6 +11,7 @@ import { ExploreTabsController } from '$utils/explore-tabs';
 import { type GalleryConfig, GalleryController } from '$utils/gallery';
 import { HomeMapController } from '$utils/home-map';
 import { LotMapController } from '$utils/lot-map';
+import { ExteriorSchemeController } from '$utils/other-swiper-slide';
 import { StickyNavController } from '$utils/sticky-nav';
 
 const galleryConfigs: GalleryConfig[] = [
@@ -274,4 +276,7 @@ window.Webflow.push(() => {
   accordionController.init();
 
   HomeMapController.initAll();
+
+  const exteriorSchemeController = new ExteriorSchemeController();
+  exteriorSchemeController.init();
 });
