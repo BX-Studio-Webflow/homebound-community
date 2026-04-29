@@ -40,14 +40,14 @@
     opacity 0.16s ease;
 }
 
-.home-map__shape--active path,
+/*.home-map__shape--active path,
 .home-map__shape--active polygon,
 .home-map__shape--active rect,
 .home-map__shape--active polyline,
 .home-map__shape--active ellipse {
   fill: rgba(208, 214, 161, 0.72);
   stroke: rgba(95, 109, 55, 0.9);
-}
+}*/
 
 /* ── CMS feature card highlight ──────────────────────────────────────── */
 
@@ -72,9 +72,11 @@
 /* ── SVG room shape — hover ──────────────────────────────────────────── */
 
 .home-map__shape.home-map__shape--hover {
-  display: block;
+  display: block !important;
 }
-
+.home-map__shape--hover {
+  display: block !important;
+}
 .home-map__shape.home-map__shape--hover,
 .home-map__shape.home-map__shape--hover * {
   fill: rgba(247, 233, 213, 0.6) !important;
