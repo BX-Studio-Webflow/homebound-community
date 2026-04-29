@@ -1,5 +1,1178 @@
-"use strict";(()=>{var E=Object.defineProperty;var x=(d,e,t)=>e in d?E(d,e,{enumerable:!0,configurable:!0,writable:!0,value:t}):d[e]=t;var a=(d,e,t)=>x(d,typeof e!="symbol"?e+"":e,t);var w={"explore-plans-trigger":"explore-plans-tab","explore-homes-trigger":"explore-homes-tab"},m=class{constructor(e={}){a(this,"activeTrigger",null);a(this,"options");a(this,"triggerToPanel");this.options=e,this.triggerToPanel=e.triggerToPanel??w}init(){let e=document.querySelector('[dev-target="explore-tab-header"]'),t=document.querySelector('[dev-target="explore-tab-body"]');if(!e){console.error('ExploreTabsController: No [dev-target="explore-tab-header"] found.');return}if(!t){console.error('ExploreTabsController: No [dev-target="explore-tab-body"] found.');return}Object.entries(this.triggerToPanel).forEach(([i,n])=>{let l=document.querySelector(`[dev-target="${i}"]`),c=document.querySelector(`[dev-target="${n}"]`);if(!l){console.error(`ExploreTabsController: No [dev-target="${i}"] found.`);return}if(!c){console.error(`ExploreTabsController: No [dev-target="${n}"] found.`);return}l.addEventListener("click",()=>this.activate(i))});let o=Object.keys(this.triggerToPanel),r=o.map(i=>document.querySelector(`[dev-target="${i}"].is-active`)).find(Boolean);if(r){let i=r.getAttribute("dev-target");i&&this.activate(i)}else{let i=o[0];i&&this.activate(i)}}activate(e){if(this.activeTrigger===e)return;let t=this.triggerToPanel[e];t&&(Object.keys(this.triggerToPanel).forEach(o=>{document.querySelector(`[dev-target="${o}"]`)?.classList.toggle("is-active",o===e)}),Object.values(this.triggerToPanel).forEach(o=>{document.querySelector(`[dev-target="${o}"]`)?.classList.toggle("hide",o!==t)}),this.toggleHousePlansCompanionTabs(e),this.activeTrigger=e)}toggleHousePlansCompanionTabs(e){if(!this.options.isHousePlansGallery||!this.options.firstTabSelector||!this.options.secondTabSelector)return;let t=document.querySelector(this.options.firstTabSelector),o=document.querySelector(this.options.secondTabSelector);if(!t||!o){console.error('ExploreTabsController: No [dev-target="first-tab"] or [dev-target="second-tab"] found.');return}let r=Object.keys(this.triggerToPanel)[0],i=e===r;t.classList.toggle("hide",!i),o.classList.toggle("hide",i)}};var v=class v{constructor(e=document,t=v.FLOORS){a(this,"floors");a(this,"svgEls",[]);a(this,"activeHighlightKey",null);a(this,"checkedHighlightIds",new Set);a(this,"root");this.root=e,this.floors=t}init(){this.injectSvgs()&&(this.bindSvgHover(),this.bindCardHover(),this.bindCardClick(),this.bindCheckboxClick(),this.clearInitialState())}static initAll(e='[dev-target="explore-tab-body"]',t=v.FLOORS){let o='[dev-target="first-floor-svg-text-holder"], [dev-target="second-floor-svg-text-holder"]',r=Array.from(document.querySelectorAll(e)).filter(i=>i.querySelector(o));if(!r.length){new v(document,t).init();return}r.forEach(i=>new v(i,t).init())}static escapeRegExp(e){return e.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}static isSvgGeneratedClassToken(e){return/^cls-\d+$/.test(e)||/^st\d+$/.test(e)}static parseFeatureAttribute(e){return e.split(",").map(t=>t.trim()).filter(Boolean)}getCardFeatureIds(e){let t=e.getAttribute("feature")?.trim();if(t){let r=v.parseFeatureAttribute(t);if(r.length)return r}let o=e.id.trim();return o?[o]:[]}namespaceSvgClasses(e,t){let o=new Map,r=`hm-${t}-`;e.querySelectorAll("[class]").forEach(i=>{let n=i.getAttribute("class");n&&n.split(/\s+/).map(l=>l.trim()).filter(Boolean).forEach(l=>{v.isSvgGeneratedClassToken(l)&&(o.has(l)||o.set(l,`${r}${l}`))})}),o.size&&(e.querySelectorAll("[class]").forEach(i=>{let n=i.getAttribute("class");if(!n)return;let l=n.split(/\s+/).map(c=>c.trim()).filter(Boolean).map(c=>o.get(c)??c);i.setAttribute("class",l.join(" "))}),e.querySelectorAll("style").forEach(i=>{let n=i.textContent??"";o.forEach((l,c)=>{let s=new RegExp(`\\.${v.escapeRegExp(c)}(?![\\w-])`,"g");n=n.replace(s,`.${l}`)}),i.textContent=n}))}async injectSvgs(){let e=!1;for(let t of this.floors){let o=this.root.querySelector(`[dev-target="${t}-svg-text-holder"]`),r=this.root.querySelector(`[dev-target="${t}-svg-target-wrapper"]`);if(!o||!r){console.error(`HomeMapController: Missing element for "${t}". holder=${!!o}, wrapper=${!!r}`);continue}let i=(o.textContent??"").trim();if(!i){console.error(`HomeMapController: "${t}" SVG source is empty.`);continue}let n;try{let l=i.includes("<svg"),c=/^https?:\/\//i.test(i);if(l)n=this.sanitizeSvg(i);else if(c){let g=await fetch(i);if(!g.ok)throw new Error(`Fetch failed with status ${g.status}`);n=this.sanitizeSvg(await g.text())}else{console.error(`HomeMapController: "${t}" invalid SVG input.`);continue}let h=new DOMParser().parseFromString(n,"image/svg+xml").querySelector("svg");if(!h){console.error(`HomeMapController: "${t}" SVG parse failed.`);continue}r.innerHTML="",r.appendChild(h),h.classList.add("home-map__svg"),h.style.width="100%",h.style.height="100%",h.style.display="block",this.namespaceSvgClasses(h,t),this.svgEls.push(h),e=!0}catch(l){console.error(`HomeMapController: "${t}" injection error`,l)}}return e||console.error("HomeMapController: No floor SVGs were successfully injected."),e}sanitizeSvg(e){return e.replace(/=\d+"/g,'="').replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi,"")}bindSvgHover(){if(!this.svgEls.length){console.error("HomeMapController: bindSvgHover called but no SVGs are injected.");return}for(let e of this.svgEls)e.querySelectorAll('g[data-attribute="feature"][id]').forEach(o=>{let r=o.id.trim();r&&(o.classList.add("home-map__shape"),o.style.cursor="pointer",o.addEventListener("mouseenter",()=>this.highlight(r)),o.addEventListener("mouseleave",()=>this.clearHighlight()))})}bindCardHover(){let e=document.querySelectorAll('[dev-target="feature-collection-item"]');if(!e.length){console.error('HomeMapController: No [dev-target="feature-collection-item"] cards found.');return}e.forEach(t=>{let o=this.getCardFeatureIds(t);o.length&&(t.addEventListener("mouseenter",()=>this.highlight(o)),t.addEventListener("mouseleave",()=>this.clearHighlight()))})}highlight(e){let t=(Array.isArray(e)?[...e]:[e]).filter(Boolean);if(!t.length)return;let o=t.slice().sort().join("\0");this.activeHighlightKey!==o&&(this.applyClasses(null,"hover"),this.activeHighlightKey=o,this.applyClasses(t,"hover"))}clearHighlight(){this.activeHighlightKey=null,this.applyClasses(null,"hover")}applyClasses(e,t){let o=t==="hover"?"home-map__shape--hover":"home-map__shape--active",r=t==="hover"?"home-map__card--hover":"home-map__card--active";for(let n of this.svgEls)n.querySelectorAll(`.${o}`).forEach(l=>l.classList.remove(o));if(this.root.querySelectorAll(`.${r}`).forEach(n=>n.classList.remove(r)),!e?.length)return;let i=new Set(e);for(let n of i)for(let l of this.svgEls)l.querySelector(`g#${CSS.escape(n)}[data-attribute="feature"]`)?.classList.add(o);this.root.querySelectorAll('[dev-target="feature-collection-item"]').forEach(n=>{this.getCardFeatureIds(n).some(c=>i.has(c))&&n.classList.add(r)})}updateCheckedSetForCard(e,t){let o=this.getCardFeatureIds(e);if(o.length){for(let r of o)t?this.checkedHighlightIds.add(r):this.checkedHighlightIds.delete(r);this.syncCheckedLayer()}}syncCheckedLayer(){this.applyClasses(this.checkedHighlightIds.size?Array.from(this.checkedHighlightIds):null,"checked")}bindCardClick(){document.querySelectorAll('[dev-target="feature-collection-item"]').forEach(e=>{e.style.cursor="pointer",e.addEventListener("click",t=>{if(t.target.closest('input[type="checkbox"], .w-checkbox-input, label'))return;let r=e.querySelector('input[type="checkbox"]'),i=this.getCardFeatureIds(e);if(!r||!i.length)return;let n=e.querySelector(".w-checkbox-input"),c=!(n?.classList.contains("w--redirected-checked")??r.checked);r.checked=c,n?.classList.toggle("w--redirected-checked",c),this.updateCheckedSetForCard(e,c)})})}bindCheckboxClick(){document.querySelectorAll('[dev-target="feature-collection-item"]').forEach(e=>{this.getCardFeatureIds(e).length&&e.querySelectorAll('input[type="checkbox"]').forEach(t=>{t.addEventListener("change",()=>this.updateCheckedSetForCard(e,t.checked))})})}clearInitialState(){this.activeHighlightKey=null,this.applyClasses(null,"hover"),this.checkedHighlightIds.clear(),this.syncCheckedLayer(),document.querySelectorAll('[dev-target="feature-collection-item"]').forEach(e=>{e.querySelectorAll(".w-checkbox-input").forEach(t=>{t.classList.remove("w--redirected-checked")}),e.querySelectorAll('input[type="checkbox"]').forEach(t=>{t.checked=!1})})}};a(v,"FLOORS",["first-floor","second-floor"]);var u=v;var M={"For Sale":"#657839","Not Available for Sale":"#d17520","Under Contract":"#8b514e","Not Available":"#3A759D"},b=class{constructor(e={}){a(this,"svgEl",null);a(this,"activeId",null);a(this,"isPanning",!1);a(this,"config");a(this,"ORIGINAL_W",1162.54);a(this,"ORIGINAL_H",912.76);a(this,"MIN_ZOOM",1);a(this,"MAX_ZOOM",8);a(this,"DISABLE_ZOOM_WITH_MOUSE_SCROLL",!0);a(this,"vb",{x:0,y:0,w:this.ORIGINAL_W,h:this.ORIGINAL_H});this.config=e}init(){if(!this.injectSvg())return;let e=document.querySelectorAll('[dev-target="one-lot"][lot-number]');e.length||console.error('LotMapController: No [dev-target="one-lot"][lot-number] found \u2014 add lot-number to each CMS lot card to enable bidirectional hover.'),this.applyLabelColors(),this.bindSvgHover(),this.bindCardHover(e),this.bindZoom(),this.injectZoomControls(),this.bindFilter();let{isZoomMode:t,focusLotNumber:o,focusZoomFactor:r=3.5}=this.config;t&&o?requestAnimationFrame(()=>{requestAnimationFrame(()=>{this.focusViewOnLot(o,r),this.highlight(o,!1)})}):t&&!o&&console.error('LotMapController: isZoomMode is true but focusLotNumber is missing \u2014 set focusLotNumber or a CMS `lot-number` on [dev-target="one-lot"].')}focusViewOnLot(e,t){if(!this.svgEl)return;let o=this.svgEl.querySelector(`#${CSS.escape(e)}`);if(!o){console.error(`LotMapController: No SVG lot group #${e} \u2014 cannot focus view.`);return}let r;try{r=o.getBBox()}catch{return}if(r.width<=0&&r.height<=0){console.error(`LotMapController: Empty geometry for lot #${e} \u2014 cannot focus view.`);return}let i=r.x+r.width/2,n=r.y+r.height/2,l=this.ORIGINAL_W/this.MAX_ZOOM,c=this.ORIGINAL_W/Math.max(t,1),s=Math.max(r.width,r.height)*3,p=Math.min(this.ORIGINAL_W,Math.max(l,Math.max(c,s))),h=p*this.ORIGINAL_H/this.ORIGINAL_W;this.vb.x=i-p/2,this.vb.y=n-h/2,this.vb.w=p,this.vb.h=h,this.clampViewBox()}bindFilter(){let e={available:"For Sale",reserved:"Not Available for Sale",sold:"Under Contract","model-home":"Not Available"},t=null,o=()=>{let r=0;document.querySelectorAll('[dev-target="one-lot"]').forEach(n=>{let l=t===null||n.getAttribute("availability")===e[t];n.classList.toggle("hide",!l),l&&(r+=1)}),document.querySelector('[dev-target="no-items-found"]')?.classList.toggle("hide",r>0)};Object.keys(e).forEach(r=>{let i=document.querySelector(`[dev-target="${r}"]`);if(!i){console.error(`LotMapController: no filter pill found for dev-target="${r}".`);return}i.addEventListener("click",()=>{document.querySelector(`[dev-target="${t}"]`)?.classList.remove("is-active"),t=t===r?null:r,t&&i.classList.add("is-active"),o()})})}applyLabelColors(){if(!this.svgEl){console.error("LotMapController: applyLabelColors called but svgEl is null.");return}let e=new Map;document.querySelectorAll('[dev-target="one-lot"][lot-number]').forEach(t=>{let o=t.getAttribute("lot-number"),r=t.getAttribute("availability");o&&r&&e.set(o,r)}),this.svgEl.querySelectorAll('g[id$="Label"]').forEach(t=>{let{id:o}=t,r=o.replace(/Label$/,""),i=e.get(r),n=i?M[i]??"#657839":"#657839";t.querySelector("rect")?.setAttribute("fill",n)})}injectSvg(){let e=document.querySelector('[dev-target="svg-text-holder"]'),t=document.querySelector('[dev-target="svg-target-wrapper"]');if(!e)return console.error('LotMapController: No [dev-target="svg-text-holder"] element found.'),!1;if(!t)return console.error('LotMapController: No [dev-target="svg-target-wrapper"] element found.'),!1;let o=e.textContent?.trim()??"";if(!o.includes("<svg"))return console.error('LotMapController: [dev-target="svg-text-holder"] does not contain SVG markup.'),!1;let r=o.replace(/=\d+"/g,'="');return t.innerHTML=r,this.svgEl=t.querySelector("svg"),this.svgEl?(this.svgEl.style.width="100%",this.svgEl.style.height="100%",this.svgEl.style.display="block",!0):(console.error("LotMapController: SVG injection failed \u2014 no <svg> found after injection."),!1)}applyViewBox(){let{x:e,y:t,w:o,h:r}=this.vb;this.svgEl?.setAttribute("viewBox",`${e} ${t} ${o} ${r}`)}clampViewBox(){this.vb.x=Math.max(0,Math.min(this.vb.x,this.ORIGINAL_W-this.vb.w)),this.vb.y=Math.max(0,Math.min(this.vb.y,this.ORIGINAL_H-this.vb.h)),this.applyViewBox()}toSvgPoint(e,t){let o=this.svgEl.getBoundingClientRect();return{x:this.vb.x+(e-o.left)/o.width*this.vb.w,y:this.vb.y+(t-o.top)/o.height*this.vb.h}}zoomAround(e,t,o){let r=this.vb.w*e,i=this.ORIGINAL_W/r;if(i<this.MIN_ZOOM||i>this.MAX_ZOOM){this.clampViewBox();return}this.vb.x=t+(this.vb.x-t)*e,this.vb.y=o+(this.vb.y-o)*e,this.vb.w=r,this.vb.h=this.vb.h*e,this.clampViewBox()}zoomBy(e){let t=this.vb.x+this.vb.w/2,o=this.vb.y+this.vb.h/2;this.zoomAround(e,t,o)}resetZoom(){this.vb={x:0,y:0,w:this.ORIGINAL_W,h:this.ORIGINAL_H},this.applyViewBox()}bindZoom(){if(!this.svgEl){console.error("LotMapController: bindZoom called but svgEl is null.");return}let e=this.svgEl;e.addEventListener("wheel",s=>{if(this.DISABLE_ZOOM_WITH_MOUSE_SCROLL)return;s.preventDefault();let p=s.deltaY<0?.85:1/.85,{x:h,y:g}=this.toSvgPoint(s.clientX,s.clientY);this.zoomAround(p,h,g)},{passive:!1});let t={x:0,y:0},o={...this.vb};e.addEventListener("mousedown",s=>{s.button!==0&&s.button!==1||(s.preventDefault(),this.isPanning=!0,t={x:s.clientX,y:s.clientY},o={...this.vb},e.classList.add("lot-map__svg--panning"))}),window.addEventListener("mousemove",s=>{if(!this.isPanning)return;let p=e.getBoundingClientRect();this.vb.x=o.x-(s.clientX-t.x)/p.width*o.w,this.vb.y=o.y-(s.clientY-t.y)/p.height*o.h,this.clampViewBox()}),window.addEventListener("mouseup",s=>{!this.isPanning||s.button!==0&&s.button!==1||(this.isPanning=!1,e.classList.remove("lot-map__svg--panning"))});let r=!1,i=0,n={x:0,y:0},l=s=>Math.hypot(s[0].clientX-s[1].clientX,s[0].clientY-s[1].clientY),c=s=>({x:(s[0].clientX+s[1].clientX)/2,y:(s[0].clientY+s[1].clientY)/2});e.addEventListener("touchstart",s=>{s.preventDefault(),r=!0,s.touches.length===2?(this.isPanning=!1,i=l(s.touches),n=c(s.touches)):(this.isPanning=!0,t={x:s.touches[0].clientX,y:s.touches[0].clientY},o={...this.vb})},{passive:!1}),window.addEventListener("touchmove",s=>{if(r){if(s.preventDefault(),s.touches.length===2){this.isPanning=!1;let p=l(s.touches),h=c(s.touches),g=i/p,S=this.toSvgPoint(h.x,h.y);this.zoomAround(g,S.x,S.y);let L=e.getBoundingClientRect();this.vb.x-=(h.x-n.x)/L.width*this.vb.w,this.vb.y-=(h.y-n.y)/L.height*this.vb.h,this.clampViewBox(),i=p,n=h}else if(s.touches.length===1&&this.isPanning){let p=e.getBoundingClientRect(),h=(s.touches[0].clientX-t.x)/p.width*o.w,g=(s.touches[0].clientY-t.y)/p.height*o.h;this.vb.x=o.x-h,this.vb.y=o.y-g,this.clampViewBox()}}},{passive:!1}),window.addEventListener("touchend",()=>{r&&(r=!1,this.isPanning=!1)})}injectZoomControls(){let e=this.svgEl?.parentElement;if(!e){console.error("LotMapController: injectZoomControls called but SVG has no parent.");return}getComputedStyle(e).position==="static"&&(e.style.position="relative");let t=document.createElement("div");t.className="lot-map__zoom-controls",t.setAttribute("aria-label","Map zoom controls"),t.innerHTML=`
+"use strict";
+(() => {
+  // bin/live-reload.js
+  new EventSource(`${"http://localhost:3000"}/esbuild`).addEventListener("change", () => location.reload());
+
+  // src/utils/explore-tabs.ts
+  var DEFAULT_TRIGGER_TO_PANEL = {
+    "explore-plans-trigger": "explore-plans-tab",
+    "explore-homes-trigger": "explore-homes-tab"
+  };
+  var ExploreTabsController = class {
+    activeTrigger = null;
+    options;
+    triggerToPanel;
+    constructor(options = {}) {
+      this.options = options;
+      this.triggerToPanel = options.triggerToPanel ?? DEFAULT_TRIGGER_TO_PANEL;
+    }
+    /**
+     * Initialises the controller: wires tab triggers to panels.
+     * Must be called after the DOM is ready (e.g. inside `window.Webflow.push`).
+     */
+    init() {
+      const header = document.querySelector('[dev-target="explore-tab-header"]');
+      const body = document.querySelector('[dev-target="explore-tab-body"]');
+      if (!header) {
+        console.error('ExploreTabsController: No [dev-target="explore-tab-header"] found.');
+        return;
+      }
+      if (!body) {
+        console.error('ExploreTabsController: No [dev-target="explore-tab-body"] found.');
+        return;
+      }
+      Object.entries(this.triggerToPanel).forEach(([triggerTarget, panelTarget]) => {
+        const trigger = document.querySelector(`[dev-target="${triggerTarget}"]`);
+        const panel = document.querySelector(`[dev-target="${panelTarget}"]`);
+        if (!trigger) {
+          console.error(`ExploreTabsController: No [dev-target="${triggerTarget}"] found.`);
+          return;
+        }
+        if (!panel) {
+          console.error(`ExploreTabsController: No [dev-target="${panelTarget}"] found.`);
+          return;
+        }
+        trigger.addEventListener("click", () => this.activate(triggerTarget));
+      });
+      const triggerKeys = Object.keys(this.triggerToPanel);
+      const initialTrigger = triggerKeys.map((key) => document.querySelector(`[dev-target="${key}"].is-active`)).find(Boolean);
+      if (initialTrigger) {
+        const target = initialTrigger.getAttribute("dev-target");
+        if (target) this.activate(target);
+      } else {
+        const firstKey = triggerKeys[0];
+        if (firstKey) this.activate(firstKey);
+      }
+    }
+    /**
+     * Activates the given trigger and shows its corresponding panel.
+     */
+    activate(triggerTarget) {
+      if (this.activeTrigger === triggerTarget) return;
+      const panelTarget = this.triggerToPanel[triggerTarget];
+      if (!panelTarget) return;
+      Object.keys(this.triggerToPanel).forEach((key) => {
+        const trigger = document.querySelector(`[dev-target="${key}"]`);
+        trigger?.classList.toggle("is-active", key === triggerTarget);
+      });
+      Object.values(this.triggerToPanel).forEach((target) => {
+        const panel = document.querySelector(`[dev-target="${target}"]`);
+        panel?.classList.toggle("hide", target !== panelTarget);
+      });
+      this.toggleHousePlansCompanionTabs(triggerTarget);
+      this.activeTrigger = triggerTarget;
+    }
+    toggleHousePlansCompanionTabs(triggerTarget) {
+      if (!this.options.isHousePlansGallery) return;
+      if (!this.options.firstTabSelector || !this.options.secondTabSelector) return;
+      const firstTab = document.querySelector(this.options.firstTabSelector);
+      const secondTab = document.querySelector(this.options.secondTabSelector);
+      if (!firstTab || !secondTab) {
+        console.error(
+          'ExploreTabsController: No [dev-target="first-tab"] or [dev-target="second-tab"] found.'
+        );
+        return;
+      }
+      const firstTriggerKey = Object.keys(this.triggerToPanel)[0];
+      const isExplorePlansActive = triggerTarget === firstTriggerKey;
+      firstTab.classList.toggle("hide", !isExplorePlansActive);
+      secondTab.classList.toggle("hide", isExplorePlansActive);
+    }
+  };
+
+  // src/utils/home-map.ts
+  var HomeMapController = class _HomeMapController {
+    static FLOORS = ["first-floor", "second-floor"];
+    floors;
+    svgEls = [];
+    /** Normalised key for the current hover layer (sorted ids, comma-joined) or `null`. */
+    activeHighlightKey = null;
+    /** All feature ids whose checkboxes are currently checked. */
+    checkedHighlightIds = /* @__PURE__ */ new Set();
+    root;
+    constructor(root = document, floors = _HomeMapController.FLOORS) {
+      this.root = root;
+      this.floors = floors;
+    }
+    /**
+     * Initialises one map instance scoped to the provided root.
+     * Must be called after the DOM is ready (e.g. inside `window.Webflow.push`).
+     */
+    init() {
+      if (!this.injectSvgs()) return;
+      this.bindSvgHover();
+      this.bindCardHover();
+      this.bindCardClick();
+      this.bindCheckboxClick();
+      this.clearInitialState();
+    }
+    /**
+     * Initialises all map roots on the page.
+     * Each `[dev-target="explore-tab-body"]` that contains at least one holder
+     * element becomes its own {@link HomeMapController} instance.
+     */
+    static initAll(rootSelector = '[dev-target="explore-tab-body"]', floors = _HomeMapController.FLOORS) {
+      const holderSelector = '[dev-target="first-floor-svg-text-holder"], [dev-target="second-floor-svg-text-holder"]';
+      const roots = Array.from(document.querySelectorAll(rootSelector)).filter(
+        (root) => root.querySelector(holderSelector)
+      );
+      if (!roots.length) {
+        new _HomeMapController(document, floors).init();
+        return;
+      }
+      roots.forEach((root) => new _HomeMapController(root, floors).init());
+    }
+    static escapeRegExp(value) {
+      return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+    /**
+     * SVG editors commonly emit class names like `cls-1` or `st11`.
+     * Namespace these to avoid style collisions between floor SVGs.
+     */
+    static isSvgGeneratedClassToken(token) {
+      return /^cls-\d+$/.test(token) || /^st\d+$/.test(token);
+    }
+    /**
+     * Splits a `feature` attribute by commas (trimmed, empty tokens removed).
+     * Example: `highlight-a, highlight-b` → `['highlight-a', 'highlight-b']`.
+     */
+    static parseFeatureAttribute(value) {
+      return value.split(",").map((s) => s.trim()).filter(Boolean);
+    }
+    /**
+     * Resolves highlight id(s) from a CMS card.
+     * `feature` may be one id or a comma-separated list; if absent, `id` is used as a single id.
+     */
+    getCardFeatureIds(card) {
+      const featureValue = card.getAttribute("feature")?.trim();
+      if (featureValue) {
+        const parsed = _HomeMapController.parseFeatureAttribute(featureValue);
+        if (parsed.length) return parsed;
+      }
+      const idValue = card.id.trim();
+      return idValue ? [idValue] : [];
+    }
+    /**
+     * Prevent cross-SVG style collisions by namespacing auto-generated classes
+     * (e.g. `.cls-1`) per floor before event wiring runs.
+     */
+    namespaceSvgClasses(svgEl, floor) {
+      const classMap = /* @__PURE__ */ new Map();
+      const prefix = `hm-${floor}-`;
+      svgEl.querySelectorAll("[class]").forEach((el) => {
+        const classAttr = el.getAttribute("class");
+        if (!classAttr) return;
+        classAttr.split(/\s+/).map((token) => token.trim()).filter(Boolean).forEach((token) => {
+          if (!_HomeMapController.isSvgGeneratedClassToken(token)) return;
+          if (classMap.has(token)) return;
+          classMap.set(token, `${prefix}${token}`);
+        });
+      });
+      if (!classMap.size) return;
+      svgEl.querySelectorAll("[class]").forEach((el) => {
+        const classAttr = el.getAttribute("class");
+        if (!classAttr) return;
+        const namespaced = classAttr.split(/\s+/).map((token) => token.trim()).filter(Boolean).map((token) => classMap.get(token) ?? token);
+        el.setAttribute("class", namespaced.join(" "));
+      });
+      svgEl.querySelectorAll("style").forEach((styleEl) => {
+        let cssText = styleEl.textContent ?? "";
+        classMap.forEach((namespacedClass, originalClass) => {
+          const classSelector = new RegExp(
+            `\\.${_HomeMapController.escapeRegExp(originalClass)}(?![\\w-])`,
+            "g"
+          );
+          cssText = cssText.replace(classSelector, `.${namespacedClass}`);
+        });
+        styleEl.textContent = cssText;
+      });
+    }
+    /**
+     * Iterates over each floor, reads SVG markup from its text holder,
+     * sanitises it, and injects it into the corresponding target wrapper.
+     *
+     * @returns `true` if at least one floor was injected successfully.
+     */
+    async injectSvgs() {
+      let injected = false;
+      for (const floor of this.floors) {
+        const textHolder = this.root.querySelector(
+          `[dev-target="${floor}-svg-text-holder"]`
+        );
+        const targetWrapper = this.root.querySelector(
+          `[dev-target="${floor}-svg-target-wrapper"]`
+        );
+        if (!textHolder || !targetWrapper) {
+          console.error(
+            `HomeMapController: Missing element for "${floor}". holder=${!!textHolder}, wrapper=${!!targetWrapper}`
+          );
+          continue;
+        }
+        const raw = (textHolder.textContent ?? "").trim();
+        if (!raw) {
+          console.error(`HomeMapController: "${floor}" SVG source is empty.`);
+          continue;
+        }
+        let svgText;
+        try {
+          const isSvgMarkup = raw.includes("<svg");
+          const isUrl = /^https?:\/\//i.test(raw);
+          if (isSvgMarkup) {
+            svgText = this.sanitizeSvg(raw);
+          } else if (isUrl) {
+            const res = await fetch(raw);
+            if (!res.ok) {
+              throw new Error(`Fetch failed with status ${res.status}`);
+            }
+            svgText = this.sanitizeSvg(await res.text());
+          } else {
+            console.error(`HomeMapController: "${floor}" invalid SVG input.`);
+            continue;
+          }
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(svgText, "image/svg+xml");
+          const svgEl = doc.querySelector("svg");
+          if (!svgEl) {
+            console.error(`HomeMapController: "${floor}" SVG parse failed.`);
+            continue;
+          }
+          targetWrapper.innerHTML = "";
+          targetWrapper.appendChild(svgEl);
+          svgEl.classList.add("home-map__svg");
+          svgEl.style.width = "100%";
+          svgEl.style.height = "100%";
+          svgEl.style.display = "block";
+          this.namespaceSvgClasses(svgEl, floor);
+          this.svgEls.push(svgEl);
+          injected = true;
+        } catch (err) {
+          console.error(`HomeMapController: "${floor}" injection error`, err);
+        }
+      }
+      if (!injected) {
+        console.error("HomeMapController: No floor SVGs were successfully injected.");
+      }
+      return injected;
+    }
+    /**
+     * Sanitises SVG markup by fixing broken Webflow attributes and removing script tags.
+     */
+    sanitizeSvg(svg) {
+      return svg.replace(/=\d+"/g, '="').replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, "");
+    }
+    /**
+     * Discovers SVG highlight groups and wires `mouseenter`/`mouseleave` to
+     * {@link highlight}. Only `<g data-attribute="feature" id="...">` groups
+     * are considered highlight targets.
+     */
+    bindSvgHover() {
+      if (!this.svgEls.length) {
+        console.error("HomeMapController: bindSvgHover called but no SVGs are injected.");
+        return;
+      }
+      for (const svgEl of this.svgEls) {
+        const groups = svgEl.querySelectorAll('g[data-attribute="feature"][id]');
+        groups.forEach((group) => {
+          const highlightId = group.id.trim();
+          if (!highlightId) return;
+          group.classList.add("home-map__shape");
+          group.style.cursor = "pointer";
+          group.addEventListener("mouseenter", () => this.highlight(highlightId));
+          group.addEventListener("mouseleave", () => this.clearHighlight());
+        });
+      }
+    }
+    /**
+     * Attaches `mouseenter`/`mouseleave` listeners to CMS feature cards so
+     * hovering a card highlights the corresponding SVG group by matching
+     * `feature` (with `id` as fallback).
+     */
+    bindCardHover() {
+      const cards = document.querySelectorAll('[dev-target="feature-collection-item"]');
+      if (!cards.length) {
+        console.error('HomeMapController: No [dev-target="feature-collection-item"] cards found.');
+        return;
+      }
+      cards.forEach((card) => {
+        const highlightIds = this.getCardFeatureIds(card);
+        if (!highlightIds.length) return;
+        card.addEventListener("mouseenter", () => this.highlight(highlightIds));
+        card.addEventListener("mouseleave", () => this.clearHighlight());
+      });
+    }
+    /**
+     * Applies a transient hover highlight to the SVG group(s) and matching CMS
+     * card(s). One id (from the SVG) or several (comma-separated on a card).
+     * No-ops if the same set of ids is already hover-highlighted.
+     */
+    highlight(highlightIdOrIds) {
+      const ids = (Array.isArray(highlightIdOrIds) ? [...highlightIdOrIds] : [highlightIdOrIds]).filter(Boolean);
+      if (!ids.length) return;
+      const key = ids.slice().sort().join("\0");
+      if (this.activeHighlightKey === key) return;
+      this.applyClasses(null, "hover");
+      this.activeHighlightKey = key;
+      this.applyClasses(ids, "hover");
+    }
+    /**
+     * Removes the transient hover highlight. The persistent checkbox highlight
+     * (if any) is left untouched because it lives on separate CSS classes.
+     */
+    clearHighlight() {
+      this.activeHighlightKey = null;
+      this.applyClasses(null, "hover");
+    }
+    /**
+     * Low-level helper that removes then (optionally) re-applies one layer of
+     * highlight classes — either the hover layer or the checked/persistent layer.
+     *
+     * @param highlightIds - Target feature id(s), or `null` / `[]` to only clear.
+     * @param layer        - `'hover'` uses `--hover` classes;
+     *                      `'checked'` uses `--active` classes.
+     */
+    applyClasses(highlightIds, layer) {
+      const shapeClass = layer === "hover" ? "home-map__shape--hover" : "home-map__shape--active";
+      const cardClass = layer === "hover" ? "home-map__card--hover" : "home-map__card--active";
+      for (const svgEl of this.svgEls) {
+        svgEl.querySelectorAll(`.${shapeClass}`).forEach((el) => el.classList.remove(shapeClass));
+      }
+      this.root.querySelectorAll(`.${cardClass}`).forEach((el) => el.classList.remove(cardClass));
+      if (!highlightIds?.length) return;
+      const want = new Set(highlightIds);
+      for (const id of want) {
+        for (const svgEl of this.svgEls) {
+          svgEl.querySelector(`g#${CSS.escape(id)}[data-attribute="feature"]`)?.classList.add(shapeClass);
+        }
+      }
+      this.root.querySelectorAll('[dev-target="feature-collection-item"]').forEach((card) => {
+        const cardIds = this.getCardFeatureIds(card);
+        if (cardIds.some((cid) => want.has(cid))) {
+          card.classList.add(cardClass);
+        }
+      });
+    }
+    /**
+     * Updates the set of id(s) that should be persistently highlighted for one
+     * feature card, then re-syncs the checked layer from the set (one card can
+     * contribute several comma-separated ids).
+     */
+    updateCheckedSetForCard(card, checked) {
+      const ids = this.getCardFeatureIds(card);
+      if (!ids.length) return;
+      for (const id of ids) {
+        if (checked) this.checkedHighlightIds.add(id);
+        else this.checkedHighlightIds.delete(id);
+      }
+      this.syncCheckedLayer();
+    }
+    /**
+     * Reapplies `home-map__shape--active` / `home-map__card--active` from
+     * {@link checkedHighlightIds} so unchecking a multi-id card does not leave
+     * shapes/cards in a half-cleared state.
+     */
+    syncCheckedLayer() {
+      this.applyClasses(
+        this.checkedHighlightIds.size ? Array.from(this.checkedHighlightIds) : null,
+        "checked"
+      );
+    }
+    /**
+     * Makes the entire feature card row behave as a checkbox toggle.
+     *
+     * Clicks that already originate from the checkbox `<input>`, its Webflow
+     * visual wrapper `.w-checkbox-input`, or a `<label>` element (which the
+     * browser handles natively) are ignored to avoid double-toggling.
+     * All other clicks on the card toggle the checkbox visuals and call
+     * {@link updateCheckedSetForCard} directly — no `change` event is dispatched to
+     * avoid Webflow or parent listeners firing a second toggle.
+     */
+    bindCardClick() {
+      document.querySelectorAll('[dev-target="feature-collection-item"]').forEach((card) => {
+        card.style.cursor = "pointer";
+        card.addEventListener("click", (e) => {
+          const target = e.target;
+          if (target.closest('input[type="checkbox"], .w-checkbox-input, label')) return;
+          const input = card.querySelector('input[type="checkbox"]');
+          const featureIds = this.getCardFeatureIds(card);
+          if (!input || !featureIds.length) return;
+          const checkboxDiv = card.querySelector(".w-checkbox-input");
+          const wasChecked = checkboxDiv?.classList.contains("w--redirected-checked") ?? input.checked;
+          const nowChecked = !wasChecked;
+          input.checked = nowChecked;
+          checkboxDiv?.classList.toggle("w--redirected-checked", nowChecked);
+          this.updateCheckedSetForCard(card, nowChecked);
+        });
+      });
+    }
+    /**
+     * Wires `change` events on checkbox inputs inside feature cards so that
+     * checking a box persistently highlights the matched SVG group and unchecking
+     * removes the persistent highlight (hover behaviour is unaffected).
+     *
+     * Webflow fires a native `change` event on the hidden `<input>` whenever the
+     * custom checkbox wrapper is clicked, so this is the reliable integration point.
+     */
+    bindCheckboxClick() {
+      document.querySelectorAll('[dev-target="feature-collection-item"]').forEach((card) => {
+        if (!this.getCardFeatureIds(card).length) return;
+        card.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+          input.addEventListener("change", () => this.updateCheckedSetForCard(card, input.checked));
+        });
+      });
+    }
+    /**
+     * Strips any pre-existing active highlight and checked states from the DOM
+     * so that the page loads with nothing selected.
+     *
+     * Handles:
+     * - `home-map__shape--active` on injected SVG groups
+     * - `home-map__card--active` on CMS feature cards
+     * - `w--redirected-checked` on Webflow custom-checkbox wrappers
+     * - `checked` property on the underlying `<input type="checkbox">` elements
+     */
+    clearInitialState() {
+      this.activeHighlightKey = null;
+      this.applyClasses(null, "hover");
+      this.checkedHighlightIds.clear();
+      this.syncCheckedLayer();
+      document.querySelectorAll('[dev-target="feature-collection-item"]').forEach((card) => {
+        card.querySelectorAll(".w-checkbox-input").forEach((checkboxDiv) => {
+          checkboxDiv.classList.remove("w--redirected-checked");
+        });
+        card.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+          input.checked = false;
+        });
+      });
+    }
+  };
+
+  // src/utils/lot-map.ts
+  var AVAILABILITY_COLORS = {
+    "For Sale": "#657839",
+    "Not Available for Sale": "#d17520",
+    "Under Contract": "#8b514e",
+    "Not Available": "#3A759D"
+  };
+  var LotMapController = class {
+    svgEl = null;
+    activeId = null;
+    isPanning = false;
+    config;
+    /** Native width of the SVG viewBox. */
+    ORIGINAL_W = 1162.54;
+    /** Native height of the SVG viewBox. */
+    ORIGINAL_H = 912.76;
+    /** Minimum zoom factor — prevents zooming out past the full map (1 = full map). */
+    MIN_ZOOM = 1;
+    /** Maximum zoom factor. */
+    MAX_ZOOM = 8;
+    /** Zoom factor for the zoom buttons. */
+    DISABLE_ZOOM_WITH_MOUSE_SCROLL = true;
+    vb = { x: 0, y: 0, w: this.ORIGINAL_W, h: this.ORIGINAL_H };
+    constructor(config = {}) {
+      this.config = config;
+    }
+    /**
+     * Initialises the controller: injects the SVG, wires hover and zoom.
+     * Must be called after the DOM is ready (e.g. inside `window.Webflow.push`).
+     */
+    init() {
+      if (!this.injectSvg()) return;
+      const cards = document.querySelectorAll('[dev-target="one-lot"][lot-number]');
+      if (!cards.length) {
+        console.error(
+          'LotMapController: No [dev-target="one-lot"][lot-number] found \u2014 add lot-number to each CMS lot card to enable bidirectional hover.'
+        );
+      }
+      this.applyLabelColors();
+      this.bindSvgHover();
+      this.bindCardHover(cards);
+      this.bindZoom();
+      this.injectZoomControls();
+      this.bindFilter();
+      const { isZoomMode, focusLotNumber, focusZoomFactor = 3.5 } = this.config;
+      if (isZoomMode && focusLotNumber) {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            this.focusViewOnLot(focusLotNumber, focusZoomFactor);
+            this.highlight(focusLotNumber, false);
+          });
+        });
+      } else if (isZoomMode && !focusLotNumber) {
+        console.error(
+          'LotMapController: isZoomMode is true but focusLotNumber is missing \u2014 set focusLotNumber or a CMS `lot-number` on [dev-target="one-lot"].'
+        );
+      }
+    }
+    /**
+     * Sets the viewBox to frame the lot shape group in SVG space, with padding and a
+     * zoom level derived from {@link focusZoomFactor}.
+     */
+    focusViewOnLot(lotId, zoomFactor) {
+      if (!this.svgEl) return;
+      const shape = this.svgEl.querySelector(`#${CSS.escape(lotId)}`);
+      if (!shape) {
+        console.error(`LotMapController: No SVG lot group #${lotId} \u2014 cannot focus view.`);
+        return;
+      }
+      let bbox;
+      try {
+        bbox = shape.getBBox();
+      } catch {
+        return;
+      }
+      if (bbox.width <= 0 && bbox.height <= 0) {
+        console.error(`LotMapController: Empty geometry for lot #${lotId} \u2014 cannot focus view.`);
+        return;
+      }
+      const cx = bbox.x + bbox.width / 2;
+      const cy = bbox.y + bbox.height / 2;
+      const minWFromMaxZoom = this.ORIGINAL_W / this.MAX_ZOOM;
+      const fromMapZoom = this.ORIGINAL_W / Math.max(zoomFactor, 1);
+      const fromLotPadding = Math.max(bbox.width, bbox.height) * 3;
+      const targetW = Math.min(
+        this.ORIGINAL_W,
+        Math.max(minWFromMaxZoom, Math.max(fromMapZoom, fromLotPadding))
+      );
+      const targetH = targetW * this.ORIGINAL_H / this.ORIGINAL_W;
+      this.vb.x = cx - targetW / 2;
+      this.vb.y = cy - targetH / 2;
+      this.vb.w = targetW;
+      this.vb.h = targetH;
+      this.clampViewBox();
+    }
+    bindFilter() {
+      const map = {
+        available: "For Sale",
+        reserved: "Not Available for Sale",
+        sold: "Under Contract",
+        "model-home": "Not Available"
+      };
+      let activeKey = null;
+      const applyFilter = () => {
+        let visibleCount = 0;
+        document.querySelectorAll('[dev-target="one-lot"]').forEach((lot) => {
+          const matches = activeKey === null || lot.getAttribute("availability") === map[activeKey];
+          lot.classList.toggle("hide", !matches);
+          if (matches) visibleCount += 1;
+        });
+        const noItems = document.querySelector('[dev-target="no-items-found"]');
+        noItems?.classList.toggle("hide", visibleCount > 0);
+      };
+      Object.keys(map).forEach((key) => {
+        const pill = document.querySelector(`[dev-target="${key}"]`);
+        if (!pill) {
+          console.error(`LotMapController: no filter pill found for dev-target="${key}".`);
+          return;
+        }
+        pill.addEventListener("click", () => {
+          document.querySelector(`[dev-target="${activeKey}"]`)?.classList.remove("is-active");
+          activeKey = activeKey === key ? null : key;
+          if (activeKey) pill.classList.add("is-active");
+          applyFilter();
+        });
+      });
+    }
+    /**
+     * Sets each SVG label group's rect fill color based on the lot's availability
+     * from the CMS cards. Uses {@link AVAILABILITY_COLORS}; unknown values default to #657839.
+     */
+    applyLabelColors() {
+      if (!this.svgEl) {
+        console.error("LotMapController: applyLabelColors called but svgEl is null.");
+        return;
+      }
+      const lotToAvailability = /* @__PURE__ */ new Map();
+      document.querySelectorAll('[dev-target="one-lot"][lot-number]').forEach((card) => {
+        const lotNumber = card.getAttribute("lot-number");
+        const availability = card.getAttribute("availability");
+        if (lotNumber && availability) lotToAvailability.set(lotNumber, availability);
+      });
+      this.svgEl.querySelectorAll('g[id$="Label"]').forEach((labelGroup) => {
+        const { id } = labelGroup;
+        const lotNumber = id.replace(/Label$/, "");
+        const availability = lotToAvailability.get(lotNumber);
+        const color = availability ? AVAILABILITY_COLORS[availability] ?? "#657839" : "#657839";
+        labelGroup.querySelector("rect")?.setAttribute("fill", color);
+      });
+    }
+    /**
+     * Reads SVG markup from `[dev-target="svg-text-holder"]`, sanitises it,
+     * and injects it into `[dev-target="svg-target-wrapper"]`.
+     *
+     * @returns `true` on success, `false` if a required element is missing or
+     *   the holder does not contain valid SVG markup.
+     */
+    injectSvg() {
+      const textHolder = document.querySelector('[dev-target="svg-text-holder"]');
+      const targetWrapper = document.querySelector('[dev-target="svg-target-wrapper"]');
+      if (!textHolder) {
+        console.error('LotMapController: No [dev-target="svg-text-holder"] element found.');
+        return false;
+      }
+      if (!targetWrapper) {
+        console.error('LotMapController: No [dev-target="svg-target-wrapper"] element found.');
+        return false;
+      }
+      const rawMarkup = textHolder.textContent?.trim() ?? "";
+      if (!rawMarkup.includes("<svg")) {
+        console.error(
+          'LotMapController: [dev-target="svg-text-holder"] does not contain SVG markup.'
+        );
+        return false;
+      }
+      const svgMarkup = rawMarkup.replace(/=\d+"/g, '="');
+      targetWrapper.innerHTML = svgMarkup;
+      this.svgEl = targetWrapper.querySelector("svg");
+      if (!this.svgEl) {
+        console.error("LotMapController: SVG injection failed \u2014 no <svg> found after injection.");
+        return false;
+      }
+      this.svgEl.style.width = "100%";
+      this.svgEl.style.height = "100%";
+      this.svgEl.style.display = "block";
+      return true;
+    }
+    /**
+     * Writes the current {@link ViewBox} state back to the SVG `viewBox` attribute.
+     */
+    applyViewBox() {
+      const { x, y, w, h } = this.vb;
+      this.svgEl?.setAttribute("viewBox", `${x} ${y} ${w} ${h}`);
+    }
+    /**
+     * Clamps the viewBox so the visible area stays within map bounds.
+     * Prevents panning the map out of view at any zoom level.
+     */
+    clampViewBox() {
+      this.vb.x = Math.max(0, Math.min(this.vb.x, this.ORIGINAL_W - this.vb.w));
+      this.vb.y = Math.max(0, Math.min(this.vb.y, this.ORIGINAL_H - this.vb.h));
+      this.applyViewBox();
+    }
+    /**
+     * Converts a screen-space client coordinate to SVG-space coordinates,
+     * accounting for the current viewBox pan and zoom.
+     *
+     * @param clientX - Horizontal client coordinate (e.g. from a mouse event).
+     * @param clientY - Vertical client coordinate.
+     * @returns The equivalent point in SVG user units.
+     */
+    toSvgPoint(clientX, clientY) {
+      const rect = this.svgEl.getBoundingClientRect();
+      return {
+        x: this.vb.x + (clientX - rect.left) / rect.width * this.vb.w,
+        y: this.vb.y + (clientY - rect.top) / rect.height * this.vb.h
+      };
+    }
+    /**
+     * Scales the viewBox by `scale` around a fixed SVG-space origin point,
+     * clamped to {@link MIN_ZOOM} / {@link MAX_ZOOM}.
+     *
+     * @param scale   - Multiplier applied to the viewBox dimensions (< 1 zooms in).
+     * @param originX - SVG-space X coordinate to zoom around.
+     * @param originY - SVG-space Y coordinate to zoom around.
+     */
+    zoomAround(scale, originX, originY) {
+      const newW = this.vb.w * scale;
+      const zoom = this.ORIGINAL_W / newW;
+      if (zoom < this.MIN_ZOOM || zoom > this.MAX_ZOOM) {
+        this.clampViewBox();
+        return;
+      }
+      this.vb.x = originX + (this.vb.x - originX) * scale;
+      this.vb.y = originY + (this.vb.y - originY) * scale;
+      this.vb.w = newW;
+      this.vb.h = this.vb.h * scale;
+      this.clampViewBox();
+    }
+    /**
+     * Zooms by `scale` around the centre of the current viewBox.
+     * Used by the +/− buttons.
+     *
+     * @param scale - Multiplier applied to the viewBox dimensions (< 1 zooms in).
+     */
+    zoomBy(scale) {
+      const cx = this.vb.x + this.vb.w / 2;
+      const cy = this.vb.y + this.vb.h / 2;
+      this.zoomAround(scale, cx, cy);
+    }
+    /**
+     * Resets the viewBox to the original full-map dimensions.
+     */
+    resetZoom() {
+      this.vb = { x: 0, y: 0, w: this.ORIGINAL_W, h: this.ORIGINAL_H };
+      this.applyViewBox();
+    }
+    /**
+     * Attaches mouse-wheel zoom, left/middle-click drag pan, and touch
+     * pinch-to-zoom / single-finger pan event listeners to the SVG.
+     *
+     * Mouse and touch move/end listeners are bound to `window` so gestures
+     * continue working when the pointer leaves the SVG boundary.
+     * `preventDefault()` is only called when an interaction originated on
+     * the SVG, leaving all other page scroll unaffected.
+     */
+    bindZoom() {
+      if (!this.svgEl) {
+        console.error("LotMapController: bindZoom called but svgEl is null.");
+        return;
+      }
+      const svg = this.svgEl;
+      svg.addEventListener(
+        "wheel",
+        (e) => {
+          if (this.DISABLE_ZOOM_WITH_MOUSE_SCROLL) return;
+          e.preventDefault();
+          const scale = e.deltaY < 0 ? 0.85 : 1 / 0.85;
+          const { x, y } = this.toSvgPoint(e.clientX, e.clientY);
+          this.zoomAround(scale, x, y);
+        },
+        { passive: false }
+      );
+      let startClient = { x: 0, y: 0 };
+      let startVb = { ...this.vb };
+      svg.addEventListener("mousedown", (e) => {
+        if (e.button !== 0 && e.button !== 1) return;
+        e.preventDefault();
+        this.isPanning = true;
+        startClient = { x: e.clientX, y: e.clientY };
+        startVb = { ...this.vb };
+        svg.classList.add("lot-map__svg--panning");
+      });
+      window.addEventListener("mousemove", (e) => {
+        if (!this.isPanning) return;
+        const rect = svg.getBoundingClientRect();
+        this.vb.x = startVb.x - (e.clientX - startClient.x) / rect.width * startVb.w;
+        this.vb.y = startVb.y - (e.clientY - startClient.y) / rect.height * startVb.h;
+        this.clampViewBox();
+      });
+      window.addEventListener("mouseup", (e) => {
+        if (!this.isPanning || e.button !== 0 && e.button !== 1) return;
+        this.isPanning = false;
+        svg.classList.remove("lot-map__svg--panning");
+      });
+      let isTouching = false;
+      let lastDist = 0;
+      let lastMid = { x: 0, y: 0 };
+      const touchDist = (t) => Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
+      const touchMid = (t) => ({
+        x: (t[0].clientX + t[1].clientX) / 2,
+        y: (t[0].clientY + t[1].clientY) / 2
+      });
+      svg.addEventListener(
+        "touchstart",
+        (e) => {
+          e.preventDefault();
+          isTouching = true;
+          if (e.touches.length === 2) {
+            this.isPanning = false;
+            lastDist = touchDist(e.touches);
+            lastMid = touchMid(e.touches);
+          } else {
+            this.isPanning = true;
+            startClient = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+            startVb = { ...this.vb };
+          }
+        },
+        { passive: false }
+      );
+      window.addEventListener(
+        "touchmove",
+        (e) => {
+          if (!isTouching) return;
+          e.preventDefault();
+          if (e.touches.length === 2) {
+            this.isPanning = false;
+            const dist = touchDist(e.touches);
+            const mid = touchMid(e.touches);
+            const scale = lastDist / dist;
+            const origin = this.toSvgPoint(mid.x, mid.y);
+            this.zoomAround(scale, origin.x, origin.y);
+            const rect = svg.getBoundingClientRect();
+            this.vb.x -= (mid.x - lastMid.x) / rect.width * this.vb.w;
+            this.vb.y -= (mid.y - lastMid.y) / rect.height * this.vb.h;
+            this.clampViewBox();
+            lastDist = dist;
+            lastMid = mid;
+          } else if (e.touches.length === 1 && this.isPanning) {
+            const rect = svg.getBoundingClientRect();
+            const dx = (e.touches[0].clientX - startClient.x) / rect.width * startVb.w;
+            const dy = (e.touches[0].clientY - startClient.y) / rect.height * startVb.h;
+            this.vb.x = startVb.x - dx;
+            this.vb.y = startVb.y - dy;
+            this.clampViewBox();
+          }
+        },
+        { passive: false }
+      );
+      window.addEventListener("touchend", () => {
+        if (!isTouching) return;
+        isTouching = false;
+        this.isPanning = false;
+      });
+    }
+    /**
+     * Creates and appends +/− and reset zoom buttons as a sibling of the `<svg>`.
+     * Forces the parent wrapper to `position: relative` if it is `static`.
+     */
+    injectZoomControls() {
+      const wrapper = this.svgEl?.parentElement;
+      if (!wrapper) {
+        console.error("LotMapController: injectZoomControls called but SVG has no parent.");
+        return;
+      }
+      if (getComputedStyle(wrapper).position === "static") {
+        wrapper.style.position = "relative";
+      }
+      const controls = document.createElement("div");
+      controls.className = "lot-map__zoom-controls";
+      controls.setAttribute("aria-label", "Map zoom controls");
+      controls.innerHTML = `
       <button class="lot-map__zoom-btn" data-zoom="in"    title="Zoom in"   aria-label="Zoom in">+</button>
       <button class="lot-map__zoom-btn" data-zoom="reset" title="Reset zoom" aria-label="Reset zoom">\u2299</button>
       <button class="lot-map__zoom-btn" data-zoom="out"   title="Zoom out"  aria-label="Zoom out">\u2212</button>
-    `,t.addEventListener("click",o=>{let r=o.target.closest("[data-zoom]");if(!r)return;let{zoom:i}=r.dataset;i==="in"?this.zoomBy(.7):i==="out"?this.zoomBy(1/.7):i==="reset"&&this.resetZoom()}),e.appendChild(t)}bindSvgHover(){if(!this.svgEl){console.error("LotMapController: bindSvgHover called but svgEl is null.");return}Array.from(this.svgEl.querySelectorAll("g[id]")).forEach(t=>{let{id:o}=t;if(o.endsWith("Label")||o.endsWith("Border"))return;let r=this.svgEl.querySelector(`#${CSS.escape(o)}Label`);r&&(t.style.cursor="pointer",t.addEventListener("mouseenter",()=>this.highlight(o)),t.addEventListener("mouseleave",()=>this.clearHighlight()),t.addEventListener("mousedown",i=>i.stopPropagation()),t.addEventListener("click",()=>this.highlight(o,!0)),r.style.cursor="pointer",r.addEventListener("mouseenter",()=>this.highlight(o)),r.addEventListener("mouseleave",()=>this.clearHighlight()),r.addEventListener("mousedown",i=>i.stopPropagation()),r.addEventListener("click",()=>this.highlight(o,!0)))})}bindCardHover(e){e.forEach(t=>{let o=t.getAttribute("lot-number"),r=t.getAttribute("price");o&&(t.addEventListener("mouseenter",()=>this.highlight(o)),t.addEventListener("mouseleave",()=>this.clearHighlight()),r==="Inquire for Pricing"&&t.querySelector('[dev-target="starting-from-text"]')?.classList.add("hide"))})}highlight(e,t=!1){if(this.isPanning||this.activeId===e&&!t)return;this.clearHighlight(),this.activeId=e,this.svgEl&&(this.svgEl.querySelector(`#${CSS.escape(e)}`)?.classList.add("lot-map__shape--active"),this.svgEl.querySelector(`#${CSS.escape(e)}Label`)?.classList.add("lot-map__label--active"));let o=document.querySelector(`[dev-target="one-lot"][lot-number="${e}"]`);o?(this.config.isZoomMode||o.classList.add("lot-map__card--active"),t&&(o.classList.remove("hide"),o.scrollIntoView({behavior:"smooth",block:"center"}))):t&&console.error(`LotMapController: No CMS lot card for map lot \u2014 expected [dev-target="one-lot"][lot-number="${e}"].`)}clearHighlight(){this.activeId=null,this.svgEl?.querySelector(".lot-map__shape--active")?.classList.remove("lot-map__shape--active"),this.svgEl?.querySelector(".lot-map__label--active")?.classList.remove("lot-map__label--active"),document.querySelector(".lot-map__card--active")?.classList.remove("lot-map__card--active")}};var y={linkSelector:".tab-links[dev-target]",navContainerSelector:".tab-header",stripSelector:'[dev-target="tab-left"]',mobileBreakpoint:767,observerRootMargin:"-10% 0px -85% 0px",observerThreshold:0,sectionMap:{overview:"overview-section","floor-plans":"floor-plans-section",amentities:"amentities-section",personalisation:"personalization-section","browse-homes":"lots-section",process:"process-section"},sectionOrder:["overview","floor-plans","amentities","personalisation","browse-homes"]},f=class{constructor(e){a(this,"links",[]);a(this,"observer",null);a(this,"visibleSections",new Set);a(this,"sectionMap");a(this,"sectionOrder");a(this,"linkSelector");a(this,"navContainerSelector");a(this,"stripSelector");a(this,"mobileBreakpoint");a(this,"observerRootMargin");a(this,"observerThreshold");let t={...y,...e,sectionMap:{...y.sectionMap,...e?.sectionMap},sectionOrder:e?.sectionOrder??y.sectionOrder};this.linkSelector=t.linkSelector,this.navContainerSelector=t.navContainerSelector,this.stripSelector=t.stripSelector,this.mobileBreakpoint=t.mobileBreakpoint,this.observerRootMargin=t.observerRootMargin,this.observerThreshold=t.observerThreshold,this.sectionMap=t.sectionMap,this.sectionOrder=t.sectionOrder}init(){if(this.links=Array.from(document.querySelectorAll(this.linkSelector)),!this.links.length){console.error("StickyNavController: No tab links found.");return}this.setupClickHandlers(),this.setupScrollObserver(),requestAnimationFrame(()=>{let e=this.links.find(t=>t.classList.contains("is-active"))??this.links[0];e&&(e.classList.add("is-active"),this.scrollLinkIntoStrip(e))})}setupClickHandlers(){this.links.forEach(e=>{e.addEventListener("click",t=>{t.preventDefault();let o=e.getAttribute("dev-target");if(!o)return;let r=this.sectionMap[o];if(!r)return;let i=document.getElementById(r);if(!i){console.error(`StickyNavController: Section #${r} not found.`);return}let n=e.closest(this.navContainerSelector),l=n?n.offsetHeight:0,c=i.getBoundingClientRect().top+window.scrollY-l;window.scrollTo({top:c,behavior:"smooth"}),this.setActiveLink(o)})})}setupScrollObserver(){this.observer=new IntersectionObserver(e=>{e.forEach(o=>{let r=this.getDevTargetBySectionId(o.target.id);r&&(o.isIntersecting?this.visibleSections.add(r):this.visibleSections.delete(r))});let t=this.sectionOrder.find(o=>this.visibleSections.has(o));t&&this.setActiveLink(t)},{rootMargin:this.observerRootMargin,threshold:this.observerThreshold}),this.sectionOrder.forEach(e=>{let t=this.sectionMap[e];if(!t)return;let o=document.getElementById(t);o?this.observer.observe(o):console.error(`StickyNavController: Section #${t} not found in DOM.`)})}setActiveLink(e){this.links.forEach(t=>{let o=t.getAttribute("dev-target")===e;t.classList.toggle("is-active",o),o&&this.scrollLinkIntoStrip(t)})}scrollLinkIntoStrip(e){if(window.innerWidth>this.mobileBreakpoint)return;let t=e.closest(this.stripSelector);if(!t)return;let o=e.offsetLeft+e.offsetWidth/2-t.offsetWidth/2,r=t.scrollWidth-t.offsetWidth;t.scrollTo({left:Math.min(Math.max(0,o),r),behavior:"smooth"})}getDevTargetBySectionId(e){return this.sectionOrder.find(t=>this.sectionMap[t]===e)??null}destroy(){this.observer?.disconnect(),this.observer=null,this.visibleSections.clear()}};var _={linkSelector:".tab-links[dev-target]",navContainerSelector:".tab-header",stripSelector:'[dev-target="tab-left"]',mobileBreakpoint:767,observerRootMargin:"-10% 0px -85% 0px",observerThreshold:0,sectionMap:{overview:"overview-section","floor-plans":"floor-plans-section","explore-spaces":"explore-spaces-section",location:"location-section","available-homes":"available-homes-section",community:"community-section"},sectionOrder:["overview","floor-plans","explore-spaces","location","available-homes","community"]};window.Webflow||(window.Webflow=[]);window.Webflow.push(()=>{let d=document.querySelector('[dev-target="one-lot"]');if(!d){console.error('LotMapController: No [dev-target="one-lot"] found.');return}let e=d.getAttribute("lot-number");if(!e){console.error("LotMapController: No data-lot-number found.");return}let t={focusLotNumber:e,isZoomMode:!0,focusZoomFactor:2.5};new b(t).init(),new f(_).init(),new m().init(),u.initAll()});})();
+    `;
+      controls.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-zoom]");
+        if (!btn) return;
+        const { zoom } = btn.dataset;
+        if (zoom === "in") this.zoomBy(0.7);
+        else if (zoom === "out") this.zoomBy(1 / 0.7);
+        else if (zoom === "reset") this.resetZoom();
+      });
+      wrapper.appendChild(controls);
+    }
+    /**
+     * Auto-discovers all lot shape/label `<g>` pairs in the SVG and attaches
+     * `mouseenter`/`mouseleave` listeners. A group is treated as a lot shape
+     * when a sibling group named `${id}Label` exists.
+     */
+    bindSvgHover() {
+      if (!this.svgEl) {
+        console.error("LotMapController: bindSvgHover called but svgEl is null.");
+        return;
+      }
+      const allGroups = Array.from(this.svgEl.querySelectorAll("g[id]"));
+      allGroups.forEach((group) => {
+        const { id } = group;
+        if (id.endsWith("Label") || id.endsWith("Border")) return;
+        const labelGroup = this.svgEl.querySelector(`#${CSS.escape(id)}Label`);
+        if (!labelGroup) return;
+        group.style.cursor = "pointer";
+        group.addEventListener("mouseenter", () => this.highlight(id));
+        group.addEventListener("mouseleave", () => this.clearHighlight());
+        group.addEventListener("mousedown", (e) => e.stopPropagation());
+        group.addEventListener("click", () => this.highlight(id, true));
+        labelGroup.style.cursor = "pointer";
+        labelGroup.addEventListener("mouseenter", () => this.highlight(id));
+        labelGroup.addEventListener("mouseleave", () => this.clearHighlight());
+        labelGroup.addEventListener("mousedown", (e) => e.stopPropagation());
+        labelGroup.addEventListener("click", () => this.highlight(id, true));
+      });
+    }
+    /**
+     * Attaches `mouseenter`/`mouseleave` listeners to the CMS lot cards.
+     * - If the lot price is 'Inquire for Pricing', it will hide the 'Starting from' text.
+     *
+     * @param cards - All `[dev-target="one-lot"][lot-number]` elements on the page.
+     */
+    bindCardHover(cards) {
+      cards.forEach((card) => {
+        const lotNumber = card.getAttribute("lot-number");
+        const price = card.getAttribute("price");
+        if (!lotNumber) return;
+        card.addEventListener("mouseenter", () => this.highlight(lotNumber));
+        card.addEventListener("mouseleave", () => this.clearHighlight());
+        if (price === "Inquire for Pricing") {
+          card.querySelector('[dev-target="starting-from-text"]')?.classList.add("hide");
+        }
+      });
+    }
+    /**
+     * Activates the SVG shape, label, and CMS card for the given lot ID.
+     * Optionally scrolls the card into view (only when triggered by map click, not hover).
+     * No-ops if the lot is already active or if a pan is in progress.
+     *
+     * @param lotId - Lot identifier matching both the SVG `<g id>` and `lot-number` attribute.
+     * @param scrollToCard - When true, scrolls the lot card into view in the list. Use for map clicks only.
+     */
+    highlight(lotId, scrollToCard = false) {
+      if (this.isPanning) return;
+      if (this.activeId === lotId && !scrollToCard) return;
+      this.clearHighlight();
+      this.activeId = lotId;
+      if (this.svgEl) {
+        this.svgEl.querySelector(`#${CSS.escape(lotId)}`)?.classList.add("lot-map__shape--active");
+        this.svgEl.querySelector(`#${CSS.escape(lotId)}Label`)?.classList.add("lot-map__label--active");
+      }
+      const card = document.querySelector(
+        `[dev-target="one-lot"][lot-number="${lotId}"]`
+      );
+      if (card) {
+        if (!this.config.isZoomMode) {
+          card.classList.add("lot-map__card--active");
+        }
+        if (scrollToCard) {
+          card.classList.remove("hide");
+          card.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      } else if (scrollToCard) {
+        console.error(
+          `LotMapController: No CMS lot card for map lot \u2014 expected [dev-target="one-lot"][lot-number="${lotId}"].`
+        );
+      }
+    }
+    /**
+     * Removes all active highlight classes and resets {@link activeId}.
+     */
+    clearHighlight() {
+      this.activeId = null;
+      this.svgEl?.querySelector(".lot-map__shape--active")?.classList.remove("lot-map__shape--active");
+      this.svgEl?.querySelector(".lot-map__label--active")?.classList.remove("lot-map__label--active");
+      document.querySelector(".lot-map__card--active")?.classList.remove("lot-map__card--active");
+    }
+  };
+
+  // src/utils/sticky-nav.ts
+  var defaultStickyNavConfig = {
+    linkSelector: ".tab-links[dev-target]",
+    navContainerSelector: ".tab-header",
+    stripSelector: '[dev-target="tab-left"]',
+    mobileBreakpoint: 767,
+    observerRootMargin: "-10% 0px -85% 0px",
+    observerThreshold: 0,
+    sectionMap: {
+      overview: "overview-section",
+      "floor-plans": "floor-plans-section",
+      amentities: "amentities-section",
+      personalisation: "personalization-section",
+      "browse-homes": "lots-section",
+      process: "process-section"
+    },
+    sectionOrder: ["overview", "floor-plans", "amentities", "personalisation", "browse-homes"]
+  };
+  var StickyNavController = class {
+    links = [];
+    observer = null;
+    visibleSections = /* @__PURE__ */ new Set();
+    /**
+     * Maps dev-target attribute values to their corresponding section IDs.
+     * Handles spelling mismatches between the nav markup and section IDs.
+     */
+    sectionMap;
+    /**
+     * Ordered list of dev-target values matching the top-to-bottom page section order.
+     * Used to determine which section is "topmost" when multiple are visible at once.
+     */
+    sectionOrder;
+    linkSelector;
+    navContainerSelector;
+    stripSelector;
+    mobileBreakpoint;
+    observerRootMargin;
+    observerThreshold;
+    constructor(config) {
+      const resolvedConfig = {
+        ...defaultStickyNavConfig,
+        ...config,
+        sectionMap: {
+          ...defaultStickyNavConfig.sectionMap,
+          ...config?.sectionMap
+        },
+        sectionOrder: config?.sectionOrder ?? defaultStickyNavConfig.sectionOrder
+      };
+      this.linkSelector = resolvedConfig.linkSelector;
+      this.navContainerSelector = resolvedConfig.navContainerSelector;
+      this.stripSelector = resolvedConfig.stripSelector;
+      this.mobileBreakpoint = resolvedConfig.mobileBreakpoint;
+      this.observerRootMargin = resolvedConfig.observerRootMargin;
+      this.observerThreshold = resolvedConfig.observerThreshold;
+      this.sectionMap = resolvedConfig.sectionMap;
+      this.sectionOrder = resolvedConfig.sectionOrder;
+    }
+    init() {
+      this.links = Array.from(document.querySelectorAll(this.linkSelector));
+      if (!this.links.length) {
+        console.error("StickyNavController: No tab links found.");
+        return;
+      }
+      this.setupClickHandlers();
+      this.setupScrollObserver();
+      requestAnimationFrame(() => {
+        const initialActive = this.links.find((l) => l.classList.contains("is-active")) ?? this.links[0];
+        if (initialActive) {
+          initialActive.classList.add("is-active");
+          this.scrollLinkIntoStrip(initialActive);
+        }
+      });
+    }
+    /**
+     * Smooth-scroll to the target section on click/tap.
+     * Offsets the scroll position by the sticky nav height so the section
+     * heading isn't hidden behind the bar.
+     */
+    setupClickHandlers() {
+      this.links.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = link.getAttribute("dev-target");
+          if (!target) return;
+          const sectionId = this.sectionMap[target];
+          if (!sectionId) return;
+          const section = document.getElementById(sectionId);
+          if (!section) {
+            console.error(`StickyNavController: Section #${sectionId} not found.`);
+            return;
+          }
+          const navBar = link.closest(this.navContainerSelector);
+          const navHeight = navBar ? navBar.offsetHeight : 0;
+          const sectionTop = section.getBoundingClientRect().top + window.scrollY - navHeight;
+          window.scrollTo({ top: sectionTop, behavior: "smooth" });
+          this.setActiveLink(target);
+        });
+      });
+    }
+    /**
+     * Use IntersectionObserver to keep the active link in sync with scroll position.
+     *
+     * rootMargin '-10% 0px -85% 0px' shrinks the observable viewport to a band near
+     * the top of the screen (roughly the top 15%, offset slightly for the sticky bar).
+     * A section "intersects" when its top edge enters that band, which is the natural
+     * moment a reader considers themselves to be inside that section.
+     *
+     * Among all currently intersecting sections, the one that appears earliest in
+     * sectionOrder wins, so rapidly scrolled or short sections stay consistent.
+     */
+    setupScrollObserver() {
+      this.observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const devTarget = this.getDevTargetBySectionId(entry.target.id);
+            if (!devTarget) return;
+            if (entry.isIntersecting) {
+              this.visibleSections.add(devTarget);
+            } else {
+              this.visibleSections.delete(devTarget);
+            }
+          });
+          const activeTarget = this.sectionOrder.find((t) => this.visibleSections.has(t));
+          if (activeTarget) {
+            this.setActiveLink(activeTarget);
+          }
+        },
+        {
+          rootMargin: this.observerRootMargin,
+          threshold: this.observerThreshold
+        }
+      );
+      this.sectionOrder.forEach((target) => {
+        const sectionId = this.sectionMap[target];
+        if (!sectionId) return;
+        const section = document.getElementById(sectionId);
+        if (section) {
+          this.observer.observe(section);
+        } else {
+          console.error(`StickyNavController: Section #${sectionId} not found in DOM.`);
+        }
+      });
+    }
+    setActiveLink(targetName) {
+      this.links.forEach((link) => {
+        const isActive = link.getAttribute("dev-target") === targetName;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) this.scrollLinkIntoStrip(link);
+      });
+    }
+    /**
+     * On mobile (≤767px), scroll the strip so the active link is centred in the
+     * visible area.
+     *
+     * The strip has `position: relative` (set in CSS), which makes it the
+     * offsetParent for its children. This means `link.offsetLeft` is always
+     * measured from the strip's own left edge — no ancestor-chain ambiguity.
+     *
+     * Clamped to [0, maxScroll] so we never show blank space at either end.
+     */
+    scrollLinkIntoStrip(link) {
+      if (window.innerWidth > this.mobileBreakpoint) return;
+      const strip = link.closest(this.stripSelector);
+      if (!strip) return;
+      const targetScrollLeft = link.offsetLeft + link.offsetWidth / 2 - strip.offsetWidth / 2;
+      const maxScroll = strip.scrollWidth - strip.offsetWidth;
+      strip.scrollTo({
+        left: Math.min(Math.max(0, targetScrollLeft), maxScroll),
+        behavior: "smooth"
+      });
+    }
+    getDevTargetBySectionId(sectionId) {
+      return this.sectionOrder.find((key) => this.sectionMap[key] === sectionId) ?? null;
+    }
+    destroy() {
+      this.observer?.disconnect();
+      this.observer = null;
+      this.visibleSections.clear();
+    }
+  };
+
+  // src/homes.ts
+  var stickyNavConfig = {
+    linkSelector: ".tab-links[dev-target]",
+    navContainerSelector: ".tab-header",
+    stripSelector: '[dev-target="tab-left"]',
+    mobileBreakpoint: 767,
+    observerRootMargin: "-10% 0px -85% 0px",
+    observerThreshold: 0,
+    sectionMap: {
+      overview: "overview-section",
+      "floor-plans": "floor-plans-section",
+      "explore-spaces": "explore-spaces-section",
+      location: "location-section",
+      "available-homes": "available-homes-section",
+      community: "community-section"
+    },
+    sectionOrder: [
+      "overview",
+      "floor-plans",
+      "explore-spaces",
+      "location",
+      "available-homes",
+      "community"
+    ]
+  };
+  window.Webflow ||= [];
+  window.Webflow.push(() => {
+    const lot = document.querySelector('[dev-target="one-lot"]');
+    if (!lot) {
+      console.error('LotMapController: No [dev-target="one-lot"] found.');
+      return;
+    }
+    const lotNumber = lot.getAttribute("lot-number");
+    if (!lotNumber) {
+      console.error("LotMapController: No data-lot-number found.");
+      return;
+    }
+    const lotMapConfig = {
+      focusLotNumber: lotNumber,
+      isZoomMode: true,
+      focusZoomFactor: 2.5
+    };
+    const lotMapController = new LotMapController(lotMapConfig);
+    lotMapController.init();
+    const stickyNavController = new StickyNavController(stickyNavConfig);
+    stickyNavController.init();
+    const exploreTabsController = new ExploreTabsController();
+    exploreTabsController.init();
+    HomeMapController.initAll();
+  });
+})();
+//# sourceMappingURL=homes.js.map
