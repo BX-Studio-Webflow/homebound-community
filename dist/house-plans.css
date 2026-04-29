@@ -764,10 +764,8 @@
 .home-map__shape--active rect,
 .home-map__shape--active polyline,
 .home-map__shape--active ellipse {
-  fill: #f7e9d5 !important;
+  fill: #ff0 !important;
   stroke: rgba(95, 109, 55, 0.9) !important;
-  opacity: 1 !important;
-  visibility: visible !important;
 }
 
 /* src/styles/lot-map.css */
