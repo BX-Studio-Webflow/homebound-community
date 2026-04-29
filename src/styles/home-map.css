@@ -24,7 +24,9 @@
 }
 
 .home-map__shape--active {
-  display: block;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .home-map__shape path,
