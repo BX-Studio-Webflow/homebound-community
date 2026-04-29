@@ -188,53 +188,92 @@ export class HomeMapController {
    *
    * @returns `true` if at least one floor was injected successfully.
    */
-  private injectSvgs(): boolean {
+  private async injectSvgs(): Promise<boolean> {
     let injected = false;
 
     for (const floor of this.floors) {
       const textHolder = this.root.querySelector<HTMLElement>(
         `[dev-target="${floor}-svg-text-holder"]`
       );
+
       const targetWrapper = this.root.querySelector<HTMLElement>(
         `[dev-target="${floor}-svg-target-wrapper"]`
       );
 
       if (!textHolder || !targetWrapper) {
         console.error(
-          `HomeMapController: Missing element for "${floor}". ` +
-            `holder=${!!textHolder}, wrapper=${!!targetWrapper}`
+          `HomeMapController: Missing element for "${floor}". holder=${!!textHolder}, wrapper=${!!targetWrapper}`
         );
         continue;
       }
 
-      const rawMarkup = textHolder.textContent?.trim() ?? '';
+      const raw = (textHolder.textContent ?? '').trim();
 
-      if (!rawMarkup.includes('<svg')) {
-        console.error(`HomeMapController: "${floor}" SVG text holder does not contain SVG markup.`);
+      if (!raw) {
+        console.error(`HomeMapController: "${floor}" SVG source is empty.`);
         continue;
       }
 
-      // Webflow's HTML Embed editor sometimes inserts a stray digit before the
-      // opening quote of an attribute value (e.g. width=0"1162.54"). Strip them.
-      const svgMarkup = rawMarkup.replace(/=\d+"/g, '="');
+      let svgText: string;
 
-      targetWrapper.innerHTML = svgMarkup;
-      const svgEl = targetWrapper.querySelector<SVGSVGElement>('svg');
+      try {
+        // ---------------------------------------------------
+        // 1. Detect URL vs inline SVG
+        // ---------------------------------------------------
+        const isSvgMarkup = raw.includes('<svg');
+        const isUrl = /^https?:\/\//i.test(raw);
 
-      if (!svgEl) {
-        console.error(
-          `HomeMapController: "${floor}" SVG injection failed — no <svg> found after injection.`
-        );
-        continue;
+        if (isSvgMarkup) {
+          svgText = this.sanitizeSvg(raw);
+        } else if (isUrl) {
+          const res = await fetch(raw);
+
+          if (!res.ok) {
+            throw new Error(`Fetch failed with status ${res.status}`);
+          }
+
+          svgText = this.sanitizeSvg(await res.text());
+        } else {
+          console.error(`HomeMapController: "${floor}" invalid SVG input.`);
+          continue;
+        }
+
+        // ---------------------------------------------------
+        // 2. Parse SVG safely
+        // ---------------------------------------------------
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(svgText, 'image/svg+xml');
+        const svgEl = doc.querySelector('svg');
+
+        if (!svgEl) {
+          console.error(`HomeMapController: "${floor}" SVG parse failed.`);
+          continue;
+        }
+
+        // ---------------------------------------------------
+        // 3. Inject into DOM
+        // ---------------------------------------------------
+        targetWrapper.innerHTML = '';
+        targetWrapper.appendChild(svgEl);
+
+        // ---------------------------------------------------
+        // 4. Normalize styling
+        // ---------------------------------------------------
+        svgEl.classList.add('home-map__svg');
+        svgEl.style.width = '100%';
+        svgEl.style.height = '100%';
+        svgEl.style.display = 'block';
+
+        // ---------------------------------------------------
+        // 5. Namespace / prep interactions
+        // ---------------------------------------------------
+        this.namespaceSvgClasses(svgEl, floor);
+
+        this.svgEls.push(svgEl);
+        injected = true;
+      } catch (err) {
+        console.error(`HomeMapController: "${floor}" injection error`, err);
       }
-
-      this.namespaceSvgClasses(svgEl, floor);
-      svgEl.classList.add('home-map__svg');
-      svgEl.style.width = '100%';
-      svgEl.style.height = '100%';
-      svgEl.style.display = 'block';
-      this.svgEls.push(svgEl);
-      injected = true;
     }
 
     if (!injected) {
@@ -242,6 +281,18 @@ export class HomeMapController {
     }
 
     return injected;
+  }
+  /**
+   * Sanitises SVG markup by fixing broken Webflow attributes and removing script tags.
+   */
+  private sanitizeSvg(svg: string): string {
+    return (
+      svg
+        // Fix broken Webflow attributes like: width=0"1162
+        .replace(/=\d+"/g, '="')
+        // Remove script tags for safety
+        .replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, '')
+    );
   }
 
   /**
