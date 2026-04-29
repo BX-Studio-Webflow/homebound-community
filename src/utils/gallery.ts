@@ -100,6 +100,16 @@ export class GalleryController {
    */
   private bindSlideGalleries(): void {
     document.addEventListener('click', (e) => {
+      const clickTarget = e.target as HTMLElement;
+      if (
+        clickTarget.closest('[dev-target="scheme-header"]') ||
+        clickTarget.closest('[dev-target="scheme-body"]') ||
+        clickTarget.closest('[dev-target="scheme-arrow"]') ||
+        clickTarget.closest('[dev-target="scheme-item"]')
+      ) {
+        return;
+      }
+
       const wrapper = (e.target as HTMLElement).closest('[dev-target="slide-image-wrapper"]');
       if (!wrapper) return;
 

@@ -47,7 +47,9 @@
   display: flex;
  
 }
-
+[dev-target='scheme-item']{
+  cursor: pointer;
+}
 [dev-target='scheme-item'].active-scheme > .modal-scheme_text {
   font-weight: 700;
 }

@@ -244,7 +244,12 @@ export class ExteriorSchemeController {
         event.stopPropagation();
       });
 
-      schemeHeader.addEventListener('click', () => {
+      schemeBody.addEventListener('click', (event) => {
+        event.stopPropagation();
+      });
+
+      schemeHeader.addEventListener('click', (event) => {
+        event.stopPropagation();
         const isHidden = schemeBody.classList.contains('hide');
         schemeBody.classList.toggle('hide', !isHidden);
         schemeArrow.classList.toggle('open', isHidden);
@@ -306,7 +311,8 @@ export class ExteriorSchemeController {
         item.className = 'modal-wrapper';
         item.innerHTML = `<div class="modal-scheme_text">Scheme ${index + 1}: ${scheme.name}</div>`;
 
-        item.addEventListener('click', () => {
+        item.addEventListener('click', (event) => {
+          event.stopPropagation();
           selectedIndex = index;
           applySelection(selectedIndex);
           renderBody();
