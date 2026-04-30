@@ -7153,7 +7153,8 @@
       sycamore: styleTitleByToken
     };
     const housePlanSlug = window.location.pathname.toLowerCase().split("/house-plans/")[1]?.split("/")[0] ?? "";
-    const maybeInteriorSlug = housePlanSlug;
+    const normalizedHousePlanSlug = housePlanSlug.replace(/^the-/, "");
+    const maybeInteriorSlug = normalizedHousePlanSlug;
     const interiorImageUrls = housePlanImageUrlsBySlug[maybeInteriorSlug] ?? housePlanImageUrlsBySlug.iris ?? housePlanImageUrlsBySlug.daphne;
     const activeSchemeTitleByToken = schemeTitleByTokenByHousePlan[maybeInteriorSlug] ?? schemeTitleByToken;
     const packageTitleByInteriorAndScheme = {

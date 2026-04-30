@@ -4,9 +4,9 @@ import '$styles/gallery.css';
 import '$styles/lot-map.css';
 
 import { AccordionController } from '$utils/accordion';
-import { type ColorSchemeBinding, ColorSchemeController } from '$utils/interior-color-scheme';
 import { ExploreTabsController } from '$utils/explore-tabs';
 import { type GalleryConfig, GalleryController } from '$utils/gallery';
+import { type ColorSchemeBinding, ColorSchemeController } from '$utils/interior-color-scheme';
 import { LotMapController } from '$utils/lot-map';
 import { StickyNavController } from '$utils/sticky-nav';
 

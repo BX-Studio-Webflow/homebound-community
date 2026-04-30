@@ -449,7 +449,8 @@ window.Webflow.push(() => {
 
   const housePlanSlug =
     window.location.pathname.toLowerCase().split('/house-plans/')[1]?.split('/')[0] ?? '';
-  const maybeInteriorSlug = housePlanSlug as HousePlanSlugForInteriors;
+  const normalizedHousePlanSlug = housePlanSlug.replace(/^the-/, '');
+  const maybeInteriorSlug = normalizedHousePlanSlug as HousePlanSlugForInteriors;
   const interiorImageUrls: InteriorImageUrls =
     housePlanImageUrlsBySlug[maybeInteriorSlug] ??
     housePlanImageUrlsBySlug.iris ??
@@ -480,7 +481,6 @@ window.Webflow.push(() => {
 
     // House plans uses context-based URL mappings; hidden scheme images are optional.
     const schemeImagesByToken = new Map<string, HTMLImageElement>();
-
     return [
       {
         forwardImage,
