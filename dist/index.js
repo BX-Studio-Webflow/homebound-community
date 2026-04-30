@@ -23,7 +23,7 @@
     }
   };
 
-  // src/utils/color-scheme.ts
+  // src/utils/interior-color-scheme.ts
   var ColorSchemeController = class {
     hasInit = false;
     preloadedImageUrls = /* @__PURE__ */ new Set();

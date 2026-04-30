@@ -42,7 +42,6 @@ interface ExteriorImageSet {
 }
 
 const EXTERIOR_IMAGE_SETS_BY_PLAN: Record<HousePlanSlug, ExteriorImageSet> = {
-  // Echo (Eaton5): Craftsman Eaton5 assets are not currently present in the scanned uploaded folder set.
   echo: {
     craftsman: [
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f95450b85abd3d949f4e_Eaton4_Craftsman_Sch1_ClassicCream.webp',
@@ -66,31 +65,29 @@ const EXTERIOR_IMAGE_SETS_BY_PLAN: Record<HousePlanSlug, ExteriorImageSet> = {
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f981af3855fd07a02254_Eaton5_Spanish_Sch5_WarmEarthClay.webp',
     ],
   },
-  // Merrick (Eaton4)
   merrick: {
     craftsman: [
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f95450b85abd3d949f4e_Eaton4_Craftsman_Sch1_ClassicCream.webp',
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f953252b3600fcbe4e80_Eaton4_Craftsman_Sch2_SoftGreen.webp',
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f954f0cccea740cd8b9f_Eaton4_Craftsman_Sch3_CoastalNavy.webp',
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f955180a5af38a774901_Eaton4_Craftsman_Sch4_WarmTaupe.webp',
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f953ceb831e555c6f0c2_Eaton4_Craftsman_Sch5_NaturalCharcoal.webp',
+      'https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d557_69f1f95450b85abd3d949f4e_Eaton4_Craftsman_Sch1_ClassicCream.webp',
+      'https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d562_69f1f953252b3600fcbe4e80_Eaton4_Craftsman_Sch2_SoftGreen.webp',
+      'https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003a93c53e9b6387d547_69f1f954f0cccea740cd8b9f_Eaton4_Craftsman_Sch3_CoastalNavy.webp',
+      'https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d56d_69f1f955180a5af38a774901_Eaton4_Craftsman_Sch4_WarmTaupe.webp',
+      'https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d581_69f1f953ceb831e555c6f0c2_Eaton4_Craftsman_Sch5_NaturalCharcoal.webp',
     ],
     janesCottage: [
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa3cc74e38671839449b_Eaton4_Janes_Cottage_Sch1_WarmWhite.webp',
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa3cff957cd5197530f5_Eaton4_Janes_Cottage_Sch2_DuskGray.webp',
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa3c848b541b0e090d97_Eaton4_Janes_Cottage_Sch3_NeutralStone.webp',
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa3cf9c32ba7ba62c7e7_Eaton4_Janes_Cottage_Sch4_SoftWhite.webp',
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa3c26c535b3fa92955a_Eaton4_Janes_Cottage_Sch5_HistoricGray.webp',
+      'https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d565_69f1fa3cc74e38671839449b_Eaton4_Janes_Cottage_Sch1_WarmWhite.webp',
+      'https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d57e_69f1fa3cff957cd5197530f5_Eaton4_Janes_Cottage_Sch2_DuskGray.webp',
+      'https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d55d_69f1fa3c848b541b0e090d97_Eaton4_Janes_Cottage_Sch3_NeutralStone.webp',
+      'https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d578_69f1fa3cf9c32ba7ba62c7e7_Eaton4_Janes_Cottage_Sch4_SoftWhite.webp',
+      'https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003a93c53e9b6387d54b_69f1fa3c26c535b3fa92955a_Eaton4_Janes_Cottage_Sch5_HistoricGray.webp',
     ],
     spanish: [
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa27d27c3c9e6b23ce8d_Eaton4_Spanish_Sch1_CoastalWhite.webp',
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa27b19d1d6237faa1b6_Eaton4_Spanish_Sch2_NaturalGray.webp',
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa27adcc4b13bfb7229e_Eaton4_Spanish_Sch3_GardenOlive.webp',
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa2704074b196573ba2a_Eaton4_Spanish_Sch4_RichBronze.webp',
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa27d874fa8f14184b4c_Eaton4_Spanish_Sch5_WarmEarthClay.webp',
+      'https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d575_69f1fa27d27c3c9e6b23ce8d_Eaton4_Spanish_Sch1_CoastalWhite.webp',
+      'https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003a93c53e9b6387d54f_69f1fa27b19d1d6237faa1b6_Eaton4_Spanish_Sch2_NaturalGray.webp',
+      'https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d589_69f1fa27adcc4b13bfb7229e_Eaton4_Spanish_Sch3_GardenOlive.webp',
+      'https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d586_69f1fa2704074b196573ba2a_Eaton4_Spanish_Sch4_RichBronze.webp',
+      'https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d55a_69f1fa27d874fa8f14184b4c_Eaton4_Spanish_Sch5_WarmEarthClay.webp',
     ],
   },
-  // Chaney (Eaton3)
   chaney: {
     craftsman: [
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a6a7a2df84652df1c2_Eaton3_Craftsman_Sch1_ClassicCream.webp',
@@ -114,7 +111,6 @@ const EXTERIOR_IMAGE_SETS_BY_PLAN: Record<HousePlanSlug, ExteriorImageSet> = {
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d1f3573cd92cb08111_Eaton3_Spanish_Sch5_WArmEarthClay.webp',
     ],
   },
-  // Loma (Eaton2)
   loma: {
     craftsman: [
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f998b885bb7225449c8e_Eaton2_Craftsman_Sch1_ClassicCream.webp',
@@ -138,7 +134,6 @@ const EXTERIOR_IMAGE_SETS_BY_PLAN: Record<HousePlanSlug, ExteriorImageSet> = {
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa079e2ec043052c58e5_Eaton2_Spanish_Sch5_WarmEarthClay.webp',
     ],
   },
-  // Sycamore (Eaton1)
   sycamore: {
     craftsman: [
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa921c26d9ee20d7557e_Eaton1_Craftsman_Sch1_ClassicCream.webp',
