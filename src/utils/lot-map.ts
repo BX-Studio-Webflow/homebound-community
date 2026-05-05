@@ -35,6 +35,7 @@
  * | Empty wrapper where SVG is rendered | `dev-target` | `svg-target-wrapper` |
  * | Each CMS lot card | `dev-target` | `one-lot` |
  * | Each CMS lot card | `lot-number` | e.g. `B1` — must match SVG `<g id="B1">` |
+ * | Status pill (inside each card) | `dev-target` | `pill-component` — receives a class slug from parent `availability` |
  *
  * **CSS classes applied (style in lot-map.css)**
  * - `.lot-map__shape--active` — active lot shape `<g>`
@@ -58,6 +59,15 @@ const AVAILABILITY_COLORS: Record<string, string> = {
   'Under Contract': '#8b514e',
   'Not Available': '#3A759D',
 };
+
+/** Maps CMS `availability` text to a kebab-case class on `[dev-target="pill-component"]` (e.g. Under Contract → under-contract). */
+function availabilityToPillClass(raw: string): string {
+  return raw
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '');
+}
 
 /** Options for {@link LotMapController}. */
 export type LotMapConfig = {
@@ -117,6 +127,7 @@ export class LotMapController {
     }
 
     this.applyLabelColors();
+    this.applyCardPillAvailabilityClasses();
     this.bindSvgHover();
     this.bindCardHover(cards);
     this.bindZoom();
@@ -252,6 +263,21 @@ export class LotMapController {
       const color = availability ? (AVAILABILITY_COLORS[availability] ?? '#657839') : '#657839';
 
       labelGroup.querySelector('rect')?.setAttribute('fill', color);
+    });
+  }
+
+  /**
+   * Adds a kebab-case class derived from each card's `availability` attribute to the
+   * nested `[dev-target="pill-component"]` for CMS styling (e.g. `under-contract`).
+   */
+  private applyCardPillAvailabilityClasses(): void {
+    document.querySelectorAll<HTMLElement>('[dev-target="one-lot"]').forEach((card) => {
+      const raw = card.getAttribute('availability');
+      const pill = card.querySelector<HTMLElement>('[dev-target="pill-component"]');
+      if (!raw || !pill) return;
+
+      const slug = availabilityToPillClass(raw);
+      if (slug) pill.classList.add(slug);
     });
   }
 
