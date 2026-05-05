@@ -41,14 +41,14 @@ interface ExteriorImageSet {
   spanish: string[];
 }
 
-const EXTERIOR_IMAGE_SETS_BY_PLAN: Record<HousePlanSlug, ExteriorImageSet> = {
+export const EXTERIOR_IMAGE_SETS_BY_PLAN: Record<HousePlanSlug, ExteriorImageSet> = {
   echo: {
     craftsman: [
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f95450b85abd3d949f4e_Eaton4_Craftsman_Sch1_ClassicCream.webp',
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f953252b3600fcbe4e80_Eaton4_Craftsman_Sch2_SoftGreen.webp',
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f954f0cccea740cd8b9f_Eaton4_Craftsman_Sch3_CoastalNavy.webp',
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f955180a5af38a774901_Eaton4_Craftsman_Sch4_WarmTaupe.webp',
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f953ceb831e555c6f0c2_Eaton4_Craftsman_Sch5_NaturalCharcoal.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa1179b6b2a0ae1e8ce5be_Eaton5_Craftsman_Sch1_ClassicCream.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa11798c7f61ed170d02c1_Eaton5_Craftsman_Sch2_SoftGreen.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa1178d4e789851d726afd_Eaton5_Craftsman_Sch3_CoastalNavy.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa1179e37e4c9da35dd349_Eaton5_Craftsman_Sch4_WarmTaupe.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa117934eb986df4409a80_Eaton5_Craftsman_Sch5_NaturalCharcoal.webp',
     ],
     janesCottage: [
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f967ed46f583c45fb319_Eaton5_Janes_Cottage_Sch1_WarmWhite.webp',

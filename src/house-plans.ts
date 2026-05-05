@@ -22,7 +22,7 @@ const galleryConfigs: GalleryConfig[] = [
   },
 ];
 
-//confrim the elements are exist in dom before initializing the gallery controller
+//confirm the elements are exist in dom before initializing the gallery controller
 galleryConfigs.forEach((config) => {
   const element = document.querySelector(config.triggerSelector);
   if (!element) {

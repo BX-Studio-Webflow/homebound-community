@@ -1,6 +1,8 @@
 import Swiper from 'swiper';
 import { Keyboard, Navigation, Pagination, Thumbs } from 'swiper/modules';
 
+import { EXTERIOR_IMAGE_SETS_BY_PLAN } from '$utils/exterior-scheme-modal';
+
 export interface GalleryConfig {
   /** Full selector for the clickable trigger region (e.g. `[dev-target="image-gallery"]`). */
   triggerSelector: string;
@@ -27,6 +29,14 @@ export class GalleryController {
   /** Per-config image cache, keyed by {@link GalleryConfig.triggerSelector} */
   private caches: Map<string, HTMLImageElement[]> = new Map();
   private observers: MutationObserver[] = [];
+  private readonly exteriorStyleToImageSetKey: Record<
+    string,
+    keyof (typeof EXTERIOR_IMAGE_SETS_BY_PLAN)['echo']
+  > = {
+    'craftsman-style': 'craftsman',
+    'janes-cottage': 'janesCottage',
+    'spanish-transitional': 'spanish',
+  };
 
   constructor(private readonly configs: GalleryConfig[]) {
     this.configs = configs;
@@ -116,14 +126,60 @@ export class GalleryController {
       const slide = wrapper.closest('.swiper-slide');
       if (!slide) return;
 
-      const imgs = Array.from(
-        slide.querySelectorAll<HTMLImageElement>('img[dev-target="slide-gallery-collection-image"]')
-      );
+      const imgs = this.resolveSlideGalleryImages(slide as HTMLElement);
 
       if (!imgs.length) return;
 
       this.open(imgs, 0);
     });
+  }
+
+  private resolveSlideGalleryImages(slide: HTMLElement): HTMLImageElement[] {
+    const chooseFrom = slide.getAttribute('choose-from')?.toLowerCase();
+    const shouldUseExteriorSet =
+      chooseFrom === 'exterior-schema' || chooseFrom === 'exterior-scheme';
+
+    if (shouldUseExteriorSet) {
+      const exteriorImages = this.getExteriorImagesForSlide(slide);
+      if (exteriorImages.length) return exteriorImages;
+    }
+
+    // Backward compatibility: keep existing per-slide CMS image source.
+    return Array.from(
+      slide.querySelectorAll<HTMLImageElement>('img[dev-target="slide-gallery-collection-image"]')
+    );
+  }
+
+  private getExteriorImagesForSlide(slide: HTMLElement): HTMLImageElement[] {
+    const planSlug = this.getHousePlanSlugFromPath();
+    if (!planSlug) return [];
+
+    const exteriorStyle = slide.getAttribute('exterior-style')?.toLowerCase() ?? '';
+    const imageSetKey = this.exteriorStyleToImageSetKey[exteriorStyle];
+    if (!imageSetKey) return [];
+
+    const imageSet = EXTERIOR_IMAGE_SETS_BY_PLAN[planSlug];
+    const urls = imageSet?.[imageSetKey] ?? [];
+    return urls.filter(Boolean).map((url) => this.createImageElement(url));
+  }
+
+  private getHousePlanSlugFromPath(): keyof typeof EXTERIOR_IMAGE_SETS_BY_PLAN | null {
+    const maybeSlug =
+      window.location.pathname.toLowerCase().split('/house-plans/')[1]?.split('/')[0] ?? '';
+    const normalizedSlug = maybeSlug.replace(/^the-/, '');
+
+    if (normalizedSlug in EXTERIOR_IMAGE_SETS_BY_PLAN) {
+      return normalizedSlug as keyof typeof EXTERIOR_IMAGE_SETS_BY_PLAN;
+    }
+
+    return null;
+  }
+
+  private createImageElement(url: string): HTMLImageElement {
+    const img = document.createElement('img');
+    img.src = url;
+    img.alt = '';
+    return img;
   }
 
   /**
