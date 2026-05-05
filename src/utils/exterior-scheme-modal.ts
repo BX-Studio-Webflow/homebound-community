@@ -263,12 +263,13 @@ export class ExteriorSchemeController {
   private getHousePlanSlugFromPath(): HousePlanSlug | null {
     const maybeSlug =
       window.location.pathname.toLowerCase().split('/house-plans/')[1]?.split('/')[0] ?? '';
+    const normalizedSlug = maybeSlug.replace(/^the-/, '');
 
-    if (maybeSlug === 'echo') return 'echo';
-    if (maybeSlug === 'merrick') return 'merrick';
-    if (maybeSlug === 'chaney') return 'chaney';
-    if (maybeSlug === 'loma') return 'loma';
-    if (maybeSlug === 'sycamore') return 'sycamore';
+    if (normalizedSlug === 'echo') return 'echo';
+    if (normalizedSlug === 'merrick') return 'merrick';
+    if (normalizedSlug === 'chaney') return 'chaney';
+    if (normalizedSlug === 'loma') return 'loma';
+    if (normalizedSlug === 'sycamore') return 'sycamore';
 
     return null;
   }
