@@ -208,6 +208,11 @@ export class ExteriorSchemeController {
     const exteriors = this.getExteriorsForCurrentPlan();
     const slides = Array.from(document.querySelectorAll<HTMLElement>(this.slideSelector));
 
+    if (!exteriors) {
+      slides.forEach((slide) => this.hideSchemeUi(slide));
+      return;
+    }
+
     slides.forEach((slide) => {
       const slug = slide.getAttribute('exterior-style');
       const exterior = exteriors.find((item) => item.slug === slug);
@@ -254,10 +259,20 @@ export class ExteriorSchemeController {
     });
   }
 
-  private getExteriorsForCurrentPlan(): ExteriorDefinition[] {
+  private getExteriorsForCurrentPlan(): ExteriorDefinition[] | null {
     const maybeSlug = this.getHousePlanSlugFromPath();
-    if (!maybeSlug) return EXTERIORS_BY_PLAN.echo;
-    return EXTERIORS_BY_PLAN[maybeSlug] ?? EXTERIORS_BY_PLAN.echo;
+    if (!maybeSlug) return null;
+    return EXTERIORS_BY_PLAN[maybeSlug] ?? null;
+  }
+
+  /** Hides exterior scheme heading and dropdown when this plan has no exterior image config. */
+  private hideSchemeUi(slide: HTMLElement): void {
+    const schemeBody = slide.querySelector<HTMLElement>(this.schemeBodySelector);
+    const schemeHeader = slide.querySelector<HTMLElement>(this.schemeHeaderSelector);
+    const schemeArrow = slide.querySelector<HTMLElement>(this.schemeArrowSelector);
+    schemeBody?.classList.add('hide');
+    schemeHeader?.classList.add('hide');
+    schemeArrow?.classList.add('hide');
   }
 
   private getHousePlanSlugFromPath(): HousePlanSlug | null {
