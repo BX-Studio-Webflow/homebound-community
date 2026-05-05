@@ -2,10 +2,7 @@
    SOONER PROCESS BLOCK
 ───────────────────────────────────────────────────────────────────────────── */
 
-[dev-target='one-sooner-accordion'] {
-    display: grid;
-    row-gap: 0.5rem;
-  }
+
   
   [dev-target='sooner-header'] {
     cursor: pointer;
@@ -33,7 +30,12 @@
       grid-template-rows 0.35s ease,
       padding-bottom 0.35s ease;
   }
-  
+  [dev-target='one-sooner-accordion'] {
+    grid-row-gap: 0rem;
+  }
+  [dev-target='one-sooner-accordion'].is-open{
+    grid-row-gap: 1rem;
+  }
   [dev-target='one-sooner-accordion'].is-open [dev-target='sooner-body'] {
     grid-template-rows: 1fr;
     padding-bottom: 1rem;
@@ -42,9 +44,8 @@
   [dev-target='one-sooner-accordion'] [dev-target='sooner-body'] > * {
     overflow: hidden;
     min-height: 0;
+  
   }
   
-  [dev-target='one-sooner-accordion'].is-open [dev-target='sooner-body'] > * {
-    padding-top: 15px;
-  }
+
   
