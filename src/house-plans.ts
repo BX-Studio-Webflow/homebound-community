@@ -11,6 +11,11 @@ import { ExteriorSchemeController } from '$utils/exterior-scheme-modal';
 import { type GalleryConfig, GalleryController } from '$utils/gallery';
 import { HomeMapController } from '$utils/home-map';
 import { type ColorSchemeBinding, ColorSchemeController } from '$utils/interior-color-scheme';
+import {
+  applySchemeSwatchMarkup,
+  getHousePlanSwatchProfile,
+  getSchemeSwatchVisual,
+} from '$utils/interior-scheme-swatches';
 import { LotMapController } from '$utils/lot-map';
 import { StickyNavController } from '$utils/sticky-nav';
 
@@ -457,6 +462,8 @@ window.Webflow.push(() => {
     housePlanImageUrlsBySlug.daphne!;
   const activeSchemeTitleByToken =
     schemeTitleByTokenByHousePlan[maybeInteriorSlug] ?? schemeTitleByToken;
+  const swatchProfile = getHousePlanSwatchProfile(maybeInteriorSlug);
+  const schemeSwatchVisual = getSchemeSwatchVisual(swatchProfile);
 
   // Keep titles mapped by interior + scheme so each interior can have unique package names.
   const packageTitleByInteriorAndScheme: Record<InteriorToken, Record<SchemeToken, string>> = {
@@ -479,6 +486,8 @@ window.Webflow.push(() => {
     const schemeButtons = Array.from(slide.querySelectorAll<HTMLElement>(schemeButtonSelector));
     if (!schemeButtons.length) return [];
 
+    if (swatchProfile === 'altadena') applySchemeSwatchMarkup(schemeButtons);
+
     // House plans uses context-based URL mappings; hidden scheme images are optional.
     const schemeImagesByToken = new Map<string, HTMLImageElement>();
     return [
@@ -486,6 +495,7 @@ window.Webflow.push(() => {
         forwardImage,
         schemeButtons,
         schemeImagesByToken,
+        visual: schemeSwatchVisual,
         context: {
           contextButtons: interiorButtons,
           defaultContextToken: defaultInteriorToken,
