@@ -405,7 +405,7 @@ window.Webflow.push(() => {
         'pos-2':
           'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9cc0f07ad276ee8c9de_Lakeside_Plan%202_B_Kitchen.avif',
         'pos-3':
-          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9ec00ea527abfe075ed_Lakeside_Plan2_C_Kitchen.avif',
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a0433302537a9cfc4cab742_01_Kitchen%20(6).avif',
         'pos-4':
           'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba27d22c956cb24df231_Lakeside%20Plan%202_D_Kitchen.avif',
       },
@@ -415,7 +415,7 @@ window.Webflow.push(() => {
         'pos-2':
           'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9ccf135e0a6dcc36535_Lakeside_Plan%202_B_Primary_Bedroom.avif',
         'pos-3':
-          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9ebc8de67c028cec4c0_Lakeside_Plan2_C_Primary_Bedroom.avif',
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a043248f4ab2342512ca6b3_03_Primary_Bedroom%20(6).avif',
         'pos-4':
           'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba274efd57e0baa871bf_Lakeside%20Plan%202_D_Primary_Bed.avif',
       },
@@ -423,9 +423,9 @@ window.Webflow.push(() => {
         'pos-1':
           'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9b02410ba14aaa226d5_Lakeside_Plan%202_A_Great.avif',
         'pos-2':
-          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9cc37c90f8bf7028f7e_Lakeside_Plan%202_B_Great.avif',
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a043143996cebc89290df82_02_Great%20(5).webp',
         'pos-3':
-          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9eb469a39c917f2e99b_Lakeside_Plan2_C_Great.avif',
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a0432d8701b4f939474cd4d_02_Great%20(6).webp',
         'pos-4':
           'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba28da5822300a5f5b79_Lakeside%20Plan%202_D_Great.avif',
       },
@@ -433,9 +433,9 @@ window.Webflow.push(() => {
         'pos-1':
           'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9abf8fc3a0c688c5407_Lakeside_Plan%202_A_Primary_Bath.avif',
         'pos-2':
-          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9c7d96ba1672ecc593c_Lakeside_Plan%202_B_Primary_Bath.avif',
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a04339eb45f57fdfa0c936f_04_Primary_Bath%20(5).avif',
         'pos-3':
-          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9e7cea72de2d80ee381_Lakeside_Plan2_C_Primary_Bath.avif',
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a0431e88f4af5041ed2092c_04_Primary_Bath%20(6).avif',
         'pos-4':
           'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba225f0fa8776fb8292f_Lakeside%20Plan%202_D_Primary_Bath.avif',
       },
