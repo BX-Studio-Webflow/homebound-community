@@ -10445,7 +10445,7 @@
                   </g>
                 </g>
               </g>
-              <g id="OPT_CODE_RTREATPM01">
+              <g id="OPT_CODE_RTREATPM01" data-attribute="feature">
                 <g id="HATCH-1171">
                   <polygon class="st30" points="70.6 187 14.69 186.98 15.01 296.97 70.6 296.98 70.6 187"/>
                 </g>
@@ -11767,7 +11767,7 @@
                   <rect class="st6" x="17.9" y="187.16" width="49.86" height="47.55"/>
                 </g>
               </g>
-              <g id="OPT_CODE_RTREATPM02">
+              <g id="OPT_CODE_RTREATPM02" data-attribute="feature">
                 <g id="HATCH-1229">
                   <polygon class="st30" points="70.83 184.55 15.39 184.71 15.23 296.78 70.47 297.56 70.83 184.55"/>
                 </g>
@@ -12813,7 +12813,7 @@
                   <rect class="st6" x="18.1" y="241.01" width="49.35" height="53.94"/>
                 </g>
               </g>
-              <g id="OPT_CODE_DOOREXTFR01">
+              <g id="OPT_CODE_DOOREXTFR01" data-attribute="feature">
                 <g id="LINE-6807">
                   <line class="st23" x1="55.89" y1="184.67" x2="55.16" y2="184.67"/>
                 </g>
