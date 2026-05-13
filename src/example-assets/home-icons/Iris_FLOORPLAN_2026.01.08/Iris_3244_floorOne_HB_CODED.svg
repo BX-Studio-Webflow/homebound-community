@@ -6592,7 +6592,7 @@
                   <path class="st29" d="M29.37,187.51v-2.31h-4.68v2.31h4.68M60.15,187.51v-2.31h-4.68v2.31h4.68Z"/>
                 </g>
               </g>
-              <g id="OPT_CODE_CABDIN0001" class="st31"  data-attribute="feature">
+              <g id="OPT_CODE_CABDIN0001" class="st31">
                 <g id="LINE-6782">
                   <line class="st8" x1="142.82" y1="243.41" x2="142.82" y2="250.67"/>
                 </g>
@@ -6636,7 +6636,7 @@
                   <rect class="st14" x="142.82" y="243.44" width="12.51" height="50.01"/>
                 </g>
               </g>
-              <g id="OPT_CODE_ALTPRIMBATH1" class="st31"  data-attribute="feature">
+              <g id="OPT_CODE_ALTPRIMBATH1" class="st31">
                 <g id="HATCH-988">
                   <rect class="st28" x="22.43" y="113.78" width="23.21" height="2.06"/>
                 </g>
@@ -7595,7 +7595,7 @@
                   <rect class="st14" x="18.02" y="16.77" width="45.75" height="97.44"/>
                 </g>
               </g>
-              <g id="OPT_CODE_F2" class="st31"  data-attribute="feature">
+              <g id="OPT_CODE_F2" class="st31">
                 <g id="HATCH-1039">
                   <rect class="st28" x="13.38" y="297.78" width="52.89" height="89.62"/>
                 </g>
@@ -10431,7 +10431,7 @@
                   </g>
                 </g>
               </g>
-              <g id="OPT_CODE_RTREATPM01" class="st31" data-attribute="feature">
+              <g id="OPT_CODE_RTREATPM01" class="st31">
                 <g id="HATCH-1171">
                   <polygon class="st29" points="70.6 187 14.69 186.98 15.01 296.97 70.6 296.98 70.6 187"/>
                 </g>
@@ -11753,7 +11753,7 @@
                   <rect class="st14" x="17.9" y="187.16" width="49.86" height="47.55"/>
                 </g>
               </g>
-              <g id="OPT_CODE_RTREATPM02" class="st31"  data-attribute="feature">
+              <g id="OPT_CODE_RTREATPM02">
                 <g id="HATCH-1229">
                   <polygon class="st29" points="70.83 184.55 15.39 184.71 15.23 296.78 70.47 297.56 70.83 184.55"/>
                 </g>
@@ -12782,7 +12782,7 @@
                   <rect class="st14" x="17.9" y="187.16" width="49.86" height="107.71"/>
                 </g>
               </g>
-              <g id="OPT_CODE_DOOREXTFR01" class="st31"  data-attribute="feature">
+              <g id="OPT_CODE_DOOREXTFR01">
                 <g id="LINE-6807">
                   <line class="st3" x1="55.89" y1="184.67" x2="55.16" y2="184.67"/>
                 </g>
@@ -12838,7 +12838,7 @@
             <rect class="st14" x="66.45" y="17.34" width="87.22" height="96.93"/>
           </g>
           <g id="highlight-dining-room" class="st30" data-attribute="feature">
-            <rect class="st14" x="67.82" y="244.2" width="86.46" height="50.01"/>
+            <rect class="st14" x="140.24" y="244.2" width="14.04" height="50.01"/>
           </g>
           <g id="highlight-porch" class="st15" data-attribute="feature">
             <rect class="st14" x="15.02" y="356.44" width="50.09" height="21.13"/>
