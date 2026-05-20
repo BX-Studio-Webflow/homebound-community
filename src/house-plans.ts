@@ -200,13 +200,13 @@ window.Webflow.push(() => {
       },
       'bedroom-interior': {
         'pos-1':
-          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f30e9c998825eb14cc2cf8_Echo-spanish-deluxe-bed.webp',
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a0d82c1389ba3f0af5b110d_Echo_SpanishDeluxe_PrimaryBed.avif',
         'pos-2':
-          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f30e09bc658ee1f11fd7b8_Echo-craftsman-deluxe-bed.webp',
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a0d8240aba8c3a2731d560b_Echo_JanesCottage_PrimaryBed.avif',
         'pos-3':
-          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f30e09bc658ee1f11fd7b8_Echo-craftsman-deluxe-bed.webp',
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a0d811f25972b16f662b4f2_Echo_Craftsman_PrimaryBed.avif',
         'pos-4':
-          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f30f38b40ce75bfd32b682_Echo-transorg-deluxe-bed.webp',
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a0d844535d9a3adb3b555b0_Echo_TransitionalOrganic_PrimaryBed.avif',
       },
       'living-interior': {
         'pos-1':
@@ -401,13 +401,13 @@ window.Webflow.push(() => {
     sienna: {
       'kitchen-interior': {
         'pos-1':
-          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0b9b0ab4a5be30bcf9b3f_Lakeside_Plan%202_A_Kitchen.avif',
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a0d85b486df57bb2490116c_01_Kitchen%20(4).avif',
         'pos-2':
           'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a04503d7bece3c1e4d5a4e3_01_Kitchen%20(5).avif',
         'pos-3':
           'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a0433302537a9cfc4cab742_01_Kitchen%20(6).avif',
         'pos-4':
-          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69e0ba27d22c956cb24df231_Lakeside%20Plan%202_D_Kitchen.avif',
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a0d854304c77883cc3f99e6_01_Kitchen%20(8).avif',
       },
       'bedroom-interior': {
         'pos-1':
