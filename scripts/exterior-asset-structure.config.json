@@ -1,0 +1,63 @@
+{
+  "webflow": {
+    "siteId": "601ca16f0bb27e965ee867a0",
+    "exteriorStylesFolderId": "69f1ef537ce789fa3ce9a3a9",
+    "designerMcpUrl": "https://homebound-e3a5e9.design.webflow.com?app=dc8209c65e3ec02254d15275ca056539c89f6d15741893a0adf29ad6f381eb99"
+  },
+  "plans": [
+    { "folder": "The Glenview", "slug": "glenview" },
+    { "folder": "The Elm", "slug": "elm" },
+    { "folder": "The Willow", "slug": "willow" },
+    { "folder": "The Vista", "slug": "vista" },
+    { "folder": "The Ambrose", "slug": "ambrose" },
+    { "folder": "The Alder", "slug": "alder" }
+  ],
+  "styles": [
+    {
+      "folder": "Spanish Contemporary",
+      "slugSuffix": "spanish-contemporary",
+      "fileToken": "SpanishContemporary",
+      "schemes": [
+        { "number": 1, "name": "Sunlit Ivory", "fileToken": "SunlitIvory" },
+        { "number": 2, "name": "Sandstone Villa", "fileToken": "SandstoneVilla" },
+        { "number": 3, "name": "Stone Garden", "fileToken": "StoneGarden" },
+        { "number": 4, "name": "Sienna Stone", "fileToken": "SiennaStone" },
+        { "number": 5, "name": "Coastal Villa", "fileToken": "CoastalVilla" }
+      ]
+    },
+    {
+      "folder": "Transitional Ranch",
+      "slugSuffix": "transitional-ranch",
+      "fileToken": "TransitionalRanch",
+      "schemes": [
+        { "number": 1, "name": "White Oak Ranch", "fileToken": "WhiteOakRanch" },
+        { "number": 2, "name": "Midnight Ridge", "fileToken": "MidnightRidge" },
+        { "number": 3, "name": "Oakstone", "fileToken": "Oakstone" },
+        { "number": 4, "name": "White Mason", "fileToken": "WhiteMason" },
+        { "number": 5, "name": "Black Timber", "fileToken": "BlackTimber" }
+      ]
+    },
+    {
+      "folder": "Coastal Colonial",
+      "slugSuffix": "coastal-colonial",
+      "fileToken": "CoastalColonial",
+      "schemes": [
+        { "number": 2, "name": "Stone Harbor", "fileToken": "StoneHarbor" },
+        { "number": 3, "name": "Seabreeze", "fileToken": "Seabreeze" },
+        { "number": 4, "name": "Ivory & Onyx", "fileToken": "IvoryOnyx" },
+        { "number": 5, "name": "Coastal Stone", "fileToken": "CoastalStone" }
+      ]
+    },
+    {
+      "folder": "English Cottage",
+      "slugSuffix": "english-cottage",
+      "fileToken": "EnglishCottage",
+      "schemes": [
+        { "number": 2, "name": "Abbey Iron", "fileToken": "AbbeyIron" },
+        { "number": 3, "name": "Bronze Meadow", "fileToken": "BronzeMeadow" },
+        { "number": 4, "name": "Manor Brick", "fileToken": "ManorBrick" },
+        { "number": 5, "name": "Chateau Stone", "fileToken": "ChateauStone" }
+      ]
+    }
+  ]
+}

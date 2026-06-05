@@ -1,7 +1,10 @@
 import Swiper from 'swiper';
 import { Keyboard, Navigation, Pagination, Thumbs } from 'swiper/modules';
 
-import { EXTERIOR_IMAGE_SETS_BY_PLAN } from '$utils/exterior-scheme-modal';
+import {
+  getExteriorImageUrlsForStyle,
+  getHousePlanSlugFromPath,
+} from '$utils/exterior-scheme-modal';
 
 export interface GalleryConfig {
   /** Full selector for the clickable trigger region (e.g. `[dev-target="image-gallery"]`). */
@@ -29,15 +32,6 @@ export class GalleryController {
   /** Per-config image cache, keyed by {@link GalleryConfig.triggerSelector} */
   private caches: Map<string, HTMLImageElement[]> = new Map();
   private observers: MutationObserver[] = [];
-  private readonly exteriorStyleToImageSetKey: Record<
-    string,
-    keyof (typeof EXTERIOR_IMAGE_SETS_BY_PLAN)['echo']
-  > = {
-    'craftsman-style': 'craftsman',
-    'janes-cottage': 'janesCottage',
-    'spanish-transitional': 'spanish',
-  };
-
   constructor(private readonly configs: GalleryConfig[]) {
     this.configs = configs;
   }
@@ -151,28 +145,12 @@ export class GalleryController {
   }
 
   private getExteriorImagesForSlide(slide: HTMLElement): HTMLImageElement[] {
-    const planSlug = this.getHousePlanSlugFromPath();
+    const planSlug = getHousePlanSlugFromPath();
     if (!planSlug) return [];
 
     const exteriorStyle = slide.getAttribute('exterior-style')?.toLowerCase() ?? '';
-    const imageSetKey = this.exteriorStyleToImageSetKey[exteriorStyle];
-    if (!imageSetKey) return [];
-
-    const imageSet = EXTERIOR_IMAGE_SETS_BY_PLAN[planSlug];
-    const urls = imageSet?.[imageSetKey] ?? [];
-    return urls.filter(Boolean).map((url) => this.createImageElement(url));
-  }
-
-  private getHousePlanSlugFromPath(): keyof typeof EXTERIOR_IMAGE_SETS_BY_PLAN | null {
-    const maybeSlug =
-      window.location.pathname.toLowerCase().split('/house-plans/')[1]?.split('/')[0] ?? '';
-    const normalizedSlug = maybeSlug.replace(/^the-/, '');
-
-    if (normalizedSlug in EXTERIOR_IMAGE_SETS_BY_PLAN) {
-      return normalizedSlug as keyof typeof EXTERIOR_IMAGE_SETS_BY_PLAN;
-    }
-
-    return null;
+    const urls = getExteriorImageUrlsForStyle(planSlug, exteriorStyle);
+    return urls.map((url) => this.createImageElement(url));
   }
 
   private createImageElement(url: string): HTMLImageElement {

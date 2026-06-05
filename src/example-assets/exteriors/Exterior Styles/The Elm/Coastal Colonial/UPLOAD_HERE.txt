@@ -1,0 +1,8 @@
+Webflow path: Exterior Styles / The Elm / Coastal Colonial
+Slide attribute: exterior-style="elm-coastal-colonial"
+
+Drop one image per line (use scheme name as filename, .jpg or .webp):
+1. Sch 2 - Stone Harbor.jpg
+2. Sch 3 - Seabreeze.jpg
+3. Sch 4 - Ivory & Onyx.jpg
+4. Sch 5 - Coastal Stone.jpg

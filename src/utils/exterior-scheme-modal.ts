@@ -1,4 +1,5 @@
 interface ExteriorColorScheme {
+  schemeNumber: number;
   name: string;
   imageUrl: string;
 }
@@ -9,7 +10,201 @@ interface ExteriorDefinition {
   colorSchemes: ExteriorColorScheme[];
 }
 
-type HousePlanSlug = 'echo' | 'merrick' | 'chaney' | 'loma' | 'sycamore';
+export type HousePlanSlug =
+  | 'echo'
+  | 'merrick'
+  | 'chaney'
+  | 'loma'
+  | 'sycamore'
+  | 'glenview'
+  | 'elm'
+  | 'willow'
+  | 'vista'
+  | 'ambrose'
+  | 'alder';
+
+type AltadenaHousePlanSlug = 'echo' | 'merrick' | 'chaney' | 'loma' | 'sycamore';
+type NewCommunityPlanSlug = 'glenview' | 'elm' | 'willow' | 'vista' | 'ambrose' | 'alder';
+
+type NewCommunityStyleKey =
+  | 'spanishContemporary'
+  | 'transitionalRanch'
+  | 'coastalColonial'
+  | 'englishCottage';
+
+const NEW_COMMUNITY_EXTERIOR_IMAGE_URLS: Record<
+  NewCommunityPlanSlug,
+  Record<NewCommunityStyleKey, readonly string[]>
+> = {
+  glenview: {
+    spanishContemporary: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22eddb81b67658917d147c_Sch%201%20-%20Sunlit%20Ivory.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd689113f6185fb81bc_Sch%202%20-%20Sandstone%20Villa.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd72ba437a787a12c6e_Sch%203%20-%20Stone%20Garden.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd765053904adda70f1_Sch%204%20-%20Sienna%20Stone.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd754f23ca1aa66fd5c_Sch%205%20-%20Coastal%20Villa.webp',
+    ],
+    transitionalRanch: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edeba8e815ef475c3e2c_Sch%201%20-%20White%20Oak%20Ranch.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edeb74297c1a3021d0b4_Sch%202%20-%20Midnight%20Ridge.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edebb734c9412a1851a1_Sch%203%20-%20Oakstone.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edea46c4dce897c622c0_Sch%204%20-%20White%20Mason.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edeaf11078832301af0d_Sch%205%20-%20Black%20Timber.webp',
+    ],
+    coastalColonial: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac6e6422b45442464d_Sch%202%20-%20Stone%20Harbor.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac9d58911e051d3fba_Sch%203%20-%20Seabreeze.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac8f40d304dd481aec_Sch%204%20-%20Ivory%20%26%20Onyx.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edace365374d2b4c2c3f_Sch%205%20-%20Coastal%20Stone.webp',
+    ],
+    englishCottage: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbe0c3370fb3e35ffaf_Sch%202%20-%20Abbey%20Iron.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbea3771290396ed4df_Sch%203%20-%20Bronze%20Meadow.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbef4494d74c17404a9_Sch%204%20-%20Manor%20Brick.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbe2c42ef25e857568f_Sch%205%20-%20Chateau%20Stone.webp',
+    ],
+  },
+  elm: {
+    spanishContemporary: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecc8f3437fec84c633be_Sch%201%20-%20Sunlit%20Ivory.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecc8f4494d74c17399e4_Sch%202%20-%20Sandstone%20Villa.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecca2472a39b3cbd7498_Sch%203%20-%20Stone%20Garden.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22eccaae1ca7e49161fbc8_Sch%204%20-%20Sienna%20Stone.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecca872355c22f8eaadf_Sch%205%20-%20Coastal%20Villa.webp',
+    ],
+    transitionalRanch: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecac0c3370fb3e356423_Sch%201%20-%20White%20Oak%20Ranch.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecac269d95cd19e0e026_Sch%202%20-%20Midnight%20Ridge.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecacf110788323011ee1_Sch%203%20-%20Oakstone.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecab55c9aaa9438a7a06_Sch%204%20-%20White%20Mason.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecac08f434791bad029e_Sch%205%20-%20Black%20Timber.webp',
+    ],
+    coastalColonial: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7e9d58911e051c5dc8_Sch%202%20-%20Stone%20Harbor.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7f2472a39b3cbd5614_Sch%203%20-%20Seabreeze.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7e61f18799715386b8_Sch%204%20-%20Ivory%20%26%20Onyx.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7fb75aee6fe61ebf09_Sch%205%20-%20Coastal%20Stone.webp',
+    ],
+    englishCottage: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec90872355c22f8e89a8_Sch%202%20-%20Abbey%20Iron.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec9061f1879971538dfd_Sch%203%20-%20Bronze%20Meadow.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec9095a46fd82b1cb0b3_Sch%204%20-%20Manor%20Brick.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec908f40d304dd4776a6_Sch%205%20-%20Chateau%20Stone.webp',
+    ],
+  },
+  willow: {
+    spanishContemporary: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c220e6f459b8cc97fc_Sch%201%20-%20Sunlit%20Ivory.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c3679eea90bc21737e_Sch%202%20-%20Sandstone%20Villa.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c227f295bf102c73d9_Sch%203%20-%20Stone%20Garden.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c23b306ae798b2d5b7_Sch%204%20-%20Sienna%20Stone.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c207d8f3773f4fde0e_Sch%205%20-%20Coastal%20Villa.webp',
+    ],
+    transitionalRanch: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e02f638a601d29fc82_Sch%201%20-%20White%20Oak%20Ranch.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e02d888efac45336f8_Sch%202%20-%20Midnight%20Ridge.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e0b734c9412a19d579_Sch%203%20-%20Oakstone.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e0cd6d5d498ce2e8ac_Sch%204%20-%20White%20Mason.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0df57edcdcc3c089676_Sch%205%20-%20Black%20Timber.webp',
+    ],
+    coastalColonial: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084544db6edddd13c4b_Sch%202%20-%20Stone%20Harbor.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f08420e6f459b8cc8171_Sch%203%20-%20Seabreeze.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084ae64905f6a6340f6_Sch%204%20-%20Ivory%20%26%20Onyx.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084f11078832302fea2_Sch%205%20-%20Coastal%20Stone.webp',
+    ],
+    englishCottage: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a218fa7f2207b9e007_Sch%202%20-%20Abbey%20Iron.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a1a3771290397042a1_Sch%203%20-%20Bronze%20Meadow.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a1ae1ca7e491642775_Sch%204%20-%20Manor%20Brick.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a12d888efac453195c_Sch%205%20-%20Chateau%20Stone.webp',
+    ],
+  },
+  vista: {
+    spanishContemporary: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f167939798a0c8459ed2_Sch%201%20-%20Sunlit%20Ivory.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1666982be65b05567c0_Sch%202%20-%20Sandstone%20Villa.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f167f461c0c66341fa0d_Sch%203%20-%20Stone%20Garden.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1672c42ef25e859297c_Sch%204%20-%20Sienna%20Stone.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1664ff4597241d8f033_Sch%205%20-%20Coastal%20Villa.webp',
+    ],
+    transitionalRanch: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14f550f4fd0cf5a4561_Sch%201%20-%20White%20Oak%20Ranch.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14e20e6f459b8ccc7ed_Sch%202%20-%20Midnight%20Ridge.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14f52e0fbbd6afa96b4_Sch%203%20-%20Oakstone.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14e32d82c66475c84c6_Sch%204%20-%20White%20Mason.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14f4ff4597241d8e0f7_Sch%205%20-%20Black%20Timber.webp',
+    ],
+    coastalColonial: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b73b306ae798b3454e_Sch%202%20-%20Stone%20Harbor.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b7fccec2bd9f7f3bf0_Sch%203%20-%20Seabreeze.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b7f3437fec84c94c74_Sch%204%20-%20Ivory%20%26%20Onyx.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b75d778b0e1d343aec_Sch%205%20-%20Coastal%20Stone.webp',
+    ],
+    englishCottage: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f193475a005a81e89db1_Sch%202%20-%20Abbey%20Iron.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1939619a764f4d5f48a_Sch%203%20-%20Bronze%20Meadow.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1939ab120a2472fcc9b_Sch%204%20-%20Manor%20Brick.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f193f1107883230392a1_Sch%205%20-%20Chateau%20Stone.webp',
+    ],
+  },
+  ambrose: {
+    spanishContemporary: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e9d58911e051cc527_Sch%201%20-%20Sunlit%20Ivory.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e50c5363e89576c23_Sch%202%20-%20Sandstone%20Villa.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e57edcdcc3c06dc7f_Sch%203%20-%20Stone%20Garden.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e55c9aaa9438ac2b6_Sch%204%20-%20Sienna%20Stone.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e0c3370fb3e359ffd_Sch%205%20-%20Coastal%20Villa.webp',
+    ],
+    transitionalRanch: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3920e6f459b8caf257_Sch%201%20-%20White%20Oak%20Ranch.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3af8c13be94948c3b2_Sch%202%20-%20Midnight%20Ridge.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3a61f1879971541248_Sch%203%20-%20Oakstone.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3a220472fb3ac3475b_Sch%204%20-%20White%20Mason.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3a939798a0c843907b_Sch%205%20-%20Black%20Timber.webp',
+    ],
+    coastalColonial: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecef2ba437a787a0b71d_Sch%202%20-%20Stone%20Harbor.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecefc74ccc360e2beea9_Sch%203%20-%20Seabreeze.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecf0475a005a81e66998_Sch%204%20-%20Ivory%20%26%20Onyx.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecef9619a764f4d3abc5_Sch%205%20-%20Coastal%20Stone.webp',
+    ],
+    englishCottage: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed04269d95cd19e1032b_Sch%202%20-%20Abbey%20Iron.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed048157506f00ae1c15_Sch%203%20-%20Bronze%20Meadow.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed04a8e815ef475bc111_Sch%204%20-%20Manor%20Brick.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed0445c164b3134e1b2d_Sch%205%20-%20Chateau%20Stone.webp',
+    ],
+  },
+  alder: {
+    spanishContemporary: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef9295a46fd82b1e4964_Sch%201%20-%20Sunlit%20Ivory.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e50c5363e89576c23_Sch%202%20-%20Sandstone%20Villa.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e57edcdcc3c06dc7f_Sch%203%20-%20Stone%20Garden.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e55c9aaa9438ac2b6_Sch%204%20-%20Sienna%20Stone.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e0c3370fb3e359ffd_Sch%205%20-%20Coastal%20Villa.webp',
+    ],
+    transitionalRanch: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe29d58911e051e60b9_Sch%201%20-%20White%20Oak%20Ranch.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe4f8ae2a21e657e6c5_Sch%202%20-%20Midnight%20Ridge.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe445c164b3134f6b84_Sch%203%20-%20Oakstone.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe32d10f7997d7b25c6_Sch%204%20-%20White%20Mason.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe227f295bf102bdd5f_Sch%205%20-%20Black%20Timber.webp',
+    ],
+    coastalColonial: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef67cd6d5d498ce2266f_Sch%202%20-%20Stone%20Harbor.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef6a438168dc11d43cdb_Sch%203%20-%20Seabreeze.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef682ba437a787a1fdc9_Sch%204%20-%20Ivory%20%26%20Onyx.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef6874297c1a3022840a_Sch%205%20-%20Coastal%20Stone.webp',
+    ],
+    englishCottage: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7cdb1b9afafad4b525_Sch%202%20-%20Abbey%20Iron.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c94fec08c5d9f1fb1_Sch%203%20-%20Bronze%20Meadow.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c679eea90bc20be8b_Sch%204%20-%20Manor%20Brick.webp',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c8157506f00af4584_Sch%205%20-%20Chateau%20Stone.webp',
+    ],
+  },
+};
 
 const CRAFTSMAN_NAMES = [
   'Classic Cream',
@@ -35,13 +230,43 @@ const SPANISH_NAMES = [
   'Warm Earth Clay',
 ] as const;
 
+const SPANISH_CONTEMPORARY_SCHEMES = [
+  { number: 1, name: 'Sunlit Ivory' },
+  { number: 2, name: 'Sandstone Villa' },
+  { number: 3, name: 'Stone Garden' },
+  { number: 4, name: 'Sienna Stone' },
+  { number: 5, name: 'Coastal Villa' },
+] as const;
+
+const TRANSITIONAL_RANCH_SCHEMES = [
+  { number: 1, name: 'White Oak Ranch' },
+  { number: 2, name: 'Midnight Ridge' },
+  { number: 3, name: 'Oakstone' },
+  { number: 4, name: 'White Mason' },
+  { number: 5, name: 'Black Timber' },
+] as const;
+
+const COASTAL_COLONIAL_SCHEMES = [
+  { number: 2, name: 'Stone Harbor' },
+  { number: 3, name: 'Seabreeze' },
+  { number: 4, name: 'Ivory & Onyx' },
+  { number: 5, name: 'Coastal Stone' },
+] as const;
+
+const ENGLISH_COTTAGE_SCHEMES = [
+  { number: 2, name: 'Abbey Iron' },
+  { number: 3, name: 'Bronze Meadow' },
+  { number: 4, name: 'Manor Brick' },
+  { number: 5, name: 'Chateau Stone' },
+] as const;
+
 interface ExteriorImageSet {
   craftsman: string[];
   janesCottage: string[];
   spanish: string[];
 }
 
-export const EXTERIOR_IMAGE_SETS_BY_PLAN: Record<HousePlanSlug, ExteriorImageSet> = {
+export const EXTERIOR_IMAGE_SETS_BY_PLAN: Record<AltadenaHousePlanSlug, ExteriorImageSet> = {
   echo: {
     craftsman: [
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa1179b6b2a0ae1e8ce5be_Eaton5_Craftsman_Sch1_ClassicCream.webp',
@@ -160,9 +385,52 @@ export const EXTERIOR_IMAGE_SETS_BY_PLAN: Record<HousePlanSlug, ExteriorImageSet
 };
 
 const toSchemes = (names: readonly string[], urls: string[]): ExteriorColorScheme[] =>
-  names.map((name, index) => ({ name, imageUrl: urls[index] ?? '' }));
+  names.map((name, index) => ({
+    schemeNumber: index + 1,
+    name,
+    imageUrl: urls[index] ?? '',
+  }));
 
-const buildExteriorsForPlan = (planSlug: HousePlanSlug): ExteriorDefinition[] => {
+const toNumberedSchemes = (
+  schemes: readonly { number: number; name: string }[],
+  urls: string[]
+): ExteriorColorScheme[] =>
+  schemes.map((scheme, index) => ({
+    schemeNumber: scheme.number,
+    name: scheme.name,
+    imageUrl: urls[index] ?? '',
+  }));
+
+const buildNewCommunityExteriors = (planSlug: NewCommunityPlanSlug): ExteriorDefinition[] => {
+  const imageUrls = NEW_COMMUNITY_EXTERIOR_IMAGE_URLS[planSlug];
+
+  return [
+    {
+      style: 'Spanish Contemporary',
+      slug: `${planSlug}-spanish-contemporary`,
+      colorSchemes: toNumberedSchemes(SPANISH_CONTEMPORARY_SCHEMES, [
+        ...imageUrls.spanishContemporary,
+      ]),
+    },
+    {
+      style: 'Transitional Ranch',
+      slug: `${planSlug}-transitional-ranch`,
+      colorSchemes: toNumberedSchemes(TRANSITIONAL_RANCH_SCHEMES, [...imageUrls.transitionalRanch]),
+    },
+    {
+      style: 'Coastal Colonial',
+      slug: `${planSlug}-coastal-colonial`,
+      colorSchemes: toNumberedSchemes(COASTAL_COLONIAL_SCHEMES, [...imageUrls.coastalColonial]),
+    },
+    {
+      style: 'English Cottage',
+      slug: `${planSlug}-english-cottage`,
+      colorSchemes: toNumberedSchemes(ENGLISH_COTTAGE_SCHEMES, [...imageUrls.englishCottage]),
+    },
+  ];
+};
+
+const buildExteriorsForPlan = (planSlug: AltadenaHousePlanSlug): ExteriorDefinition[] => {
   const imageSet = EXTERIOR_IMAGE_SETS_BY_PLAN[planSlug];
 
   return [
@@ -190,7 +458,35 @@ const EXTERIORS_BY_PLAN: Record<HousePlanSlug, ExteriorDefinition[]> = {
   chaney: buildExteriorsForPlan('chaney'),
   loma: buildExteriorsForPlan('loma'),
   sycamore: buildExteriorsForPlan('sycamore'),
+  glenview: buildNewCommunityExteriors('glenview'),
+  elm: buildNewCommunityExteriors('elm'),
+  willow: buildNewCommunityExteriors('willow'),
+  vista: buildNewCommunityExteriors('vista'),
+  ambrose: buildNewCommunityExteriors('ambrose'),
+  alder: buildNewCommunityExteriors('alder'),
 };
+
+export function getHousePlanSlugFromPath(): HousePlanSlug | null {
+  const maybeSlug =
+    window.location.pathname.toLowerCase().split('/house-plans/')[1]?.split('/')[0] ?? '';
+  const normalizedSlug = maybeSlug.replace(/^the-/, '');
+
+  if (normalizedSlug in EXTERIORS_BY_PLAN) {
+    return normalizedSlug as HousePlanSlug;
+  }
+
+  return null;
+}
+
+export function getExteriorImageUrlsForStyle(
+  planSlug: HousePlanSlug,
+  exteriorStyleSlug: string
+): string[] {
+  const exterior = EXTERIORS_BY_PLAN[planSlug]?.find((item) => item.slug === exteriorStyleSlug);
+  if (!exterior) return [];
+
+  return exterior.colorSchemes.map((scheme) => scheme.imageUrl).filter(Boolean);
+}
 
 /**
  * Populates and controls exterior color scheme dropdowns in house-plan slides.
@@ -276,17 +572,7 @@ export class ExteriorSchemeController {
   }
 
   private getHousePlanSlugFromPath(): HousePlanSlug | null {
-    const maybeSlug =
-      window.location.pathname.toLowerCase().split('/house-plans/')[1]?.split('/')[0] ?? '';
-    const normalizedSlug = maybeSlug.replace(/^the-/, '');
-
-    if (normalizedSlug === 'echo') return 'echo';
-    if (normalizedSlug === 'merrick') return 'merrick';
-    if (normalizedSlug === 'chaney') return 'chaney';
-    if (normalizedSlug === 'loma') return 'loma';
-    if (normalizedSlug === 'sycamore') return 'sycamore';
-
-    return null;
+    return getHousePlanSlugFromPath();
   }
 
   private renderSchemeItems(params: {
@@ -305,7 +591,7 @@ export class ExteriorSchemeController {
       const scheme = exterior.colorSchemes[index];
       if (!scheme) return;
 
-      headerText.textContent = `Scheme ${index + 1}: ${scheme.name}`;
+      headerText.textContent = `Scheme ${scheme.schemeNumber}: ${scheme.name}`;
       if (scheme.imageUrl) {
         mainImage.src = scheme.imageUrl;
       }
@@ -320,7 +606,7 @@ export class ExteriorSchemeController {
         const item = document.createElement('div');
         item.setAttribute('dev-target', 'scheme-item');
         item.className = 'modal-wrapper';
-        item.innerHTML = `<div class="modal-scheme_text">Scheme ${index + 1}: ${scheme.name}</div>`;
+        item.innerHTML = `<div class="modal-scheme_text">Scheme ${scheme.schemeNumber}: ${scheme.name}</div>`;
 
         item.addEventListener('click', (event) => {
           event.stopPropagation();

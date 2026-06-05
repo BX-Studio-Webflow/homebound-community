@@ -1,0 +1,218 @@
+{
+  "siteId": "601ca16f0bb27e965ee867a0",
+  "note": "Run via Webflow Designer MCP asset_tool. Create plan folders first, then re-fetch folder IDs and create style subfolders.",
+  "phase1_planFolders": [
+    {
+      "label": "plan-glenview",
+      "create_folder": {
+        "name": "The Glenview",
+        "parent_folder_id": "69f1ef537ce789fa3ce9a3a9"
+      }
+    },
+    {
+      "label": "plan-elm",
+      "create_folder": {
+        "name": "The Elm",
+        "parent_folder_id": "69f1ef537ce789fa3ce9a3a9"
+      }
+    },
+    {
+      "label": "plan-willow",
+      "create_folder": {
+        "name": "The Willow",
+        "parent_folder_id": "69f1ef537ce789fa3ce9a3a9"
+      }
+    },
+    {
+      "label": "plan-vista",
+      "create_folder": {
+        "name": "The Vista",
+        "parent_folder_id": "69f1ef537ce789fa3ce9a3a9"
+      }
+    },
+    {
+      "label": "plan-ambrose",
+      "create_folder": {
+        "name": "The Ambrose",
+        "parent_folder_id": "69f1ef537ce789fa3ce9a3a9"
+      }
+    },
+    {
+      "label": "plan-alder",
+      "create_folder": {
+        "name": "The Alder",
+        "parent_folder_id": "69f1ef537ce789fa3ce9a3a9"
+      }
+    }
+  ],
+  "phase2_styleFoldersTemplate": [
+    {
+      "label": "glenview-spanish-contemporary",
+      "create_folder": {
+        "name": "Spanish Contemporary",
+        "parent_folder_id": "<PARENT_ID_FOR_The Glenview>"
+      }
+    },
+    {
+      "label": "glenview-transitional-ranch",
+      "create_folder": {
+        "name": "Transitional Ranch",
+        "parent_folder_id": "<PARENT_ID_FOR_The Glenview>"
+      }
+    },
+    {
+      "label": "glenview-coastal-colonial",
+      "create_folder": {
+        "name": "Coastal Colonial",
+        "parent_folder_id": "<PARENT_ID_FOR_The Glenview>"
+      }
+    },
+    {
+      "label": "glenview-english-cottage",
+      "create_folder": {
+        "name": "English Cottage",
+        "parent_folder_id": "<PARENT_ID_FOR_The Glenview>"
+      }
+    },
+    {
+      "label": "elm-spanish-contemporary",
+      "create_folder": {
+        "name": "Spanish Contemporary",
+        "parent_folder_id": "<PARENT_ID_FOR_The Elm>"
+      }
+    },
+    {
+      "label": "elm-transitional-ranch",
+      "create_folder": {
+        "name": "Transitional Ranch",
+        "parent_folder_id": "<PARENT_ID_FOR_The Elm>"
+      }
+    },
+    {
+      "label": "elm-coastal-colonial",
+      "create_folder": {
+        "name": "Coastal Colonial",
+        "parent_folder_id": "<PARENT_ID_FOR_The Elm>"
+      }
+    },
+    {
+      "label": "elm-english-cottage",
+      "create_folder": {
+        "name": "English Cottage",
+        "parent_folder_id": "<PARENT_ID_FOR_The Elm>"
+      }
+    },
+    {
+      "label": "willow-spanish-contemporary",
+      "create_folder": {
+        "name": "Spanish Contemporary",
+        "parent_folder_id": "<PARENT_ID_FOR_The Willow>"
+      }
+    },
+    {
+      "label": "willow-transitional-ranch",
+      "create_folder": {
+        "name": "Transitional Ranch",
+        "parent_folder_id": "<PARENT_ID_FOR_The Willow>"
+      }
+    },
+    {
+      "label": "willow-coastal-colonial",
+      "create_folder": {
+        "name": "Coastal Colonial",
+        "parent_folder_id": "<PARENT_ID_FOR_The Willow>"
+      }
+    },
+    {
+      "label": "willow-english-cottage",
+      "create_folder": {
+        "name": "English Cottage",
+        "parent_folder_id": "<PARENT_ID_FOR_The Willow>"
+      }
+    },
+    {
+      "label": "vista-spanish-contemporary",
+      "create_folder": {
+        "name": "Spanish Contemporary",
+        "parent_folder_id": "<PARENT_ID_FOR_The Vista>"
+      }
+    },
+    {
+      "label": "vista-transitional-ranch",
+      "create_folder": {
+        "name": "Transitional Ranch",
+        "parent_folder_id": "<PARENT_ID_FOR_The Vista>"
+      }
+    },
+    {
+      "label": "vista-coastal-colonial",
+      "create_folder": {
+        "name": "Coastal Colonial",
+        "parent_folder_id": "<PARENT_ID_FOR_The Vista>"
+      }
+    },
+    {
+      "label": "vista-english-cottage",
+      "create_folder": {
+        "name": "English Cottage",
+        "parent_folder_id": "<PARENT_ID_FOR_The Vista>"
+      }
+    },
+    {
+      "label": "ambrose-spanish-contemporary",
+      "create_folder": {
+        "name": "Spanish Contemporary",
+        "parent_folder_id": "<PARENT_ID_FOR_The Ambrose>"
+      }
+    },
+    {
+      "label": "ambrose-transitional-ranch",
+      "create_folder": {
+        "name": "Transitional Ranch",
+        "parent_folder_id": "<PARENT_ID_FOR_The Ambrose>"
+      }
+    },
+    {
+      "label": "ambrose-coastal-colonial",
+      "create_folder": {
+        "name": "Coastal Colonial",
+        "parent_folder_id": "<PARENT_ID_FOR_The Ambrose>"
+      }
+    },
+    {
+      "label": "ambrose-english-cottage",
+      "create_folder": {
+        "name": "English Cottage",
+        "parent_folder_id": "<PARENT_ID_FOR_The Ambrose>"
+      }
+    },
+    {
+      "label": "alder-spanish-contemporary",
+      "create_folder": {
+        "name": "Spanish Contemporary",
+        "parent_folder_id": "<PARENT_ID_FOR_The Alder>"
+      }
+    },
+    {
+      "label": "alder-transitional-ranch",
+      "create_folder": {
+        "name": "Transitional Ranch",
+        "parent_folder_id": "<PARENT_ID_FOR_The Alder>"
+      }
+    },
+    {
+      "label": "alder-coastal-colonial",
+      "create_folder": {
+        "name": "Coastal Colonial",
+        "parent_folder_id": "<PARENT_ID_FOR_The Alder>"
+      }
+    },
+    {
+      "label": "alder-english-cottage",
+      "create_folder": {
+        "name": "English Cottage",
+        "parent_folder_id": "<PARENT_ID_FOR_The Alder>"
+      }
+    }
+  ]
+}

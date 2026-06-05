@@ -1,0 +1,9 @@
+Webflow path: Exterior Styles / The Ambrose / Transitional Ranch
+Slide attribute: exterior-style="ambrose-transitional-ranch"
+
+Drop one image per line (use scheme name as filename, .jpg or .webp):
+1. Sch 1 - White Oak Ranch.jpg
+2. Sch 2 - Midnight Ridge.jpg
+3. Sch 3 - Oakstone.jpg
+4. Sch 4 - White Mason.jpg
+5. Sch 5 - Black Timber.jpg
