@@ -4780,7 +4780,7 @@
         </g>
       </g>
     </g>
-    <g id="OPT_CODE_DOORINTSW1" class="st50">
+    <g id="OPT_CODE_DOORINTSW1" class="st50" data-attribute="feature">
       <g id="Whiteout18">
         <rect class="st49" x="565.69" y="431.01" width="30" height="7.23"/>
       </g>
@@ -4818,7 +4818,7 @@
         </g>
       </g>
     </g>
-    <g id="OPT_CODE_LNRYWD001" class="st50">
+    <g id="OPT_CODE_LNRYWD001" class="st50" data-attribute="feature">
       <g id="Highlight1">
         <rect class="st44" x="450.94" y="507.32" width="28" height="31"/>
         <rect class="st44" x="455.94" y="538.32" width="18" height="2"/>
@@ -4855,7 +4855,7 @@
         </g>
       </g>
     </g>
-    <g id="OPT_CODE_CEILBEAM01__x28_Primary_Bedroom_x29_" class="st50">
+    <g id="OPT_CODE_CEILBEAM01__x28_Primary_Bedroom_x29_" class="st50" data-attribute="feature">
       <g id="Highlight2">
         <rect class="st44" x="495.12" y="282.77" width="148.33" height="5.55"/>
         <rect class="st44" x="494.41" y="344.14" width="148.95" height="5.5"/>
@@ -4885,7 +4885,7 @@
         </g>
       </g>
     </g>
-    <g id="OPT_CODE_CEILBEAM01__x28_Great_Room_x29_" class="st50">
+    <g id="OPT_CODE_CEILBEAM01__x28_Great_Room_x29_" class="st50" data-attribute="feature">
       <g id="Highlight3">
         <rect class="st44" x="191.57" y="263.24" width="5.5" height="221.5"/>
         <rect class="st44" x="281.61" y="262.89" width="5.5" height="221.85"/>
@@ -4961,7 +4961,7 @@
       </g>
       <path class="st25" d="M677.56,941.79"/>
     </g>
-    <g id="OPT_CODE_DOOREGD001" class="st50">
+    <g id="OPT_CODE_DOOREGD001" class="st50" data-attribute="feature">
       <g id="Whiteout19">
         <rect class="st49" x="219.45" y="209.74" width="232.74" height="56.25"/>
         <rect class="st49" x="215.19" y="256.74" width="8.5" height="12.19"/>
@@ -4989,7 +4989,7 @@
         </g>
       </g>
     </g>
-    <g id="OPT_CODE_EXTCVPT02" class="st50">
+    <g id="OPT_CODE_EXTCVPT02" class="st50" data-attribute="feature">
       <g id="Highlight5" class="st48">
         <rect class="st42" x="185.69" y="137.74" width="292" height="120.01"/>
       </g>
@@ -5132,7 +5132,7 @@
         </g>
       </g>
     </g>
-    <g id="OPT_CODE_RTREATPM01" class="st50">
+    <g id="OPT_CODE_RTREATPM01" class="st50" data-attribute="feature">
       <g id="Whiteout20">
         <rect class="st49" x="474.19" y="223.26" width="185.9" height="40.7"/>
         <polygon class="st49" points="469.73 257.25 568.91 256.74 567.77 149.24 469.73 149.24 469.73 257.25"/>
@@ -5331,7 +5331,7 @@
       <polyline class="st8" points="494.79 276.93 494.79 159.55 643.01 159.55 643.01 274.03"/>
       <rect class="st33" x="660.1" y="254.64" width=".87" height="10.2"/>
     </g>
-    <g id="OPT_CODE_OPT_CODE_CEILBEAM01__x28_Primary_Retreat_x29_" class="st50">
+    <g id="OPT_CODE_OPT_CODE_CEILBEAM01__x28_Primary_Retreat_x29_" class="st50" data-attribute="feature">
       <g id="Whiteout21">
         <rect class="st49" x="495.88" y="377.14" width="144.79" height="24.28"/>
         <rect class="st49" x="496.57" y="277.7" width="144.13" height="71.79"/>
@@ -5379,7 +5379,7 @@
         <line class="st7" x1="496.29" y1="165.86" x2="645.32" y2="165.86"/>
       </g>
     </g>
-    <g id="OPT_CODE_FIREPLODR1" class="st50">
+    <g id="OPT_CODE_FIREPLODR1" class="st50" data-attribute="feature">
       <g id="Highlight7" class="st48">
         <rect class="st42" x="197.69" y="174.68" width="17.5" height="60"/>
       </g>
@@ -5401,7 +5401,7 @@
         <rect class="st19" x="185.69" y="161.74" width="12" height="84.07"/>
       </g>
     </g>
-    <g id="OPT_CODE_FIREADD001" class="st50">
+    <g id="OPT_CODE_FIREADD001" class="st50" data-attribute="feature">
       <g id="Highlight8" class="st48">
         <rect class="st42" x="193.34" y="331.64" width="10.25" height="84.04"/>
       </g>
@@ -5439,7 +5439,7 @@
         <polygon class="st31" points="178.09 362.21 203.59 355.64 203.59 331.64 178.09 331.64 178.09 362.21"/>
       </g>
     </g>
-    <g id="OPT_CODE_A2" class="st50">
+    <g id="OPT_CODE_A2" class="st50" data-attribute="feature">
       <g id="White_out">
         <rect class="st49" x="225.21" y="999.68" width="86.5" height="53.18"/>
         <rect class="st49" x="191.21" y="1013.88" width="150" height="38.98"/>
@@ -5628,7 +5628,7 @@
         </g>
       </g>
     </g>
-    <g id="OPT_CODE_G1" class="st50">
+    <g id="OPT_CODE_G1" class="st50" data-attribute="feature">
       <g id="Whiteout22">
         <rect class="st49" x="350.79" y="941.79" width="90.9" height="85.9"/>
         <rect class="st49" x="188.54" y="1016.68" width="148.12" height="22.32"/>
@@ -5683,7 +5683,7 @@
         <line class="st14" x1="351.04" y1="1014.24" x2="417.54" y2="1014.24"/>
       </g>
     </g>
-    <g id="OPT_CODE_H2" class="st50">
+    <g id="OPT_CODE_H2" class="st50" data-attribute="feature">
       <g id="Whiteout23">
         <rect class="st49" x="226.44" y="1003.05" width="83.27" height="26.93"/>
         <rect class="st49" x="184.87" y="1013.94" width="150.57" height="22.35"/>
@@ -5787,7 +5787,7 @@
         <line class="st26" x1="297.67" y1="1038.88" x2="298.39" y2="1039.6"/>
       </g>
     </g>
-    <g id="OPT_CODE_BATH2SHW01_BATH106" class="st50">
+    <g id="OPT_CODE_BATH2SHW01_BATH106" class="st50" data-attribute="feature">
       <g id="Whiteout24">
         <rect class="st49" x="191.73" y="784.58" width="31.56" height="59.71"/>
       </g>

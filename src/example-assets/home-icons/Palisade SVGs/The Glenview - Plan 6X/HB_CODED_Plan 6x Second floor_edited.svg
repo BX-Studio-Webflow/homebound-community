@@ -2450,7 +2450,7 @@
         </g>
       </g>
     </g>
-    <g id="OPT_CODE_A2">
+    <g id="OPT_CODE_A2" data-attribute="feature">
       <g id="Whiteout">
         <rect class="st14" x="419.67" y="725.03" width="234.59" height="46.75"/>
         <rect class="st14" x="650.29" y="733.34" width="5.48" height="12.94"/>
@@ -2704,7 +2704,7 @@
         </g>
       </g>
     </g>
-    <g id="OPT_CODE_G1">
+    <g id="OPT_CODE_G1" data-attribute="feature">
       <g id="Whiteout_copy">
         <rect class="st14" x="419.67" y="725.03" width="234.59" height="46.75"/>
         <rect class="st14" x="650.29" y="733.34" width="5.48" height="12.94"/>
@@ -2949,7 +2949,7 @@
       </g>
       <rect class="st14" x="625.41" y="822.15" width="28.51" height="24.02"/>
     </g>
-    <g id="OPT_CODE_H2">
+    <g id="OPT_CODE_H2" data-attribute="feature">
       <g id="Whiteout1">
         <rect class="st14" x="393.44" y="730.82" width="283.81" height="33.67"/>
         <rect class="st14" x="621.91" y="758.33" width="53.2" height="111.29"/>
@@ -3200,7 +3200,7 @@
         <rect class="st8" x="412.07" y="749.5" width=".38" height="14.28"/>
       </g>
     </g>
-    <g id="OPT_CODE_BATH2SHW01_BATH207">
+    <g id="OPT_CODE_BATH2SHW01_BATH207" data-attribute="feature">
       <g id="Whiteout2">
         <rect class="st14" x="187.21" y="490.77" width="31.74" height="60"/>
       </g>
@@ -3220,7 +3220,7 @@
         <rect class="st0" x="187.21" y="490.77" width="31.74" height="60"/>
       </g>
     </g>
-    <g id="OPT_CODE_BATH2SHW01_BATH204">
+    <g id="OPT_CODE_BATH2SHW01_BATH204" data-attribute="feature">
       <g id="Whiteout3">
         <rect class="st14" x="354.45" y="465.27" width="60.81" height="32"/>
       </g>
