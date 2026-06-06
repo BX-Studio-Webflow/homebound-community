@@ -1,0 +1,11 @@
+Plan: The Elm
+Package: Transitional Organic
+Code keys: housePlanImageUrlsBySlug.elm / pos mapped to package swatch
+
+Expected files:
+  - kitchen.png
+  - great room.png
+  - primary bedroom.png
+  - primary bathroom.png
+
+Webflow path: Interiors - Palisade / Interior - The Elm / Transitional Organic

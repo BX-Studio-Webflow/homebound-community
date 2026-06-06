@@ -1,0 +1,11 @@
+Plan: The Ambrose
+Package: Pacific Contemporary
+Code keys: housePlanImageUrlsBySlug.ambrose / pos mapped to package swatch
+
+Expected files:
+  - kitchen.png
+  - great room.png
+  - primary bedroom.png
+  - primary bathroom.png
+
+Webflow path: Interiors - Palisade / Interior - The Ambrose / Pacific Contemporary

@@ -1,0 +1,11 @@
+Plan: The Alder
+Package: Spanish
+Code keys: housePlanImageUrlsBySlug.alder / pos mapped to package swatch
+
+Expected files:
+  - kitchen.png
+  - great room.png
+  - primary bedroom.png
+  - primary bathroom.png
+
+Webflow path: Interiors - Palisade / Interior - The Alder / Spanish

@@ -1,0 +1,60 @@
+{
+  "webflow": {
+    "siteId": "601ca16f0bb27e965ee867a0",
+    "rootFolderName": "Interiors - Palisade",
+    "rootFolderId": "6a23e017f9cbac0dbfb778e9",
+    "designerMcpUrl": "https://homebound-e3a5e9.design.webflow.com?app=dc8209c65e3ec02254d15275ca056539c89f6d15741893a0adf29ad6f381eb99",
+    "flatPackageFolders": true
+  },
+  "localFilenames": [
+    "kitchen.png",
+    "great room.png",
+    "primary bedroom.png",
+    "primary bathroom.png"
+  ],
+  "plans": [
+    {
+      "folder": "The Elm",
+      "slug": "elm",
+      "figmaSectionId": "1:778",
+      "packages": ["Transitional Organic", "Coastal Cottage", "Pacific Contemporary"]
+    },
+    {
+      "folder": "The Glenview",
+      "slug": "glenview",
+      "figmaSectionId": "1:2195",
+      "packages": ["Transitional Organic", "Coastal Cottage", "Pacific Contemporary"]
+    },
+    {
+      "folder": "The Willow",
+      "slug": "willow",
+      "figmaSectionId": "1:6360",
+      "packages": ["Spanish", "Coastal Cottage", "Pacific Contemporary"]
+    },
+    {
+      "folder": "The Ambrose",
+      "slug": "ambrose",
+      "figmaSectionId": "1:3897",
+      "packages": ["Modern", "Coastal Cottage", "Pacific Contemporary"]
+    },
+    {
+      "folder": "The Alder",
+      "slug": "alder",
+      "figmaSectionId": "1:4715",
+      "packages": ["Spanish", "Coastal Cottage", "Pacific Contemporary"]
+    },
+    {
+      "folder": "The Vista",
+      "slug": "vista",
+      "figmaSectionId": "1:5536",
+      "packages": ["Transitional Organic", "Coastal Cottage", "Pacific Contemporary"]
+    }
+  ],
+  "figmaPackageMap": {
+    "Modern": ["Modern"],
+    "Spanish": ["Spanish"],
+    "Transitional Organic": ["Transitional Organic", "Tradtional Organic"],
+    "Coastal Cottage": ["Coastal Cottage", "Costal Cottage"],
+    "Pacific Contemporary": ["Pacific Contemporary"]
+  }
+}
