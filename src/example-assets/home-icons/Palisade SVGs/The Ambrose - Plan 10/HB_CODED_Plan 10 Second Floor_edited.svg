@@ -5077,7 +5077,7 @@
           <line class="st6" x1="246.69" y1="827.25" x2="246.69" y2="767.54"/>
         </g>
       </g>
-      <g id="OPT_CODE_BEDBATH001" class="st36">
+      <g id="OPT_CODE_BEDBATH001" class="st36" data-attribute="feature">
         <g id="Whiteout3">
           <rect class="st35" x="335.82" y="470.15" width="73.44" height="85.18"/>
           <rect class="st35" x="171.47" y="220.14" width="150.24" height="72.15"/>
@@ -6669,7 +6669,7 @@
           </g>
         </g>
       </g>
-      <g id="OPT_CODE_EXTCLST001">
+      <g id="OPT_CODE_EXTCLST001" data-attribute="feature">
         <g id="Whiteout5">
           <rect class="st35" x="576.63" y="491.63" width="78.35" height="81.44"/>
           <rect class="st35" x="460.77" y="491.63" width="78.35" height="81.44"/>
@@ -7487,7 +7487,7 @@
           </g>
         </g>
       </g>
-      <g id="OPT_CODE_ELEVATOR01">
+      <g id="OPT_CODE_ELEVATOR01" data-attribute="feature">
         <g id="Whiteout2">
           <g>
             <rect class="st35" x="442.2" y="495.38" width="82.22" height="74.56"/>
@@ -10058,7 +10058,7 @@
           </g>
         </g>
       </g>
-      <g id="OPT_CODE_CEILBEAM01__x28_primary_bedroom_x29_" class="st36">
+      <g id="OPT_CODE_CEILBEAM01__x28_primary_bedroom_x29_" class="st36" data-attribute="feature">
         <g id="Highlight7" class="st26">
           <rect class="st21" x="368.14" y="211" width="137.9" height="8.71" transform="translate(221.73 652.44) rotate(-90)"/>
           <rect class="st21" x="558.15" y="210.99" width="138.19" height="8.71" transform="translate(411.9 842.6) rotate(-90)"/>

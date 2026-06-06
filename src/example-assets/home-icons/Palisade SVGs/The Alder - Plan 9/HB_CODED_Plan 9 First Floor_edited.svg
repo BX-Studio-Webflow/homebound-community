@@ -3130,7 +3130,7 @@
         <line class="st8" x1="594.26" y1="729.4" x2="534.55" y2="729.33"/>
       </g>
     </g>
-    <g id="OPT_CODE_FIREADD001" class="st24">
+    <g id="OPT_CODE_FIREADD001" class="st24" data-attribute="feature">
       <g id="Highlight1" class="st23">
         <rect class="st9" x="191.17" y="333.26" width="37.97" height="83.93"/>
       </g>
@@ -3198,7 +3198,7 @@
         </g>
       </g>
     </g>
-    <g id="OPT_CODE_CEILBEAM01_FOR_GREAT_ROOM" class="st24">
+    <g id="OPT_CODE_CEILBEAM01_FOR_GREAT_ROOM" class="st24" data-attribute="feature">
       <g id="Highlight3" class="st23">
         <rect class="st19" x="221.48" y="474.16" width="193.1" height="10.49"/>
         <rect class="st19" x="221.81" y="407.65" width="192.61" height="10.84"/>

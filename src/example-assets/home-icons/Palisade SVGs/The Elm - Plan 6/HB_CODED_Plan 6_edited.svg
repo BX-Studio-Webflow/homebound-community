@@ -4942,7 +4942,7 @@
           </g>
         </g>
       </g>
-      <g id="OPT_CODE_CEILBEAM01__x28_Primary_Bedroom_x29_" class="st54">
+      <g id="OPT_CODE_CEILBEAM01__x28_Primary_Bedroom_x29_" class="st54" data-attribute="feature">
         <g id="Highlight2">
           <rect class="st44" x="494.41" y="283.12" width="149.04" height="5.55"/>
           <rect class="st44" x="494.41" y="344.49" width="149" height="5.5"/>
@@ -4975,7 +4975,7 @@
           <line class="st9" x1="494.41" y1="283.12" x2="643.44" y2="283.12"/>
         </g>
       </g>
-      <g id="OPT_CODE_CEILBEAM01__x28_Great_Room_x29_">
+      <g id="OPT_CODE_CEILBEAM01__x28_Great_Room_x29_" data-attribute="feature">
         <g id="Highlight3" class="st50">
           <rect class="st44" x="214.07" y="284.21" width="5.5" height="185.9"/>
           <polyline class="st44" points="291.52 283.76 291.52 468.93 297.02 468.93 297.02 282.93 291.52 282.93"/>
@@ -5071,7 +5071,7 @@
           </g>
         </g>
       </g>
-      <g id="OPT_CODE_EXTCVPT02" class="st54">
+      <g id="OPT_CODE_EXTCVPT02" class="st54" data-attribute="feature">
         <g id="Highlight5">
           <rect class="st42" x="185.69" y="137.74" width="292" height="120.01"/>
         </g>
@@ -5214,7 +5214,7 @@
           </g>
         </g>
       </g>
-      <g id="OPT_CODE_RTREATPM01" class="st54">
+      <g id="OPT_CODE_RTREATPM01" class="st54" data-attribute="feature">
         <g id="Whiteout22">
           <rect class="st53" x="474.19" y="243.9" width="185.9" height="50.94"/>
           <polygon class="st53" points="469.73 286.44 568.91 285.8 567.77 151.25 469.73 151.25 469.73 286.44"/>
@@ -5459,7 +5459,7 @@
           <line class="st9" x1="496.31" y1="166.29" x2="645.35" y2="166.29"/>
         </g>
       </g>
-      <g id="OPT_CODE_FIREPLODR1">
+      <g id="OPT_CODE_FIREPLODR1" data-attribute="feature">
         <g id="Highlight7" class="st50">
           <rect class="st44" x="197.69" y="174.68" width="17.5" height="60"/>
         </g>
@@ -5481,7 +5481,7 @@
           <rect class="st32" x="185.69" y="161.74" width="12" height="84.07"/>
         </g>
       </g>
-      <g id="OPT_CODE_FIREADD001">
+      <g id="OPT_CODE_FIREADD001" data-attribute="feature">
         <g id="Highlight8" class="st50">
           <rect class="st44" x="183.84" y="331.63" width="14.5" height="84.04"/>
         </g>

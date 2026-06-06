@@ -3654,7 +3654,7 @@
                 </g>
               </g>
             </g>
-            <g id="OPT_CODE_ADDLOFT001">
+            <g id="OPT_CODE_ADDLOFT001" data-attribute="feature">
               <g id="Whiteout">
                 <rect class="st25" x="140.27" y="730.97" width="65.7" height="176.36"/>
                 <rect class="st25" x="197.78" y="735.96" width="16.17" height="153.88"/>
@@ -3923,7 +3923,7 @@
                 </g>
               </g>
             </g>
-            <g id="OPT_CODE_DECKCVD001">
+            <g id="OPT_CODE_DECKCVD001" data-attribute="feature">
               <g id="Whiteout1">
                 <rect class="st25" x="236.95" y="383.74" width="143.89" height="13.49"/>
               </g>
@@ -4127,7 +4127,7 @@
                 </g>
               </g>
             </g>
-            <g id="OPT_CODE_CEILBEAM01">
+            <g id="OPT_CODE_CEILBEAM01" data-attribute="feature">
               <g id="Highlight3" class="st23">
                 <rect class="st18" x="229.45" y="409.45" width="10.02" height="143.66"/>
                 <rect class="st18" x="291.48" y="408.95" width="8.68" height="143.43"/>
@@ -5953,7 +5953,7 @@
                       <line class="st12" x1="413.81" y1="865.36" x2="449.78" y2="865.36"/>
                     </g>
                   </g>
-                  <g id="OPT_CODE_BEDBATH001" class="st26">
+                  <g id="OPT_CODE_BEDBATH001" class="st26" data-attribute="feature">
                     <g id="Whiteout7">
                       <rect class="st25" x="282.91" y="837.88" width="4.51" height="4"/>
                       <rect class="st25" x="57.95" y="730.97" width="199.25" height="187.37"/>

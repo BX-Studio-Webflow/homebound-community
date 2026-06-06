@@ -2682,7 +2682,7 @@
         </g>
       </g>
     </g>
-    <g id="OPT_CODE_FIREADD001">
+    <g id="OPT_CODE_FIREADD001" data-attribute="feature">
       <g id="Highlight" class="st6">
         <rect class="st4" x="115.75" y="646.3" width="38.07" height="84.13"/>
       </g>
@@ -2733,7 +2733,7 @@
         <rect class="st30" x="130.09" y="706.25" width="23.98" height="23.98" rx=".07" ry=".07"/>
       </g>
     </g>
-    <g id="OPT_CODE_EXTCVPT01">
+    <g id="OPT_CODE_EXTCVPT01" data-attribute="feature">
       <g id="Whiteout">
         <rect class="st34" x="125.48" y="447.08" width="161.01" height="112.67"/>
       </g>
@@ -2943,7 +2943,7 @@
         <rect x="428.52" y="452.9" width="10.25" height="5.5"/>
       </g>
     </g>
-    <g id="OPT_CODE_CEILBEAM01">
+    <g id="OPT_CODE_CEILBEAM01" data-attribute="feature">
       <g id="Highlight3" class="st6">
         <rect class="st0" x="146.22" y="791.89" width="135.43" height="6.14"/>
         <rect class="st0" x="148.12" y="720.97" width="134.9" height="6.53"/>

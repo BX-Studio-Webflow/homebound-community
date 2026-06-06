@@ -4371,7 +4371,7 @@
           </g>
         </g>
       </g>
-      <g id="OPT_CODE_BEDBATH001" class="st33">
+      <g id="OPT_CODE_BEDBATH001" class="st33" data-attribute="feature">
         <g id="Whiteout2">
           <rect class="st34" x="314.08" y="217.16" width="76.47" height="12.61"/>
           <rect class="st34" x="336.07" y="463.66" width="64.95" height="22.24"/>
@@ -6068,7 +6068,7 @@
           <polyline class="st17" points="611.94 523.8 647.94 523.8 647.94 569.8 611.94 569.8 611.94 523.8"/>
         </g>
       </g>
-      <g id="OPT_CODE_EXTCLST001" class="st33">
+      <g id="OPT_CODE_EXTCLST001" class="st33" data-attribute="feature">
         <g id="Whiteout4">
           <rect class="st34" x="147.17" y="200.65" width="260.48" height="272"/>
           <rect class="st34" x="466.7" y="245.9" width="40.59" height="174.65"/>
@@ -7795,7 +7795,7 @@
           </g>
         </g>
       </g>
-      <g id="OPT_CODE_CEILBEAM01_x28_FOR_EXT._PRIMARY_BED_AND_CLOSET_x29_" class="st33">
+      <g id="OPT_CODE_CEILBEAM01_x28_FOR_EXT._PRIMARY_BED_AND_CLOSET_x29_" class="st33" data-attribute="feature">
         <g id="Highlight7">
           <rect class="st26" x="436.09" y="408.7" width="195.24" height="9.49"/>
           <rect class="st26" x="435.77" y="356.04" width="195.57" height="9.49"/>

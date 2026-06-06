@@ -3618,7 +3618,7 @@
         </g>
       </g>
     </g>
-    <g id="OPT_CODE_ELEVATOR01">
+    <g id="OPT_CODE_ELEVATOR01" data-attribute="feature">
       <g id="Whiteout3">
         <rect class="st40" x="389.81" y="440.75" width="177.24" height="130.2"/>
         <rect class="st40" x="665.09" y="486.28" width="12.71" height="37.69"/>
@@ -6433,7 +6433,7 @@
         </g>
       </g>
     </g>
-    <g id="OPT_CODE_PREPKIT001" class="st41">
+    <g id="OPT_CODE_PREPKIT001" class="st41" data-attribute="feature">
       <g id="Whiteout4">
         <rect class="st40" x="640.62" y="607.54" width="7.98" height="47.96"/>
         <rect class="st40" x="522.2" y="571.89" width="33.46" height="40"/>

@@ -4305,7 +4305,7 @@
           <line class="st10" x1="577.59" y1="814.26" x2="577.59" y2="754.54"/>
         </g>
       </g>
-      <g id="OPT_CODE_CEILBEAM01">
+      <g id="OPT_CODE_CEILBEAM01" data-attribute="feature">
         <g id="Whiteout2">
           <rect class="st26" x="402.39" y="371.35" width="58.95" height="55.83"/>
         </g>
@@ -4402,7 +4402,7 @@
           </g>
         </g>
       </g>
-      <g id="OPT_CODE_LFT2BED001">
+      <g id="OPT_CODE_LFT2BED001" data-attribute="feature">
         <g id="Whiteout4">
           <rect class="st26" x="343.44" y="755.43" width="125.9" height="290.19"/>
           <rect class="st26" x="405.14" y="619.36" width="54.21" height="18.03"/>

@@ -1,0 +1,212 @@
+[
+  {
+    "id": "6a2005e90c69de11c2892fd7",
+    "fieldData": {
+      "description": "Enhance convenience and accessibility with a private in-home elevator.",
+      "house-plan-2": [
+        "6a1ff02dd3d3113ee5e41940"
+      ],
+      "feature": "OPT_CODE_ELEVATOR01",
+      "sort-order": 4,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221",
+      "name": "Add Elevator",
+      "slug": "ambrose-elevator-second-floor"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fd5",
+    "fieldData": {
+      "description": "Add warmth, depth, and architectural character to the space.",
+      "house-plan-2": [
+        "6a1ff02dd3d3113ee5e41940"
+      ],
+      "feature": "OPT_CODE_CEILBEAM01__x28_primary_bedroom_x29_",
+      "sort-order": 3,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221",
+      "name": "Faux Ceiling Beams at Primary Bedroom",
+      "slug": "ambrose-faux-ceiling-beams-primary-bedroom"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fd3",
+    "fieldData": {
+      "description": "Expand your primary walk-in closet for enhanced storage and everyday convenience.",
+      "house-plan-2": [
+        "6a1ff02dd3d3113ee5e41940"
+      ],
+      "feature": "OPT_CODE_EXTCLST001",
+      "sort-order": 2,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221",
+      "name": "Extend Primary Walk-in Closet in Lieu of Loft",
+      "slug": "ambrose-extend-primary-closet-lieu-loft"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fd1",
+    "fieldData": {
+      "description": "Create additional private living space and everyday convenience.",
+      "house-plan-2": [
+        "6a1ff02dd3d3113ee5e41940"
+      ],
+      "feature": "OPT_CODE_BEDBATH001",
+      "sort-order": 1,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221",
+      "name": "Add Bedroom 5 with Bath 5",
+      "slug": "ambrose-bedroom-5-bath-5"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fcf",
+    "fieldData": {
+      "description": "Add warmth, depth, and architectural character to the space.",
+      "house-plan-2": [
+        "6a1ff02dd3d3113ee5e4193e"
+      ],
+      "feature": "OPT_CODE_CEILBEAM01_x28_FOR_EXT._PRIMARY_BED_AND_CLOSET_x29_",
+      "sort-order": 3,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221",
+      "name": "Faux Ceiling Beams at Primary Bedroom",
+      "slug": "vista-faux-ceiling-beams-primary-bedroom"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fcd",
+    "fieldData": {
+      "description": "Create additional private living space and everyday convenience.",
+      "house-plan-2": [
+        "6a1ff02dd3d3113ee5e4193e"
+      ],
+      "feature": "OPT_CODE_BEDBATH001",
+      "sort-order": 2,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221",
+      "name": "Add Bedroom 5 with Bath 5",
+      "slug": "vista-bedroom-5-bath-5"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fcb",
+    "fieldData": {
+      "description": "Expand your primary walk-in closet for enhanced storage and everyday convenience.",
+      "house-plan-2": [
+        "6a1ff02dd3d3113ee5e4193e"
+      ],
+      "feature": "OPT_CODE_EXTCLST001",
+      "sort-order": 1,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221",
+      "name": "Extend Primary Walk-in Closet",
+      "slug": "vista-extend-primary-closet"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fc9",
+    "fieldData": {
+      "description": "Add warmth, depth, and architectural character to the space.",
+      "house-plan-2": [
+        "6a1ff02dd3d3113ee5e4193c"
+      ],
+      "feature": "OPT_CODE_CEILBEAM01",
+      "sort-order": 4,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221",
+      "name": "Faux Ceiling Beams at Primary Bedroom",
+      "slug": "willow-faux-ceiling-beams-primary-bedroom"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fc7",
+    "fieldData": {
+      "description": "Create additional private living space and everyday convenience.",
+      "house-plan-2": [
+        "6a1ff02dd3d3113ee5e4193c"
+      ],
+      "feature": "OPT_CODE_BEDBATH001",
+      "sort-order": 3,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221",
+      "name": "Add Bedroom 5 with Bath 4",
+      "slug": "willow-bedroom-5-bath-4"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fc5",
+    "fieldData": {
+      "description": "Designed to enhance indoor-outdoor living.",
+      "house-plan-2": [
+        "6a1ff02dd3d3113ee5e4193c"
+      ],
+      "feature": "OPT_CODE_DECKCVD001",
+      "sort-order": 2,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221",
+      "name": "Add a Covered Deck at Primary Bedroom",
+      "slug": "willow-covered-deck-primary-bedroom"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fc3",
+    "fieldData": {
+      "description": "Create a versatile space for relaxing, entertaining, or everyday living.",
+      "house-plan-2": [
+        "6a1ff02dd3d3113ee5e4193c"
+      ],
+      "feature": "OPT_CODE_ADDLOFT001",
+      "sort-order": 1,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221",
+      "name": "Add Loft",
+      "slug": "willow-add-loft"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fc1",
+    "fieldData": {
+      "description": "Ideal for guests, family, or a private home office.",
+      "house-plan-2": [
+        "6a1ff02dd3d3113ee5e41942"
+      ],
+      "feature": "OPT_CODE_LFT2BED001",
+      "sort-order": 2,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221",
+      "name": "Add Bedroom 5 in Lieu of Loft",
+      "slug": "alder-bedroom-5-lieu-of-loft"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fbf",
+    "fieldData": {
+      "description": "Add warmth, depth, and architectural character to the space.",
+      "house-plan-2": [
+        "6a1ff02dd3d3113ee5e41942"
+      ],
+      "feature": "OPT_CODE_CEILBEAM01",
+      "sort-order": 1,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221",
+      "name": "Faux Ceiling Beams at Primary Bedroom",
+      "slug": "alder-faux-ceiling-beams-primary-bedroom"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fbd",
+    "fieldData": {
+      "description": "Adds warmth and a welcoming focal point.",
+      "house-plan-2": [
+        "6a1ff02dd3d3113ee5e41942"
+      ],
+      "feature": "OPT_CODE_FIREADD001",
+      "sort-order": 2,
+      "tab": "b9b3ff6995dad6233446a190085a3d1a",
+      "name": "Fireplace at Great Room",
+      "slug": "alder-fireplace-great-room"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fbb",
+    "fieldData": {
+      "description": "Add warmth, depth, and architectural character to the space.",
+      "house-plan-2": [
+        "6a1ff02dd3d3113ee5e41942"
+      ],
+      "feature": "OPT_CODE_CEILBEAM01_FOR_GREAT_ROOM",
+      "sort-order": 1,
+      "tab": "b9b3ff6995dad6233446a190085a3d1a",
+      "name": "Faux Ceiling Beams at Great Room",
+      "slug": "alder-faux-ceiling-beams-great-room"
+    }
+  }
+]
