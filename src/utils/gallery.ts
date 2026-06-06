@@ -99,7 +99,9 @@ export class GalleryController {
 
   /**
    * Per-slide gallery: clicking [dev-target="slide-image-wrapper"] opens a gallery
-   * populated from that slide's own [dev-target="slide-gallery-collection-image"] images.
+   * populated from [dev-target="slide-gallery-collection-image"] images on the slide,
+   * or — for Available Homes — from the matching Explore Plans hidden list
+   * (`[dev-target="slide-gallery-collection-list-wrapper"][house-plan="…"]`).
    * Images are queried at click time so no cache or MutationObserver is needed.
    */
   private bindSlideGalleries(): void {
@@ -138,9 +140,37 @@ export class GalleryController {
       if (exteriorImages.length) return exteriorImages;
     }
 
-    // Backward compatibility: keep existing per-slide CMS image source.
-    return Array.from(
+    const inSlide = Array.from(
       slide.querySelectorAll<HTMLImageElement>('img[dev-target="slide-gallery-collection-image"]')
+    );
+    if (inSlide.length) return inSlide;
+
+    return this.resolveExplorePlansGalleryByHousePlan(slide);
+  }
+
+  /**
+   * Available Homes slides carry `house-plan` on the forward image but no embedded gallery list.
+   * Reuse the Explore Plans tab's hidden CMS repeater for the same slug (still in DOM when tab is hidden).
+   */
+  private resolveExplorePlansGalleryByHousePlan(slide: HTMLElement): HTMLImageElement[] {
+    const housePlanSlug =
+      slide
+        .querySelector<HTMLElement>('[dev-target="forward-image"]')
+        ?.getAttribute('house-plan') ??
+      slide.getAttribute('house-plan') ??
+      '';
+
+    if (!housePlanSlug) return [];
+
+    const galleryWrapper = document.querySelector<HTMLElement>(
+      `[dev-target="slide-gallery-collection-list-wrapper"][house-plan="${CSS.escape(housePlanSlug)}"]`
+    );
+    if (!galleryWrapper) return [];
+
+    return Array.from(
+      galleryWrapper.querySelectorAll<HTMLImageElement>(
+        'img[dev-target="slide-gallery-collection-image"]'
+      )
     );
   }
 
