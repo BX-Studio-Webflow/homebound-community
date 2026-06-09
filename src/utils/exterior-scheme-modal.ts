@@ -52,12 +52,14 @@ const NEW_COMMUNITY_EXTERIOR_IMAGE_URLS: Record<
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edeaf11078832301af0d_Sch%205%20-%20Black%20Timber.webp',
     ],
     coastalColonial: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edad32d82c66475aa7b2_Sch%201%20-%20Saltwood.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac6e6422b45442464d_Sch%202%20-%20Stone%20Harbor.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac9d58911e051d3fba_Sch%203%20-%20Seabreeze.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac8f40d304dd481aec_Sch%204%20-%20Ivory%20%26%20Onyx.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edace365374d2b4c2c3f_Sch%205%20-%20Coastal%20Stone.webp',
     ],
     englishCottage: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbd63fae91f151fd9d0_Sch%201%20-%20Ivory%20Meadow.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbe0c3370fb3e35ffaf_Sch%202%20-%20Abbey%20Iron.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbea3771290396ed4df_Sch%203%20-%20Bronze%20Meadow.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbef4494d74c17404a9_Sch%204%20-%20Manor%20Brick.webp',
@@ -80,12 +82,14 @@ const NEW_COMMUNITY_EXTERIOR_IMAGE_URLS: Record<
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecac08f434791bad029e_Sch%205%20-%20Black%20Timber.webp',
     ],
     coastalColonial: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7f49422c2f9de17695_Sch%201%20-%20Saltwood.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7e9d58911e051c5dc8_Sch%202%20-%20Stone%20Harbor.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7f2472a39b3cbd5614_Sch%203%20-%20Seabreeze.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7e61f18799715386b8_Sch%204%20-%20Ivory%20%26%20Onyx.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7fb75aee6fe61ebf09_Sch%205%20-%20Coastal%20Stone.webp',
     ],
     englishCottage: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec8ff461c0c6633f96a1_Sch%201%20-%20Ivory%20Meadow.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec90872355c22f8e89a8_Sch%202%20-%20Abbey%20Iron.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec9061f1879971538dfd_Sch%203%20-%20Bronze%20Meadow.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec9095a46fd82b1cb0b3_Sch%204%20-%20Manor%20Brick.webp',
@@ -108,12 +112,14 @@ const NEW_COMMUNITY_EXTERIOR_IMAGE_URLS: Record<
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0df57edcdcc3c089676_Sch%205%20-%20Black%20Timber.webp',
     ],
     coastalColonial: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f085438168dc11d4e604_Sch%201%20-%20Saltwood.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084544db6edddd13c4b_Sch%202%20-%20Stone%20Harbor.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f08420e6f459b8cc8171_Sch%203%20-%20Seabreeze.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084ae64905f6a6340f6_Sch%204%20-%20Ivory%20%26%20Onyx.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084f11078832302fea2_Sch%205%20-%20Coastal%20Stone.webp',
     ],
     englishCottage: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a195a46fd82b1ec05a_Sch%201%20-%20Ivory%20Meadow.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a218fa7f2207b9e007_Sch%202%20-%20Abbey%20Iron.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a1a3771290397042a1_Sch%203%20-%20Bronze%20Meadow.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a1ae1ca7e491642775_Sch%204%20-%20Manor%20Brick.webp',
@@ -136,12 +142,14 @@ const NEW_COMMUNITY_EXTERIOR_IMAGE_URLS: Record<
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14f4ff4597241d8e0f7_Sch%205%20-%20Black%20Timber.webp',
     ],
     coastalColonial: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b72c42ef25e8594040_Sch%201%20-%20Saltwood.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b73b306ae798b3454e_Sch%202%20-%20Stone%20Harbor.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b7fccec2bd9f7f3bf0_Sch%203%20-%20Seabreeze.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b7f3437fec84c94c74_Sch%204%20-%20Ivory%20%26%20Onyx.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b75d778b0e1d343aec_Sch%205%20-%20Coastal%20Stone.webp',
     ],
     englishCottage: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f19257edcdcc3c08ed63_Sch%201%20-%20Ivory%20Meadow.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f193475a005a81e89db1_Sch%202%20-%20Abbey%20Iron.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1939619a764f4d5f48a_Sch%203%20-%20Bronze%20Meadow.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1939ab120a2472fcc9b_Sch%204%20-%20Manor%20Brick.webp',
@@ -164,12 +172,14 @@ const NEW_COMMUNITY_EXTERIOR_IMAGE_URLS: Record<
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3a939798a0c843907b_Sch%205%20-%20Black%20Timber.webp',
     ],
     coastalColonial: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecf02d888efac450f505_Sch%201%20-%20Saltwood.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecef2ba437a787a0b71d_Sch%202%20-%20Stone%20Harbor.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecefc74ccc360e2beea9_Sch%203%20-%20Seabreeze.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecf0475a005a81e66998_Sch%204%20-%20Ivory%20%26%20Onyx.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecef9619a764f4d3abc5_Sch%205%20-%20Coastal%20Stone.webp',
     ],
     englishCottage: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed0346c4dce897c5ad7b_Sch%201%20-%20Ivory%20Meadow.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed04269d95cd19e1032b_Sch%202%20-%20Abbey%20Iron.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed048157506f00ae1c15_Sch%203%20-%20Bronze%20Meadow.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed04a8e815ef475bc111_Sch%204%20-%20Manor%20Brick.webp',
@@ -192,12 +202,14 @@ const NEW_COMMUNITY_EXTERIOR_IMAGE_URLS: Record<
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe227f295bf102bdd5f_Sch%205%20-%20Black%20Timber.webp',
     ],
     coastalColonial: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef682f638a601d296658_Sch%201%20-%20Saltwood.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef67cd6d5d498ce2266f_Sch%202%20-%20Stone%20Harbor.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef6a438168dc11d43cdb_Sch%203%20-%20Seabreeze.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef682ba437a787a1fdc9_Sch%204%20-%20Ivory%20%26%20Onyx.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef6874297c1a3022840a_Sch%205%20-%20Coastal%20Stone.webp',
     ],
     englishCottage: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7b20e6f459b8cc0838_Sch%201%20-%20Ivory%20Meadow.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7cdb1b9afafad4b525_Sch%202%20-%20Abbey%20Iron.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c94fec08c5d9f1fb1_Sch%203%20-%20Bronze%20Meadow.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c679eea90bc20be8b_Sch%204%20-%20Manor%20Brick.webp',
@@ -247,6 +259,7 @@ const TRANSITIONAL_RANCH_SCHEMES = [
 ] as const;
 
 const COASTAL_COLONIAL_SCHEMES = [
+  { number: 1, name: 'Saltwood' },
   { number: 2, name: 'Stone Harbor' },
   { number: 3, name: 'Seabreeze' },
   { number: 4, name: 'Ivory & Onyx' },
@@ -254,6 +267,7 @@ const COASTAL_COLONIAL_SCHEMES = [
 ] as const;
 
 const ENGLISH_COTTAGE_SCHEMES = [
+  { number: 1, name: 'Ivory Meadow' },
   { number: 2, name: 'Abbey Iron' },
   { number: 3, name: 'Bronze Meadow' },
   { number: 4, name: 'Manor Brick' },
