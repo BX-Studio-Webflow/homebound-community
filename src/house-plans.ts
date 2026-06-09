@@ -470,9 +470,12 @@ window.Webflow.push(() => {
     },
     elm: {
       'kitchen-interior': {
-        'pos-1': '', // TODO: upload missing asset
-        'pos-2': '', // TODO: upload missing asset
-        'pos-3': '', // TODO: upload missing asset
+        'pos-1':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a27fa15bf08ee4828668c6a_kitchen.png',
+        'pos-2':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a27fa16b49b13745e7295f6_kitchen.png',
+        'pos-3':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a27fa17bf08ee4828668ead_kitchen.png',
         'pos-4': '',
       },
       'living-interior': {
@@ -485,7 +488,8 @@ window.Webflow.push(() => {
         'pos-4': '',
       },
       'bedroom-interior': {
-        'pos-1': '', // TODO: upload missing asset
+        'pos-1':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a27fa15eebbcdc5cc470102_primary%20bedroom.png',
         'pos-2':
           'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a23e11317d6b03c584baa3f_primary%20bedroom.png',
         'pos-3':
@@ -493,9 +497,12 @@ window.Webflow.push(() => {
         'pos-4': '',
       },
       'bathroom-interior': {
-        'pos-1': '', // TODO: upload missing asset
-        'pos-2': '', // TODO: upload missing asset
-        'pos-3': '', // TODO: upload missing asset
+        'pos-1':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a27fa15dc2c0021751f7ae1_primary%20bathroom.png',
+        'pos-2':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a27fa17082eb07f45704cf0_primary%20bathroom.png',
+        'pos-3':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a27fa1728ba6a7e81bb5ce6_primary%20bathroom.png',
         'pos-4': '',
       },
     },

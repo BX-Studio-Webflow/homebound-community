@@ -118,28 +118,28 @@ export class ColorSchemeController {
       return;
     }
 
-    const contextualImageUrl = contextToken
-      ? binding.context?.imageUrlByContextAndScheme?.[contextToken]?.[token]
+    const contextSchemeMap = contextToken
+      ? binding.context?.imageUrlByContextAndScheme?.[contextToken]
       : undefined;
+    const contextualImageUrl = contextSchemeMap?.[token];
+    const hasContextualMapping = Boolean(contextSchemeMap && token in contextSchemeMap);
 
     if (contextualImageUrl) {
       binding.forwardImage.src = contextualImageUrl;
       // Context-driven URLs are a single source image.
       binding.forwardImage.removeAttribute('srcset');
       binding.forwardImage.removeAttribute('sizes');
-    } else {
+    } else if (!hasContextualMapping) {
       const schemeImg = binding.schemeImagesByToken.get(token);
-      if (!schemeImg) {
-        console.error(`ColorSchemeController: no hidden scheme image for token "${token}".`);
-        return;
+      if (schemeImg) {
+        // Swap forward image to the chosen scheme variant.
+        binding.forwardImage.src = schemeImg.src;
+        if (schemeImg.srcset) binding.forwardImage.srcset = schemeImg.srcset;
+        if (schemeImg.sizes) binding.forwardImage.sizes = schemeImg.sizes;
+        if (schemeImg.alt) binding.forwardImage.alt = schemeImg.alt;
       }
-
-      // Swap forward image to the chosen scheme variant.
-      binding.forwardImage.src = schemeImg.src;
-      if (schemeImg.srcset) binding.forwardImage.srcset = schemeImg.srcset;
-      if (schemeImg.sizes) binding.forwardImage.sizes = schemeImg.sizes;
-      if (schemeImg.alt) binding.forwardImage.alt = schemeImg.alt;
     }
+    // When a context mapping exists but the URL is empty, keep the current image.
 
     if (contextToken && binding.context?.titleElement && binding.context?.titleByContextAndScheme) {
       const title = binding.context.titleByContextAndScheme[contextToken]?.[token];
