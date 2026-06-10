@@ -688,7 +688,7 @@ window.Webflow.push(() => {
       },
       'bathroom-interior': {
         'pos-1':
-          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a23e1bb5fb5517249c78811_primary%20bathroom.png',
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a23e1bb5fb5517249c78811_60ac067a97d29f14c44a468aec64e592_primary%20bathroom.png',
         'pos-2':
           'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a23e19b54dbb1a98a8a2a65_primary%20bathroom.png',
         'pos-3':
