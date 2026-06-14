@@ -27,8 +27,8 @@ const MAP_POINTS: MapPoint[] = [
     y: 173.78,
   },
   { id: 'woolsey-fire', label: 'Woolsey Fire - Malibu, CA', x: 28.69, y: 226.88 },
-  { id: 'eaton-fire', label: 'Eaton Fire - Altadena, CA', x: 38.96, y: 236.7 },
-  { id: 'palisades-fire', label: 'Palisades Fire - Pacific Palisades, CA', x: 54.67, y: 225.59 },
+  { id: 'eaton-fire', label: 'Eaton Fire - Altadena, CA', x: 54.67, y: 225.59 },
+  { id: 'palisades-fire', label: 'Palisades Fire - Pacific Palisades, CA', x: 38.96, y: 236.7 },
   { id: 'marshall-fire', label: 'Marshall Fire - Boulder County, CO', x: 197.87, y: 188.96 },
   {
     id: 'hurricane-ian',
