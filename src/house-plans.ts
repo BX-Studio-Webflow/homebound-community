@@ -773,7 +773,6 @@ window.Webflow.push(() => {
           contextButtons: interiorButtons,
           defaultContextToken: defaultInteriorToken,
           defaultSchemeToken,
-          resetSchemeOnContextChange: true,
           titleElement: packageTitleEl ?? undefined,
           titleByContextAndScheme: packageTitleByInteriorAndScheme as Record<
             string,

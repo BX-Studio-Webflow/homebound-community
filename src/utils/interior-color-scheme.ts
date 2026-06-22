@@ -25,7 +25,7 @@ export interface ColorSchemeContextConfig {
   defaultContextToken?: string;
   /** Scheme to force when context changes. Falls back to first scheme button token. */
   defaultSchemeToken?: string;
-  /** Whether context switch should reset to default scheme (default: true). */
+  /** Whether context switch should reset to default scheme (default: false). */
   resetSchemeOnContextChange?: boolean;
   /** Optional label element to keep in sync with context + scheme. */
   titleElement?: HTMLElement;
@@ -80,7 +80,7 @@ export class ColorSchemeController {
             if (!contextToken) return;
             this.setActiveContextToken(context, contextToken);
 
-            const shouldResetScheme = context.resetSchemeOnContextChange ?? true;
+            const shouldResetScheme = context.resetSchemeOnContextChange ?? false;
             const nextSchemeToken = shouldResetScheme
               ? this.getDefaultSchemeToken(binding)
               : (this.getActiveSchemeToken(binding) ?? this.getDefaultSchemeToken(binding));
