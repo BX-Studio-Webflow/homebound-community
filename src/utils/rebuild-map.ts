@@ -22,7 +22,7 @@ const MAP_POINTS: MapPoint[] = [
   },
   {
     id: 'czu-complex',
-    label: 'CZU Comples - Santa Cruz & San Mateo Counties, CA',
+    label: 'CZU Complex - Santa Cruz & San Mateo Counties, CA',
     x: 21.83,
     y: 173.78,
   },
