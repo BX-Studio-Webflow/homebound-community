@@ -1,0 +1,58 @@
+[
+  {
+    "folder": "Plan 1 - The Sycamore",
+    "name": "sycamore-first-floor.svg",
+    "parent": "6a72fe355afa7430c421074e",
+    "path": "src\\example-assets\\home-icons\\Altadena\\Altadena - Updated SVGS\\Plan 1 - The Sycamore\\sycamore-first-floor.svg",
+    "hash": "323229dba174ef63d14ea2270652f28b",
+    "size": 2105187
+  },
+  {
+    "folder": "Plan 2 - The Loma",
+    "name": "loma-first-floor.svg",
+    "parent": "6a72fe35b64b6ba5ab38a2c2",
+    "path": "src\\example-assets\\home-icons\\Altadena\\Altadena - Updated SVGS\\Plan 2 - The Loma\\loma-first-floor.svg",
+    "hash": "f6ce6a27999ea357cceba3ed970da391",
+    "size": 3485499
+  },
+  {
+    "folder": "Plan 3 - The Chaney",
+    "name": "chaney-first-floor.svg",
+    "parent": "6a72fe36b64b6ba5ab38a2d7",
+    "path": "src\\example-assets\\home-icons\\Altadena\\Altadena - Updated SVGS\\Plan 3 - The Chaney\\chaney-first-floor.svg",
+    "hash": "0126a9ace1afcd3bad9e99b5ff55d362",
+    "size": 2622533
+  },
+  {
+    "folder": "Plan 4 - The Merrick",
+    "name": "merrick-first-floor.svg",
+    "parent": "6a72fe36bd455e339cb00a74",
+    "path": "src\\example-assets\\home-icons\\Altadena\\Altadena - Updated SVGS\\Plan 4 - The Merrick\\merrick-first-floor.svg",
+    "hash": "da9b7a9223da16433817d9e3eb8269ad",
+    "size": 1201532
+  },
+  {
+    "folder": "Plan 4 - The Merrick",
+    "name": "merrick-second-floor.svg",
+    "parent": "6a72fe36bd455e339cb00a74",
+    "path": "src\\example-assets\\home-icons\\Altadena\\Altadena - Updated SVGS\\Plan 4 - The Merrick\\merrick-second-floor.svg",
+    "hash": "711c8325a3cb78d7f7f23dd20467372e",
+    "size": 945447
+  },
+  {
+    "folder": "Plan 5 - The Echo",
+    "name": "echo-first-floor.svg",
+    "parent": "6a72fe36b64b6ba5ab38a30a",
+    "path": "src\\example-assets\\home-icons\\Altadena\\Altadena - Updated SVGS\\Plan 5 - The Echo\\echo-first-floor.svg",
+    "hash": "88eaa808f3b1efdc76cb70a1746fb1f5",
+    "size": 1971653
+  },
+  {
+    "folder": "Plan 5 - The Echo",
+    "name": "echo-second-floor.svg",
+    "parent": "6a72fe36b64b6ba5ab38a30a",
+    "path": "src\\example-assets\\home-icons\\Altadena\\Altadena - Updated SVGS\\Plan 5 - The Echo\\echo-second-floor.svg",
+    "hash": "028cc13b6a0c89be247c7d2b7cebecbe",
+    "size": 1257541
+  }
+]

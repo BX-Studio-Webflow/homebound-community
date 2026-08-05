@@ -1,0 +1,307 @@
+[
+  {
+    "plan": "Plan 1 - The Sycamore",
+    "file": "sycamore-first-floor.svg",
+    "features": 10,
+    "mappings": [
+      {
+        "from": "OPT_CODE_CASEOPN001",
+        "to": "CASEOPN001"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01__x28_Primary_Bedroom_x29_",
+        "to": "CEILBEAM01-primary-bedroom"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01__x28_Great_Room_x29_",
+        "to": "CEILBEAM01-great-room"
+      },
+      {
+        "from": "OPT_CODE_LNRYWD0001",
+        "to": "LNRYWD0001"
+      },
+      {
+        "from": "OPT_CODE_I1_-_B_-_SPANISH",
+        "to": "I1"
+      },
+      {
+        "from": "OPT_CODE_E1_-_C_-_CRAFTSMAN",
+        "to": "E1"
+      },
+      {
+        "from": "OPT_CODE_BED001",
+        "to": "BED001"
+      },
+      {
+        "from": "OPT_CODE__LNRYWD0001__x28_Laundry_on_Opt._add_bedroom_x29_",
+        "to": "LNRYWD0001-on-opt-add-bedroom"
+      },
+      {
+        "from": "OPT_CODE_FIREADD001",
+        "to": "FIREADD001"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01",
+        "to": "BATH2SHW01"
+      }
+    ]
+  },
+  {
+    "plan": "Plan 2 - The Loma",
+    "file": "loma-first-floor.svg",
+    "features": 12,
+    "mappings": [
+      {
+        "from": "OPT_CODE_LNRYWD0001",
+        "to": "LNRYWD0001"
+      },
+      {
+        "from": "OPT_CODE_CASEOPN001",
+        "to": "CASEOPN001"
+      },
+      {
+        "from": "OPT_CODE_DOORINTFR001",
+        "to": "DOORINTFR001"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01__x28_Great_Room_x29_",
+        "to": "CEILBEAM01-great-room"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01__x28_Primary_Bedroom_x29_",
+        "to": "CEILBEAM01-primary-bedroom"
+      },
+      {
+        "from": "OPT_CODE_I1_-_B_-_SPANISH",
+        "to": "I1"
+      },
+      {
+        "from": "OPT_CODE_E1_-_C_-_CRAFTSMAN",
+        "to": "E1"
+      },
+      {
+        "from": "OPT_CODE_FLX2BED003",
+        "to": "FLX2BED003"
+      },
+      {
+        "from": "OPT_CODE_DOORSG16FT",
+        "to": "DOORSG16FT"
+      },
+      {
+        "from": "OPT_CODE_BED001",
+        "to": "BED001"
+      },
+      {
+        "from": "OPT_CODE_BEDBATH001",
+        "to": "BEDBATH001"
+      },
+      {
+        "from": "OPT_CODE_FIREADD001",
+        "to": "FIREADD001"
+      }
+    ]
+  },
+  {
+    "plan": "Plan 3 - The Chaney",
+    "file": "chaney-first-floor.svg",
+    "features": 13,
+    "mappings": [
+      {
+        "from": "OPT_CODE_CASEOPN001",
+        "to": "CASEOPN001"
+      },
+      {
+        "from": "OPT_CODE_LNRYWD0001",
+        "to": "LNRYWD0001"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01__x28_Great_Room_x29_",
+        "to": "CEILBEAM01-great-room"
+      },
+      {
+        "from": "OPT_CODE_FIREADD001",
+        "to": "FIREADD001"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01__x28_Primary_Bedroom_x29_",
+        "to": "CEILBEAM01-primary-bedroom"
+      },
+      {
+        "from": "OPT_CODE_ADDPWDR001",
+        "to": "ADDPWDR001"
+      },
+      {
+        "from": "OPT_CODE_BEDBATH001",
+        "to": "BEDBATH001"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01__x28_Primary_bedroom_on_opt._add_bedroom_x29_",
+        "to": "CEILBEAM01-primary-bedroom-on-opt-add-bedroom"
+      },
+      {
+        "from": "OPT_CODE_BED001",
+        "to": "BED001"
+      },
+      {
+        "from": "OPT_CODE_I1_-_B_-_SPANISH",
+        "to": "I1"
+      },
+      {
+        "from": "OPT_CODE_E1_-_C_-_CRAFTSMAN",
+        "to": "E1"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01",
+        "to": "BATH2SHW01"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW03__x28_on_opt._add_bedroom_x29_",
+        "to": "BATH2SHW03-on-opt-add-bedroom"
+      }
+    ]
+  },
+  {
+    "plan": "Plan 4 - The Merrick",
+    "file": "merrick-first-floor.svg",
+    "features": 5,
+    "mappings": [
+      {
+        "from": "OPT_CODE_CASEOPN001",
+        "to": "CASEOPN001"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01__x28_Great_Room_x29_",
+        "to": "CEILBEAM01-great-room"
+      },
+      {
+        "from": "OPT_CODE_I1_-_B_-_SPANISH",
+        "to": "I1"
+      },
+      {
+        "from": "OPT_CODE_E1_-_C_-_CRAFTSMAN",
+        "to": "E1"
+      },
+      {
+        "from": "OPT_CODE_FIREADD001",
+        "to": "FIREADD001"
+      }
+    ]
+  },
+  {
+    "plan": "Plan 4 - The Merrick",
+    "file": "merrick-second-floor.svg",
+    "features": 5,
+    "mappings": [
+      {
+        "from": "OPT_CODE_LNRYWD0001",
+        "to": "LNRYWD0001"
+      },
+      {
+        "from": "OPT_CODE_CABLDRY001",
+        "to": "CABLDRY001"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01__x28_Primary_Bedroom_x29_",
+        "to": "CEILBEAM01-primary-bedroom"
+      },
+      {
+        "from": "OPT_CODE_BED001",
+        "to": "BED001"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01",
+        "to": "BATH2SHW01"
+      }
+    ]
+  },
+  {
+    "plan": "Plan 5 - The Echo",
+    "file": "echo-first-floor.svg",
+    "features": 13,
+    "mappings": [
+      {
+        "from": "OPT_CODE_CEILBEAM01",
+        "to": "CEILBEAM01-great-room"
+      },
+      {
+        "from": "OPT_CODE_EXTODL",
+        "to": "EXTODL"
+      },
+      {
+        "from": "OPT_CODE_12080_SLD",
+        "to": "12080-SLD"
+      },
+      {
+        "from": "OPT_CODE_DOORINTFR001",
+        "to": "DOORINTFR001"
+      },
+      {
+        "from": "OPT_CODE_BED001",
+        "to": "BED001"
+      },
+      {
+        "from": "OPT_CODE_CASEOPN001",
+        "to": "CASEOPN001"
+      },
+      {
+        "from": "OPT_CODE_ADDPWDR001",
+        "to": "ADDPWDR001"
+      },
+      {
+        "from": "OPT_CODE_ADDENSTE001",
+        "to": "ADDENSTE001"
+      },
+      {
+        "from": "OPT_CODE_I1_-_B_-_SPANISH",
+        "to": "I1"
+      },
+      {
+        "from": "OPT_CODE_E1_-_C_-_CRAFTSMAN",
+        "to": "E1"
+      },
+      {
+        "from": "OPT_CODE_FIREADD001",
+        "to": "FIREADD001"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01__x28_Opt._Add_bedroom_x29_",
+        "to": "BATH2SHW01-on-opt-add-bedroom"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW03__x28_Opt._Ensuite_x29_",
+        "to": "BATH2SHW03-on-opt-ensuite"
+      }
+    ]
+  },
+  {
+    "plan": "Plan 5 - The Echo",
+    "file": "echo-second-floor.svg",
+    "features": 6,
+    "mappings": [
+      {
+        "from": "OPT_CODE_CEILBEAM01__x28_Primary_Bedroom_x29_",
+        "to": "CEILBEAM01-primary-bedroom"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01",
+        "to": "BATH2SHW01"
+      },
+      {
+        "from": "OPT_CODE_LNRYWD0001",
+        "to": "LNRYWD0001"
+      },
+      {
+        "from": "OPT_CODE_CABLDRY001",
+        "to": "CABLDRY001"
+      },
+      {
+        "from": "OPT_CODE_LFT2BED001",
+        "to": "LFT2BED001"
+      },
+      {
+        "from": "OPT_CODE_E1_-_C_-_CRAFTSMAN",
+        "to": "E1"
+      }
+    ]
+  }
+]
