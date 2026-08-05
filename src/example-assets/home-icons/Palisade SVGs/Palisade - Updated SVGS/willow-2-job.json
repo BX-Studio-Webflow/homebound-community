@@ -1,0 +1,19 @@
+﻿{
+  "label": "willow-2",
+  "path": "src/example-assets/home-icons/Palisade SVGs/Palisade - Updated SVGS/The Willow - Plan 7/willow-second-floor.svg",
+  "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a730cbfa5d81e92a613208c_willow-second-floor.svg",
+  "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+  "uploadDetails": {
+    "acl": "public-read",
+    "bucket": "webflow-prod-assets",
+    "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+    "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260805/us-east-1/s3/aws4_request",
+    "xAmzDate": "20260805T101606Z",
+    "key": "601ca16f0bb27e965ee867a0/6a730cbfa5d81e92a613208c_willow-second-floor.svg",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0wNVQxMToxNjowNloiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS9zdmcreG1sIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODA1L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgwNVQxMDE2MDZaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE3MzBjYmZhNWQ4MWU5MmE2MTMyMDhjX3dpbGxvdy1zZWNvbmQtZmxvb3Iuc3ZnIn1dfQ==",
+    "xAmzSignature": "77d843d44522c4c5d13f098fe5c9e553e795fd367a47f179f3546f1c9676b391",
+    "successActionStatus": "201",
+    "contentType": "image/svg+xml",
+    "cacheControl": "max-age=31536000"
+  }
+}

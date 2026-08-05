@@ -1,0 +1,691 @@
+[
+  {
+    "plan": "The Ambrose - Plan 10",
+    "file": "ambrose-first-floor.svg",
+    "features": 10,
+    "featureIds": [
+      "BATH2SHW01-BATH106",
+      "FIREADD001",
+      "FIREPLODR1",
+      "DOORINTSW1-storage",
+      "ADDWINERM1",
+      "ELEVATOR01",
+      "PREPKIT001",
+      "A2",
+      "G1",
+      "H2"
+    ],
+    "mappings": [
+      {
+        "from": "OPT_CODE_BATH2SHW01_BATH106",
+        "to": "BATH2SHW01-BATH106"
+      },
+      {
+        "from": "OPT_CODE_FIREADD001",
+        "to": "FIREADD001"
+      },
+      {
+        "from": "OPT_CODE_FIREPLODR1",
+        "to": "FIREPLODR1"
+      },
+      {
+        "from": "OPT_CODE_DOORINTSW1__x28_Storage_x29_",
+        "to": "DOORINTSW1-storage"
+      },
+      {
+        "from": "OPT_CODE_ADDWINERM1",
+        "to": "ADDWINERM1"
+      },
+      {
+        "from": "OPT_CODE_ELEVATOR01",
+        "to": "ELEVATOR01"
+      },
+      {
+        "from": "OPT_CODE_PREPKIT001",
+        "to": "PREPKIT001"
+      },
+      {
+        "from": "OPT_CODE_A2",
+        "to": "A2"
+      },
+      {
+        "from": "OPT_CODE_G1",
+        "to": "G1"
+      },
+      {
+        "from": "OPT_CODE_H2",
+        "to": "H2"
+      }
+    ]
+  },
+  {
+    "plan": "The Ambrose - Plan 10",
+    "file": "ambrose-second-floor.svg",
+    "features": 13,
+    "featureIds": [
+      "BATH2SHW01-BATH209",
+      "BATH2SHW01-BATH214",
+      "BEDBATH001",
+      "DOORINTSW1-primary-bath",
+      "EXTCLST001",
+      "ELEVATOR01",
+      "LNRYWD0001",
+      "CEILBEAM01-primary-bedroom",
+      "H2",
+      "A2",
+      "G1",
+      "BATH2SHW01-BATH293",
+      "ADDSKYLT01"
+    ],
+    "mappings": [
+      {
+        "from": "OPT_CODE_BATH2SHW01_BATH209",
+        "to": "BATH2SHW01-BATH209"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01_BATH214",
+        "to": "BATH2SHW01-BATH214"
+      },
+      {
+        "from": "OPT_CODE_BEDBATH001",
+        "to": "BEDBATH001"
+      },
+      {
+        "from": "OPT_CODE_DOORINTSW1__x28_Primary_Bath_x29_",
+        "to": "DOORINTSW1-primary-bath"
+      },
+      {
+        "from": "OPT_CODE_EXTCLST001",
+        "to": "EXTCLST001"
+      },
+      {
+        "from": "OPT_CODE_ELEVATOR01",
+        "to": "ELEVATOR01"
+      },
+      {
+        "from": "OPT_CODE_LNRYWD0001",
+        "to": "LNRYWD0001"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01__x28_primary_bedroom_x29_",
+        "to": "CEILBEAM01-primary-bedroom"
+      },
+      {
+        "from": "OPT_CODE_H2",
+        "to": "H2"
+      },
+      {
+        "from": "OPT_CODE_A2",
+        "to": "A2"
+      },
+      {
+        "from": "OPT_CODE_G1",
+        "to": "G1"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01_BATH293",
+        "to": "BATH2SHW01-BATH293"
+      },
+      {
+        "from": "OPT_CODE_ADDSKYLT01",
+        "to": "ADDSKYLT01"
+      }
+    ]
+  },
+  {
+    "plan": "The Alder - Plan 9",
+    "file": "alder-first-floor.svg",
+    "features": 7,
+    "featureIds": [
+      "BATH2SHW01-BATH112",
+      "FIREADD001",
+      "DOOREGD001",
+      "CEILBEAM01-great-room",
+      "A2",
+      "G1",
+      "H2"
+    ],
+    "mappings": [
+      {
+        "from": "OPT_CODE_BATH2SHW01_BATH112",
+        "to": "BATH2SHW01-BATH112"
+      },
+      {
+        "from": "OPT_CODE_FIREADD001",
+        "to": "FIREADD001"
+      },
+      {
+        "from": "OPT_CODE_DOOREGD001",
+        "to": "DOOREGD001"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01_FOR_GREAT_ROOM",
+        "to": "CEILBEAM01-great-room"
+      },
+      {
+        "from": "OPT_CODE_A2",
+        "to": "A2"
+      },
+      {
+        "from": "OPT_CODE_G1",
+        "to": "G1"
+      },
+      {
+        "from": "OPT_CODE_H2",
+        "to": "H2"
+      }
+    ]
+  },
+  {
+    "plan": "The Alder - Plan 9",
+    "file": "alder-second-floor.svg",
+    "features": 10,
+    "featureIds": [
+      "BATH2SHW01-BATH211",
+      "BATH2SHW01-BATH213",
+      "CEILBEAM01-primary-bedroom",
+      "LNRYWD001",
+      "DOORINTSW1",
+      "LFT2BED001",
+      "H2",
+      "A2",
+      "G1",
+      "ADDSKYLT01"
+    ],
+    "mappings": [
+      {
+        "from": "OPT_CODE_BATH2SHW01_BATH211",
+        "to": "BATH2SHW01-BATH211"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01_BATH213",
+        "to": "BATH2SHW01-BATH213"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01",
+        "to": "CEILBEAM01-primary-bedroom"
+      },
+      {
+        "from": "OPT_CODE_LNRYWD001",
+        "to": "LNRYWD001"
+      },
+      {
+        "from": "OPT_CODE_DOORINTSW1",
+        "to": "DOORINTSW1"
+      },
+      {
+        "from": "OPT_CODE_LFT2BED001",
+        "to": "LFT2BED001"
+      },
+      {
+        "from": "OPT_CODE_H2",
+        "to": "H2"
+      },
+      {
+        "from": "OPT_CODE_A2",
+        "to": "A2"
+      },
+      {
+        "from": "OPT_CODE_G1",
+        "to": "G1"
+      },
+      {
+        "from": "OPT_CODE_ADDSKYLT01",
+        "to": "ADDSKYLT01"
+      }
+    ]
+  },
+  {
+    "plan": "The Vista - Plan 8",
+    "file": "vista-first-floor.svg",
+    "features": 10,
+    "featureIds": [
+      "FIREPLODR1",
+      "FIREADD001",
+      "DOOREGD001",
+      "EXTCVPT02",
+      "PREPKIT001",
+      "ADDWINERM1",
+      "A2",
+      "G1",
+      "H2",
+      "BATH2SHW01-BATH106"
+    ],
+    "mappings": [
+      {
+        "from": "OPT_CODE_FIREPLODR1",
+        "to": "FIREPLODR1"
+      },
+      {
+        "from": "OPT_CODE_FIREADD001",
+        "to": "FIREADD001"
+      },
+      {
+        "from": "OPT_CODE_DOOREGD001",
+        "to": "DOOREGD001"
+      },
+      {
+        "from": "OPT_CODE_EXTCVPT02",
+        "to": "EXTCVPT02"
+      },
+      {
+        "from": "OPT_CODE_PREPKIT001",
+        "to": "PREPKIT001"
+      },
+      {
+        "from": "OPT_CODE_ADDWINERM1",
+        "to": "ADDWINERM1"
+      },
+      {
+        "from": "OPT_CODE_A2",
+        "to": "A2"
+      },
+      {
+        "from": "OPT_CODE_G1",
+        "to": "G1"
+      },
+      {
+        "from": "OPT_CODE_H2",
+        "to": "H2"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01_BATH106",
+        "to": "BATH2SHW01-BATH106"
+      }
+    ]
+  },
+  {
+    "plan": "The Vista - Plan 8",
+    "file": "vista-second-floor.svg",
+    "features": 14,
+    "featureIds": [
+      "CEILBEAM01-great-room",
+      "BATH2SHW01-BATH209",
+      "LNRYWD001",
+      "CEILBEAM01-primary-bedroom",
+      "DOORINTSW1",
+      "BEDBATH001",
+      "BATH2SHW01-BATH298",
+      "ADDSKYLT01",
+      "EXTCLST001",
+      "CEILBEAM01-primary-bedroom-2",
+      "A2",
+      "G1",
+      "H2",
+      "FIREADD001"
+    ],
+    "mappings": [
+      {
+        "from": "OPT_CODE_CEILBEAM01_FOR_GREAT_ROOM",
+        "to": "CEILBEAM01-great-room"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01_BATH209",
+        "to": "BATH2SHW01-BATH209"
+      },
+      {
+        "from": "OPT_CODE_LNRYWD001",
+        "to": "LNRYWD001"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01",
+        "to": "CEILBEAM01-primary-bedroom"
+      },
+      {
+        "from": "OPT_CODE_DOORINTSW1",
+        "to": "DOORINTSW1"
+      },
+      {
+        "from": "OPT_CODE_BEDBATH001",
+        "to": "BEDBATH001"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01_BATH298",
+        "to": "BATH2SHW01-BATH298"
+      },
+      {
+        "from": "OPT_CODE_ADDSKYLT01",
+        "to": "ADDSKYLT01"
+      },
+      {
+        "from": "OPT_CODE_EXTCLST001",
+        "to": "EXTCLST001"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01_x28_FOR_EXT._PRIMARY_BED_AND_CLOSET_x29_",
+        "to": "CEILBEAM01-primary-bedroom-2"
+      },
+      {
+        "from": "OPT_CODE_A2",
+        "to": "A2"
+      },
+      {
+        "from": "OPT_CODE_G1",
+        "to": "G1"
+      },
+      {
+        "from": "OPT_CODE_H2",
+        "to": "H2"
+      },
+      {
+        "from": "OPT_CODE_FIREADD001",
+        "to": "FIREADD001"
+      }
+    ]
+  },
+  {
+    "plan": "The Willow - Plan 7",
+    "file": "willow-first-floor.svg",
+    "features": 9,
+    "featureIds": [
+      "FIREADD001",
+      "EXTCVPT01",
+      "DOOREGD001",
+      "CEILBEAM01-great-room",
+      "DOOREGD0011",
+      "H2",
+      "G1",
+      "A2",
+      "BATH2SHW01-BATH112"
+    ],
+    "mappings": [
+      {
+        "from": "OPT_CODE_FIREADD001",
+        "to": "FIREADD001"
+      },
+      {
+        "from": "OPT_CODE_EXTCVPT01",
+        "to": "EXTCVPT01"
+      },
+      {
+        "from": "OPT_CODE_DOOREGD001",
+        "to": "DOOREGD001"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01",
+        "to": "CEILBEAM01-great-room"
+      },
+      {
+        "from": "OPT_CODE_DOOREGD0011",
+        "to": "DOOREGD0011"
+      },
+      {
+        "from": "OPT_CODE_H2",
+        "to": "H2"
+      },
+      {
+        "from": "OPT_CODE_G1",
+        "to": "G1"
+      },
+      {
+        "from": "OPT_CODE_A2",
+        "to": "A2"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01_BATH112",
+        "to": "BATH2SHW01-BATH112"
+      }
+    ]
+  },
+  {
+    "plan": "The Willow - Plan 7",
+    "file": "willow-second-floor.svg",
+    "features": 12,
+    "featureIds": [
+      "LNRYWD001",
+      "ADDLOFT001",
+      "DECKCVD001",
+      "CEILBEAM01-primary-bedroom",
+      "DOORINTSW1",
+      "H2",
+      "G1",
+      "A2",
+      "BEDBATH001",
+      "BATH2SHW01-BATH213",
+      "BATH2SHW01-BATH298",
+      "ADDSKYLT01"
+    ],
+    "mappings": [
+      {
+        "from": "OPT_CODE_LNRYWD001",
+        "to": "LNRYWD001"
+      },
+      {
+        "from": "OPT_CODE_ADDLOFT001",
+        "to": "ADDLOFT001"
+      },
+      {
+        "from": "OPT_CODE_DECKCVD001",
+        "to": "DECKCVD001"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01",
+        "to": "CEILBEAM01-primary-bedroom"
+      },
+      {
+        "from": "OPT_CODE_DOORINTSW1",
+        "to": "DOORINTSW1"
+      },
+      {
+        "from": "OPT_CODE_H2",
+        "to": "H2"
+      },
+      {
+        "from": "OPT_CODE_G1",
+        "to": "G1"
+      },
+      {
+        "from": "OPT_CODE_A2",
+        "to": "A2"
+      },
+      {
+        "from": "OPT_CODE_BEDBATH001",
+        "to": "BEDBATH001"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01_BATH213",
+        "to": "BATH2SHW01-BATH213"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01_BATH298",
+        "to": "BATH2SHW01-BATH298"
+      },
+      {
+        "from": "OPT_CODE_ADDSKYLT01",
+        "to": "ADDSKYLT01"
+      }
+    ]
+  },
+  {
+    "plan": "The Glenview - Plan 6X",
+    "file": "glenview-first-floor.svg",
+    "features": 14,
+    "featureIds": [
+      "DOORINTSW1",
+      "LNRYWD001",
+      "CEILBEAM01-primary-bedroom",
+      "CEILBEAM01-great-room",
+      "DOOREGD001",
+      "EXTCVPT02",
+      "RTREATPM01",
+      "CEILBEAM01-primary-retreat",
+      "FIREPLODR1",
+      "FIREADD001",
+      "A2",
+      "G1",
+      "H2",
+      "BATH2SHW01-BATH106"
+    ],
+    "mappings": [
+      {
+        "from": "OPT_CODE_DOORINTSW1",
+        "to": "DOORINTSW1"
+      },
+      {
+        "from": "OPT_CODE_LNRYWD001",
+        "to": "LNRYWD001"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01__x28_Primary_Bedroom_x29_",
+        "to": "CEILBEAM01-primary-bedroom"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01__x28_Great_Room_x29_",
+        "to": "CEILBEAM01-great-room"
+      },
+      {
+        "from": "OPT_CODE_DOOREGD001",
+        "to": "DOOREGD001"
+      },
+      {
+        "from": "OPT_CODE_EXTCVPT02",
+        "to": "EXTCVPT02"
+      },
+      {
+        "from": "OPT_CODE_RTREATPM01",
+        "to": "RTREATPM01"
+      },
+      {
+        "from": "OPT_CODE_OPT_CODE_CEILBEAM01__x28_Primary_Retreat_x29_",
+        "to": "CEILBEAM01-primary-retreat"
+      },
+      {
+        "from": "OPT_CODE_FIREPLODR1",
+        "to": "FIREPLODR1"
+      },
+      {
+        "from": "OPT_CODE_FIREADD001",
+        "to": "FIREADD001"
+      },
+      {
+        "from": "OPT_CODE_A2",
+        "to": "A2"
+      },
+      {
+        "from": "OPT_CODE_G1",
+        "to": "G1"
+      },
+      {
+        "from": "OPT_CODE_H2",
+        "to": "H2"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01_BATH106",
+        "to": "BATH2SHW01-BATH106"
+      }
+    ]
+  },
+  {
+    "plan": "The Glenview - Plan 6X",
+    "file": "glenview-second-floor.svg",
+    "features": 5,
+    "featureIds": [
+      "A2",
+      "G1",
+      "H2",
+      "BATH2SHW01-BATH207",
+      "BATH2SHW01-BATH204"
+    ],
+    "mappings": [
+      {
+        "from": "OPT_CODE_A2",
+        "to": "A2"
+      },
+      {
+        "from": "OPT_CODE_G1",
+        "to": "G1"
+      },
+      {
+        "from": "OPT_CODE_H2",
+        "to": "H2"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01_BATH207",
+        "to": "BATH2SHW01-BATH207"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01_BATH204",
+        "to": "BATH2SHW01-BATH204"
+      }
+    ]
+  },
+  {
+    "plan": "The Elm - Plan 6",
+    "file": "elm-first-floor.svg",
+    "features": 14,
+    "featureIds": [
+      "DOORINTSW1",
+      "LNRYWD001",
+      "CEILBEAM01-primary-bedroom",
+      "CEILBEAM01-great-room",
+      "DOOREGD001",
+      "EXTCVPT02",
+      "RTREATPM01",
+      "CEILBEAM01-primary-retreat",
+      "FIREPLODR1",
+      "FIREADD001",
+      "BATH2SHW01",
+      "ADDSKYLT01",
+      "G1",
+      "H2"
+    ],
+    "mappings": [
+      {
+        "from": "OPT_CODE_DOORINTSW1",
+        "to": "DOORINTSW1"
+      },
+      {
+        "from": "OPT_CODE_LNRYWD001",
+        "to": "LNRYWD001"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01__x28_Primary_Bedroom_x29_",
+        "to": "CEILBEAM01-primary-bedroom"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01__x28_Great_Room_x29_",
+        "to": "CEILBEAM01-great-room"
+      },
+      {
+        "from": "OPT_CODE_DOOREGD001",
+        "to": "DOOREGD001"
+      },
+      {
+        "from": "OPT_CODE_EXTCVPT02",
+        "to": "EXTCVPT02"
+      },
+      {
+        "from": "OPT_CODE_RTREATPM01",
+        "to": "RTREATPM01"
+      },
+      {
+        "from": "OPT_CODE_CEILBEAM01__x28_Primary_Retreat_x29_",
+        "to": "CEILBEAM01-primary-retreat"
+      },
+      {
+        "from": "OPT_CODE_FIREPLODR1",
+        "to": "FIREPLODR1"
+      },
+      {
+        "from": "OPT_CODE_FIREADD001",
+        "to": "FIREADD001"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01",
+        "to": "BATH2SHW01"
+      },
+      {
+        "from": "OPT_CODE_ADDSKYLT01",
+        "to": "ADDSKYLT01"
+      },
+      {
+        "from": "OPT_CODE_G1",
+        "to": "G1"
+      },
+      {
+        "from": "OPT_CODE_H2",
+        "to": "H2"
+      }
+    ]
+  }
+]

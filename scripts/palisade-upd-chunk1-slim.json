@@ -1,0 +1,90 @@
+[
+  {
+    "id": "6a20045863e5c726b6f37ad4",
+    "fieldData": {
+      "feature": "ELEVATOR01",
+      "name": "Add Elevator",
+      "slug": "ambrose-add-elevator",
+      "description": "Enhance convenience and accessibility with a private in-home elevator.",
+      "sort-order": 2,
+      "tab": "b9b3ff6995dad6233446a190085a3d1a"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fd1",
+    "fieldData": {
+      "feature": "BEDBATH001",
+      "name": "Add Bedroom 5 with Bath 5",
+      "slug": "ambrose-bedroom-5-bath-5",
+      "description": "Create additional private living space and everyday convenience.",
+      "sort-order": 1,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fd3",
+    "fieldData": {
+      "feature": "EXTCLST001",
+      "name": "Extend Primary Walk-in Closet in Lieu of Loft",
+      "slug": "ambrose-extend-primary-closet-lieu-loft",
+      "description": "Expand your primary walk-in closet for enhanced storage and everyday convenience.",
+      "sort-order": 2,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fd5",
+    "fieldData": {
+      "feature": "CEILBEAM01-primary-bedroom",
+      "name": "Faux Ceiling Beams at Primary Bedroom",
+      "slug": "ambrose-faux-ceiling-beams-primary-bedroom",
+      "description": "Add warmth, depth, and architectural character to the space.",
+      "sort-order": 3,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fd7",
+    "fieldData": {
+      "feature": "ELEVATOR01",
+      "name": "Add Elevator",
+      "slug": "ambrose-elevator-second-floor",
+      "description": "Enhance convenience and accessibility with a private in-home elevator.",
+      "sort-order": 4,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fbb",
+    "fieldData": {
+      "feature": "CEILBEAM01-great-room",
+      "name": "Faux Ceiling Beams at Great Room",
+      "slug": "alder-faux-ceiling-beams-great-room",
+      "description": "Add warmth, depth, and architectural character to the space.",
+      "sort-order": 1,
+      "tab": "b9b3ff6995dad6233446a190085a3d1a"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fbd",
+    "fieldData": {
+      "feature": "FIREADD001",
+      "name": "Fireplace at Great Room",
+      "slug": "alder-fireplace-great-room",
+      "description": "Adds warmth and a welcoming focal point.",
+      "sort-order": 2,
+      "tab": "b9b3ff6995dad6233446a190085a3d1a"
+    }
+  },
+  {
+    "id": "6a2005e90c69de11c2892fbf",
+    "fieldData": {
+      "feature": "CEILBEAM01-primary-bedroom",
+      "name": "Faux Ceiling Beams at Primary Bedroom",
+      "slug": "alder-faux-ceiling-beams-primary-bedroom",
+      "description": "Add warmth, depth, and architectural character to the space.",
+      "sort-order": 1,
+      "tab": "9abe51351fba65d0cbbd595e60bfc221"
+    }
+  }
+]
