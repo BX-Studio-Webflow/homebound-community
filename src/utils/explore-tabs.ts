@@ -12,8 +12,10 @@
  * | Tab body wrapper | `dev-target` | `explore-tab-body` |
  * | "Explore Plans" trigger | `dev-target` | `explore-plans-trigger` |
  * | "Available Homes" trigger | `dev-target` | `explore-homes-trigger` |
+ * | "Explore ADUs" trigger | `dev-target` | `explore-adu-plans-trigger` |
  * | Explore Plans panel | `dev-target` | `explore-plans-tab` |
  * | Available Homes panel | `dev-target` | `explore-homes-tab` |
+ * | Explore ADUs panel | `dev-target` | `explore-adu-plans-tab` |
  *
  * **CSS**
  * - Triggers: add `is-active` for the active tab (style in your CSS)
