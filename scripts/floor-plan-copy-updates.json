@@ -1,0 +1,263 @@
+[
+  {
+    "id": "69f2433bec05856ae977157a",
+    "name": "The Addison",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "6a0649dcd98c04735a2b1e82",
+    "name": "The Addison",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "6a232df6e1072604e590c88c",
+    "name": "The Addison",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "6a1ff02dd3d3113ee5e41942",
+    "name": "The Alder",
+    "special": true,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Modify your homes layout and built in features to fit your lifestyle."
+    }
+  },
+  {
+    "id": "6a1ff02dd3d3113ee5e41940",
+    "name": "The Ambrose",
+    "special": true,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Modify your homes layout and built in features to fit your lifestyle."
+    }
+  },
+  {
+    "id": "69f2522bb14a83cb77a4484c",
+    "name": "The Bandera",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "6a064a5a6994a7137e4af69f",
+    "name": "The Bandera",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "6a232e18527b86aa77e7f03f",
+    "name": "The Bandera",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "69dc8b8890e0f6dc98669372",
+    "name": "The Chaney",
+    "special": true,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Modify your homes layout and built in features to fit your lifestyle."
+    }
+  },
+  {
+    "id": "69f265fb357096a5e68b4c86",
+    "name": "The Collin",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "6a064a9f431685331343181c",
+    "name": "The Collin",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "6a232e35ace753cfd8de918f",
+    "name": "The Collin",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "69972e0fc9630e1c87443197",
+    "name": "The Daphne",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "69dc8c9bb0e2d0e638a5b9a1",
+    "name": "The Echo",
+    "special": true,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Modify your homes layout and built in features to fit your lifestyle."
+    }
+  },
+  {
+    "id": "6a1ff0ecd3d3113ee5e4b084",
+    "name": "The Elm",
+    "special": true,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Modify your homes layout and built in features to fit your lifestyle."
+    }
+  },
+  {
+    "id": "6a1fed9fbf445d0192b88f42",
+    "name": "The Glenview",
+    "special": true,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Modify your homes layout and built in features to fit your lifestyle."
+    }
+  },
+  {
+    "id": "69f375291e9607fca9602b42",
+    "name": "The Grayson",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "6a064afbeb0dcbf979299768",
+    "name": "The Grayson",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "6a232e55eee93c647ad26d53",
+    "name": "The Grayson",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "69972e6085f4fd73f5b1285d",
+    "name": "The Iris",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "69dc8b8890e0f6dc98669374",
+    "name": "The Loma",
+    "special": true,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Modify your homes layout and built in features to fit your lifestyle."
+    }
+  },
+  {
+    "id": "69f3763d4ac1d221b9bb92ee",
+    "name": "The Magnolia",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "6a064b30973a44428b4def2c",
+    "name": "The Magnolia",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "6a232e7312e77fc382efa6eb",
+    "name": "The Magnolia",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "69dc8c9bb0e2d0e638a5b9a3",
+    "name": "The Merrick",
+    "special": true,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Modify your homes layout and built in features to fit your lifestyle."
+    }
+  },
+  {
+    "id": "69972eccc793df9007d06631",
+    "name": "The Sienna",
+    "special": false,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Personalize your home's layout and features to reflect the way you live."
+    }
+  },
+  {
+    "id": "69dc8b8890e0f6dc98669376",
+    "name": "The Sycamore",
+    "special": true,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Modify your homes layout and built in features to fit your lifestyle."
+    }
+  },
+  {
+    "id": "6a1ff02dd3d3113ee5e4193e",
+    "name": "The Vista",
+    "special": true,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Modify your homes layout and built in features to fit your lifestyle."
+    }
+  },
+  {
+    "id": "6a1ff02dd3d3113ee5e4193c",
+    "name": "The Willow",
+    "special": true,
+    "fieldData": {
+      "floor-plan-h2": "Explore Floor Plan",
+      "floor-plan-descriptor": "Modify your homes layout and built in features to fit your lifestyle."
+    }
+  }
+]

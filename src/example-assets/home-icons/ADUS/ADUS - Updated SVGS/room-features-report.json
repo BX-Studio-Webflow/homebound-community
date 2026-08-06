@@ -1,0 +1,28 @@
+[
+  {
+    "file": "carriage-house-adu-first-floor.svg",
+    "skipped": false,
+    "featureIds": [
+      "GARAGE"
+    ]
+  },
+  {
+    "file": "studio-adu-detached-garage.svg",
+    "skipped": false,
+    "featureIds": [
+      "GARAGE"
+    ]
+  },
+  {
+    "file": "two-story-adu-first-floor.svg",
+    "skipped": false,
+    "featureIds": [
+      "LIVING_ROOM",
+      "KITCHEN",
+      "EVERYDAY_ENTRY",
+      "POWDER_ROOM",
+      "STAIRS",
+      "PORCH"
+    ]
+  }
+]

@@ -1,0 +1,59 @@
+[
+  {
+    "label": "carriage-house-adu-first-floor",
+    "path": "src/example-assets/home-icons/ADUS/ADUS - Updated SVGS/Carriage House ADU/carriage-house-adu-first-floor.svg",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7450e3e91bbc7fa77f0b42_carriage-house-adu-first-floor.svg",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260806/us-east-1/s3/aws4_request",
+      "xAmzDate": "20260806T091619Z",
+      "key": "601ca16f0bb27e965ee867a0/6a7450e3e91bbc7fa77f0b42_carriage-house-adu-first-floor.svg",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0wNlQxMDoxNjoxOVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS9zdmcreG1sIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODA2L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgwNlQwOTE2MTlaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE3NDUwZTNlOTFiYmM3ZmE3N2YwYjQyX2NhcnJpYWdlLWhvdXNlLWFkdS1maXJzdC1mbG9vci5zdmcifV19",
+      "xAmzSignature": "67242429962d12586732ee1b0d9cb6bf603a2ca4d4d74e8312e5a081883e6103",
+      "successActionStatus": "201",
+      "contentType": "image/svg+xml",
+      "cacheControl": "max-age=31536000"
+    }
+  },
+  {
+    "label": "studio-adu-detached-garage",
+    "path": "src/example-assets/home-icons/ADUS/ADUS - Updated SVGS/Studio ADU/studio-adu-detached-garage.svg",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7450e3f160c39f3f346cde_studio-adu-detached-garage.svg",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260806/us-east-1/s3/aws4_request",
+      "xAmzDate": "20260806T091619Z",
+      "key": "601ca16f0bb27e965ee867a0/6a7450e3f160c39f3f346cde_studio-adu-detached-garage.svg",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0wNlQxMDoxNjoxOVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS9zdmcreG1sIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODA2L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgwNlQwOTE2MTlaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE3NDUwZTNmMTYwYzM5ZjNmMzQ2Y2RlX3N0dWRpby1hZHUtZGV0YWNoZWQtZ2FyYWdlLnN2ZyJ9XX0=",
+      "xAmzSignature": "5f68e3795625c58629f8ed7cc10cb4c29859549e384def5d579fe28df74d1bf4",
+      "successActionStatus": "201",
+      "contentType": "image/svg+xml",
+      "cacheControl": "max-age=31536000"
+    }
+  },
+  {
+    "label": "two-story-adu-first-floor",
+    "path": "src/example-assets/home-icons/ADUS/ADUS - Updated SVGS/Two-Story ADU/two-story-adu-first-floor.svg",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7450e43b962c6b2987c18a_two-story-adu-first-floor.svg",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260806/us-east-1/s3/aws4_request",
+      "xAmzDate": "20260806T091620Z",
+      "key": "601ca16f0bb27e965ee867a0/6a7450e43b962c6b2987c18a_two-story-adu-first-floor.svg",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0wNlQxMDoxNjoyMFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS9zdmcreG1sIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODA2L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgwNlQwOTE2MjBaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE3NDUwZTQzYjk2MmM2YjI5ODdjMThhX3R3by1zdG9yeS1hZHUtZmlyc3QtZmxvb3Iuc3ZnIn1dfQ==",
+      "xAmzSignature": "638e63c48c927dbb31af3bd62bfae2a4626f5a03d261d1ef8c1e853906add04e",
+      "successActionStatus": "201",
+      "contentType": "image/svg+xml",
+      "cacheControl": "max-age=31536000"
+    }
+  }
+]

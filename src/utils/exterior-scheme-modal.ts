@@ -21,10 +21,22 @@ export type HousePlanSlug =
   | 'willow'
   | 'vista'
   | 'ambrose'
-  | 'alder';
+  | 'alder'
+  | 'studio-adu'
+  | 'carriage-house-adu'
+  | 'two-story-adu';
 
 type AltadenaHousePlanSlug = 'echo' | 'merrick' | 'chaney' | 'loma' | 'sycamore';
-type NewCommunityPlanSlug = 'glenview' | 'elm' | 'willow' | 'vista' | 'ambrose' | 'alder';
+type NewCommunityPlanSlug =
+  | 'glenview'
+  | 'elm'
+  | 'willow'
+  | 'vista'
+  | 'ambrose'
+  | 'alder'
+  | 'carriage-house-adu'
+  | 'two-story-adu';
+type StudioAduPlanSlug = 'studio-adu';
 
 type NewCommunityStyleKey =
   | 'spanishContemporary'
@@ -214,6 +226,87 @@ const NEW_COMMUNITY_EXTERIOR_IMAGE_URLS: Record<
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c94fec08c5d9f1fb1_Sch%203%20-%20Bronze%20Meadow.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c679eea90bc20be8b_Sch%204%20-%20Manor%20Brick.webp',
       'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c8157506f00af4584_Sch%205%20-%20Chateau%20Stone.webp',
+    ],
+  },
+  'carriage-house-adu': {
+    spanishContemporary: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481b584b9c46e5511c91_Spanish%20Color%20Scheme%201%20Sunlit%20Ivory.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481beb481309db1a7307_Spanish%20Color%20Scheme%202%20Sandstone%20Villa.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481bbef87edeabad2e73_Spanish%20Color%20Scheme%203%20Stone%20Garden.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481b6edcdf3e9d8d46c2_Spanish%20Color%20Scheme%204%20Sienna%20Stone.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481c6a82a8eed0e08ebd_Spanish%20Color%20Scheme%205%20Coastal%20Villa.png',
+    ],
+    transitionalRanch: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482bc6a80142bb76cf90_Transitional%20Ranch%20Scheme%201%20White%20Oak%20Ranch.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482a11799919800d8f1b_Transitional%20Ranch%20Scheme%202%20Midnight%20Ridge.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482b6edcdf3e9d8d5cb6_Transitional%20Ranch%20Scheme%203%20Oakstone.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482ad39678ec281b4461_Transitional%20Ranch%20Scheme%204%20White%20Mason.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482b93d8443261da1b0a_Transitional%20Ranch%20Scheme%205%20%20Black%20Timber.png',
+    ],
+    coastalColonial: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fc6a82a8eed0e07b4e_Coastal%20Colonial%20Color%20Scheme%201%20Saltwood.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fcc75a7f8c2ef9e0c3_Coastal%20Colonial%20Color%20Scheme%202%20Stone%20Harbor.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fc23e233e2dda5bf19_Coastal%20Colonial%20Color%20Scheme%203%20Seabreeze.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fcb6815eb1f05189ed_Coastal%20Colonial%20Color%20Scheme%204%20Ivory%20%26%20Onyx.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447ffa66dd7f5c7f6a7b1_Coastal%20Colonial%20Color%20Scheme%205%20Coastal%20Stone.png',
+    ],
+    englishCottage: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480bd16c9c5509bf96dc_English%20Cottage%20Scheme%201%20Ivory%20Meadow.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480b72ce27915163d94a_English%20Cottage%20Scheme%202%20Abbey%20Iron.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480bc15cbea785d01665_English%20Cottage%20Scheme%203%20Bronze%20Meadow.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480ce7b264502743ccca_English%20Cottage%20Scheme%204%20Manor%20Brick.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480b6b926a8c17016811_English%20Cottage%20Scheme%205%20Chateau%20Stone.png',
+    ],
+  },
+  'two-story-adu': {
+    spanishContemporary: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448939b8f033bd6ed4a63_Spanish%20Color%20Scheme%201%20Sunlit%20Ivory.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744893c75a7f8c2efa6206_Spanish%20Color%20Scheme%202%20Sandstone%20Villa.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74489410ccae5bf6232d00_Spanish%20Color%20Scheme%203%20Stone%20Garden.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448939eac13f82c3f13e0_Spanish%20Color%20Scheme%204%20Sienna%20Stone.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744893c75a7f8c2efa620b_Spanish%20Color%20Scheme%205%20Coastal%20Villa.png',
+    ],
+    transitionalRanch: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a172ce2791516456e6_Transitional%20Ranch%20Scheme%201%20White%20Oak%20Ranch.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a13cfff99009c92551_Transitional%20Ranch%20Scheme%202%20Midnight%20Ridge.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a1a39fcd4ef158ec4a_Transitional%20Ranch%20Scheme%203%20Oakstone.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a27795e2c6a31f4b43_Transitional%20Ranch%20Scheme%204%20%20White%20Mason.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744aa9d1f5b783e659ddf5_missing%20Transitional%20Ranch%20Scheme%205%20Black%20Timber.png',
+    ],
+    coastalColonial: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487bc75a7f8c2efa4a05_Coastal%20Colonial%20Color%20Scheme%201%20Saltwood.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487bc83039285bdf2a72_Coastal%20Colonial%20Color%20Scheme%202%20Stone%20Harbor.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487b204beb02432f65c7_Coastal%20Colonial%20Color%20Scheme%203%20Seabreeze.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487b44a60aa2dd1838f8_Coastal%20Colonial%20Color%20Scheme%204%20Ivory%20%26%20Onyx.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487b6a82a8eed0e0d222_Coastal%20Colonial%20Color%20Scheme%205%20Coastal%20Stone.png',
+    ],
+    englishCottage: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744886bef87edeabada8d7_English%20Cottage%20Scheme%201%20Ivory%20Meadow.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744886f0f1ba26b2dd2326_English%20Cottage%20Scheme%202%20Abbey%20Iron.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744886b8fb342e82bed943_English%20Cottage%20Scheme%203%20Bronze%20Meadow.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448869b8f033bd6ed2e48_English%20Cottage%20Scheme%204%20Manor%20Brick.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74488611799919800dea42_English%20Cottage%20Scheme%205%20Chateau%20Stone.png',
+    ],
+  },
+};
+
+/** Studio ADU — Altadena-style elevations; Schemes 1–3 only (4–5 not provided). */
+const STUDIO_ADU_EXTERIOR_IMAGE_URLS: Record<StudioAduPlanSlug, ExteriorImageSet> = {
+  'studio-adu': {
+    craftsman: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744849c84ff4e8a34d921c_Craftsman%20Color%20Scheme%201%20Classic%20Cream.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74484910ccae5bf622dc3a_Craftsman%20Color%20Scheme%202%20Soft%20Green.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744849638fdaa6197e9142_Craftsman%20Color%20Scheme%203%20Coastal%20Navy.png',
+    ],
+    janesCottage: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448522534f8c0b4c15a8b_Janes%20Cottage%20Color%20Scheme%201%20Warm%20White.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74485372ce279151640663_Janes%20Cottage%20Color%20Scheme%202%20Dusk%20Gray.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744852565ef7b6637304e1_Janes%20Cottage%20Color%20Scheme%203%20Neutral%20Stone.png',
+    ],
+    spanish: [
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448628761de8cb0131cec_Spanish%20Scheme%201%20Coastal%20White.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744862b6815eb1f051dc99_Spanish%20Scheme%202%20Natural%20Gray.png',
+      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448621674b95bdff4ffb4_Spanish%20Scheme%203%20Garden%20Olive.png',
     ],
   },
 };
@@ -466,6 +559,29 @@ const buildExteriorsForPlan = (planSlug: AltadenaHousePlanSlug): ExteriorDefinit
   ];
 };
 
+/** Studio ADU reuses Altadena exterior-style slide attrs; only Schemes 1–3 are wired. */
+const buildStudioAduExteriors = (planSlug: StudioAduPlanSlug): ExteriorDefinition[] => {
+  const imageSet = STUDIO_ADU_EXTERIOR_IMAGE_URLS[planSlug];
+
+  return [
+    {
+      style: 'Craftsman',
+      slug: 'craftsman-style',
+      colorSchemes: toSchemes(CRAFTSMAN_NAMES.slice(0, 3), imageSet.craftsman),
+    },
+    {
+      style: 'Janes Cottage',
+      slug: 'janes-cottage',
+      colorSchemes: toSchemes(JANES_COTTAGE_NAMES.slice(0, 3), imageSet.janesCottage),
+    },
+    {
+      style: 'Spanish Transitional',
+      slug: 'spanish-transitional',
+      colorSchemes: toSchemes(SPANISH_NAMES.slice(0, 3), imageSet.spanish),
+    },
+  ];
+};
+
 const EXTERIORS_BY_PLAN: Record<HousePlanSlug, ExteriorDefinition[]> = {
   echo: buildExteriorsForPlan('echo'),
   merrick: buildExteriorsForPlan('merrick'),
@@ -478,6 +594,9 @@ const EXTERIORS_BY_PLAN: Record<HousePlanSlug, ExteriorDefinition[]> = {
   vista: buildNewCommunityExteriors('vista'),
   ambrose: buildNewCommunityExteriors('ambrose'),
   alder: buildNewCommunityExteriors('alder'),
+  'studio-adu': buildStudioAduExteriors('studio-adu'),
+  'carriage-house-adu': buildNewCommunityExteriors('carriage-house-adu'),
+  'two-story-adu': buildNewCommunityExteriors('two-story-adu'),
 };
 
 export function getHousePlanSlugFromPath(): HousePlanSlug | null {

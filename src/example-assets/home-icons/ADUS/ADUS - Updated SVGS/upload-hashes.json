@@ -1,0 +1,44 @@
+[
+  {
+    "plan": "Studio ADU",
+    "file": "studio-adu-first-floor.svg",
+    "path": "C:\\Users\\user\\projects\\homebound-community\\src\\example-assets\\home-icons\\ADUS\\ADUS - Updated SVGS\\Studio ADU\\studio-adu-first-floor.svg",
+    "size": 4005709,
+    "md5": "c886fe83441114f04db2c38d2233bb91"
+  },
+  {
+    "plan": "Studio ADU",
+    "file": "studio-adu-detached-garage.svg",
+    "path": "C:\\Users\\user\\projects\\homebound-community\\src\\example-assets\\home-icons\\ADUS\\ADUS - Updated SVGS\\Studio ADU\\studio-adu-detached-garage.svg",
+    "size": 471035,
+    "md5": "415d308ca71ab42002e3273cbe9779af"
+  },
+  {
+    "plan": "Carriage House ADU",
+    "file": "carriage-house-adu-first-floor.svg",
+    "path": "C:\\Users\\user\\projects\\homebound-community\\src\\example-assets\\home-icons\\ADUS\\ADUS - Updated SVGS\\Carriage House ADU\\carriage-house-adu-first-floor.svg",
+    "size": 110730,
+    "md5": "689f7ed72367deb59e84765657a25674"
+  },
+  {
+    "plan": "Carriage House ADU",
+    "file": "carriage-house-adu-second-floor.svg",
+    "path": "C:\\Users\\user\\projects\\homebound-community\\src\\example-assets\\home-icons\\ADUS\\ADUS - Updated SVGS\\Carriage House ADU\\carriage-house-adu-second-floor.svg",
+    "size": 207227,
+    "md5": "03be6107ea285fc5f2e688f18f8d00a8"
+  },
+  {
+    "plan": "Two-Story ADU",
+    "file": "two-story-adu-first-floor.svg",
+    "path": "C:\\Users\\user\\projects\\homebound-community\\src\\example-assets\\home-icons\\ADUS\\ADUS - Updated SVGS\\Two-Story ADU\\two-story-adu-first-floor.svg",
+    "size": 186224,
+    "md5": "05767dad99c64d6b464a77bcbc0a83f1"
+  },
+  {
+    "plan": "Two-Story ADU",
+    "file": "two-story-adu-second-floor.svg",
+    "path": "C:\\Users\\user\\projects\\homebound-community\\src\\example-assets\\home-icons\\ADUS\\ADUS - Updated SVGS\\Two-Story ADU\\two-story-adu-second-floor.svg",
+    "size": 210892,
+    "md5": "d40f97f8df085c7c18026cf4e8cf9f58"
+  }
+]

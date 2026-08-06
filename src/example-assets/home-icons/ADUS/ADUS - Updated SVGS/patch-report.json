@@ -1,0 +1,141 @@
+[
+  {
+    "plan": "Studio ADU",
+    "file": "studio-adu-first-floor.svg",
+    "features": 4,
+    "featureIds": [
+      "ADDWALL001",
+      "DOOREGD001",
+      "LNRYWD0001",
+      "BATH2SHW01"
+    ],
+    "mappings": [
+      {
+        "from": "OPT_CODE_ADDWALL001",
+        "to": "ADDWALL001"
+      },
+      {
+        "from": "OPT_CODE_DOOREGD001",
+        "to": "DOOREGD001"
+      },
+      {
+        "from": "OPT_CODE_LNRYWD0001",
+        "to": "LNRYWD0001"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01",
+        "to": "BATH2SHW01"
+      }
+    ]
+  },
+  {
+    "plan": "Studio ADU",
+    "file": "studio-adu-detached-garage.svg",
+    "features": 1,
+    "featureIds": [
+      "GARAGE"
+    ],
+    "mappings": [
+      {
+        "from": "ROOMNAMES_STANDARD/GARAGE-TEXT",
+        "to": "GARAGE"
+      }
+    ]
+  },
+  {
+    "plan": "Carriage House ADU",
+    "file": "carriage-house-adu-first-floor.svg",
+    "features": 1,
+    "featureIds": [
+      "GARAGE"
+    ],
+    "mappings": [
+      {
+        "from": "ROOMNAMES_STANDARD/GARAGE-TEXT",
+        "to": "GARAGE"
+      }
+    ]
+  },
+  {
+    "plan": "Carriage House ADU",
+    "file": "carriage-house-adu-second-floor.svg",
+    "features": 2,
+    "featureIds": [
+      "LNRYWD0001",
+      "BATH2SHW01"
+    ],
+    "mappings": [
+      {
+        "from": "OPT_CODE_LNRYWD0001",
+        "to": "LNRYWD0001"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01",
+        "to": "BATH2SHW01"
+      }
+    ]
+  },
+  {
+    "plan": "Two-Story ADU",
+    "file": "two-story-adu-first-floor.svg",
+    "features": 6,
+    "featureIds": [
+      "LIVING_ROOM",
+      "KITCHEN",
+      "EVERYDAY_ENTRY",
+      "POWDER_ROOM",
+      "STAIRS",
+      "PORCH"
+    ],
+    "mappings": [
+      {
+        "from": "ROOMNAMES_STANDARD/LIVING_ROOM-TEXT",
+        "to": "LIVING_ROOM"
+      },
+      {
+        "from": "ROOMNAMES_STANDARD/KITCHEN-TEXT",
+        "to": "KITCHEN"
+      },
+      {
+        "from": "ROOMNAMES_STANDARD/EVERYDAY_ENTRY-TEXT",
+        "to": "EVERYDAY_ENTRY"
+      },
+      {
+        "from": "ROOMNAMES_STANDARD/POWDER_ROOM-TEXT",
+        "to": "POWDER_ROOM"
+      },
+      {
+        "from": "ROOMNAMES_STANDARD/STAIRS-TEXT",
+        "to": "STAIRS"
+      },
+      {
+        "from": "ROOMNAMES_STANDARD/PORCH-TEXT",
+        "to": "PORCH"
+      }
+    ]
+  },
+  {
+    "plan": "Two-Story ADU",
+    "file": "two-story-adu-second-floor.svg",
+    "features": 3,
+    "featureIds": [
+      "LNRYWD001",
+      "BATH2SHW01-bath-2",
+      "BATH2SHW01-bath-1"
+    ],
+    "mappings": [
+      {
+        "from": "OPT_CODE_LNRYWD001",
+        "to": "LNRYWD001"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01__x28_Bath_2_x29_",
+        "to": "BATH2SHW01-bath-2"
+      },
+      {
+        "from": "OPT_CODE_BATH2SHW01__x28_Bath_1_x29_",
+        "to": "BATH2SHW01-bath-1"
+      }
+    ]
+  }
+]
