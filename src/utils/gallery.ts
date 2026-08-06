@@ -227,7 +227,7 @@ export class GalleryController {
 
     const boundedStartIndex = Math.min(Math.max(0, startIndex), limitedImgs.length - 1);
 
-    this.close();
+    this.destroyOverlay();
 
     this.overlay = document.createElement('div');
     this.overlay.className = 'hb-gallery-overlay';
@@ -281,24 +281,27 @@ export class GalleryController {
       if (e.target === this.overlay) this.close();
     });
 
-    this.thumbsSwiper = new Swiper('.hb-gallery-thumbs', {
+    const mainEl = this.overlay.querySelector<HTMLElement>('.hb-gallery-swiper')!;
+    const thumbsEl = this.overlay.querySelector<HTMLElement>('.hb-gallery-thumbs')!;
+
+    this.thumbsSwiper = new Swiper(thumbsEl, {
       slidesPerView: 'auto',
       spaceBetween: 8,
       watchSlidesProgress: true,
       freeMode: true,
     });
 
-    this.swiper = new Swiper('.hb-gallery-swiper', {
+    this.swiper = new Swiper(mainEl, {
       modules: [Navigation, Pagination, Keyboard, Thumbs],
       initialSlide: boundedStartIndex,
       loop: limitedImgs.length > 1,
       keyboard: { enabled: true },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: mainEl.querySelector<HTMLElement>('.swiper-button-next'),
+        prevEl: mainEl.querySelector<HTMLElement>('.swiper-button-prev'),
       },
       pagination: {
-        el: '.swiper-pagination',
+        el: mainEl.querySelector<HTMLElement>('.swiper-pagination'),
         type: 'fraction',
       },
       thumbs: {
@@ -317,16 +320,35 @@ export class GalleryController {
     this.overlay.classList.remove('is-open');
     document.body.style.overflow = '';
 
+    const { overlay } = this;
     const onTransitionEnd = () => {
-      this.thumbsSwiper?.destroy(true, true);
-      this.thumbsSwiper = null;
-      this.swiper?.destroy(true, true);
-      this.swiper = null;
-      this.overlay?.remove();
-      this.overlay = null;
+      this.destroySwipers();
+      overlay.remove();
+      if (this.overlay === overlay) {
+        this.overlay = null;
+      }
     };
 
-    this.overlay.addEventListener('transitionend', onTransitionEnd, { once: true });
+    overlay.addEventListener('transitionend', onTransitionEnd, { once: true });
+  }
+
+  private destroySwipers(): void {
+    if (this.thumbsSwiper && typeof this.thumbsSwiper.destroy === 'function') {
+      this.thumbsSwiper.destroy(true, true);
+    }
+    this.thumbsSwiper = null;
+
+    if (this.swiper && typeof this.swiper.destroy === 'function') {
+      this.swiper.destroy(true, true);
+    }
+    this.swiper = null;
+  }
+
+  private destroyOverlay(): void {
+    this.destroySwipers();
+    this.overlay?.remove();
+    this.overlay = null;
+    document.body.style.overflow = '';
   }
 
   destroy(): void {

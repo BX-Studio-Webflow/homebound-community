@@ -1,1 +1,130 @@
-"use strict";(()=>{var c=Object.defineProperty;var l=(o,e,t)=>e in o?c(o,e,{enumerable:!0,configurable:!0,writable:!0,value:t}):o[e]=t;var s=(o,e,t)=>l(o,typeof e!="symbol"?e+"":e,t);var a=class{constructor(){s(this,"soonerItems",[]);s(this,"activeIndex",0);s(this,"cycleIntervalId",null);s(this,"resumeAfterLeaveId",null)}init(){this.initSoonerAccordionItems()}initSoonerAccordionItems(){let e=document.querySelectorAll('[dev-target="one-sooner-accordion"]');e.length&&(e.forEach(t=>{this.soonerItems.push(t);let n=t.querySelector('[dev-target="sooner-header"]'),r=t.querySelector('[dev-target="circle"]');n&&(t.addEventListener("mouseenter",()=>{this.isHoverable()&&(this.resumeAfterLeaveId!==null&&(clearTimeout(this.resumeAfterLeaveId),this.resumeAfterLeaveId=null),this.stopAutoCycle())}),t.addEventListener("mouseleave",()=>{this.isHoverable()&&(this.resumeAfterLeaveId!==null&&clearTimeout(this.resumeAfterLeaveId),this.resumeAfterLeaveId=window.setTimeout(()=>{this.resumeAfterLeaveId=null,this.startAutoCycle()},150))}),n.addEventListener("mouseenter",()=>{this.isHoverable()&&!this.isTouchDevice()&&this.openSoonerItem(t)}),n.addEventListener("click",i=>{this.isTouchDevice()&&(i.preventDefault(),this.toggleSoonerItem(t))}),r&&r.addEventListener("click",i=>{this.isTouchDevice()&&(i.preventDefault(),i.stopPropagation(),this.toggleSoonerItem(t))}))}),e.length>0&&(this.openSoonerItem(e[0]),this.startAutoCycle()))}startAutoCycle(){!this.isHoverable()||this.soonerItems.length<=1||(this.stopAutoCycle(),this.cycleIntervalId=window.setInterval(()=>{this.activeIndex=(this.activeIndex+1)%this.soonerItems.length,this.openSoonerItem(this.soonerItems[this.activeIndex])},5e3))}stopAutoCycle(){this.cycleIntervalId!==null&&(clearInterval(this.cycleIntervalId),this.cycleIntervalId=null)}toggleSoonerItem(e){e.classList.contains("is-open")?this.closeSoonerItem(e):this.openSoonerItem(e)}openSoonerItem(e){let t=this.soonerItems.indexOf(e);t>=0&&(this.activeIndex=t),this.soonerItems.forEach(r=>{r.classList.remove("is-open"),r.querySelector('[dev-target="circle"]')?.classList.remove("is-active")}),e.classList.add("is-open"),e.querySelector('[dev-target="circle"]')?.classList.add("is-active")}closeSoonerItem(e){e.classList.remove("is-open"),e.querySelector('[dev-target="circle"]')?.classList.remove("is-active")}isTouchDevice(){return"ontouchstart"in window||navigator.maxTouchPoints>0||window.matchMedia("(pointer: coarse)").matches}isHoverable(){return window.matchMedia("(hover: hover) and (pointer: fine)").matches}destroy(){this.stopAutoCycle(),this.resumeAfterLeaveId!==null&&(clearTimeout(this.resumeAfterLeaveId),this.resumeAfterLeaveId=null),this.soonerItems=[]}};window.Webflow||(window.Webflow=[]);window.Webflow.push(()=>{new a().init()});})();
+"use strict";
+(() => {
+  // bin/live-reload.js
+  new EventSource(`${"http://localhost:3000"}/esbuild`).addEventListener("change", () => location.reload());
+
+  // src/utils/sooner-accordion.ts
+  var AUTO_CYCLE_MS = 5e3;
+  var SoonerAccordionController = class {
+    soonerItems = [];
+    activeIndex = 0;
+    cycleIntervalId = null;
+    resumeAfterLeaveId = null;
+    init() {
+      this.initSoonerAccordionItems();
+    }
+    // ─── New 'sooner' process block behavior (mouse hover + mobile click) ───────
+    initSoonerAccordionItems() {
+      const items = document.querySelectorAll('[dev-target="one-sooner-accordion"]');
+      if (!items.length) return;
+      items.forEach((item) => {
+        this.soonerItems.push(item);
+        const header = item.querySelector('[dev-target="sooner-header"]');
+        const circle = item.querySelector('[dev-target="circle"]');
+        if (!header) return;
+        item.addEventListener("mouseenter", () => {
+          if (!this.isHoverable()) return;
+          if (this.resumeAfterLeaveId !== null) {
+            clearTimeout(this.resumeAfterLeaveId);
+            this.resumeAfterLeaveId = null;
+          }
+          this.stopAutoCycle();
+        });
+        item.addEventListener("mouseleave", () => {
+          if (!this.isHoverable()) return;
+          if (this.resumeAfterLeaveId !== null) {
+            clearTimeout(this.resumeAfterLeaveId);
+          }
+          this.resumeAfterLeaveId = window.setTimeout(() => {
+            this.resumeAfterLeaveId = null;
+            this.startAutoCycle();
+          }, 150);
+        });
+        header.addEventListener("mouseenter", () => {
+          if (this.isHoverable() && !this.isTouchDevice()) {
+            this.openSoonerItem(item);
+          }
+        });
+        header.addEventListener("click", (event) => {
+          if (this.isTouchDevice()) {
+            event.preventDefault();
+            this.toggleSoonerItem(item);
+          }
+        });
+        if (circle) {
+          circle.addEventListener("click", (event) => {
+            if (this.isTouchDevice()) {
+              event.preventDefault();
+              event.stopPropagation();
+              this.toggleSoonerItem(item);
+            }
+          });
+        }
+      });
+      if (items.length > 0) {
+        this.openSoonerItem(items[0]);
+        this.startAutoCycle();
+      }
+    }
+    startAutoCycle() {
+      if (!this.isHoverable() || this.soonerItems.length <= 1) return;
+      this.stopAutoCycle();
+      this.cycleIntervalId = window.setInterval(() => {
+        this.activeIndex = (this.activeIndex + 1) % this.soonerItems.length;
+        this.openSoonerItem(this.soonerItems[this.activeIndex]);
+      }, AUTO_CYCLE_MS);
+    }
+    stopAutoCycle() {
+      if (this.cycleIntervalId !== null) {
+        clearInterval(this.cycleIntervalId);
+        this.cycleIntervalId = null;
+      }
+    }
+    toggleSoonerItem(item) {
+      if (item.classList.contains("is-open")) {
+        this.closeSoonerItem(item);
+      } else {
+        this.openSoonerItem(item);
+      }
+    }
+    openSoonerItem(item) {
+      const idx = this.soonerItems.indexOf(item);
+      if (idx >= 0) this.activeIndex = idx;
+      this.soonerItems.forEach((sibling) => {
+        sibling.classList.remove("is-open");
+        const siblingCircle = sibling.querySelector('[dev-target="circle"]');
+        siblingCircle?.classList.remove("is-active");
+      });
+      item.classList.add("is-open");
+      const circle = item.querySelector('[dev-target="circle"]');
+      circle?.classList.add("is-active");
+    }
+    closeSoonerItem(item) {
+      item.classList.remove("is-open");
+      const circle = item.querySelector('[dev-target="circle"]');
+      circle?.classList.remove("is-active");
+    }
+    isTouchDevice() {
+      return "ontouchstart" in window || navigator.maxTouchPoints > 0 || window.matchMedia("(pointer: coarse)").matches;
+    }
+    isHoverable() {
+      return window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    }
+    destroy() {
+      this.stopAutoCycle();
+      if (this.resumeAfterLeaveId !== null) {
+        clearTimeout(this.resumeAfterLeaveId);
+        this.resumeAfterLeaveId = null;
+      }
+      this.soonerItems = [];
+    }
+  };
+
+  // src/sooner-accordion.ts
+  window.Webflow ||= [];
+  window.Webflow.push(() => {
+    const faqAccordionController = new SoonerAccordionController();
+    faqAccordionController.init();
+  });
+})();
+//# sourceMappingURL=sooner-accordion.js.map

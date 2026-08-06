@@ -2,22 +2,7 @@ import '$styles/explore-tabs.css';
 import '$styles/gallery.css';
 
 import { ExploreTabsController } from '$utils/explore-tabs';
-import { type GalleryConfig, GalleryController } from '$utils/gallery';
-
-const galleryConfigs: GalleryConfig[] = [
-  {
-    triggerSelector: '[dev-target="slide-image-wrapper"]',
-    imageSelector: '[dev-target="forward-image"]',
-    containerSelector: '[explore-swiper]',
-  },
-];
-
-galleryConfigs.forEach((config) => {
-  const element = document.querySelector(config.triggerSelector);
-  if (!element) {
-    console.error(`GalleryController: element not found — ${config.triggerSelector}`);
-  }
-});
+import { GalleryController } from '$utils/gallery';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
@@ -29,6 +14,7 @@ window.Webflow.push(() => {
   });
   exploreTabsController.init();
 
-  const galleryController = new GalleryController(galleryConfigs);
+  // Slide galleries are wired globally via bindSlideGalleries(); no CMS config needed here.
+  const galleryController = new GalleryController([]);
   galleryController.init();
 });
