@@ -27,8 +27,6 @@ galleryConfigs.forEach((config) => {
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
-  //const galleryController = new GalleryController(galleryConfigs);
-  //galleryController.init();
 
   const exploreTabsController = new ExploreTabsController({
     triggerToPanel: {
