@@ -12,12 +12,15 @@ import { type GalleryConfig, GalleryController } from '$utils/gallery';
 import { HomeMapController } from '$utils/home-map';
 import { type ColorSchemeBinding, ColorSchemeController } from '$utils/interior-color-scheme';
 import {
+  type AduInteriorSchemeToken,
   applyPalisadeSchemeSwatchMarkup,
   applySchemeSwatchMarkup,
+  ensureSchemeButtonsInSlide,
   FULL_SCHEME_TOKENS,
   getHousePlanSwatchProfile,
   getSchemeSwatchVisual,
   getSchemeTokensForHousePlan,
+  isAduCarriageInteriorPlan,
   isPalisadeHousePlan,
 } from '$utils/interior-scheme-swatches';
 import { LotMapController } from '$utils/lot-map';
@@ -74,6 +77,7 @@ window.Webflow.push(() => {
     document.querySelectorAll<HTMLElement>('[dev-target="other-swiper-slide"]')
   );
   type SchemeToken = (typeof FULL_SCHEME_TOKENS)[number];
+  type AduSchemeToken = AduInteriorSchemeToken;
   type InteriorToken =
     | 'kitchen-interior'
     | 'bedroom-interior'
@@ -111,8 +115,18 @@ window.Webflow.push(() => {
     'pos-3': 'Pacific Contemporary',
     'pos-4': '',
   };
+  const aduInteriorTitleByToken: Record<AduSchemeToken, string> = {
+    'pos-1': 'Modern',
+    'pos-2': 'Coastal Cottage',
+    'pos-3': 'Spanish Contemporary',
+    'pos-4': 'Transitional Organic',
+    'pos-5': 'Pacific Contemporary',
+  };
 
-  type InteriorImageUrls = Record<InteriorToken, Record<SchemeToken, string>>;
+  type InteriorImageUrls = Record<
+    InteriorToken,
+    Record<SchemeToken, string> & Partial<Record<AduSchemeToken, string>>
+  >;
   type HousePlanSlugForInteriors =
     | 'echo'
     | 'merrick'
@@ -127,7 +141,10 @@ window.Webflow.push(() => {
     | 'willow'
     | 'ambrose'
     | 'alder'
-    | 'vista';
+    | 'vista'
+    | 'studio-adu'
+    | 'carriage-house-adu'
+    | 'two-story-adu';
 
   const housePlanImageUrlsBySlug: Partial<Record<HousePlanSlugForInteriors, InteriorImageUrls>> = {
     iris: {
@@ -696,6 +713,140 @@ window.Webflow.push(() => {
         'pos-4': '',
       },
     },
+    'studio-adu': {
+      'kitchen-interior': {
+        'pos-1':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7455053cfff99009d389c8_kitchen.png',
+        'pos-2':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454fc7795e2c6a3285203_kitchen.png',
+        'pos-3':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454f08761de8cb01d9196_kitchen.png',
+        'pos-4':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74551e8761de8cb01dc1b6_Kitchen.png',
+      },
+      'living-interior': {
+        'pos-1':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7455067de066316124b1c7_Studio%20living.png',
+        'pos-2':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454fcb27f0884dd226b8e_Studio%20living.png',
+        'pos-3':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454f0927f43b0746cd812_Studio%20living.png',
+        'pos-4':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74551e9eac13f82c489df3_studio%20living.png',
+      },
+      'bedroom-interior': {
+        'pos-1': '',
+        'pos-2': '',
+        'pos-3': '',
+        'pos-4': '',
+      },
+      'bathroom-interior': {
+        'pos-1': '',
+        'pos-2': '',
+        'pos-3': '',
+        'pos-4': '',
+      },
+    },
+    'carriage-house-adu': {
+      'kitchen-interior': {
+        'pos-1':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74544c44a60aa2dd2161a2_kkitchen.png',
+        'pos-2':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a745424638fdaa6198804dc_Kitchen.png',
+        'pos-3':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454661ade939ac17a58c6_kitchen.png',
+        'pos-4':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a745477584b9c46e55b40fd_Kitchen.png',
+        'pos-5':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a745457bef87edeabb6f348_Kitchen.png',
+      },
+      'living-interior': {
+        'pos-1':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74544c204beb0243391d1d_Great%20room.png',
+        'pos-2':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74542428023a5bb1fe25a2_Great%20room.png',
+        'pos-3':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74546610ccae5bf62e9b1d_Great%20room.png',
+        'pos-4':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a745477584b9c46e55b4100_Great%20room.png',
+        'pos-5':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a745457a39fcd4ef163961e_Great%20room.png',
+      },
+      'bedroom-interior': {
+        'pos-1':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74544c1ade939ac17a4536_Primary%20Bedroom.png',
+        'pos-2':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454242f13080ad25fbdb8_Primary%20Bedroom.png',
+        'pos-3':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a745466c84ff4e8a357c48a_Primary%20Bedroom.png',
+        'pos-4':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a745477204beb0243393da9_Primary%20Bedroom.png',
+        'pos-5':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a745457468333f79594008c_Primary%20bedroom.png',
+      },
+      'bathroom-interior': {
+        'pos-1':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74544cd98f53bd0e75a0ed_Primary%20Bathroom.png',
+        'pos-2':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74542472ce2791516d56bb_Primary%20Bathroom.png',
+        'pos-3':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a745466fe68d7affed3614b_Primary%20Bathroom.png',
+        'pos-4':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454778761de8cb01d25fa_Primary%20Bathroom.png',
+        'pos-5':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454573b00e5a91f8da448_Primary%20Bathroom.png',
+      },
+    },
+    'two-story-adu': {
+      'kitchen-interior': {
+        'pos-1':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a745495d16c9c5509ca61ce_kkitchen.png',
+        'pos-2':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a745487c83039285be9379c_Kitchen.png',
+        'pos-3':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454b6204beb024339687f_kitchen.png',
+        'pos-4':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454c0b27f0884dd223368_Kitchen.png',
+        'pos-5':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454a52d38f1d4f97e920e_Kitchen.png',
+      },
+      'living-interior': {
+        'pos-1':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a745494ea190d933b80b71c_Great%20room.png',
+        'pos-2':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a745487b8fb342e82c81334_Great%20room.png',
+        'pos-3':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454b6565ef7b6637cec7e_Great%20room.png',
+        'pos-4':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454c0c15cbea785d9c4f6_Great%20room.png',
+        'pos-5':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454a510ccae5bf62efc6a_Great%20room.png',
+      },
+      'bedroom-interior': {
+        'pos-1':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74549403e3fd4b2a274ccd_Primary%20Bedroom.png',
+        'pos-2':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454872d38f1d4f97e6bde_Primary%20Bedroom.png',
+        'pos-3':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454b59eac13f82c484717_Primary%20Bedroom.png',
+        'pos-4':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454c0fb6e4be98e4fb3dd_Primary%20Bedroom.png',
+        'pos-5':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454a528023a5bb1fe90c6_Primary%20bedroom.png',
+      },
+      'bathroom-interior': {
+        'pos-1':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454940028970991e6d783_Primary%20Bathroom.png',
+        'pos-2':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a745487a66dd7f5c7010321_Primary%20Bathroom.png',
+        'pos-3':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454b6204beb024339689d_Primary%20Bathroom.png',
+        'pos-4':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454c0927f43b0746cb26d_Primary%20Bathroom.png',
+        'pos-5':
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454a53b00e5a91f8de1dd_Primary%20Bathroom.png',
+      },
+    },
   };
 
   const schemeTitleByTokenByHousePlan: Partial<
@@ -712,6 +863,9 @@ window.Webflow.push(() => {
     willow: palisadeSpanishTitleByToken,
     alder: palisadeSpanishTitleByToken,
     ambrose: palisadeModernTitleByToken,
+    'studio-adu': styleTitleByToken,
+    'carriage-house-adu': aduInteriorTitleByToken,
+    'two-story-adu': aduInteriorTitleByToken,
   };
 
   const housePlanSlug =
@@ -746,19 +900,39 @@ window.Webflow.push(() => {
       button.classList.add('hide');
     });
   }
+  if (maybeInteriorSlug === 'studio-adu') {
+    document.querySelectorAll<HTMLElement>('[dev-target="pos-5"]').forEach((button) => {
+      button.classList.add('hide');
+    });
+    document
+      .querySelectorAll<HTMLElement>(
+        '[dev-target="bedroom-interior"], [dev-target="bathroom-interior"]'
+      )
+      .forEach((button) => {
+        button.classList.add('hide');
+      });
+  }
   const interiorButtons = Array.from(
     document.querySelectorAll<HTMLElement>('[dev-target$="-interior"]')
-  );
+  ).filter((button) => {
+    if (maybeInteriorSlug !== 'studio-adu') return true;
+    const token = button.getAttribute('dev-target');
+    return token === 'kitchen-interior' || token === 'living-interior';
+  });
 
   const colorSchemeBindings: ColorSchemeBinding[] = slideEls.flatMap((slide) => {
     const forwardImage = slide.querySelector<HTMLImageElement>('img[dev-target="interior-image"]');
     if (!forwardImage) return [];
     const packageTitleEl = slide.querySelector<HTMLElement>('[dev-target="package-title"]');
+    ensureSchemeButtonsInSlide(slide, activeSchemeTokens);
     const schemeButtons = Array.from(slide.querySelectorAll<HTMLElement>(schemeButtonSelector));
     if (!schemeButtons.length) return [];
 
     if (swatchProfile === 'altadena') applySchemeSwatchMarkup(schemeButtons);
-    else if (isPalisadeHousePlan(maybeInteriorSlug)) {
+    else if (
+      isPalisadeHousePlan(maybeInteriorSlug) ||
+      isAduCarriageInteriorPlan(maybeInteriorSlug)
+    ) {
       applyPalisadeSchemeSwatchMarkup(maybeInteriorSlug, schemeButtons);
     }
     // House plans uses context-based URL mappings; hidden scheme images are optional.

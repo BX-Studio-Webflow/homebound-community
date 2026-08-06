@@ -42,6 +42,9 @@ const PALISADE_HOUSE_PLAN_SLUGS = new Set([
 
 export const PALISADE_SCHEME_TOKENS = ['pos-1', 'pos-2', 'pos-3'] as const;
 export const FULL_SCHEME_TOKENS = ['pos-1', 'pos-2', 'pos-3', 'pos-4'] as const;
+/** Figma ADU Explore Interiors legends (Carriage, Two-Story) — 5 packages. */
+export const ADU_INTERIOR_SCHEME_TOKENS = ['pos-1', 'pos-2', 'pos-3', 'pos-4', 'pos-5'] as const;
+export type AduInteriorSchemeToken = (typeof ADU_INTERIOR_SCHEME_TOKENS)[number];
 
 export function isAltadenaHousePlan(slug: string): boolean {
   return ALTADENA_HOUSE_PLAN_SLUGS.has(slug);
@@ -51,16 +54,29 @@ export function isPalisadeHousePlan(slug: string): boolean {
   return PALISADE_HOUSE_PLAN_SLUGS.has(slug);
 }
 
+export function isStudioAduInteriorPlan(slug: string): boolean {
+  return slug === 'studio-adu';
+}
+
+export function isAduCarriageInteriorPlan(slug: string): boolean {
+  return slug === 'carriage-house-adu' || slug === 'two-story-adu';
+}
+
+export function isAduInteriorPlan(slug: string): boolean {
+  return isStudioAduInteriorPlan(slug) || isAduCarriageInteriorPlan(slug);
+}
+
 export function getSchemeTokensForHousePlan(
   slug: string
-): readonly (typeof FULL_SCHEME_TOKENS)[number][] {
+): readonly ((typeof FULL_SCHEME_TOKENS)[number] | (typeof ADU_INTERIOR_SCHEME_TOKENS)[number])[] {
   if (isPalisadeHousePlan(slug)) return PALISADE_SCHEME_TOKENS;
+  if (isAduCarriageInteriorPlan(slug)) return ADU_INTERIOR_SCHEME_TOKENS;
   return FULL_SCHEME_TOKENS;
 }
 
 export function getHousePlanSwatchProfile(slug: string): HousePlanSwatchProfile {
-  if (isAltadenaHousePlan(slug)) return 'altadena';
-  if (isPalisadeHousePlan(slug)) return 'palisade';
+  if (isAltadenaHousePlan(slug) || isStudioAduInteriorPlan(slug)) return 'altadena';
+  if (isPalisadeHousePlan(slug) || isAduCarriageInteriorPlan(slug)) return 'palisade';
   return 'lakeside';
 }
 
@@ -85,10 +101,21 @@ const PALISADE_SWATCH_FILLS: Record<Exclude<PalisadePackageKey, 'spanish'>, stri
   pacificContemporary: '#ABAAA6',
 };
 
+type SchemePosToken = (typeof ADU_INTERIOR_SCHEME_TOKENS)[number];
+
+/** Figma nodes 1:1409, 1:633, 1:2276 — shared ADU interior package order. */
+const ADU_INTERIOR_PACKAGE_BY_POS: Record<SchemePosToken, PalisadePackageKey> = {
+  'pos-1': 'modern',
+  'pos-2': 'coastalCottage',
+  'pos-3': 'spanish',
+  'pos-4': 'transitionalOrganic',
+  'pos-5': 'pacificContemporary',
+};
+
 /** Per-plan pos token → package from each plan's Explore Interiors Assets legend. */
 const PALISADE_PACKAGE_BY_SLUG_AND_POS: Record<
   string,
-  Partial<Record<(typeof PALISADE_SCHEME_TOKENS)[number], PalisadePackageKey>>
+  Partial<Record<SchemePosToken, PalisadePackageKey>>
 > = {
   elm: {
     'pos-1': 'transitionalOrganic',
@@ -120,6 +147,8 @@ const PALISADE_PACKAGE_BY_SLUG_AND_POS: Record<
     'pos-2': 'coastalCottage',
     'pos-3': 'pacificContemporary',
   },
+  'carriage-house-adu': ADU_INTERIOR_PACKAGE_BY_POS,
+  'two-story-adu': ADU_INTERIOR_PACKAGE_BY_POS,
 };
 
 function buildAltadenaPatternSwatchSvg(clipId: string): string {
@@ -180,9 +209,7 @@ export function applyPalisadeSchemeSwatchMarkup(slug: string, buttons: HTMLEleme
   if (!packageByPos) return;
 
   buttons.forEach((button, index) => {
-    const token = button.getAttribute('dev-target') as
-      | (typeof PALISADE_SCHEME_TOKENS)[number]
-      | null;
+    const token = button.getAttribute('dev-target') as SchemePosToken | null;
     if (!token) return;
 
     const packageKey = packageByPos[token];
@@ -200,5 +227,30 @@ export function applySchemeSwatchMarkup(buttons: HTMLElement[]): void {
 
     const clipId = `hb-altadena-${token}-${index}`;
     button.innerHTML = buildAltadenaSwatchSvg(token, clipId);
+  });
+}
+
+/** Clone the prior pos button when Webflow only ships pos-1..pos-4 (e.g. ADU pos-5). */
+export function ensureSchemeButtonsInSlide(
+  slide: ParentNode,
+  requiredTokens: readonly string[]
+): void {
+  requiredTokens.forEach((token, index) => {
+    if (index === 0) return;
+    if (slide.querySelector(`[dev-target="${token}"]`)) return;
+
+    const sourceToken = requiredTokens[index - 1];
+    const source = slide.querySelector<HTMLElement>(`[dev-target="${sourceToken}"]`);
+    if (!source?.parentElement) return;
+
+    const clone = source.cloneNode(true) as HTMLElement;
+    clone.setAttribute('dev-target', token);
+    for (let n = 1; n <= requiredTokens.length; n++) {
+      clone.classList.remove(`is-${n}`);
+    }
+    clone.classList.add(`is-${index + 1}`);
+    clone.innerHTML = '';
+    clone.classList.remove('is-active', 'active');
+    source.parentElement.insertBefore(clone, source.nextSibling);
   });
 }
