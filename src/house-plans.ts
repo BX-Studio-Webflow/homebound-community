@@ -911,6 +911,9 @@ window.Webflow.push(() => {
       .forEach((button) => {
         button.classList.add('hide');
       });
+    document.querySelectorAll<HTMLElement>('[dev-target="living-interior"]').forEach((tab) => {
+      tab.textContent = 'Studio Living';
+    });
   }
   const interiorButtons = Array.from(
     document.querySelectorAll<HTMLElement>('[dev-target$="-interior"]')
