@@ -1,16 +1,9 @@
-import '$styles/accordion.css';
-import '$styles/explore-tabs.css';
-import '$styles/gallery.css';
-import '$styles/lot-map.css';
+import '$styles/rebuild-map.css';
 
-import { AccordionController } from '$utils/accordion';
-import { GalleryController } from '$utils/gallery';
+import { RebuildMapController } from '$utils/rebuild-map';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
-  const galleryController = new GalleryController([]);
-  galleryController.init();
-
-  const accordionController = new AccordionController();
-  accordionController.init();
+  const rebuildMapController = new RebuildMapController();
+  rebuildMapController.init();
 });

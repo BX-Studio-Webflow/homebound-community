@@ -10,7 +10,7 @@ const PRODUCTION = process.env.NODE_ENV === 'production';
 const ENTRY_POINTS = [
   'src/index.ts',
   'src/house-plans.ts',
-  'src/rebuild.ts',
+  'src/rebuild-template.ts',
   'src/sooner-accordion.ts',
   'src/homes.ts',
   'src/rebuild-parent.ts',
