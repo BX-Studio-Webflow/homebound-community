@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" viewBox="0 0 468 738">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" viewBox="0 -80.2211 468 818.2211">
   <!-- Generator: Adobe Illustrator 30.3.0, SVG Export Plug-In . SVG Version: 2.1.3 Build 182)  -->
   <g isolation="isolate">
     <g id="FLOORPLAN_x5F_STANDARD">
@@ -5801,11 +5801,11 @@
         </g>
       </g>
       <g id="BALCONY-BASE-WHITEOUT">
-        <rect x="303.4401" y="11.817" width="124.9924" height="7.9566" fill="#fff"/>
+        <rect x="283.0654" y="-72.2211" width="165.7419" height="91.9947" fill="#fff"/>
       </g>
       <line x1="366.6175" y1="20.5057" x2="366.6175" y2="227.5156" fill="none" stroke="#000" stroke-dasharray="4 5" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
     </g>
-    <g id="OPT_CODE_CEILBEAM01__x28_Primary_Bedroom_x29_" display="none">
+    <g id="CEILBEAM01-primary-bedroom" data-attribute="feature" display="none">
       <g id="Whiteout">
         <rect x="364.0316" y="20.3487" width="3.062" height="205.2095" fill="#fff"/>
       </g>
@@ -5845,7 +5845,7 @@
         <line x1="363.248" y1="19.8504" x2="363.248" y2="227.5156" fill="none" stroke="#000" stroke-dasharray="4 5" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
       </g>
     </g>
-    <g id="OPT_CODE_BATH2SHW01" display="none">
+    <g id="BATH2SHW01" data-attribute="feature" display="none">
       <g id="Whiteout1" data-name="Whiteout">
         <rect x="415.28" y="308.7699" width="33.5924" height="68.4076" fill="#fff"/>
         <line x1="416.0062" y1="308.9958" x2="416.3119" y2="377.3907" fill="#fff"/>
@@ -5861,7 +5861,7 @@
         <rect x="415.28" y="308.5292" width="33.8399" height="68.591" fill="#faf183" mix-blend-mode="multiply"/>
       </g>
     </g>
-    <g id="OPT_CODE_LNRYWD0001" display="none">
+    <g id="LNRYWD0001" data-attribute="feature" display="none">
       <g id="Highlight2" data-name="Highlight" mix-blend-mode="multiply">
         <polygon points="380.3819 387.1467 445.7705 387.0437 445.6941 425.5278 442.1429 425.8632 439.3325 426.109 437.4381 426.1784 433.6941 426.365 429.4 426.4449 424.3267 426.2781 417.8957 425.8632 414.8915 425.566 414.9679 387.273 410.9552 387.3113 410.9552 425.566 407.6686 425.8632 402.0113 426.1784 397.6355 426.365 391.4238 426.2781 387.2372 426.109 380.1526 425.566 380.3819 387.1467" fill="#faf183" mix-blend-mode="multiply"/>
       </g>
@@ -7442,7 +7442,7 @@
         <line x1="420.4885" y1="386.8574" x2="414.7018" y2="386.8574" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
       </g>
     </g>
-    <g id="OPT_CODE_CABLDRY001" display="none">
+    <g id="CABLDRY001" data-attribute="feature" display="none">
       <g id="Highlight3" data-name="Highlight" mix-blend-mode="multiply">
         <rect x="337.5816" y="384.9134" width="111.683" height="13.888" fill="#faf183" mix-blend-mode="multiply"/>
       </g>
@@ -7477,7 +7477,7 @@
         <text id="BEDROOM_2-DIMENSION" transform="translate(324.7706 619.6283)" fill="#231f20" font-family="SansSerif, SansSerif" font-size="14"><tspan x="0" y="0">12&apos; 0&quot; X 12&apos; 7&quot;</tspan></text>
       </g>
     </g>
-    <g id="OPT_CODE_LFT2BED001" display="none">
+    <g id="LFT2BED001" data-attribute="feature" display="none">
       <g id="Whiteout2" data-name="Whiteout">
         <g id="HATCH257" data-name="HATCH">
           <rect x="18.1721" y="275.5575" width="204.8953" height="143.0082" fill="#fff"/>
@@ -7970,7 +7970,209 @@
         <text id="CLOSET-LABEL2" data-name="CLOSET-LABEL" transform="translate(220.1121 344.0116) rotate(-90)" fill="#231f20" font-family="SansSerif, SansSerif" font-size="13"><tspan x="0" y="0">CLOSET</tspan></text>
       </g>
     </g>
-    <g id="OPT_CODE_E1_-_C_-_CRAFTSMAN" display="none">
+    <g id="BALC001" data-attribute="feature" display="none">
+      <g id="Highlight5" data-name="Highlight" mix-blend-mode="multiply">
+        <rect x="283.0654" y="-72.2211" width="165.7419" height="84.0382" fill="#faf183" mix-blend-mode="multiply"/>
+      </g>
+      <g id="Geometry-BALC001" data-name="Geometry">
+
+        <g id="LINE-BALC-NORTH" data-name="LINE">
+          <line x1="283.0654" y1="-72.2211" x2="448.8073" y2="-72.2211" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE-BALC-WEST" data-name="LINE">
+          <line x1="283.0654" y1="11.817" x2="283.0654" y2="-72.2211" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE-BALC-EAST" data-name="LINE">
+          <line x1="448.8073" y1="11.817" x2="448.8073" y2="-72.2211" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+<g id="LINE907" data-name="LINE">
+          <line x1="428.4325" y1="11.817" x2="386.7684" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE908" data-name="LINE">
+          <line x1="386.7684" y1="11.817" x2="386.7684" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE909" data-name="LINE">
+          <line x1="386.7684" y1="19.7736" x2="428.4325" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE910" data-name="LINE">
+          <line x1="428.4325" y1="19.7736" x2="428.4325" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE911" data-name="LINE">
+          <line x1="389.3724" y1="16.374" x2="425.8285" y2="16.374" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE912" data-name="LINE">
+          <line x1="389.3724" y1="15.506" x2="425.8285" y2="15.506" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE913" data-name="LINE">
+          <line x1="425.8285" y1="16.591" x2="426.8412" y2="16.591" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE914" data-name="LINE">
+          <line x1="425.8285" y1="15.289" x2="426.8412" y2="15.289" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE915" data-name="LINE">
+          <line x1="428.4325" y1="19.7736" x2="425.8285" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE916" data-name="LINE">
+          <line x1="428.4325" y1="11.817" x2="426.8412" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE917" data-name="LINE">
+          <line x1="425.8285" y1="15.289" x2="425.8285" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE918" data-name="LINE">
+          <line x1="426.8412" y1="11.817" x2="426.8412" y2="16.591" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE919" data-name="LINE">
+          <line x1="428.4325" y1="19.7736" x2="428.4325" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE920" data-name="LINE">
+          <line x1="388.3597" y1="15.289" x2="389.3724" y2="15.289" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE921" data-name="LINE">
+          <line x1="388.3597" y1="16.591" x2="389.3724" y2="16.591" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE922" data-name="LINE">
+          <line x1="389.3724" y1="15.289" x2="389.3724" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE923" data-name="LINE">
+          <line x1="389.3724" y1="19.7736" x2="386.7684" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE924" data-name="LINE">
+          <line x1="388.3597" y1="11.817" x2="386.7684" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE925" data-name="LINE">
+          <line x1="388.3597" y1="11.817" x2="388.3597" y2="16.591" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE926" data-name="LINE">
+          <line x1="386.7684" y1="19.7736" x2="386.7684" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE927" data-name="LINE">
+          <line x1="386.7684" y1="11.817" x2="345.1043" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE928" data-name="LINE">
+          <line x1="345.1043" y1="11.817" x2="345.1043" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE929" data-name="LINE">
+          <line x1="345.1043" y1="19.7736" x2="386.7684" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE930" data-name="LINE">
+          <line x1="386.7684" y1="19.7736" x2="386.7684" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE931" data-name="LINE">
+          <line x1="347.7083" y1="16.374" x2="384.1644" y2="16.374" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE932" data-name="LINE">
+          <line x1="347.7083" y1="15.506" x2="384.1644" y2="15.506" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE933" data-name="LINE">
+          <line x1="384.1644" y1="16.591" x2="385.177" y2="16.591" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE934" data-name="LINE">
+          <line x1="384.1644" y1="15.289" x2="385.177" y2="15.289" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE935" data-name="LINE">
+          <line x1="386.7684" y1="19.7736" x2="384.1644" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE936" data-name="LINE">
+          <line x1="386.7684" y1="11.817" x2="385.177" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE937" data-name="LINE">
+          <line x1="384.1644" y1="15.289" x2="384.1644" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE938" data-name="LINE">
+          <line x1="385.177" y1="11.817" x2="385.177" y2="16.591" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE939" data-name="LINE">
+          <line x1="386.7684" y1="19.7736" x2="386.7684" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE940" data-name="LINE">
+          <line x1="346.6956" y1="15.289" x2="347.7083" y2="15.289" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE941" data-name="LINE">
+          <line x1="346.6956" y1="16.591" x2="347.7083" y2="16.591" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE942" data-name="LINE">
+          <line x1="347.7083" y1="15.289" x2="347.7083" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE943" data-name="LINE">
+          <line x1="347.7083" y1="19.7736" x2="345.1043" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE944" data-name="LINE">
+          <line x1="346.6956" y1="11.817" x2="345.1043" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE945" data-name="LINE">
+          <line x1="346.6956" y1="11.817" x2="346.6956" y2="16.591" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE946" data-name="LINE">
+          <line x1="345.1043" y1="19.7736" x2="345.1043" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE947" data-name="LINE">
+          <line x1="345.1043" y1="11.817" x2="303.4401" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE948" data-name="LINE">
+          <line x1="303.4401" y1="11.817" x2="303.4401" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE949" data-name="LINE">
+          <line x1="303.4401" y1="19.7736" x2="345.1043" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE950" data-name="LINE">
+          <line x1="345.1043" y1="19.7736" x2="345.1043" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE951" data-name="LINE">
+          <line x1="306.0441" y1="16.374" x2="342.5003" y2="16.374" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE952" data-name="LINE">
+          <line x1="306.0441" y1="15.506" x2="342.5003" y2="15.506" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE953" data-name="LINE">
+          <line x1="342.5003" y1="16.591" x2="343.5129" y2="16.591" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE954" data-name="LINE">
+          <line x1="342.5003" y1="15.289" x2="343.5129" y2="15.289" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE955" data-name="LINE">
+          <line x1="345.1043" y1="19.7736" x2="342.5003" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE956" data-name="LINE">
+          <line x1="345.1043" y1="11.817" x2="343.5129" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE957" data-name="LINE">
+          <line x1="342.5003" y1="15.289" x2="342.5003" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE958" data-name="LINE">
+          <line x1="343.5129" y1="11.817" x2="343.5129" y2="16.591" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE959" data-name="LINE">
+          <line x1="345.1043" y1="19.7736" x2="345.1043" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE960" data-name="LINE">
+          <line x1="305.0315" y1="15.289" x2="306.0441" y2="15.289" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE961" data-name="LINE">
+          <line x1="305.0315" y1="16.591" x2="306.0441" y2="16.591" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE962" data-name="LINE">
+          <line x1="306.0441" y1="15.289" x2="306.0441" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE963" data-name="LINE">
+          <line x1="306.0441" y1="19.7736" x2="303.4401" y2="19.7736" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE964" data-name="LINE">
+          <line x1="305.0315" y1="11.817" x2="303.4401" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE965" data-name="LINE">
+          <line x1="305.0315" y1="11.817" x2="305.0315" y2="16.591" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        <g id="LINE966" data-name="LINE">
+          <line x1="303.4401" y1="19.7736" x2="303.4401" y2="11.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".18"/>
+        </g>
+        
+      </g>
+      <g id="BALC001-TEXT">
+        <text id="BALCONY-LABEL" transform="translate(347.9363 -34.2021)" fill="#231f20" font-family="SansSerif, SansSerif" font-size="12"><tspan x="0" y="0">BALCONY</tspan></text>
+        <text id="BALCONY-DIMENSION" transform="translate(329.9363 -20.2021)" fill="#231f20" font-family="SansSerif, SansSerif" font-size="12"><tspan x="0" y="0">11&apos; 10&quot; X 6&apos; 0&quot;</tspan></text>
+      </g>
+    </g>
+    <g id="E1" data-attribute="feature" display="none">
       <g id="Whiteout3" data-name="Whiteout">
         <g id="HATCH287" data-name="HATCH">
           <rect x="85.832" y="670.6309" width="236.0928" height="98.2243" fill="#fff"/>

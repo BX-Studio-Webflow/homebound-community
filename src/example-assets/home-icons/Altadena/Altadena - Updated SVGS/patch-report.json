@@ -276,8 +276,12 @@
   {
     "plan": "Plan 5 - The Echo",
     "file": "echo-second-floor.svg",
-    "features": 6,
+    "features": 7,
     "mappings": [
+      {
+        "from": "OPT_CODE_BALC001",
+        "to": "BALC001"
+      },
       {
         "from": "OPT_CODE_CEILBEAM01__x28_Primary_Bedroom_x29_",
         "to": "CEILBEAM01-primary-bedroom"

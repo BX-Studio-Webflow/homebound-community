@@ -23,7 +23,7 @@
         fill-rule: evenodd;
       }
 
-      .st16, .st17, .st18, .st19, .st20, .st21 {
+      .st16, .st17, .st18, .st19, .st20, .st21, .st27 {
         isolation: isolate;
       }
 
@@ -95,6 +95,11 @@
 
       .st21 {
         font-size: 10px;
+      }
+
+      .st27 {
+        fill: #fff;
+        opacity: .25;
       }
     </style>
   </defs>
@@ -4148,7 +4153,7 @@
                 <rect class="st25" x="445.28" y="391.24" width="212.33" height="119.91"/>
               </g>
               <g id="Highlight4" class="st23">
-                <rect class="st18" x="443.28" y="391.24" width="214.33" height="119.91"/>
+                <rect class="st27" x="443.28" y="391.24" width="214.33" height="119.91"/>
               </g>
               <g>
                 <g id="ARC318">
