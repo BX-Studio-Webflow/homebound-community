@@ -3,7 +3,6 @@ import path from "path";
 import crypto from "crypto";
 
 const root = path.resolve("src/example-assets/home-icons/Palisade SVGs");
-const srcRoot = path.join(root, "Palisade - Updated Plans");
 const outRoot = path.join(root, "Palisade - Updated SVGS");
 
 const jobs = [
@@ -11,12 +10,12 @@ const jobs = [
     name: "The Ambrose - Plan 10",
     files: [
       {
-        src: path.join(srcRoot, "Ambrose", "HB_CODED_Plan 10 First Floor_edited.svg"),
+        src: path.join(root, "The Ambrose - Plan 10", "HB_CODED_Plan 10 First Floor_edited.svg"),
         out: "ambrose-first-floor.svg",
         floor: "first",
       },
       {
-        src: path.join(srcRoot, "Ambrose", "HB_CODED_Plan 10 Second Floor_edited.svg"),
+        src: path.join(root, "The Ambrose - Plan 10", "HB_CODED_Plan 10 Second Floor_edited.svg"),
         out: "ambrose-second-floor.svg",
         floor: "second",
       },
@@ -26,12 +25,12 @@ const jobs = [
     name: "The Alder - Plan 9",
     files: [
       {
-        src: path.join(srcRoot, "Alder", "HB_CODED_Plan 9 First Floor_edited.svg"),
+        src: path.join(root, "The Alder - Plan 9", "HB_CODED_Plan 9 First Floor_edited.svg"),
         out: "alder-first-floor.svg",
         floor: "first",
       },
       {
-        src: path.join(srcRoot, "Alder", "HB_CODED_Plan 9 Second Floor_edited.svg"),
+        src: path.join(root, "The Alder - Plan 9", "HB_CODED_Plan 9 Second Floor_edited.svg"),
         out: "alder-second-floor.svg",
         floor: "second",
       },
@@ -41,12 +40,12 @@ const jobs = [
     name: "The Vista - Plan 8",
     files: [
       {
-        src: path.join(srcRoot, "Vista", "HB_CODED_Plan 8 First floor_edited.svg"),
+        src: path.join(root, "The Vista - Plan 8", "HB_CODED_Plan 8 First floor_edited.svg"),
         out: "vista-first-floor.svg",
         floor: "first",
       },
       {
-        src: path.join(srcRoot, "Vista", "HB_CODED_Plan 8 Second Floor_edited.svg"),
+        src: path.join(root, "The Vista - Plan 8", "HB_CODED_Plan 8 Second Floor_edited.svg"),
         out: "vista-second-floor.svg",
         floor: "second",
       },
@@ -56,14 +55,15 @@ const jobs = [
     name: "The Willow - Plan 7",
     files: [
       {
-        src: path.join(srcRoot, "Willow", "HB_CODED_Plan 7 First Floor_edited.svg"),
+        src: path.join(root, "The Willow - Plan 7", "HB_CODED_Plan 7 First Floor_edited.svg"),
         out: "willow-first-floor.svg",
         floor: "first",
       },
       {
-        src: path.join(srcRoot, "Willow", "HB_CODED_Plan 7 Second Floor_edited.svg"),
+        src: path.join(root, "The Willow - Plan 7", "HB_CODED_Plan 7 Second Floor_edited.svg"),
         out: "willow-second-floor.svg",
         floor: "second",
+        postPatch: "willow-second-floor-alt-bath-white",
       },
     ],
   },
@@ -71,12 +71,12 @@ const jobs = [
     name: "The Glenview - Plan 6X",
     files: [
       {
-        src: path.join(srcRoot, "Glenview", "HB_CODED_Plan 6x first floor_edited.svg"),
+        src: path.join(root, "The Glenview - Plan 6X", "HB_CODED_Plan 6x first floor_edited.svg"),
         out: "glenview-first-floor.svg",
         floor: "first",
       },
       {
-        src: path.join(srcRoot, "Glenview", "HB_CODED_Plan 6x Second floor_edited.svg"),
+        src: path.join(root, "The Glenview - Plan 6X", "HB_CODED_Plan 6x Second floor_edited.svg"),
         out: "glenview-second-floor.svg",
         floor: "second",
       },
@@ -86,7 +86,7 @@ const jobs = [
     name: "The Elm - Plan 6",
     files: [
       {
-        src: path.join(srcRoot, "Elm", "HB_CODED_Plan 6_edited.svg"),
+        src: path.join(root, "The Elm - Plan 6", "HB_CODED_Plan 6_edited.svg"),
         out: "elm-first-floor.svg",
         floor: "first",
       },
@@ -214,9 +214,30 @@ function patchSvg(content, floor) {
   return { patched, mappings };
 }
 
-if (fs.existsSync(outRoot)) {
-  fs.rmSync(outRoot, { recursive: true, force: true });
+/** Alt Primary Bath base tint is white (not yellow) on Willow second floor. */
+function applyWillowSecondFloorAltBathWhite(svg) {
+  if (!svg.includes('id="Highlight4"')) return svg;
+  if (!/\.st27\s*\{/.test(svg)) {
+    svg = svg.replace(
+      /(\s*\.st15 \{\s*stroke-dasharray: 4 5;\s*\})\s*<\/style>/,
+      `$1
+      .st27 {
+        fill: #fff;
+        opacity: .25;
+      }
+    </style>`,
+    );
+  }
+  return svg.replace(
+    /(<g id="Highlight4"[^>]*>\s*<rect class=")st\d+(" x="385\.33" y="128\.9" width="214\.33" height="119\.91"\/>)/,
+    '$1st27$2',
+  );
 }
+
+const postPatchers = {
+  "willow-second-floor-alt-bath-white": applyWillowSecondFloorAltBathWhite,
+};
+
 fs.mkdirSync(outRoot, { recursive: true });
 
 const report = [];
@@ -231,7 +252,10 @@ for (const plan of jobs) {
       throw new Error(`Missing source: ${file.src}`);
     }
     const raw = fs.readFileSync(file.src, "utf8");
-    const { patched, mappings } = patchSvg(raw, file.floor);
+    let { patched, mappings } = patchSvg(raw, file.floor);
+    if (file.postPatch) {
+      patched = postPatchers[file.postPatch](patched);
+    }
     const dest = path.join(dir, file.out);
     fs.writeFileSync(dest, patched, "utf8");
     const buf = fs.readFileSync(dest);

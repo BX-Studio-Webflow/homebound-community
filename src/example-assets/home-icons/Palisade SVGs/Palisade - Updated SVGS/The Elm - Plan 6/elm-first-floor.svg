@@ -4942,7 +4942,7 @@
           </g>
         </g>
       </g>
-      <g id="CEILBEAM01-primary-bedroom" data-attribute="feature" class="st54">
+      <g id="CEILBEAM01-primary-bedroom" class="st54" data-attribute="feature">
         <g id="Highlight2">
           <rect class="st44" x="494.41" y="283.12" width="149.04" height="5.55"/>
           <rect class="st44" x="494.41" y="344.49" width="149" height="5.5"/>
@@ -5071,7 +5071,7 @@
           </g>
         </g>
       </g>
-      <g id="EXTCVPT02" data-attribute="feature" class="st54">
+      <g id="EXTCVPT02" class="st54" data-attribute="feature">
         <g id="Highlight5">
           <rect class="st42" x="185.69" y="137.74" width="292" height="120.01"/>
         </g>
@@ -5214,7 +5214,7 @@
           </g>
         </g>
       </g>
-      <g id="RTREATPM01" data-attribute="feature" class="st54">
+      <g id="RTREATPM01" class="st54" data-attribute="feature">
         <g id="Whiteout22">
           <rect class="st53" x="474.19" y="243.9" width="185.9" height="50.94"/>
           <polygon class="st53" points="469.73 286.44 568.91 285.8 567.77 151.25 469.73 151.25 469.73 286.44"/>
