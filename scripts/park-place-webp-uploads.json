@@ -1,0 +1,725 @@
+{
+  "count": 80,
+  "items": [
+    {
+      "kind": "interior",
+      "label": "Interiors - Park Place__Interior - The Bandera__Modern Edge__Primary Bedroom",
+      "path": "src/example-assets/Park Place Photos-webp/Interiors - Park Place/Interior - The Bandera/Modern Edge/Primary Bedroom.webp",
+      "fileName": "Primary Bedroom.webp",
+      "parentFolder": "6a846190d41d96b564b7f892",
+      "hash": "0eeb9cba0388aa59fc3fd5cd3c25adcb",
+      "size": 53612
+    },
+    {
+      "kind": "interior",
+      "label": "Interiors - Park Place__Interior - The Magnolia__Casual Organic__Kitchen",
+      "path": "src/example-assets/Park Place Photos-webp/Interiors - Park Place/Interior - The Magnolia/Casual Organic/Kitchen.webp",
+      "fileName": "Kitchen.webp",
+      "parentFolder": "6a8461922b968af4812483b7",
+      "hash": "fb83e5116507a6c3acad6769c9319be5",
+      "size": 29140
+    },
+    {
+      "kind": "interior",
+      "label": "Interiors - Park Place__Interior - The Magnolia__Casual Organic__Great Room",
+      "path": "src/example-assets/Park Place Photos-webp/Interiors - Park Place/Interior - The Magnolia/Casual Organic/Great Room.webp",
+      "fileName": "Great Room.webp",
+      "parentFolder": "6a8461922b968af4812483b7",
+      "hash": "36eea4a71a2570284ed61e985992aa97",
+      "size": 28932
+    },
+    {
+      "kind": "interior",
+      "label": "Interiors - Park Place__Interior - The Magnolia__Casual Organic__Primary Bedroom",
+      "path": "src/example-assets/Park Place Photos-webp/Interiors - Park Place/Interior - The Magnolia/Casual Organic/Primary Bedroom.webp",
+      "fileName": "Primary Bedroom.webp",
+      "parentFolder": "6a8461922b968af4812483b7",
+      "hash": "277303f1560d359e5efc59db51c461f0",
+      "size": 49578
+    },
+    {
+      "kind": "interior",
+      "label": "Interiors - Park Place__Interior - The Magnolia__Casual Organic__Primary Bathroom",
+      "path": "src/example-assets/Park Place Photos-webp/Interiors - Park Place/Interior - The Magnolia/Casual Organic/Primary Bathroom.webp",
+      "fileName": "Primary Bathroom.webp",
+      "parentFolder": "6a8461922b968af4812483b7",
+      "hash": "d61eea3880b6d79f52da81feaf5178a4",
+      "size": 22042
+    },
+    {
+      "kind": "exterior",
+      "label": "The Addison__Modern Cape Dutch__Modern Cape Dutch Color Scheme 1 Everest",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Addison/Modern Cape Dutch/Modern Cape Dutch Color Scheme 1 Everest.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 1 Everest.webp",
+      "parentFolder": "6a84616ca02e7e7989ca7615",
+      "hash": "8976b3bd1fec71f53aa9750a8b2aa894",
+      "size": 68366
+    },
+    {
+      "kind": "exterior",
+      "label": "The Addison__Modern Cape Dutch__Modern Cape Dutch Color Scheme 2 Urbane Bronze",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Addison/Modern Cape Dutch/Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+      "parentFolder": "6a84616ca02e7e7989ca7615",
+      "hash": "19b086ec8c5f85e9ddcbd7e876a82af0",
+      "size": 68010
+    },
+    {
+      "kind": "exterior",
+      "label": "The Addison__Modern Cape Dutch__Modern Cape Dutch Color Scheme 3 Iron Ore",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Addison/Modern Cape Dutch/Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+      "parentFolder": "6a84616ca02e7e7989ca7615",
+      "hash": "199a2bd80cb392fb24c1a4ea8cc96121",
+      "size": 61352
+    },
+    {
+      "kind": "exterior",
+      "label": "The Addison__Modern Cape Dutch__Modern Cape Dutch Color Scheme 4 Pure White",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Addison/Modern Cape Dutch/Modern Cape Dutch Color Scheme 4 Pure White.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 4 Pure White.webp",
+      "parentFolder": "6a84616ca02e7e7989ca7615",
+      "hash": "53f99063bc8f26998160d17c464da3b4",
+      "size": 61426
+    },
+    {
+      "kind": "exterior",
+      "label": "The Addison__Modern Cape Dutch__Modern Cape Dutch Color Scheme 5 Felted Wool",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Addison/Modern Cape Dutch/Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+      "parentFolder": "6a84616ca02e7e7989ca7615",
+      "hash": "5a356a947ae6d5d5085ff1cacbb483e4",
+      "size": 70572
+    },
+    {
+      "kind": "exterior",
+      "label": "The Addison__Modern Tudor__Modern Tudor Color Scheme 1 Colonnade Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Addison/Modern Tudor/Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+      "fileName": "Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+      "parentFolder": "6a84616ced92ab6fcab952e6",
+      "hash": "9376fa34a72ca4c81b7ce260717010bc",
+      "size": 67170
+    },
+    {
+      "kind": "exterior",
+      "label": "The Addison__Modern Tudor__Modern Tudor Color Scheme 2 Coral Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Addison/Modern Tudor/Modern Tudor Color Scheme 2 Coral Gray.webp",
+      "fileName": "Modern Tudor Color Scheme 2 Coral Gray.webp",
+      "parentFolder": "6a84616ced92ab6fcab952e6",
+      "hash": "43ba9791430214cba51a4c1212212559",
+      "size": 64952
+    },
+    {
+      "kind": "exterior",
+      "label": "The Addison__Modern Tudor__Modern Tudor Color Scheme 3 Greenblack",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Addison/Modern Tudor/Modern Tudor Color Scheme 3 Greenblack.webp",
+      "fileName": "Modern Tudor Color Scheme 3 Greenblack.webp",
+      "parentFolder": "6a84616ced92ab6fcab952e6",
+      "hash": "b25033cedcfb1e161f07c55012eee846",
+      "size": 67590
+    },
+    {
+      "kind": "exterior",
+      "label": "The Addison__Modern Tudor__Modern Tudor Color Scheme 4 Felted Wool",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Addison/Modern Tudor/Modern Tudor Color Scheme 4 Felted Wool.webp",
+      "fileName": "Modern Tudor Color Scheme 4 Felted Wool.webp",
+      "parentFolder": "6a84616ced92ab6fcab952e6",
+      "hash": "cb6f89e4b3c60817efaddea23b721c02",
+      "size": 66596
+    },
+    {
+      "kind": "exterior",
+      "label": "The Addison__Modern Tudor__Modern Tudor Color Scheme 5 Altitude Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Addison/Modern Tudor/Modern Tudor Color Scheme 5 Altitude Gray.webp",
+      "fileName": "Modern Tudor Color Scheme 5 Altitude Gray.webp",
+      "parentFolder": "6a84616ced92ab6fcab952e6",
+      "hash": "b9bb1e443d1841efd919e6c0438f2895",
+      "size": 66264
+    },
+    {
+      "kind": "exterior",
+      "label": "The Addison__Transitional__Transitional Color Scheme 1 Newport",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Addison/Transitional/Transitional Color Scheme 1 Newport.webp",
+      "fileName": "Transitional Color Scheme 1 Newport.webp",
+      "parentFolder": "6a84616ca02e7e7989ca762a",
+      "hash": "dac131ce422821a274784c16c1d8a570",
+      "size": 64240
+    },
+    {
+      "kind": "exterior",
+      "label": "The Addison__Transitional__Transitional Color Scheme 2 Iron Ore",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Addison/Transitional/Transitional Color Scheme 2 Iron Ore.webp",
+      "fileName": "Transitional Color Scheme 2 Iron Ore.webp",
+      "parentFolder": "6a84616ca02e7e7989ca762a",
+      "hash": "6cbd6f6c3a2134a33fd07cfda3cff81b",
+      "size": 63372
+    },
+    {
+      "kind": "exterior",
+      "label": "The Addison__Transitional__Transitional Color Scheme 3 Caprock",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Addison/Transitional/Transitional Color Scheme 3 Caprock.webp",
+      "fileName": "Transitional Color Scheme 3 Caprock.webp",
+      "parentFolder": "6a84616ca02e7e7989ca762a",
+      "hash": "8eeabad774b9b4294eea37f6cb05bfa3",
+      "size": 65958
+    },
+    {
+      "kind": "exterior",
+      "label": "The Addison__Transitional__Transitional Color Scheme 4 Alabaster",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Addison/Transitional/Transitional Color Scheme 4 Alabaster.webp",
+      "fileName": "Transitional Color Scheme 4 Alabaster.webp",
+      "parentFolder": "6a84616ca02e7e7989ca762a",
+      "hash": "77c74e0fdeaf4b2490aa8bbf3e911b51",
+      "size": 61572
+    },
+    {
+      "kind": "exterior",
+      "label": "The Addison__Transitional__Transitional Color Scheme 5 Worldly Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Addison/Transitional/Transitional Color Scheme 5 Worldly Gray.webp",
+      "fileName": "Transitional Color Scheme 5 Worldly Gray.webp",
+      "parentFolder": "6a84616ca02e7e7989ca762a",
+      "hash": "4df33718830181c018711d40c480c48a",
+      "size": 61758
+    },
+    {
+      "kind": "exterior",
+      "label": "The Bandera__Modern Cape Dutch__Modern Cape Dutch Color Scheme 1 Everest",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 1 Everest.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 1 Everest.webp",
+      "parentFolder": "6a84616cd41d96b564b7ed9f",
+      "hash": "efffdc6203e819976247ca301b7778e3",
+      "size": 60874
+    },
+    {
+      "kind": "exterior",
+      "label": "The Bandera__Modern Cape Dutch__Modern Cape Dutch Color Scheme 2 Urbane Bronze",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+      "parentFolder": "6a84616cd41d96b564b7ed9f",
+      "hash": "90c77202dad507286a554f961350dd22",
+      "size": 60992
+    },
+    {
+      "kind": "exterior",
+      "label": "The Bandera__Modern Cape Dutch__Modern Cape Dutch Color Scheme 3 Iron Ore",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+      "parentFolder": "6a84616cd41d96b564b7ed9f",
+      "hash": "e823ae6a116197c16bb145aedf5d7e87",
+      "size": 63444
+    },
+    {
+      "kind": "exterior",
+      "label": "The Bandera__Modern Cape Dutch__Modern Cape Dutch Color Scheme 4 Pure White",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 4 Pure White.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 4 Pure White.webp",
+      "parentFolder": "6a84616cd41d96b564b7ed9f",
+      "hash": "06f665f803ca57cdb76e40184d97adfc",
+      "size": 53172
+    },
+    {
+      "kind": "exterior",
+      "label": "The Bandera__Modern Cape Dutch__Modern Cape Dutch Color Scheme 5 Felted Wool",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+      "parentFolder": "6a84616cd41d96b564b7ed9f",
+      "hash": "48808daeaa4a747aa9ea1465bcd8d69f",
+      "size": 52920
+    },
+    {
+      "kind": "exterior",
+      "label": "The Bandera__Modern Tudor__Modern Tudor Color Scheme 1 Colonnade Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Tudor/Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+      "fileName": "Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+      "parentFolder": "6a84616df7364a39b1c7c1c0",
+      "hash": "8d3cd6cfb8eaba0b6bf5052d647872df",
+      "size": 65806
+    },
+    {
+      "kind": "exterior",
+      "label": "The Bandera__Modern Tudor__Modern Tudor Color Scheme 2 Coral Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Tudor/Modern Tudor Color Scheme 2 Coral Gray.webp",
+      "fileName": "Modern Tudor Color Scheme 2 Coral Gray.webp",
+      "parentFolder": "6a84616df7364a39b1c7c1c0",
+      "hash": "01f8c07ab2f2079019883f6cd8175c93",
+      "size": 63818
+    },
+    {
+      "kind": "exterior",
+      "label": "The Bandera__Modern Tudor__Modern Tudor Color Scheme 3 Greenblack",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Tudor/Modern Tudor Color Scheme 3 Greenblack.webp",
+      "fileName": "Modern Tudor Color Scheme 3 Greenblack.webp",
+      "parentFolder": "6a84616df7364a39b1c7c1c0",
+      "hash": "28d57aa02e87cb0a6e45d2f0df7309c9",
+      "size": 67194
+    },
+    {
+      "kind": "exterior",
+      "label": "The Bandera__Modern Tudor__Modern Tudor Color Scheme 4 Felted Wool",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Tudor/Modern Tudor Color Scheme 4 Felted Wool.webp",
+      "fileName": "Modern Tudor Color Scheme 4 Felted Wool.webp",
+      "parentFolder": "6a84616df7364a39b1c7c1c0",
+      "hash": "6478f606df2018a303c6083630065ade",
+      "size": 65020
+    },
+    {
+      "kind": "exterior",
+      "label": "The Bandera__Modern Tudor__Modern Tudor Color Scheme 5 Altitude Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Tudor/Modern Tudor Color Scheme 5 Altitude Gray.webp",
+      "fileName": "Modern Tudor Color Scheme 5 Altitude Gray.webp",
+      "parentFolder": "6a84616df7364a39b1c7c1c0",
+      "hash": "0e562f8939c5f3c1d6f9fd2ed98c4d60",
+      "size": 65068
+    },
+    {
+      "kind": "exterior",
+      "label": "The Bandera__Transitional__Transitional Color Scheme 1 Newport",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Transitional/Transitional Color Scheme 1 Newport.webp",
+      "fileName": "Transitional Color Scheme 1 Newport.webp",
+      "parentFolder": "6a84616d33b60021dd7b1150",
+      "hash": "846755284a23da57e181812bd10440f6",
+      "size": 59448
+    },
+    {
+      "kind": "exterior",
+      "label": "The Bandera__Transitional__Transitional Color Scheme 2 Iron Ore",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Transitional/Transitional Color Scheme 2 Iron Ore.webp",
+      "fileName": "Transitional Color Scheme 2 Iron Ore.webp",
+      "parentFolder": "6a84616d33b60021dd7b1150",
+      "hash": "71ea2852370d8dadf84832d1e5cafaf4",
+      "size": 50268
+    },
+    {
+      "kind": "exterior",
+      "label": "The Bandera__Transitional__Transitional Color Scheme 3 Caprock",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Transitional/Transitional Color Scheme 3 Caprock.webp",
+      "fileName": "Transitional Color Scheme 3 Caprock.webp",
+      "parentFolder": "6a84616d33b60021dd7b1150",
+      "hash": "a5e8a69e04476c12aa1896ca607e841e",
+      "size": 53418
+    },
+    {
+      "kind": "exterior",
+      "label": "The Bandera__Transitional__Transitional Color Scheme 4 Alabaster",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Transitional/Transitional Color Scheme 4 Alabaster.webp",
+      "fileName": "Transitional Color Scheme 4 Alabaster.webp",
+      "parentFolder": "6a84616d33b60021dd7b1150",
+      "hash": "4ad439eb5085d7752f04e7a9124621fb",
+      "size": 55704
+    },
+    {
+      "kind": "exterior",
+      "label": "The Bandera__Transitional__Transitional Color Scheme 5 Worldly Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Transitional/Transitional Color Scheme 5 Worldly Gray.webp",
+      "fileName": "Transitional Color Scheme 5 Worldly Gray.webp",
+      "parentFolder": "6a84616d33b60021dd7b1150",
+      "hash": "1f38db63277d5cfba8b05ad2f39af226",
+      "size": 55792
+    },
+    {
+      "kind": "exterior",
+      "label": "The Collin__Modern Cape Dutch__Modern Cape Dutch Color Scheme 1 Everest",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 1 Everest.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 1 Everest.webp",
+      "parentFolder": "6a84616dbcc266bd25e091ae",
+      "hash": "741b472552f30e3aefad5c9d28baf6d7",
+      "size": 78898
+    },
+    {
+      "kind": "exterior",
+      "label": "The Collin__Modern Cape Dutch__Modern Cape Dutch Color Scheme 2 Urbane Bronze",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+      "parentFolder": "6a84616dbcc266bd25e091ae",
+      "hash": "33909d91bd8ce9d7532634fe7b23764b",
+      "size": 78614
+    },
+    {
+      "kind": "exterior",
+      "label": "The Collin__Modern Cape Dutch__Modern Cape Dutch Color Scheme 3 Iron Ore",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+      "parentFolder": "6a84616dbcc266bd25e091ae",
+      "hash": "16810b60f7df98eddbf5aceed5e6406b",
+      "size": 80532
+    },
+    {
+      "kind": "exterior",
+      "label": "The Collin__Modern Cape Dutch__Modern Cape Dutch Color Scheme 4 Pure White",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 4 Pure White.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 4 Pure White.webp",
+      "parentFolder": "6a84616dbcc266bd25e091ae",
+      "hash": "440abf188b0a9ba28a3c75f8685d65ce",
+      "size": 71230
+    },
+    {
+      "kind": "exterior",
+      "label": "The Collin__Modern Cape Dutch__Modern Cape Dutch Color Scheme 5 Felted Wool",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+      "parentFolder": "6a84616dbcc266bd25e091ae",
+      "hash": "3a98452faa18796d5d4de7668ec46709",
+      "size": 70604
+    },
+    {
+      "kind": "exterior",
+      "label": "The Collin__Modern Tudor__Modern Tudor Color Scheme 1 Colonnade Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Tudor/Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+      "fileName": "Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+      "parentFolder": "6a84616efd5d1935ad94d290",
+      "hash": "76b1c01878d1f83971a3d91755ac73d0",
+      "size": 76168
+    },
+    {
+      "kind": "exterior",
+      "label": "The Collin__Modern Tudor__Modern Tudor Color Scheme 2 Coral Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Tudor/Modern Tudor Color Scheme 2 Coral Gray.webp",
+      "fileName": "Modern Tudor Color Scheme 2 Coral Gray.webp",
+      "parentFolder": "6a84616efd5d1935ad94d290",
+      "hash": "49d9c974bd4f2730f7906ee8f5f110af",
+      "size": 74560
+    },
+    {
+      "kind": "exterior",
+      "label": "The Collin__Modern Tudor__Modern Tudor Color Scheme 3 Greenblack",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Tudor/Modern Tudor Color Scheme 3 Greenblack.webp",
+      "fileName": "Modern Tudor Color Scheme 3 Greenblack.webp",
+      "parentFolder": "6a84616efd5d1935ad94d290",
+      "hash": "47f7a45eee26f88374551ffd4d83bdce",
+      "size": 76926
+    },
+    {
+      "kind": "exterior",
+      "label": "The Collin__Modern Tudor__Modern Tudor Color Scheme 4 Felted Wool",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Tudor/Modern Tudor Color Scheme 4 Felted Wool.webp",
+      "fileName": "Modern Tudor Color Scheme 4 Felted Wool.webp",
+      "parentFolder": "6a84616efd5d1935ad94d290",
+      "hash": "ed43ca9791189de7d66a81ea24c6e06b",
+      "size": 75216
+    },
+    {
+      "kind": "exterior",
+      "label": "The Collin__Modern Tudor__Modern Tudor Color Scheme 5 Altitude Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Tudor/Modern Tudor Color Scheme 5 Altitude Gray.webp",
+      "fileName": "Modern Tudor Color Scheme 5 Altitude Gray.webp",
+      "parentFolder": "6a84616efd5d1935ad94d290",
+      "hash": "b47b13894d2c610d492776ada48d4626",
+      "size": 75698
+    },
+    {
+      "kind": "exterior",
+      "label": "The Collin__Transitional__Transitional Color Scheme 1 Newport",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Transitional/Transitional Color Scheme 1 Newport.webp",
+      "fileName": "Transitional Color Scheme 1 Newport.webp",
+      "parentFolder": "6a84616d33b60021dd7b11b3",
+      "hash": "dc48cff1c7460fc3d29c898ecbcc34a1",
+      "size": 71242
+    },
+    {
+      "kind": "exterior",
+      "label": "The Collin__Transitional__Transitional Color Scheme 2 Iron Ore",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Transitional/Transitional Color Scheme 2 Iron Ore.webp",
+      "fileName": "Transitional Color Scheme 2 Iron Ore.webp",
+      "parentFolder": "6a84616d33b60021dd7b11b3",
+      "hash": "694eaa6d315e73b3026709de672877fc",
+      "size": 70238
+    },
+    {
+      "kind": "exterior",
+      "label": "The Collin__Transitional__Transitional Color Scheme 3 Caprock",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Transitional/Transitional Color Scheme 3 Caprock.webp",
+      "fileName": "Transitional Color Scheme 3 Caprock.webp",
+      "parentFolder": "6a84616d33b60021dd7b11b3",
+      "hash": "4b856896af6b639fc753e64dcf20cf2c",
+      "size": 73116
+    },
+    {
+      "kind": "exterior",
+      "label": "The Collin__Transitional__Transitional Color Scheme 4 Alabaster",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Transitional/Transitional Color Scheme 4 Alabaster.webp",
+      "fileName": "Transitional Color Scheme 4 Alabaster.webp",
+      "parentFolder": "6a84616d33b60021dd7b11b3",
+      "hash": "8d2d1cab22806a5827c9c3fa19a0b240",
+      "size": 69620
+    },
+    {
+      "kind": "exterior",
+      "label": "The Collin__Transitional__Transitional Color Scheme 5 Worldly Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Transitional/Transitional Color Scheme 5 Worldly Gray.webp",
+      "fileName": "Transitional Color Scheme 5 Worldly Gray.webp",
+      "parentFolder": "6a84616d33b60021dd7b11b3",
+      "hash": "1d9a92860755e8c02bf512d632e4397f",
+      "size": 68990
+    },
+    {
+      "kind": "exterior",
+      "label": "The Grayson__Modern Cape Dutch__Modern Cape Dutch Color Scheme 1 Everest",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Grayson/Modern Cape Dutch/Modern Cape Dutch Color Scheme 1 Everest.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 1 Everest.webp",
+      "parentFolder": "6a84616e2b968af48124732c",
+      "hash": "2dcfdfa3beef0f9e741b93065606e08f",
+      "size": 72080
+    },
+    {
+      "kind": "exterior",
+      "label": "The Grayson__Modern Cape Dutch__Modern Cape Dutch Color Scheme 2 Urbane Bronze",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Grayson/Modern Cape Dutch/Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+      "parentFolder": "6a84616e2b968af48124732c",
+      "hash": "6adf3f48c9f8e0fa8d052ece7b3970bf",
+      "size": 72454
+    },
+    {
+      "kind": "exterior",
+      "label": "The Grayson__Modern Cape Dutch__Modern Cape Dutch Color Scheme 3 Iron Ore",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Grayson/Modern Cape Dutch/Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+      "parentFolder": "6a84616e2b968af48124732c",
+      "hash": "ceadeeed465da0c290672d49589a9cec",
+      "size": 75942
+    },
+    {
+      "kind": "exterior",
+      "label": "The Grayson__Modern Cape Dutch__Modern Cape Dutch Color Scheme 4 Pure White",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Grayson/Modern Cape Dutch/Modern Cape Dutch Color Scheme 4 Pure White.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 4 Pure White.webp",
+      "parentFolder": "6a84616e2b968af48124732c",
+      "hash": "03a24e413fb86e1fff2124334ff4c0cc",
+      "size": 63666
+    },
+    {
+      "kind": "exterior",
+      "label": "The Grayson__Modern Cape Dutch__Modern Cape Dutch Color Scheme 5 Felted Wool",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Grayson/Modern Cape Dutch/Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+      "parentFolder": "6a84616e2b968af48124732c",
+      "hash": "895bd5e627489b7423527f7c1e128b23",
+      "size": 63638
+    },
+    {
+      "kind": "exterior",
+      "label": "The Grayson__Modern Tudor__Modern Tudor Color Scheme 1 Colonnade Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Grayson/Modern Tudor/Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+      "fileName": "Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+      "parentFolder": "6a84616ebcc266bd25e0925b",
+      "hash": "4cbf4764602bb9293b920b1ff110b848",
+      "size": 70780
+    },
+    {
+      "kind": "exterior",
+      "label": "The Grayson__Modern Tudor__Modern Tudor Color Scheme 2 Coral Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Grayson/Modern Tudor/Modern Tudor Color Scheme 2 Coral Gray.webp",
+      "fileName": "Modern Tudor Color Scheme 2 Coral Gray.webp",
+      "parentFolder": "6a84616ebcc266bd25e0925b",
+      "hash": "607e310e3e2ba06e0819e94a3f248d31",
+      "size": 69212
+    },
+    {
+      "kind": "exterior",
+      "label": "The Grayson__Modern Tudor__Modern Tudor Color Scheme 3 Greenblack",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Grayson/Modern Tudor/Modern Tudor Color Scheme 3 Greenblack.webp",
+      "fileName": "Modern Tudor Color Scheme 3 Greenblack.webp",
+      "parentFolder": "6a84616ebcc266bd25e0925b",
+      "hash": "8d584ca757b85a5a3f39ae6c029d910e",
+      "size": 74114
+    },
+    {
+      "kind": "exterior",
+      "label": "The Grayson__Modern Tudor__Modern Tudor Color Scheme 4 Felted Wool",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Grayson/Modern Tudor/Modern Tudor Color Scheme 4 Felted Wool.webp",
+      "fileName": "Modern Tudor Color Scheme 4 Felted Wool.webp",
+      "parentFolder": "6a84616ebcc266bd25e0925b",
+      "hash": "6b3d22c79d92d2c1527c52b7baf73610",
+      "size": 70470
+    },
+    {
+      "kind": "exterior",
+      "label": "The Grayson__Modern Tudor__Modern Tudor Color Scheme 5 Altitude Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Grayson/Modern Tudor/Modern Tudor Color Scheme 5 Altitude Gray.webp",
+      "fileName": "Modern Tudor Color Scheme 5 Altitude Gray.webp",
+      "parentFolder": "6a84616ebcc266bd25e0925b",
+      "hash": "06fab3b81a3745a61e40f37077889dcc",
+      "size": 70234
+    },
+    {
+      "kind": "exterior",
+      "label": "The Grayson__Transitional__Transitional Color Scheme 1 Newport",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Grayson/Transitional/Transitional Color Scheme 1 Newport.webp",
+      "fileName": "Transitional Color Scheme 1 Newport.webp",
+      "parentFolder": "6a84616efd5d1935ad94d2e3",
+      "hash": "1e0efb40c5098a468a67d6092e135cef",
+      "size": 66220
+    },
+    {
+      "kind": "exterior",
+      "label": "The Grayson__Transitional__Transitional Color Scheme 2 Iron Ore",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Grayson/Transitional/Transitional Color Scheme 2 Iron Ore.webp",
+      "fileName": "Transitional Color Scheme 2 Iron Ore.webp",
+      "parentFolder": "6a84616efd5d1935ad94d2e3",
+      "hash": "5aa37a4440102856d56d604f51614090",
+      "size": 66006
+    },
+    {
+      "kind": "exterior",
+      "label": "The Grayson__Transitional__Transitional Color Scheme 3 Caprock",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Grayson/Transitional/Transitional Color Scheme 3 Caprock.webp",
+      "fileName": "Transitional Color Scheme 3 Caprock.webp",
+      "parentFolder": "6a84616efd5d1935ad94d2e3",
+      "hash": "1df4c316f5b156ab435b30337d8af717",
+      "size": 68174
+    },
+    {
+      "kind": "exterior",
+      "label": "The Grayson__Transitional__Transitional Color Scheme 4 Alabaster",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Grayson/Transitional/Transitional Color Scheme 4 Alabaster.webp",
+      "fileName": "Transitional Color Scheme 4 Alabaster.webp",
+      "parentFolder": "6a84616efd5d1935ad94d2e3",
+      "hash": "34ab95feacc745dacd8146e856a91f27",
+      "size": 63156
+    },
+    {
+      "kind": "exterior",
+      "label": "The Grayson__Transitional__Transitional Color Scheme 5 Worldly Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Grayson/Transitional/Transitional Color Scheme 5 Worldly Gray.webp",
+      "fileName": "Transitional Color Scheme 5 Worldly Gray.webp",
+      "parentFolder": "6a84616efd5d1935ad94d2e3",
+      "hash": "914a4cd2844d1dbec218cbc9905acd8d",
+      "size": 63542
+    },
+    {
+      "kind": "exterior",
+      "label": "The Magnolia__Modern Cape Dutch__Modern Cape Dutch Color Scheme 1 Everest",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Magnolia/Modern Cape Dutch/Modern Cape Dutch Color Scheme 1 Everest.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 1 Everest.webp",
+      "parentFolder": "6a84616e48395d31157dcc68",
+      "hash": "28502de2cbe30400f44d0df12747b194",
+      "size": 66908
+    },
+    {
+      "kind": "exterior",
+      "label": "The Magnolia__Modern Cape Dutch__Modern Cape Dutch Color Scheme 2 Urbane Bronze",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Magnolia/Modern Cape Dutch/Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+      "parentFolder": "6a84616e48395d31157dcc68",
+      "hash": "33122fb06392bc4c3ce781a96552b35a",
+      "size": 67126
+    },
+    {
+      "kind": "exterior",
+      "label": "The Magnolia__Modern Cape Dutch__Modern Cape Dutch Color Scheme 3 Iron Ore",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Magnolia/Modern Cape Dutch/Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+      "parentFolder": "6a84616e48395d31157dcc68",
+      "hash": "aa68e01416ecd9b1c8ec667bfdfc157a",
+      "size": 69878
+    },
+    {
+      "kind": "exterior",
+      "label": "The Magnolia__Modern Cape Dutch__Modern Cape Dutch Color Scheme 4 Pure White",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Magnolia/Modern Cape Dutch/Modern Cape Dutch Color Scheme 4 Pure White.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 4 Pure White.webp",
+      "parentFolder": "6a84616e48395d31157dcc68",
+      "hash": "ab99d882854e442bc690b19ffd584901",
+      "size": 61542
+    },
+    {
+      "kind": "exterior",
+      "label": "The Magnolia__Modern Cape Dutch__Modern Cape Dutch Color Scheme 5 Felted Wool",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Magnolia/Modern Cape Dutch/Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+      "fileName": "Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+      "parentFolder": "6a84616e48395d31157dcc68",
+      "hash": "148f65fa2a80fcc0744a2dd890ed3625",
+      "size": 61034
+    },
+    {
+      "kind": "exterior",
+      "label": "The Magnolia__Modern Tudor__Modern Tudor Color Scheme 1 Colonnade Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Magnolia/Modern Tudor/Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+      "fileName": "Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+      "parentFolder": "6a84616f7392cf5b463e4663",
+      "hash": "509082de88ab2900501f38415df06ffb",
+      "size": 66646
+    },
+    {
+      "kind": "exterior",
+      "label": "The Magnolia__Modern Tudor__Modern Tudor Color Scheme 2 Coral Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Magnolia/Modern Tudor/Modern Tudor Color Scheme 2 Coral Gray.webp",
+      "fileName": "Modern Tudor Color Scheme 2 Coral Gray.webp",
+      "parentFolder": "6a84616f7392cf5b463e4663",
+      "hash": "f64f875fe853aa099b0af69d4c27acb0",
+      "size": 65864
+    },
+    {
+      "kind": "exterior",
+      "label": "The Magnolia__Modern Tudor__Modern Tudor Color Scheme 3 Greenblack",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Magnolia/Modern Tudor/Modern Tudor Color Scheme 3 Greenblack.webp",
+      "fileName": "Modern Tudor Color Scheme 3 Greenblack.webp",
+      "parentFolder": "6a84616f7392cf5b463e4663",
+      "hash": "afc7ffe407e8a572bb1852c50818b264",
+      "size": 68270
+    },
+    {
+      "kind": "exterior",
+      "label": "The Magnolia__Modern Tudor__Modern Tudor Color Scheme 4 Felted Wool",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Magnolia/Modern Tudor/Modern Tudor Color Scheme 4 Felted Wool.webp",
+      "fileName": "Modern Tudor Color Scheme 4 Felted Wool.webp",
+      "parentFolder": "6a84616f7392cf5b463e4663",
+      "hash": "2d4ce38769057959ddfcfeb87d57fd59",
+      "size": 66390
+    },
+    {
+      "kind": "exterior",
+      "label": "The Magnolia__Modern Tudor__Modern Tudor Color Scheme 5 Altitude Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Magnolia/Modern Tudor/Modern Tudor Color Scheme 5 Altitude Gray.webp",
+      "fileName": "Modern Tudor Color Scheme 5 Altitude Gray.webp",
+      "parentFolder": "6a84616f7392cf5b463e4663",
+      "hash": "09506f3c092265ae776314279ef6c405",
+      "size": 66204
+    },
+    {
+      "kind": "exterior",
+      "label": "The Magnolia__Transitional__Transitional Color Scheme 1 Newport",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Magnolia/Transitional/Transitional Color Scheme 1 Newport.webp",
+      "fileName": "Transitional Color Scheme 1 Newport.webp",
+      "parentFolder": "6a84616f7392cf5b463e4625",
+      "hash": "e78883a57931ec95116344642a49404e",
+      "size": 62530
+    },
+    {
+      "kind": "exterior",
+      "label": "The Magnolia__Transitional__Transitional Color Scheme 2 Iron Ore",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Magnolia/Transitional/Transitional Color Scheme 2 Iron Ore.webp",
+      "fileName": "Transitional Color Scheme 2 Iron Ore.webp",
+      "parentFolder": "6a84616f7392cf5b463e4625",
+      "hash": "7cff7930616751afedd5239ed73c2c89",
+      "size": 61970
+    },
+    {
+      "kind": "exterior",
+      "label": "The Magnolia__Transitional__Transitional Color Scheme 3 Caprock",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Magnolia/Transitional/Transitional Color Scheme 3 Caprock.webp",
+      "fileName": "Transitional Color Scheme 3 Caprock.webp",
+      "parentFolder": "6a84616f7392cf5b463e4625",
+      "hash": "ea60ab50bc909b72e0ee7c0b721287f9",
+      "size": 63894
+    },
+    {
+      "kind": "exterior",
+      "label": "The Magnolia__Transitional__Transitional Color Scheme 4 Alabaster",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Magnolia/Transitional/Transitional Color Scheme 4 Alabaster.webp",
+      "fileName": "Transitional Color Scheme 4 Alabaster.webp",
+      "parentFolder": "6a84616f7392cf5b463e4625",
+      "hash": "1dd3b3be3f7f861a8d5283151ef90051",
+      "size": 59996
+    },
+    {
+      "kind": "exterior",
+      "label": "The Magnolia__Transitional__Transitional Color Scheme 5 Worldly Gray",
+      "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Magnolia/Transitional/Transitional Color Scheme 5 Worldly Gray.webp",
+      "fileName": "Transitional Color Scheme 5 Worldly Gray.webp",
+      "parentFolder": "6a84616f7392cf5b463e4625",
+      "hash": "bec3b6e2de509e2260378027214226a4",
+      "size": 60164
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "actions": [
+    {
+      "label": "interior-0",
+      "create_asset": {
+        "site_id": "601ca16f0bb27e965ee867a0",
+        "file_name": "Primary Bedroom.webp",
+        "file_hash": "0eeb9cba0388aa59fc3fd5cd3c25adcb",
+        "parent_folder": "6a846190d41d96b564b7f892"
+      }
+    },
+    {
+      "label": "interior-1",
+      "create_asset": {
+        "site_id": "601ca16f0bb27e965ee867a0",
+        "file_name": "Kitchen.webp",
+        "file_hash": "fb83e5116507a6c3acad6769c9319be5",
+        "parent_folder": "6a8461922b968af4812483b7"
+      }
+    },
+    {
+      "label": "interior-2",
+      "create_asset": {
+        "site_id": "601ca16f0bb27e965ee867a0",
+        "file_name": "Great Room.webp",
+        "file_hash": "36eea4a71a2570284ed61e985992aa97",
+        "parent_folder": "6a8461922b968af4812483b7"
+      }
+    },
+    {
+      "label": "interior-3",
+      "create_asset": {
+        "site_id": "601ca16f0bb27e965ee867a0",
+        "file_name": "Primary Bedroom.webp",
+        "file_hash": "277303f1560d359e5efc59db51c461f0",
+        "parent_folder": "6a8461922b968af4812483b7"
+      }
+    },
+    {
+      "label": "interior-4",
+      "create_asset": {
+        "site_id": "601ca16f0bb27e965ee867a0",
+        "file_name": "Primary Bathroom.webp",
+        "file_hash": "d61eea3880b6d79f52da81feaf5178a4",
+        "parent_folder": "6a8461922b968af4812483b7"
+      }
+    }
+  ],
+  "items": [
+    {
+      "kind": "interior",
+      "label": "Interiors - Park Place__Interior - The Bandera__Modern Edge__Primary Bedroom",
+      "path": "src/example-assets/Park Place Photos-webp/Interiors - Park Place/Interior - The Bandera/Modern Edge/Primary Bedroom.webp",
+      "fileName": "Primary Bedroom.webp",
+      "parentFolder": "6a846190d41d96b564b7f892",
+      "hash": "0eeb9cba0388aa59fc3fd5cd3c25adcb",
+      "size": 53612
+    },
+    {
+      "kind": "interior",
+      "label": "Interiors - Park Place__Interior - The Magnolia__Casual Organic__Kitchen",
+      "path": "src/example-assets/Park Place Photos-webp/Interiors - Park Place/Interior - The Magnolia/Casual Organic/Kitchen.webp",
+      "fileName": "Kitchen.webp",
+      "parentFolder": "6a8461922b968af4812483b7",
+      "hash": "fb83e5116507a6c3acad6769c9319be5",
+      "size": 29140
+    },
+    {
+      "kind": "interior",
+      "label": "Interiors - Park Place__Interior - The Magnolia__Casual Organic__Great Room",
+      "path": "src/example-assets/Park Place Photos-webp/Interiors - Park Place/Interior - The Magnolia/Casual Organic/Great Room.webp",
+      "fileName": "Great Room.webp",
+      "parentFolder": "6a8461922b968af4812483b7",
+      "hash": "36eea4a71a2570284ed61e985992aa97",
+      "size": 28932
+    },
+    {
+      "kind": "interior",
+      "label": "Interiors - Park Place__Interior - The Magnolia__Casual Organic__Primary Bedroom",
+      "path": "src/example-assets/Park Place Photos-webp/Interiors - Park Place/Interior - The Magnolia/Casual Organic/Primary Bedroom.webp",
+      "fileName": "Primary Bedroom.webp",
+      "parentFolder": "6a8461922b968af4812483b7",
+      "hash": "277303f1560d359e5efc59db51c461f0",
+      "size": 49578
+    },
+    {
+      "kind": "interior",
+      "label": "Interiors - Park Place__Interior - The Magnolia__Casual Organic__Primary Bathroom",
+      "path": "src/example-assets/Park Place Photos-webp/Interiors - Park Place/Interior - The Magnolia/Casual Organic/Primary Bathroom.webp",
+      "fileName": "Primary Bathroom.webp",
+      "parentFolder": "6a8461922b968af4812483b7",
+      "hash": "d61eea3880b6d79f52da81feaf5178a4",
+      "size": 22042
+    }
+  ]
+}

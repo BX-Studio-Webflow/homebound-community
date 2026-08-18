@@ -1,0 +1,317 @@
+[
+  {
+    "label": "The Collin__Modern Cape Dutch__Modern Cape Dutch Color Scheme 1 Everest",
+    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 1 Everest.webp",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b3c647e218625ded7348_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "id": "6a84b3c647e218625ded7348",
+    "parentFolder": "6a84616dbcc266bd25e091ae",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
+      "successActionStatus": "201",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=31536000",
+      "xAmzDate": "20260818T193430Z",
+      "key": "601ca16f0bb27e965ee867a0/6a84b3c647e218625ded7348_Modern Cape Dutch Color Scheme 1 Everest.webp",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQyMDozNDozMFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxOTM0MzBaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NGIzYzY0N2UyMTg2MjVkZWQ3MzQ4X01vZGVybiBDYXBlIER1dGNoIENvbG9yIFNjaGVtZSAxIEV2ZXJlc3Qud2VicCJ9XX0=",
+      "xAmzSignature": "74ab150d05d8182a54420376815a01cc63023d4a84f6c79a3632c48440d0a17a"
+    }
+  },
+  {
+    "label": "The Collin__Modern Cape Dutch__Modern Cape Dutch Color Scheme 2 Urbane Bronze",
+    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b3c73888a4db5685d9d6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "id": "6a84b3c73888a4db5685d9d6",
+    "parentFolder": "6a84616dbcc266bd25e091ae",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
+      "successActionStatus": "201",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=31536000",
+      "xAmzDate": "20260818T193431Z",
+      "key": "601ca16f0bb27e965ee867a0/6a84b3c73888a4db5685d9d6_Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQyMDozNDozMVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxOTM0MzFaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NGIzYzczODg4YTRkYjU2ODVkOWQ2X01vZGVybiBDYXBlIER1dGNoIENvbG9yIFNjaGVtZSAyIFVyYmFuZSBCcm9uemUud2VicCJ9XX0=",
+      "xAmzSignature": "23834fc62c1b36b585d6f00812faafa3151f02a23b96c807269a2744453f69f4"
+    }
+  },
+  {
+    "label": "The Collin__Modern Cape Dutch__Modern Cape Dutch Color Scheme 3 Iron Ore",
+    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b3c797c77db82ebaf1bc_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "id": "6a84b3c797c77db82ebaf1bc",
+    "parentFolder": "6a84616dbcc266bd25e091ae",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
+      "successActionStatus": "201",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=31536000",
+      "xAmzDate": "20260818T193431Z",
+      "key": "601ca16f0bb27e965ee867a0/6a84b3c797c77db82ebaf1bc_Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQyMDozNDozMVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxOTM0MzFaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NGIzYzc5N2M3N2RiODJlYmFmMWJjX01vZGVybiBDYXBlIER1dGNoIENvbG9yIFNjaGVtZSAzIElyb24gT3JlLndlYnAifV19",
+      "xAmzSignature": "5169fd0bd8f59a5b71dcd877dcd8e994f726601390c7c7105482a4ec8b14c4db"
+    }
+  },
+  {
+    "label": "The Collin__Modern Cape Dutch__Modern Cape Dutch Color Scheme 4 Pure White",
+    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 4 Pure White.webp",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b3c7668753f061942f10_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "id": "6a84b3c7668753f061942f10",
+    "parentFolder": "6a84616dbcc266bd25e091ae",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
+      "successActionStatus": "201",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=31536000",
+      "xAmzDate": "20260818T193431Z",
+      "key": "601ca16f0bb27e965ee867a0/6a84b3c7668753f061942f10_Modern Cape Dutch Color Scheme 4 Pure White.webp",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQyMDozNDozMVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxOTM0MzFaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NGIzYzc2Njg3NTNmMDYxOTQyZjEwX01vZGVybiBDYXBlIER1dGNoIENvbG9yIFNjaGVtZSA0IFB1cmUgV2hpdGUud2VicCJ9XX0=",
+      "xAmzSignature": "04cdba3c8c5ec91dafd0aa06d626d285fef872f7a71ba1899a239a989370a348"
+    }
+  },
+  {
+    "label": "The Collin__Modern Cape Dutch__Modern Cape Dutch Color Scheme 5 Felted Wool",
+    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b3c7b79122ab8a107532_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "id": "6a84b3c7b79122ab8a107532",
+    "parentFolder": "6a84616dbcc266bd25e091ae",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
+      "successActionStatus": "201",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=31536000",
+      "xAmzDate": "20260818T193431Z",
+      "key": "601ca16f0bb27e965ee867a0/6a84b3c7b79122ab8a107532_Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQyMDozNDozMVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxOTM0MzFaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NGIzYzdiNzkxMjJhYjhhMTA3NTMyX01vZGVybiBDYXBlIER1dGNoIENvbG9yIFNjaGVtZSA1IEZlbHRlZCBXb29sLndlYnAifV19",
+      "xAmzSignature": "af241689c188ec305d511b1037b915c75b40574a6bd641f63ce90c719502cc9b"
+    }
+  },
+  {
+    "label": "The Collin__Modern Tudor__Modern Tudor Color Scheme 1 Colonnade Gray",
+    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Tudor/Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b3c7b1357c809573778c_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "id": "6a84b3c7b1357c809573778c",
+    "parentFolder": "6a84616efd5d1935ad94d290",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
+      "successActionStatus": "201",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=31536000",
+      "xAmzDate": "20260818T193431Z",
+      "key": "601ca16f0bb27e965ee867a0/6a84b3c7b1357c809573778c_Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQyMDozNDozMVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxOTM0MzFaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NGIzYzdiMTM1N2M4MDk1NzM3NzhjX01vZGVybiBUdWRvciBDb2xvciBTY2hlbWUgMSBDb2xvbm5hZGUgR3JheS53ZWJwIn1dfQ==",
+      "xAmzSignature": "c571d159e82fcd898ff7935ce7b9cc2e2dac1a1356852127bede83bf61d047e8"
+    }
+  },
+  {
+    "label": "The Collin__Modern Tudor__Modern Tudor Color Scheme 2 Coral Gray",
+    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Tudor/Modern Tudor Color Scheme 2 Coral Gray.webp",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b3c855df81cb20fbe5e3_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "id": "6a84b3c855df81cb20fbe5e3",
+    "parentFolder": "6a84616efd5d1935ad94d290",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
+      "successActionStatus": "201",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=31536000",
+      "xAmzDate": "20260818T193432Z",
+      "key": "601ca16f0bb27e965ee867a0/6a84b3c855df81cb20fbe5e3_Modern Tudor Color Scheme 2 Coral Gray.webp",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQyMDozNDozMloiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxOTM0MzJaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NGIzYzg1NWRmODFjYjIwZmJlNWUzX01vZGVybiBUdWRvciBDb2xvciBTY2hlbWUgMiBDb3JhbCBHcmF5LndlYnAifV19",
+      "xAmzSignature": "a6726cba10301001312476f7751a1e98bde56bc82ee12b241a367971f58b31ac"
+    }
+  },
+  {
+    "label": "The Collin__Modern Tudor__Modern Tudor Color Scheme 3 Greenblack",
+    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Tudor/Modern Tudor Color Scheme 3 Greenblack.webp",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b3c8668753f061942fca_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "id": "6a84b3c8668753f061942fca",
+    "parentFolder": "6a84616efd5d1935ad94d290",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
+      "successActionStatus": "201",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=31536000",
+      "xAmzDate": "20260818T193432Z",
+      "key": "601ca16f0bb27e965ee867a0/6a84b3c8668753f061942fca_Modern Tudor Color Scheme 3 Greenblack.webp",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQyMDozNDozMloiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxOTM0MzJaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NGIzYzg2Njg3NTNmMDYxOTQyZmNhX01vZGVybiBUdWRvciBDb2xvciBTY2hlbWUgMyBHcmVlbmJsYWNrLndlYnAifV19",
+      "xAmzSignature": "5769de4b2ddf5cfaa86f58eeb3c7c420388c2029b6d014d2403f3736efd054d0"
+    }
+  },
+  {
+    "label": "The Collin__Modern Tudor__Modern Tudor Color Scheme 4 Felted Wool",
+    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Tudor/Modern Tudor Color Scheme 4 Felted Wool.webp",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b3c86ca32e7649b9709d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "id": "6a84b3c86ca32e7649b9709d",
+    "parentFolder": "6a84616efd5d1935ad94d290",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
+      "successActionStatus": "201",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=31536000",
+      "xAmzDate": "20260818T193432Z",
+      "key": "601ca16f0bb27e965ee867a0/6a84b3c86ca32e7649b9709d_Modern Tudor Color Scheme 4 Felted Wool.webp",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQyMDozNDozMloiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxOTM0MzJaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NGIzYzg2Y2EzMmU3NjQ5Yjk3MDlkX01vZGVybiBUdWRvciBDb2xvciBTY2hlbWUgNCBGZWx0ZWQgV29vbC53ZWJwIn1dfQ==",
+      "xAmzSignature": "e9f18f6e86db663ef41d0cf4cb43afb2ebd09347358ed29620e19de56bbe0b0d"
+    }
+  },
+  {
+    "label": "The Collin__Modern Tudor__Modern Tudor Color Scheme 5 Altitude Gray",
+    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Modern Tudor/Modern Tudor Color Scheme 5 Altitude Gray.webp",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b3c9d62095daa8120c5f_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "id": "6a84b3c9d62095daa8120c5f",
+    "parentFolder": "6a84616efd5d1935ad94d290",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
+      "successActionStatus": "201",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=31536000",
+      "xAmzDate": "20260818T193433Z",
+      "key": "601ca16f0bb27e965ee867a0/6a84b3c9d62095daa8120c5f_Modern Tudor Color Scheme 5 Altitude Gray.webp",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQyMDozNDozM1oiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxOTM0MzNaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NGIzYzlkNjIwOTVkYWE4MTIwYzVmX01vZGVybiBUdWRvciBDb2xvciBTY2hlbWUgNSBBbHRpdHVkZSBHcmF5LndlYnAifV19",
+      "xAmzSignature": "309e0d6929d30f3eb9997360b5d04dff1ce4c7f734c994d1a6034aff0ab774de"
+    }
+  },
+  {
+    "label": "The Collin__Transitional__Transitional Color Scheme 1 Newport",
+    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Transitional/Transitional Color Scheme 1 Newport.webp",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b3c93888a4db5685dad3_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "id": "6a84b3c93888a4db5685dad3",
+    "parentFolder": "6a84616d33b60021dd7b11b3",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
+      "successActionStatus": "201",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=31536000",
+      "xAmzDate": "20260818T193433Z",
+      "key": "601ca16f0bb27e965ee867a0/6a84b3c93888a4db5685dad3_Transitional Color Scheme 1 Newport.webp",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQyMDozNDozM1oiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxOTM0MzNaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NGIzYzkzODg4YTRkYjU2ODVkYWQzX1RyYW5zaXRpb25hbCBDb2xvciBTY2hlbWUgMSBOZXdwb3J0LndlYnAifV19",
+      "xAmzSignature": "771ae63a9f23a2e88864dfe3014ec4f4cf4e58a27ee9ee0ce0a6ce1ba3a42ea1"
+    }
+  },
+  {
+    "label": "The Collin__Transitional__Transitional Color Scheme 2 Iron Ore",
+    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Transitional/Transitional Color Scheme 2 Iron Ore.webp",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b3ca165fa1b5bf5c40e5_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "id": "6a84b3ca165fa1b5bf5c40e5",
+    "parentFolder": "6a84616d33b60021dd7b11b3",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
+      "successActionStatus": "201",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=31536000",
+      "xAmzDate": "20260818T193434Z",
+      "key": "601ca16f0bb27e965ee867a0/6a84b3ca165fa1b5bf5c40e5_Transitional Color Scheme 2 Iron Ore.webp",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQyMDozNDozNFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxOTM0MzRaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NGIzY2ExNjVmYTFiNWJmNWM0MGU1X1RyYW5zaXRpb25hbCBDb2xvciBTY2hlbWUgMiBJcm9uIE9yZS53ZWJwIn1dfQ==",
+      "xAmzSignature": "f48616dc3bafbc067ae33ca371ccc4fb06eaba51f5fe7961d9de258ca5dcb94c"
+    }
+  },
+  {
+    "label": "The Collin__Transitional__Transitional Color Scheme 3 Caprock",
+    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Transitional/Transitional Color Scheme 3 Caprock.webp",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b3cae570e96c28ad428e_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "id": "6a84b3cae570e96c28ad428e",
+    "parentFolder": "6a84616d33b60021dd7b11b3",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
+      "successActionStatus": "201",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=31536000",
+      "xAmzDate": "20260818T193434Z",
+      "key": "601ca16f0bb27e965ee867a0/6a84b3cae570e96c28ad428e_Transitional Color Scheme 3 Caprock.webp",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQyMDozNDozNFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxOTM0MzRaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NGIzY2FlNTcwZTk2YzI4YWQ0MjhlX1RyYW5zaXRpb25hbCBDb2xvciBTY2hlbWUgMyBDYXByb2NrLndlYnAifV19",
+      "xAmzSignature": "0435b89fdbc0f0d532b145e8f0f448a073ecaa8826062848be628d6ff824c56c"
+    }
+  },
+  {
+    "label": "The Collin__Transitional__Transitional Color Scheme 4 Alabaster",
+    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Transitional/Transitional Color Scheme 4 Alabaster.webp",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b3ca6ca32e7649b97267_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "id": "6a84b3ca6ca32e7649b97267",
+    "parentFolder": "6a84616d33b60021dd7b11b3",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
+      "successActionStatus": "201",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=31536000",
+      "xAmzDate": "20260818T193434Z",
+      "key": "601ca16f0bb27e965ee867a0/6a84b3ca6ca32e7649b97267_Transitional Color Scheme 4 Alabaster.webp",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQyMDozNDozNFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxOTM0MzRaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NGIzY2E2Y2EzMmU3NjQ5Yjk3MjY3X1RyYW5zaXRpb25hbCBDb2xvciBTY2hlbWUgNCBBbGFiYXN0ZXIud2VicCJ9XX0=",
+      "xAmzSignature": "ad90778a223608aa765617d481f87cadd5d09b146995d92edfd07f79d424e98f"
+    }
+  },
+  {
+    "label": "The Collin__Transitional__Transitional Color Scheme 5 Worldly Gray",
+    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Collin/Transitional/Transitional Color Scheme 5 Worldly Gray.webp",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b3ca165fa1b5bf5c4159_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "id": "6a84b3ca165fa1b5bf5c4159",
+    "parentFolder": "6a84616d33b60021dd7b11b3",
+    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
+    "uploadDetails": {
+      "acl": "public-read",
+      "bucket": "webflow-prod-assets",
+      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
+      "successActionStatus": "201",
+      "contentType": "image/webp",
+      "cacheControl": "max-age=31536000",
+      "xAmzDate": "20260818T193434Z",
+      "key": "601ca16f0bb27e965ee867a0/6a84b3ca165fa1b5bf5c4159_Transitional Color Scheme 5 Worldly Gray.webp",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQyMDozNDozNFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxOTM0MzRaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NGIzY2ExNjVmYTFiNWJmNWM0MTU5X1RyYW5zaXRpb25hbCBDb2xvciBTY2hlbWUgNSBXb3JsZGx5IEdyYXkud2VicCJ9XX0=",
+      "xAmzSignature": "3bb0790250bdc1f2e62933ec5f6fbf8fa2b1ad62f8e2d973839b7b3d08d8207e"
+    }
+  }
+]

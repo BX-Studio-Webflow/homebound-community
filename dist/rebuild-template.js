@@ -5502,6 +5502,27 @@
     { number: 4, name: "Manor Brick" },
     { number: 5, name: "Chateau Stone" }
   ];
+  var PARK_PLACE_CAPE_DUTCH_SCHEMES = [
+    { number: 1, name: "Everest" },
+    { number: 2, name: "Urbane Bronze" },
+    { number: 3, name: "Iron Ore" },
+    { number: 4, name: "Pure White" },
+    { number: 5, name: "Felted Wool" }
+  ];
+  var PARK_PLACE_TRANSITIONAL_SCHEMES = [
+    { number: 1, name: "Newport" },
+    { number: 2, name: "Iron Ore" },
+    { number: 3, name: "Caprock" },
+    { number: 4, name: "Alabaster" },
+    { number: 5, name: "Worldly Gray" }
+  ];
+  var PARK_PLACE_TUDOR_SCHEMES = [
+    { number: 1, name: "Colonnade Gray" },
+    { number: 2, name: "Coral Gray" },
+    { number: 3, name: "Greenblack" },
+    { number: 4, name: "Felted Wool" },
+    { number: 5, name: "Altitude Gray" }
+  ];
   var EXTERIOR_IMAGE_SETS_BY_PLAN = {
     echo: {
       craftsman: [
@@ -5696,6 +5717,172 @@
       }
     ];
   };
+  var PARK_PLACE_CDN = "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0";
+  var PARK_PLACE_EXTERIOR_IMAGE_URLS = {
+    addison: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b1a5b0cd93c94cbe7346_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a583d75ceaa6461dcd_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a5830be1b62868857d_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a56a17c6919f5e0e0e_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a5e570e96c28ac12c4_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b1a7b79122ab8a0f40bd_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a7b8efd49498294990_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a77b6b694595669cd2_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a7f5c02efbf7c77d98_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a7fcc834951e54f4bf_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b1a6af7a129003ace1ec_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a6fcc834951e54f421_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a617cf0f48c34c5058_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a683d75ceaa6461f26_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a67b6b694595669ca2_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    },
+    bandera: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b2bc1f53dd3717d85d60_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bc297085014b204e1c_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bcb0cd93c94cbeff9d_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bdb79122ab8a0fb25f_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bd9a92f58d97c26784_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b2c097c77db82ebab4a2_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c004702f83e9ba2ddd_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c004702f83e9ba2e1b_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c017cf0f48c34cdcbf_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c1d62095daa8114600_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b2be9a287322be54c601_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bfe570e96c28ac8d97_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bf573a47599c830a8d_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bf165fa1b5bf5bbab9_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c008dc2fe1c6cfdb16_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    },
+    collin: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b3c647e218625ded7348_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c73888a4db5685d9d6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c797c77db82ebaf1bc_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c7668753f061942f10_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c7b79122ab8a107532_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b3c93888a4db5685dad3_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b3ca165fa1b5bf5c40e5_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b3cae570e96c28ad428e_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b3ca6ca32e7649b97267_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b3ca165fa1b5bf5c4159_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b3c7b1357c809573778c_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c855df81cb20fbe5e3_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c8668753f061942fca_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c86ca32e7649b9709d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c9d62095daa8120c5f_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    },
+    grayson: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b4a456716fa5cdfdc6df_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a4d7c17df8a732426f_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a459e59db0530cb29b_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a4573a47599c833035_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a5d7c17df8a73242a1_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b4a6165fa1b5bf5ca597_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a6165fa1b5bf5ca5ca_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a697c77db82ebb267f_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a7b79122ab8a10ff2f_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a76a17c6919f5e4c29_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b4a5573a47599c833061_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a598d45b2c7121e549_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a56ca32e7649b9eae7_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a66a17c6919f5e4ba9_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a6d62095daa8129a86_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    },
+    magnolia: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b4e5666418f9d40514fd_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e6666418f9d405153c_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e6b0cd93c94cc02ab5_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e647323a2b628f5a3b_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e6668753f06194cead_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b4e8b0cd93c94cc02c4b_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e808dc2fe1c6d05bb6_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e87b6b694595678e17_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e96ca32e7649ba0767_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e917cf0f48c34d6370_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b4e717cf0f48c34d62b8_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e7b0cd93c94cc02b79_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e716910f7fe0fd6e86_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e7165fa1b5bf5cc6b0_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e747e218625dedae9b_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    }
+  };
+  var PARK_PLACE_STYLE_SLUGS = {
+    addison: {
+      capeDutch: "addison-modern-cape-dutch",
+      transitional: "addison-transitional",
+      tudor: "addison-modern-tudor"
+    },
+    bandera: {
+      capeDutch: "bandera-modern-cape-dutch",
+      transitional: "bandera-transitional",
+      tudor: "bandera-modern-tudor"
+    },
+    collin: {
+      capeDutch: "collin-modern-cape-dutch",
+      transitional: "collin-transitional",
+      tudor: "collin-modern-tudor"
+    },
+    grayson: {
+      capeDutch: "grayson-modern-cape-dutch",
+      transitional: "the-grayson-transitional",
+      tudor: "the-grayson-modern-tudor"
+    },
+    magnolia: {
+      capeDutch: "magnolia-modern-cape-dutch",
+      transitional: "magnolia-transitional",
+      tudor: "magnolia-modern-tudor"
+    }
+  };
+  var buildParkPlaceExteriors = (planSlug) => {
+    const imageUrls = PARK_PLACE_EXTERIOR_IMAGE_URLS[planSlug];
+    const slugs = PARK_PLACE_STYLE_SLUGS[planSlug];
+    return [
+      {
+        style: "Modern Cape Dutch",
+        slug: slugs.capeDutch,
+        colorSchemes: toNumberedSchemes(PARK_PLACE_CAPE_DUTCH_SCHEMES, [...imageUrls.capeDutch])
+      },
+      {
+        style: "Transitional",
+        slug: slugs.transitional,
+        colorSchemes: toNumberedSchemes(PARK_PLACE_TRANSITIONAL_SCHEMES, [...imageUrls.transitional])
+      },
+      {
+        style: "Modern Tudor",
+        slug: slugs.tudor,
+        colorSchemes: toNumberedSchemes(PARK_PLACE_TUDOR_SCHEMES, [...imageUrls.tudor])
+      }
+    ];
+  };
   var EXTERIORS_BY_PLAN = {
     echo: buildExteriorsForPlan("echo"),
     merrick: buildExteriorsForPlan("merrick"),
@@ -5710,7 +5897,12 @@
     alder: buildNewCommunityExteriors("alder"),
     "studio-adu": buildStudioAduExteriors("studio-adu"),
     "carriage-house-adu": buildNewCommunityExteriors("carriage-house-adu"),
-    "two-story-adu": buildNewCommunityExteriors("two-story-adu")
+    "two-story-adu": buildNewCommunityExteriors("two-story-adu"),
+    addison: buildParkPlaceExteriors("addison"),
+    bandera: buildParkPlaceExteriors("bandera"),
+    collin: buildParkPlaceExteriors("collin"),
+    grayson: buildParkPlaceExteriors("grayson"),
+    magnolia: buildParkPlaceExteriors("magnolia")
   };
   function getHousePlanSlugFromPath() {
     const maybeSlug = window.location.pathname.toLowerCase().split("/house-plans/")[1]?.split("/")[0] ?? "";

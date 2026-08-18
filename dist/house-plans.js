@@ -421,6 +421,27 @@
     { number: 4, name: "Manor Brick" },
     { number: 5, name: "Chateau Stone" }
   ];
+  var PARK_PLACE_CAPE_DUTCH_SCHEMES = [
+    { number: 1, name: "Everest" },
+    { number: 2, name: "Urbane Bronze" },
+    { number: 3, name: "Iron Ore" },
+    { number: 4, name: "Pure White" },
+    { number: 5, name: "Felted Wool" }
+  ];
+  var PARK_PLACE_TRANSITIONAL_SCHEMES = [
+    { number: 1, name: "Newport" },
+    { number: 2, name: "Iron Ore" },
+    { number: 3, name: "Caprock" },
+    { number: 4, name: "Alabaster" },
+    { number: 5, name: "Worldly Gray" }
+  ];
+  var PARK_PLACE_TUDOR_SCHEMES = [
+    { number: 1, name: "Colonnade Gray" },
+    { number: 2, name: "Coral Gray" },
+    { number: 3, name: "Greenblack" },
+    { number: 4, name: "Felted Wool" },
+    { number: 5, name: "Altitude Gray" }
+  ];
   var EXTERIOR_IMAGE_SETS_BY_PLAN = {
     echo: {
       craftsman: [
@@ -615,6 +636,172 @@
       }
     ];
   };
+  var PARK_PLACE_CDN = "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0";
+  var PARK_PLACE_EXTERIOR_IMAGE_URLS = {
+    addison: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b1a5b0cd93c94cbe7346_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a583d75ceaa6461dcd_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a5830be1b62868857d_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a56a17c6919f5e0e0e_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a5e570e96c28ac12c4_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b1a7b79122ab8a0f40bd_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a7b8efd49498294990_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a77b6b694595669cd2_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a7f5c02efbf7c77d98_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a7fcc834951e54f4bf_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b1a6af7a129003ace1ec_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a6fcc834951e54f421_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a617cf0f48c34c5058_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a683d75ceaa6461f26_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a67b6b694595669ca2_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    },
+    bandera: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b2bc1f53dd3717d85d60_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bc297085014b204e1c_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bcb0cd93c94cbeff9d_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bdb79122ab8a0fb25f_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bd9a92f58d97c26784_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b2c097c77db82ebab4a2_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c004702f83e9ba2ddd_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c004702f83e9ba2e1b_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c017cf0f48c34cdcbf_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c1d62095daa8114600_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b2be9a287322be54c601_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bfe570e96c28ac8d97_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bf573a47599c830a8d_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bf165fa1b5bf5bbab9_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c008dc2fe1c6cfdb16_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    },
+    collin: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b3c647e218625ded7348_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c73888a4db5685d9d6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c797c77db82ebaf1bc_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c7668753f061942f10_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c7b79122ab8a107532_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b3c93888a4db5685dad3_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b3ca165fa1b5bf5c40e5_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b3cae570e96c28ad428e_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b3ca6ca32e7649b97267_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b3ca165fa1b5bf5c4159_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b3c7b1357c809573778c_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c855df81cb20fbe5e3_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c8668753f061942fca_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c86ca32e7649b9709d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c9d62095daa8120c5f_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    },
+    grayson: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b4a456716fa5cdfdc6df_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a4d7c17df8a732426f_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a459e59db0530cb29b_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a4573a47599c833035_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a5d7c17df8a73242a1_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b4a6165fa1b5bf5ca597_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a6165fa1b5bf5ca5ca_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a697c77db82ebb267f_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a7b79122ab8a10ff2f_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a76a17c6919f5e4c29_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b4a5573a47599c833061_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a598d45b2c7121e549_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a56ca32e7649b9eae7_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a66a17c6919f5e4ba9_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a6d62095daa8129a86_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    },
+    magnolia: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b4e5666418f9d40514fd_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e6666418f9d405153c_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e6b0cd93c94cc02ab5_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e647323a2b628f5a3b_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e6668753f06194cead_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b4e8b0cd93c94cc02c4b_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e808dc2fe1c6d05bb6_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e87b6b694595678e17_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e96ca32e7649ba0767_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e917cf0f48c34d6370_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b4e717cf0f48c34d62b8_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e7b0cd93c94cc02b79_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e716910f7fe0fd6e86_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e7165fa1b5bf5cc6b0_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e747e218625dedae9b_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    }
+  };
+  var PARK_PLACE_STYLE_SLUGS = {
+    addison: {
+      capeDutch: "addison-modern-cape-dutch",
+      transitional: "addison-transitional",
+      tudor: "addison-modern-tudor"
+    },
+    bandera: {
+      capeDutch: "bandera-modern-cape-dutch",
+      transitional: "bandera-transitional",
+      tudor: "bandera-modern-tudor"
+    },
+    collin: {
+      capeDutch: "collin-modern-cape-dutch",
+      transitional: "collin-transitional",
+      tudor: "collin-modern-tudor"
+    },
+    grayson: {
+      capeDutch: "grayson-modern-cape-dutch",
+      transitional: "the-grayson-transitional",
+      tudor: "the-grayson-modern-tudor"
+    },
+    magnolia: {
+      capeDutch: "magnolia-modern-cape-dutch",
+      transitional: "magnolia-transitional",
+      tudor: "magnolia-modern-tudor"
+    }
+  };
+  var buildParkPlaceExteriors = (planSlug) => {
+    const imageUrls = PARK_PLACE_EXTERIOR_IMAGE_URLS[planSlug];
+    const slugs = PARK_PLACE_STYLE_SLUGS[planSlug];
+    return [
+      {
+        style: "Modern Cape Dutch",
+        slug: slugs.capeDutch,
+        colorSchemes: toNumberedSchemes(PARK_PLACE_CAPE_DUTCH_SCHEMES, [...imageUrls.capeDutch])
+      },
+      {
+        style: "Transitional",
+        slug: slugs.transitional,
+        colorSchemes: toNumberedSchemes(PARK_PLACE_TRANSITIONAL_SCHEMES, [...imageUrls.transitional])
+      },
+      {
+        style: "Modern Tudor",
+        slug: slugs.tudor,
+        colorSchemes: toNumberedSchemes(PARK_PLACE_TUDOR_SCHEMES, [...imageUrls.tudor])
+      }
+    ];
+  };
   var EXTERIORS_BY_PLAN = {
     echo: buildExteriorsForPlan("echo"),
     merrick: buildExteriorsForPlan("merrick"),
@@ -629,7 +816,12 @@
     alder: buildNewCommunityExteriors("alder"),
     "studio-adu": buildStudioAduExteriors("studio-adu"),
     "carriage-house-adu": buildNewCommunityExteriors("carriage-house-adu"),
-    "two-story-adu": buildNewCommunityExteriors("two-story-adu")
+    "two-story-adu": buildNewCommunityExteriors("two-story-adu"),
+    addison: buildParkPlaceExteriors("addison"),
+    bandera: buildParkPlaceExteriors("bandera"),
+    collin: buildParkPlaceExteriors("collin"),
+    grayson: buildParkPlaceExteriors("grayson"),
+    magnolia: buildParkPlaceExteriors("magnolia")
   };
   function getHousePlanSlugFromPath() {
     const maybeSlug = window.location.pathname.toLowerCase().split("/house-plans/")[1]?.split("/")[0] ?? "";
@@ -6682,6 +6874,13 @@
     "ambrose",
     "alder"
   ]);
+  var PARK_PLACE_HOUSE_PLAN_SLUGS = /* @__PURE__ */ new Set([
+    "addison",
+    "bandera",
+    "collin",
+    "grayson",
+    "magnolia"
+  ]);
   var PALISADE_SCHEME_TOKENS = ["pos-1", "pos-2", "pos-3"];
   var FULL_SCHEME_TOKENS = ["pos-1", "pos-2", "pos-3", "pos-4"];
   var ADU_INTERIOR_SCHEME_TOKENS = ["pos-1", "pos-2", "pos-3", "pos-4", "pos-5"];
@@ -6691,6 +6890,9 @@
   function isPalisadeHousePlan(slug) {
     return PALISADE_HOUSE_PLAN_SLUGS.has(slug);
   }
+  function isParkPlaceHousePlan(slug) {
+    return PARK_PLACE_HOUSE_PLAN_SLUGS.has(slug);
+  }
   function isStudioAduInteriorPlan(slug) {
     return slug === "studio-adu";
   }
@@ -6698,13 +6900,15 @@
     return slug === "carriage-house-adu" || slug === "two-story-adu";
   }
   function getSchemeTokensForHousePlan(slug) {
-    if (isPalisadeHousePlan(slug)) return PALISADE_SCHEME_TOKENS;
+    if (isPalisadeHousePlan(slug) || isParkPlaceHousePlan(slug)) return PALISADE_SCHEME_TOKENS;
     if (isAduCarriageInteriorPlan(slug)) return ADU_INTERIOR_SCHEME_TOKENS;
     return FULL_SCHEME_TOKENS;
   }
   function getHousePlanSwatchProfile(slug) {
     if (isAltadenaHousePlan(slug) || isStudioAduInteriorPlan(slug)) return "altadena";
-    if (isPalisadeHousePlan(slug) || isAduCarriageInteriorPlan(slug)) return "palisade";
+    if (isPalisadeHousePlan(slug) || isAduCarriageInteriorPlan(slug) || isParkPlaceHousePlan(slug)) {
+      return "palisade";
+    }
     return "lakeside";
   }
   function getSchemeSwatchVisual(profile) {
@@ -6716,7 +6920,10 @@
     modern: "#EAE8E0",
     coastalCottage: "#9F8873",
     transitionalOrganic: "#DDD8CC",
-    pacificContemporary: "#ABAAA6"
+    pacificContemporary: "#ABAAA6",
+    transitionalNatural: "#DDB386",
+    modernEdge: "#554B3F",
+    casualOrganic: "#707771"
   };
   var ADU_INTERIOR_PACKAGE_BY_POS = {
     "pos-1": "modern",
@@ -6724,6 +6931,11 @@
     "pos-3": "spanish",
     "pos-4": "transitionalOrganic",
     "pos-5": "pacificContemporary"
+  };
+  var PARK_PLACE_PACKAGE_BY_POS = {
+    "pos-1": "transitionalNatural",
+    "pos-2": "modernEdge",
+    "pos-3": "casualOrganic"
   };
   var PALISADE_PACKAGE_BY_SLUG_AND_POS = {
     elm: {
@@ -6756,6 +6968,11 @@
       "pos-2": "coastalCottage",
       "pos-3": "pacificContemporary"
     },
+    addison: PARK_PLACE_PACKAGE_BY_POS,
+    bandera: PARK_PLACE_PACKAGE_BY_POS,
+    collin: PARK_PLACE_PACKAGE_BY_POS,
+    grayson: PARK_PLACE_PACKAGE_BY_POS,
+    magnolia: PARK_PLACE_PACKAGE_BY_POS,
     "carriage-house-adu": ADU_INTERIOR_PACKAGE_BY_POS,
     "two-story-adu": ADU_INTERIOR_PACKAGE_BY_POS
   };
@@ -7601,6 +7818,12 @@
       "pos-3": "Pacific Contemporary",
       "pos-4": ""
     };
+    const parkPlaceTitleByToken = {
+      "pos-1": "Transitional Natural",
+      "pos-2": "Modern Edge",
+      "pos-3": "Casual Organic",
+      "pos-4": ""
+    };
     const aduInteriorTitleByToken = {
       "pos-1": "Modern",
       "pos-2": "Coastal Cottage",
@@ -8060,6 +8283,136 @@
           "pos-4": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454c0927f43b0746cb26d_Primary%20Bathroom.png",
           "pos-5": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7454a53b00e5a91f8de1dd_Primary%20Bathroom.png"
         }
+      },
+      addison: {
+        "kitchen-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a099d5ba7a02ca81c739_Kitchen.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a08d513bbee1ff230aec_Kitchen.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a0793f739f9dba8273dc_Kitchen.webp",
+          "pos-4": ""
+        },
+        "living-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a099148c72f59e3f158b_Great%20Room.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a08d636b4ec0ce0ff248_Great%20Room.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a079513bbee1ff22ff14_Great%20Room.webp",
+          "pos-4": ""
+        },
+        "bedroom-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a099214ac329cdfb7707_Primary%20Bedroom.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a08d508e6d3a89f6bafa_Primary%20Bedroom.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a079a0af4a8d2a1c5e41_Primary%20Bedroom.webp",
+          "pos-4": ""
+        },
+        "bathroom-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a09885b6e71f63bd1122_Primary%20Bathroom.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a08d214ac329cdfb6ec2_Primary%20Bathroom.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a079d8c8f47884652c01_Primary%20Bathroom.webp",
+          "pos-4": ""
+        }
+      },
+      bandera: {
+        "kitchen-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a0cd2d47d01e53760347_Kitchen.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a0d622910129dc0c85af_Kitchen.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a0e3d111470ac66cfe04_Kitchen.webp",
+          "pos-4": ""
+        },
+        "living-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a0cc214ac329cdfb9be1_Great%20Room.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a0d69d91b5f32f49f6de_Great%20Room.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a0e3ad2fd7fde30e0190_Great%20Room.webp",
+          "pos-4": ""
+        },
+        "bedroom-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a0cd214ac329cdfb9c3f_Primary%20Bedroom.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b131b79122ab8a0ef0be_Primary%20Bedroom.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a0d6d02388f3ac5a6279_Primary%20Bedroom.webp",
+          "pos-4": ""
+        },
+        "bathroom-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a0cc85b6e71f63bd30f2_Primary%20Bathroom.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a0d69d91b5f32f49f6c0_Primary%20Bathroom.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a0e3d111470ac66cfe09_Primary%20Bathroom.webp",
+          "pos-4": ""
+        }
+      },
+      collin: {
+        "kitchen-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a1fc2d47d01e5376ab2e_Kitchen.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a20622910129dc0d2cc0_Kitchen.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a3366f67efafdccb5ee7_Kitchen.webp",
+          "pos-4": ""
+        },
+        "living-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a1fde25e0d2de699e87e_Great%20Room.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a206e2030bce81283ef9_Great%20Room.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a336199884acc7a90861_Great%20Room.webp",
+          "pos-4": ""
+        },
+        "bedroom-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a1fd6187fa6f6831ce09_Primary%20Bedroom.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a206e25e0d2de699ee41_Primary%20Bedroom.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a336a0af4a8d2a1e459a_Primary%20Bedroom.webp",
+          "pos-4": ""
+        },
+        "bathroom-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a1fd6af194b87d70f0df_Primary%20Bathroom.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a206a0af4a8d2a1d61e3_Primary%20Bathroom.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a335214ac329cdfd41cc_Primary%20Bathroom.webp",
+          "pos-4": ""
+        }
+      },
+      grayson: {
+        "kitchen-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a3051ae8cc364c2e1469_Kitchen.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a24f7534de8ffabda443_Kitchen.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a228709c2d3ac89c1b4a_Kitchen.webp",
+          "pos-4": ""
+        },
+        "living-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a305148c72f59e4052c4_Great%20Room.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a24f2f333ef165976929_Great%20Room.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a22801d00e238e4c41cc_Great%20Room.webp",
+          "pos-4": ""
+        },
+        "bedroom-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a306e8dc9a6c4f83392d_Primary%20Bedroom.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a250d111470ac66df1a9_Primary%20Bedroom.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a22877c8310d4197138f_Primary%20Bedroom.webp",
+          "pos-4": ""
+        },
+        "bathroom-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a30548510de11156905e_Primary%20Bathroom.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a250d9ce19028f35a19e_Primary%20Bathroom.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a227513bbee1ff252db3_Primary%20Bathroom.webp",
+          "pos-4": ""
+        }
+      },
+      magnolia: {
+        "kitchen-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a34a3f739f9dba849fa9_Kitchen.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a33ff30f2bdca8b201cb_Kitchen.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b13247323a2b628e4653_Kitchen.webp",
+          "pos-4": ""
+        },
+        "living-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a349f93fa5b17c01cfd0_Great%20Room.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a34008976f90c1409d9e_Great%20Room.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b132b0cd93c94cbe3f1e_Great%20Room.webp",
+          "pos-4": ""
+        },
+        "bedroom-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a34a2f333ef16597f6f7_Primary%20Bedroom.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a340f3f1ddcfd9f6d42d_Primary%20Bedroom.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b132f5c02efbf7c7548f_Primary%20Bedroom.webp",
+          "pos-4": ""
+        },
+        "bathroom-interior": {
+          "pos-1": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a349199884acc7a90e20_Primary%20Bathroom.webp",
+          "pos-2": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a33f508e6d3a89f88489_Primary%20Bathroom.webp",
+          "pos-3": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b132bda5772db148ebf7_Primary%20Bathroom.webp",
+          "pos-4": ""
+        }
       }
     };
     const schemeTitleByTokenByHousePlan = {
@@ -8076,7 +8429,12 @@
       ambrose: palisadeModernTitleByToken,
       "studio-adu": styleTitleByToken,
       "carriage-house-adu": aduInteriorTitleByToken,
-      "two-story-adu": aduInteriorTitleByToken
+      "two-story-adu": aduInteriorTitleByToken,
+      addison: parkPlaceTitleByToken,
+      bandera: parkPlaceTitleByToken,
+      collin: parkPlaceTitleByToken,
+      grayson: parkPlaceTitleByToken,
+      magnolia: parkPlaceTitleByToken
     };
     const housePlanSlug = window.location.pathname.toLowerCase().split("/house-plans/")[1]?.split("/")[0] ?? "";
     const normalizedHousePlanSlug = housePlanSlug.replace(/^the-/, "");
@@ -8095,7 +8453,7 @@
     const defaultSchemeToken = "pos-1";
     const activeSchemeTokens = getSchemeTokensForHousePlan(maybeInteriorSlug);
     const schemeButtonSelector = activeSchemeTokens.map((token) => `[dev-target="${token}"]`).join(",");
-    if (isPalisadeHousePlan(maybeInteriorSlug)) {
+    if (isPalisadeHousePlan(maybeInteriorSlug) || isParkPlaceHousePlan(maybeInteriorSlug)) {
       document.querySelectorAll('[dev-target="pos-4"]').forEach((button) => {
         button.classList.add("hide");
       });
@@ -8128,7 +8486,7 @@
       const schemeButtons = Array.from(slide2.querySelectorAll(schemeButtonSelector));
       if (!schemeButtons.length) return [];
       if (swatchProfile === "altadena") applySchemeSwatchMarkup(schemeButtons);
-      else if (isPalisadeHousePlan(maybeInteriorSlug) || isAduCarriageInteriorPlan(maybeInteriorSlug)) {
+      else if (swatchProfile === "palisade") {
         applyPalisadeSchemeSwatchMarkup(maybeInteriorSlug, schemeButtons);
       }
       const schemeImagesByToken = /* @__PURE__ */ new Map();

@@ -39,6 +39,13 @@ const PALISADE_HOUSE_PLAN_SLUGS = new Set([
   'ambrose',
   'alder',
 ]);
+const PARK_PLACE_HOUSE_PLAN_SLUGS = new Set([
+  'addison',
+  'bandera',
+  'collin',
+  'grayson',
+  'magnolia',
+]);
 
 export const PALISADE_SCHEME_TOKENS = ['pos-1', 'pos-2', 'pos-3'] as const;
 export const FULL_SCHEME_TOKENS = ['pos-1', 'pos-2', 'pos-3', 'pos-4'] as const;
@@ -52,6 +59,10 @@ export function isAltadenaHousePlan(slug: string): boolean {
 
 export function isPalisadeHousePlan(slug: string): boolean {
   return PALISADE_HOUSE_PLAN_SLUGS.has(slug);
+}
+
+export function isParkPlaceHousePlan(slug: string): boolean {
+  return PARK_PLACE_HOUSE_PLAN_SLUGS.has(slug);
 }
 
 export function isStudioAduInteriorPlan(slug: string): boolean {
@@ -69,14 +80,16 @@ export function isAduInteriorPlan(slug: string): boolean {
 export function getSchemeTokensForHousePlan(
   slug: string
 ): readonly ((typeof FULL_SCHEME_TOKENS)[number] | (typeof ADU_INTERIOR_SCHEME_TOKENS)[number])[] {
-  if (isPalisadeHousePlan(slug)) return PALISADE_SCHEME_TOKENS;
+  if (isPalisadeHousePlan(slug) || isParkPlaceHousePlan(slug)) return PALISADE_SCHEME_TOKENS;
   if (isAduCarriageInteriorPlan(slug)) return ADU_INTERIOR_SCHEME_TOKENS;
   return FULL_SCHEME_TOKENS;
 }
 
 export function getHousePlanSwatchProfile(slug: string): HousePlanSwatchProfile {
   if (isAltadenaHousePlan(slug) || isStudioAduInteriorPlan(slug)) return 'altadena';
-  if (isPalisadeHousePlan(slug) || isAduCarriageInteriorPlan(slug)) return 'palisade';
+  if (isPalisadeHousePlan(slug) || isAduCarriageInteriorPlan(slug) || isParkPlaceHousePlan(slug)) {
+    return 'palisade';
+  }
   return 'lakeside';
 }
 
@@ -91,14 +104,20 @@ type PalisadePackageKey =
   | 'coastalCottage'
   | 'spanish'
   | 'transitionalOrganic'
-  | 'pacificContemporary';
+  | 'pacificContemporary'
+  | 'transitionalNatural'
+  | 'modernEdge'
+  | 'casualOrganic';
 
-/** Figma node 1:779 — solid swatch fills from design spec. */
+/** Figma node 1:779 (Palisade) and 12:3928 (Park Place) — solid swatch fills. */
 const PALISADE_SWATCH_FILLS: Record<Exclude<PalisadePackageKey, 'spanish'>, string> = {
   modern: '#EAE8E0',
   coastalCottage: '#9F8873',
   transitionalOrganic: '#DDD8CC',
   pacificContemporary: '#ABAAA6',
+  transitionalNatural: '#DDB386',
+  modernEdge: '#554B3F',
+  casualOrganic: '#707771',
 };
 
 type SchemePosToken = (typeof ADU_INTERIOR_SCHEME_TOKENS)[number];
@@ -110,6 +129,13 @@ const ADU_INTERIOR_PACKAGE_BY_POS: Record<SchemePosToken, PalisadePackageKey> = 
   'pos-3': 'spanish',
   'pos-4': 'transitionalOrganic',
   'pos-5': 'pacificContemporary',
+};
+
+/** Figma node 12:3928 — All Park Place Packages legend. */
+const PARK_PLACE_PACKAGE_BY_POS: Partial<Record<SchemePosToken, PalisadePackageKey>> = {
+  'pos-1': 'transitionalNatural',
+  'pos-2': 'modernEdge',
+  'pos-3': 'casualOrganic',
 };
 
 /** Per-plan pos token → package from each plan's Explore Interiors Assets legend. */
@@ -147,6 +173,11 @@ const PALISADE_PACKAGE_BY_SLUG_AND_POS: Record<
     'pos-2': 'coastalCottage',
     'pos-3': 'pacificContemporary',
   },
+  addison: PARK_PLACE_PACKAGE_BY_POS,
+  bandera: PARK_PLACE_PACKAGE_BY_POS,
+  collin: PARK_PLACE_PACKAGE_BY_POS,
+  grayson: PARK_PLACE_PACKAGE_BY_POS,
+  magnolia: PARK_PLACE_PACKAGE_BY_POS,
   'carriage-house-adu': ADU_INTERIOR_PACKAGE_BY_POS,
   'two-story-adu': ADU_INTERIOR_PACKAGE_BY_POS,
 };
