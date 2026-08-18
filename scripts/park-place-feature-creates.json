@@ -1,0 +1,434 @@
+[
+  {
+    "name": "Add Prep Kitchen",
+    "slug": "addison-add-prep-kitchen",
+    "description": "Create extra space for meal prep, storage, and entertaining with a prep kitchen. In place of the tandem garage.",
+    "feature": "PREPKIT001",
+    "sort-order": 1,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2433bec05856ae977157a"]
+  },
+  {
+    "name": "Add Covered Patio",
+    "slug": "addison-add-covered-patio",
+    "description": "Designed to enhance indoor-outdoor living.",
+    "feature": "EXTCVPT01",
+    "sort-order": 2,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2433bec05856ae977157a"]
+  },
+  {
+    "name": "Add Sliding Glass Doors at Great Room",
+    "slug": "addison-sliding-glass-doors-great-room",
+    "description": "Add more natural light and easy indoor-outdoor living.",
+    "feature": "DOOREGD001",
+    "sort-order": 3,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2433bec05856ae977157a"]
+  },
+  {
+    "name": "Faux Ceiling Beams at Primary Bedroom",
+    "slug": "addison-beams-primary-bedroom",
+    "description": "Add warmth, depth, and architectural character to the space.",
+    "feature": "CEILBEAM012",
+    "sort-order": 4,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2433bec05856ae977157a"]
+  },
+  {
+    "name": "Extended Primary Bedroom",
+    "slug": "addison-extended-primary-bedroom",
+    "description": "Enjoy a more spacious primary suite with room to relax and unwind.",
+    "feature": "EXTPRIMBED1",
+    "sort-order": 5,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2433bec05856ae977157a"]
+  },
+  {
+    "name": "Fireplace at Great Room",
+    "slug": "addison-fireplace-great-room",
+    "description": "Adds warmth and a welcoming focal point.",
+    "feature": "FIREADD001",
+    "sort-order": 6,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2433bec05856ae977157a"]
+  },
+  {
+    "name": "Faux Ceiling Beams at Great Room",
+    "slug": "addison-beams-great-room",
+    "description": "Add warmth, depth, and architectural character to the space.",
+    "feature": "CEILBEAM01-great-room",
+    "sort-order": 7,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2433bec05856ae977157a"]
+  },
+  {
+    "name": "Extended Garage",
+    "slug": "addison-extended-garage",
+    "description": "Enjoy additional space for storage, hobbies, or larger vehicles.",
+    "feature": "GARG3B0001",
+    "sort-order": 8,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2433bec05856ae977157a"]
+  },
+  {
+    "name": "Add Prep Kitchen",
+    "slug": "bandera-add-prep-kitchen",
+    "description": "Create extra space for meal prep, storage, and entertaining with a prep kitchen.",
+    "feature": "PREPKIT001",
+    "sort-order": 1,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2522bb14a83cb77a4484c"]
+  },
+  {
+    "name": "Add Flex Room at Everyday Entry",
+    "slug": "bandera-add-flex-room-everyday-entry",
+    "description": "Perfect for a home office, hobby space, or organized drop zone.",
+    "feature": "ADDFLEXRM1",
+    "sort-order": 2,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2522bb14a83cb77a4484c"]
+  },
+  {
+    "name": "Add Extended Covered Patio at Great Room",
+    "slug": "bandera-extended-covered-patio-great-room",
+    "description": "Designed to enhance indoor-outdoor living.",
+    "feature": "EXTCVPT01",
+    "sort-order": 3,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2522bb14a83cb77a4484c"]
+  },
+  {
+    "name": "Add Fireplace to Courtyard",
+    "slug": "bandera-fireplace-courtyard",
+    "description": "Create a warm, inviting outdoor space that's perfect for relaxing and entertaining year-round.",
+    "feature": "FIREPLCE11",
+    "sort-order": 4,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2522bb14a83cb77a4484c"]
+  },
+  {
+    "name": "Faux Ceiling Beams at Primary Bedroom",
+    "slug": "bandera-beams-primary-bedroom",
+    "description": "Add warmth, depth, and architectural character to the space.",
+    "feature": "CEILBEAM013",
+    "sort-order": 5,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2522bb14a83cb77a4484c"]
+  },
+  {
+    "name": "Extended Primary Bedroom",
+    "slug": "bandera-extended-primary-bedroom",
+    "description": "Enjoy a more spacious primary suite with room to relax and unwind.",
+    "feature": "EXTPRIMBED1",
+    "sort-order": 6,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2522bb14a83cb77a4484c"]
+  },
+  {
+    "name": "Fireplace at Great Room",
+    "slug": "bandera-fireplace-great-room",
+    "description": "Adds warmth and a welcoming focal point.",
+    "feature": "FIREPLCE1",
+    "sort-order": 7,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2522bb14a83cb77a4484c"]
+  },
+  {
+    "name": "Faux Ceiling Beams at Great Room",
+    "slug": "bandera-beams-great-room",
+    "description": "Add warmth, depth, and architectural character to the space.",
+    "feature": "CEILBEAM012",
+    "sort-order": 8,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2522bb14a83cb77a4484c"]
+  },
+  {
+    "name": "Faux Ceiling Beams at Dining Room",
+    "slug": "bandera-beams-dining-room",
+    "description": "Add warmth, depth, and architectural character to the space.",
+    "feature": "CEILBEAM01-dining-room",
+    "sort-order": 9,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2522bb14a83cb77a4484c"]
+  },
+  {
+    "name": "Extended Garage",
+    "slug": "bandera-extended-garage",
+    "description": "Enjoy additional space for storage, hobbies, or larger vehicles.",
+    "feature": "GARG3B0001",
+    "sort-order": 10,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f2522bb14a83cb77a4484c"]
+  },
+  {
+    "name": "Faux Ceiling Beams at Loft",
+    "slug": "bandera-beams-loft",
+    "description": "Add warmth, depth, and architectural character to the space.",
+    "feature": "CEILBEAM01-loft",
+    "sort-order": 1,
+    "tab": "9abe51351fba65d0cbbd595e60bfc221",
+    "house-plan-2": ["69f2522bb14a83cb77a4484c"]
+  },
+  {
+    "name": "Add Bedroom 5 with Bath 5",
+    "slug": "bandera-bedroom-5-bath-5",
+    "description": "Create additional private living space and everyday convenience.",
+    "feature": "BEDBATH001",
+    "sort-order": 2,
+    "tab": "9abe51351fba65d0cbbd595e60bfc221",
+    "house-plan-2": ["69f2522bb14a83cb77a4484c"]
+  },
+  {
+    "name": "Add Media Room",
+    "slug": "bandera-add-media-room",
+    "description": "A dedicated space for movies and entertainment.",
+    "feature": "MEDIA01",
+    "sort-order": 3,
+    "tab": "9abe51351fba65d0cbbd595e60bfc221",
+    "house-plan-2": ["69f2522bb14a83cb77a4484c"]
+  },
+  {
+    "name": "Extended Primary Bedroom",
+    "slug": "collin-extended-primary-bedroom",
+    "description": "Enjoy a more spacious primary suite with room to relax and unwind.",
+    "feature": "EXTPRIMBED1",
+    "sort-order": 1,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f265fb357096a5e68b4c86"]
+  },
+  {
+    "name": "Faux Ceiling Beams at Primary Bedroom",
+    "slug": "collin-beams-primary-bedroom",
+    "description": "Add warmth, depth, and architectural character to the space.",
+    "feature": "CEILBEAM012",
+    "sort-order": 2,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f265fb357096a5e68b4c86"]
+  },
+  {
+    "name": "Add Prep Kitchen",
+    "slug": "collin-add-prep-kitchen",
+    "description": "Create extra space for meal prep, storage, and entertaining with a prep kitchen.",
+    "feature": "PREPKIT001",
+    "sort-order": 3,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f265fb357096a5e68b4c86"]
+  },
+  {
+    "name": "Convert 3-Bay Garage to Flex Room",
+    "slug": "collin-convert-garage-to-flex",
+    "description": "Transform your garage into flexible living space.",
+    "feature": "GRG2FLX01",
+    "sort-order": 4,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f265fb357096a5e68b4c86"]
+  },
+  {
+    "name": "Add Extended Covered Patio at Great Room",
+    "slug": "collin-extended-covered-patio-great-room",
+    "description": "Designed to enhance indoor-outdoor living.",
+    "feature": "EXTCVPT01",
+    "sort-order": 5,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f265fb357096a5e68b4c86"]
+  },
+  {
+    "name": "Extended Garage",
+    "slug": "collin-extended-garage",
+    "description": "Enjoy additional space for storage, hobbies, or larger vehicles.",
+    "feature": "GARG3B0001",
+    "sort-order": 6,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f265fb357096a5e68b4c86"]
+  },
+  {
+    "name": "Fireplace at Great Room",
+    "slug": "collin-fireplace-great-room",
+    "description": "Adds warmth and a welcoming focal point.",
+    "feature": "FIREPLCE1",
+    "sort-order": 7,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f265fb357096a5e68b4c86"]
+  },
+  {
+    "name": "Faux Ceiling Beams at Great Room & Kitchen",
+    "slug": "collin-beams-great-room-kitchen",
+    "description": "Add warmth, depth, and architectural character to the space.",
+    "feature": "CEILBEAM011",
+    "sort-order": 8,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f265fb357096a5e68b4c86"]
+  },
+  {
+    "name": "Add Fireplace to Courtyard",
+    "slug": "collin-fireplace-courtyard",
+    "description": "Create a warm, inviting outdoor space that's perfect for relaxing and entertaining year-round.",
+    "feature": "FIREPLCE11",
+    "sort-order": 9,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f265fb357096a5e68b4c86"]
+  },
+  {
+    "name": "Faux Ceiling Beams at Game Room",
+    "slug": "collin-beams-game-room",
+    "description": "Add warmth, depth, and architectural character to the space.",
+    "feature": "CEILBEAM01-game-room",
+    "sort-order": 1,
+    "tab": "9abe51351fba65d0cbbd595e60bfc221",
+    "house-plan-2": ["69f265fb357096a5e68b4c86"]
+  },
+  {
+    "name": "Add Prep Kitchen",
+    "slug": "grayson-add-prep-kitchen",
+    "description": "Create extra space for meal prep, storage, and entertaining with a prep kitchen. In place of the tandem garage.",
+    "feature": "PRPKTCN1",
+    "sort-order": 1,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f375291e9607fca9602b42"]
+  },
+  {
+    "name": "Fireplace at Great Room",
+    "slug": "grayson-fireplace-great-room",
+    "description": "Adds warmth and a welcoming focal point.",
+    "feature": "FIREPLCE1",
+    "sort-order": 2,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f375291e9607fca9602b42"]
+  },
+  {
+    "name": "Add Sliding Glass Doors at Great Room",
+    "slug": "grayson-sliding-glass-doors-great-room",
+    "description": "Add more natural light and easy indoor-outdoor living.",
+    "feature": "DOOREGD001",
+    "sort-order": 3,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f375291e9607fca9602b42"]
+  },
+  {
+    "name": "Add Extended Covered Patio at Great Room",
+    "slug": "grayson-extended-covered-patio-great-room",
+    "description": "Designed to enhance indoor-outdoor living.",
+    "feature": "EXTCVPT01",
+    "sort-order": 4,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f375291e9607fca9602b42"]
+  },
+  {
+    "name": "Extended Primary Bedroom",
+    "slug": "grayson-extended-primary-bedroom",
+    "description": "Enjoy a more spacious primary suite with room to relax and unwind.",
+    "feature": "EXTPRIMBED1",
+    "sort-order": 5,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f375291e9607fca9602b42"]
+  },
+  {
+    "name": "Faux Ceiling Beams at Primary Bedroom",
+    "slug": "grayson-beams-primary-bedroom",
+    "description": "Add warmth, depth, and architectural character to the space.",
+    "feature": "CEILBEAM011",
+    "sort-order": 6,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f375291e9607fca9602b42"]
+  },
+  {
+    "name": "Extended Garage",
+    "slug": "grayson-extended-garage",
+    "description": "Enjoy additional space for storage, hobbies, or larger vehicles.",
+    "feature": "GARG3B0001",
+    "sort-order": 7,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f375291e9607fca9602b42"]
+  },
+  {
+    "name": "Add Media Room",
+    "slug": "grayson-add-media-room",
+    "description": "A dedicated space for movies and entertainment.",
+    "feature": "ADDMEDIA01",
+    "sort-order": 1,
+    "tab": "9abe51351fba65d0cbbd595e60bfc221",
+    "house-plan-2": ["69f375291e9607fca9602b42"]
+  },
+  {
+    "name": "Faux Ceiling Beams at Game Room",
+    "slug": "grayson-beams-game-room",
+    "description": "Add warmth, depth, and architectural character to the space.",
+    "feature": "CEILBEAM01-game-room",
+    "sort-order": 2,
+    "tab": "9abe51351fba65d0cbbd595e60bfc221",
+    "house-plan-2": ["69f375291e9607fca9602b42"]
+  },
+  {
+    "name": "Add Prep Kitchen",
+    "slug": "magnolia-add-prep-kitchen",
+    "description": "Create extra space for meal prep, storage, and entertaining with a prep kitchen. In place of the tandem garage.",
+    "feature": "PREPKIT001",
+    "sort-order": 1,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f3763d4ac1d221b9bb92ee"]
+  },
+  {
+    "name": "Add Sliding Glass Doors at Dining Room",
+    "slug": "magnolia-sliding-glass-doors-dining",
+    "description": "Add more natural light and easy indoor-outdoor living.",
+    "feature": "DOOREGD001",
+    "sort-order": 2,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f3763d4ac1d221b9bb92ee"]
+  },
+  {
+    "name": "Add Extended Covered Patio at Dining Room",
+    "slug": "magnolia-extended-covered-patio-dining",
+    "description": "Designed to enhance indoor-outdoor living.",
+    "feature": "EXTCVPT01",
+    "sort-order": 3,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f3763d4ac1d221b9bb92ee"]
+  },
+  {
+    "name": "Fireplace at Great Room",
+    "slug": "magnolia-fireplace-great-room",
+    "description": "Adds warmth and a welcoming focal point.",
+    "feature": "FIREPLCE1",
+    "sort-order": 4,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f3763d4ac1d221b9bb92ee"]
+  },
+  {
+    "name": "Faux Ceiling Beams at Primary Bedroom",
+    "slug": "magnolia-beams-primary-bedroom",
+    "description": "Add warmth, depth, and architectural character to the space.",
+    "feature": "CEILBEAM011",
+    "sort-order": 5,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f3763d4ac1d221b9bb92ee"]
+  },
+  {
+    "name": "Extended Primary Bedroom",
+    "slug": "magnolia-extended-primary-bedroom",
+    "description": "Enjoy a more spacious primary suite with room to relax and unwind.",
+    "feature": "EXTPRIMBED1",
+    "sort-order": 6,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f3763d4ac1d221b9bb92ee"]
+  },
+  {
+    "name": "Extended Garage",
+    "slug": "magnolia-extended-garage",
+    "description": "Enjoy additional space for storage, hobbies, or larger vehicles.",
+    "feature": "GARG3B0001",
+    "sort-order": 7,
+    "tab": "b9b3ff6995dad6233446a190085a3d1a",
+    "house-plan-2": ["69f3763d4ac1d221b9bb92ee"]
+  },
+  {
+    "name": "Add Bedroom 6",
+    "slug": "magnolia-add-bedroom-6",
+    "description": "Create additional private living space and everyday convenience.",
+    "feature": "BED001",
+    "sort-order": 1,
+    "tab": "9abe51351fba65d0cbbd595e60bfc221",
+    "house-plan-2": ["69f3763d4ac1d221b9bb92ee"]
+  }
+]

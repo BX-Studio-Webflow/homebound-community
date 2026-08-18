@@ -1,0 +1,33 @@
+{
+  "siteId": "601ca16f0bb27e965ee867a0",
+  "svgs": {
+    "root": { "name": "Park Place - Updated SVGS", "id": "6a84613748395d31157db268" },
+    "plans": {
+      "The Addison": "6a846169a02e7e7989ca743e",
+      "The Bandera": "6a846169ac891a192379337f",
+      "The Collin": "6a84616ae12bc863b82ada71",
+      "The Grayson": "6a84616aac891a19237933c8",
+      "The Magnolia": "6a84616acfbf3a94420906ab"
+    }
+  },
+  "exteriors": {
+    "root": { "name": "Exterior Styles", "id": "69f1ef537ce789fa3ce9a3a9" },
+    "plans": {
+      "The Addison": "6a846138d1979ec96cc1e5ac",
+      "The Bandera": "6a846138863084936c77c5de",
+      "The Collin": "6a846138d1979ec96cc1e60d",
+      "The Grayson": "6a846139e12bc863b82acc6e",
+      "The Magnolia": "6a84613948395d31157db38b"
+    }
+  },
+  "interiors": {
+    "root": { "name": "Interiors - Park Place", "id": "6a846138ac891a1923792335" },
+    "plans": {
+      "The Addison": "6a84616bbcc266bd25e09056",
+      "The Bandera": "6a84616bbcc266bd25e09095",
+      "The Collin": "6a84616b08607cc5093869e3",
+      "The Grayson": "6a84616ba02e7e7989ca7583",
+      "The Magnolia": "6a84616cd1979ec96cc201f9"
+    }
+  }
+}

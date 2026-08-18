@@ -1,0 +1,305 @@
+[
+  {
+    "plan": "The Addison",
+    "file": "addison-first-floor.svg",
+    "features": 8,
+    "mappings": [
+      {
+        "from": "OPT__DOOREGD001",
+        "to": "DOOREGD001",
+        "count": 1
+      },
+      {
+        "from": "OPT_CEILBEAM012",
+        "to": "CEILBEAM012",
+        "count": 1
+      },
+      {
+        "from": "OPT_EXTPRIMBED1",
+        "to": "EXTPRIMBED1",
+        "count": 1
+      },
+      {
+        "from": "OPT_PREPKIT001",
+        "to": "PREPKIT001",
+        "count": 1
+      },
+      {
+        "from": "OPT_FIREADD001",
+        "to": "FIREADD001",
+        "count": 1
+      },
+      {
+        "from": "OPT_CEILBEAM01",
+        "to": "CEILBEAM01-great-room",
+        "count": 1
+      },
+      {
+        "from": "OPT_GARG3B0001",
+        "to": "GARG3B0001",
+        "count": 1
+      },
+      {
+        "from": "OPT_EXTCVPT01",
+        "to": "EXTCVPT01",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "plan": "The Bandera",
+    "file": "bandera-first-floor.svg",
+    "features": 10,
+    "mappings": [
+      {
+        "from": "OPT_CEILBEAM013",
+        "to": "CEILBEAM013",
+        "count": 1
+      },
+      {
+        "from": "OPT_EXTPRIMBED1",
+        "to": "EXTPRIMBED1",
+        "count": 1
+      },
+      {
+        "from": "OPT_CEILBEAM012",
+        "to": "CEILBEAM012",
+        "count": 1
+      },
+      {
+        "from": "OPT_ADDFLEXRM1",
+        "to": "ADDFLEXRM1",
+        "count": 1
+      },
+      {
+        "from": "OPT_FIREPLCE11",
+        "to": "FIREPLCE11",
+        "count": 1
+      },
+      {
+        "from": "OPT_CEILBEAM01",
+        "to": "CEILBEAM01-dining-room",
+        "count": 1
+      },
+      {
+        "from": "OPT_GARG3B0001",
+        "to": "GARG3B0001",
+        "count": 1
+      },
+      {
+        "from": "OPT_PRPKTCN01",
+        "to": "PREPKIT001",
+        "count": 1
+      },
+      {
+        "from": "OPT_EXTCVPT01",
+        "to": "EXTCVPT01",
+        "count": 1
+      },
+      {
+        "from": "OPT_FIREPLCE1",
+        "to": "FIREPLCE1",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "plan": "The Bandera",
+    "file": "bandera-second-floor.svg",
+    "features": 3,
+    "mappings": [
+      {
+        "from": "OPT_CEILBEAM01",
+        "to": "CEILBEAM01-loft",
+        "count": 1
+      },
+      {
+        "from": "OPT_BEDBATH001",
+        "to": "BEDBATH001",
+        "count": 1
+      },
+      {
+        "from": "OPT_MEDIA01",
+        "to": "MEDIA01",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "plan": "The Collin",
+    "file": "collin-first-floor.svg",
+    "features": 9,
+    "mappings": [
+      {
+        "from": "OPT_EXTPRIMBED1",
+        "to": "EXTPRIMBED1",
+        "count": 1
+      },
+      {
+        "from": "OPT_CEILBEAM012",
+        "to": "CEILBEAM012",
+        "count": 1
+      },
+      {
+        "from": "OPT_CEILBEAM011",
+        "to": "CEILBEAM011",
+        "count": 1
+      },
+      {
+        "from": "OPT_GARG3B0001",
+        "to": "GARG3B0001",
+        "count": 1
+      },
+      {
+        "from": "OPT_FIREPLCE11",
+        "to": "FIREPLCE11",
+        "count": 1
+      },
+      {
+        "from": "OPT_GRG2FLX01",
+        "to": "GRG2FLX01",
+        "count": 1
+      },
+      {
+        "from": "OPT_FIREPLCE1",
+        "to": "FIREPLCE1",
+        "count": 1
+      },
+      {
+        "from": "OPT_PRPKTCN1",
+        "to": "PREPKIT001",
+        "count": 1
+      },
+      {
+        "from": "OPT_EXTCVPT1",
+        "to": "EXTCVPT01",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "plan": "The Collin",
+    "file": "collin-second-floor.svg",
+    "features": 1,
+    "mappings": [
+      {
+        "from": "OPT_CEILBEAM01",
+        "to": "CEILBEAM01-game-room",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "plan": "The Grayson",
+    "file": "grayson-first-floor.svg",
+    "features": 7,
+    "mappings": [
+      {
+        "from": "OPT_EXTPRIMBED1",
+        "to": "EXTPRIMBED1",
+        "count": 1
+      },
+      {
+        "from": "OPT_CEILBEAM011",
+        "to": "CEILBEAM011",
+        "count": 1
+      },
+      {
+        "from": "OPT_DOOREGD001",
+        "to": "DOOREGD001",
+        "count": 1
+      },
+      {
+        "from": "OPT_GARG3B0001",
+        "to": "GARG3B0001",
+        "count": 1
+      },
+      {
+        "from": "OPT_FIREPLCE1",
+        "to": "FIREPLCE1",
+        "count": 1
+      },
+      {
+        "from": "OPT_PRPKTCN1",
+        "to": "PRPKTCN1",
+        "count": 1
+      },
+      {
+        "from": "OPT_EXTCVPT1",
+        "to": "EXTCVPT01",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "plan": "The Grayson",
+    "file": "grayson-second-floor.svg",
+    "features": 2,
+    "mappings": [
+      {
+        "from": "OPT_ADDMEDIA01",
+        "to": "ADDMEDIA01",
+        "count": 1
+      },
+      {
+        "from": "OPT_CEILBEAM01",
+        "to": "CEILBEAM01-game-room",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "plan": "The Magnolia",
+    "file": "magnolia-first-floor.svg",
+    "features": 7,
+    "mappings": [
+      {
+        "from": "OPT__DOOREGD001",
+        "to": "DOOREGD001",
+        "count": 1
+      },
+      {
+        "from": "OPT_CEILBEAM011",
+        "to": "CEILBEAM011",
+        "count": 1
+      },
+      {
+        "from": "OPT_EXTPRIMBED1",
+        "to": "EXTPRIMBED1",
+        "count": 1
+      },
+      {
+        "from": "OPT_GARG3B0001",
+        "to": "GARG3B0001",
+        "count": 1
+      },
+      {
+        "from": "OPT_FIREPLCE1",
+        "to": "FIREPLCE1",
+        "count": 1
+      },
+      {
+        "from": "OPT_PRPKTCN1",
+        "to": "PREPKIT001",
+        "count": 1
+      },
+      {
+        "from": "OPT_EXTCVPT1",
+        "to": "EXTCVPT01",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "plan": "The Magnolia",
+    "file": "magnolia-second-floor.svg",
+    "features": 1,
+    "mappings": [
+      {
+        "from": "OPT_BED001",
+        "to": "BED001",
+        "count": 1
+      }
+    ]
+  }
+]
