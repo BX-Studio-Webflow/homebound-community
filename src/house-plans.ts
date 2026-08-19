@@ -942,7 +942,7 @@ window.Webflow.push(() => {
         'pos-2':
           'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a20622910129dc0d2cc0_Kitchen.webp',
         'pos-3':
-          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a3366f67efafdccb5ee7_Kitchen.webp',
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84c7a1e06ed58d4d9db7d8_Collin%20Casual%20Organic%20Kitchen.webp',
         'pos-4': '',
       },
       'living-interior': {
@@ -951,7 +951,7 @@ window.Webflow.push(() => {
         'pos-2':
           'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a206e2030bce81283ef9_Great%20Room.webp',
         'pos-3':
-          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a336199884acc7a90861_Great%20Room.webp',
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84c7a1868aabf677ca992d_Collin%20Casual%20Organic%20Great%20Room.webp',
         'pos-4': '',
       },
       'bedroom-interior': {
@@ -969,7 +969,7 @@ window.Webflow.push(() => {
         'pos-2':
           'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a206a0af4a8d2a1d61e3_Primary%20Bathroom.webp',
         'pos-3':
-          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84a335214ac329cdfd41cc_Primary%20Bathroom.webp',
+          'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84c7a1c10de4e59881bfb7_Collin%20Casual%20Organic%20Primary%20Bathroom.webp',
         'pos-4': '',
       },
     },

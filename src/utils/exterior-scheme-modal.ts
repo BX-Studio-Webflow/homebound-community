@@ -942,6 +942,9 @@ export class ExteriorSchemeController {
 
       headerText.textContent = `Scheme ${scheme.schemeNumber}: ${scheme.name}`;
       if (scheme.imageUrl) {
+        // Webflow responsive `srcset` wins over `src`; drop it so scheme swaps actually paint.
+        mainImage.removeAttribute('srcset');
+        mainImage.removeAttribute('sizes');
         mainImage.src = scheme.imageUrl;
       }
     };
