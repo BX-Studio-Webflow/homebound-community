@@ -2,169 +2,17 @@
   {
     "label": "addison-first-floor",
     "path": "src/example-assets/home-icons/Park Place Marketing Floor Plans/Park Place - Updated SVGS/The Addison/addison-first-floor.svg",
-    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84639c46fe2e47d982d68d_addison-first-floor.svg",
+    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a889cd653bb139a03c6415e_addison-first-floor.svg",
     "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
     "uploadDetails": {
       "acl": "public-read",
       "bucket": "webflow-prod-assets",
       "xAmzAlgorithm": "AWS4-HMAC-SHA256",
-      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
-      "xAmzDate": "20260818T135228Z",
-      "key": "601ca16f0bb27e965ee867a0/6a84639c46fe2e47d982d68d_addison-first-floor.svg",
-      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQxNDo1MjoyOFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS9zdmcreG1sIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxMzUyMjhaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NDYzOWM0NmZlMmU0N2Q5ODJkNjhkX2FkZGlzb24tZmlyc3QtZmxvb3Iuc3ZnIn1dfQ==",
-      "xAmzSignature": "7e21bf2dd50339969012e4904bcd8ce186ebad627698076a3cc3bd4ef2046074",
-      "successActionStatus": "201",
-      "contentType": "image/svg+xml",
-      "cacheControl": "max-age=31536000"
-    }
-  },
-  {
-    "label": "bandera-first-floor",
-    "path": "src/example-assets/home-icons/Park Place Marketing Floor Plans/Park Place - Updated SVGS/The Bandera/bandera-first-floor.svg",
-    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84639dd41d96b564b8dda8_bandera-first-floor.svg",
-    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
-    "uploadDetails": {
-      "acl": "public-read",
-      "bucket": "webflow-prod-assets",
-      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
-      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
-      "xAmzDate": "20260818T135229Z",
-      "key": "601ca16f0bb27e965ee867a0/6a84639dd41d96b564b8dda8_bandera-first-floor.svg",
-      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQxNDo1MjoyOVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS9zdmcreG1sIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxMzUyMjlaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NDYzOWRkNDFkOTZiNTY0YjhkZGE4X2JhbmRlcmEtZmlyc3QtZmxvb3Iuc3ZnIn1dfQ==",
-      "xAmzSignature": "383d7f5df77c9fe6787e6a7c354154a2671bb75e02e252738501c7bc6a801b79",
-      "successActionStatus": "201",
-      "contentType": "image/svg+xml",
-      "cacheControl": "max-age=31536000"
-    }
-  },
-  {
-    "label": "bandera-second-floor",
-    "path": "src/example-assets/home-icons/Park Place Marketing Floor Plans/Park Place - Updated SVGS/The Bandera/bandera-second-floor.svg",
-    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84639dfecd5dba6f8de239_bandera-second-floor.svg",
-    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
-    "uploadDetails": {
-      "acl": "public-read",
-      "bucket": "webflow-prod-assets",
-      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
-      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
-      "xAmzDate": "20260818T135229Z",
-      "key": "601ca16f0bb27e965ee867a0/6a84639dfecd5dba6f8de239_bandera-second-floor.svg",
-      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQxNDo1MjoyOVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS9zdmcreG1sIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxMzUyMjlaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NDYzOWRmZWNkNWRiYTZmOGRlMjM5X2JhbmRlcmEtc2Vjb25kLWZsb29yLnN2ZyJ9XX0=",
-      "xAmzSignature": "e533e96cbd4e5fa8f7a867a9ce44127ae9209c5f38231804c8c5056deb11abe0",
-      "successActionStatus": "201",
-      "contentType": "image/svg+xml",
-      "cacheControl": "max-age=31536000"
-    }
-  },
-  {
-    "label": "collin-first-floor",
-    "path": "src/example-assets/home-icons/Park Place Marketing Floor Plans/Park Place - Updated SVGS/The Collin/collin-first-floor.svg",
-    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84639dfd5d1935ad962b0f_collin-first-floor.svg",
-    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
-    "uploadDetails": {
-      "acl": "public-read",
-      "bucket": "webflow-prod-assets",
-      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
-      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
-      "xAmzDate": "20260818T135229Z",
-      "key": "601ca16f0bb27e965ee867a0/6a84639dfd5d1935ad962b0f_collin-first-floor.svg",
-      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQxNDo1MjoyOVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS9zdmcreG1sIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxMzUyMjlaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NDYzOWRmZDVkMTkzNWFkOTYyYjBmX2NvbGxpbi1maXJzdC1mbG9vci5zdmcifV19",
-      "xAmzSignature": "9219920241fb1a97afddb7bcb488ceb522ff70493fe884f5a5668e6b1b1b0bda",
-      "successActionStatus": "201",
-      "contentType": "image/svg+xml",
-      "cacheControl": "max-age=31536000"
-    }
-  },
-  {
-    "label": "collin-second-floor",
-    "path": "src/example-assets/home-icons/Park Place Marketing Floor Plans/Park Place - Updated SVGS/The Collin/collin-second-floor.svg",
-    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84639ef7364a39b1c84b33_collin-second-floor.svg",
-    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
-    "uploadDetails": {
-      "acl": "public-read",
-      "bucket": "webflow-prod-assets",
-      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
-      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
-      "xAmzDate": "20260818T135230Z",
-      "key": "601ca16f0bb27e965ee867a0/6a84639ef7364a39b1c84b33_collin-second-floor.svg",
-      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQxNDo1MjozMFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS9zdmcreG1sIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxMzUyMzBaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NDYzOWVmNzM2NGEzOWIxYzg0YjMzX2NvbGxpbi1zZWNvbmQtZmxvb3Iuc3ZnIn1dfQ==",
-      "xAmzSignature": "195291fbb8a412778f454ceda196f3b5699411d898df52a923d88a39d2322b43",
-      "successActionStatus": "201",
-      "contentType": "image/svg+xml",
-      "cacheControl": "max-age=31536000"
-    }
-  },
-  {
-    "label": "grayson-first-floor",
-    "path": "src/example-assets/home-icons/Park Place Marketing Floor Plans/Park Place - Updated SVGS/The Grayson/grayson-first-floor.svg",
-    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84639e5f2ba3b75685dca5_grayson-first-floor.svg",
-    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
-    "uploadDetails": {
-      "acl": "public-read",
-      "bucket": "webflow-prod-assets",
-      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
-      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
-      "xAmzDate": "20260818T135230Z",
-      "key": "601ca16f0bb27e965ee867a0/6a84639e5f2ba3b75685dca5_grayson-first-floor.svg",
-      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQxNDo1MjozMFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS9zdmcreG1sIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxMzUyMzBaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NDYzOWU1ZjJiYTNiNzU2ODVkY2E1X2dyYXlzb24tZmlyc3QtZmxvb3Iuc3ZnIn1dfQ==",
-      "xAmzSignature": "9d08d2615199b19f8c1b47a7b8e6c7f50ef891aa115fb4504e34784695569e86",
-      "successActionStatus": "201",
-      "contentType": "image/svg+xml",
-      "cacheControl": "max-age=31536000"
-    }
-  },
-  {
-    "label": "grayson-second-floor",
-    "path": "src/example-assets/home-icons/Park Place Marketing Floor Plans/Park Place - Updated SVGS/The Grayson/grayson-second-floor.svg",
-    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84639edb5854f758f0dfd6_grayson-second-floor.svg",
-    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
-    "uploadDetails": {
-      "acl": "public-read",
-      "bucket": "webflow-prod-assets",
-      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
-      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
-      "xAmzDate": "20260818T135230Z",
-      "key": "601ca16f0bb27e965ee867a0/6a84639edb5854f758f0dfd6_grayson-second-floor.svg",
-      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQxNDo1MjozMFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS9zdmcreG1sIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxMzUyMzBaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NDYzOWVkYjU4NTRmNzU4ZjBkZmQ2X2dyYXlzb24tc2Vjb25kLWZsb29yLnN2ZyJ9XX0=",
-      "xAmzSignature": "eeccac9f32c90e8e4d4fc943eadb92145861b182e089769bf19b40f92add8617",
-      "successActionStatus": "201",
-      "contentType": "image/svg+xml",
-      "cacheControl": "max-age=31536000"
-    }
-  },
-  {
-    "label": "magnolia-first-floor",
-    "path": "src/example-assets/home-icons/Park Place Marketing Floor Plans/Park Place - Updated SVGS/The Magnolia/magnolia-first-floor.svg",
-    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84639e92b4c31e2f49b03c_magnolia-first-floor.svg",
-    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
-    "uploadDetails": {
-      "acl": "public-read",
-      "bucket": "webflow-prod-assets",
-      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
-      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
-      "xAmzDate": "20260818T135230Z",
-      "key": "601ca16f0bb27e965ee867a0/6a84639e92b4c31e2f49b03c_magnolia-first-floor.svg",
-      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQxNDo1MjozMFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS9zdmcreG1sIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxMzUyMzBaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NDYzOWU5MmI0YzMxZTJmNDliMDNjX21hZ25vbGlhLWZpcnN0LWZsb29yLnN2ZyJ9XX0=",
-      "xAmzSignature": "64a2803fbac8b4106ff300914f25d43e856f5bfd5ca78f7ca505654e96fc9419",
-      "successActionStatus": "201",
-      "contentType": "image/svg+xml",
-      "cacheControl": "max-age=31536000"
-    }
-  },
-  {
-    "label": "magnolia-second-floor",
-    "path": "src/example-assets/home-icons/Park Place Marketing Floor Plans/Park Place - Updated SVGS/The Magnolia/magnolia-second-floor.svg",
-    "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84639eed92ab6fcaba9192_magnolia-second-floor.svg",
-    "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
-    "uploadDetails": {
-      "acl": "public-read",
-      "bucket": "webflow-prod-assets",
-      "xAmzAlgorithm": "AWS4-HMAC-SHA256",
-      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260818/us-east-1/s3/aws4_request",
-      "xAmzDate": "20260818T135230Z",
-      "key": "601ca16f0bb27e965ee867a0/6a84639eed92ab6fcaba9192_magnolia-second-floor.svg",
-      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0xOFQxNDo1MjozMFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS9zdmcreG1sIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODE4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgxOFQxMzUyMzBaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4NDYzOWVlZDkyYWI2ZmNhYmE5MTkyX21hZ25vbGlhLXNlY29uZC1mbG9vci5zdmcifV19",
-      "xAmzSignature": "0d8b1d1693a3b13ba22b16f0f8316bee1195f8b585e90185da36ce111101d2fc",
+      "xAmzCredential": "AKIAQLLHWD6MEJGETLST/20260821/us-east-1/s3/aws4_request",
+      "xAmzDate": "20260821T184542Z",
+      "key": "601ca16f0bb27e965ee867a0/6a889cd653bb139a03c6415e_addison-first-floor.svg",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOC0yMVQxOTo0NTo0MloiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS9zdmcreG1sIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwODIxL3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDgyMVQxODQ1NDJaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmE4ODljZDY1M2JiMTM5YTAzYzY0MTVlX2FkZGlzb24tZmlyc3QtZmxvb3Iuc3ZnIn1dfQ==",
+      "xAmzSignature": "2c688508e2bab29e027ba3af387ea748d853dd3b043ee2da8d940d0b58d51da7",
       "successActionStatus": "201",
       "contentType": "image/svg+xml",
       "cacheControl": "max-age=31536000"

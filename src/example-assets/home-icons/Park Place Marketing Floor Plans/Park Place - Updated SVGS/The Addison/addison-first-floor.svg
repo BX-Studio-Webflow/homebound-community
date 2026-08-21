@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="174.57 0 446.19 492.03">
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 719.97 562.66">
   <!-- Generator: Adobe Illustrator 30.3.0, SVG Export Plug-In . SVG Version: 2.1.3 Build 182)  -->
   <defs>
     <style>
@@ -191,6 +191,7 @@
       }
     </style>
   </defs>
+  
   <g id="STANDARD">
     <g id="HATCH">
       <path class="st47" d="M544.68,35.8l.02,12.06h.24v-12.06h-.25M544.68,62.94v9.05h.25v-9.05h-.25M544.68,87.06v9.05h.25v-9.05h-.25M544.68,111.18v108.29h.25v-108.29h-.25Z"/>
@@ -20579,7 +20580,7 @@
     <line class="st14" x1="413.73" y1="368.45" x2="383.17" y2="368.45"/>
   </g>
   <g id="OPT_SINKLNRY01">
-    <rect id="HIGHLIGHT" class="st27" x="337.17" y="173.36" width="9.53" height="11.68"/>
+    <rect id="HIGHLIGHT" class="st27" x="337.17" y="173.36" width="9.53" height="11.68" display="none"/>
     <g id="LINE-4719">
       <line class="st6" x1="346.44" y1="184.8" x2="346.44" y2="173.74"/>
     </g>
@@ -20720,7 +20721,7 @@
     </g>
   </g>
   <g id="OPT_CAB0001">
-    <rect id="HIGHLIGHT-2" class="st27" x="336.18" y="169.85" width="12.26" height="18.26"/>
+    <rect id="HIGHLIGHT-2" class="st27" x="336.18" y="169.85" width="12.26" height="18.26" display="none"/>
     <g id="LINE-4741">
       <line class="st6" x1="348.7" y1="170.22" x2="336.14" y2="170.22"/>
     </g>
@@ -20729,7 +20730,7 @@
     </g>
   </g>
   <g id="OPT_CABLDRY001">
-    <rect id="HIGHLIGHT-3" class="st27" x="341.92" y="139.57" width="6.33" height="29.07"/>
+    <rect id="HIGHLIGHT-3" class="st27" x="341.92" y="139.57" width="6.33" height="29.07" display="none"/>
     <g id="LINE-4743">
       <line class="st6" x1="342.67" y1="154.64" x2="342.67" y2="139.57"/>
     </g>
@@ -20737,52 +20738,9 @@
       <line class="st6" x1="342.67" y1="169.72" x2="342.67" y2="154.64"/>
     </g>
   </g>
-  <g id="CEILBEAM01-great-room" data-attribute="feature">
-    <rect class="st27" x="194.55" y="51.85" width="84.42" height="4.53"/>
-    <rect class="st27" x="194.94" y="84.42" width="84.42" height="4.53"/>
-    <rect class="st27" x="194.94" y="117.55" width="84.42" height="4.53"/>
-    <g id="LINE-4745">
-      <line class="st2" x1="279.89" y1="51.88" x2="239.49" y2="51.88"/>
-    </g>
-    <g id="LINE-4746">
-      <line class="st2" x1="279.89" y1="55.9" x2="239.49" y2="55.9"/>
-    </g>
-    <g id="LINE-4747">
-      <line class="st15" x1="279.76" y1="84.67" x2="240.24" y2="84.67"/>
-    </g>
-    <g id="LINE-4748">
-      <line class="st1" x1="279.5" y1="88.69" x2="239.49" y2="88.69"/>
-    </g>
-    <g id="LINE-4749">
-      <line class="st2" x1="279.89" y1="117.46" x2="239.49" y2="117.46"/>
-    </g>
-    <g id="LINE-4750">
-      <line class="st15" x1="279.38" y1="121.48" x2="239.49" y2="121.48"/>
-    </g>
-    <g id="LINE-4751">
-      <line class="st2" x1="234.95" y1="52.14" x2="194.55" y2="52.14"/>
-    </g>
-    <g id="LINE-4752">
-      <line class="st2" x1="234.95" y1="56.16" x2="194.55" y2="56.16"/>
-    </g>
-    <g id="LINE-4753">
-      <line class="st2" x1="234.87" y1="85.02" x2="194.91" y2="85.02"/>
-    </g>
-    <g id="LINE-4754">
-      <line class="st19" x1="235.04" y1="88.95" x2="195.06" y2="88.95"/>
-    </g>
-    <g id="LINE-4755">
-      <line class="st1" x1="234.95" y1="117.71" x2="194.95" y2="117.71"/>
-    </g>
-    <g id="LINE-4756">
-      <line class="st1" x1="235.07" y1="121.74" x2="195.01" y2="121.74"/>
-    </g>
-    <g id="LINE-4757">
-      <line class="st20" x1="279.36" y1="121.48" x2="279.36" y2="117.46"/>
-    </g>
-  </g>
+  
   <g id="OPT_CABBARDRY2">
-    <rect id="HIGHLIGHT-4" class="st27" x="364" y="227.24" width="12.68" height="44.94"/>
+    <rect id="HIGHLIGHT-4" class="st27" x="364" y="227.24" width="12.68" height="44.94" display="none"/>
     <g id="LINE-4758">
       <line class="st0" x1="364.28" y1="227.01" x2="364.28" y2="272.48"/>
     </g>
@@ -20835,7 +20793,7 @@
       <line class="st7" x1="365.39" y1="233.37" x2="365.39" y2="234.43"/>
     </g>
   </g>
-  <g id="OPT_CEILBEAM011" data-name="OPT_CEILBEAM01">
+  <g id="CEILBEAM01-great-room" data-attribute="feature" data-name="OPT_CEILBEAM01" display="none">
     <g id="LINE-4775">
       <line class="st6" x1="375.33" y1="120.22" x2="375.33" y2="207.8"/>
     </g>
@@ -20860,7 +20818,7 @@
       <rect class="st27" x="428.92" y="119.85" width="4.87" height="88.33"/>
     </g>
   </g>
-  <g id="FIREADD001" data-attribute="feature">
+  <g id="FIREADD001" data-attribute="feature" display="none">
     <rect id="HIGHLIGHT-6" class="st27" x="351.97" y="142.47" width="12.81" height="42.93"/>
     <g id="LINE-4781">
       <polygon class="st5" points="351.94 184.89 363.81 184.84 363.81 172.97 361.03 172.97 361.03 172.51 353.49 168.42 353.45 159.86 361.07 155.3 361.07 154.93 361.01 154.9 363.75 154.9 363.75 142.87 352.1 142.87 351.94 184.89"/>
@@ -21215,7 +21173,7 @@
       </g>
     </g>
   </g>
-  <g id="EXTPRIMBED1" data-attribute="feature">
+  <g id="EXTPRIMBED1" data-attribute="feature" display="none">
     <rect class="st48" x="189.06" y="29.77" width="90.57" height="99.5"/>
     <rect id="HIGHLIGHT-7" class="st27" x="195.09" y="5.97" width="84.26" height="24.31"/>
     <g id="HATCH-609">
@@ -21897,7 +21855,7 @@
       <line class="st7" x1="279.36" y1="103.39" x2="279.36" y2="107.41"/>
     </g>
   </g>
-  <g id="CEILBEAM012" data-attribute="feature" data-name="OPT_CEILBEAM01">
+  <g id="CEILBEAM012" data-attribute="feature" data-name="OPT_CEILBEAM01" display="none">
     <g id="HIGHLIGHT-8">
       <rect class="st27" x="195.19" y="34.82" width="84.17" height="5.48"/>
       <rect class="st27" x="194.94" y="68.74" width="84.17" height="5.48"/>
@@ -21939,6 +21897,50 @@
     <g id="LINE-4991">
       <line class="st10" x1="279.48" y1="39.7" x2="239.49" y2="39.7"/>
     </g>
+  
+
+    <rect class="st27" x="194.55" y="51.85" width="84.42" height="4.53"/>
+    <rect class="st27" x="194.94" y="84.42" width="84.42" height="4.53"/>
+    <rect class="st27" x="194.94" y="117.55" width="84.42" height="4.53"/>
+    <g id="LINE-4745">
+      <line class="st2" x1="279.89" y1="51.88" x2="239.49" y2="51.88"/>
+    </g>
+    <g id="LINE-4746">
+      <line class="st2" x1="279.89" y1="55.9" x2="239.49" y2="55.9"/>
+    </g>
+    <g id="LINE-4747">
+      <line class="st15" x1="279.76" y1="84.67" x2="240.24" y2="84.67"/>
+    </g>
+    <g id="LINE-4748">
+      <line class="st1" x1="279.5" y1="88.69" x2="239.49" y2="88.69"/>
+    </g>
+    <g id="LINE-4749">
+      <line class="st2" x1="279.89" y1="117.46" x2="239.49" y2="117.46"/>
+    </g>
+    <g id="LINE-4750">
+      <line class="st15" x1="279.38" y1="121.48" x2="239.49" y2="121.48"/>
+    </g>
+    <g id="LINE-4751">
+      <line class="st2" x1="234.95" y1="52.14" x2="194.55" y2="52.14"/>
+    </g>
+    <g id="LINE-4752">
+      <line class="st2" x1="234.95" y1="56.16" x2="194.55" y2="56.16"/>
+    </g>
+    <g id="LINE-4753">
+      <line class="st2" x1="234.87" y1="85.02" x2="194.91" y2="85.02"/>
+    </g>
+    <g id="LINE-4754">
+      <line class="st19" x1="235.04" y1="88.95" x2="195.06" y2="88.95"/>
+    </g>
+    <g id="LINE-4755">
+      <line class="st1" x1="234.95" y1="117.71" x2="194.95" y2="117.71"/>
+    </g>
+    <g id="LINE-4756">
+      <line class="st1" x1="235.07" y1="121.74" x2="195.01" y2="121.74"/>
+    </g>
+    <g id="LINE-4757">
+      <line class="st20" x1="279.36" y1="121.48" x2="279.36" y2="117.46"/>
+    </g>
   </g>
   <g id="EXT_PRIMARY_BEDROOM_LABEL_AND_DIMENSIONS">
     <g id="MTEXT-34">
@@ -21963,7 +21965,7 @@
       </g>
     </g>
   </g>
-  <g id="DOOREGD001" data-attribute="feature" class="st51">
+  <g id="DOOREGD001" data-attribute="feature" class="st51" display="none">
     <g id="HATCH-636">
       <polygon class="st49" points="472.16 86.98 348.8 86.98 349.11 108.16 472.47 108.16 472.16 86.98"/>
     </g>
@@ -22403,7 +22405,7 @@
       </g>
     </g>
   </g>
-  <g id="EXTCVPT01" data-attribute="feature">
+  <g id="EXTCVPT01" data-attribute="feature" display="none">
     <rect class="st48" x="351.71" y="1.23" width="117.35" height="78.89"/>
     <rect class="st48" x="468.39" y="24.37" width="6.3" height="11.39"/>
     <rect class="st48" x="346.32" y="24.56" width="5.05" height="11.39"/>
@@ -23908,7 +23910,7 @@
       <line class="st7" x1="358.75" y1="479.26" x2="358.75" y2="482.03"/>
     </g>
   </g>
-  <g id="GARG3B0001" data-attribute="feature">
+  <g id="GARG3B0001" data-attribute="feature" display="none">
     <g id="HATCH-715">
       <rect class="st48" x="421.06" y="306.12" width="189.7" height="132.96"/>
     </g>
@@ -24733,7 +24735,7 @@
       </g>
     </g>
   </g>
-  <g id="PREPKIT001" data-attribute="feature">
+  <g id="PREPKIT001" data-attribute="feature" display="none">
     <g id="HATCH-790">
       <rect class="st48" x="470.41" y="221.69" width="80.33" height="82.78"/>
     </g>
@@ -28005,7 +28007,7 @@
     </g>
   </g>
   <g id="OPT_DISHWS001">
-    <rect id="HIGHLIGHT-13" class="st27" x="532.12" y="291.58" width="12.82" height="12.46"/>
+    <rect id="HIGHLIGHT-13" class="st27" x="532.12" y="291.58" width="12.82" height="12.46" display="none"/>
     <g id="LINE-6437">
       <line class="st0" x1="544.68" y1="288.56" x2="544.68" y2="304.14"/>
     </g>
@@ -28020,7 +28022,7 @@
     </g>
   </g>
   <g id="OPT_ADDREF01">
-    <rect id="HIGHLIGHT-14" class="st27" x="486.47" y="266.45" width="19.09" height="17.56"/>
+    <rect id="HIGHLIGHT-14" class="st27" x="486.47" y="266.45" width="19.09" height="17.56" display="none"/>
     <g id="ARC-1444">
       <path class="st0" d="M494.98,283.72c0,.17.14.31.31.31s.31-.14.31-.31"/>
     </g>
@@ -28095,7 +28097,7 @@
     </g>
   </g>
   <g id="OPT_MICRODR001">
-    <rect id="HIGHLIGHT-15" class="st27" x="531.61" y="221.65" width="12.94" height="19.04"/>
+    <rect id="HIGHLIGHT-15" class="st27" x="531.61" y="221.65" width="12.94" height="19.04" display="none"/>
     <g id="LINE-6459">
       <line class="st8" x1="532.66" y1="221.79" x2="532.66" y2="240.94"/>
     </g>

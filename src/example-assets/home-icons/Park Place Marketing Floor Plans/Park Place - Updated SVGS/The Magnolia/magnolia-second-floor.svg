@@ -8726,7 +8726,7 @@
     <line class="st1" x1="412.05" y1="228.35" x2="357.73" y2="228.35"/>
   </g>
   <g id="OPT__FIREPLCE1">
-    <rect class="st9" x="153.16" y="63.09" width="22.7" height="65.39"/>
+    <rect class="st9" x="153.16" y="63.09" width="22.7" height="65.39" display="none"/>
     <g id="LINE-2244">
       <line class="st6" x1="152.73" y1="64.17" x2="175.63" y2="64.17"/>
     </g>
@@ -8738,7 +8738,7 @@
     </g>
   </g>
   <g id="OPT_CABBARDRY2">
-    <rect class="st9" x="357.08" y="235.47" width="55.6" height="18.43"/>
+    <rect class="st9" x="357.08" y="235.47" width="55.6" height="18.43" display="none"/>
     <g id="LINE-2247">
       <line class="st1" x1="393.92" y1="254.12" x2="393.92" y2="235.74"/>
     </g>
@@ -9499,7 +9499,7 @@
     <line class="st5" x1="468.95" y1="455.49" x2="468.95" y2="445.44"/>
     <line class="st5" x1="423.21" y1="445.64" x2="468.95" y2="445.64"/>
   </g>
-  <g id="BED001" data-attribute="feature">
+  <g id="BED001" data-attribute="feature" display="none">
     <g id="HATCH-440">
       <polygon class="st25" points="153.09 117.69 0 117.69 1.01 228.85 154.1 228.85 153.09 117.69"/>
     </g>

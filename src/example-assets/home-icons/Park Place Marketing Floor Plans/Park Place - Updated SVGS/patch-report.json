@@ -3,46 +3,87 @@
     "plan": "The Addison",
     "file": "addison-first-floor.svg",
     "features": 8,
+    "yellowClasses": [
+      "st27"
+    ],
     "mappings": [
       {
         "from": "OPT__DOOREGD001",
         "to": "DOOREGD001",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_CEILBEAM012",
         "to": "CEILBEAM012",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_EXTPRIMBED1",
         "to": "EXTPRIMBED1",
-        "count": 1
+        "count": 0
+      },
+      {
+        "from": "OPT_CEILBEAM011",
+        "to": "CEILBEAM01-great-room",
+        "count": 0
       },
       {
         "from": "OPT_PREPKIT001",
         "to": "PREPKIT001",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_FIREADD001",
         "to": "FIREADD001",
-        "count": 1
-      },
-      {
-        "from": "OPT_CEILBEAM01",
-        "to": "CEILBEAM01-great-room",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_GARG3B0001",
         "to": "GARG3B0001",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_EXTCVPT01",
         "to": "EXTCVPT01",
-        "count": 1
+        "count": 0
+      }
+    ],
+    "merged": [
+      {
+        "from": "OPT_CEILBEAM01",
+        "to": "CEILBEAM012",
+        "ok": false,
+        "reason": "missing-source"
+      }
+    ],
+    "unmappedHidden": [
+      {
+        "id": "OPT_SINKLNRY01",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CAB0001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CABLDRY001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CABBARDRY2",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_DISHWS001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_ADDREF01",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_MICRODR001",
+        "mode": "yellow"
       }
     ]
   },
@@ -50,56 +91,115 @@
     "plan": "The Bandera",
     "file": "bandera-first-floor.svg",
     "features": 10,
+    "yellowClasses": [
+      "st2",
+      "st72",
+      "st3"
+    ],
     "mappings": [
       {
         "from": "OPT_CEILBEAM013",
         "to": "CEILBEAM013",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_EXTPRIMBED1",
         "to": "EXTPRIMBED1",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_CEILBEAM012",
         "to": "CEILBEAM012",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_ADDFLEXRM1",
         "to": "ADDFLEXRM1",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_FIREPLCE11",
         "to": "FIREPLCE11",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_CEILBEAM01",
         "to": "CEILBEAM01-dining-room",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_GARG3B0001",
         "to": "GARG3B0001",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_PRPKTCN01",
         "to": "PREPKIT001",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_EXTCVPT01",
         "to": "EXTCVPT01",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_FIREPLCE1",
         "to": "FIREPLCE1",
-        "count": 1
+        "count": 0
+      }
+    ],
+    "merged": [
+      {
+        "from": "OPT_CEILBEAM011",
+        "to": "CEILBEAM013",
+        "ok": false,
+        "reason": "missing-source"
+      }
+    ],
+    "unmappedHidden": [
+      {
+        "id": "OPT_SINKLNRY01",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CABLDRY001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CAB0001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CABDIN0001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_ADDUCREF1",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CAB00011",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_DISHWS001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_MICRODR001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CABF0001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_ADDUCREF01",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT__DOOREGD001",
+        "mode": "yellow"
       }
     ]
   },
@@ -107,21 +207,49 @@
     "plan": "The Bandera",
     "file": "bandera-second-floor.svg",
     "features": 3,
+    "yellowClasses": [
+      "st29",
+      "st19",
+      "st20"
+    ],
     "mappings": [
       {
         "from": "OPT_CEILBEAM01",
         "to": "CEILBEAM01-loft",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_BEDBATH001",
         "to": "BEDBATH001",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_MEDIA01",
         "to": "MEDIA01",
-        "count": 1
+        "count": 0
+      }
+    ],
+    "merged": [],
+    "unmappedHidden": [
+      {
+        "id": "OPT__CABF0001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CABBARDRY2",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CABF0001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CABBARDRY21",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CABF00011",
+        "mode": "yellow"
       }
     ]
   },
@@ -129,51 +257,104 @@
     "plan": "The Collin",
     "file": "collin-first-floor.svg",
     "features": 9,
+    "yellowClasses": [
+      "st25"
+    ],
     "mappings": [
       {
         "from": "OPT_EXTPRIMBED1",
         "to": "EXTPRIMBED1",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_CEILBEAM012",
         "to": "CEILBEAM012",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_CEILBEAM011",
         "to": "CEILBEAM011",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_GARG3B0001",
         "to": "GARG3B0001",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_FIREPLCE11",
         "to": "FIREPLCE11",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_GRG2FLX01",
         "to": "GRG2FLX01",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_FIREPLCE1",
         "to": "FIREPLCE1",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_PRPKTCN1",
         "to": "PREPKIT001",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_EXTCVPT1",
         "to": "EXTCVPT01",
-        "count": 1
+        "count": 0
+      }
+    ],
+    "merged": [
+      {
+        "from": "OPT_CEILBEAM01",
+        "to": "CEILBEAM012",
+        "ok": false,
+        "reason": "missing-source"
+      }
+    ],
+    "unmappedHidden": [
+      {
+        "id": "OPT_SINKLNRY01",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CABDIN0001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_ADDUCREF1",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_MICRODR001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CAB0001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_UNDER_COUNTER_FRIDGE_AT_PREP_KITCHEN",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_36REF001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_DISHWS001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CAB00011",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CABLDRY001",
+        "mode": "yellow"
       }
     ]
   },
@@ -181,11 +362,21 @@
     "plan": "The Collin",
     "file": "collin-second-floor.svg",
     "features": 1,
+    "yellowClasses": [
+      "st10"
+    ],
     "mappings": [
       {
         "from": "OPT_CEILBEAM01",
         "to": "CEILBEAM01-game-room",
-        "count": 1
+        "count": 0
+      }
+    ],
+    "merged": [],
+    "unmappedHidden": [
+      {
+        "id": "OPT_CABBARDRY2",
+        "mode": "yellow"
       }
     ]
   },
@@ -193,41 +384,82 @@
     "plan": "The Grayson",
     "file": "grayson-first-floor.svg",
     "features": 7,
+    "yellowClasses": [
+      "st4"
+    ],
     "mappings": [
       {
         "from": "OPT_EXTPRIMBED1",
         "to": "EXTPRIMBED1",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_CEILBEAM011",
         "to": "CEILBEAM011",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_DOOREGD001",
         "to": "DOOREGD001",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_GARG3B0001",
         "to": "GARG3B0001",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_FIREPLCE1",
         "to": "FIREPLCE1",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_PRPKTCN1",
         "to": "PRPKTCN1",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_EXTCVPT1",
         "to": "EXTCVPT01",
-        "count": 1
+        "count": 0
+      }
+    ],
+    "merged": [
+      {
+        "from": "OPT_CEILBEAM01",
+        "to": "CEILBEAM011",
+        "ok": false,
+        "reason": "missing-source"
+      }
+    ],
+    "unmappedHidden": [
+      {
+        "id": "OPT_CAB0001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT__SINKLNRY01",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT__ADDUCREF1",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CABLDRY001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_DISHWS001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_36REF001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_MICRODR001",
+        "mode": "yellow"
       }
     ]
   },
@@ -235,16 +467,30 @@
     "plan": "The Grayson",
     "file": "grayson-second-floor.svg",
     "features": 2,
+    "yellowClasses": [
+      "st1"
+    ],
     "mappings": [
       {
         "from": "OPT_ADDMEDIA01",
         "to": "ADDMEDIA01",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_CEILBEAM01",
         "to": "CEILBEAM01-game-room",
-        "count": 1
+        "count": 0
+      }
+    ],
+    "merged": [],
+    "unmappedHidden": [
+      {
+        "id": "OPT_CABBARDRY2",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_FIREPLCE1",
+        "mode": "yellow"
       }
     ]
   },
@@ -252,41 +498,83 @@
     "plan": "The Magnolia",
     "file": "magnolia-first-floor.svg",
     "features": 7,
+    "yellowClasses": [
+      "st33",
+      "st21"
+    ],
     "mappings": [
       {
         "from": "OPT__DOOREGD001",
         "to": "DOOREGD001",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_CEILBEAM011",
         "to": "CEILBEAM011",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_EXTPRIMBED1",
         "to": "EXTPRIMBED1",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_GARG3B0001",
         "to": "GARG3B0001",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_FIREPLCE1",
         "to": "FIREPLCE1",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_PRPKTCN1",
         "to": "PREPKIT001",
-        "count": 1
+        "count": 0
       },
       {
         "from": "OPT_EXTCVPT1",
         "to": "EXTCVPT01",
-        "count": 1
+        "count": 0
+      }
+    ],
+    "merged": [
+      {
+        "from": "OPT_CEILBEAM01",
+        "to": "CEILBEAM011",
+        "ok": false,
+        "reason": "missing-source"
+      }
+    ],
+    "unmappedHidden": [
+      {
+        "id": "OPT_CABDIN0001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_SINKLNRY01",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CAB0001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CABLDRY001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_36REF001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT__DISHWS001",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_MICRODR001",
+        "mode": "yellow"
       }
     ]
   },
@@ -294,11 +582,25 @@
     "plan": "The Magnolia",
     "file": "magnolia-second-floor.svg",
     "features": 1,
+    "yellowClasses": [
+      "st9"
+    ],
     "mappings": [
       {
         "from": "OPT_BED001",
         "to": "BED001",
-        "count": 1
+        "count": 0
+      }
+    ],
+    "merged": [],
+    "unmappedHidden": [
+      {
+        "id": "OPT__FIREPLCE1",
+        "mode": "yellow"
+      },
+      {
+        "id": "OPT_CABBARDRY2",
+        "mode": "yellow"
       }
     ]
   }

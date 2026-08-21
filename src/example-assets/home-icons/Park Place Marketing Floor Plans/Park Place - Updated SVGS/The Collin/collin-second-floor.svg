@@ -6461,7 +6461,7 @@
       </g>
     </g>
   </g>
-  <g id="CEILBEAM01-game-room" data-attribute="feature">
+  <g id="CEILBEAM01-game-room" data-attribute="feature" display="none">
     <rect class="st10" x="369.9" y="177.11" width="90.85" height="5.54"/>
     <rect class="st10" x="369.9" y="229.06" width="90.85" height="5.54"/>
     <rect class="st10" x="370.39" y="281.5" width="90.85" height="5.54"/>
@@ -6506,7 +6506,7 @@
     </g>
   </g>
   <g id="OPT_CABBARDRY2">
-    <rect class="st10" x="412.19" y="124.41" width="102.71" height="23.23"/>
+    <rect class="st10" x="412.19" y="124.41" width="102.71" height="23.23" display="none"/>
     <g id="LINE-1656">
       <line class="st7" x1="476.12" y1="143.1" x2="476.12" y2="124.15"/>
     </g>
