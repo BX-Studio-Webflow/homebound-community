@@ -361,7 +361,7 @@
   {
     "plan": "The Collin",
     "file": "collin-second-floor.svg",
-    "features": 1,
+    "features": 2,
     "yellowClasses": [
       "st10"
     ],
@@ -466,7 +466,7 @@
   {
     "plan": "The Grayson",
     "file": "grayson-second-floor.svg",
-    "features": 2,
+    "features": 4,
     "yellowClasses": [
       "st1"
     ],
@@ -581,7 +581,7 @@
   {
     "plan": "The Magnolia",
     "file": "magnolia-second-floor.svg",
-    "features": 1,
+    "features": 2,
     "yellowClasses": [
       "st9"
     ],

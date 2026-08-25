@@ -9595,7 +9595,7 @@
       <line class="st19" x1="111.53" y1="664.04" x2="196.24" y2="664.04"/>
     </g>
   </g>
-  <g id="MODERN_TUDOR">
+  <g id="MODERN_TUDOR" data-attribute="feature" display="none">
     <rect class="st22" x="19.78" y="683.44" width="228.06" height="66.82"/>
     <rect class="st22" x="195.38" y="468.1" width="78.15" height="248.78"/>
     <rect class="st22" x="13.07" y="689.12" width="55.29" height="28.51"/>
@@ -10443,7 +10443,7 @@
     </g>
     <line class="st16" x1="195.96" y1="626.83" x2="195.98" y2="581.19"/>
   </g>
-  <g id="CAPE_DUTCH">
+  <g id="CAPE_DUTCH" data-attribute="feature" display="none">
     <g id="HATCH-500">
       <rect class="st22" x="198.46" y="477.7" width="245.65" height="49.19"/>
     </g>

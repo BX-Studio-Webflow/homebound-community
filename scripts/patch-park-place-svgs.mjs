@@ -86,6 +86,7 @@ const jobs = [
       {
         src: path.join(outRoot, "The Collin", "collin-second-floor.svg"),
         out: "collin-second-floor.svg",
+        hide: ["MODERN_TUDOR"],
         map: {
           OPT_CEILBEAM01: "CEILBEAM01-game-room",
         },
@@ -114,6 +115,7 @@ const jobs = [
       {
         src: path.join(outRoot, "The Grayson", "grayson-second-floor.svg"),
         out: "grayson-second-floor.svg",
+        hide: ["MODERN_TUDOR", "CAPE_DUTCH"],
         map: {
           OPT_ADDMEDIA01: "ADDMEDIA01",
           OPT_CEILBEAM01: "CEILBEAM01-game-room",
@@ -143,6 +145,7 @@ const jobs = [
       {
         src: path.join(outRoot, "The Magnolia", "magnolia-second-floor.svg"),
         out: "magnolia-second-floor.svg",
+        hide: ["MODERN_CAPE_DUTCH"],
         map: {
           OPT_BED001: "BED001",
         },
@@ -268,6 +271,33 @@ function hideFeatureGroups(svg) {
   );
 }
 
+function hideGroupsAsFeatures(svg, ids = []) {
+  let patched = svg;
+  const hidden = [];
+
+  for (const id of ids) {
+    const group = findGroupRange(patched, id);
+    if (!group) {
+      hidden.push({ id, ok: false });
+      continue;
+    }
+
+    let openTag = group.openTag;
+    if (!/\sdata-attribute=/.test(openTag)) {
+      openTag = openTag.replace(/>$/, ' data-attribute="feature">');
+    }
+    if (/\sdisplay=/.test(openTag)) {
+      openTag = openTag.replace(/\sdisplay="[^"]*"/, ' display="none"');
+    } else {
+      openTag = openTag.replace(/>$/, ' display="none">');
+    }
+    patched = patched.slice(0, group.start) + openTag + group.inner + "</g>" + patched.slice(group.end);
+    hidden.push({ id, ok: true });
+  }
+
+  return { patched, hidden };
+}
+
 function mergeGroups(svg, mergeMap = {}) {
   const merged = [];
   let patched = svg;
@@ -336,7 +366,8 @@ function patchSvg(content, file) {
   const chrome = removePlanText(content);
   const remapped = remapIds(chrome.patched, file.map);
   const merged = mergeGroups(remapped.patched, file.merge);
-  let patched = hideFeatureGroups(merged.patched);
+  const overlays = hideGroupsAsFeatures(merged.patched, file.hide);
+  let patched = hideFeatureGroups(overlays.patched);
   const unmapped = hideUnmappedOptYellow(patched, yellowClasses);
   patched = unmapped.patched;
   return {
@@ -344,6 +375,7 @@ function patchSvg(content, file) {
     planTextRemoved: chrome.removed,
     mappings: remapped.mappings,
     merged: merged.merged,
+    hiddenOverlays: overlays.hidden,
     unmappedHidden: unmapped.hidden,
     yellowClasses: [...yellowClasses],
   };

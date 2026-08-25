@@ -6580,7 +6580,7 @@
       <line class="st7" x1="476.12" y1="143.1" x2="476.12" y2="124.15"/>
     </g>
   </g>
-  <g id="MODERN_TUDOR">
+  <g id="MODERN_TUDOR" data-attribute="feature" display="none">
     <g id="HATCH-297">
       <rect class="st21" x="416.47" y="315.18" width="95.71" height="11.28"/>
     </g>
