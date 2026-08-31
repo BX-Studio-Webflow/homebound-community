@@ -7,7 +7,7 @@ import { AccordionController } from '$utils/accordion';
 import { ExploreTabsController } from '$utils/explore-tabs';
 import { type GalleryConfig, GalleryController } from '$utils/gallery';
 import { type ColorSchemeBinding, ColorSchemeController } from '$utils/interior-color-scheme';
-import { LotMapController } from '$utils/lot-map';
+import { LotMapController, lotMapConfigFromLocation } from '$utils/lot-map';
 import { StickyNavController } from '$utils/sticky-nav';
 
 const galleryConfigs: GalleryConfig[] = [
@@ -96,6 +96,6 @@ window.Webflow.push(() => {
     colorSchemeController.init();
   }
 
-  const lotMapController = new LotMapController();
-  lotMapController.init();
+  const lotMapController = new LotMapController(lotMapConfigFromLocation());
+  void lotMapController.init();
 });

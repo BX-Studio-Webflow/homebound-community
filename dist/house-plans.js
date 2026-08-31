@@ -7072,31 +7072,45 @@
   function availabilityToPillClass(raw) {
     return raw.trim().toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
   }
+  var LAKESIDE_MAP = { mapWidth: 1162.54, mapHeight: 912.76 };
+  var PARK_PLACE_MAP = { mapWidth: 1247.80285, mapHeight: 670.33693 };
+  var LOT_MAP_CONFIG_BY_SLUG = {
+    "park-place": { ...PARK_PLACE_MAP },
+    mosaic: { ...PARK_PLACE_MAP },
+    mosic: { ...PARK_PLACE_MAP },
+    "lake-side": { ...LAKESIDE_MAP },
+    lakeside: { ...LAKESIDE_MAP }
+  };
+  function lotMapConfigFromLocation(pathname = window.location.pathname) {
+    const slug = pathname.toLowerCase().split("/upcoming-communities/")[1]?.split("/")[0] ?? "";
+    return LOT_MAP_CONFIG_BY_SLUG[slug] ?? {};
+  }
   var LotMapController = class {
     svgEl = null;
     activeId = null;
     isPanning = false;
     config;
     /** Native width of the SVG viewBox. */
-    ORIGINAL_W = 1162.54;
+    originalW = LAKESIDE_MAP.mapWidth;
     /** Native height of the SVG viewBox. */
-    ORIGINAL_H = 912.76;
+    originalH = LAKESIDE_MAP.mapHeight;
     /** Minimum zoom factor — prevents zooming out past the full map (1 = full map). */
     MIN_ZOOM = 1;
     /** Maximum zoom factor. */
     MAX_ZOOM = 8;
     /** Zoom factor for the zoom buttons. */
     DISABLE_ZOOM_WITH_MOUSE_SCROLL = true;
-    vb = { x: 0, y: 0, w: this.ORIGINAL_W, h: this.ORIGINAL_H };
+    vb = { x: 0, y: 0, w: this.originalW, h: this.originalH };
     constructor(config = {}) {
       this.config = config;
     }
     /**
-     * Initialises the controller: injects the SVG, wires hover and zoom.
-     * Must be called after the DOM is ready (e.g. inside `window.Webflow.push`).
+     * Initialises the controller: injects the SVG (inline markup or URL), then
+     * wires hover and zoom. Must be called after the DOM is ready
+     * (e.g. inside `window.Webflow.push`).
      */
-    init() {
-      if (!this.injectSvg()) return;
+    async init() {
+      if (!await this.injectSvg()) return;
       const cards = document.querySelectorAll('[dev-target="one-lot"][lot-number]');
       if (!cards.length) {
         console.error(
@@ -7147,14 +7161,14 @@
       }
       const cx = bbox.x + bbox.width / 2;
       const cy = bbox.y + bbox.height / 2;
-      const minWFromMaxZoom = this.ORIGINAL_W / this.MAX_ZOOM;
-      const fromMapZoom = this.ORIGINAL_W / Math.max(zoomFactor, 1);
+      const minWFromMaxZoom = this.originalW / this.MAX_ZOOM;
+      const fromMapZoom = this.originalW / Math.max(zoomFactor, 1);
       const fromLotPadding = Math.max(bbox.width, bbox.height) * 3;
       const targetW = Math.min(
-        this.ORIGINAL_W,
+        this.originalW,
         Math.max(minWFromMaxZoom, Math.max(fromMapZoom, fromLotPadding))
       );
-      const targetH = targetW * this.ORIGINAL_H / this.ORIGINAL_W;
+      const targetH = targetW * this.originalH / this.originalW;
       this.vb.x = cx - targetW / 2;
       this.vb.y = cy - targetH / 2;
       this.vb.w = targetW;
@@ -7213,7 +7227,7 @@
         const lotNumber = id.replace(/Label$/, "");
         const availability = lotToAvailability.get(lotNumber);
         const color = availability ? AVAILABILITY_COLORS[availability] ?? "#657839" : "#657839";
-        labelGroup.querySelector("rect")?.setAttribute("fill", color);
+        labelGroup.querySelector("rect")?.style.setProperty("fill", color);
       });
     }
     /**
@@ -7230,13 +7244,14 @@
       });
     }
     /**
-     * Reads SVG markup from `[dev-target="svg-text-holder"]`, sanitises it,
-     * and injects it into `[dev-target="svg-target-wrapper"]`.
+     * Reads SVG markup or an absolute SVG URL from `[dev-target="svg-text-holder"]`,
+     * sanitises it, and injects it into `[dev-target="svg-target-wrapper"]`.
+     * Matches house-plan floor maps: inline `<svg>` or `https://…`.
      *
      * @returns `true` on success, `false` if a required element is missing or
-     *   the holder does not contain valid SVG markup.
+     *   the holder does not contain valid SVG markup or a fetchable URL.
      */
-    injectSvg() {
+    async injectSvg() {
       const textHolder = document.querySelector('[dev-target="svg-text-holder"]');
       const targetWrapper = document.querySelector('[dev-target="svg-target-wrapper"]');
       if (!textHolder) {
@@ -7247,24 +7262,63 @@
         console.error('LotMapController: No [dev-target="svg-target-wrapper"] element found.');
         return false;
       }
-      const rawMarkup = textHolder.textContent?.trim() ?? "";
-      if (!rawMarkup.includes("<svg")) {
-        console.error(
-          'LotMapController: [dev-target="svg-text-holder"] does not contain SVG markup.'
-        );
+      const raw = (textHolder.textContent ?? "").trim();
+      if (!raw) {
+        console.error('LotMapController: [dev-target="svg-text-holder"] is empty.');
         return false;
       }
-      const svgMarkup = rawMarkup.replace(/=\d+"/g, '="');
-      targetWrapper.innerHTML = svgMarkup;
-      this.svgEl = targetWrapper.querySelector("svg");
-      if (!this.svgEl) {
-        console.error("LotMapController: SVG injection failed \u2014 no <svg> found after injection.");
+      const isSvgMarkup = raw.includes("<svg");
+      const isUrl = /^https?:\/\//i.test(raw);
+      let svgText;
+      try {
+        if (isSvgMarkup) {
+          svgText = this.sanitizeSvg(raw);
+        } else if (isUrl) {
+          const res = await fetch(raw);
+          if (!res.ok) {
+            throw new Error(`Fetch failed with status ${res.status}`);
+          }
+          svgText = this.sanitizeSvg(await res.text());
+        } else {
+          console.error(
+            'LotMapController: [dev-target="svg-text-holder"] must contain inline SVG or an https URL.'
+          );
+          return false;
+        }
+      } catch (error) {
+        console.error("LotMapController: Failed to load SVG.", error);
         return false;
       }
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(svgText, "image/svg+xml");
+      const svgEl = doc.querySelector("svg");
+      if (!svgEl) {
+        console.error("LotMapController: SVG parse failed \u2014 no <svg> found.");
+        return false;
+      }
+      targetWrapper.replaceChildren(svgEl);
+      this.svgEl = svgEl;
       this.svgEl.style.width = "100%";
       this.svgEl.style.height = "100%";
       this.svgEl.style.display = "block";
+      this.applyMapSize();
       return true;
+    }
+    /**
+     * Sanitises SVG markup by fixing broken Webflow attributes and removing script tags.
+     */
+    sanitizeSvg(svg) {
+      return svg.replace(/=\d+"/g, '="').replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, "");
+    }
+    /**
+     * Sets native map size from config, then the SVG `viewBox`, then Lakeside fallbacks.
+     */
+    applyMapSize() {
+      const tokens = this.svgEl?.getAttribute("viewBox")?.trim().split(/[\s,]+/).map(Number);
+      const fromView = tokens?.length === 4 && tokens[2] > 0 && tokens[3] > 0 ? { w: tokens[2], h: tokens[3] } : null;
+      this.originalW = this.config.mapWidth ?? fromView?.w ?? this.originalW;
+      this.originalH = this.config.mapHeight ?? fromView?.h ?? this.originalH;
+      this.vb = { x: 0, y: 0, w: this.originalW, h: this.originalH };
     }
     /**
      * Writes the current {@link ViewBox} state back to the SVG `viewBox` attribute.
@@ -7278,8 +7332,8 @@
      * Prevents panning the map out of view at any zoom level.
      */
     clampViewBox() {
-      this.vb.x = Math.max(0, Math.min(this.vb.x, this.ORIGINAL_W - this.vb.w));
-      this.vb.y = Math.max(0, Math.min(this.vb.y, this.ORIGINAL_H - this.vb.h));
+      this.vb.x = Math.max(0, Math.min(this.vb.x, this.originalW - this.vb.w));
+      this.vb.y = Math.max(0, Math.min(this.vb.y, this.originalH - this.vb.h));
       this.applyViewBox();
     }
     /**
@@ -7307,7 +7361,7 @@
      */
     zoomAround(scale, originX, originY) {
       const newW = this.vb.w * scale;
-      const zoom = this.ORIGINAL_W / newW;
+      const zoom = this.originalW / newW;
       if (zoom < this.MIN_ZOOM || zoom > this.MAX_ZOOM) {
         this.clampViewBox();
         return;
@@ -7333,7 +7387,7 @@
      * Resets the viewBox to the original full-map dimensions.
      */
     resetZoom() {
-      this.vb = { x: 0, y: 0, w: this.ORIGINAL_W, h: this.ORIGINAL_H };
+      this.vb = { x: 0, y: 0, w: this.originalW, h: this.originalH };
       this.applyViewBox();
     }
     /**
@@ -8511,8 +8565,8 @@
     });
     const colorSchemeController = new ColorSchemeController({ bindings: colorSchemeBindings });
     colorSchemeController.init();
-    const lotMapController = new LotMapController();
-    lotMapController.init();
+    const lotMapController = new LotMapController(lotMapConfigFromLocation());
+    void lotMapController.init();
     const accordionController = new AccordionController();
     accordionController.init();
     HomeMapController.initAll();

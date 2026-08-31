@@ -31,11 +31,15 @@
  *
  * | Element | Attribute | Value |
  * |---|---|---|
- * | Hidden HTML Embed with raw SVG text | `dev-target` | `svg-text-holder` |
+ * | Hidden HTML Embed with raw SVG or an absolute SVG URL | `dev-target` | `svg-text-holder` |
  * | Empty wrapper where SVG is rendered | `dev-target` | `svg-target-wrapper` |
  * | Each CMS lot card | `dev-target` | `one-lot` |
- * | Each CMS lot card | `lot-number` | e.g. `B1` — must match SVG `<g id="B1">` |
+ * | Each CMS lot card | `lot-number` | e.g. `B1` or `F12` — must match SVG `<g id>` |
  * | Status pill (inside each card) | `dev-target` | `pill-component` — receives a class slug from parent `availability` |
+ *
+ * Map size is taken from the injected SVG `viewBox`, or from {@link LotMapConfig.mapWidth}
+ * / {@link LotMapConfig.mapHeight}. Use {@link lotMapConfigFromLocation} on community
+ * template pages so Park Place / Mosaic / Lakeside get the right defaults.
  *
  * **CSS classes applied (style in lot-map.css)**
  * - `.lot-map__shape--active` — active lot shape `<g>`
@@ -84,7 +88,42 @@ export type LotMapConfig = {
    * @defaultValue 3.5
    */
   focusZoomFactor?: number;
+  /**
+   * Native map width in SVG units. When omitted, read from the injected SVG `viewBox`.
+   */
+  mapWidth?: number;
+  /**
+   * Native map height in SVG units. When omitted, read from the injected SVG `viewBox`.
+   */
+  mapHeight?: number;
 };
+
+/** Lakeside `lot-example.svg` viewBox. */
+const LAKESIDE_MAP = { mapWidth: 1162.54, mapHeight: 912.76 } as const;
+
+/** Park Place / Mosaic `parkPlaceLotMap_8-26.svg` viewBox. */
+const PARK_PLACE_MAP = { mapWidth: 1247.80285, mapHeight: 670.33693 } as const;
+
+/**
+ * Lot map defaults keyed by Upcoming Communities slug
+ * (`/upcoming-communities/<slug>`). Mosaic shares the Park Place map.
+ */
+export const LOT_MAP_CONFIG_BY_SLUG: Record<string, LotMapConfig> = {
+  'park-place': { ...PARK_PLACE_MAP },
+  mosaic: { ...PARK_PLACE_MAP },
+  mosic: { ...PARK_PLACE_MAP },
+  'lake-side': { ...LAKESIDE_MAP },
+  lakeside: { ...LAKESIDE_MAP },
+};
+
+/**
+ * Resolves {@link LotMapConfig} from an Upcoming Communities URL.
+ * Unknown paths return `{}` so the controller can still read `viewBox` from the SVG.
+ */
+export function lotMapConfigFromLocation(pathname = window.location.pathname): LotMapConfig {
+  const slug = pathname.toLowerCase().split('/upcoming-communities/')[1]?.split('/')[0] ?? '';
+  return LOT_MAP_CONFIG_BY_SLUG[slug] ?? {};
+}
 
 export class LotMapController {
   private svgEl: SVGSVGElement | null = null;
@@ -94,9 +133,9 @@ export class LotMapController {
   private readonly config: LotMapConfig;
 
   /** Native width of the SVG viewBox. */
-  private readonly ORIGINAL_W = 1162.54;
+  private originalW: number = LAKESIDE_MAP.mapWidth;
   /** Native height of the SVG viewBox. */
-  private readonly ORIGINAL_H = 912.76;
+  private originalH: number = LAKESIDE_MAP.mapHeight;
   /** Minimum zoom factor — prevents zooming out past the full map (1 = full map). */
   private readonly MIN_ZOOM = 1;
   /** Maximum zoom factor. */
@@ -104,18 +143,19 @@ export class LotMapController {
   /** Zoom factor for the zoom buttons. */
   private readonly DISABLE_ZOOM_WITH_MOUSE_SCROLL = true;
 
-  private vb: ViewBox = { x: 0, y: 0, w: this.ORIGINAL_W, h: this.ORIGINAL_H };
+  private vb: ViewBox = { x: 0, y: 0, w: this.originalW, h: this.originalH };
 
   constructor(config: LotMapConfig = {}) {
     this.config = config;
   }
 
   /**
-   * Initialises the controller: injects the SVG, wires hover and zoom.
-   * Must be called after the DOM is ready (e.g. inside `window.Webflow.push`).
+   * Initialises the controller: injects the SVG (inline markup or URL), then
+   * wires hover and zoom. Must be called after the DOM is ready
+   * (e.g. inside `window.Webflow.push`).
    */
-  init(): void {
-    if (!this.injectSvg()) return;
+  async init(): Promise<void> {
+    if (!(await this.injectSvg())) return;
 
     const cards = document.querySelectorAll<HTMLElement>('[dev-target="one-lot"][lot-number]');
 
@@ -178,14 +218,14 @@ export class LotMapController {
     const cx = bbox.x + bbox.width / 2;
     const cy = bbox.y + bbox.height / 2;
 
-    const minWFromMaxZoom = this.ORIGINAL_W / this.MAX_ZOOM;
-    const fromMapZoom = this.ORIGINAL_W / Math.max(zoomFactor, 1);
+    const minWFromMaxZoom = this.originalW / this.MAX_ZOOM;
+    const fromMapZoom = this.originalW / Math.max(zoomFactor, 1);
     const fromLotPadding = Math.max(bbox.width, bbox.height) * 3;
     const targetW = Math.min(
-      this.ORIGINAL_W,
+      this.originalW,
       Math.max(minWFromMaxZoom, Math.max(fromMapZoom, fromLotPadding))
     );
-    const targetH = (targetW * this.ORIGINAL_H) / this.ORIGINAL_W;
+    const targetH = (targetW * this.originalH) / this.originalW;
 
     this.vb.x = cx - targetW / 2;
     this.vb.y = cy - targetH / 2;
@@ -262,7 +302,7 @@ export class LotMapController {
       const availability = lotToAvailability.get(lotNumber);
       const color = availability ? (AVAILABILITY_COLORS[availability] ?? '#657839') : '#657839';
 
-      labelGroup.querySelector('rect')?.setAttribute('fill', color);
+      labelGroup.querySelector('rect')?.style.setProperty('fill', color);
     });
   }
 
@@ -282,13 +322,14 @@ export class LotMapController {
   }
 
   /**
-   * Reads SVG markup from `[dev-target="svg-text-holder"]`, sanitises it,
-   * and injects it into `[dev-target="svg-target-wrapper"]`.
+   * Reads SVG markup or an absolute SVG URL from `[dev-target="svg-text-holder"]`,
+   * sanitises it, and injects it into `[dev-target="svg-target-wrapper"]`.
+   * Matches house-plan floor maps: inline `<svg>` or `https://…`.
    *
    * @returns `true` on success, `false` if a required element is missing or
-   *   the holder does not contain valid SVG markup.
+   *   the holder does not contain valid SVG markup or a fetchable URL.
    */
-  private injectSvg(): boolean {
+  private async injectSvg(): Promise<boolean> {
     const textHolder = document.querySelector<HTMLElement>('[dev-target="svg-text-holder"]');
     const targetWrapper = document.querySelector<HTMLElement>('[dev-target="svg-target-wrapper"]');
 
@@ -302,32 +343,81 @@ export class LotMapController {
       return false;
     }
 
-    const rawMarkup = textHolder.textContent?.trim() ?? '';
-
-    if (!rawMarkup.includes('<svg')) {
-      console.error(
-        'LotMapController: [dev-target="svg-text-holder"] does not contain SVG markup.'
-      );
+    const raw = (textHolder.textContent ?? '').trim();
+    if (!raw) {
+      console.error('LotMapController: [dev-target="svg-text-holder"] is empty.');
       return false;
     }
 
-    // Webflow's HTML Embed editor sometimes inserts a stray digit before the
-    // opening quote of an attribute value (e.g. width=0"1162.54"). Strip them.
-    const svgMarkup = rawMarkup.replace(/=\d+"/g, '="');
+    const isSvgMarkup = raw.includes('<svg');
+    const isUrl = /^https?:\/\//i.test(raw);
 
-    targetWrapper.innerHTML = svgMarkup;
-    this.svgEl = targetWrapper.querySelector<SVGSVGElement>('svg');
-
-    if (!this.svgEl) {
-      console.error('LotMapController: SVG injection failed — no <svg> found after injection.');
+    let svgText: string;
+    try {
+      if (isSvgMarkup) {
+        svgText = this.sanitizeSvg(raw);
+      } else if (isUrl) {
+        const res = await fetch(raw);
+        if (!res.ok) {
+          throw new Error(`Fetch failed with status ${res.status}`);
+        }
+        svgText = this.sanitizeSvg(await res.text());
+      } else {
+        console.error(
+          'LotMapController: [dev-target="svg-text-holder"] must contain inline SVG or an https URL.'
+        );
+        return false;
+      }
+    } catch (error) {
+      console.error('LotMapController: Failed to load SVG.', error);
       return false;
     }
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(svgText, 'image/svg+xml');
+    const svgEl = doc.querySelector('svg');
+
+    if (!svgEl) {
+      console.error('LotMapController: SVG parse failed — no <svg> found.');
+      return false;
+    }
+
+    targetWrapper.replaceChildren(svgEl);
+    this.svgEl = svgEl;
 
     this.svgEl.style.width = '100%';
     this.svgEl.style.height = '100%';
     this.svgEl.style.display = 'block';
 
+    this.applyMapSize();
+
     return true;
+  }
+
+  /**
+   * Sanitises SVG markup by fixing broken Webflow attributes and removing script tags.
+   */
+  private sanitizeSvg(svg: string): string {
+    return svg.replace(/=\d+"/g, '="').replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, '');
+  }
+
+  /**
+   * Sets native map size from config, then the SVG `viewBox`, then Lakeside fallbacks.
+   */
+  private applyMapSize(): void {
+    const tokens = this.svgEl
+      ?.getAttribute('viewBox')
+      ?.trim()
+      .split(/[\s,]+/)
+      .map(Number);
+    const fromView =
+      tokens?.length === 4 && tokens[2] > 0 && tokens[3] > 0
+        ? { w: tokens[2], h: tokens[3] }
+        : null;
+
+    this.originalW = this.config.mapWidth ?? fromView?.w ?? this.originalW;
+    this.originalH = this.config.mapHeight ?? fromView?.h ?? this.originalH;
+    this.vb = { x: 0, y: 0, w: this.originalW, h: this.originalH };
   }
 
   /**
@@ -343,8 +433,8 @@ export class LotMapController {
    * Prevents panning the map out of view at any zoom level.
    */
   private clampViewBox(): void {
-    this.vb.x = Math.max(0, Math.min(this.vb.x, this.ORIGINAL_W - this.vb.w));
-    this.vb.y = Math.max(0, Math.min(this.vb.y, this.ORIGINAL_H - this.vb.h));
+    this.vb.x = Math.max(0, Math.min(this.vb.x, this.originalW - this.vb.w));
+    this.vb.y = Math.max(0, Math.min(this.vb.y, this.originalH - this.vb.h));
     this.applyViewBox();
   }
 
@@ -374,7 +464,7 @@ export class LotMapController {
    */
   private zoomAround(scale: number, originX: number, originY: number): void {
     const newW = this.vb.w * scale;
-    const zoom = this.ORIGINAL_W / newW;
+    const zoom = this.originalW / newW;
     if (zoom < this.MIN_ZOOM || zoom > this.MAX_ZOOM) {
       this.clampViewBox();
       return;
@@ -403,7 +493,7 @@ export class LotMapController {
    * Resets the viewBox to the original full-map dimensions.
    */
   private resetZoom(): void {
-    this.vb = { x: 0, y: 0, w: this.ORIGINAL_W, h: this.ORIGINAL_H };
+    this.vb = { x: 0, y: 0, w: this.originalW, h: this.originalH };
     this.applyViewBox();
   }
 

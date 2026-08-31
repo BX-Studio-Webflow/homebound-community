@@ -7,7 +7,7 @@ import '$styles/lot-map.css';
 import { ExploreTabsController } from '$utils/explore-tabs';
 /*import { type GalleryConfig } from '$utils/gallery';*/
 import { HomeMapController } from '$utils/home-map';
-import { type LotMapConfig, LotMapController } from '$utils/lot-map';
+import { type LotMapConfig, LotMapController, lotMapConfigFromLocation } from '$utils/lot-map';
 import { type StickyNavConfig, StickyNavController } from '$utils/sticky-nav';
 
 /*const galleryConfigs: GalleryConfig[] = [
@@ -61,13 +61,14 @@ window.Webflow.push(() => {
     return;
   }
   const lotMapConfig: LotMapConfig = {
+    ...lotMapConfigFromLocation(),
     focusLotNumber: lotNumber,
     isZoomMode: true,
     focusZoomFactor: 2.5,
   };
 
   const lotMapController = new LotMapController(lotMapConfig);
-  lotMapController.init();
+  void lotMapController.init();
   const stickyNavController = new StickyNavController(stickyNavConfig);
   stickyNavController.init();
 

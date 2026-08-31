@@ -7,10 +7,7 @@ import '$styles/lot-map.css';
 
 import { AccordionController } from '$utils/accordion';
 import { ExploreTabsController } from '$utils/explore-tabs';
-import {
-  ExteriorSchemeController,
-  getHousePlanSlugFromPath,
-} from '$utils/exterior-scheme-modal';
+import { ExteriorSchemeController, getHousePlanSlugFromPath } from '$utils/exterior-scheme-modal';
 import { type GalleryConfig, GalleryController } from '$utils/gallery';
 import { HomeMapController } from '$utils/home-map';
 import { type ColorSchemeBinding, ColorSchemeController } from '$utils/interior-color-scheme';
@@ -27,7 +24,7 @@ import {
   isPalisadeHousePlan,
   isParkPlaceHousePlan,
 } from '$utils/interior-scheme-swatches';
-import { LotMapController } from '$utils/lot-map';
+import { LotMapController, lotMapConfigFromLocation } from '$utils/lot-map';
 import { StickyNavController } from '$utils/sticky-nav';
 
 const galleryConfigs: GalleryConfig[] = [
@@ -1171,8 +1168,8 @@ window.Webflow.push(() => {
   const colorSchemeController = new ColorSchemeController({ bindings: colorSchemeBindings });
   colorSchemeController.init();
 
-  const lotMapController = new LotMapController();
-  lotMapController.init();
+  const lotMapController = new LotMapController(lotMapConfigFromLocation());
+  void lotMapController.init();
 
   const accordionController = new AccordionController();
   accordionController.init();
