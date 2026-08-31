@@ -32,6 +32,17 @@
     stroke 0.15s ease;
 }
 
+/* Park Place: keep gray lot fills; paint an orange outline like the source file. */
+.lot-map__svg--stroke-highlight .lot-map__shape--active polygon,
+.lot-map__svg--stroke-highlight .lot-map__shape--active path,
+.lot-map__svg--stroke-highlight .lot-map__shape--active rect,
+.lot-map__svg--stroke-highlight .lot-map__shape--active polyline {
+  fill: #f3f3f4;
+  stroke: #f6b14e;
+  stroke-width: 2px;
+  opacity: 1;
+}
+
 /* ── SVG lot label badge highlight ───────────────────────────────────── */
 
 .lot-map__label--active {

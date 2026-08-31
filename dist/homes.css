@@ -738,6 +738,15 @@
   stroke-width: 2.5;
   transition: fill 0.15s ease, stroke 0.15s ease;
 }
+.lot-map__svg--stroke-highlight .lot-map__shape--active polygon,
+.lot-map__svg--stroke-highlight .lot-map__shape--active path,
+.lot-map__svg--stroke-highlight .lot-map__shape--active rect,
+.lot-map__svg--stroke-highlight .lot-map__shape--active polyline {
+  fill: #f3f3f4;
+  stroke: #f6b14e;
+  stroke-width: 2px;
+  opacity: 1;
+}
 .lot-map__label--active {
   transform-box: fill-box;
   transform-origin: center;

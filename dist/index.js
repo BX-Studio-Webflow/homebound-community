@@ -6357,6 +6357,21 @@
   };
 
   // src/utils/lot-map.ts
+  var SKIP_LOT_IDS = /* @__PURE__ */ new Set(["Layer_1", "C_Amenity_Center"]);
+  function lotKeysForGroup(id, dataLotLocation) {
+    const keys = /* @__PURE__ */ new Set([id]);
+    if (dataLotLocation) keys.add(dataLotLocation);
+    const underscored = id.match(/^_(\d+)([A-Za-z])$/);
+    if (underscored) {
+      keys.add(`${underscored[1]}${underscored[2]}`);
+      keys.add(`${underscored[2]}${underscored[1]}`);
+    }
+    const letterFirst = id.match(/^([A-Za-z])(\d+)$/);
+    if (letterFirst) keys.add(`${letterFirst[2]}${letterFirst[1]}`);
+    const numberFirst = id.match(/^(\d+)([A-Za-z])$/);
+    if (numberFirst) keys.add(`${numberFirst[2]}${numberFirst[1]}`);
+    return [...keys];
+  }
   var AVAILABILITY_COLORS = {
     "For Sale": "#657839",
     "Not Available for Sale": "#d17520",
@@ -6369,11 +6384,11 @@
   var LAKESIDE_MAP = { mapWidth: 1162.54, mapHeight: 912.76 };
   var PARK_PLACE_MAP = { mapWidth: 1247.80285, mapHeight: 670.33693 };
   var LOT_MAP_CONFIG_BY_SLUG = {
-    "park-place": { ...PARK_PLACE_MAP },
-    mosaic: { ...PARK_PLACE_MAP },
-    mosic: { ...PARK_PLACE_MAP },
-    "lake-side": { ...LAKESIDE_MAP },
-    lakeside: { ...LAKESIDE_MAP }
+    "park-place": { ...PARK_PLACE_MAP, highlightStyle: "stroke" },
+    mosaic: { ...PARK_PLACE_MAP, highlightStyle: "stroke" },
+    mosic: { ...PARK_PLACE_MAP, highlightStyle: "stroke" },
+    "lake-side": { ...LAKESIDE_MAP, highlightStyle: "fill" },
+    lakeside: { ...LAKESIDE_MAP, highlightStyle: "fill" }
   };
   function lotMapConfigFromLocation(pathname = window.location.pathname) {
     const slug = pathname.toLowerCase().split("/upcoming-communities/")[1]?.split("/")[0] ?? "";
@@ -6383,6 +6398,7 @@
     svgEl = null;
     activeId = null;
     isPanning = false;
+    lotsByKey = /* @__PURE__ */ new Map();
     config;
     /** Native width of the SVG viewBox. */
     originalW = LAKESIDE_MAP.mapWidth;
@@ -6438,7 +6454,7 @@
      */
     focusViewOnLot(lotId, zoomFactor) {
       if (!this.svgEl) return;
-      const shape = this.svgEl.querySelector(`#${CSS.escape(lotId)}`);
+      const shape = this.findLot(lotId)?.shape;
       if (!shape) {
         console.error(`LotMapController: No SVG lot group #${lotId} \u2014 cannot focus view.`);
         return;
@@ -6519,7 +6535,7 @@
       this.svgEl.querySelectorAll('g[id$="Label"]').forEach((labelGroup) => {
         const { id } = labelGroup;
         const lotNumber = id.replace(/Label$/, "");
-        const availability = lotToAvailability.get(lotNumber);
+        const availability = lotKeysForGroup(lotNumber, null).map((key) => lotToAvailability.get(key)).find(Boolean) ?? lotToAvailability.get(lotNumber);
         const color = availability ? AVAILABILITY_COLORS[availability] ?? "#657839" : "#657839";
         labelGroup.querySelector("rect")?.style.setProperty("fill", color);
       });
@@ -6596,6 +6612,7 @@
       this.svgEl.style.height = "100%";
       this.svgEl.style.display = "block";
       this.applyMapSize();
+      this.indexLots();
       return true;
     }
     /**
@@ -6613,6 +6630,33 @@
       this.originalW = this.config.mapWidth ?? fromView?.w ?? this.originalW;
       this.originalH = this.config.mapHeight ?? fromView?.h ?? this.originalH;
       this.vb = { x: 0, y: 0, w: this.originalW, h: this.originalH };
+      if (this.config.highlightStyle === "stroke") {
+        this.svgEl?.classList.add("lot-map__svg--stroke-highlight");
+      }
+    }
+    /**
+     * Indexes lot shapes (and optional label/border siblings) under every CMS-friendly key.
+     * Labels are optional — Park Place lots are still hoverable without badge groups.
+     */
+    indexLots() {
+      this.lotsByKey.clear();
+      if (!this.svgEl) return;
+      const groups = Array.from(this.svgEl.querySelectorAll("g[id]"));
+      groups.forEach((group) => {
+        const { id } = group;
+        if (!id || SKIP_LOT_IDS.has(id) || id.endsWith("Label") || id.endsWith("Border")) return;
+        const hit = {
+          shape: group,
+          label: this.svgEl.querySelector(`#${CSS.escape(id)}Label`),
+          border: this.svgEl.querySelector(`#${CSS.escape(id)}Border`)
+        };
+        lotKeysForGroup(id, group.getAttribute("data-lot-location")).forEach((key) => {
+          this.lotsByKey.set(key, hit);
+        });
+      });
+    }
+    findLot(lotId) {
+      return this.lotsByKey.get(lotId);
     }
     /**
      * Writes the current {@link ViewBox} state back to the SVG `viewBox` attribute.
@@ -6824,31 +6868,31 @@
       wrapper.appendChild(controls);
     }
     /**
-     * Auto-discovers all lot shape/label `<g>` pairs in the SVG and attaches
-     * `mouseenter`/`mouseleave` listeners. A group is treated as a lot shape
-     * when a sibling group named `${id}Label` exists.
+     * Auto-discovers lot shape groups. Labels are optional; Park Place lots have
+     * outlines instead of Lakeside-style badges.
      */
     bindSvgHover() {
       if (!this.svgEl) {
         console.error("LotMapController: bindSvgHover called but svgEl is null.");
         return;
       }
-      const allGroups = Array.from(this.svgEl.querySelectorAll("g[id]"));
-      allGroups.forEach((group) => {
-        const { id } = group;
-        if (id.endsWith("Label") || id.endsWith("Border")) return;
-        const labelGroup = this.svgEl.querySelector(`#${CSS.escape(id)}Label`);
-        if (!labelGroup) return;
-        group.style.cursor = "pointer";
-        group.addEventListener("mouseenter", () => this.highlight(id));
-        group.addEventListener("mouseleave", () => this.clearHighlight());
-        group.addEventListener("mousedown", (e) => e.stopPropagation());
-        group.addEventListener("click", () => this.highlight(id, true));
-        labelGroup.style.cursor = "pointer";
-        labelGroup.addEventListener("mouseenter", () => this.highlight(id));
-        labelGroup.addEventListener("mouseleave", () => this.clearHighlight());
-        labelGroup.addEventListener("mousedown", (e) => e.stopPropagation());
-        labelGroup.addEventListener("click", () => this.highlight(id, true));
+      const seen = /* @__PURE__ */ new Set();
+      this.lotsByKey.forEach((hit, key) => {
+        if (seen.has(hit.shape)) return;
+        seen.add(hit.shape);
+        const lotId = hit.shape.id || key;
+        hit.shape.style.cursor = "pointer";
+        hit.shape.addEventListener("mouseenter", () => this.highlight(lotId));
+        hit.shape.addEventListener("mouseleave", () => this.clearHighlight());
+        hit.shape.addEventListener("mousedown", (e) => e.stopPropagation());
+        hit.shape.addEventListener("click", () => this.highlight(lotId, true));
+        if (hit.label) {
+          hit.label.style.cursor = "pointer";
+          hit.label.addEventListener("mouseenter", () => this.highlight(lotId));
+          hit.label.addEventListener("mouseleave", () => this.clearHighlight());
+          hit.label.addEventListener("mousedown", (e) => e.stopPropagation());
+          hit.label.addEventListener("click", () => this.highlight(lotId, true));
+        }
       });
     }
     /**
@@ -6882,13 +6926,15 @@
       if (this.activeId === lotId && !scrollToCard) return;
       this.clearHighlight();
       this.activeId = lotId;
-      if (this.svgEl) {
-        this.svgEl.querySelector(`#${CSS.escape(lotId)}`)?.classList.add("lot-map__shape--active");
-        this.svgEl.querySelector(`#${CSS.escape(lotId)}Label`)?.classList.add("lot-map__label--active");
+      const lot = this.findLot(lotId);
+      if (this.svgEl && lot) {
+        lot.shape.classList.add("lot-map__shape--active");
+        lot.label?.classList.add("lot-map__label--active");
       }
-      const card = document.querySelector(
-        `[dev-target="one-lot"][lot-number="${lotId}"]`
+      const cardSelectors = lotKeysForGroup(lotId, null).map(
+        (key) => `[dev-target="one-lot"][lot-number="${key}"]`
       );
+      const card = document.querySelector(cardSelectors.join(","));
       if (card) {
         if (!this.config.isZoomMode) {
           card.classList.add("lot-map__card--active");
@@ -6908,8 +6954,8 @@
      */
     clearHighlight() {
       this.activeId = null;
-      this.svgEl?.querySelector(".lot-map__shape--active")?.classList.remove("lot-map__shape--active");
-      this.svgEl?.querySelector(".lot-map__label--active")?.classList.remove("lot-map__label--active");
+      this.svgEl?.querySelectorAll(".lot-map__shape--active").forEach((el) => el.classList.remove("lot-map__shape--active"));
+      this.svgEl?.querySelectorAll(".lot-map__label--active").forEach((el) => el.classList.remove("lot-map__label--active"));
       document.querySelector(".lot-map__card--active")?.classList.remove("lot-map__card--active");
     }
   };
