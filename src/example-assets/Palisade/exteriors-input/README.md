@@ -3,7 +3,7 @@
 Prepare images here, then upload to the matching folder in Webflow (**Exterior Styles**).
 
 ```
-input/
+exteriors-input/
 ├── The Glenview/
 │   ├── Spanish Contemporary/     ← 5 files
 │   ├── Transitional Ranch/         ← 5 files

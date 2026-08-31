@@ -1,7 +1,7 @@
 [
   {
     "label": "The Bandera__Modern Cape Dutch__Modern Cape Dutch Color Scheme 1 Everest",
-    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 1 Everest.webp",
+    "path": "src/example-assets/Park Place/exteriors-webp/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 1 Everest.webp",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b2bc1f53dd3717d85d60_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
     "id": "6a84b2bc1f53dd3717d85d60",
     "parentFolder": "6a84616cd41d96b564b7ed9f",
@@ -22,7 +22,7 @@
   },
   {
     "label": "The Bandera__Modern Cape Dutch__Modern Cape Dutch Color Scheme 2 Urbane Bronze",
-    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+    "path": "src/example-assets/Park Place/exteriors-webp/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b2bc297085014b204e1c_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
     "id": "6a84b2bc297085014b204e1c",
     "parentFolder": "6a84616cd41d96b564b7ed9f",
@@ -43,7 +43,7 @@
   },
   {
     "label": "The Bandera__Modern Cape Dutch__Modern Cape Dutch Color Scheme 3 Iron Ore",
-    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+    "path": "src/example-assets/Park Place/exteriors-webp/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b2bcb0cd93c94cbeff9d_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
     "id": "6a84b2bcb0cd93c94cbeff9d",
     "parentFolder": "6a84616cd41d96b564b7ed9f",
@@ -64,7 +64,7 @@
   },
   {
     "label": "The Bandera__Modern Cape Dutch__Modern Cape Dutch Color Scheme 4 Pure White",
-    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 4 Pure White.webp",
+    "path": "src/example-assets/Park Place/exteriors-webp/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 4 Pure White.webp",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b2bdb79122ab8a0fb25f_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
     "id": "6a84b2bdb79122ab8a0fb25f",
     "parentFolder": "6a84616cd41d96b564b7ed9f",
@@ -85,7 +85,7 @@
   },
   {
     "label": "The Bandera__Modern Cape Dutch__Modern Cape Dutch Color Scheme 5 Felted Wool",
-    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+    "path": "src/example-assets/Park Place/exteriors-webp/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b2bd9a92f58d97c26784_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
     "id": "6a84b2bd9a92f58d97c26784",
     "parentFolder": "6a84616cd41d96b564b7ed9f",
@@ -106,7 +106,7 @@
   },
   {
     "label": "The Bandera__Modern Tudor__Modern Tudor Color Scheme 1 Colonnade Gray",
-    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Tudor/Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+    "path": "src/example-assets/Park Place/exteriors-webp/The Bandera/Modern Tudor/Modern Tudor Color Scheme 1 Colonnade Gray.webp",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b2be9a287322be54c601_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
     "id": "6a84b2be9a287322be54c601",
     "parentFolder": "6a84616df7364a39b1c7c1c0",
@@ -127,7 +127,7 @@
   },
   {
     "label": "The Bandera__Modern Tudor__Modern Tudor Color Scheme 2 Coral Gray",
-    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Tudor/Modern Tudor Color Scheme 2 Coral Gray.webp",
+    "path": "src/example-assets/Park Place/exteriors-webp/The Bandera/Modern Tudor/Modern Tudor Color Scheme 2 Coral Gray.webp",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b2bfe570e96c28ac8d97_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
     "id": "6a84b2bfe570e96c28ac8d97",
     "parentFolder": "6a84616df7364a39b1c7c1c0",
@@ -148,7 +148,7 @@
   },
   {
     "label": "The Bandera__Modern Tudor__Modern Tudor Color Scheme 3 Greenblack",
-    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Tudor/Modern Tudor Color Scheme 3 Greenblack.webp",
+    "path": "src/example-assets/Park Place/exteriors-webp/The Bandera/Modern Tudor/Modern Tudor Color Scheme 3 Greenblack.webp",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b2bf573a47599c830a8d_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
     "id": "6a84b2bf573a47599c830a8d",
     "parentFolder": "6a84616df7364a39b1c7c1c0",
@@ -169,7 +169,7 @@
   },
   {
     "label": "The Bandera__Modern Tudor__Modern Tudor Color Scheme 4 Felted Wool",
-    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Tudor/Modern Tudor Color Scheme 4 Felted Wool.webp",
+    "path": "src/example-assets/Park Place/exteriors-webp/The Bandera/Modern Tudor/Modern Tudor Color Scheme 4 Felted Wool.webp",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b2bf165fa1b5bf5bbab9_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
     "id": "6a84b2bf165fa1b5bf5bbab9",
     "parentFolder": "6a84616df7364a39b1c7c1c0",
@@ -190,7 +190,7 @@
   },
   {
     "label": "The Bandera__Modern Tudor__Modern Tudor Color Scheme 5 Altitude Gray",
-    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Modern Tudor/Modern Tudor Color Scheme 5 Altitude Gray.webp",
+    "path": "src/example-assets/Park Place/exteriors-webp/The Bandera/Modern Tudor/Modern Tudor Color Scheme 5 Altitude Gray.webp",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b2c008dc2fe1c6cfdb16_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
     "id": "6a84b2c008dc2fe1c6cfdb16",
     "parentFolder": "6a84616df7364a39b1c7c1c0",
@@ -211,7 +211,7 @@
   },
   {
     "label": "The Bandera__Transitional__Transitional Color Scheme 1 Newport",
-    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Transitional/Transitional Color Scheme 1 Newport.webp",
+    "path": "src/example-assets/Park Place/exteriors-webp/The Bandera/Transitional/Transitional Color Scheme 1 Newport.webp",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b2c097c77db82ebab4a2_Transitional%20Color%20Scheme%201%20Newport.webp",
     "id": "6a84b2c097c77db82ebab4a2",
     "parentFolder": "6a84616d33b60021dd7b1150",
@@ -232,7 +232,7 @@
   },
   {
     "label": "The Bandera__Transitional__Transitional Color Scheme 2 Iron Ore",
-    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Transitional/Transitional Color Scheme 2 Iron Ore.webp",
+    "path": "src/example-assets/Park Place/exteriors-webp/The Bandera/Transitional/Transitional Color Scheme 2 Iron Ore.webp",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b2c004702f83e9ba2ddd_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
     "id": "6a84b2c004702f83e9ba2ddd",
     "parentFolder": "6a84616d33b60021dd7b1150",
@@ -253,7 +253,7 @@
   },
   {
     "label": "The Bandera__Transitional__Transitional Color Scheme 3 Caprock",
-    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Transitional/Transitional Color Scheme 3 Caprock.webp",
+    "path": "src/example-assets/Park Place/exteriors-webp/The Bandera/Transitional/Transitional Color Scheme 3 Caprock.webp",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b2c004702f83e9ba2e1b_Transitional%20Color%20Scheme%203%20Caprock.webp",
     "id": "6a84b2c004702f83e9ba2e1b",
     "parentFolder": "6a84616d33b60021dd7b1150",
@@ -274,7 +274,7 @@
   },
   {
     "label": "The Bandera__Transitional__Transitional Color Scheme 4 Alabaster",
-    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Transitional/Transitional Color Scheme 4 Alabaster.webp",
+    "path": "src/example-assets/Park Place/exteriors-webp/The Bandera/Transitional/Transitional Color Scheme 4 Alabaster.webp",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b2c017cf0f48c34cdcbf_Transitional%20Color%20Scheme%204%20Alabaster.webp",
     "id": "6a84b2c017cf0f48c34cdcbf",
     "parentFolder": "6a84616d33b60021dd7b1150",
@@ -295,7 +295,7 @@
   },
   {
     "label": "The Bandera__Transitional__Transitional Color Scheme 5 Worldly Gray",
-    "path": "src/example-assets/Park Place Photos-webp/Exterior Styles/The Bandera/Transitional/Transitional Color Scheme 5 Worldly Gray.webp",
+    "path": "src/example-assets/Park Place/exteriors-webp/The Bandera/Transitional/Transitional Color Scheme 5 Worldly Gray.webp",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a84b2c1d62095daa8114600_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
     "id": "6a84b2c1d62095daa8114600",
     "parentFolder": "6a84616d33b60021dd7b1150",

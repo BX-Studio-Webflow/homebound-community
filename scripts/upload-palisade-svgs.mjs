@@ -4,7 +4,7 @@ import path from "path";
 // Paste of create_asset results (label + uploadDetails + local path)
 const jobs = JSON.parse(
   fs.readFileSync(
-    "src/example-assets/home-icons/Palisade SVGs/Palisade - Updated SVGS/s3-upload-jobs.json",
+    "src/example-assets/Palisade/floor-plans/updated/s3-upload-jobs.json",
     "utf8",
   ),
 );

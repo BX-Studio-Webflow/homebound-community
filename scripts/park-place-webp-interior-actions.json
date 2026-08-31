@@ -50,7 +50,7 @@
     {
       "kind": "interior",
       "label": "Interiors - Park Place__Interior - The Bandera__Modern Edge__Primary Bedroom",
-      "path": "src/example-assets/Park Place Photos-webp/Interiors - Park Place/Interior - The Bandera/Modern Edge/Primary Bedroom.webp",
+      "path": "src/example-assets/Park Place/interiors-webp/Interior - The Bandera/Modern Edge/Primary Bedroom.webp",
       "fileName": "Primary Bedroom.webp",
       "parentFolder": "6a846190d41d96b564b7f892",
       "hash": "0eeb9cba0388aa59fc3fd5cd3c25adcb",
@@ -59,7 +59,7 @@
     {
       "kind": "interior",
       "label": "Interiors - Park Place__Interior - The Magnolia__Casual Organic__Kitchen",
-      "path": "src/example-assets/Park Place Photos-webp/Interiors - Park Place/Interior - The Magnolia/Casual Organic/Kitchen.webp",
+      "path": "src/example-assets/Park Place/interiors-webp/Interior - The Magnolia/Casual Organic/Kitchen.webp",
       "fileName": "Kitchen.webp",
       "parentFolder": "6a8461922b968af4812483b7",
       "hash": "fb83e5116507a6c3acad6769c9319be5",
@@ -68,7 +68,7 @@
     {
       "kind": "interior",
       "label": "Interiors - Park Place__Interior - The Magnolia__Casual Organic__Great Room",
-      "path": "src/example-assets/Park Place Photos-webp/Interiors - Park Place/Interior - The Magnolia/Casual Organic/Great Room.webp",
+      "path": "src/example-assets/Park Place/interiors-webp/Interior - The Magnolia/Casual Organic/Great Room.webp",
       "fileName": "Great Room.webp",
       "parentFolder": "6a8461922b968af4812483b7",
       "hash": "36eea4a71a2570284ed61e985992aa97",
@@ -77,7 +77,7 @@
     {
       "kind": "interior",
       "label": "Interiors - Park Place__Interior - The Magnolia__Casual Organic__Primary Bedroom",
-      "path": "src/example-assets/Park Place Photos-webp/Interiors - Park Place/Interior - The Magnolia/Casual Organic/Primary Bedroom.webp",
+      "path": "src/example-assets/Park Place/interiors-webp/Interior - The Magnolia/Casual Organic/Primary Bedroom.webp",
       "fileName": "Primary Bedroom.webp",
       "parentFolder": "6a8461922b968af4812483b7",
       "hash": "277303f1560d359e5efc59db51c461f0",
@@ -86,7 +86,7 @@
     {
       "kind": "interior",
       "label": "Interiors - Park Place__Interior - The Magnolia__Casual Organic__Primary Bathroom",
-      "path": "src/example-assets/Park Place Photos-webp/Interiors - Park Place/Interior - The Magnolia/Casual Organic/Primary Bathroom.webp",
+      "path": "src/example-assets/Park Place/interiors-webp/Interior - The Magnolia/Casual Organic/Primary Bathroom.webp",
       "fileName": "Primary Bathroom.webp",
       "parentFolder": "6a8461922b968af4812483b7",
       "hash": "d61eea3880b6d79f52da81feaf5178a4",

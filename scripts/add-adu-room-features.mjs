@@ -12,21 +12,21 @@ const yellow = "#faf185";
 /** Approximate room highlight rects from floor-plan label positions / poche. */
 const jobs = [
   {
-    file: "src/example-assets/home-icons/ADUS/ADUS - Updated SVGS/Carriage House ADU/carriage-house-adu-first-floor.svg",
+    file: "src/example-assets/ADU/floor-plans/updated/Carriage House ADU/carriage-house-adu-first-floor.svg",
     features: [
       // Garage fills main floor plate; label ~ (140,136), dims 27'x20'
       { id: "GARAGE", x: 28, y: 28, w: 290, h: 250 },
     ],
   },
   {
-    file: "src/example-assets/home-icons/ADUS/ADUS - Updated SVGS/Studio ADU/studio-adu-detached-garage.svg",
+    file: "src/example-assets/ADU/floor-plans/updated/Studio ADU/studio-adu-detached-garage.svg",
     features: [
       // Detached garage plate; label ~ (168,176), dims 20'x19'10"
       { id: "GARAGE", x: 20, y: 20, w: 350, h: 340 },
     ],
   },
   {
-    file: "src/example-assets/home-icons/ADUS/ADUS - Updated SVGS/Two-Story ADU/two-story-adu-first-floor.svg",
+    file: "src/example-assets/ADU/floor-plans/updated/Two-Story ADU/two-story-adu-first-floor.svg",
     features: [
       // Labels: living ~(65,111), kitchen ~(187,111), entry ~(204,235),
       // powder ~(283,234), stairs ~(294,182), porch ~(83,236)
@@ -84,6 +84,6 @@ for (const job of jobs) {
 }
 
 const reportPath =
-  "src/example-assets/home-icons/ADUS/ADUS - Updated SVGS/room-features-report.json";
+  "src/example-assets/ADU/floor-plans/updated/room-features-report.json";
 fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
 console.log("Wrote", reportPath);

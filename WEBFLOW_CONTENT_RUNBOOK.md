@@ -271,15 +271,15 @@ Webflow converts uploads to `.webp` automatically; the CDN URL filename may diff
 
 | Path | Purpose |
 | --- | --- |
-| `src/example-assets/input/` | Primary drop zone — one folder per plan/style, each with `UPLOAD_HERE.txt` checklist |
-| `src/example-assets/exteriors/` | Mirror of Webflow folder tree (reference + empty upload targets) |
+| `src/example-assets/Palisade/exteriors-input/` | Primary drop zone — one folder per plan/style, each with `UPLOAD_HERE.txt` checklist |
+| `src/example-assets/Palisade/exteriors/` | Mirror of Webflow folder tree (reference + empty upload targets) |
 | `scripts/exterior-asset-structure.config.json` | Source of truth for plan/style/scheme names |
 
 **Helper scripts:**
 
 | Script | Purpose |
 | --- | --- |
-| `node scripts/create-exterior-asset-structure.mjs` | Create local `input/` + `exteriors/` folders and checklists |
+| `node scripts/create-exterior-asset-structure.mjs` | Create local Palisade `exteriors-input/` + `exteriors/` folders and checklists |
 | `node scripts/rename-exterior-input-files.mjs` | Rename loose files to `Sch N - Name.ext` |
 | `python scripts/audit-input-files.py` | Validate local files against config |
 | `python scripts/generate-exterior-urls.py` | Generate TS URL block from a Webflow MCP asset export |
@@ -294,7 +294,7 @@ Related files: `src/utils/gallery.ts` reads the same URL maps for the exterior l
 
 #### New community exterior update steps
 
-1. Place images in `src/example-assets/input/The <Plan>/<Style>/` using the filename pattern above.
+1. Place images in `src/example-assets/Palisade/exteriors-input/The <Plan>/<Style>/` using the filename pattern above.
 2. Upload to the matching Webflow path: `Exterior Styles / The <Plan> / <Style>`.
 3. Use **Upload** in the target folder — do **not** drag assets between plan folders (see pitfall below).
 4. Open the [Designer MCP link](#new-community-plans-glenview-elm-willow-vista-ambrose-alder) and ask Cursor to **recheck** — it pulls assets and syncs CDN URLs into code.
@@ -339,7 +339,7 @@ Each image in Webflow is a **single asset record** that lives in **one folder**.
 
 **Interiors for these six plans:** not started — still requires `house-plans.ts` / `housePlanImageUrlsBySlug` work and an `Interiors - <Community>` asset root (TBD).
 
-Per-plan upload checklists with every filename: `src/example-assets/exteriors/README.md`.
+Per-plan upload checklists with every filename: `src/example-assets/Palisade/exteriors/README.md`.
 
 ---
 

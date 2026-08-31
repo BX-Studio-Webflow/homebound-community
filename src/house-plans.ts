@@ -7,7 +7,10 @@ import '$styles/lot-map.css';
 
 import { AccordionController } from '$utils/accordion';
 import { ExploreTabsController } from '$utils/explore-tabs';
-import { ExteriorSchemeController } from '$utils/exterior-scheme-modal';
+import {
+  ExteriorSchemeController,
+  getHousePlanSlugFromPath,
+} from '$utils/exterior-scheme-modal';
 import { type GalleryConfig, GalleryController } from '$utils/gallery';
 import { HomeMapController } from '$utils/home-map';
 import { type ColorSchemeBinding, ColorSchemeController } from '$utils/interior-color-scheme';
@@ -1077,8 +1080,8 @@ window.Webflow.push(() => {
 
   const housePlanSlug =
     window.location.pathname.toLowerCase().split('/house-plans/')[1]?.split('/')[0] ?? '';
-  const normalizedHousePlanSlug = housePlanSlug.replace(/^the-/, '');
-  const maybeInteriorSlug = normalizedHousePlanSlug as HousePlanSlugForInteriors;
+  const maybeInteriorSlug = (getHousePlanSlugFromPath() ??
+    housePlanSlug.replace(/^the-/, '')) as HousePlanSlugForInteriors;
   const interiorImageUrls: InteriorImageUrls =
     housePlanImageUrlsBySlug[maybeInteriorSlug] ??
     housePlanImageUrlsBySlug.iris ??

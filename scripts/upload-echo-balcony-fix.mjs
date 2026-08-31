@@ -17,7 +17,7 @@ const details = {
 };
 
 const filePath =
-  "src/example-assets/home-icons/Altadena/Altadena - Updated SVGS/Plan 5 - The Echo/echo-second-floor-update--3.svg";
+  "src/example-assets/Altadena/floor-plans/updated/Plan 5 - The Echo/echo-second-floor-update--3.svg";
 const fileBuf = fs.readFileSync(filePath);
 const form = new FormData();
 form.append("acl", details.acl);

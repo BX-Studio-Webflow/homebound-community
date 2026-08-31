@@ -815,13 +815,20 @@ const EXTERIORS_BY_PLAN: Record<HousePlanSlug, ExteriorDefinition[]> = {
   magnolia: buildParkPlaceExteriors('magnolia'),
 };
 
+/** Mosaic plan URLs use `the-<plan>---mosaic`. Old Addison slug is aliased until redirects land. */
+const MOSAIC_SLUG_ALIASES: Record<string, HousePlanSlug> = {
+  'addison-2': 'addison',
+};
+
 export function getHousePlanSlugFromPath(): HousePlanSlug | null {
   const maybeSlug =
     window.location.pathname.toLowerCase().split('/house-plans/')[1]?.split('/')[0] ?? '';
   const normalizedSlug = maybeSlug.replace(/^the-/, '');
+  const canonicalSlug =
+    MOSAIC_SLUG_ALIASES[normalizedSlug] ?? normalizedSlug.replace(/---mosaic$/, '');
 
-  if (normalizedSlug in EXTERIORS_BY_PLAN) {
-    return normalizedSlug as HousePlanSlug;
+  if (canonicalSlug in EXTERIORS_BY_PLAN) {
+    return canonicalSlug as HousePlanSlug;
   }
 
   return null;

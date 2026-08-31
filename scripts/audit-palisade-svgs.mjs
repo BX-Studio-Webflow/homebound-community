@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 const root =
-  "src/example-assets/home-icons/Palisade SVGs/Palisade - Updated Plans";
+  "src/example-assets/Palisade/floor-plans/updated";
 
 function walk(dir) {
   const out = [];

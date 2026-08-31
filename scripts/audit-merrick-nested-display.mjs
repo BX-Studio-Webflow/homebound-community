@@ -2,8 +2,8 @@ import fs from "fs";
 import path from "path";
 
 const files = [
-  "src/example-assets/home-icons/Altadena/Altadena - Updated SVGS/Plan 4 - The Merrick/merrick-first-floor.svg",
-  "src/example-assets/home-icons/Altadena/Altadena - Updated SVGS/Plan 4 - The Merrick/merrick-second-floor.svg",
+  "src/example-assets/Altadena/floor-plans/updated/Plan 4 - The Merrick/merrick-first-floor.svg",
+  "src/example-assets/Altadena/floor-plans/updated/Plan 4 - The Merrick/merrick-second-floor.svg",
 ];
 
 function extractGroup(c, id) {

@@ -5,7 +5,7 @@ const jobs = [
   {
     label: "willow-first-floor-update--2",
     filePath:
-      "src/example-assets/home-icons/Palisade SVGs/Palisade - Updated SVGS/The Willow - Plan 7/willow-first-floor-update--2.svg",
+      "src/example-assets/Palisade/floor-plans/updated/The Willow - Plan 7/willow-first-floor-update--2.svg",
     hostedUrl:
       "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7ad4f919dd32b01d25d529_willow-first-floor-update--2.svg",
     details: {
@@ -26,7 +26,7 @@ const jobs = [
   {
     label: "willow-second-floor-update--2",
     filePath:
-      "src/example-assets/home-icons/Palisade SVGs/Palisade - Updated SVGS/The Willow - Plan 7/willow-second-floor-update--2.svg",
+      "src/example-assets/Palisade/floor-plans/updated/The Willow - Plan 7/willow-second-floor-update--2.svg",
     hostedUrl:
       "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7ad4fa2b03df827d9206a6_willow-second-floor-update--2.svg",
     details: {

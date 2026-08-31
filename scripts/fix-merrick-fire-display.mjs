@@ -3,7 +3,7 @@ import path from "path";
 import crypto from "crypto";
 
 const src =
-  "src/example-assets/home-icons/Altadena/Altadena - Updated SVGS/Plan 4 - The Merrick/merrick-first-floor.svg";
+  "src/example-assets/Altadena/floor-plans/updated/Plan 4 - The Merrick/merrick-first-floor.svg";
 const out = path.join(path.dirname(src), "merrick-first-floor-01.svg");
 
 let c = fs.readFileSync(src, "utf8");

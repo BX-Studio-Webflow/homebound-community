@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 const svgPath = path.resolve(
-  "src/example-assets/home-icons/Altadena/Altadena - Updated SVGS/Plan 5 - The Echo/echo-second-floor.svg",
+  "src/example-assets/Altadena/floor-plans/updated/Plan 5 - The Echo/echo-second-floor.svg",
 );
 const previewPath = path.resolve("scripts/preview-echo-balcony.html");
 

@@ -2,7 +2,8 @@ import crypto from "crypto";
 import fs from "fs";
 import path from "path";
 
-const ROOT = "src/example-assets/Park Place Photos";
+const ROOT_EXTERIORS = "src/example-assets/Park Place/exteriors";
+const ROOT_INTERIORS = "src/example-assets/Park Place/interiors";
 const SITE = "601ca16f0bb27e965ee867a0";
 
 const INT_FOLDERS = {
@@ -31,7 +32,6 @@ const EXT_FOLDERS = {
 const MISSING_INTERIORS = [
   {
     rel: path.join(
-      "Interiors - Park Place",
       "Interior - The Bandera",
       "Modern Edge",
       "Primary Bedroom.png",
@@ -41,7 +41,6 @@ const MISSING_INTERIORS = [
   ...["Kitchen.png", "Great Room.png", "Primary Bedroom.png", "Primary Bathroom.png"].map(
     (name) => ({
       rel: path.join(
-        "Interiors - Park Place",
         "Interior - The Magnolia",
         "Casual Organic",
         name,
@@ -63,7 +62,7 @@ function walk(dir, acc = []) {
 const missing = [];
 
 for (const item of MISSING_INTERIORS) {
-  const abs = path.join(ROOT, item.rel);
+  const abs = path.join(ROOT_INTERIORS, item.rel);
   const buf = fs.readFileSync(abs);
   missing.push({
     kind: "interior",
@@ -76,8 +75,8 @@ for (const item of MISSING_INTERIORS) {
   });
 }
 
-for (const abs of walk(path.join(ROOT, "Exterior Styles"))) {
-  const rel = path.relative(path.join(ROOT, "Exterior Styles"), abs);
+for (const abs of walk(ROOT_EXTERIORS)) {
+  const rel = path.relative(ROOT_EXTERIORS, abs);
   const parts = rel.split(path.sep);
   const key = `${parts[0]}|${parts[1]}`;
   const folder = EXT_FOLDERS[key];

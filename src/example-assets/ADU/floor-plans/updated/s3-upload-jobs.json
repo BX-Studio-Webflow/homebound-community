@@ -1,7 +1,7 @@
 [
   {
     "label": "studio-first",
-    "path": "src/example-assets/home-icons/ADUS/ADUS - Updated SVGS/Studio ADU/studio-adu-first-floor.svg",
+    "path": "src/example-assets/ADU/floor-plans/updated/Studio ADU/studio-adu-first-floor.svg",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a737f9a6319e4d6cfc261ab_studio-adu-first-floor.svg",
     "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
     "uploadDetails": {
@@ -20,7 +20,7 @@
   },
   {
     "label": "studio-garage",
-    "path": "src/example-assets/home-icons/ADUS/ADUS - Updated SVGS/Studio ADU/studio-adu-detached-garage.svg",
+    "path": "src/example-assets/ADU/floor-plans/updated/Studio ADU/studio-adu-detached-garage.svg",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a737f9a8937e3e8a7e48e2f_studio-adu-detached-garage.svg",
     "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
     "uploadDetails": {
@@ -39,7 +39,7 @@
   },
   {
     "label": "carriage-first",
-    "path": "src/example-assets/home-icons/ADUS/ADUS - Updated SVGS/Carriage House ADU/carriage-house-adu-first-floor.svg",
+    "path": "src/example-assets/ADU/floor-plans/updated/Carriage House ADU/carriage-house-adu-first-floor.svg",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a737f9a9d3efe1a58986e34_carriage-house-adu-first-floor.svg",
     "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
     "uploadDetails": {
@@ -58,7 +58,7 @@
   },
   {
     "label": "carriage-second",
-    "path": "src/example-assets/home-icons/ADUS/ADUS - Updated SVGS/Carriage House ADU/carriage-house-adu-second-floor.svg",
+    "path": "src/example-assets/ADU/floor-plans/updated/Carriage House ADU/carriage-house-adu-second-floor.svg",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a737f9bff671e7a21d0cfaf_carriage-house-adu-second-floor.svg",
     "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
     "uploadDetails": {
@@ -77,7 +77,7 @@
   },
   {
     "label": "two-first",
-    "path": "src/example-assets/home-icons/ADUS/ADUS - Updated SVGS/Two-Story ADU/two-story-adu-first-floor.svg",
+    "path": "src/example-assets/ADU/floor-plans/updated/Two-Story ADU/two-story-adu-first-floor.svg",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a737f9b0a9d2fe2b8f7d4a8_two-story-adu-first-floor.svg",
     "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
     "uploadDetails": {
@@ -96,7 +96,7 @@
   },
   {
     "label": "two-second",
-    "path": "src/example-assets/home-icons/ADUS/ADUS - Updated SVGS/Two-Story ADU/two-story-adu-second-floor.svg",
+    "path": "src/example-assets/ADU/floor-plans/updated/Two-Story ADU/two-story-adu-second-floor.svg",
     "hostedUrl": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a737f9b614e608072df9e88_two-story-adu-second-floor.svg",
     "uploadUrl": "https://webflow-prod-assets.s3.amazonaws.com/",
     "uploadDetails": {

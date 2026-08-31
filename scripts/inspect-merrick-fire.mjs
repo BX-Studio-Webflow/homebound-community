@@ -1,7 +1,7 @@
 import fs from "fs";
 
 const f =
-  "src/example-assets/home-icons/Altadena/Altadena - Updated SVGS/Plan 4 - The Merrick/merrick-first-floor.svg";
+  "src/example-assets/Altadena/floor-plans/updated/Plan 4 - The Merrick/merrick-first-floor.svg";
 const c = fs.readFileSync(f, "utf8");
 
 const start = c.indexOf('<g id="FIREADD001"');

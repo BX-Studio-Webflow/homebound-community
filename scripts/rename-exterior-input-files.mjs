@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const inputRoot = path.join(__dirname, '..', 'src', 'example-assets', 'input');
+const inputRoot = path.join(__dirname, '..', 'src', 'example-assets', 'Palisade', 'exteriors-input');
 const config = JSON.parse(
   fs.readFileSync(path.join(__dirname, 'exterior-asset-structure.config.json'), 'utf8')
 );

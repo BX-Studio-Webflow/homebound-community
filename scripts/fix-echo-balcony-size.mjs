@@ -1,26 +1,26 @@
 import fs from "fs";
 import path from "path";
 
-const root = path.resolve("src/example-assets/home-icons/Altadena");
+const root = path.resolve("src/example-assets/Altadena/floor-plans");
 const targets = [
   {
     file: path.join(
       root,
-      "Altadena - Updated SVGS/Plan 5 - The Echo/echo-second-floor.svg",
+      "updated/Plan 5 - The Echo/echo-second-floor.svg",
     ),
     featureId: "BALC001",
   },
   {
     file: path.join(
       root,
-      "Altadena - Updated SVGS/Plan 5 - The Echo/echo-second-floor-update--1.svg",
+      "updated/Plan 5 - The Echo/echo-second-floor-update--1.svg",
     ),
     featureId: "BALC001",
   },
   {
     file: path.join(
       root,
-      "Updated Plans - Altadena SVGS/Plan 5/Archive/Plan 5 - Echo - Second Floor.svg",
+      "markups/Plan 5/Archive/Plan 5 - Echo - Second Floor.svg",
     ),
     featureId: "OPT_CODE_BALC001",
   },

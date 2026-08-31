@@ -2,8 +2,8 @@ import fs from "fs";
 import path from "path";
 import crypto from "crypto";
 
-const root = path.resolve("src/example-assets/home-icons/ADUS");
-const outRoot = path.join(root, "ADUS - Updated SVGS");
+const root = path.resolve("src/example-assets/ADU/floor-plans/source");
+const outRoot = path.resolve("src/example-assets/ADU/floor-plans/updated");
 
 const jobs = [
   {

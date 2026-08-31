@@ -3,7 +3,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SVG_ROOT = ROOT / "src/example-assets/home-icons/Palisade SVGs"
+SVG_ROOT = ROOT / "src/example-assets/Palisade/floor-plans/source"
 features_path = Path(
     r"C:\Users\kipla\.cursor\projects\c-Users-kipla-projects-homebound-community\agent-tools\36c9a7a8-5973-40cd-b75b-3955c7722b13.txt"
 )

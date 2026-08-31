@@ -8,7 +8,7 @@ const config = JSON.parse(
   fs.readFileSync(path.join(__dirname, 'interior-asset-structure.config.json'), 'utf8')
 );
 
-const interiorRoot = path.join(repoRoot, 'src', 'example-assets', 'Palisade Interiors');
+const interiorRoot = path.join(repoRoot, 'src', 'example-assets', 'Palisade', 'interiors');
 const roomFilenames = config.localFilenames;
 
 function ensureDir(dirPath) {

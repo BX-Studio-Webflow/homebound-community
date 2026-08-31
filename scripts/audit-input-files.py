@@ -3,7 +3,7 @@ import re
 from collections import Counter
 from pathlib import Path
 
-input_root = Path(__file__).resolve().parent.parent / "src/example-assets/input"
+input_root = Path(__file__).resolve().parent.parent / "src/example-assets/Palisade/exteriors-input"
 config = json.loads(
     (Path(__file__).resolve().parent / "exterior-asset-structure.config.json").read_text()
 )

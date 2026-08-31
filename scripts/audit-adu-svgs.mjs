@@ -2,12 +2,12 @@ import fs from "fs";
 import path from "path";
 
 const files = [
-  "src/example-assets/home-icons/ADUS/STUDIO ADU/ADU/1 Story ADU - First Floor.svg",
-  "src/example-assets/home-icons/ADUS/STUDIO ADU/ADU/Detached Garage - First Floor.svg",
-  "src/example-assets/home-icons/ADUS/CARRIAGE ADU/ADU I/Carriage House ADU - First Floor.svg",
-  "src/example-assets/home-icons/ADUS/CARRIAGE ADU/ADU I/Carriage House ADU - Second Floor.svg",
-  "src/example-assets/home-icons/ADUS/TWO STORY ADU/ADU II/2 Story ADU - First Floor.svg",
-  "src/example-assets/home-icons/ADUS/TWO STORY ADU/ADU II/2 Story ADU - Second Floor.svg",
+  "src/example-assets/ADU/floor-plans/source/STUDIO ADU/ADU/1 Story ADU - First Floor.svg",
+  "src/example-assets/ADU/floor-plans/source/STUDIO ADU/ADU/Detached Garage - First Floor.svg",
+  "src/example-assets/ADU/floor-plans/source/CARRIAGE ADU/ADU I/Carriage House ADU - First Floor.svg",
+  "src/example-assets/ADU/floor-plans/source/CARRIAGE ADU/ADU I/Carriage House ADU - Second Floor.svg",
+  "src/example-assets/ADU/floor-plans/source/Two-Story ADU/ADU II/2 Story ADU - First Floor.svg",
+  "src/example-assets/ADU/floor-plans/source/Two-Story ADU/ADU II/2 Story ADU - Second Floor.svg",
 ];
 
 for (const f of files) {

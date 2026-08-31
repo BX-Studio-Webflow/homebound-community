@@ -2,8 +2,10 @@ import fs from "fs";
 import path from "path";
 import crypto from "crypto";
 
-const root = path.resolve("src/example-assets/home-icons/Palisade SVGs");
-const outRoot = path.join(root, "Palisade - Updated SVGS");
+const root = path.resolve("src/example-assets/Palisade/floor-plans/source");
+const outRoot = path.resolve(
+  "src/example-assets/Palisade/floor-plans/updated",
+);
 
 const jobs = [
   {

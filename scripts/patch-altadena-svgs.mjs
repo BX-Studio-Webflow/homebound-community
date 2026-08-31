@@ -1,9 +1,12 @@
 import fs from "fs";
 import path from "path";
 
-const root = path.resolve("src/example-assets/home-icons/Altadena");
-const srcRoot = path.join(root, "Updated Plans - Altadena SVGS");
-const outRoot = path.join(root, "Altadena - Updated SVGS");
+const srcRoot = path.resolve(
+  "src/example-assets/Altadena/floor-plans/markups",
+);
+const outRoot = path.resolve(
+  "src/example-assets/Altadena/floor-plans/updated",
+);
 
 const jobs = [
   {

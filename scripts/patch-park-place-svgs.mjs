@@ -2,9 +2,11 @@ import fs from "fs";
 import path from "path";
 
 const srcRoot = path.resolve(
-  "src/example-assets/home-icons/Park Place Marketing Floor Plans",
+  "src/example-assets/Park Place/floor-plans/source",
 );
-const outRoot = path.join(srcRoot, "Park Place - Updated SVGS");
+const outRoot = path.resolve(
+  "src/example-assets/Park Place/floor-plans/updated",
+);
 
 const jobs = [
   {

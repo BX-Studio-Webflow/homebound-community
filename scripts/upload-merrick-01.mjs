@@ -17,7 +17,7 @@ const details = {
 };
 
 const filePath =
-  "src/example-assets/home-icons/Altadena/Altadena - Updated SVGS/Plan 4 - The Merrick/merrick-first-floor-01.svg";
+  "src/example-assets/Altadena/floor-plans/updated/Plan 4 - The Merrick/merrick-first-floor-01.svg";
 const fileBuf = fs.readFileSync(filePath);
 const form = new FormData();
 form.append("acl", details.acl);

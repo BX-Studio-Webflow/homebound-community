@@ -1,7 +1,7 @@
 import fs from "fs";
 
 const f =
-  "src/example-assets/home-icons/Altadena/Altadena - Updated SVGS/Plan 4 - The Merrick/merrick-first-floor.svg";
+  "src/example-assets/Altadena/floor-plans/updated/Plan 4 - The Merrick/merrick-first-floor.svg";
 const c = fs.readFileSync(f, "utf8");
 
 function extractGroup(c, id) {
@@ -56,7 +56,7 @@ for (const id of ["FIREADD001", "CEILBEAM01-great-room", "CASEOPN001"]) {
 
 // Also check uploaded CDN? compare source original
 const src =
-  "src/example-assets/home-icons/Altadena/Updated Plans - Altadena SVGS/Plan 4/Plan 4 - Merrick - First Floor.svg";
+  "src/example-assets/Altadena/floor-plans/markups/Plan 4/Plan 4 - Merrick - First Floor.svg";
 const s = fs.readFileSync(src, "utf8");
 const fireSrc = s.indexOf("OPT_CODE_FIREADD001");
 console.log("\n=== SOURCE OPT_CODE_FIREADD001 snippet ===");

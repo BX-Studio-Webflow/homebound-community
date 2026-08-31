@@ -140,7 +140,7 @@
     {
       "kind": "exterior",
       "label": "The Collin__Modern Cape Dutch__Modern Cape Dutch Color Scheme 1 Everest",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 1 Everest.png",
+      "path": "src/example-assets/Park Place/exteriors/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 1 Everest.png",
       "fileName": "Modern Cape Dutch Color Scheme 1 Everest.png",
       "parentFolder": "6a84616dbcc266bd25e091ae",
       "hash": "ee80aab385051504bc98a6673a611201",
@@ -149,7 +149,7 @@
     {
       "kind": "exterior",
       "label": "The Collin__Modern Cape Dutch__Modern Cape Dutch Color Scheme 2 Urbane Bronze",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 2 Urbane Bronze.png",
+      "path": "src/example-assets/Park Place/exteriors/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 2 Urbane Bronze.png",
       "fileName": "Modern Cape Dutch Color Scheme 2 Urbane Bronze.png",
       "parentFolder": "6a84616dbcc266bd25e091ae",
       "hash": "73181e8b1c1182598b7f1e72d407a14a",
@@ -158,7 +158,7 @@
     {
       "kind": "exterior",
       "label": "The Collin__Modern Cape Dutch__Modern Cape Dutch Color Scheme 3 Iron Ore",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 3 Iron Ore.png",
+      "path": "src/example-assets/Park Place/exteriors/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 3 Iron Ore.png",
       "fileName": "Modern Cape Dutch Color Scheme 3 Iron Ore.png",
       "parentFolder": "6a84616dbcc266bd25e091ae",
       "hash": "2340229f11a79343ede568b6350402c8",
@@ -167,7 +167,7 @@
     {
       "kind": "exterior",
       "label": "The Collin__Modern Cape Dutch__Modern Cape Dutch Color Scheme 4 Pure White",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 4 Pure White.png",
+      "path": "src/example-assets/Park Place/exteriors/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 4 Pure White.png",
       "fileName": "Modern Cape Dutch Color Scheme 4 Pure White.png",
       "parentFolder": "6a84616dbcc266bd25e091ae",
       "hash": "ce7543a0a4cd44b7f11769f4c7bf72e0",
@@ -176,7 +176,7 @@
     {
       "kind": "exterior",
       "label": "The Collin__Modern Cape Dutch__Modern Cape Dutch Color Scheme 5 Felted Wool",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 5 Felted Wool.png",
+      "path": "src/example-assets/Park Place/exteriors/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 5 Felted Wool.png",
       "fileName": "Modern Cape Dutch Color Scheme 5 Felted Wool.png",
       "parentFolder": "6a84616dbcc266bd25e091ae",
       "hash": "5264801c5fddd052ccfd4db5348e49e4",
@@ -185,7 +185,7 @@
     {
       "kind": "exterior",
       "label": "The Collin__Modern Tudor__Modern Tudor Color Scheme 1 Colonnade Gray",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Collin/Modern Tudor/Modern Tudor Color Scheme 1 Colonnade Gray.png",
+      "path": "src/example-assets/Park Place/exteriors/The Collin/Modern Tudor/Modern Tudor Color Scheme 1 Colonnade Gray.png",
       "fileName": "Modern Tudor Color Scheme 1 Colonnade Gray.png",
       "parentFolder": "6a84616efd5d1935ad94d290",
       "hash": "f56a458484a0fa7717feb4b0add31a1e",
@@ -194,7 +194,7 @@
     {
       "kind": "exterior",
       "label": "The Collin__Modern Tudor__Modern Tudor Color Scheme 2 Coral Gray",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Collin/Modern Tudor/Modern Tudor Color Scheme 2 Coral Gray.png",
+      "path": "src/example-assets/Park Place/exteriors/The Collin/Modern Tudor/Modern Tudor Color Scheme 2 Coral Gray.png",
       "fileName": "Modern Tudor Color Scheme 2 Coral Gray.png",
       "parentFolder": "6a84616efd5d1935ad94d290",
       "hash": "562ce299d30baad0607c67e74863d4c3",
@@ -203,7 +203,7 @@
     {
       "kind": "exterior",
       "label": "The Collin__Modern Tudor__Modern Tudor Color Scheme 3 Greenblack",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Collin/Modern Tudor/Modern Tudor Color Scheme 3 Greenblack.png",
+      "path": "src/example-assets/Park Place/exteriors/The Collin/Modern Tudor/Modern Tudor Color Scheme 3 Greenblack.png",
       "fileName": "Modern Tudor Color Scheme 3 Greenblack.png",
       "parentFolder": "6a84616efd5d1935ad94d290",
       "hash": "cad43de0dba49dcf199d096eb35cd1c2",
@@ -212,7 +212,7 @@
     {
       "kind": "exterior",
       "label": "The Collin__Modern Tudor__Modern Tudor Color Scheme 4 Felted Wool",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Collin/Modern Tudor/Modern Tudor Color Scheme 4 Felted Wool.png",
+      "path": "src/example-assets/Park Place/exteriors/The Collin/Modern Tudor/Modern Tudor Color Scheme 4 Felted Wool.png",
       "fileName": "Modern Tudor Color Scheme 4 Felted Wool.png",
       "parentFolder": "6a84616efd5d1935ad94d290",
       "hash": "ba1672a46efb428eca6da0b943137c30",
@@ -221,7 +221,7 @@
     {
       "kind": "exterior",
       "label": "The Collin__Modern Tudor__Modern Tudor Color Scheme 5 Altitude Gray",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Collin/Modern Tudor/Modern Tudor Color Scheme 5 Altitude Gray.png",
+      "path": "src/example-assets/Park Place/exteriors/The Collin/Modern Tudor/Modern Tudor Color Scheme 5 Altitude Gray.png",
       "fileName": "Modern Tudor Color Scheme 5 Altitude Gray.png",
       "parentFolder": "6a84616efd5d1935ad94d290",
       "hash": "986f63c701971f8129739437d373e836",
@@ -230,7 +230,7 @@
     {
       "kind": "exterior",
       "label": "The Collin__Transitional__Transitional Color Scheme 1 Newport",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Collin/Transitional/Transitional Color Scheme 1 Newport.png",
+      "path": "src/example-assets/Park Place/exteriors/The Collin/Transitional/Transitional Color Scheme 1 Newport.png",
       "fileName": "Transitional Color Scheme 1 Newport.png",
       "parentFolder": "6a84616d33b60021dd7b11b3",
       "hash": "45ba2ae0edc5d299c0a83eed3b378b73",
@@ -239,7 +239,7 @@
     {
       "kind": "exterior",
       "label": "The Collin__Transitional__Transitional Color Scheme 2 Iron Ore",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Collin/Transitional/Transitional Color Scheme 2 Iron Ore.png",
+      "path": "src/example-assets/Park Place/exteriors/The Collin/Transitional/Transitional Color Scheme 2 Iron Ore.png",
       "fileName": "Transitional Color Scheme 2 Iron Ore.png",
       "parentFolder": "6a84616d33b60021dd7b11b3",
       "hash": "01475458fe16502ba9555a9991858cea",
@@ -248,7 +248,7 @@
     {
       "kind": "exterior",
       "label": "The Collin__Transitional__Transitional Color Scheme 3 Caprock",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Collin/Transitional/Transitional Color Scheme 3 Caprock.png",
+      "path": "src/example-assets/Park Place/exteriors/The Collin/Transitional/Transitional Color Scheme 3 Caprock.png",
       "fileName": "Transitional Color Scheme 3 Caprock.png",
       "parentFolder": "6a84616d33b60021dd7b11b3",
       "hash": "da5cefa34a0d44dc926b76ad9270370e",
@@ -257,7 +257,7 @@
     {
       "kind": "exterior",
       "label": "The Collin__Transitional__Transitional Color Scheme 4 Alabaster",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Collin/Transitional/Transitional Color Scheme 4 Alabaster.png",
+      "path": "src/example-assets/Park Place/exteriors/The Collin/Transitional/Transitional Color Scheme 4 Alabaster.png",
       "fileName": "Transitional Color Scheme 4 Alabaster.png",
       "parentFolder": "6a84616d33b60021dd7b11b3",
       "hash": "cb942d6936c0f05f94d00ece6589501f",
@@ -266,7 +266,7 @@
     {
       "kind": "exterior",
       "label": "The Collin__Transitional__Transitional Color Scheme 5 Worldly Gray",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Collin/Transitional/Transitional Color Scheme 5 Worldly Gray.png",
+      "path": "src/example-assets/Park Place/exteriors/The Collin/Transitional/Transitional Color Scheme 5 Worldly Gray.png",
       "fileName": "Transitional Color Scheme 5 Worldly Gray.png",
       "parentFolder": "6a84616d33b60021dd7b11b3",
       "hash": "c89c759df2b06b3731a946d228c26d9f",

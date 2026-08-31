@@ -4,7 +4,7 @@ import path from "path";
 const cmsPath =
   "C:/Users/user/.cursor/projects/c-Users-user-projects-homebound-community/agent-tools/3d8c684f-1609-4f52-a288-32a4792b300a.txt";
 const svgRoot =
-  "src/example-assets/home-icons/Park Place Marketing Floor Plans";
+  "src/example-assets/Park Place/floor-plans/updated";
 
 const SPEC = {
   Addison: {

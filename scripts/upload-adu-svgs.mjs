@@ -3,7 +3,7 @@ import path from "path";
 
 const jobs = JSON.parse(
   fs.readFileSync(
-    "src/example-assets/home-icons/ADUS/ADUS - Updated SVGS/s3-upload-jobs.json",
+    "src/example-assets/ADU/floor-plans/updated/s3-upload-jobs.json",
     "utf8",
   ),
 );

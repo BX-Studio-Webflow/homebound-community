@@ -823,11 +823,15 @@
     grayson: buildParkPlaceExteriors("grayson"),
     magnolia: buildParkPlaceExteriors("magnolia")
   };
+  var MOSAIC_SLUG_ALIASES = {
+    "addison-2": "addison"
+  };
   function getHousePlanSlugFromPath() {
     const maybeSlug = window.location.pathname.toLowerCase().split("/house-plans/")[1]?.split("/")[0] ?? "";
     const normalizedSlug = maybeSlug.replace(/^the-/, "");
-    if (normalizedSlug in EXTERIORS_BY_PLAN) {
-      return normalizedSlug;
+    const canonicalSlug = MOSAIC_SLUG_ALIASES[normalizedSlug] ?? normalizedSlug.replace(/---mosaic$/, "");
+    if (canonicalSlug in EXTERIORS_BY_PLAN) {
+      return canonicalSlug;
     }
     return null;
   }
@@ -8439,8 +8443,7 @@
       magnolia: parkPlaceTitleByToken
     };
     const housePlanSlug = window.location.pathname.toLowerCase().split("/house-plans/")[1]?.split("/")[0] ?? "";
-    const normalizedHousePlanSlug = housePlanSlug.replace(/^the-/, "");
-    const maybeInteriorSlug = normalizedHousePlanSlug;
+    const maybeInteriorSlug = getHousePlanSlugFromPath() ?? housePlanSlug.replace(/^the-/, "");
     const interiorImageUrls = housePlanImageUrlsBySlug[maybeInteriorSlug] ?? housePlanImageUrlsBySlug.iris ?? housePlanImageUrlsBySlug.daphne;
     const activeSchemeTitleByToken = schemeTitleByTokenByHousePlan[maybeInteriorSlug] ?? schemeTitleByToken;
     const swatchProfile = getHousePlanSwatchProfile(maybeInteriorSlug);

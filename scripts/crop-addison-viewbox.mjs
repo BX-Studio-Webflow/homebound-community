@@ -1,7 +1,7 @@
 import fs from "fs";
 
 const svgPath =
-  "src/example-assets/home-icons/Park Place Marketing Floor Plans/Park Place - Updated SVGS/The Addison/addison-first-floor.svg";
+  "src/example-assets/Park Place/floor-plans/updated/The Addison/addison-first-floor.svg";
 
 const svg = fs.readFileSync(svgPath, "utf8");
 let minX = Infinity;

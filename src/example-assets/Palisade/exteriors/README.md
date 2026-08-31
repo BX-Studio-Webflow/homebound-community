@@ -1,6 +1,6 @@
 # Exterior asset upload guide (6 new house plans)
 
-Local folders under `src/example-assets/input/` and `src/example-assets/exteriors/` mirror the Webflow Asset panel structure.
+Local folders under `src/example-assets/Palisade/exteriors-input/` and `src/example-assets/Palisade/exteriors/` mirror the Webflow Asset panel structure.
 Name each file after its scheme (e.g. `Abbey Iron.jpg`), drop into the matching style folder, then upload to the same path in Webflow.
 
 ## Webflow folder tree

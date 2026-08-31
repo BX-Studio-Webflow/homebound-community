@@ -8,8 +8,8 @@ const config = JSON.parse(
   fs.readFileSync(path.join(__dirname, 'exterior-asset-structure.config.json'), 'utf8')
 );
 
-const exteriorRoot = path.join(repoRoot, 'src', 'example-assets', 'exteriors', 'Exterior Styles');
-const inputRoot = path.join(repoRoot, 'src', 'example-assets', 'input');
+const exteriorRoot = path.join(repoRoot, 'src', 'example-assets', 'Palisade', 'exteriors');
+const inputRoot = path.join(repoRoot, 'src', 'example-assets', 'Palisade', 'exteriors-input');
 
 function schemeFilename(scheme) {
   const number = scheme.number ?? 1;
@@ -89,7 +89,7 @@ for (const plan of config.plans) {
 
 const readme = `# Exterior asset upload guide (6 new house plans)
 
-Local folders under \`src/example-assets/input/\` and \`src/example-assets/exteriors/\` mirror the Webflow Asset panel structure.
+Local folders under \`src/example-assets/Palisade/exteriors-input/\` and \`src/example-assets/Palisade/exteriors/\` mirror the Webflow Asset panel structure.
 Name each file after its scheme (e.g. \`Abbey Iron.jpg\`), drop into the matching style folder, then upload to the same path in Webflow.
 
 ## Webflow folder tree
@@ -132,14 +132,14 @@ Parent folder: **Exterior Styles** (\`${config.webflow.exteriorStylesFolderId}\`
 ${readmeSections.join('\n')}
 `;
 
-fs.writeFileSync(path.join(exteriorRoot, '..', 'README.md'), readme, 'utf8');
+fs.writeFileSync(path.join(exteriorRoot, 'README.md'), readme, 'utf8');
 
 const inputReadme = `# Exterior input folders (6 house plans)
 
 Prepare images here, then upload to the matching folder in Webflow (**Exterior Styles**).
 
 \`\`\`
-input/
+exteriors-input/
 ├── The Glenview/
 │   ├── Spanish Contemporary/     ← 5 files
 │   ├── Transitional Ranch/         ← 5 files
@@ -181,6 +181,6 @@ fs.writeFileSync(
 );
 
 console.log(`Created/updated folders under:\n  ${exteriorRoot}\n  ${inputRoot}`);
-console.log(`Wrote README: ${path.join(exteriorRoot, '..', 'README.md')}`);
+console.log(`Wrote README: ${path.join(exteriorRoot, 'README.md')}`);
 console.log(`Wrote README: ${path.join(inputRoot, 'README.md')}`);
 console.log(`Wrote Webflow MCP manifest: ${path.join(__dirname, 'webflow-exterior-folder-actions.json')}`);

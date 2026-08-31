@@ -9,8 +9,12 @@ const missing = JSON.parse(
 const items = missing.map((m) => {
   const webpPath = m.path
     .replace(
-      "src/example-assets/Park Place Photos/",
-      "src/example-assets/Park Place Photos-webp/",
+      "src/example-assets/Park Place/exteriors/",
+      "src/example-assets/Park Place/exteriors-webp/",
+    )
+    .replace(
+      "src/example-assets/Park Place/interiors/",
+      "src/example-assets/Park Place/interiors-webp/",
     )
     .replace(/\.png$/i, ".webp");
   if (!fs.existsSync(webpPath)) throw new Error("missing webp " + webpPath);

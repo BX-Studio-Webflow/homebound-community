@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 const src =
-  "src/example-assets/home-icons/Altadena/Updated Plans - Altadena SVGS/Plan 4";
+  "src/example-assets/Altadena/floor-plans/markups/Plan 4";
 for (const f of fs.readdirSync(src).filter((x) => x.endsWith(".svg"))) {
   const c = fs.readFileSync(path.join(src, f), "utf8");
   const ids = [...c.matchAll(/id="(OPT_CODE_[^"]+)"/g)].map((m) => m[1]);

@@ -140,7 +140,7 @@
     {
       "kind": "exterior",
       "label": "The Bandera__Modern Cape Dutch__Modern Cape Dutch Color Scheme 1 Everest",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 1 Everest.png",
+      "path": "src/example-assets/Park Place/exteriors/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 1 Everest.png",
       "fileName": "Modern Cape Dutch Color Scheme 1 Everest.png",
       "parentFolder": "6a84616cd41d96b564b7ed9f",
       "hash": "2ccdc623e6d901d14bca69b1c6a77248",
@@ -149,7 +149,7 @@
     {
       "kind": "exterior",
       "label": "The Bandera__Modern Cape Dutch__Modern Cape Dutch Color Scheme 2 Urbane Bronze",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 2 Urbane Bronze.png",
+      "path": "src/example-assets/Park Place/exteriors/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 2 Urbane Bronze.png",
       "fileName": "Modern Cape Dutch Color Scheme 2 Urbane Bronze.png",
       "parentFolder": "6a84616cd41d96b564b7ed9f",
       "hash": "60c6a3c444f3b15e66e3767a844dd617",
@@ -158,7 +158,7 @@
     {
       "kind": "exterior",
       "label": "The Bandera__Modern Cape Dutch__Modern Cape Dutch Color Scheme 3 Iron Ore",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 3 Iron Ore.png",
+      "path": "src/example-assets/Park Place/exteriors/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 3 Iron Ore.png",
       "fileName": "Modern Cape Dutch Color Scheme 3 Iron Ore.png",
       "parentFolder": "6a84616cd41d96b564b7ed9f",
       "hash": "c7619a0933ff5688a8602db1f3fa07dd",
@@ -167,7 +167,7 @@
     {
       "kind": "exterior",
       "label": "The Bandera__Modern Cape Dutch__Modern Cape Dutch Color Scheme 4 Pure White",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 4 Pure White.png",
+      "path": "src/example-assets/Park Place/exteriors/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 4 Pure White.png",
       "fileName": "Modern Cape Dutch Color Scheme 4 Pure White.png",
       "parentFolder": "6a84616cd41d96b564b7ed9f",
       "hash": "6f949b1ee6f53c5f5c49758e93518f41",
@@ -176,7 +176,7 @@
     {
       "kind": "exterior",
       "label": "The Bandera__Modern Cape Dutch__Modern Cape Dutch Color Scheme 5 Felted Wool",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 5 Felted Wool.png",
+      "path": "src/example-assets/Park Place/exteriors/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 5 Felted Wool.png",
       "fileName": "Modern Cape Dutch Color Scheme 5 Felted Wool.png",
       "parentFolder": "6a84616cd41d96b564b7ed9f",
       "hash": "8428433b6c6b99e03b91d846596f9cae",
@@ -185,7 +185,7 @@
     {
       "kind": "exterior",
       "label": "The Bandera__Modern Tudor__Modern Tudor Color Scheme 1 Colonnade Gray",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Bandera/Modern Tudor/Modern Tudor Color Scheme 1 Colonnade Gray.png",
+      "path": "src/example-assets/Park Place/exteriors/The Bandera/Modern Tudor/Modern Tudor Color Scheme 1 Colonnade Gray.png",
       "fileName": "Modern Tudor Color Scheme 1 Colonnade Gray.png",
       "parentFolder": "6a84616df7364a39b1c7c1c0",
       "hash": "4d90bf98d2e81dc56f736df78518d613",
@@ -194,7 +194,7 @@
     {
       "kind": "exterior",
       "label": "The Bandera__Modern Tudor__Modern Tudor Color Scheme 2 Coral Gray",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Bandera/Modern Tudor/Modern Tudor Color Scheme 2 Coral Gray.png",
+      "path": "src/example-assets/Park Place/exteriors/The Bandera/Modern Tudor/Modern Tudor Color Scheme 2 Coral Gray.png",
       "fileName": "Modern Tudor Color Scheme 2 Coral Gray.png",
       "parentFolder": "6a84616df7364a39b1c7c1c0",
       "hash": "6d2df57d19cf8d1226128749e4f050b8",
@@ -203,7 +203,7 @@
     {
       "kind": "exterior",
       "label": "The Bandera__Modern Tudor__Modern Tudor Color Scheme 3 Greenblack",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Bandera/Modern Tudor/Modern Tudor Color Scheme 3 Greenblack.png",
+      "path": "src/example-assets/Park Place/exteriors/The Bandera/Modern Tudor/Modern Tudor Color Scheme 3 Greenblack.png",
       "fileName": "Modern Tudor Color Scheme 3 Greenblack.png",
       "parentFolder": "6a84616df7364a39b1c7c1c0",
       "hash": "f135209946f70339efa9a9aee8d0917d",
@@ -212,7 +212,7 @@
     {
       "kind": "exterior",
       "label": "The Bandera__Modern Tudor__Modern Tudor Color Scheme 4 Felted Wool",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Bandera/Modern Tudor/Modern Tudor Color Scheme 4 Felted Wool.png",
+      "path": "src/example-assets/Park Place/exteriors/The Bandera/Modern Tudor/Modern Tudor Color Scheme 4 Felted Wool.png",
       "fileName": "Modern Tudor Color Scheme 4 Felted Wool.png",
       "parentFolder": "6a84616df7364a39b1c7c1c0",
       "hash": "9eccb048c0173eb6d24eda75ab15171c",
@@ -221,7 +221,7 @@
     {
       "kind": "exterior",
       "label": "The Bandera__Modern Tudor__Modern Tudor Color Scheme 5 Altitude Gray",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Bandera/Modern Tudor/Modern Tudor Color Scheme 5 Altitude Gray.png",
+      "path": "src/example-assets/Park Place/exteriors/The Bandera/Modern Tudor/Modern Tudor Color Scheme 5 Altitude Gray.png",
       "fileName": "Modern Tudor Color Scheme 5 Altitude Gray.png",
       "parentFolder": "6a84616df7364a39b1c7c1c0",
       "hash": "16b2ef5eb7300e59ff44dd9169737658",
@@ -230,7 +230,7 @@
     {
       "kind": "exterior",
       "label": "The Bandera__Transitional__Transitional Color Scheme 1 Newport",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Bandera/Transitional/Transitional Color Scheme 1 Newport.png",
+      "path": "src/example-assets/Park Place/exteriors/The Bandera/Transitional/Transitional Color Scheme 1 Newport.png",
       "fileName": "Transitional Color Scheme 1 Newport.png",
       "parentFolder": "6a84616d33b60021dd7b1150",
       "hash": "0b43af5b076bf40fa5327fd9e8b2ae3a",
@@ -239,7 +239,7 @@
     {
       "kind": "exterior",
       "label": "The Bandera__Transitional__Transitional Color Scheme 2 Iron Ore",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Bandera/Transitional/Transitional Color Scheme 2 Iron Ore.png",
+      "path": "src/example-assets/Park Place/exteriors/The Bandera/Transitional/Transitional Color Scheme 2 Iron Ore.png",
       "fileName": "Transitional Color Scheme 2 Iron Ore.png",
       "parentFolder": "6a84616d33b60021dd7b1150",
       "hash": "3ab4fc0505f37ee6d7792be1bae2a912",
@@ -248,7 +248,7 @@
     {
       "kind": "exterior",
       "label": "The Bandera__Transitional__Transitional Color Scheme 3 Caprock",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Bandera/Transitional/Transitional Color Scheme 3 Caprock.png",
+      "path": "src/example-assets/Park Place/exteriors/The Bandera/Transitional/Transitional Color Scheme 3 Caprock.png",
       "fileName": "Transitional Color Scheme 3 Caprock.png",
       "parentFolder": "6a84616d33b60021dd7b1150",
       "hash": "6986a979fbfa7fe4ebcf1374045d0a24",
@@ -257,7 +257,7 @@
     {
       "kind": "exterior",
       "label": "The Bandera__Transitional__Transitional Color Scheme 4 Alabaster",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Bandera/Transitional/Transitional Color Scheme 4 Alabaster.png",
+      "path": "src/example-assets/Park Place/exteriors/The Bandera/Transitional/Transitional Color Scheme 4 Alabaster.png",
       "fileName": "Transitional Color Scheme 4 Alabaster.png",
       "parentFolder": "6a84616d33b60021dd7b1150",
       "hash": "65abf7062b5193679b5bc4b5c3a65b49",
@@ -266,7 +266,7 @@
     {
       "kind": "exterior",
       "label": "The Bandera__Transitional__Transitional Color Scheme 5 Worldly Gray",
-      "path": "src/example-assets/Park Place Photos/Exterior Styles/The Bandera/Transitional/Transitional Color Scheme 5 Worldly Gray.png",
+      "path": "src/example-assets/Park Place/exteriors/The Bandera/Transitional/Transitional Color Scheme 5 Worldly Gray.png",
       "fileName": "Transitional Color Scheme 5 Worldly Gray.png",
       "parentFolder": "6a84616d33b60021dd7b1150",
       "hash": "9f0f6956cdc0526e35c827bd8038435c",
