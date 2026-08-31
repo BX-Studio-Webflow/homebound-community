@@ -823,13 +823,10 @@
     grayson: buildParkPlaceExteriors("grayson"),
     magnolia: buildParkPlaceExteriors("magnolia")
   };
-  var MOSAIC_SLUG_ALIASES = {
-    "addison-2": "addison"
-  };
   function getHousePlanSlugFromPath() {
     const maybeSlug = window.location.pathname.toLowerCase().split("/house-plans/")[1]?.split("/")[0] ?? "";
     const normalizedSlug = maybeSlug.replace(/^the-/, "");
-    const canonicalSlug = MOSAIC_SLUG_ALIASES[normalizedSlug] ?? normalizedSlug.replace(/---mosaic$/, "");
+    const canonicalSlug = normalizedSlug.replace(/---mosaic$/, "");
     if (canonicalSlug in EXTERIORS_BY_PLAN) {
       return canonicalSlug;
     }
