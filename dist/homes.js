@@ -472,6 +472,7 @@
     if (numberFirst) keys.add(`${numberFirst[2]}${numberFirst[1]}`);
     return [...keys];
   }
+  var SVG_NS = "http://www.w3.org/2000/svg";
   var AVAILABILITY_COLORS = {
     "For Sale": "#657839",
     "Not Available for Sale": "#d17520",
@@ -484,7 +485,7 @@
   var LAKESIDE_MAP = { mapWidth: 1162.54, mapHeight: 912.76 };
   var PARK_PLACE_MAP = { mapWidth: 1247.80285, mapHeight: 670.33693 };
   var LOT_MAP_CONFIG_BY_SLUG = {
-    "park-place": { ...PARK_PLACE_MAP, highlightStyle: "stroke" },
+    "park-place": { ...PARK_PLACE_MAP, highlightStyle: "fill" },
     mosaic: { ...PARK_PLACE_MAP, highlightStyle: "stroke" },
     mosic: { ...PARK_PLACE_MAP, highlightStyle: "stroke" },
     "lake-side": { ...LAKESIDE_MAP, highlightStyle: "fill" },
@@ -713,6 +714,7 @@
       this.svgEl.style.display = "block";
       this.applyMapSize();
       this.indexLots();
+      this.ensureLotLabels();
       return true;
     }
     /**
@@ -735,8 +737,68 @@
       }
     }
     /**
+     * Adds Lakeside-style lot pills when the SVG has none (Park Place). Existing
+     * `*Label` groups are left unchanged. Display text is number-then-letter (`1B`).
+     * Park Place has no baked-in pills, so they are created here for lots that
+     * appear in the right-side CMS list (`lot-number` on `[dev-target="one-lot"]`).
+     */
+    ensureLotLabels() {
+      if (!this.svgEl) return;
+      const cmsLotNumbers = /* @__PURE__ */ new Set();
+      document.querySelectorAll('[dev-target="one-lot"][lot-number]').forEach((card) => {
+        const lotNumber = card.getAttribute("lot-number");
+        if (lotNumber) cmsLotNumbers.add(lotNumber);
+      });
+      const seen = /* @__PURE__ */ new Set();
+      this.lotsByKey.forEach((hit) => {
+        if (seen.has(hit.shape) || hit.label) return;
+        seen.add(hit.shape);
+        const { id } = hit.shape;
+        if (!id) return;
+        const cmsLotNumber = lotKeysForGroup(id, hit.shape.getAttribute("data-lot-location")).find(
+          (key) => cmsLotNumbers.has(key)
+        );
+        if (!cmsLotNumber) return;
+        let bbox;
+        try {
+          bbox = hit.shape.getBBox();
+        } catch {
+          return;
+        }
+        if (bbox.width <= 0 && bbox.height <= 0) return;
+        const text = cmsLotNumber;
+        const w = text.length > 2 ? 28.5 : 23.79;
+        const h = 11.25;
+        const x = bbox.x + bbox.width / 2 - w / 2;
+        const y = bbox.y + bbox.height / 2 - h / 2;
+        const label = document.createElementNS(SVG_NS, "g");
+        label.setAttribute("id", `${id}Label`);
+        const rect = document.createElementNS(SVG_NS, "rect");
+        rect.setAttribute("x", String(x));
+        rect.setAttribute("y", String(y));
+        rect.setAttribute("width", String(w));
+        rect.setAttribute("height", String(h));
+        rect.setAttribute("rx", "5.62");
+        rect.setAttribute("ry", "5.62");
+        rect.setAttribute("fill", "#657839");
+        const textEl = document.createElementNS(SVG_NS, "text");
+        textEl.setAttribute("transform", `translate(${x + w / 2} ${y + h * 0.78})`);
+        textEl.setAttribute("text-anchor", "middle");
+        textEl.setAttribute("fill", "#fff");
+        textEl.setAttribute(
+          "font-family",
+          '"Good Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+        );
+        textEl.setAttribute("font-size", "9");
+        textEl.setAttribute("font-weight", "600");
+        textEl.textContent = text;
+        label.append(rect, textEl);
+        this.svgEl.appendChild(label);
+      });
+      this.indexLots();
+    }
+    /**
      * Indexes lot shapes (and optional label/border siblings) under every CMS-friendly key.
-     * Labels are optional — Park Place lots are still hoverable without badge groups.
      */
     indexLots() {
       this.lotsByKey.clear();
