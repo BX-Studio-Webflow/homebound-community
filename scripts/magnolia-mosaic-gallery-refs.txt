@@ -1,0 +1,26 @@
+﻿PLAN magnolia ID 6a064b30973a44428b4def2c LOCALE 653ad118e882f528b3fb31c4
+6aa7bca07c6fd66c86eb4e61|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca07c6fd66c86eb4e61__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp
+6aa7be31a538e0265f7bfda6|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be31a538e0265f7bfda6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp
+6aa7bca05bb405f1d10c770a|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca05bb405f1d10c770a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp
+6aa7bca96bccac03cad9dc87|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca96bccac03cad9dc87__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp
+6aa7be30a538e0265f7bfd3d|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be30a538e0265f7bfd3d_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp
+6aa7bcb39d104f28ede1f232|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb39d104f28ede1f232__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp
+6aa7bca08c87da4ea9b7b18c|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca08c87da4ea9b7b18c__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp
+6aa7bca999359da766fe7cbd|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca999359da766fe7cbd__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp
+6aa7be45d31a141ebbd9d43d|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be45d31a141ebbd9d43d_Transitional%20Color%20Scheme%204%20Alabaster.webp
+6aa7bcb337175f386f36ca62|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb337175f386f36ca62__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp
+6aa7be3bd31a141ebbd9c9dc|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3bd31a141ebbd9c9dc_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp
+6aa7be3c45bdcf80988b39b2|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c45bdcf80988b39b2_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp
+6aa7be3c3da4674c75d32704|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c3da4674c75d32704_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp
+6aa7be3b6bccac03cadb990d|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b6bccac03cadb990d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp
+6aa7be3b39d5fa0524a92348|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b39d5fa0524a92348_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp
+6aa7bacc4777aad14615fd42|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp
+6aa7bacc3da4674c75d067ad|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp
+6aa7bacc7c6fd66c86e9a121|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp
+6aa7bacbd31a141ebbd6baae|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacbd31a141ebbd6baae__update_01_Primary%20Bathroom.webp
+6aa7bac099359da766f9f3cb|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bac099359da766f9f3cb__update_01_Kitchen.webp
+6aa7bac1a538e0265f789529|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bac1a538e0265f789529__update_01_Great%20Room.webp
+6aa7bac1f43dc1e9671ef6ed|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bac1f43dc1e9671ef6ed__update_01_Primary%20Bedroom.webp
+6aa7bab62125ef805b7018a9|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bab62125ef805b7018a9__update_01_Kitchen.webp
+6aa7bab6e5143ea322502f14|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bab6e5143ea322502f14__update_01_Great%20Room.webp
+6aa7ba96193b94d23a389ba8|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba96193b94d23a389ba8__update_01_Primary%20Bedroom.webp

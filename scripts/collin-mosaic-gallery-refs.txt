@@ -1,0 +1,26 @@
+﻿PLAN collin ID 6a064a9f431685331343181c LOCALE 653ad118e882f528b3fb31c4
+6aa7bc525bb405f1d10c49e3|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc525bb405f1d10c49e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp
+6aa7bc5c193b94d23a39d4c1|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c193b94d23a39d4c1__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp
+6aa7bdf78c87da4ea9b93928|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdf78c87da4ea9b93928_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp
+6aa7bdf5b5443afc14783129|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdf5b5443afc14783129_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp
+6aa7bc6be42bb36f4505a969|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6be42bb36f4505a969__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp
+6aa7bc5ce5143ea322519226|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5ce5143ea322519226__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp
+6aa7bc5c59d9060ea7ad38a3|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c59d9060ea7ad38a3__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp
+6aa7be083da4674c75d303ed|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be083da4674c75d303ed_Transitional%20Color%20Scheme%203%20Caprock.webp
+6aa7be06df27c0916a78f4a3|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be06df27c0916a78f4a3_Transitional%20Color%20Scheme%204%20Alabaster.webp
+6aa7bc6b323ef39a7a9c707f|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b323ef39a7a9c707f__update_01_Transitional%20Color%20Scheme%201%20Newport.webp
+6aa7bdfe79cc6cc768b84625|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdfe79cc6cc768b84625_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp
+6aa7bc6b2125ef805b71a18e|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b2125ef805b71a18e__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp
+6aa7bdff79cc6cc768b84658|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff79cc6cc768b84658_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp
+6aa7bdff59d9060ea7ae5856|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff59d9060ea7ae5856_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp
+6aa7bdff8b001558f0f67503|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff8b001558f0f67503_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp
+6aa7ba862125ef805b6ffc2e|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba862125ef805b6ffc2e__update_01_Kitchen.webp
+6aa7ba8737175f386f34d149|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba8737175f386f34d149__update_01_Great%20Room.webp
+6aa7ba865bb405f1d10820b7|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba865bb405f1d10820b7__update_01_Primary%20Bedroom.webp
+6aa7ba86e42bb36f45042d6c|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba86e42bb36f45042d6c__update_01_Primary%20Bathroom.webp
+6aa7ba21d90e0d765a2f8955|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba21d90e0d765a2f8955__update_01_Kitchen.webp
+6aa7ba79323ef39a7a9ad51b|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba79323ef39a7a9ad51b__update_01_Great%20Room.webp
+6aa7ba798b001558f0f2eb34|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba798b001558f0f2eb34__update_01_Primary%20Bedroom.webp
+6aa7ba6a14616b12a1b4b972|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba6a14616b12a1b4b972__update_01_Kitchen.webp
+6aa7ba6b6bccac03cad7bd32|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba6b6bccac03cad7bd32__update_01_Great%20Room.webp
+6aa7ba152125ef805b6fb529|https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba152125ef805b6fb529__update_01_Primary%20Bedroom.webp
