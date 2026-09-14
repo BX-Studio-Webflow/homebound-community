@@ -836,7 +836,7 @@ const buildMosaicExteriors = (planSlug: ParkPlacePlanSlug): ExteriorDefinition[]
       ...scheme,
       imageUrl:
         MOSAIC_EXTERIOR_URLS[
-          `${planSlug}|${MOSAIC_STYLE_KEYS[definition.style]}|${scheme.schemeNumber}`
+        `${planSlug}|${MOSAIC_STYLE_KEYS[definition.style]}|${scheme.schemeNumber}`
         ] ?? scheme.imageUrl,
     })),
   }));
@@ -861,7 +861,7 @@ export function getExteriorImageUrlsForStyle(
 ): string[] {
   const exteriors =
     window.location.pathname.toLowerCase().includes('---mosaic') &&
-    ['addison', 'bandera', 'collin', 'grayson', 'magnolia'].includes(planSlug)
+      ['addison', 'bandera', 'collin', 'grayson', 'magnolia'].includes(planSlug)
       ? buildMosaicExteriors(planSlug as ParkPlacePlanSlug)
       : EXTERIORS_BY_PLAN[planSlug];
   const exterior = exteriors?.find((item) => item.slug === exteriorStyleSlug);
