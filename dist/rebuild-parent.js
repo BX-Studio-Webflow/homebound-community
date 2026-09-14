@@ -1,8 +1,397 @@
-"use strict";(()=>{var f=Object.defineProperty;var x=(u,t,i)=>t in u?f(u,t,{enumerable:!0,configurable:!0,writable:!0,value:i}):u[t]=i;var h=(u,t,i)=>x(u,typeof t!="symbol"?t+"":t,i);var m=[{id:"tubbs-fire",label:"Tubbs Fire - Santa Rosa, CA",x:10.72,y:153.05},{id:"glass-complex",label:"Glass Complex - Napa & Sonoma Counties, CA",x:21.83,y:161.4},{id:"czu-complex",label:"CZU Complex - Santa Cruz & San Mateo Counties, CA",x:21.83,y:173.78},{id:"woolsey-fire",label:"Woolsey Fire - Malibu, CA",x:28.69,y:226.88},{id:"eaton-fire",label:"Eaton Fire - Altadena, CA",x:54.67,y:225.59},{id:"palisades-fire",label:"Palisades Fire - Pacific Palisades, CA",x:38.96,y:236.7},{id:"marshall-fire",label:"Marshall Fire - Boulder County, CO",x:197.87,y:188.96},{id:"hurricane-ian",label:"Hurricane Ian - Fort Myers Beach, FL",x:490.3,y:350.64},{id:"hurricane-dorian",label:"Hurricane Dorian, The Bahamas",x:555.09,y:380.6}],v=class{constructor(){h(this,"svgEl",null);h(this,"activeId",null);h(this,"isPanning",!1);h(this,"markerById",new Map);h(this,"cardById",new Map);h(this,"tooltipEl",null);h(this,"MIN_ZOOM",1);h(this,"MAX_ZOOM",8);h(this,"DISABLE_ZOOM_WITH_MOUSE_SCROLL",!0);h(this,"originalViewBox",{x:0,y:0,w:582.03,h:399.02});h(this,"vb",{...this.originalViewBox})}init(){this.injectSvg()&&(this.bindMarkers(),this.bindCards(),this.bindZoom(),this.injectZoomControls())}injectSvg(){let t=document.querySelector('[dev-target="svg-text-holder"]'),i=document.querySelector('[dev-target="svg-target-wrapper"]');if(!t||!i)return!1;let e=t.textContent?.trim()??"";if(!e.includes("<svg"))return!1;let o=e.replace(/=\d+"/g,'="');if(i.innerHTML=o,this.svgEl=i.querySelector("svg"),!this.svgEl)return!1;let n=this.svgEl.querySelector("style");n?.textContent&&(n.textContent=n.textContent.replace(/\u00A0/g," ")),this.svgEl.style.width="100%",this.svgEl.style.height="100%",this.svgEl.style.display="block",this.svgEl.classList.add("rebuild-map__svg"),this.ensureTooltip();let l=this.svgEl.getAttribute("viewBox")?.split(/[\s,]+/).map(a=>Number.parseFloat(a)).filter(a=>Number.isFinite(a));if(l?.length===4){let[a,c,s,r]=l;this.originalViewBox={x:a,y:c,w:s,h:r},this.vb={...this.originalViewBox},this.applyViewBox()}return!0}ensureTooltip(){let t=this.svgEl?.parentElement;if(!t)return;getComputedStyle(t).position==="static"&&(t.style.position="relative");let i=document.createElement("div");i.className="rebuild-map__tooltip",i.setAttribute("aria-hidden","true"),t.appendChild(i),this.tooltipEl=i}bindMarkers(){if(!this.svgEl)return;let t=Array.from(this.svgEl.querySelectorAll("circle"));if(t.length<m.length)return;let i=[...t];m.forEach(e=>{let o=this.pickNearestMarker(e,i);o&&(this.markerById.set(e.id,o),o.dataset.rebuildPointId=e.id,o.setAttribute("aria-label",e.label),o.setAttribute("title",e.label),o.classList.add("rebuild-map__marker"),o.addEventListener("mouseenter",()=>this.highlight(e.id)),o.addEventListener("mouseleave",()=>this.clearHighlight()),o.addEventListener("mousedown",n=>n.stopPropagation()),o.addEventListener("touchstart",n=>{n.preventDefault(),n.stopPropagation(),this.highlight(e.id,!0)},{passive:!1}),o.addEventListener("click",()=>this.highlight(e.id,!0)))})}pickNearestMarker(t,i){if(!i.length)return;let e=0,o=Number.POSITIVE_INFINITY;i.forEach((l,a)=>{let c=Number.parseFloat(l.getAttribute("cx")??""),s=Number.parseFloat(l.getAttribute("cy")??"");if(!Number.isFinite(c)||!Number.isFinite(s))return;let r=Math.hypot(c-t.x,s-t.y);r<o&&(o=r,e=a)});let[n]=i.splice(e,1);return n}bindCards(){let t=document.querySelector('[dev-target="rebuild-map-point-list"]'),i=document.querySelectorAll('[dev-target="rebuild-map-point"][map-point-id]');!i.length&&t&&(t.innerHTML=m.map(e=>`<button class="rebuild-map__card" type="button" dev-target="rebuild-map-point" map-point-id="${e.id}">${e.label}</button>`).join(""),i=t.querySelectorAll('[dev-target="rebuild-map-point"][map-point-id]')),i.forEach(e=>{let o=e.getAttribute("map-point-id");o&&(this.cardById.set(o,e),e.addEventListener("mouseenter",()=>this.highlight(o)),e.addEventListener("mouseleave",()=>this.clearHighlight()),e.addEventListener("focus",()=>this.highlight(o)),e.addEventListener("blur",()=>this.clearHighlight()),e.addEventListener("click",()=>this.highlight(o)))})}highlight(t,i=!1){if(this.isPanning||this.activeId===t&&!i)return;this.clearHighlight(),this.activeId=t,this.markerById.get(t)?.classList.add("rebuild-map__marker--active"),this.showTooltip(t);let e=this.cardById.get(t);e&&(e.classList.add("rebuild-map__card--active"),i&&e.scrollIntoView({behavior:"smooth",block:"center"}))}clearHighlight(){this.activeId=null,this.svgEl?.querySelector(".rebuild-map__marker--active")?.classList.remove("rebuild-map__marker--active"),document.querySelector(".rebuild-map__card--active")?.classList.remove("rebuild-map__card--active"),this.hideTooltip()}showTooltip(t){if(!this.svgEl||!this.tooltipEl)return;let i=this.markerById.get(t),e=m.find(r=>r.id===t);if(!i||!e)return;let o=i.getBoundingClientRect(),n=this.svgEl.parentElement?.getBoundingClientRect();if(!n)return;let[l,a]=this.splitLabel(e.label);this.tooltipEl.innerHTML=`
-      <div class="rebuild-map__tooltip-title">${l}</div>
-      <div class="rebuild-map__tooltip-subtitle">${a.toUpperCase()}</div>
-    `;let c=o.left-n.left+o.width+8,s=o.top-n.top-8;this.tooltipEl.style.left=`${c}px`,this.tooltipEl.style.top=`${s}px`,this.tooltipEl.classList.add("is-visible")}hideTooltip(){this.tooltipEl?.classList.remove("is-visible")}splitLabel(t){if(t.includes(" - ")){let[e,o]=t.split(/\s-\s(.+)/);return[e.trim(),o.trim()]}let i=t.indexOf(",");if(i>=0){let e=t.slice(0,i).trim(),o=t.slice(i+1).trim();return[e,o]}return[t.trim(),""]}applyViewBox(){let{x:t,y:i,w:e,h:o}=this.vb;this.svgEl?.setAttribute("viewBox",`${t} ${i} ${e} ${o}`)}clampViewBox(){this.vb.x=Math.max(this.originalViewBox.x,Math.min(this.vb.x,this.originalViewBox.x+this.originalViewBox.w-this.vb.w)),this.vb.y=Math.max(this.originalViewBox.y,Math.min(this.vb.y,this.originalViewBox.y+this.originalViewBox.h-this.vb.h)),this.applyViewBox()}toSvgPoint(t,i){let e=this.svgEl.getBoundingClientRect();return{x:this.vb.x+(t-e.left)/e.width*this.vb.w,y:this.vb.y+(i-e.top)/e.height*this.vb.h}}zoomAround(t,i,e){let o=this.vb.w*t,n=this.originalViewBox.w/o;n<this.MIN_ZOOM||n>this.MAX_ZOOM||(this.vb.x=i+(this.vb.x-i)*t,this.vb.y=e+(this.vb.y-e)*t,this.vb.w=o,this.vb.h*=t,this.clampViewBox())}zoomBy(t){let i=this.vb.x+this.vb.w/2,e=this.vb.y+this.vb.h/2;this.zoomAround(t,i,e)}resetZoom(){this.vb={...this.originalViewBox},this.applyViewBox()}bindZoom(){if(!this.svgEl)return;let t=this.svgEl;t.addEventListener("wheel",s=>{if(this.DISABLE_ZOOM_WITH_MOUSE_SCROLL)return;s.preventDefault();let r=s.deltaY<0?.85:1/.85,{x:d,y:p}=this.toSvgPoint(s.clientX,s.clientY);this.zoomAround(r,d,p)},{passive:!1});let i={x:0,y:0},e={...this.vb};t.addEventListener("mousedown",s=>{s.button!==0&&s.button!==1||(s.preventDefault(),this.isPanning=!0,i={x:s.clientX,y:s.clientY},e={...this.vb},t.classList.add("lot-map__svg--panning"))}),window.addEventListener("mousemove",s=>{if(!this.isPanning)return;let r=t.getBoundingClientRect();this.vb.x=e.x-(s.clientX-i.x)/r.width*e.w,this.vb.y=e.y-(s.clientY-i.y)/r.height*e.h,this.clampViewBox()}),window.addEventListener("mouseup",s=>{!this.isPanning||s.button!==0&&s.button!==1||(this.isPanning=!1,t.classList.remove("lot-map__svg--panning"))});let o=!1,n=0,l={x:0,y:0},a=s=>Math.hypot(s[0].clientX-s[1].clientX,s[0].clientY-s[1].clientY),c=s=>({x:(s[0].clientX+s[1].clientX)/2,y:(s[0].clientY+s[1].clientY)/2});t.addEventListener("touchstart",s=>{s.preventDefault(),o=!0,s.touches.length===2?(this.isPanning=!1,n=a(s.touches),l=c(s.touches)):(this.isPanning=!0,i={x:s.touches[0].clientX,y:s.touches[0].clientY},e={...this.vb},t.classList.add("lot-map__svg--panning"))},{passive:!1}),window.addEventListener("touchmove",s=>{if(o){if(s.preventDefault(),s.touches.length===2){this.isPanning=!1,t.classList.remove("lot-map__svg--panning");let r=a(s.touches),d=c(s.touches),p=n/r,b=this.toSvgPoint(d.x,d.y);this.zoomAround(p,b.x,b.y);let g=t.getBoundingClientRect();this.vb.x-=(d.x-l.x)/g.width*this.vb.w,this.vb.y-=(d.y-l.y)/g.height*this.vb.h,this.clampViewBox(),n=r,l=d}else if(s.touches.length===1&&this.isPanning){let r=t.getBoundingClientRect(),d=(s.touches[0].clientX-i.x)/r.width*e.w,p=(s.touches[0].clientY-i.y)/r.height*e.h;this.vb.x=e.x-d,this.vb.y=e.y-p,this.clampViewBox()}}},{passive:!1}),window.addEventListener("touchend",()=>{o&&(o=!1,this.isPanning=!1,t.classList.remove("lot-map__svg--panning"))})}injectZoomControls(){let t=this.svgEl?.parentElement;if(!t)return;getComputedStyle(t).position==="static"&&(t.style.position="relative");let i=document.createElement("div");i.className="lot-map__zoom-controls",i.setAttribute("aria-label","Map zoom controls"),i.innerHTML=`
+"use strict";
+(() => {
+  // bin/live-reload.js
+  new EventSource(`${"http://localhost:3000"}/esbuild`).addEventListener("change", () => location.reload());
+
+  // src/utils/rebuild-map.ts
+  var MAP_POINTS = [
+    { id: "tubbs-fire", label: "Tubbs Fire - Santa Rosa, CA", x: 10.72, y: 153.05 },
+    {
+      id: "glass-complex",
+      label: "Glass Complex - Napa & Sonoma Counties, CA",
+      x: 21.83,
+      y: 161.4
+    },
+    {
+      id: "czu-complex",
+      label: "CZU Complex - Santa Cruz & San Mateo Counties, CA",
+      x: 21.83,
+      y: 173.78
+    },
+    { id: "woolsey-fire", label: "Woolsey Fire - Malibu, CA", x: 28.69, y: 226.88 },
+    { id: "eaton-fire", label: "Eaton Fire - Altadena, CA", x: 54.67, y: 225.59 },
+    { id: "palisades-fire", label: "Palisades Fire - Pacific Palisades, CA", x: 38.96, y: 236.7 },
+    { id: "marshall-fire", label: "Marshall Fire - Boulder County, CO", x: 197.87, y: 188.96 },
+    {
+      id: "hurricane-ian",
+      label: "Hurricane Ian - Fort Myers Beach, FL",
+      x: 490.3,
+      y: 350.64
+    },
+    {
+      id: "hurricane-dorian",
+      label: "Hurricane Dorian, The Bahamas",
+      x: 555.09,
+      y: 380.6
+    }
+  ];
+  var RebuildMapController = class {
+    svgEl = null;
+    activeId = null;
+    isPanning = false;
+    markerById = /* @__PURE__ */ new Map();
+    cardById = /* @__PURE__ */ new Map();
+    tooltipEl = null;
+    MIN_ZOOM = 1;
+    MAX_ZOOM = 8;
+    DISABLE_ZOOM_WITH_MOUSE_SCROLL = true;
+    originalViewBox = { x: 0, y: 0, w: 582.03, h: 399.02 };
+    vb = { ...this.originalViewBox };
+    init() {
+      if (!this.injectSvg()) return;
+      this.bindMarkers();
+      this.bindCards();
+      this.bindZoom();
+      this.injectZoomControls();
+    }
+    injectSvg() {
+      const textHolder = document.querySelector('[dev-target="svg-text-holder"]');
+      const targetWrapper = document.querySelector('[dev-target="svg-target-wrapper"]');
+      if (!textHolder || !targetWrapper) return false;
+      const rawMarkup = textHolder.textContent?.trim() ?? "";
+      if (!rawMarkup.includes("<svg")) return false;
+      const svgMarkup = rawMarkup.replace(/=\d+"/g, '="');
+      targetWrapper.innerHTML = svgMarkup;
+      this.svgEl = targetWrapper.querySelector("svg");
+      if (!this.svgEl) return false;
+      const svgStyle = this.svgEl.querySelector("style");
+      if (svgStyle?.textContent) {
+        svgStyle.textContent = svgStyle.textContent.replace(/\u00A0/g, " ");
+      }
+      this.svgEl.style.width = "100%";
+      this.svgEl.style.height = "100%";
+      this.svgEl.style.display = "block";
+      this.svgEl.classList.add("rebuild-map__svg");
+      this.ensureTooltip();
+      const viewBoxTokens = this.svgEl.getAttribute("viewBox")?.split(/[\s,]+/).map((token) => Number.parseFloat(token)).filter((token) => Number.isFinite(token));
+      if (viewBoxTokens?.length === 4) {
+        const [x, y, w, h] = viewBoxTokens;
+        this.originalViewBox = { x, y, w, h };
+        this.vb = { ...this.originalViewBox };
+        this.applyViewBox();
+      }
+      return true;
+    }
+    ensureTooltip() {
+      const wrapper = this.svgEl?.parentElement;
+      if (!wrapper) return;
+      if (getComputedStyle(wrapper).position === "static") {
+        wrapper.style.position = "relative";
+      }
+      const tooltip = document.createElement("div");
+      tooltip.className = "rebuild-map__tooltip";
+      tooltip.setAttribute("aria-hidden", "true");
+      wrapper.appendChild(tooltip);
+      this.tooltipEl = tooltip;
+    }
+    bindMarkers() {
+      if (!this.svgEl) return;
+      const circles = Array.from(this.svgEl.querySelectorAll("circle"));
+      if (circles.length < MAP_POINTS.length) return;
+      const available = [...circles];
+      MAP_POINTS.forEach((point) => {
+        const marker = this.pickNearestMarker(point, available);
+        if (!marker) return;
+        this.markerById.set(point.id, marker);
+        marker.dataset.rebuildPointId = point.id;
+        marker.setAttribute("aria-label", point.label);
+        marker.setAttribute("title", point.label);
+        marker.classList.add("rebuild-map__marker");
+        marker.addEventListener("mouseenter", () => this.highlight(point.id));
+        marker.addEventListener("mouseleave", () => this.clearHighlight());
+        marker.addEventListener("mousedown", (event) => event.stopPropagation());
+        marker.addEventListener(
+          "touchstart",
+          (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            this.highlight(point.id, true);
+          },
+          { passive: false }
+        );
+        marker.addEventListener("click", () => this.highlight(point.id, true));
+      });
+    }
+    pickNearestMarker(point, available) {
+      if (!available.length) return void 0;
+      let bestIndex = 0;
+      let bestDistance = Number.POSITIVE_INFINITY;
+      available.forEach((marker2, index) => {
+        const cx = Number.parseFloat(marker2.getAttribute("cx") ?? "");
+        const cy = Number.parseFloat(marker2.getAttribute("cy") ?? "");
+        if (!Number.isFinite(cx) || !Number.isFinite(cy)) return;
+        const distance = Math.hypot(cx - point.x, cy - point.y);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestIndex = index;
+        }
+      });
+      const [marker] = available.splice(bestIndex, 1);
+      return marker;
+    }
+    bindCards() {
+      const listContainer = document.querySelector(
+        '[dev-target="rebuild-map-point-list"]'
+      );
+      let cards = document.querySelectorAll(
+        '[dev-target="rebuild-map-point"][map-point-id]'
+      );
+      if (!cards.length && listContainer) {
+        listContainer.innerHTML = MAP_POINTS.map(
+          (point) => `<button class="rebuild-map__card" type="button" dev-target="rebuild-map-point" map-point-id="${point.id}">${point.label}</button>`
+        ).join("");
+        cards = listContainer.querySelectorAll(
+          '[dev-target="rebuild-map-point"][map-point-id]'
+        );
+      }
+      cards.forEach((card) => {
+        const pointId = card.getAttribute("map-point-id");
+        if (!pointId) return;
+        this.cardById.set(pointId, card);
+        card.addEventListener("mouseenter", () => this.highlight(pointId));
+        card.addEventListener("mouseleave", () => this.clearHighlight());
+        card.addEventListener("focus", () => this.highlight(pointId));
+        card.addEventListener("blur", () => this.clearHighlight());
+        card.addEventListener("click", () => this.highlight(pointId));
+      });
+    }
+    highlight(pointId, scrollToCard = false) {
+      if (this.isPanning) return;
+      if (this.activeId === pointId && !scrollToCard) return;
+      this.clearHighlight();
+      this.activeId = pointId;
+      this.markerById.get(pointId)?.classList.add("rebuild-map__marker--active");
+      this.showTooltip(pointId);
+      const card = this.cardById.get(pointId);
+      if (card) {
+        card.classList.add("rebuild-map__card--active");
+        if (scrollToCard) {
+          card.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+    }
+    clearHighlight() {
+      this.activeId = null;
+      this.svgEl?.querySelector(".rebuild-map__marker--active")?.classList.remove("rebuild-map__marker--active");
+      document.querySelector(".rebuild-map__card--active")?.classList.remove("rebuild-map__card--active");
+      this.hideTooltip();
+    }
+    showTooltip(pointId) {
+      if (!this.svgEl || !this.tooltipEl) return;
+      const marker = this.markerById.get(pointId);
+      const point = MAP_POINTS.find((entry) => entry.id === pointId);
+      if (!marker || !point) return;
+      const markerRect = marker.getBoundingClientRect();
+      const wrapperRect = this.svgEl.parentElement?.getBoundingClientRect();
+      if (!wrapperRect) return;
+      const [title, subtitle] = this.splitLabel(point.label);
+      this.tooltipEl.innerHTML = `
+      <div class="rebuild-map__tooltip-title">${title}</div>
+      <div class="rebuild-map__tooltip-subtitle">${subtitle.toUpperCase()}</div>
+    `;
+      const left = markerRect.left - wrapperRect.left + markerRect.width + 8;
+      const top = markerRect.top - wrapperRect.top - 8;
+      this.tooltipEl.style.left = `${left}px`;
+      this.tooltipEl.style.top = `${top}px`;
+      this.tooltipEl.classList.add("is-visible");
+    }
+    hideTooltip() {
+      this.tooltipEl?.classList.remove("is-visible");
+    }
+    splitLabel(label) {
+      if (label.includes(" - ")) {
+        const [title, subtitle] = label.split(/\s-\s(.+)/);
+        return [title.trim(), subtitle.trim()];
+      }
+      const commaIndex = label.indexOf(",");
+      if (commaIndex >= 0) {
+        const title = label.slice(0, commaIndex).trim();
+        const subtitle = label.slice(commaIndex + 1).trim();
+        return [title, subtitle];
+      }
+      return [label.trim(), ""];
+    }
+    applyViewBox() {
+      const { x, y, w, h } = this.vb;
+      this.svgEl?.setAttribute("viewBox", `${x} ${y} ${w} ${h}`);
+    }
+    clampViewBox() {
+      this.vb.x = Math.max(
+        this.originalViewBox.x,
+        Math.min(this.vb.x, this.originalViewBox.x + this.originalViewBox.w - this.vb.w)
+      );
+      this.vb.y = Math.max(
+        this.originalViewBox.y,
+        Math.min(this.vb.y, this.originalViewBox.y + this.originalViewBox.h - this.vb.h)
+      );
+      this.applyViewBox();
+    }
+    toSvgPoint(clientX, clientY) {
+      const rect = this.svgEl.getBoundingClientRect();
+      return {
+        x: this.vb.x + (clientX - rect.left) / rect.width * this.vb.w,
+        y: this.vb.y + (clientY - rect.top) / rect.height * this.vb.h
+      };
+    }
+    zoomAround(scale, originX, originY) {
+      const newW = this.vb.w * scale;
+      const zoom = this.originalViewBox.w / newW;
+      if (zoom < this.MIN_ZOOM || zoom > this.MAX_ZOOM) return;
+      this.vb.x = originX + (this.vb.x - originX) * scale;
+      this.vb.y = originY + (this.vb.y - originY) * scale;
+      this.vb.w = newW;
+      this.vb.h *= scale;
+      this.clampViewBox();
+    }
+    zoomBy(scale) {
+      const cx = this.vb.x + this.vb.w / 2;
+      const cy = this.vb.y + this.vb.h / 2;
+      this.zoomAround(scale, cx, cy);
+    }
+    resetZoom() {
+      this.vb = { ...this.originalViewBox };
+      this.applyViewBox();
+    }
+    bindZoom() {
+      if (!this.svgEl) return;
+      const svg = this.svgEl;
+      svg.addEventListener(
+        "wheel",
+        (event) => {
+          if (this.DISABLE_ZOOM_WITH_MOUSE_SCROLL) return;
+          event.preventDefault();
+          const scale = event.deltaY < 0 ? 0.85 : 1 / 0.85;
+          const { x, y } = this.toSvgPoint(event.clientX, event.clientY);
+          this.zoomAround(scale, x, y);
+        },
+        { passive: false }
+      );
+      let startClient = { x: 0, y: 0 };
+      let startVb = { ...this.vb };
+      svg.addEventListener("mousedown", (event) => {
+        if (event.button !== 0 && event.button !== 1) return;
+        event.preventDefault();
+        this.isPanning = true;
+        startClient = { x: event.clientX, y: event.clientY };
+        startVb = { ...this.vb };
+        svg.classList.add("lot-map__svg--panning");
+      });
+      window.addEventListener("mousemove", (event) => {
+        if (!this.isPanning) return;
+        const rect = svg.getBoundingClientRect();
+        this.vb.x = startVb.x - (event.clientX - startClient.x) / rect.width * startVb.w;
+        this.vb.y = startVb.y - (event.clientY - startClient.y) / rect.height * startVb.h;
+        this.clampViewBox();
+      });
+      window.addEventListener("mouseup", (event) => {
+        if (!this.isPanning || event.button !== 0 && event.button !== 1) return;
+        this.isPanning = false;
+        svg.classList.remove("lot-map__svg--panning");
+      });
+      let isTouching = false;
+      let lastDist = 0;
+      let lastMid = { x: 0, y: 0 };
+      const touchDist = (touches) => Math.hypot(touches[0].clientX - touches[1].clientX, touches[0].clientY - touches[1].clientY);
+      const touchMid = (touches) => ({
+        x: (touches[0].clientX + touches[1].clientX) / 2,
+        y: (touches[0].clientY + touches[1].clientY) / 2
+      });
+      svg.addEventListener(
+        "touchstart",
+        (event) => {
+          event.preventDefault();
+          isTouching = true;
+          if (event.touches.length === 2) {
+            this.isPanning = false;
+            lastDist = touchDist(event.touches);
+            lastMid = touchMid(event.touches);
+          } else {
+            this.isPanning = true;
+            startClient = { x: event.touches[0].clientX, y: event.touches[0].clientY };
+            startVb = { ...this.vb };
+            svg.classList.add("lot-map__svg--panning");
+          }
+        },
+        { passive: false }
+      );
+      window.addEventListener(
+        "touchmove",
+        (event) => {
+          if (!isTouching) return;
+          event.preventDefault();
+          if (event.touches.length === 2) {
+            this.isPanning = false;
+            svg.classList.remove("lot-map__svg--panning");
+            const dist = touchDist(event.touches);
+            const mid = touchMid(event.touches);
+            const scale = lastDist / dist;
+            const origin = this.toSvgPoint(mid.x, mid.y);
+            this.zoomAround(scale, origin.x, origin.y);
+            const rect = svg.getBoundingClientRect();
+            this.vb.x -= (mid.x - lastMid.x) / rect.width * this.vb.w;
+            this.vb.y -= (mid.y - lastMid.y) / rect.height * this.vb.h;
+            this.clampViewBox();
+            lastDist = dist;
+            lastMid = mid;
+          } else if (event.touches.length === 1 && this.isPanning) {
+            const rect = svg.getBoundingClientRect();
+            const dx = (event.touches[0].clientX - startClient.x) / rect.width * startVb.w;
+            const dy = (event.touches[0].clientY - startClient.y) / rect.height * startVb.h;
+            this.vb.x = startVb.x - dx;
+            this.vb.y = startVb.y - dy;
+            this.clampViewBox();
+          }
+        },
+        { passive: false }
+      );
+      window.addEventListener("touchend", () => {
+        if (!isTouching) return;
+        isTouching = false;
+        this.isPanning = false;
+        svg.classList.remove("lot-map__svg--panning");
+      });
+    }
+    injectZoomControls() {
+      const wrapper = this.svgEl?.parentElement;
+      if (!wrapper) return;
+      if (getComputedStyle(wrapper).position === "static") {
+        wrapper.style.position = "relative";
+      }
+      const controls = document.createElement("div");
+      controls.className = "lot-map__zoom-controls";
+      controls.setAttribute("aria-label", "Map zoom controls");
+      controls.innerHTML = `
       <button class="lot-map__zoom-btn" data-zoom="in" title="Zoom in" aria-label="Zoom in">+</button>
       <button class="lot-map__zoom-btn" data-zoom="reset" title="Reset zoom" aria-label="Reset zoom">\u2299</button>
       <button class="lot-map__zoom-btn" data-zoom="out" title="Zoom out" aria-label="Zoom out">\u2212</button>
-    `,i.addEventListener("click",e=>{let o=e.target.closest("[data-zoom]");if(!o)return;let n=o.dataset.zoom;n==="in"?this.zoomBy(.7):n==="out"?this.zoomBy(1/.7):n==="reset"&&this.resetZoom()}),t.appendChild(i)}};window.Webflow||(window.Webflow=[]);window.Webflow.push(()=>{new v().init()});})();
+    `;
+      controls.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-zoom]");
+        if (!button) return;
+        const action = button.dataset.zoom;
+        if (action === "in") this.zoomBy(0.7);
+        else if (action === "out") this.zoomBy(1 / 0.7);
+        else if (action === "reset") this.resetZoom();
+      });
+      wrapper.appendChild(controls);
+    }
+  };
+
+  // src/rebuild-parent.ts
+  window.Webflow ||= [];
+  window.Webflow.push(() => {
+    const rebuildMapController = new RebuildMapController();
+    rebuildMapController.init();
+  });
+})();
+//# sourceMappingURL=rebuild-parent.js.map
