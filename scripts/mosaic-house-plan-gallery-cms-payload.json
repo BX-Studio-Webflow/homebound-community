@@ -1,0 +1,716 @@
+{
+  "generatedFromLocalCuration": true,
+  "missing": [],
+  "plans": {
+    "addison": {
+      "cms": {
+        "id": "6a0649dcd98c04735a2b1e82",
+        "cmsLocaleId": "653ad118e882f528b3fb31c4",
+        "name": "The Addison",
+        "slug": "the-addison---mosaic",
+        "marketingIdentifier": "The Addison - Mosaic"
+      },
+      "fieldData": {
+        "photo-gallery": [
+          {
+            "fileId": "6aa7bddaf884d4a1be4ce984",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bddaf884d4a1be4ce984_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be31a538e0265f7bfda6",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be31a538e0265f7bfda6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be1059d9060ea7ae7bf6",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1059d9060ea7ae7bf6_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdf5b5443afc14783129",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdf5b5443afc14783129_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be30a538e0265f7bfd3d",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be30a538e0265f7bfd3d_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdd2193b94d23a3ae893",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd2193b94d23a3ae893_Transitional%20Color%20Scheme%201%20Newport.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdd23150d47c1d06be2c",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd23150d47c1d06be2c_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be083da4674c75d303ed",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be083da4674c75d303ed_Transitional%20Color%20Scheme%203%20Caprock.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be45d31a141ebbd9d43d",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be45d31a141ebbd9d43d_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdea3150d47c1d06d522",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdea3150d47c1d06d522_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3bd31a141ebbd9c9dc",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3bd31a141ebbd9c9dc_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3c45bdcf80988b39b2",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c45bdcf80988b39b2_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3c3da4674c75d32704",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c3da4674c75d32704_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3b6bccac03cadb990d",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b6bccac03cadb990d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3b39d5fa0524a92348",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b39d5fa0524a92348_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc4777aad14615fd42",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc3da4674c75d067ad",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc7c6fd66c86e9a121",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacbd31a141ebbd6baae",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacbd31a141ebbd6baae__update_01_Primary%20Bathroom.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc4777aad14615fd42",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc3da4674c75d067ad",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc7c6fd66c86e9a121",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc4777aad14615fd42",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc3da4674c75d067ad",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc7c6fd66c86e9a121",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp",
+            "alt": null
+          }
+        ]
+      },
+      "totals": {
+        "selected": 25,
+        "uploaded": 25
+      }
+    },
+    "bandera": {
+      "cms": {
+        "id": "6a064a5a6994a7137e4af69f",
+        "cmsLocaleId": "653ad118e882f528b3fb31c4",
+        "name": "The Bandera",
+        "slug": "the-bandera---mosaic",
+        "marketingIdentifier": "The Bandera - Mosaic"
+      },
+      "fieldData": {
+        "photo-gallery": [
+          {
+            "fileId": "6aa7bddaf884d4a1be4ce984",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bddaf884d4a1be4ce984_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be31a538e0265f7bfda6",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be31a538e0265f7bfda6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be1059d9060ea7ae7bf6",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1059d9060ea7ae7bf6_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdf5b5443afc14783129",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdf5b5443afc14783129_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be30a538e0265f7bfd3d",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be30a538e0265f7bfd3d_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdd2193b94d23a3ae893",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd2193b94d23a3ae893_Transitional%20Color%20Scheme%201%20Newport.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdd23150d47c1d06be2c",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd23150d47c1d06be2c_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be083da4674c75d303ed",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be083da4674c75d303ed_Transitional%20Color%20Scheme%203%20Caprock.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be45d31a141ebbd9d43d",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be45d31a141ebbd9d43d_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdea3150d47c1d06d522",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdea3150d47c1d06d522_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3bd31a141ebbd9c9dc",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3bd31a141ebbd9c9dc_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3c45bdcf80988b39b2",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c45bdcf80988b39b2_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3c3da4674c75d32704",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c3da4674c75d32704_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3b6bccac03cadb990d",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b6bccac03cadb990d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3b39d5fa0524a92348",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b39d5fa0524a92348_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc4777aad14615fd42",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc3da4674c75d067ad",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc7c6fd66c86e9a121",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacbd31a141ebbd6baae",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacbd31a141ebbd6baae__update_01_Primary%20Bathroom.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc4777aad14615fd42",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc3da4674c75d067ad",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc7c6fd66c86e9a121",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc4777aad14615fd42",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc3da4674c75d067ad",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc7c6fd66c86e9a121",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp",
+            "alt": null
+          }
+        ]
+      },
+      "totals": {
+        "selected": 25,
+        "uploaded": 25
+      }
+    },
+    "collin": {
+      "cms": {
+        "id": "6a064a9f431685331343181c",
+        "cmsLocaleId": "653ad118e882f528b3fb31c4",
+        "name": "The Collin",
+        "slug": "the-collin---mosaic",
+        "marketingIdentifier": "The Collin - Mosaic"
+      },
+      "fieldData": {
+        "photo-gallery": [
+          {
+            "fileId": "6aa7bddaf884d4a1be4ce984",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bddaf884d4a1be4ce984_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be31a538e0265f7bfda6",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be31a538e0265f7bfda6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be1059d9060ea7ae7bf6",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1059d9060ea7ae7bf6_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdf5b5443afc14783129",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdf5b5443afc14783129_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be30a538e0265f7bfd3d",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be30a538e0265f7bfd3d_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdd2193b94d23a3ae893",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd2193b94d23a3ae893_Transitional%20Color%20Scheme%201%20Newport.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdd23150d47c1d06be2c",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd23150d47c1d06be2c_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be083da4674c75d303ed",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be083da4674c75d303ed_Transitional%20Color%20Scheme%203%20Caprock.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be45d31a141ebbd9d43d",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be45d31a141ebbd9d43d_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdea3150d47c1d06d522",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdea3150d47c1d06d522_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3bd31a141ebbd9c9dc",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3bd31a141ebbd9c9dc_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3c45bdcf80988b39b2",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c45bdcf80988b39b2_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3c3da4674c75d32704",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c3da4674c75d32704_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3b6bccac03cadb990d",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b6bccac03cadb990d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3b39d5fa0524a92348",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b39d5fa0524a92348_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc4777aad14615fd42",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc3da4674c75d067ad",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc7c6fd66c86e9a121",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacbd31a141ebbd6baae",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacbd31a141ebbd6baae__update_01_Primary%20Bathroom.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc4777aad14615fd42",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc3da4674c75d067ad",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc7c6fd66c86e9a121",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc4777aad14615fd42",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc3da4674c75d067ad",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc7c6fd66c86e9a121",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp",
+            "alt": null
+          }
+        ]
+      },
+      "totals": {
+        "selected": 25,
+        "uploaded": 25
+      }
+    },
+    "grayson": {
+      "cms": {
+        "id": "6a064afbeb0dcbf979299768",
+        "cmsLocaleId": "653ad118e882f528b3fb31c4",
+        "name": "The Grayson",
+        "slug": "the-grayson---mosaic",
+        "marketingIdentifier": "The Grayson - Mosaic"
+      },
+      "fieldData": {
+        "photo-gallery": [
+          {
+            "fileId": "6aa7bddaf884d4a1be4ce984",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bddaf884d4a1be4ce984_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be31a538e0265f7bfda6",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be31a538e0265f7bfda6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be1059d9060ea7ae7bf6",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1059d9060ea7ae7bf6_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdf5b5443afc14783129",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdf5b5443afc14783129_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be30a538e0265f7bfd3d",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be30a538e0265f7bfd3d_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdd2193b94d23a3ae893",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd2193b94d23a3ae893_Transitional%20Color%20Scheme%201%20Newport.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdd23150d47c1d06be2c",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd23150d47c1d06be2c_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be083da4674c75d303ed",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be083da4674c75d303ed_Transitional%20Color%20Scheme%203%20Caprock.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be45d31a141ebbd9d43d",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be45d31a141ebbd9d43d_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdea3150d47c1d06d522",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdea3150d47c1d06d522_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3bd31a141ebbd9c9dc",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3bd31a141ebbd9c9dc_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3c45bdcf80988b39b2",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c45bdcf80988b39b2_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3c3da4674c75d32704",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c3da4674c75d32704_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3b6bccac03cadb990d",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b6bccac03cadb990d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3b39d5fa0524a92348",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b39d5fa0524a92348_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc4777aad14615fd42",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc3da4674c75d067ad",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc7c6fd66c86e9a121",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacbd31a141ebbd6baae",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacbd31a141ebbd6baae__update_01_Primary%20Bathroom.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc4777aad14615fd42",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc3da4674c75d067ad",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc7c6fd66c86e9a121",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc4777aad14615fd42",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc3da4674c75d067ad",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc7c6fd66c86e9a121",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp",
+            "alt": null
+          }
+        ]
+      },
+      "totals": {
+        "selected": 25,
+        "uploaded": 25
+      }
+    },
+    "magnolia": {
+      "cms": {
+        "id": "6a064b30973a44428b4def2c",
+        "cmsLocaleId": "653ad118e882f528b3fb31c4",
+        "name": "The Magnolia",
+        "slug": "the-magnolia---mosaic",
+        "marketingIdentifier": "The Magnolia - Mosaic"
+      },
+      "fieldData": {
+        "photo-gallery": [
+          {
+            "fileId": "6aa7bddaf884d4a1be4ce984",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bddaf884d4a1be4ce984_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be31a538e0265f7bfda6",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be31a538e0265f7bfda6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be1059d9060ea7ae7bf6",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1059d9060ea7ae7bf6_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdf5b5443afc14783129",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdf5b5443afc14783129_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be30a538e0265f7bfd3d",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be30a538e0265f7bfd3d_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdd2193b94d23a3ae893",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd2193b94d23a3ae893_Transitional%20Color%20Scheme%201%20Newport.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdd23150d47c1d06be2c",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd23150d47c1d06be2c_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be083da4674c75d303ed",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be083da4674c75d303ed_Transitional%20Color%20Scheme%203%20Caprock.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be45d31a141ebbd9d43d",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be45d31a141ebbd9d43d_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bdea3150d47c1d06d522",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdea3150d47c1d06d522_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3bd31a141ebbd9c9dc",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3bd31a141ebbd9c9dc_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3c45bdcf80988b39b2",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c45bdcf80988b39b2_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3c3da4674c75d32704",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c3da4674c75d32704_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3b6bccac03cadb990d",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b6bccac03cadb990d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7be3b39d5fa0524a92348",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b39d5fa0524a92348_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc4777aad14615fd42",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc3da4674c75d067ad",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc7c6fd66c86e9a121",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacbd31a141ebbd6baae",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacbd31a141ebbd6baae__update_01_Primary%20Bathroom.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc4777aad14615fd42",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc3da4674c75d067ad",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc7c6fd66c86e9a121",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc4777aad14615fd42",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc3da4674c75d067ad",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp",
+            "alt": null
+          },
+          {
+            "fileId": "6aa7bacc7c6fd66c86e9a121",
+            "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp",
+            "alt": null
+          }
+        ]
+      },
+      "totals": {
+        "selected": 25,
+        "uploaded": 25
+      }
+    }
+  }
+}

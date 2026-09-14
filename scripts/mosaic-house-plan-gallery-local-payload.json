@@ -1,0 +1,966 @@
+{
+  "generatedLocally": true,
+  "optimizedFormat": "webp",
+  "targetPerPlan": 25,
+  "exteriorPerPlan": 15,
+  "interiorPerPlan": 10,
+  "missing": [],
+  "totalAssets": 125,
+  "plans": {
+    "addison": {
+      "cms": {
+        "id": "6a0649dcd98c04735a2b1e82",
+        "cmsLocaleId": "653ad118e882f528b3fb31c4",
+        "name": "The Addison",
+        "slug": "the-addison---mosaic",
+        "marketingIdentifier": "The Addison - Mosaic"
+      },
+      "totals": {
+        "exterior": 15,
+        "interior": 10,
+        "total": 25
+      },
+      "photoGallery": [
+        {
+          "kind": "exterior",
+          "plan": "addison",
+          "category": "Modern Cape Dutch Scheme 1",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Addison/Modern Cape Dutch/Modern Cape Dutch Color Scheme 1 Everest.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 1 Everest.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "addison",
+          "category": "Modern Cape Dutch Scheme 2",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Addison/Modern Cape Dutch/Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "addison",
+          "category": "Modern Cape Dutch Scheme 3",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Addison/Modern Cape Dutch/Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 3 Iron Ore.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "addison",
+          "category": "Modern Cape Dutch Scheme 4",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Addison/Modern Cape Dutch/Modern Cape Dutch Color Scheme 4 Pure White.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 4 Pure White.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "addison",
+          "category": "Modern Cape Dutch Scheme 5",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Addison/Modern Cape Dutch/Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 5 Felted Wool.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "addison",
+          "category": "Transitional Scheme 1",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Addison/Transitional/Transitional Color Scheme 1 Newport.webp",
+          "fileName": "Transitional Color Scheme 1 Newport.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "addison",
+          "category": "Transitional Scheme 2",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Addison/Transitional/Transitional Color Scheme 2 Iron Ore.webp",
+          "fileName": "Transitional Color Scheme 2 Iron Ore.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "addison",
+          "category": "Transitional Scheme 3",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Addison/Transitional/Transitional Color Scheme 3 Caprock.webp",
+          "fileName": "Transitional Color Scheme 3 Caprock.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "addison",
+          "category": "Transitional Scheme 4",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Addison/Transitional/Transitional Color Scheme 4 Alabaster.webp",
+          "fileName": "Transitional Color Scheme 4 Alabaster.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "addison",
+          "category": "Transitional Scheme 5",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Addison/Transitional/Transitional Color Scheme 5 Worldly Gray.webp",
+          "fileName": "Transitional Color Scheme 5 Worldly Gray.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "addison",
+          "category": "Modern Tudor Scheme 1",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Addison/Modern Tudor/Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+          "fileName": "Modern Tudor Color Scheme 1 Colonnade Gray.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "addison",
+          "category": "Modern Tudor Scheme 2",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Addison/Modern Tudor/Modern Tudor Color Scheme 2 Coral Gray.webp",
+          "fileName": "Modern Tudor Color Scheme 2 Coral Gray.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "addison",
+          "category": "Modern Tudor Scheme 3",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Addison/Modern Tudor/Modern Tudor Color Scheme 3 Greenblack.webp",
+          "fileName": "Modern Tudor Color Scheme 3 Greenblack.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "addison",
+          "category": "Modern Tudor Scheme 4",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Addison/Modern Tudor/Modern Tudor Color Scheme 4 Felted Wool.webp",
+          "fileName": "Modern Tudor Color Scheme 4 Felted Wool.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "addison",
+          "category": "Modern Tudor Scheme 5",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Addison/Modern Tudor/Modern Tudor Color Scheme 5 Altitude Gray.webp",
+          "fileName": "Modern Tudor Color Scheme 5 Altitude Gray.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "addison",
+          "category": "Transitional Natural / Kitchen",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Addison/Transitional Natural/Kitchen.webp",
+          "fileName": "Kitchen.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "addison",
+          "category": "Transitional Natural / Great Room",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Addison/Transitional Natural/Great Room.webp",
+          "fileName": "Great Room.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "addison",
+          "category": "Transitional Natural / Primary Bedroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Addison/Transitional Natural/Primary Bedroom.webp",
+          "fileName": "Primary Bedroom.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "addison",
+          "category": "Transitional Natural / Primary Bathroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Addison/Transitional Natural/Primary Bathroom.webp",
+          "fileName": "Primary Bathroom.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "addison",
+          "category": "Modern Edge / Kitchen",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Addison/Modern Edge/Kitchen.webp",
+          "fileName": "Kitchen.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "addison",
+          "category": "Modern Edge / Great Room",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Addison/Modern Edge/Great Room.webp",
+          "fileName": "Great Room.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "addison",
+          "category": "Modern Edge / Primary Bedroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Addison/Modern Edge/Primary Bedroom.webp",
+          "fileName": "Primary Bedroom.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "addison",
+          "category": "Casual Organic / Kitchen",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Addison/Casual Organic/Kitchen.webp",
+          "fileName": "Kitchen.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "addison",
+          "category": "Casual Organic / Great Room",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Addison/Casual Organic/Great Room.webp",
+          "fileName": "Great Room.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "addison",
+          "category": "Casual Organic / Primary Bedroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Addison/Casual Organic/Primary Bedroom.webp",
+          "fileName": "Primary Bedroom.webp"
+        }
+      ]
+    },
+    "bandera": {
+      "cms": {
+        "id": "6a064a5a6994a7137e4af69f",
+        "cmsLocaleId": "653ad118e882f528b3fb31c4",
+        "name": "The Bandera",
+        "slug": "the-bandera---mosaic",
+        "marketingIdentifier": "The Bandera - Mosaic"
+      },
+      "totals": {
+        "exterior": 15,
+        "interior": 10,
+        "total": 25
+      },
+      "photoGallery": [
+        {
+          "kind": "exterior",
+          "plan": "bandera",
+          "category": "Modern Cape Dutch Scheme 1",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 1 Everest.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 1 Everest.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "bandera",
+          "category": "Modern Cape Dutch Scheme 2",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "bandera",
+          "category": "Modern Cape Dutch Scheme 3",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 3 Iron Ore.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "bandera",
+          "category": "Modern Cape Dutch Scheme 4",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 4 Pure White.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 4 Pure White.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "bandera",
+          "category": "Modern Cape Dutch Scheme 5",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Bandera/Modern Cape Dutch/Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 5 Felted Wool.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "bandera",
+          "category": "Transitional Scheme 1",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Bandera/Transitional/Transitional Color Scheme 1 Newport.webp",
+          "fileName": "Transitional Color Scheme 1 Newport.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "bandera",
+          "category": "Transitional Scheme 2",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Bandera/Transitional/Transitional Color Scheme 2 Iron Ore.webp",
+          "fileName": "Transitional Color Scheme 2 Iron Ore.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "bandera",
+          "category": "Transitional Scheme 3",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Bandera/Transitional/Transitional Color Scheme 3 Caprock.webp",
+          "fileName": "Transitional Color Scheme 3 Caprock.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "bandera",
+          "category": "Transitional Scheme 4",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Bandera/Transitional/Transitional Color Scheme 4 Alabaster.webp",
+          "fileName": "Transitional Color Scheme 4 Alabaster.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "bandera",
+          "category": "Transitional Scheme 5",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Bandera/Transitional/Transitional Color Scheme 5 Worldly Gray.webp",
+          "fileName": "Transitional Color Scheme 5 Worldly Gray.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "bandera",
+          "category": "Modern Tudor Scheme 1",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Bandera/Modern Tudor/Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+          "fileName": "Modern Tudor Color Scheme 1 Colonnade Gray.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "bandera",
+          "category": "Modern Tudor Scheme 2",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Bandera/Modern Tudor/Modern Tudor Color Scheme 2 Coral Gray.webp",
+          "fileName": "Modern Tudor Color Scheme 2 Coral Gray.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "bandera",
+          "category": "Modern Tudor Scheme 3",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Bandera/Modern Tudor/Modern Tudor Color Scheme 3 Greenblack.webp",
+          "fileName": "Modern Tudor Color Scheme 3 Greenblack.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "bandera",
+          "category": "Modern Tudor Scheme 4",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Bandera/Modern Tudor/Modern Tudor Color Scheme 4 Felted Wool.webp",
+          "fileName": "Modern Tudor Color Scheme 4 Felted Wool.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "bandera",
+          "category": "Modern Tudor Scheme 5",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Bandera/Modern Tudor/Modern Tudor Color Scheme 5 Altitude Gray.webp",
+          "fileName": "Modern Tudor Color Scheme 5 Altitude Gray.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "bandera",
+          "category": "Transitional Natural / Kitchen",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Bandera/Transitional Natural/Kitchen.webp",
+          "fileName": "Kitchen.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "bandera",
+          "category": "Transitional Natural / Great Room",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Bandera/Transitional Natural/Great Room.webp",
+          "fileName": "Great Room.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "bandera",
+          "category": "Transitional Natural / Primary Bedroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Bandera/Transitional Natural/Primary Bedroom.webp",
+          "fileName": "Primary Bedroom.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "bandera",
+          "category": "Transitional Natural / Primary Bathroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Bandera/Transitional Natural/Primary Bathroom.webp",
+          "fileName": "Primary Bathroom.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "bandera",
+          "category": "Modern Edge / Kitchen",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Bandera/Modern Edge/Kitchen.webp",
+          "fileName": "Kitchen.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "bandera",
+          "category": "Modern Edge / Great Room",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Bandera/Modern Edge/Great Room.webp",
+          "fileName": "Great Room.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "bandera",
+          "category": "Modern Edge / Primary Bedroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Bandera/Modern Edge/Primary Bedroom.webp",
+          "fileName": "Primary Bedroom.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "bandera",
+          "category": "Casual Organic / Kitchen",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Bandera/Casual Organic/Kitchen.webp",
+          "fileName": "Kitchen.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "bandera",
+          "category": "Casual Organic / Great Room",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Bandera/Casual Organic/Great Room.webp",
+          "fileName": "Great Room.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "bandera",
+          "category": "Casual Organic / Primary Bedroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Bandera/Casual Organic/Primary Bedroom.webp",
+          "fileName": "Primary Bedroom.webp"
+        }
+      ]
+    },
+    "collin": {
+      "cms": {
+        "id": "6a064a9f431685331343181c",
+        "cmsLocaleId": "653ad118e882f528b3fb31c4",
+        "name": "The Collin",
+        "slug": "the-collin---mosaic",
+        "marketingIdentifier": "The Collin - Mosaic"
+      },
+      "totals": {
+        "exterior": 15,
+        "interior": 10,
+        "total": 25
+      },
+      "photoGallery": [
+        {
+          "kind": "exterior",
+          "plan": "collin",
+          "category": "Modern Cape Dutch Scheme 1",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 1 Everest.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 1 Everest.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "collin",
+          "category": "Modern Cape Dutch Scheme 2",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "collin",
+          "category": "Modern Cape Dutch Scheme 3",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 3 Iron Ore.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "collin",
+          "category": "Modern Cape Dutch Scheme 4",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 4 Pure White.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 4 Pure White.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "collin",
+          "category": "Modern Cape Dutch Scheme 5",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Collin/Modern Cape Dutch/Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 5 Felted Wool.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "collin",
+          "category": "Transitional Scheme 1",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Collin/Transitional/Transitional Color Scheme 1 Newport.webp",
+          "fileName": "Transitional Color Scheme 1 Newport.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "collin",
+          "category": "Transitional Scheme 2",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Collin/Transitional/Transitional Color Scheme 2 Iron Ore.webp",
+          "fileName": "Transitional Color Scheme 2 Iron Ore.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "collin",
+          "category": "Transitional Scheme 3",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Collin/Transitional/Transitional Color Scheme 3 Caprock.webp",
+          "fileName": "Transitional Color Scheme 3 Caprock.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "collin",
+          "category": "Transitional Scheme 4",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Collin/Transitional/Transitional Color Scheme 4 Alabaster.webp",
+          "fileName": "Transitional Color Scheme 4 Alabaster.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "collin",
+          "category": "Transitional Scheme 5",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Collin/Transitional/Transitional Color Scheme 5 Worldly Gray.webp",
+          "fileName": "Transitional Color Scheme 5 Worldly Gray.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "collin",
+          "category": "Modern Tudor Scheme 1",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Collin/Modern Tudor/Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+          "fileName": "Modern Tudor Color Scheme 1 Colonnade Gray.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "collin",
+          "category": "Modern Tudor Scheme 2",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Collin/Modern Tudor/Modern Tudor Color Scheme 2 Coral Gray.webp",
+          "fileName": "Modern Tudor Color Scheme 2 Coral Gray.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "collin",
+          "category": "Modern Tudor Scheme 3",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Collin/Modern Tudor/Modern Tudor Color Scheme 3 Greenblack.webp",
+          "fileName": "Modern Tudor Color Scheme 3 Greenblack.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "collin",
+          "category": "Modern Tudor Scheme 4",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Collin/Modern Tudor/Modern Tudor Color Scheme 4 Felted Wool.webp",
+          "fileName": "Modern Tudor Color Scheme 4 Felted Wool.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "collin",
+          "category": "Modern Tudor Scheme 5",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Collin/Modern Tudor/Modern Tudor Color Scheme 5 Altitude Gray.webp",
+          "fileName": "Modern Tudor Color Scheme 5 Altitude Gray.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "collin",
+          "category": "Transitional Natural / Kitchen",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Collin/Transitional Natural/Kitchen.webp",
+          "fileName": "Kitchen.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "collin",
+          "category": "Transitional Natural / Great Room",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Collin/Transitional Natural/Great Room.webp",
+          "fileName": "Great Room.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "collin",
+          "category": "Transitional Natural / Primary Bedroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Collin/Transitional Natural/Primary Bedroom.webp",
+          "fileName": "Primary Bedroom.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "collin",
+          "category": "Transitional Natural / Primary Bathroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Collin/Transitional Natural/Primary Bathroom.webp",
+          "fileName": "Primary Bathroom.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "collin",
+          "category": "Modern Edge / Kitchen",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Collin/Modern Edge/Kitchen.webp",
+          "fileName": "Kitchen.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "collin",
+          "category": "Modern Edge / Great Room",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Collin/Modern Edge/Great Room.webp",
+          "fileName": "Great Room.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "collin",
+          "category": "Modern Edge / Primary Bedroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Collin/Modern Edge/Primary Bedroom.webp",
+          "fileName": "Primary Bedroom.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "collin",
+          "category": "Casual Organic / Kitchen",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Collin/Casual Organic/Kitchen.webp",
+          "fileName": "Kitchen.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "collin",
+          "category": "Casual Organic / Great Room",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Collin/Casual Organic/Great Room.webp",
+          "fileName": "Great Room.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "collin",
+          "category": "Casual Organic / Primary Bedroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Collin/Casual Organic/Primary Bedroom.webp",
+          "fileName": "Primary Bedroom.webp"
+        }
+      ]
+    },
+    "grayson": {
+      "cms": {
+        "id": "6a064afbeb0dcbf979299768",
+        "cmsLocaleId": "653ad118e882f528b3fb31c4",
+        "name": "The Grayson",
+        "slug": "the-grayson---mosaic",
+        "marketingIdentifier": "The Grayson - Mosaic"
+      },
+      "totals": {
+        "exterior": 15,
+        "interior": 10,
+        "total": 25
+      },
+      "photoGallery": [
+        {
+          "kind": "exterior",
+          "plan": "grayson",
+          "category": "Modern Cape Dutch Scheme 1",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Grayson/Modern Cape Dutch/Modern Cape Dutch Color Scheme 1 Everest.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 1 Everest.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "grayson",
+          "category": "Modern Cape Dutch Scheme 2",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Grayson/Modern Cape Dutch/Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "grayson",
+          "category": "Modern Cape Dutch Scheme 3",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Grayson/Modern Cape Dutch/Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 3 Iron Ore.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "grayson",
+          "category": "Modern Cape Dutch Scheme 4",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Grayson/Modern Cape Dutch/Modern Cape Dutch Color Scheme 4 Pure White.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 4 Pure White.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "grayson",
+          "category": "Modern Cape Dutch Scheme 5",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Grayson/Modern Cape Dutch/Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 5 Felted Wool.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "grayson",
+          "category": "Transitional Scheme 1",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Grayson/Transitional/Transitional Color Scheme 1 Newport.webp",
+          "fileName": "Transitional Color Scheme 1 Newport.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "grayson",
+          "category": "Transitional Scheme 2",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Grayson/Transitional/Transitional Color Scheme 2 Iron Ore.webp",
+          "fileName": "Transitional Color Scheme 2 Iron Ore.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "grayson",
+          "category": "Transitional Scheme 3",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Grayson/Transitional/Transitional Color Scheme 3 Caprock.webp",
+          "fileName": "Transitional Color Scheme 3 Caprock.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "grayson",
+          "category": "Transitional Scheme 4",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Grayson/Transitional/Transitional Color Scheme 4 Alabaster.webp",
+          "fileName": "Transitional Color Scheme 4 Alabaster.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "grayson",
+          "category": "Transitional Scheme 5",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Grayson/Transitional/Transitional Color Scheme 5 Worldly Gray.webp",
+          "fileName": "Transitional Color Scheme 5 Worldly Gray.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "grayson",
+          "category": "Modern Tudor Scheme 1",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Grayson/Modern Tudor/Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+          "fileName": "Modern Tudor Color Scheme 1 Colonnade Gray.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "grayson",
+          "category": "Modern Tudor Scheme 2",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Grayson/Modern Tudor/Modern Tudor Color Scheme 2 Coral Gray.webp",
+          "fileName": "Modern Tudor Color Scheme 2 Coral Gray.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "grayson",
+          "category": "Modern Tudor Scheme 3",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Grayson/Modern Tudor/Modern Tudor Color Scheme 3 Greenblack.webp",
+          "fileName": "Modern Tudor Color Scheme 3 Greenblack.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "grayson",
+          "category": "Modern Tudor Scheme 4",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Grayson/Modern Tudor/Modern Tudor Color Scheme 4 Felted Wool.webp",
+          "fileName": "Modern Tudor Color Scheme 4 Felted Wool.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "grayson",
+          "category": "Modern Tudor Scheme 5",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Grayson/Modern Tudor/Modern Tudor Color Scheme 5 Altitude Gray.webp",
+          "fileName": "Modern Tudor Color Scheme 5 Altitude Gray.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "grayson",
+          "category": "Transitional Natural / Kitchen",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Grayson/Transitional Natural/Kitchen.webp",
+          "fileName": "Kitchen.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "grayson",
+          "category": "Transitional Natural / Great Room",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Grayson/Transitional Natural/Great Room.webp",
+          "fileName": "Great Room.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "grayson",
+          "category": "Transitional Natural / Primary Bedroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Grayson/Transitional Natural/Primary Bedroom.webp",
+          "fileName": "Primary Bedroom.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "grayson",
+          "category": "Transitional Natural / Primary Bathroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Grayson/Transitional Natural/Primary Bathroom.webp",
+          "fileName": "Primary Bathroom.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "grayson",
+          "category": "Modern Edge / Kitchen",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Grayson/Modern Edge/Kitchen.webp",
+          "fileName": "Kitchen.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "grayson",
+          "category": "Modern Edge / Great Room",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Grayson/Modern Edge/Great Room.webp",
+          "fileName": "Great Room.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "grayson",
+          "category": "Modern Edge / Primary Bedroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Grayson/Modern Edge/Primary Bedroom.webp",
+          "fileName": "Primary Bedroom.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "grayson",
+          "category": "Casual Organic / Kitchen",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Grayson/Casual Organic/Kitchen.webp",
+          "fileName": "Kitchen.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "grayson",
+          "category": "Casual Organic / Great Room",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Grayson/Casual Organic/Great Room.webp",
+          "fileName": "Great Room.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "grayson",
+          "category": "Casual Organic / Primary Bedroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Grayson/Casual Organic/Primary Bedroom.webp",
+          "fileName": "Primary Bedroom.webp"
+        }
+      ]
+    },
+    "magnolia": {
+      "cms": {
+        "id": "6a064b30973a44428b4def2c",
+        "cmsLocaleId": "653ad118e882f528b3fb31c4",
+        "name": "The Magnolia",
+        "slug": "the-magnolia---mosaic",
+        "marketingIdentifier": "The Magnolia - Mosaic"
+      },
+      "totals": {
+        "exterior": 15,
+        "interior": 10,
+        "total": 25
+      },
+      "photoGallery": [
+        {
+          "kind": "exterior",
+          "plan": "magnolia",
+          "category": "Modern Cape Dutch Scheme 1",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Magnolia/Modern Cape Dutch/Modern Cape Dutch Color Scheme 1 Everest.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 1 Everest.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "magnolia",
+          "category": "Modern Cape Dutch Scheme 2",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Magnolia/Modern Cape Dutch/Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "magnolia",
+          "category": "Modern Cape Dutch Scheme 3",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Magnolia/Modern Cape Dutch/Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 3 Iron Ore.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "magnolia",
+          "category": "Modern Cape Dutch Scheme 4",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Magnolia/Modern Cape Dutch/Modern Cape Dutch Color Scheme 4 Pure White.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 4 Pure White.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "magnolia",
+          "category": "Modern Cape Dutch Scheme 5",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Magnolia/Modern Cape Dutch/Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+          "fileName": "Modern Cape Dutch Color Scheme 5 Felted Wool.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "magnolia",
+          "category": "Transitional Scheme 1",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Magnolia/Transitional/Transitional Color Scheme 1 Newport.webp",
+          "fileName": "Transitional Color Scheme 1 Newport.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "magnolia",
+          "category": "Transitional Scheme 2",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Magnolia/Transitional/Transitional Color Scheme 2 Iron Ore.webp",
+          "fileName": "Transitional Color Scheme 2 Iron Ore.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "magnolia",
+          "category": "Transitional Scheme 3",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Magnolia/Transitional/Transitional Color Scheme 3 Caprock.webp",
+          "fileName": "Transitional Color Scheme 3 Caprock.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "magnolia",
+          "category": "Transitional Scheme 4",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Magnolia/Transitional/Transitional Color Scheme 4 Alabaster.webp",
+          "fileName": "Transitional Color Scheme 4 Alabaster.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "magnolia",
+          "category": "Transitional Scheme 5",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Magnolia/Transitional/Transitional Color Scheme 5 Worldly Gray.webp",
+          "fileName": "Transitional Color Scheme 5 Worldly Gray.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "magnolia",
+          "category": "Modern Tudor Scheme 1",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Magnolia/Modern Tudor/Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+          "fileName": "Modern Tudor Color Scheme 1 Colonnade Gray.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "magnolia",
+          "category": "Modern Tudor Scheme 2",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Magnolia/Modern Tudor/Modern Tudor Color Scheme 2 Coral Gray.webp",
+          "fileName": "Modern Tudor Color Scheme 2 Coral Gray.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "magnolia",
+          "category": "Modern Tudor Scheme 3",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Magnolia/Modern Tudor/Modern Tudor Color Scheme 3 Greenblack.webp",
+          "fileName": "Modern Tudor Color Scheme 3 Greenblack.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "magnolia",
+          "category": "Modern Tudor Scheme 4",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Magnolia/Modern Tudor/Modern Tudor Color Scheme 4 Felted Wool.webp",
+          "fileName": "Modern Tudor Color Scheme 4 Felted Wool.webp"
+        },
+        {
+          "kind": "exterior",
+          "plan": "magnolia",
+          "category": "Modern Tudor Scheme 5",
+          "file": "src/example-assets/Mosaic/exteriors-webp-update-01/The Magnolia/Modern Tudor/Modern Tudor Color Scheme 5 Altitude Gray.webp",
+          "fileName": "Modern Tudor Color Scheme 5 Altitude Gray.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "magnolia",
+          "category": "Transitional Natural / Kitchen",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Magnolia/Transitional Natural/Kitchen.webp",
+          "fileName": "Kitchen.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "magnolia",
+          "category": "Transitional Natural / Great Room",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Magnolia/Transitional Natural/Great Room.webp",
+          "fileName": "Great Room.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "magnolia",
+          "category": "Transitional Natural / Primary Bedroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Magnolia/Transitional Natural/Primary Bedroom.webp",
+          "fileName": "Primary Bedroom.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "magnolia",
+          "category": "Transitional Natural / Primary Bathroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Magnolia/Transitional Natural/Primary Bathroom.webp",
+          "fileName": "Primary Bathroom.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "magnolia",
+          "category": "Modern Edge / Kitchen",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Magnolia/Modern Edge/Kitchen.webp",
+          "fileName": "Kitchen.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "magnolia",
+          "category": "Modern Edge / Great Room",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Magnolia/Modern Edge/Great Room.webp",
+          "fileName": "Great Room.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "magnolia",
+          "category": "Modern Edge / Primary Bedroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Magnolia/Modern Edge/Primary Bedroom.webp",
+          "fileName": "Primary Bedroom.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "magnolia",
+          "category": "Casual Organic / Kitchen",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Magnolia/Casual Organic/Kitchen.webp",
+          "fileName": "Kitchen.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "magnolia",
+          "category": "Casual Organic / Great Room",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Magnolia/Casual Organic/Great Room.webp",
+          "fileName": "Great Room.webp"
+        },
+        {
+          "kind": "interior",
+          "plan": "magnolia",
+          "category": "Casual Organic / Primary Bedroom",
+          "file": "src/example-assets/Mosaic/interiors-webp-update-01/Interior - The Magnolia/Casual Organic/Primary Bedroom.webp",
+          "fileName": "Primary Bedroom.webp"
+        }
+      ]
+    }
+  }
+}
