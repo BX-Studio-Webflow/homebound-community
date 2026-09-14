@@ -25,6 +25,7 @@ import {
 } from '$utils/interior-scheme-swatches';
 import { lotMapConfigFromLocation, LotMapController } from '$utils/lot-map';
 import { MOSAIC_INTERIOR_URLS } from '$utils/mosaic-refreshed-assets';
+import { PARK_PLACE_REFRESHED_INTERIOR_URLS } from '$utils/park-place-refreshed-interior-urls';
 import { StickyNavController } from '$utils/sticky-nav';
 
 const galleryConfigs: GalleryConfig[] = [
@@ -1079,10 +1080,22 @@ window.Webflow.push(() => {
     window.location.pathname.toLowerCase().split('/house-plans/')[1]?.split('/')[0] ?? '';
   const maybeInteriorSlug = (getHousePlanSlugFromPath() ??
     housePlanSlug.replace(/^the-/, '')) as HousePlanSlugForInteriors;
-  const parkPlaceInteriorImageUrls: InteriorImageUrls =
+  const legacyParkPlaceInteriorImageUrls: InteriorImageUrls =
     housePlanImageUrlsBySlug[maybeInteriorSlug] ??
     housePlanImageUrlsBySlug.iris ??
     housePlanImageUrlsBySlug.daphne!;
+  const parkPlaceInteriorImageUrls: InteriorImageUrls = {
+    ...legacyParkPlaceInteriorImageUrls,
+    'kitchen-interior': { ...legacyParkPlaceInteriorImageUrls['kitchen-interior'] },
+    'bedroom-interior': { ...legacyParkPlaceInteriorImageUrls['bedroom-interior'] },
+    'living-interior': { ...legacyParkPlaceInteriorImageUrls['living-interior'] },
+    'bathroom-interior': { ...legacyParkPlaceInteriorImageUrls['bathroom-interior'] },
+  };
+  for (const [key, url] of Object.entries(PARK_PLACE_REFRESHED_INTERIOR_URLS)) {
+    const [planSlug, schemeToken, roomKey] = key.split('|');
+    if (planSlug !== maybeInteriorSlug) continue;
+    parkPlaceInteriorImageUrls[roomKey as InteriorToken][schemeToken as SchemeToken] = url;
+  }
   const mosaicInteriorImageUrls: InteriorImageUrls = {
     ...parkPlaceInteriorImageUrls,
     'kitchen-interior': { ...parkPlaceInteriorImageUrls['kitchen-interior'] },

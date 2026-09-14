@@ -3,594 +3,891 @@
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Addison/Transitional Natural/_update_01_Kitchen.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Addison / Transitional Natural",
     "plan": "The Addison",
-    "folderId": "6a84618f08607cc5093871ba"
+    "folderId": "6a84618f08607cc5093871ba",
+    "exists": true,
+    "fileHash": "4f039aa23f76f958a9e011ea5245b828",
+    "fileName": "_update_01_Kitchen.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Addison/Transitional Natural/_update_01_Great Room.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Addison / Transitional Natural",
     "plan": "The Addison",
-    "folderId": "6a84618f08607cc5093871ba"
+    "folderId": "6a84618f08607cc5093871ba",
+    "exists": true,
+    "fileHash": "a10aef891a6e06da5d6a769f5d001ede",
+    "fileName": "_update_01_Great Room.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Addison/Transitional Natural/_update_01_Primary Bedroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Addison / Transitional Natural",
     "plan": "The Addison",
-    "folderId": "6a84618f08607cc5093871ba"
+    "folderId": "6a84618f08607cc5093871ba",
+    "exists": true,
+    "fileHash": "20aa3d360fd4e39cd988bbaf49865245",
+    "fileName": "_update_01_Primary Bedroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Addison/Transitional Natural/_update_01_Primary Bathroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Addison / Transitional Natural",
     "plan": "The Addison",
-    "folderId": "6a84618f08607cc5093871ba"
+    "folderId": "6a84618f08607cc5093871ba",
+    "exists": true,
+    "fileHash": "4bdb64247f9723a5712c3b88d7d6855f",
+    "fileName": "_update_01_Primary Bathroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Addison/Modern Edge/_update_01_Kitchen.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Addison / Modern Edge",
     "plan": "The Addison",
-    "folderId": "6a846190168016d0ad55f927"
+    "folderId": "6a846190168016d0ad55f927",
+    "exists": true,
+    "fileHash": "fcf8b9a823db6c482391555fb529bcea",
+    "fileName": "_update_01_Kitchen.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Addison/Modern Edge/_update_01_Great Room.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Addison / Modern Edge",
     "plan": "The Addison",
-    "folderId": "6a846190168016d0ad55f927"
+    "folderId": "6a846190168016d0ad55f927",
+    "exists": true,
+    "fileHash": "d4a2034857ca778d76662a9b36e39bb4",
+    "fileName": "_update_01_Great Room.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Addison/Modern Edge/_update_01_Primary Bedroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Addison / Modern Edge",
     "plan": "The Addison",
-    "folderId": "6a846190168016d0ad55f927"
+    "folderId": "6a846190168016d0ad55f927",
+    "exists": true,
+    "fileHash": "61dd9ec9cd3afb18850f41e3d0a67ce4",
+    "fileName": "_update_01_Primary Bedroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Addison/Modern Edge/_update_01_Primary Bathroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Addison / Modern Edge",
     "plan": "The Addison",
-    "folderId": "6a846190168016d0ad55f927"
+    "folderId": "6a846190168016d0ad55f927",
+    "exists": true,
+    "fileHash": "0ef3222d0b4d9d3af0447bf4d44287bb",
+    "fileName": "_update_01_Primary Bathroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Addison/Casual Organic/_update_01_Kitchen.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Addison / Casual Organic",
     "plan": "The Addison",
-    "folderId": "6a846190cfbf3a944209232a"
+    "folderId": "6a846190cfbf3a944209232a",
+    "exists": true,
+    "fileHash": "bdacf5d8fadf646075d1123443d992ab",
+    "fileName": "_update_01_Kitchen.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Addison/Casual Organic/_update_01_Great Room.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Addison / Casual Organic",
     "plan": "The Addison",
-    "folderId": "6a846190cfbf3a944209232a"
+    "folderId": "6a846190cfbf3a944209232a",
+    "exists": true,
+    "fileHash": "7f693e55aaa74ad727cab055c7384c76",
+    "fileName": "_update_01_Great Room.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Addison/Casual Organic/_update_01_Primary Bedroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Addison / Casual Organic",
     "plan": "The Addison",
-    "folderId": "6a846190cfbf3a944209232a"
+    "folderId": "6a846190cfbf3a944209232a",
+    "exists": true,
+    "fileHash": "2bb8af737783487d9a6faeab7e4362c9",
+    "fileName": "_update_01_Primary Bedroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Addison/Casual Organic/_update_01_Primary Bathroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Addison / Casual Organic",
     "plan": "The Addison",
-    "folderId": "6a846190cfbf3a944209232a"
+    "folderId": "6a846190cfbf3a944209232a",
+    "exists": true,
+    "fileHash": "71d3107e54cf5cd718d74da37b24a232",
+    "fileName": "_update_01_Primary Bathroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Bandera/Transitional Natural/_update_01_Kitchen.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Bandera / Transitional Natural",
     "plan": "The Bandera",
-    "folderId": "6a84619051facea4a0181436"
+    "folderId": "6a84619051facea4a0181436",
+    "exists": true,
+    "fileHash": "2fa0dae45622e31a67d3ecf34707c76b",
+    "fileName": "_update_01_Kitchen.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Bandera/Transitional Natural/_update_01_Great Room.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Bandera / Transitional Natural",
     "plan": "The Bandera",
-    "folderId": "6a84619051facea4a0181436"
+    "folderId": "6a84619051facea4a0181436",
+    "exists": true,
+    "fileHash": "95d07630353beff3cac6898128167d61",
+    "fileName": "_update_01_Great Room.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Bandera/Transitional Natural/_update_01_Primary Bedroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Bandera / Transitional Natural",
     "plan": "The Bandera",
-    "folderId": "6a84619051facea4a0181436"
+    "folderId": "6a84619051facea4a0181436",
+    "exists": true,
+    "fileHash": "1c612983b855bd7d35cdf676a9027cca",
+    "fileName": "_update_01_Primary Bedroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Bandera/Transitional Natural/_update_01_Primary Bathroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Bandera / Transitional Natural",
     "plan": "The Bandera",
-    "folderId": "6a84619051facea4a0181436"
+    "folderId": "6a84619051facea4a0181436",
+    "exists": true,
+    "fileHash": "d18686049593813afad38ce2b42a9077",
+    "fileName": "_update_01_Primary Bathroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Bandera/Modern Edge/_update_01_Kitchen.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Bandera / Modern Edge",
     "plan": "The Bandera",
-    "folderId": "6a846190d41d96b564b7f892"
+    "folderId": "6a846190d41d96b564b7f892",
+    "exists": true,
+    "fileHash": "0575f05270ce653556bcf3f5f59bd8e1",
+    "fileName": "_update_01_Kitchen.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Bandera/Modern Edge/_update_01_Great Room.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Bandera / Modern Edge",
     "plan": "The Bandera",
-    "folderId": "6a846190d41d96b564b7f892"
+    "folderId": "6a846190d41d96b564b7f892",
+    "exists": true,
+    "fileHash": "6669040f03713ec91f2eea7f6b6ffc1b",
+    "fileName": "_update_01_Great Room.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Bandera/Modern Edge/_update_01_Primary Bedroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Bandera / Modern Edge",
     "plan": "The Bandera",
-    "folderId": "6a846190d41d96b564b7f892"
+    "folderId": "6a846190d41d96b564b7f892",
+    "exists": true,
+    "fileHash": "c2786282be62bf89f01f0254aea86ef7",
+    "fileName": "_update_01_Primary Bedroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Bandera/Modern Edge/_update_01_Primary Bathroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Bandera / Modern Edge",
     "plan": "The Bandera",
-    "folderId": "6a846190d41d96b564b7f892"
+    "folderId": "6a846190d41d96b564b7f892",
+    "exists": true,
+    "fileHash": "3142c0bc968891b08394438ef5134d89",
+    "fileName": "_update_01_Primary Bathroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Bandera/Casual Organic/_update_01_Kitchen.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Bandera / Casual Organic",
     "plan": "The Bandera",
-    "folderId": "6a846190cfbf3a944209239b"
+    "folderId": "6a846190cfbf3a944209239b",
+    "exists": true,
+    "fileHash": "965599a80cd0ff8949156744aec527c9",
+    "fileName": "_update_01_Kitchen.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Bandera/Casual Organic/_update_01_Great Room.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Bandera / Casual Organic",
     "plan": "The Bandera",
-    "folderId": "6a846190cfbf3a944209239b"
+    "folderId": "6a846190cfbf3a944209239b",
+    "exists": true,
+    "fileHash": "e1474344bee696d39a024cb334137034",
+    "fileName": "_update_01_Great Room.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Bandera/Casual Organic/_update_01_Primary Bedroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Bandera / Casual Organic",
     "plan": "The Bandera",
-    "folderId": "6a846190cfbf3a944209239b"
+    "folderId": "6a846190cfbf3a944209239b",
+    "exists": true,
+    "fileHash": "000eb8ae3d5a7189029aed443687b654",
+    "fileName": "_update_01_Primary Bedroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Bandera/Casual Organic/_update_01_Primary Bathroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Bandera / Casual Organic",
     "plan": "The Bandera",
-    "folderId": "6a846190cfbf3a944209239b"
+    "folderId": "6a846190cfbf3a944209239b",
+    "exists": true,
+    "fileHash": "d50dde5971c2464b735d94b442dcffde",
+    "fileName": "_update_01_Primary Bathroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Collin/Transitional Natural/_update_01_Kitchen.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Collin / Transitional Natural",
     "plan": "The Collin",
-    "folderId": "6a846191a02e7e7989ca883a"
+    "folderId": "6a846191a02e7e7989ca883a",
+    "exists": true,
+    "fileHash": "c6481a9615ebe9d581336859748e7671",
+    "fileName": "_update_01_Kitchen.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Collin/Transitional Natural/_update_01_Great Room.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Collin / Transitional Natural",
     "plan": "The Collin",
-    "folderId": "6a846191a02e7e7989ca883a"
+    "folderId": "6a846191a02e7e7989ca883a",
+    "exists": true,
+    "fileHash": "bae80885af312c8006ad19d0d13f1daa",
+    "fileName": "_update_01_Great Room.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Collin/Transitional Natural/_update_01_Primary Bedroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Collin / Transitional Natural",
     "plan": "The Collin",
-    "folderId": "6a846191a02e7e7989ca883a"
+    "folderId": "6a846191a02e7e7989ca883a",
+    "exists": true,
+    "fileHash": "fb673d350a08a2181f7d088ad947804c",
+    "fileName": "_update_01_Primary Bedroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Collin/Transitional Natural/_update_01_Primary Bathroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Collin / Transitional Natural",
     "plan": "The Collin",
-    "folderId": "6a846191a02e7e7989ca883a"
+    "folderId": "6a846191a02e7e7989ca883a",
+    "exists": true,
+    "fileHash": "bf6f7d364713c79b016c424dc63e4f3b",
+    "fileName": "_update_01_Primary Bathroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Collin/Modern Edge/_update_01_Kitchen.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Collin / Modern Edge",
     "plan": "The Collin",
-    "folderId": "6a846191cfbf3a9442092426"
+    "folderId": "6a846191cfbf3a9442092426",
+    "exists": true,
+    "fileHash": "fcf8b9a823db6c482391555fb529bcea",
+    "fileName": "_update_01_Kitchen.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Collin/Modern Edge/_update_01_Great Room.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Collin / Modern Edge",
     "plan": "The Collin",
-    "folderId": "6a846191cfbf3a9442092426"
+    "folderId": "6a846191cfbf3a9442092426",
+    "exists": true,
+    "fileHash": "6e478e93853e203350c5e013aeb33dbb",
+    "fileName": "_update_01_Great Room.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Collin/Modern Edge/_update_01_Primary Bedroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Collin / Modern Edge",
     "plan": "The Collin",
-    "folderId": "6a846191cfbf3a9442092426"
+    "folderId": "6a846191cfbf3a9442092426",
+    "exists": true,
+    "fileHash": "d77b403d9ea1673af2abf85740bc16de",
+    "fileName": "_update_01_Primary Bedroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Collin/Modern Edge/_update_01_Primary Bathroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Collin / Modern Edge",
     "plan": "The Collin",
-    "folderId": "6a846191cfbf3a9442092426"
+    "folderId": "6a846191cfbf3a9442092426",
+    "exists": true,
+    "fileHash": "a8dbe9a0fc75545e2351de787c132db6",
+    "fileName": "_update_01_Primary Bathroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Collin/Casual Organic/_update_01_Kitchen.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Collin / Casual Organic",
     "plan": "The Collin",
-    "folderId": "6a84619133b60021dd7b19f5"
+    "folderId": "6a84619133b60021dd7b19f5",
+    "exists": true,
+    "fileHash": "3e0d466fc9374c80f5212775f70c6d59",
+    "fileName": "_update_01_Kitchen.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Collin/Casual Organic/_update_01_Great Room.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Collin / Casual Organic",
     "plan": "The Collin",
-    "folderId": "6a84619133b60021dd7b19f5"
+    "folderId": "6a84619133b60021dd7b19f5",
+    "exists": true,
+    "fileHash": "5803dad9f71abf6fc809f6d5bed55364",
+    "fileName": "_update_01_Great Room.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Collin/Casual Organic/_update_01_Primary Bedroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Collin / Casual Organic",
     "plan": "The Collin",
-    "folderId": "6a84619133b60021dd7b19f5"
+    "folderId": "6a84619133b60021dd7b19f5",
+    "exists": true,
+    "fileHash": "2bb8af737783487d9a6faeab7e4362c9",
+    "fileName": "_update_01_Primary Bedroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Collin/Casual Organic/_update_01_Primary Bathroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Collin / Casual Organic",
     "plan": "The Collin",
-    "folderId": "6a84619133b60021dd7b19f5"
+    "folderId": "6a84619133b60021dd7b19f5",
+    "exists": true,
+    "fileHash": "0eb1071c302f593d975888d4e91a026b",
+    "fileName": "_update_01_Primary Bathroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Grayson/Transitional Natural/_update_01_Kitchen.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Grayson / Transitional Natural",
     "plan": "The Grayson",
-    "folderId": "6a846191ac891a1923793d5d"
+    "folderId": "6a846191ac891a1923793d5d",
+    "exists": true,
+    "fileHash": "40bd44c6517c86885cf4ab9053324866",
+    "fileName": "_update_01_Kitchen.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Grayson/Transitional Natural/_update_01_Great Room.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Grayson / Transitional Natural",
     "plan": "The Grayson",
-    "folderId": "6a846191ac891a1923793d5d"
+    "folderId": "6a846191ac891a1923793d5d",
+    "exists": true,
+    "fileHash": "7d21b9dae82dcf21f228a194284a374e",
+    "fileName": "_update_01_Great Room.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Grayson/Transitional Natural/_update_01_Primary Bedroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Grayson / Transitional Natural",
     "plan": "The Grayson",
-    "folderId": "6a846191ac891a1923793d5d"
+    "folderId": "6a846191ac891a1923793d5d",
+    "exists": true,
+    "fileHash": "e42a5004140d5798e04f2339c0315e30",
+    "fileName": "_update_01_Primary Bedroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Grayson/Transitional Natural/_update_01_Primary Bathroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Grayson / Transitional Natural",
     "plan": "The Grayson",
-    "folderId": "6a846191ac891a1923793d5d"
+    "folderId": "6a846191ac891a1923793d5d",
+    "exists": true,
+    "fileHash": "2505010d4d6883c956bd21ee9182ab0a",
+    "fileName": "_update_01_Primary Bathroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Grayson/Modern Edge/_update_01_Kitchen.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Grayson / Modern Edge",
     "plan": "The Grayson",
-    "folderId": "6a846191fd5d1935ad94e7e7"
+    "folderId": "6a846191fd5d1935ad94e7e7",
+    "exists": true,
+    "fileHash": "1cbfe03ff3719e8462fd8bca4cf94929",
+    "fileName": "_update_01_Kitchen.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Grayson/Modern Edge/_update_01_Great Room.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Grayson / Modern Edge",
     "plan": "The Grayson",
-    "folderId": "6a846191fd5d1935ad94e7e7"
+    "folderId": "6a846191fd5d1935ad94e7e7",
+    "exists": true,
+    "fileHash": "304115a2bc896a3fdcbecfcade3bf7e8",
+    "fileName": "_update_01_Great Room.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Grayson/Modern Edge/_update_01_Primary Bedroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Grayson / Modern Edge",
     "plan": "The Grayson",
-    "folderId": "6a846191fd5d1935ad94e7e7"
+    "folderId": "6a846191fd5d1935ad94e7e7",
+    "exists": true,
+    "fileHash": "d371be1e5f2b003be2e58c4baf859d55",
+    "fileName": "_update_01_Primary Bedroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Grayson/Modern Edge/_update_01_Primary Bathroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Grayson / Modern Edge",
     "plan": "The Grayson",
-    "folderId": "6a846191fd5d1935ad94e7e7"
+    "folderId": "6a846191fd5d1935ad94e7e7",
+    "exists": true,
+    "fileHash": "164b1918a72166fa69360f8887c655ad",
+    "fileName": "_update_01_Primary Bathroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Grayson/Casual Organic/_update_01_Kitchen.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Grayson / Casual Organic",
     "plan": "The Grayson",
-    "folderId": "6a84619251facea4a01814b2"
+    "folderId": "6a84619251facea4a01814b2",
+    "exists": true,
+    "fileHash": "6847242055baac6040aa6eec000efac6",
+    "fileName": "_update_01_Kitchen.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Grayson/Casual Organic/_update_01_Great Room.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Grayson / Casual Organic",
     "plan": "The Grayson",
-    "folderId": "6a84619251facea4a01814b2"
+    "folderId": "6a84619251facea4a01814b2",
+    "exists": true,
+    "fileHash": "8a6565a5c21a79515d4e86eb9a0d9e88",
+    "fileName": "_update_01_Great Room.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Grayson/Casual Organic/_update_01_Primary Bedroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Grayson / Casual Organic",
     "plan": "The Grayson",
-    "folderId": "6a84619251facea4a01814b2"
+    "folderId": "6a84619251facea4a01814b2",
+    "exists": true,
+    "fileHash": "fbdfbc931812d03f7616fd376ba00063",
+    "fileName": "_update_01_Primary Bedroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Grayson/Casual Organic/_update_01_Primary Bathroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Grayson / Casual Organic",
     "plan": "The Grayson",
-    "folderId": "6a84619251facea4a01814b2"
+    "folderId": "6a84619251facea4a01814b2",
+    "exists": true,
+    "fileHash": "161d68c7e1e5ce0069a866ca4ec8ec9b",
+    "fileName": "_update_01_Primary Bathroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Magnolia/Transitional Natural/_update_01_Kitchen.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Magnolia / Transitional Natural",
     "plan": "The Magnolia",
-    "folderId": "6a846192d41d96b564b7f8e5"
+    "folderId": "6a846192d41d96b564b7f8e5",
+    "exists": true,
+    "fileHash": "b892e67c81d93cdc78f07cc4c75cf36f",
+    "fileName": "_update_01_Kitchen.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Magnolia/Transitional Natural/_update_01_Great Room.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Magnolia / Transitional Natural",
     "plan": "The Magnolia",
-    "folderId": "6a846192d41d96b564b7f8e5"
+    "folderId": "6a846192d41d96b564b7f8e5",
+    "exists": true,
+    "fileHash": "2d61fff862483575089a3616c71f7026",
+    "fileName": "_update_01_Great Room.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Magnolia/Transitional Natural/_update_01_Primary Bedroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Magnolia / Transitional Natural",
     "plan": "The Magnolia",
-    "folderId": "6a846192d41d96b564b7f8e5"
+    "folderId": "6a846192d41d96b564b7f8e5",
+    "exists": true,
+    "fileHash": "c3db7b5c5f7dcbfc5ae6c487482c6b3f",
+    "fileName": "_update_01_Primary Bedroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Magnolia/Transitional Natural/_update_01_Primary Bathroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Magnolia / Transitional Natural",
     "plan": "The Magnolia",
-    "folderId": "6a846192d41d96b564b7f8e5"
+    "folderId": "6a846192d41d96b564b7f8e5",
+    "exists": true,
+    "fileHash": "907e37162d8eaf2ee2e68b20ea18ec70",
+    "fileName": "_update_01_Primary Bathroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Magnolia/Modern Edge/_update_01_Kitchen.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Magnolia / Modern Edge",
     "plan": "The Magnolia",
-    "folderId": "6a846192863084936c77eba6"
+    "folderId": "6a846192863084936c77eba6",
+    "exists": true,
+    "fileHash": "0a1c3911cb7827369ec116cc53be3edf",
+    "fileName": "_update_01_Kitchen.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Magnolia/Modern Edge/_update_01_Great Room.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Magnolia / Modern Edge",
     "plan": "The Magnolia",
-    "folderId": "6a846192863084936c77eba6"
+    "folderId": "6a846192863084936c77eba6",
+    "exists": true,
+    "fileHash": "84d9a91e5edc3b2412be75f938671823",
+    "fileName": "_update_01_Great Room.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Magnolia/Modern Edge/_update_01_Primary Bedroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Magnolia / Modern Edge",
     "plan": "The Magnolia",
-    "folderId": "6a846192863084936c77eba6"
+    "folderId": "6a846192863084936c77eba6",
+    "exists": true,
+    "fileHash": "363cbfdd305a0e3d7e8ed570d52c287b",
+    "fileName": "_update_01_Primary Bedroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Magnolia/Modern Edge/_update_01_Primary Bathroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Magnolia / Modern Edge",
     "plan": "The Magnolia",
-    "folderId": "6a846192863084936c77eba6"
+    "folderId": "6a846192863084936c77eba6",
+    "exists": true,
+    "fileHash": "aaa2100f70e3d0b511efaf94d32ebdc4",
+    "fileName": "_update_01_Primary Bathroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Magnolia/Casual Organic/_update_01_Kitchen.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Magnolia / Casual Organic",
     "plan": "The Magnolia",
-    "folderId": "6a8461922b968af4812483b7"
+    "folderId": "6a8461922b968af4812483b7",
+    "exists": true,
+    "fileHash": "d11277355dd1a56d2ccbcc5c343ca92c",
+    "fileName": "_update_01_Kitchen.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Magnolia/Casual Organic/_update_01_Great Room.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Magnolia / Casual Organic",
     "plan": "The Magnolia",
-    "folderId": "6a8461922b968af4812483b7"
+    "folderId": "6a8461922b968af4812483b7",
+    "exists": true,
+    "fileHash": "3adb1d7926e3eeeab0714154097b74bf",
+    "fileName": "_update_01_Great Room.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Magnolia/Casual Organic/_update_01_Primary Bedroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Magnolia / Casual Organic",
     "plan": "The Magnolia",
-    "folderId": "6a8461922b968af4812483b7"
+    "folderId": "6a8461922b968af4812483b7",
+    "exists": true,
+    "fileHash": "fbdfbc931812d03f7616fd376ba00063",
+    "fileName": "_update_01_Primary Bedroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/interiors-webp-update-01/Interior - The Magnolia/Casual Organic/_update_01_Primary Bathroom.webp",
     "webflowFolder": "Interiors - Park Place / Interior - The Magnolia / Casual Organic",
     "plan": "The Magnolia",
-    "folderId": "6a8461922b968af4812483b7"
+    "folderId": "6a8461922b968af4812483b7",
+    "exists": true,
+    "fileHash": "59ee2e50dfa3b73704b30d306edd4297",
+    "fileName": "_update_01_Primary Bathroom.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Addison/Transitional/_update_01_Transitional Color Scheme 1 Newport.webp",
     "webflowFolder": "Exterior Styles / The Addison / Transitional",
     "plan": "The Addison",
-    "folderId": "6a84616ca02e7e7989ca762a"
+    "folderId": "6a84616ca02e7e7989ca762a",
+    "exists": true,
+    "fileHash": "24287d157643f6e5bf89d3026c8fbc40",
+    "fileName": "_update_01_Transitional Color Scheme 1 Newport.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Addison/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
     "webflowFolder": "Exterior Styles / The Addison / Modern Cape Dutch",
     "plan": "The Addison",
-    "folderId": "6a84616ca02e7e7989ca7615"
+    "folderId": "6a84616ca02e7e7989ca7615",
+    "exists": true,
+    "fileHash": "5def3505c6718490580d9d88b926454c",
+    "fileName": "_update_01_Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Addison/Modern Tudor/_update_01_Modern Tudor Color Scheme 2 Coral Gray.webp",
     "webflowFolder": "Exterior Styles / The Addison / Modern Tudor",
     "plan": "The Addison",
-    "folderId": "6a84616ced92ab6fcab952e6"
+    "folderId": "6a84616ced92ab6fcab952e6",
+    "exists": true,
+    "fileHash": "fb3d461d5b045bb5cea901dec916a844",
+    "fileName": "_update_01_Modern Tudor Color Scheme 2 Coral Gray.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Addison/Transitional/_update_01_Transitional Color Scheme 3 Caprock.webp",
     "webflowFolder": "Exterior Styles / The Addison / Transitional",
     "plan": "The Addison",
-    "folderId": "6a84616ca02e7e7989ca762a"
+    "folderId": "6a84616ca02e7e7989ca762a",
+    "exists": true,
+    "fileHash": "c7820bd3d6127b396badc910268edea1",
+    "fileName": "_update_01_Transitional Color Scheme 3 Caprock.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Addison/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 4 Pure White.webp",
     "webflowFolder": "Exterior Styles / The Addison / Modern Cape Dutch",
     "plan": "The Addison",
-    "folderId": "6a84616ca02e7e7989ca7615"
+    "folderId": "6a84616ca02e7e7989ca7615",
+    "exists": true,
+    "fileHash": "53350fd8d64600cbd42bd75228cd0efc",
+    "fileName": "_update_01_Modern Cape Dutch Color Scheme 4 Pure White.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Addison/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
     "webflowFolder": "Exterior Styles / The Addison / Modern Cape Dutch",
     "plan": "The Addison",
-    "folderId": "6a84616ca02e7e7989ca7615"
+    "folderId": "6a84616ca02e7e7989ca7615",
+    "exists": true,
+    "fileHash": "43be1de67fb447e2967fd415d79d85be",
+    "fileName": "_update_01_Modern Cape Dutch Color Scheme 5 Felted Wool.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Addison/Transitional/_update_01_Transitional Color Scheme 5 Worldly Gray.webp",
     "webflowFolder": "Exterior Styles / The Addison / Transitional",
     "plan": "The Addison",
-    "folderId": "6a84616ca02e7e7989ca762a"
+    "folderId": "6a84616ca02e7e7989ca762a",
+    "exists": true,
+    "fileHash": "940a1337206752152cc2de8a527274e0",
+    "fileName": "_update_01_Transitional Color Scheme 5 Worldly Gray.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Addison/Modern Tudor/_update_01_Modern Tudor Color Scheme 5 Altitude Gray.webp",
     "webflowFolder": "Exterior Styles / The Addison / Modern Tudor",
     "plan": "The Addison",
-    "folderId": "6a84616ced92ab6fcab952e6"
+    "folderId": "6a84616ced92ab6fcab952e6",
+    "exists": true,
+    "fileHash": "2b64d741c10670a481422fb5a0e95022",
+    "fileName": "_update_01_Modern Tudor Color Scheme 5 Altitude Gray.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Bandera/Transitional/_update_01_Transitional Color Scheme 1 Newport.webp",
     "webflowFolder": "Exterior Styles / The Bandera / Transitional",
     "plan": "The Bandera",
-    "folderId": "6a84616d33b60021dd7b1150"
+    "folderId": "6a84616d33b60021dd7b1150",
+    "exists": true,
+    "fileHash": "84c682b647098d183712ee6ab78ed4c9",
+    "fileName": "_update_01_Transitional Color Scheme 1 Newport.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Bandera/Modern Tudor/_update_01_Modern Tudor Color Scheme 1 Colonnade Gray.webp",
     "webflowFolder": "Exterior Styles / The Bandera / Modern Tudor",
     "plan": "The Bandera",
-    "folderId": "6a84616df7364a39b1c7c1c0"
+    "folderId": "6a84616df7364a39b1c7c1c0",
+    "exists": true,
+    "fileHash": "fedc0b9eb2a8542502f1e7c9eb6be19d",
+    "fileName": "_update_01_Modern Tudor Color Scheme 1 Colonnade Gray.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Bandera/Modern Tudor/_update_01_Modern Tudor Color Scheme 2 Coral Gray.webp",
     "webflowFolder": "Exterior Styles / The Bandera / Modern Tudor",
     "plan": "The Bandera",
-    "folderId": "6a84616df7364a39b1c7c1c0"
+    "folderId": "6a84616df7364a39b1c7c1c0",
+    "exists": true,
+    "fileHash": "5f77e3fdd69d4af31201fa2481503906",
+    "fileName": "_update_01_Modern Tudor Color Scheme 2 Coral Gray.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Bandera/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
     "webflowFolder": "Exterior Styles / The Bandera / Modern Cape Dutch",
     "plan": "The Bandera",
-    "folderId": "6a84616cd41d96b564b7ed9f"
+    "folderId": "6a84616cd41d96b564b7ed9f",
+    "exists": true,
+    "fileHash": "10fed7f9b2038380eae7f78ce9232a8d",
+    "fileName": "_update_01_Modern Cape Dutch Color Scheme 3 Iron Ore.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Bandera/Transitional/_update_01_Transitional Color Scheme 3 Caprock.webp",
     "webflowFolder": "Exterior Styles / The Bandera / Transitional",
     "plan": "The Bandera",
-    "folderId": "6a84616d33b60021dd7b1150"
+    "folderId": "6a84616d33b60021dd7b1150",
+    "exists": true,
+    "fileHash": "1a174799e834932b73781be742936665",
+    "fileName": "_update_01_Transitional Color Scheme 3 Caprock.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Bandera/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 4 Pure White.webp",
     "webflowFolder": "Exterior Styles / The Bandera / Modern Cape Dutch",
     "plan": "The Bandera",
-    "folderId": "6a84616cd41d96b564b7ed9f"
+    "folderId": "6a84616cd41d96b564b7ed9f",
+    "exists": true,
+    "fileHash": "e1e544e8518831859e9760c0bb2bfba9",
+    "fileName": "_update_01_Modern Cape Dutch Color Scheme 4 Pure White.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Bandera/Modern Tudor/_update_01_Modern Tudor Color Scheme 4 Felted Wool.webp",
     "webflowFolder": "Exterior Styles / The Bandera / Modern Tudor",
     "plan": "The Bandera",
-    "folderId": "6a84616df7364a39b1c7c1c0"
+    "folderId": "6a84616df7364a39b1c7c1c0",
+    "exists": true,
+    "fileHash": "c07610180c528cae351a4ce093a09152",
+    "fileName": "_update_01_Modern Tudor Color Scheme 4 Felted Wool.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Collin/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 1 Everest.webp",
     "webflowFolder": "Exterior Styles / The Collin / Modern Cape Dutch",
     "plan": "The Collin",
-    "folderId": "6a84616dbcc266bd25e091ae"
+    "folderId": "6a84616dbcc266bd25e091ae",
+    "exists": true,
+    "fileHash": "fdf98fc5baf215e79d08c00cba526d58",
+    "fileName": "_update_01_Modern Cape Dutch Color Scheme 1 Everest.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Collin/Transitional/_update_01_Transitional Color Scheme 1 Newport.webp",
     "webflowFolder": "Exterior Styles / The Collin / Transitional",
     "plan": "The Collin",
-    "folderId": "6a84616d33b60021dd7b11b3"
+    "folderId": "6a84616d33b60021dd7b11b3",
+    "exists": true,
+    "fileHash": "f3a8dbf8a1bcdc7c0480ff746d7f250b",
+    "fileName": "_update_01_Transitional Color Scheme 1 Newport.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Collin/Modern Tudor/_update_01_Modern Tudor Color Scheme 1 Colonnade Gray.webp",
     "webflowFolder": "Exterior Styles / The Collin / Modern Tudor",
     "plan": "The Collin",
-    "folderId": "6a84616efd5d1935ad94d290"
+    "folderId": "6a84616efd5d1935ad94d290",
+    "exists": true,
+    "fileHash": "50e5643f5c7304db5cd5031f5a8bdc67",
+    "fileName": "_update_01_Modern Tudor Color Scheme 1 Colonnade Gray.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Collin/Modern Tudor/_update_01_Modern Tudor Color Scheme 2 Coral Gray.webp",
     "webflowFolder": "Exterior Styles / The Collin / Modern Tudor",
     "plan": "The Collin",
-    "folderId": "6a84616efd5d1935ad94d290"
+    "folderId": "6a84616efd5d1935ad94d290",
+    "exists": true,
+    "fileHash": "62fcd6debd5e849d9e8b07322d7872bd",
+    "fileName": "_update_01_Modern Tudor Color Scheme 2 Coral Gray.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Collin/Transitional/_update_01_Transitional Color Scheme 3 Caprock.webp",
     "webflowFolder": "Exterior Styles / The Collin / Transitional",
     "plan": "The Collin",
-    "folderId": "6a84616d33b60021dd7b11b3"
+    "folderId": "6a84616d33b60021dd7b11b3",
+    "exists": true,
+    "fileHash": "d0a55fd0be380374c2b0da8f21ca66a3",
+    "fileName": "_update_01_Transitional Color Scheme 3 Caprock.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Collin/Transitional/_update_01_Transitional Color Scheme 5 Worldly Gray.webp",
     "webflowFolder": "Exterior Styles / The Collin / Transitional",
     "plan": "The Collin",
-    "folderId": "6a84616d33b60021dd7b11b3"
+    "folderId": "6a84616d33b60021dd7b11b3",
+    "exists": true,
+    "fileHash": "c0beb9ab0e35d73347c07033134fb132",
+    "fileName": "_update_01_Transitional Color Scheme 5 Worldly Gray.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Collin/Modern Tudor/_update_01_Modern Tudor Color Scheme 5 Altitude Gray.webp",
     "webflowFolder": "Exterior Styles / The Collin / Modern Tudor",
     "plan": "The Collin",
-    "folderId": "6a84616efd5d1935ad94d290"
+    "folderId": "6a84616efd5d1935ad94d290",
+    "exists": true,
+    "fileHash": "c6348d5be3e759c68152ed2e9ab917e5",
+    "fileName": "_update_01_Modern Tudor Color Scheme 5 Altitude Gray.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Grayson/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 1 Everest.webp",
     "webflowFolder": "Exterior Styles / The Grayson / Modern Cape Dutch",
     "plan": "The Grayson",
-    "folderId": "6a84616e2b968af48124732c"
+    "folderId": "6a84616e2b968af48124732c",
+    "exists": true,
+    "fileHash": "8709dde7a5acfae463d5c21e25efc434",
+    "fileName": "_update_01_Modern Cape Dutch Color Scheme 1 Everest.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Grayson/Transitional/_update_01_Transitional Color Scheme 1 Newport.webp",
     "webflowFolder": "Exterior Styles / The Grayson / Transitional",
     "plan": "The Grayson",
-    "folderId": "6a84616efd5d1935ad94d2e3"
+    "folderId": "6a84616efd5d1935ad94d2e3",
+    "exists": true,
+    "fileHash": "d06cedbfe884e8a0537bb2318f4ea70f",
+    "fileName": "_update_01_Transitional Color Scheme 1 Newport.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Grayson/Modern Tudor/_update_01_Modern Tudor Color Scheme 1 Colonnade Gray.webp",
     "webflowFolder": "Exterior Styles / The Grayson / Modern Tudor",
     "plan": "The Grayson",
-    "folderId": "6a84616ebcc266bd25e0925b"
+    "folderId": "6a84616ebcc266bd25e0925b",
+    "exists": true,
+    "fileHash": "17598662afe57df8067e86d315e9eb05",
+    "fileName": "_update_01_Modern Tudor Color Scheme 1 Colonnade Gray.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Grayson/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
     "webflowFolder": "Exterior Styles / The Grayson / Modern Cape Dutch",
     "plan": "The Grayson",
-    "folderId": "6a84616e2b968af48124732c"
+    "folderId": "6a84616e2b968af48124732c",
+    "exists": true,
+    "fileHash": "37402595c2d15862004e0633205ce3dc",
+    "fileName": "_update_01_Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Grayson/Transitional/_update_01_Transitional Color Scheme 2 Iron Ore.webp",
     "webflowFolder": "Exterior Styles / The Grayson / Transitional",
     "plan": "The Grayson",
-    "folderId": "6a84616efd5d1935ad94d2e3"
+    "folderId": "6a84616efd5d1935ad94d2e3",
+    "exists": true,
+    "fileHash": "f78e3141f219cd228f91b3fbf078922a",
+    "fileName": "_update_01_Transitional Color Scheme 2 Iron Ore.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Grayson/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
     "webflowFolder": "Exterior Styles / The Grayson / Modern Cape Dutch",
     "plan": "The Grayson",
-    "folderId": "6a84616e2b968af48124732c"
+    "folderId": "6a84616e2b968af48124732c",
+    "exists": true,
+    "fileHash": "9e1d390f864a445d93b6a540887b8a65",
+    "fileName": "_update_01_Modern Cape Dutch Color Scheme 3 Iron Ore.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Grayson/Transitional/_update_01_Transitional Color Scheme 3 Caprock.webp",
     "webflowFolder": "Exterior Styles / The Grayson / Transitional",
     "plan": "The Grayson",
-    "folderId": "6a84616efd5d1935ad94d2e3"
+    "folderId": "6a84616efd5d1935ad94d2e3",
+    "exists": true,
+    "fileHash": "cdd50fe281f5905e32558eebba6f7018",
+    "fileName": "_update_01_Transitional Color Scheme 3 Caprock.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Grayson/Modern Tudor/_update_01_Modern Tudor Color Scheme 3 Greenblack.webp",
     "webflowFolder": "Exterior Styles / The Grayson / Modern Tudor",
     "plan": "The Grayson",
-    "folderId": "6a84616ebcc266bd25e0925b"
+    "folderId": "6a84616ebcc266bd25e0925b",
+    "exists": true,
+    "fileHash": "a847415aadbb12a8e7a506f756afcc68",
+    "fileName": "_update_01_Modern Tudor Color Scheme 3 Greenblack.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Grayson/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 4 Pure White.webp",
     "webflowFolder": "Exterior Styles / The Grayson / Modern Cape Dutch",
     "plan": "The Grayson",
-    "folderId": "6a84616e2b968af48124732c"
+    "folderId": "6a84616e2b968af48124732c",
+    "exists": true,
+    "fileHash": "dde4d9ef694f01941c70cb5c3e78a881",
+    "fileName": "_update_01_Modern Cape Dutch Color Scheme 4 Pure White.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Grayson/Modern Tudor/_update_01_Modern Tudor Color Scheme 4 Felted Wool.webp",
     "webflowFolder": "Exterior Styles / The Grayson / Modern Tudor",
     "plan": "The Grayson",
-    "folderId": "6a84616ebcc266bd25e0925b"
+    "folderId": "6a84616ebcc266bd25e0925b",
+    "exists": true,
+    "fileHash": "903870070b95bea9b4505403e46613bf",
+    "fileName": "_update_01_Modern Tudor Color Scheme 4 Felted Wool.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Magnolia/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 1 Everest.webp",
     "webflowFolder": "Exterior Styles / The Magnolia / Modern Cape Dutch",
     "plan": "The Magnolia",
-    "folderId": "6a84616e48395d31157dcc68"
+    "folderId": "6a84616e48395d31157dcc68",
+    "exists": true,
+    "fileHash": "c484256b0bd352e63bbc798b10e7d954",
+    "fileName": "_update_01_Modern Cape Dutch Color Scheme 1 Everest.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Magnolia/Transitional/_update_01_Transitional Color Scheme 2 Iron Ore.webp",
     "webflowFolder": "Exterior Styles / The Magnolia / Transitional",
     "plan": "The Magnolia",
-    "folderId": "6a84616f7392cf5b463e4625"
+    "folderId": "6a84616f7392cf5b463e4625",
+    "exists": true,
+    "fileHash": "3f568712bc50bff653049cc6588b85d5",
+    "fileName": "_update_01_Transitional Color Scheme 2 Iron Ore.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Magnolia/Modern Tudor/_update_01_Modern Tudor Color Scheme 3 Greenblack.webp",
     "webflowFolder": "Exterior Styles / The Magnolia / Modern Tudor",
     "plan": "The Magnolia",
-    "folderId": "6a84616f7392cf5b463e4663"
+    "folderId": "6a84616f7392cf5b463e4663",
+    "exists": true,
+    "fileHash": "c14ce17100133f4a0cc170d4cf72c6d3",
+    "fileName": "_update_01_Modern Tudor Color Scheme 3 Greenblack.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Magnolia/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 4 Pure White.webp",
     "webflowFolder": "Exterior Styles / The Magnolia / Modern Cape Dutch",
     "plan": "The Magnolia",
-    "folderId": "6a84616e48395d31157dcc68"
+    "folderId": "6a84616e48395d31157dcc68",
+    "exists": true,
+    "fileHash": "e1f926191bb0dedaf2af986c694c658e",
+    "fileName": "_update_01_Modern Cape Dutch Color Scheme 4 Pure White.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Magnolia/Transitional/_update_01_Transitional Color Scheme 4 Alabaster.webp",
     "webflowFolder": "Exterior Styles / The Magnolia / Transitional",
     "plan": "The Magnolia",
-    "folderId": "6a84616f7392cf5b463e4625"
+    "folderId": "6a84616f7392cf5b463e4625",
+    "exists": true,
+    "fileHash": "06106fc85b3554213750c7c89b2dd8db",
+    "fileName": "_update_01_Transitional Color Scheme 4 Alabaster.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Magnolia/Modern Tudor/_update_01_Modern Tudor Color Scheme 4 Felted Wool.webp",
     "webflowFolder": "Exterior Styles / The Magnolia / Modern Tudor",
     "plan": "The Magnolia",
-    "folderId": "6a84616f7392cf5b463e4663"
+    "folderId": "6a84616f7392cf5b463e4663",
+    "exists": true,
+    "fileHash": "aef30cb9456220aea4b08aba07860779",
+    "fileName": "_update_01_Modern Tudor Color Scheme 4 Felted Wool.webp"
   },
   {
     "file": "src/example-assets/Park Place/exteriors-webp-update-01/The Magnolia/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
     "webflowFolder": "Exterior Styles / The Magnolia / Modern Cape Dutch",
     "plan": "The Magnolia",
-    "folderId": "6a84616e48395d31157dcc68"
+    "folderId": "6a84616e48395d31157dcc68",
+    "exists": true,
+    "fileHash": "47c8f41d61c1db3bb68a29ed22a54522",
+    "fileName": "_update_01_Modern Cape Dutch Color Scheme 5 Felted Wool.webp"
   }
 ]

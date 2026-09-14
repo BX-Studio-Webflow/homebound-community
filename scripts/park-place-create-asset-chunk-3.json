@@ -1,0 +1,182 @@
+[
+  {
+    "label": "upload-3-0",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Transitional Color Scheme 1 Newport.webp",
+      "file_hash": "24287d157643f6e5bf89d3026c8fbc40",
+      "parent_folder": "6a84616ca02e7e7989ca762a"
+    }
+  },
+  {
+    "label": "upload-3-1",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+      "file_hash": "5def3505c6718490580d9d88b926454c",
+      "parent_folder": "6a84616ca02e7e7989ca7615"
+    }
+  },
+  {
+    "label": "upload-3-2",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Modern Tudor Color Scheme 2 Coral Gray.webp",
+      "file_hash": "fb3d461d5b045bb5cea901dec916a844",
+      "parent_folder": "6a84616ced92ab6fcab952e6"
+    }
+  },
+  {
+    "label": "upload-3-3",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Transitional Color Scheme 3 Caprock.webp",
+      "file_hash": "c7820bd3d6127b396badc910268edea1",
+      "parent_folder": "6a84616ca02e7e7989ca762a"
+    }
+  },
+  {
+    "label": "upload-3-4",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Modern Cape Dutch Color Scheme 4 Pure White.webp",
+      "file_hash": "53350fd8d64600cbd42bd75228cd0efc",
+      "parent_folder": "6a84616ca02e7e7989ca7615"
+    }
+  },
+  {
+    "label": "upload-3-5",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+      "file_hash": "43be1de67fb447e2967fd415d79d85be",
+      "parent_folder": "6a84616ca02e7e7989ca7615"
+    }
+  },
+  {
+    "label": "upload-3-6",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Transitional Color Scheme 5 Worldly Gray.webp",
+      "file_hash": "940a1337206752152cc2de8a527274e0",
+      "parent_folder": "6a84616ca02e7e7989ca762a"
+    }
+  },
+  {
+    "label": "upload-3-7",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Modern Tudor Color Scheme 5 Altitude Gray.webp",
+      "file_hash": "2b64d741c10670a481422fb5a0e95022",
+      "parent_folder": "6a84616ced92ab6fcab952e6"
+    }
+  },
+  {
+    "label": "upload-3-8",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Transitional Color Scheme 1 Newport.webp",
+      "file_hash": "84c682b647098d183712ee6ab78ed4c9",
+      "parent_folder": "6a84616d33b60021dd7b1150"
+    }
+  },
+  {
+    "label": "upload-3-9",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+      "file_hash": "fedc0b9eb2a8542502f1e7c9eb6be19d",
+      "parent_folder": "6a84616df7364a39b1c7c1c0"
+    }
+  },
+  {
+    "label": "upload-3-10",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Modern Tudor Color Scheme 2 Coral Gray.webp",
+      "file_hash": "5f77e3fdd69d4af31201fa2481503906",
+      "parent_folder": "6a84616df7364a39b1c7c1c0"
+    }
+  },
+  {
+    "label": "upload-3-11",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+      "file_hash": "10fed7f9b2038380eae7f78ce9232a8d",
+      "parent_folder": "6a84616cd41d96b564b7ed9f"
+    }
+  },
+  {
+    "label": "upload-3-12",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Transitional Color Scheme 3 Caprock.webp",
+      "file_hash": "1a174799e834932b73781be742936665",
+      "parent_folder": "6a84616d33b60021dd7b1150"
+    }
+  },
+  {
+    "label": "upload-3-13",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Modern Cape Dutch Color Scheme 4 Pure White.webp",
+      "file_hash": "e1e544e8518831859e9760c0bb2bfba9",
+      "parent_folder": "6a84616cd41d96b564b7ed9f"
+    }
+  },
+  {
+    "label": "upload-3-14",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Modern Tudor Color Scheme 4 Felted Wool.webp",
+      "file_hash": "c07610180c528cae351a4ce093a09152",
+      "parent_folder": "6a84616df7364a39b1c7c1c0"
+    }
+  },
+  {
+    "label": "upload-3-15",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Modern Cape Dutch Color Scheme 1 Everest.webp",
+      "file_hash": "fdf98fc5baf215e79d08c00cba526d58",
+      "parent_folder": "6a84616dbcc266bd25e091ae"
+    }
+  },
+  {
+    "label": "upload-3-16",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Transitional Color Scheme 1 Newport.webp",
+      "file_hash": "f3a8dbf8a1bcdc7c0480ff746d7f250b",
+      "parent_folder": "6a84616d33b60021dd7b11b3"
+    }
+  },
+  {
+    "label": "upload-3-17",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+      "file_hash": "50e5643f5c7304db5cd5031f5a8bdc67",
+      "parent_folder": "6a84616efd5d1935ad94d290"
+    }
+  },
+  {
+    "label": "upload-3-18",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Modern Tudor Color Scheme 2 Coral Gray.webp",
+      "file_hash": "62fcd6debd5e849d9e8b07322d7872bd",
+      "parent_folder": "6a84616efd5d1935ad94d290"
+    }
+  },
+  {
+    "label": "upload-3-19",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Transitional Color Scheme 3 Caprock.webp",
+      "file_hash": "d0a55fd0be380374c2b0da8f21ca66a3",
+      "parent_folder": "6a84616d33b60021dd7b11b3"
+    }
+  }
+]

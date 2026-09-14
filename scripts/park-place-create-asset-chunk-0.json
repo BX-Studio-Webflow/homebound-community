@@ -1,0 +1,182 @@
+[
+  {
+    "label": "upload-0-0",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Kitchen.webp",
+      "file_hash": "4f039aa23f76f958a9e011ea5245b828",
+      "parent_folder": "6a84618f08607cc5093871ba"
+    }
+  },
+  {
+    "label": "upload-0-1",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Great Room.webp",
+      "file_hash": "a10aef891a6e06da5d6a769f5d001ede",
+      "parent_folder": "6a84618f08607cc5093871ba"
+    }
+  },
+  {
+    "label": "upload-0-2",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Primary Bedroom.webp",
+      "file_hash": "20aa3d360fd4e39cd988bbaf49865245",
+      "parent_folder": "6a84618f08607cc5093871ba"
+    }
+  },
+  {
+    "label": "upload-0-3",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Primary Bathroom.webp",
+      "file_hash": "4bdb64247f9723a5712c3b88d7d6855f",
+      "parent_folder": "6a84618f08607cc5093871ba"
+    }
+  },
+  {
+    "label": "upload-0-4",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Kitchen.webp",
+      "file_hash": "fcf8b9a823db6c482391555fb529bcea",
+      "parent_folder": "6a846190168016d0ad55f927"
+    }
+  },
+  {
+    "label": "upload-0-5",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Great Room.webp",
+      "file_hash": "d4a2034857ca778d76662a9b36e39bb4",
+      "parent_folder": "6a846190168016d0ad55f927"
+    }
+  },
+  {
+    "label": "upload-0-6",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Primary Bedroom.webp",
+      "file_hash": "61dd9ec9cd3afb18850f41e3d0a67ce4",
+      "parent_folder": "6a846190168016d0ad55f927"
+    }
+  },
+  {
+    "label": "upload-0-7",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Primary Bathroom.webp",
+      "file_hash": "0ef3222d0b4d9d3af0447bf4d44287bb",
+      "parent_folder": "6a846190168016d0ad55f927"
+    }
+  },
+  {
+    "label": "upload-0-8",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Kitchen.webp",
+      "file_hash": "bdacf5d8fadf646075d1123443d992ab",
+      "parent_folder": "6a846190cfbf3a944209232a"
+    }
+  },
+  {
+    "label": "upload-0-9",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Great Room.webp",
+      "file_hash": "7f693e55aaa74ad727cab055c7384c76",
+      "parent_folder": "6a846190cfbf3a944209232a"
+    }
+  },
+  {
+    "label": "upload-0-10",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Primary Bedroom.webp",
+      "file_hash": "2bb8af737783487d9a6faeab7e4362c9",
+      "parent_folder": "6a846190cfbf3a944209232a"
+    }
+  },
+  {
+    "label": "upload-0-11",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Primary Bathroom.webp",
+      "file_hash": "71d3107e54cf5cd718d74da37b24a232",
+      "parent_folder": "6a846190cfbf3a944209232a"
+    }
+  },
+  {
+    "label": "upload-0-12",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Kitchen.webp",
+      "file_hash": "2fa0dae45622e31a67d3ecf34707c76b",
+      "parent_folder": "6a84619051facea4a0181436"
+    }
+  },
+  {
+    "label": "upload-0-13",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Great Room.webp",
+      "file_hash": "95d07630353beff3cac6898128167d61",
+      "parent_folder": "6a84619051facea4a0181436"
+    }
+  },
+  {
+    "label": "upload-0-14",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Primary Bedroom.webp",
+      "file_hash": "1c612983b855bd7d35cdf676a9027cca",
+      "parent_folder": "6a84619051facea4a0181436"
+    }
+  },
+  {
+    "label": "upload-0-15",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Primary Bathroom.webp",
+      "file_hash": "d18686049593813afad38ce2b42a9077",
+      "parent_folder": "6a84619051facea4a0181436"
+    }
+  },
+  {
+    "label": "upload-0-16",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Kitchen.webp",
+      "file_hash": "0575f05270ce653556bcf3f5f59bd8e1",
+      "parent_folder": "6a846190d41d96b564b7f892"
+    }
+  },
+  {
+    "label": "upload-0-17",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Great Room.webp",
+      "file_hash": "6669040f03713ec91f2eea7f6b6ffc1b",
+      "parent_folder": "6a846190d41d96b564b7f892"
+    }
+  },
+  {
+    "label": "upload-0-18",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Primary Bedroom.webp",
+      "file_hash": "c2786282be62bf89f01f0254aea86ef7",
+      "parent_folder": "6a846190d41d96b564b7f892"
+    }
+  },
+  {
+    "label": "upload-0-19",
+    "create_asset": {
+      "site_id": "601ca16f0bb27e965ee867a0",
+      "file_name": "_update_01_Primary Bathroom.webp",
+      "file_hash": "3142c0bc968891b08394438ef5134d89",
+      "parent_folder": "6a846190d41d96b564b7f892"
+    }
+  }
+]
