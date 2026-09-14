@@ -110,6 +110,181 @@
     }
   };
 
+  // src/utils/mosaic-refreshed-assets.ts
+  var MOSAIC_INTERIOR_URLS = {
+    "addison|pos-1|kitchen-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba324a80b7db802e42df__update_01_Kitchen.webp",
+    "addison|pos-1|living-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba32e42bb36f4503cbbc__update_01_Great%20Room.webp",
+    "addison|pos-1|bedroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba321796b28dfb637dec__update_01_Primary%20Bedroom.webp",
+    "addison|pos-1|bathroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba3137175f386f348f2e__update_01_Primary%20Bathroom.webp",
+    "addison|pos-2|bedroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba218c87da4ea9b31822__update_01_Primary%20Bedroom.webp",
+    "addison|pos-2|living-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba218163890107042549__update_01_Great%20Room.webp",
+    "addison|pos-2|bathroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba2031b62b645e920d3f__update_01_Primary%20Bathroom.webp",
+    "addison|pos-3|bathroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba15b5443afc1474b37e__update_01_Primary%20Bathroom.webp",
+    "addison|pos-3|living-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba1538eaf00f0172cfb1__update_01_Great%20Room.webp",
+    "addison|pos-3|kitchen-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba15193b94d23a381fd7__update_01_Kitchen.webp",
+    "bandera|pos-1|living-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba5af43dc1e9671eac0f__update_01_Great%20Room.webp",
+    "bandera|pos-1|bedroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba5a14616b12a1b4aeeb__update_01_Primary%20Bedroom.webp",
+    "bandera|pos-1|kitchen-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba598c87da4ea9b33495__update_01_Kitchen.webp",
+    "bandera|pos-1|bathroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba59aa1049e4bff367df__update_01_Primary%20Bathroom.webp",
+    "bandera|pos-2|bedroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba519d104f28eddfc274__update_01_Primary%20Bedroom.webp",
+    "bandera|pos-2|living-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba5079cc6cc768b5087d__update_01_Great%20Room.webp",
+    "bandera|pos-2|bathroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba5079cc6cc768b50857__update_01_Primary%20Bathroom.webp",
+    "bandera|pos-2|kitchen-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba50323ef39a7a9a9357__update_01_Kitchen.webp",
+    "bandera|pos-3|bedroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba4639d5fa0524a59f22__update_01_Primary%20Bedroom.webp",
+    "bandera|pos-3|living-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba465e1e0993e96e8a26__update_01_Great%20Room.webp",
+    "bandera|pos-3|kitchen-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba45aa1049e4bff34429__update_01_Kitchen.webp",
+    "bandera|pos-3|bathroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba45757d8f0d92944efc__update_01_Primary%20Bathroom.webp",
+    "collin|pos-1|living-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba8737175f386f34d149__update_01_Great%20Room.webp",
+    "collin|pos-1|bedroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba865bb405f1d10820b7__update_01_Primary%20Bedroom.webp",
+    "collin|pos-1|kitchen-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba862125ef805b6ffc2e__update_01_Kitchen.webp",
+    "collin|pos-1|bathroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba86e42bb36f45042d6c__update_01_Primary%20Bathroom.webp",
+    "collin|pos-2|bedroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba798b001558f0f2eb34__update_01_Primary%20Bedroom.webp",
+    "collin|pos-2|living-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba79323ef39a7a9ad51b__update_01_Great%20Room.webp",
+    "collin|pos-2|bathroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba789d104f28eddfdc05__update_01_Primary%20Bathroom.webp",
+    "collin|pos-2|kitchen-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba21d90e0d765a2f8955__update_01_Kitchen.webp",
+    "collin|pos-3|living-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba6b6bccac03cad7bd32__update_01_Great%20Room.webp",
+    "collin|pos-3|kitchen-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba6a14616b12a1b4b972__update_01_Kitchen.webp",
+    "collin|pos-3|bathroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba6aa538e0265f783f71__update_01_Primary%20Bathroom.webp",
+    "collin|pos-3|bedroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba152125ef805b6fb529__update_01_Primary%20Bedroom.webp",
+    "grayson|pos-1|living-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7baaa79cc6cc768b53a6d__update_01_Great%20Room.webp",
+    "grayson|pos-1|bedroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7baaac8165c3077601bab__update_01_Primary%20Bedroom.webp",
+    "grayson|pos-1|kitchen-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7baaa39d5fa0524a627b3__update_01_Kitchen.webp",
+    "grayson|pos-1|bathroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7baaaad56c86481cb19bc__update_01_Primary%20Bathroom.webp",
+    "grayson|pos-2|bedroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7baa17b55c753b1c41de4__update_01_Primary%20Bedroom.webp",
+    "grayson|pos-2|bathroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7baa17b55c753b1c41dbd__update_01_Primary%20Bathroom.webp",
+    "grayson|pos-2|living-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7baa124ac5a67c597f10c__update_01_Great%20Room.webp",
+    "grayson|pos-2|kitchen-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7baa0ad56c86481cb0f5b__update_01_Kitchen.webp",
+    "grayson|pos-3|living-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba9545bdcf80988808a2__update_01_Great%20Room.webp",
+    "grayson|pos-3|kitchen-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba95df27c0916a7588ee__update_01_Kitchen.webp",
+    "grayson|pos-3|bathroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba953da4674c75d04b51__update_01_Primary%20Bathroom.webp",
+    "magnolia|pos-1|kitchen-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp",
+    "magnolia|pos-1|bedroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp",
+    "magnolia|pos-1|living-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp",
+    "magnolia|pos-1|bathroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacbd31a141ebbd6baae__update_01_Primary%20Bathroom.webp",
+    "magnolia|pos-2|bedroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bac1f43dc1e9671ef6ed__update_01_Primary%20Bedroom.webp",
+    "magnolia|pos-2|living-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bac1a538e0265f789529__update_01_Great%20Room.webp",
+    "magnolia|pos-2|kitchen-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bac099359da766f9f3cb__update_01_Kitchen.webp",
+    "magnolia|pos-2|bathroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bac0d90e0d765a3006df__update_01_Primary%20Bathroom.webp",
+    "magnolia|pos-3|living-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bab6e5143ea322502f14__update_01_Great%20Room.webp",
+    "magnolia|pos-3|kitchen-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bab62125ef805b7018a9__update_01_Kitchen.webp",
+    "magnolia|pos-3|bathroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bab6a538e0265f788fc2__update_01_Primary%20Bathroom.webp",
+    "magnolia|pos-3|bedroom-interior": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba96193b94d23a389ba8__update_01_Primary%20Bedroom.webp"
+  };
+  var MOSAIC_EXTERIOR_URLS = {
+    "addison|capeDutch|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc2df27c0916a789bf8_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "addison|capeDutch|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc238eaf00f01767e78_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "addison|capeDutch|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc109d104f28ede187d2__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "addison|capeDutch|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc055bb405f1d10beb2b__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "addison|capeDutch|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc058b001558f0f42139__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "addison|transitional|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd23150d47c1d06be2c_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "addison|transitional|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd2193b94d23a3ae893_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "addison|transitional|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd0f884d4a1be4ce3bb_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "addison|transitional|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc192125ef805b71645d__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "addison|transitional|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc117c6fd66c86eac2f0__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "addison|tudor|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc9c7138d528e3bcd56_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "addison|tudor|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc94a03cba1e86686df_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "addison|tudor|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc19757d8f0d9295c414__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "addison|tudor|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc194a03cba1e864b8de__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "addison|tudor|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc06f884d4a1be4b255a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "bandera|capeDutch|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bddaf884d4a1be4ce984_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "bandera|capeDutch|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd95bb405f1d10d91c9_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "bandera|capeDutch|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418163890107064db0__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "bandera|capeDutch|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc393da4674c75d1668e__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "bandera|capeDutch|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc398b001558f0f46552__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "bandera|transitional|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdebdf27c0916a78db6b_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "bandera|transitional|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdea3150d47c1d06d522_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "bandera|transitional|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc88f43dc1e9672082fe__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "bandera|transitional|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc41ad56c86481cc9dcf__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "bandera|transitional|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc3914616b12a1b64f9d__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "bandera|tudor|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bde1c8165c307762c4af_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "bandera|tudor|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bde13da4674c75d2ea0c_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "bandera|tudor|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bde04a03cba1e866a39d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "bandera|tudor|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c3da4674c75d158b7__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "bandera|tudor|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c81638901070634b5__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "collin|capeDutch|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdf78c87da4ea9b93928_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "collin|capeDutch|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdf5b5443afc14783129_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "collin|capeDutch|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6be42bb36f4505a969__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "collin|capeDutch|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c193b94d23a39d4c1__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "collin|capeDutch|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc525bb405f1d10c49e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "collin|transitional|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be083da4674c75d303ed_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "collin|transitional|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be06df27c0916a78f4a3_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "collin|transitional|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b323ef39a7a9c707f__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "collin|transitional|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5ce5143ea322519226__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "collin|transitional|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c59d9060ea7ad38a3__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "collin|tudor|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff8b001558f0f67503_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "collin|tudor|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff79cc6cc768b84658_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "collin|tudor|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff59d9060ea7ae5856_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "collin|tudor|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdfe79cc6cc768b84625_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "collin|tudor|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b2125ef805b71a18e__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "grayson|capeDutch|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1059d9060ea7ae7bf6_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "grayson|capeDutch|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be0f8d303f8756954a4a_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "grayson|capeDutch|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9124ac5a67c599912c__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "grayson|capeDutch|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc884777aad14617b3f1__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "grayson|capeDutch|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b5e1e0993e9706ca8__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "grayson|transitional|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be25b5443afc14787820_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "grayson|transitional|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9138eaf00f01753d06__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "grayson|transitional|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9139d5fa0524a78d37__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "grayson|transitional|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7bdf27c0916a777006__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "grayson|transitional|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b6bccac03cad99b9f__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "grayson|tudor|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1a14616b12a1b8583b_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "grayson|tudor|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1a9d104f28ede32eac_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "grayson|tudor|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1a38eaf00f0176e5af_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "grayson|tudor|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc8879cc6cc768b6d94b__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "grayson|tudor|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b438f7b41b4d6147d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "magnolia|capeDutch|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be31a538e0265f7bfda6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "magnolia|capeDutch|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be30a538e0265f7bfd3d_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "magnolia|capeDutch|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca96bccac03cad9dc87__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "magnolia|capeDutch|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca07c6fd66c86eb4e61__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "magnolia|capeDutch|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca05bb405f1d10c770a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "magnolia|transitional|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be45d31a141ebbd9d43d_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "magnolia|transitional|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb337175f386f36ca62__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "magnolia|transitional|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb39d104f28ede1f232__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "magnolia|transitional|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca999359da766fe7cbd__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "magnolia|transitional|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca08c87da4ea9b7b18c__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "magnolia|tudor|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c45bdcf80988b39b2_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "magnolia|tudor|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c3da4674c75d32704_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "magnolia|tudor|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b39d5fa0524a92348_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "magnolia|tudor|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3bd31a141ebbd9c9dc_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "magnolia|tudor|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b6bccac03cadb990d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp"
+  };
+
+  // src/utils/park-place-refreshed-exterior-urls.ts
+  var PARK_PLACE_REFRESHED_EXTERIOR_URLS = {
+    "magnolia.transitional|3|Caprock": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb238eaf00f0175536f__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "magnolia.transitional|1|Newport": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb245bdcf809889c4c7__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "magnolia.transitional|5|Worldly Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb231b62b645e9449f2__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "magnolia.tudor|1|Colonnade Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca99d104f28ede1ec57__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "magnolia.tudor|2|Coral Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca999359da766fe7c7b__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "magnolia.tudor|5|Altitude Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca86bccac03cad9dc26__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "magnolia.capeDutch|3|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9f8c87da4ea9b7b0f4__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "magnolia.capeDutch|2|Urbane Bronze": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9f757d8f0d92965842__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "grayson.transitional|4|Alabaster": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc90a538e0265f7a6e90__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "grayson.transitional|5|Worldly Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc908c87da4ea9b7a698__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "grayson.tudor|5|Altitude Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc885bb405f1d10c6b78__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "grayson.tudor|2|Coral Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc8714616b12a1b68e63__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "grayson.capeDutch|5|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7ac8165c307761560d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "collin.transitional|4|Alabaster": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6af348183cebffbeed__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "collin.transitional|2|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc69c7138d528e3a57b0__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "collin.tudor|3|Greenblack": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5cb5443afc1476c87b__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "collin.tudor|4|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5cd31a141ebbd7f9e9__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "collin.capeDutch|5|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5047d62244c9263e79__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "collin.capeDutch|4|Pure White": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc50c7138d528e3a46ae__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "collin.capeDutch|2|Urbane Bronze": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5039d5fa0524a76044__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "collin.capeDutch|3|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5038eaf00f0174f917__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "bandera.transitional|5|Worldly Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418b001558f0f48835__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "bandera.transitional|2|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418b001558f0f487d7__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "bandera.transitional|4|Alabaster": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc40b5443afc1476b81a__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "bandera.tudor|5|Altitude Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc37323ef39a7a9c4d2d__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "bandera.tudor|3|Greenblack": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc36d31a141ebbd7e4c8__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "addison.transitional|4|Alabaster": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc18f348183cebff87bc__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "addison.transitional|2|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc1847d62244c92619c8__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "addison.tudor|3|Greenblack": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc0ef884d4a1be4b2a19__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "addison.tudor|1|Colonnade Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc0e757d8f0d92959d8e__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "addison.tudor|4|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc0ef884d4a1be4b29c5__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "addison.capeDutch|1|Everest": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc041796b28dfb64f6c1__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "addison.capeDutch|3|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc04d90e0d765a30e875__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp"
+  };
+
   // src/utils/exterior-scheme-modal.ts
   var NEW_COMMUNITY_EXTERIOR_IMAGE_URLS = {
     glenview: {
@@ -754,6 +929,12 @@
       ]
     }
   };
+  for (const [key, url] of Object.entries(PARK_PLACE_REFRESHED_EXTERIOR_URLS)) {
+    const [planAndStyle, schemeNumber] = key.split("|");
+    const [planSlug, styleKey] = planAndStyle.split(".");
+    const schemes = PARK_PLACE_EXTERIOR_IMAGE_URLS[planSlug][styleKey];
+    schemes[Number(schemeNumber) - 1] = url;
+  }
   var PARK_PLACE_STYLE_SLUGS = {
     addison: {
       capeDutch: "addison-modern-cape-dutch",
@@ -823,6 +1004,18 @@
     grayson: buildParkPlaceExteriors("grayson"),
     magnolia: buildParkPlaceExteriors("magnolia")
   };
+  var MOSAIC_STYLE_KEYS = {
+    "Modern Cape Dutch": "capeDutch",
+    Transitional: "transitional",
+    "Modern Tudor": "tudor"
+  };
+  var buildMosaicExteriors = (planSlug) => EXTERIORS_BY_PLAN[planSlug].map((definition) => ({
+    ...definition,
+    colorSchemes: definition.colorSchemes.map((scheme) => ({
+      ...scheme,
+      imageUrl: MOSAIC_EXTERIOR_URLS[`${planSlug}|${MOSAIC_STYLE_KEYS[definition.style]}|${scheme.schemeNumber}`] ?? scheme.imageUrl
+    }))
+  }));
   function getHousePlanSlugFromPath() {
     const maybeSlug = window.location.pathname.toLowerCase().split("/house-plans/")[1]?.split("/")[0] ?? "";
     const normalizedSlug = maybeSlug.replace(/^the-/, "");
@@ -833,7 +1026,8 @@
     return null;
   }
   function getExteriorImageUrlsForStyle(planSlug, exteriorStyleSlug) {
-    const exterior = EXTERIORS_BY_PLAN[planSlug]?.find((item) => item.slug === exteriorStyleSlug);
+    const exteriors = window.location.pathname.toLowerCase().includes("---mosaic") && ["addison", "bandera", "collin", "grayson", "magnolia"].includes(planSlug) ? buildMosaicExteriors(planSlug) : EXTERIORS_BY_PLAN[planSlug];
+    const exterior = exteriors?.find((item) => item.slug === exteriorStyleSlug);
     if (!exterior) return [];
     return exterior.colorSchemes.map((scheme) => scheme.imageUrl).filter(Boolean);
   }
@@ -893,6 +1087,11 @@
     getExteriorsForCurrentPlan() {
       const maybeSlug = this.getHousePlanSlugFromPath();
       if (!maybeSlug) return null;
+      if (window.location.pathname.toLowerCase().includes("---mosaic")) {
+        if (["addison", "bandera", "collin", "grayson", "magnolia"].includes(maybeSlug)) {
+          return buildMosaicExteriors(maybeSlug);
+        }
+      }
       return EXTERIORS_BY_PLAN[maybeSlug] ?? null;
     }
     /** Hides exterior scheme heading and dropdown when this plan has no exterior image config. */
@@ -8603,7 +8802,20 @@
     };
     const housePlanSlug = window.location.pathname.toLowerCase().split("/house-plans/")[1]?.split("/")[0] ?? "";
     const maybeInteriorSlug = getHousePlanSlugFromPath() ?? housePlanSlug.replace(/^the-/, "");
-    const interiorImageUrls = housePlanImageUrlsBySlug[maybeInteriorSlug] ?? housePlanImageUrlsBySlug.iris ?? housePlanImageUrlsBySlug.daphne;
+    const parkPlaceInteriorImageUrls = housePlanImageUrlsBySlug[maybeInteriorSlug] ?? housePlanImageUrlsBySlug.iris ?? housePlanImageUrlsBySlug.daphne;
+    const mosaicInteriorImageUrls = {
+      ...parkPlaceInteriorImageUrls,
+      "kitchen-interior": { ...parkPlaceInteriorImageUrls["kitchen-interior"] },
+      "bedroom-interior": { ...parkPlaceInteriorImageUrls["bedroom-interior"] },
+      "living-interior": { ...parkPlaceInteriorImageUrls["living-interior"] },
+      "bathroom-interior": { ...parkPlaceInteriorImageUrls["bathroom-interior"] }
+    };
+    for (const [key, url] of Object.entries(MOSAIC_INTERIOR_URLS)) {
+      const [planSlug, schemeToken, roomKey] = key.split("|");
+      if (planSlug !== maybeInteriorSlug) continue;
+      mosaicInteriorImageUrls[roomKey][schemeToken] = url;
+    }
+    const interiorImageUrls = housePlanSlug.includes("---mosaic") ? mosaicInteriorImageUrls : parkPlaceInteriorImageUrls;
     const activeSchemeTitleByToken = schemeTitleByTokenByHousePlan[maybeInteriorSlug] ?? schemeTitleByToken;
     const swatchProfile = getHousePlanSwatchProfile(maybeInteriorSlug);
     const schemeSwatchVisual = getSchemeSwatchVisual(swatchProfile);

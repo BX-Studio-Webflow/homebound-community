@@ -15,6 +15,9 @@ example-assets/
 │   ├── exteriors-webp/
 │   ├── interiors/
 │   └── interiors-webp/
+├── Mosaic/             Addison, Bandera, Collin, Grayson, Magnolia
+│   ├── exteriors-webp-update-01/  Webflow Exterior Styles - Mosaic mirror
+│   └── interiors-webp-update-01/  Webflow Interiors - Mosaic mirror
 ├── Altadena/          Sycamore, Loma, Chaney, Merrick, Echo
 │   └── floor-plans/   updated · source · markups · echo-legacy
 ├── Lakeside/          lot map + Plan 2 interior packages

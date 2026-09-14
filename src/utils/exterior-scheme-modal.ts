@@ -1,3 +1,6 @@
+import { MOSAIC_EXTERIOR_URLS } from '$utils/mosaic-refreshed-assets';
+import { PARK_PLACE_REFRESHED_EXTERIOR_URLS } from '$utils/park-place-refreshed-exterior-urls';
+
 interface ExteriorColorScheme {
   schemeNumber: number;
   name: string;
@@ -614,8 +617,7 @@ const buildStudioAduExteriors = (planSlug: StudioAduPlanSlug): ExteriorDefinitio
 type ParkPlacePlanSlug = 'addison' | 'bandera' | 'collin' | 'grayson' | 'magnolia';
 type ParkPlaceStyleKey = 'capeDutch' | 'transitional' | 'tudor';
 
-const PARK_PLACE_CDN =
-  'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0';
+const PARK_PLACE_CDN = 'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0';
 
 const PARK_PLACE_EXTERIOR_IMAGE_URLS: Record<
   ParkPlacePlanSlug,
@@ -738,11 +740,17 @@ const PARK_PLACE_EXTERIOR_IMAGE_URLS: Record<
   },
 };
 
+for (const [key, url] of Object.entries(PARK_PLACE_REFRESHED_EXTERIOR_URLS)) {
+  const [planAndStyle, schemeNumber] = key.split('|');
+  const [planSlug, styleKey] = planAndStyle.split('.');
+  const schemes = PARK_PLACE_EXTERIOR_IMAGE_URLS[planSlug as ParkPlacePlanSlug][
+    styleKey as ParkPlaceStyleKey
+  ] as string[];
+  schemes[Number(schemeNumber) - 1] = url;
+}
+
 /** CMS Exterior Style slugs used on house-plan slides via `exterior-style`. */
-const PARK_PLACE_STYLE_SLUGS: Record<
-  ParkPlacePlanSlug,
-  Record<ParkPlaceStyleKey, string>
-> = {
+const PARK_PLACE_STYLE_SLUGS: Record<ParkPlacePlanSlug, Record<ParkPlaceStyleKey, string>> = {
   addison: {
     capeDutch: 'addison-modern-cape-dutch',
     transitional: 'addison-transitional',
@@ -815,6 +823,24 @@ const EXTERIORS_BY_PLAN: Record<HousePlanSlug, ExteriorDefinition[]> = {
   magnolia: buildParkPlaceExteriors('magnolia'),
 };
 
+const MOSAIC_STYLE_KEYS: Record<string, string> = {
+  'Modern Cape Dutch': 'capeDutch',
+  Transitional: 'transitional',
+  'Modern Tudor': 'tudor',
+};
+
+const buildMosaicExteriors = (planSlug: ParkPlacePlanSlug): ExteriorDefinition[] =>
+  EXTERIORS_BY_PLAN[planSlug].map((definition) => ({
+    ...definition,
+    colorSchemes: definition.colorSchemes.map((scheme) => ({
+      ...scheme,
+      imageUrl:
+        MOSAIC_EXTERIOR_URLS[
+          `${planSlug}|${MOSAIC_STYLE_KEYS[definition.style]}|${scheme.schemeNumber}`
+        ] ?? scheme.imageUrl,
+    })),
+  }));
+
 /** Mosaic plan URLs use `the-<plan>---mosaic`; strip that suffix to reuse Park Place assets. */
 export function getHousePlanSlugFromPath(): HousePlanSlug | null {
   const maybeSlug =
@@ -833,7 +859,12 @@ export function getExteriorImageUrlsForStyle(
   planSlug: HousePlanSlug,
   exteriorStyleSlug: string
 ): string[] {
-  const exterior = EXTERIORS_BY_PLAN[planSlug]?.find((item) => item.slug === exteriorStyleSlug);
+  const exteriors =
+    window.location.pathname.toLowerCase().includes('---mosaic') &&
+    ['addison', 'bandera', 'collin', 'grayson', 'magnolia'].includes(planSlug)
+      ? buildMosaicExteriors(planSlug as ParkPlacePlanSlug)
+      : EXTERIORS_BY_PLAN[planSlug];
+  const exterior = exteriors?.find((item) => item.slug === exteriorStyleSlug);
   if (!exterior) return [];
 
   return exterior.colorSchemes.map((scheme) => scheme.imageUrl).filter(Boolean);
@@ -909,6 +940,11 @@ export class ExteriorSchemeController {
   private getExteriorsForCurrentPlan(): ExteriorDefinition[] | null {
     const maybeSlug = this.getHousePlanSlugFromPath();
     if (!maybeSlug) return null;
+    if (window.location.pathname.toLowerCase().includes('---mosaic')) {
+      if (['addison', 'bandera', 'collin', 'grayson', 'magnolia'].includes(maybeSlug)) {
+        return buildMosaicExteriors(maybeSlug as ParkPlacePlanSlug);
+      }
+    }
     return EXTERIORS_BY_PLAN[maybeSlug] ?? null;
   }
 

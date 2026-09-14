@@ -1,0 +1,902 @@
+﻿[
+    {
+        "id":  "6aa7bcb238eaf00f0175536f",
+        "originalFileName":  "6aa7bcb238eaf00f0175536f__update_01_Transitional Color Scheme 3 Caprock.webp",
+        "displayName":  "_update_01_Transitional Color Scheme 3 Caprock.webp",
+        "contentType":  "image/webp",
+        "size":  26192,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:21:54.890Z",
+        "lastUpdated":  "2026-09-14T09:21:57.655Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb238eaf00f0175536f__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb238eaf00f0175536f__update_01_Transitional%20Color%20Scheme%203%20Caprock-p-500.webp",
+                             "originalFileName":  "_update_01_Transitional%20Color%20Scheme%203%20Caprock-p-500.webp",
+                             "displayName":  "6aa7bcb238eaf00f0175536f__update_01_Transitional%20Color%20Scheme%203%20Caprock-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616f7392cf5b463e4625"
+    },
+    {
+        "id":  "6aa7bcb245bdcf809889c4c7",
+        "originalFileName":  "6aa7bcb245bdcf809889c4c7__update_01_Transitional Color Scheme 1 Newport.webp",
+        "displayName":  "_update_01_Transitional Color Scheme 1 Newport.webp",
+        "contentType":  "image/webp",
+        "size":  26216,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:21:54.881Z",
+        "lastUpdated":  "2026-09-14T09:21:56.810Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb245bdcf809889c4c7__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb245bdcf809889c4c7__update_01_Transitional%20Color%20Scheme%201%20Newport-p-500.webp",
+                             "originalFileName":  "_update_01_Transitional%20Color%20Scheme%201%20Newport-p-500.webp",
+                             "displayName":  "6aa7bcb245bdcf809889c4c7__update_01_Transitional%20Color%20Scheme%201%20Newport-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616f7392cf5b463e4625"
+    },
+    {
+        "id":  "6aa7bcb231b62b645e9449f2",
+        "originalFileName":  "6aa7bcb231b62b645e9449f2__update_01_Transitional Color Scheme 5 Worldly Gray.webp",
+        "displayName":  "_update_01_Transitional Color Scheme 5 Worldly Gray.webp",
+        "contentType":  "image/webp",
+        "size":  25936,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:21:54.314Z",
+        "lastUpdated":  "2026-09-14T09:21:56.798Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb231b62b645e9449f2__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb231b62b645e9449f2__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray-p-500.webp",
+                             "originalFileName":  "_update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray-p-500.webp",
+                             "displayName":  "6aa7bcb231b62b645e9449f2__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616f7392cf5b463e4625"
+    },
+    {
+        "id":  "6aa7bca99d104f28ede1ec57",
+        "originalFileName":  "6aa7bca99d104f28ede1ec57__update_01_Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+        "displayName":  "_update_01_Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+        "contentType":  "image/webp",
+        "size":  24410,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:21:45.050Z",
+        "lastUpdated":  "2026-09-14T09:21:47.521Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca99d104f28ede1ec57__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca99d104f28ede1ec57__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray-p-500.webp",
+                             "displayName":  "6aa7bca99d104f28ede1ec57__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616f7392cf5b463e4663"
+    },
+    {
+        "id":  "6aa7bca999359da766fe7c7b",
+        "originalFileName":  "6aa7bca999359da766fe7c7b__update_01_Modern Tudor Color Scheme 2 Coral Gray.webp",
+        "displayName":  "_update_01_Modern Tudor Color Scheme 2 Coral Gray.webp",
+        "contentType":  "image/webp",
+        "size":  26016,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:21:45.024Z",
+        "lastUpdated":  "2026-09-14T09:21:47.498Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca999359da766fe7c7b__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca999359da766fe7c7b__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray-p-500.webp",
+                             "displayName":  "6aa7bca999359da766fe7c7b__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616f7392cf5b463e4663"
+    },
+    {
+        "id":  "6aa7bca86bccac03cad9dc26",
+        "originalFileName":  "6aa7bca86bccac03cad9dc26__update_01_Modern Tudor Color Scheme 5 Altitude Gray.webp",
+        "displayName":  "_update_01_Modern Tudor Color Scheme 5 Altitude Gray.webp",
+        "contentType":  "image/webp",
+        "size":  28416,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:21:44.993Z",
+        "lastUpdated":  "2026-09-14T09:21:47.445Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca86bccac03cad9dc26__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca86bccac03cad9dc26__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray-p-500.webp",
+                             "displayName":  "6aa7bca86bccac03cad9dc26__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616f7392cf5b463e4663"
+    },
+    {
+        "id":  "6aa7bc9f8c87da4ea9b7b0f4",
+        "originalFileName":  "6aa7bc9f8c87da4ea9b7b0f4__update_01_Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+        "displayName":  "_update_01_Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+        "contentType":  "image/webp",
+        "size":  25048,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:21:35.884Z",
+        "lastUpdated":  "2026-09-14T09:21:38.207Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9f8c87da4ea9b7b0f4__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9f8c87da4ea9b7b0f4__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore-p-500.webp",
+                             "displayName":  "6aa7bc9f8c87da4ea9b7b0f4__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616e48395d31157dcc68"
+    },
+    {
+        "id":  "6aa7bc9f757d8f0d92965842",
+        "originalFileName":  "6aa7bc9f757d8f0d92965842__update_01_Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+        "displayName":  "_update_01_Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+        "contentType":  "image/webp",
+        "size":  26438,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:21:35.799Z",
+        "lastUpdated":  "2026-09-14T09:21:38.297Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9f757d8f0d92965842__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9f757d8f0d92965842__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze-p-500.webp",
+                             "displayName":  "6aa7bc9f757d8f0d92965842__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616e48395d31157dcc68"
+    },
+    {
+        "id":  "6aa7bc90a538e0265f7a6e90",
+        "originalFileName":  "6aa7bc90a538e0265f7a6e90__update_01_Transitional Color Scheme 4 Alabaster.webp",
+        "displayName":  "_update_01_Transitional Color Scheme 4 Alabaster.webp",
+        "contentType":  "image/webp",
+        "size":  28030,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:21:20.922Z",
+        "lastUpdated":  "2026-09-14T09:21:23.494Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc90a538e0265f7a6e90__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc90a538e0265f7a6e90__update_01_Transitional%20Color%20Scheme%204%20Alabaster-p-500.webp",
+                             "originalFileName":  "_update_01_Transitional%20Color%20Scheme%204%20Alabaster-p-500.webp",
+                             "displayName":  "6aa7bc90a538e0265f7a6e90__update_01_Transitional%20Color%20Scheme%204%20Alabaster-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616efd5d1935ad94d2e3"
+    },
+    {
+        "id":  "6aa7bc908c87da4ea9b7a698",
+        "originalFileName":  "6aa7bc908c87da4ea9b7a698__update_01_Transitional Color Scheme 5 Worldly Gray.webp",
+        "displayName":  "_update_01_Transitional Color Scheme 5 Worldly Gray.webp",
+        "contentType":  "image/webp",
+        "size":  28572,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:21:20.912Z",
+        "lastUpdated":  "2026-09-14T09:21:23.941Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc908c87da4ea9b7a698__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc908c87da4ea9b7a698__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray-p-500.webp",
+                             "originalFileName":  "_update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray-p-500.webp",
+                             "displayName":  "6aa7bc908c87da4ea9b7a698__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616efd5d1935ad94d2e3"
+    },
+    {
+        "id":  "6aa7bc885bb405f1d10c6b78",
+        "originalFileName":  "6aa7bc885bb405f1d10c6b78__update_01_Modern Tudor Color Scheme 5 Altitude Gray.webp",
+        "displayName":  "_update_01_Modern Tudor Color Scheme 5 Altitude Gray.webp",
+        "contentType":  "image/webp",
+        "size":  25356,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:21:12.076Z",
+        "lastUpdated":  "2026-09-14T09:21:14.095Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc885bb405f1d10c6b78__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc885bb405f1d10c6b78__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray-p-500.webp",
+                             "displayName":  "6aa7bc885bb405f1d10c6b78__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616ebcc266bd25e0925b"
+    },
+    {
+        "id":  "6aa7bc8714616b12a1b68e63",
+        "originalFileName":  "6aa7bc8714616b12a1b68e63__update_01_Modern Tudor Color Scheme 2 Coral Gray.webp",
+        "displayName":  "_update_01_Modern Tudor Color Scheme 2 Coral Gray.webp",
+        "contentType":  "image/webp",
+        "size":  26896,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:21:11.628Z",
+        "lastUpdated":  "2026-09-14T09:21:14.336Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc8714616b12a1b68e63__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc8714616b12a1b68e63__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray-p-500.webp",
+                             "displayName":  "6aa7bc8714616b12a1b68e63__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616ebcc266bd25e0925b"
+    },
+    {
+        "id":  "6aa7bc7ac8165c307761560d",
+        "originalFileName":  "6aa7bc7ac8165c307761560d__update_01_Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+        "displayName":  "_update_01_Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+        "contentType":  "image/webp",
+        "size":  26776,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:20:58.833Z",
+        "lastUpdated":  "2026-09-14T09:21:00.970Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7ac8165c307761560d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7ac8165c307761560d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool-p-500.webp",
+                             "displayName":  "6aa7bc7ac8165c307761560d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616e2b968af48124732c"
+    },
+    {
+        "id":  "6aa7bc6af348183cebffbeed",
+        "originalFileName":  "6aa7bc6af348183cebffbeed__update_01_Transitional Color Scheme 4 Alabaster.webp",
+        "displayName":  "_update_01_Transitional Color Scheme 4 Alabaster.webp",
+        "contentType":  "image/webp",
+        "size":  28514,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:20:42.090Z",
+        "lastUpdated":  "2026-09-14T09:20:45.112Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6af348183cebffbeed__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6af348183cebffbeed__update_01_Transitional%20Color%20Scheme%204%20Alabaster-p-500.webp",
+                             "originalFileName":  "_update_01_Transitional%20Color%20Scheme%204%20Alabaster-p-500.webp",
+                             "displayName":  "6aa7bc6af348183cebffbeed__update_01_Transitional%20Color%20Scheme%204%20Alabaster-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616d33b60021dd7b11b3"
+    },
+    {
+        "id":  "6aa7bc69c7138d528e3a57b0",
+        "originalFileName":  "6aa7bc69c7138d528e3a57b0__update_01_Transitional Color Scheme 2 Iron Ore.webp",
+        "displayName":  "_update_01_Transitional Color Scheme 2 Iron Ore.webp",
+        "contentType":  "image/webp",
+        "size":  29374,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:20:41.673Z",
+        "lastUpdated":  "2026-09-14T09:20:45.266Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc69c7138d528e3a57b0__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc69c7138d528e3a57b0__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore-p-500.webp",
+                             "originalFileName":  "_update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore-p-500.webp",
+                             "displayName":  "6aa7bc69c7138d528e3a57b0__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616d33b60021dd7b11b3"
+    },
+    {
+        "id":  "6aa7bc5cb5443afc1476c87b",
+        "originalFileName":  "6aa7bc5cb5443afc1476c87b__update_01_Modern Tudor Color Scheme 3 Greenblack.webp",
+        "displayName":  "_update_01_Modern Tudor Color Scheme 3 Greenblack.webp",
+        "contentType":  "image/webp",
+        "size":  28232,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:20:28.033Z",
+        "lastUpdated":  "2026-09-14T09:20:30.254Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5cb5443afc1476c87b__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5cb5443afc1476c87b__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack-p-500.webp",
+                             "displayName":  "6aa7bc5cb5443afc1476c87b__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616efd5d1935ad94d290"
+    },
+    {
+        "id":  "6aa7bc5cd31a141ebbd7f9e9",
+        "originalFileName":  "6aa7bc5cd31a141ebbd7f9e9__update_01_Modern Tudor Color Scheme 4 Felted Wool.webp",
+        "displayName":  "_update_01_Modern Tudor Color Scheme 4 Felted Wool.webp",
+        "contentType":  "image/webp",
+        "size":  31222,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:20:28.015Z",
+        "lastUpdated":  "2026-09-14T09:20:30.237Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5cd31a141ebbd7f9e9__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5cd31a141ebbd7f9e9__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool-p-500.webp",
+                             "displayName":  "6aa7bc5cd31a141ebbd7f9e9__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616efd5d1935ad94d290"
+    },
+    {
+        "id":  "6aa7bc5047d62244c9263e79",
+        "originalFileName":  "6aa7bc5047d62244c9263e79__update_01_Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+        "displayName":  "_update_01_Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+        "contentType":  "image/webp",
+        "size":  29596,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:20:16.980Z",
+        "lastUpdated":  "2026-09-14T09:20:19.736Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5047d62244c9263e79__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5047d62244c9263e79__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool-p-500.webp",
+                             "displayName":  "6aa7bc5047d62244c9263e79__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616dbcc266bd25e091ae"
+    },
+    {
+        "id":  "6aa7bc50c7138d528e3a46ae",
+        "originalFileName":  "6aa7bc50c7138d528e3a46ae__update_01_Modern Cape Dutch Color Scheme 4 Pure White.webp",
+        "displayName":  "_update_01_Modern Cape Dutch Color Scheme 4 Pure White.webp",
+        "contentType":  "image/webp",
+        "size":  33032,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:20:16.889Z",
+        "lastUpdated":  "2026-09-14T09:20:21.491Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc50c7138d528e3a46ae__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc50c7138d528e3a46ae__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White-p-500.webp",
+                             "displayName":  "6aa7bc50c7138d528e3a46ae__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616dbcc266bd25e091ae"
+    },
+    {
+        "id":  "6aa7bc5039d5fa0524a76044",
+        "originalFileName":  "6aa7bc5039d5fa0524a76044__update_01_Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+        "displayName":  "_update_01_Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+        "contentType":  "image/webp",
+        "size":  31130,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:20:16.498Z",
+        "lastUpdated":  "2026-09-14T09:20:19.719Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5039d5fa0524a76044__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5039d5fa0524a76044__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze-p-500.webp",
+                             "displayName":  "6aa7bc5039d5fa0524a76044__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616dbcc266bd25e091ae"
+    },
+    {
+        "id":  "6aa7bc5038eaf00f0174f917",
+        "originalFileName":  "6aa7bc5038eaf00f0174f917__update_01_Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+        "displayName":  "_update_01_Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+        "contentType":  "image/webp",
+        "size":  25718,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:20:16.454Z",
+        "lastUpdated":  "2026-09-14T09:20:19.607Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5038eaf00f0174f917__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5038eaf00f0174f917__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore-p-500.webp",
+                             "displayName":  "6aa7bc5038eaf00f0174f917__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616dbcc266bd25e091ae"
+    },
+    {
+        "id":  "6aa7bc418b001558f0f48835",
+        "originalFileName":  "6aa7bc418b001558f0f48835__update_01_Transitional Color Scheme 5 Worldly Gray.webp",
+        "displayName":  "_update_01_Transitional Color Scheme 5 Worldly Gray.webp",
+        "contentType":  "image/webp",
+        "size":  26062,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:20:01.695Z",
+        "lastUpdated":  "2026-09-14T09:20:03.644Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418b001558f0f48835__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418b001558f0f48835__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray-p-500.webp",
+                             "originalFileName":  "_update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray-p-500.webp",
+                             "displayName":  "6aa7bc418b001558f0f48835__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616d33b60021dd7b1150"
+    },
+    {
+        "id":  "6aa7bc418b001558f0f487d7",
+        "originalFileName":  "6aa7bc418b001558f0f487d7__update_01_Transitional Color Scheme 2 Iron Ore.webp",
+        "displayName":  "_update_01_Transitional Color Scheme 2 Iron Ore.webp",
+        "contentType":  "image/webp",
+        "size":  27360,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:20:01.558Z",
+        "lastUpdated":  "2026-09-14T09:20:03.502Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418b001558f0f487d7__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418b001558f0f487d7__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore-p-500.webp",
+                             "originalFileName":  "_update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore-p-500.webp",
+                             "displayName":  "6aa7bc418b001558f0f487d7__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616d33b60021dd7b1150"
+    },
+    {
+        "id":  "6aa7bc40b5443afc1476b81a",
+        "originalFileName":  "6aa7bc40b5443afc1476b81a__update_01_Transitional Color Scheme 4 Alabaster.webp",
+        "displayName":  "_update_01_Transitional Color Scheme 4 Alabaster.webp",
+        "contentType":  "image/webp",
+        "size":  21880,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:20:00.603Z",
+        "lastUpdated":  "2026-09-14T09:20:06.552Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc40b5443afc1476b81a__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc40b5443afc1476b81a__update_01_Transitional%20Color%20Scheme%204%20Alabaster-p-500.webp",
+                             "originalFileName":  "_update_01_Transitional%20Color%20Scheme%204%20Alabaster-p-500.webp",
+                             "displayName":  "6aa7bc40b5443afc1476b81a__update_01_Transitional%20Color%20Scheme%204%20Alabaster-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616d33b60021dd7b1150"
+    },
+    {
+        "id":  "6aa7bc37323ef39a7a9c4d2d",
+        "originalFileName":  "6aa7bc37323ef39a7a9c4d2d__update_01_Modern Tudor Color Scheme 5 Altitude Gray.webp",
+        "displayName":  "_update_01_Modern Tudor Color Scheme 5 Altitude Gray.webp",
+        "contentType":  "image/webp",
+        "size":  25816,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:19:51.446Z",
+        "lastUpdated":  "2026-09-14T09:19:54.798Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc37323ef39a7a9c4d2d__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc37323ef39a7a9c4d2d__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray-p-500.webp",
+                             "displayName":  "6aa7bc37323ef39a7a9c4d2d__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616df7364a39b1c7c1c0"
+    },
+    {
+        "id":  "6aa7bc36d31a141ebbd7e4c8",
+        "originalFileName":  "6aa7bc36d31a141ebbd7e4c8__update_01_Modern Tudor Color Scheme 3 Greenblack.webp",
+        "displayName":  "_update_01_Modern Tudor Color Scheme 3 Greenblack.webp",
+        "contentType":  "image/webp",
+        "size":  24154,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:19:50.968Z",
+        "lastUpdated":  "2026-09-14T09:19:54.549Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc36d31a141ebbd7e4c8__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc36d31a141ebbd7e4c8__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack-p-500.webp",
+                             "displayName":  "6aa7bc36d31a141ebbd7e4c8__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616df7364a39b1c7c1c0"
+    },
+    {
+        "id":  "6aa7bc2a8b001558f0f45911",
+        "originalFileName":  "6aa7bc2a8b001558f0f45911__update_01_Modern Cape Dutch Color Scheme 1 Everest.webp",
+        "displayName":  "_update_01_Modern Cape Dutch Color Scheme 1 Everest.webp",
+        "contentType":  "image/webp",
+        "size":  26282,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:19:38.976Z",
+        "lastUpdated":  "2026-09-14T09:19:41.777Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2a8b001558f0f45911__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2a8b001558f0f45911__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest-p-500.webp",
+                             "displayName":  "6aa7bc2a8b001558f0f45911__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616cd41d96b564b7ed9f"
+    },
+    {
+        "id":  "6aa7bc2ac7138d528e3a1052",
+        "originalFileName":  "6aa7bc2ac7138d528e3a1052__update_01_Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+        "displayName":  "_update_01_Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+        "contentType":  "image/webp",
+        "size":  23730,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:19:38.613Z",
+        "lastUpdated":  "2026-09-14T09:19:41.581Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2ac7138d528e3a1052__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2ac7138d528e3a1052__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool-p-500.webp",
+                             "displayName":  "6aa7bc2ac7138d528e3a1052__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616cd41d96b564b7ed9f"
+    },
+    {
+        "id":  "6aa7bc2ad90e0d765a30fbc1",
+        "originalFileName":  "6aa7bc2ad90e0d765a30fbc1__update_01_Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+        "displayName":  "_update_01_Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+        "contentType":  "image/webp",
+        "size":  24354,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:19:38.446Z",
+        "lastUpdated":  "2026-09-14T09:19:41.595Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2ad90e0d765a30fbc1__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2ad90e0d765a30fbc1__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze-p-500.webp",
+                             "displayName":  "6aa7bc2ad90e0d765a30fbc1__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616cd41d96b564b7ed9f"
+    },
+    {
+        "id":  "6aa7bc18f348183cebff87bc",
+        "originalFileName":  "6aa7bc18f348183cebff87bc__update_01_Transitional Color Scheme 4 Alabaster.webp",
+        "displayName":  "_update_01_Transitional Color Scheme 4 Alabaster.webp",
+        "contentType":  "image/webp",
+        "size":  24290,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:19:20.203Z",
+        "lastUpdated":  "2026-09-14T09:19:22.590Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc18f348183cebff87bc__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc18f348183cebff87bc__update_01_Transitional%20Color%20Scheme%204%20Alabaster-p-500.webp",
+                             "originalFileName":  "_update_01_Transitional%20Color%20Scheme%204%20Alabaster-p-500.webp",
+                             "displayName":  "6aa7bc18f348183cebff87bc__update_01_Transitional%20Color%20Scheme%204%20Alabaster-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616ca02e7e7989ca762a"
+    },
+    {
+        "id":  "6aa7bc1847d62244c92619c8",
+        "originalFileName":  "6aa7bc1847d62244c92619c8__update_01_Transitional Color Scheme 2 Iron Ore.webp",
+        "displayName":  "_update_01_Transitional Color Scheme 2 Iron Ore.webp",
+        "contentType":  "image/webp",
+        "size":  25460,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:19:20.194Z",
+        "lastUpdated":  "2026-09-14T09:19:22.729Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc1847d62244c92619c8__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc1847d62244c92619c8__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore-p-500.webp",
+                             "originalFileName":  "_update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore-p-500.webp",
+                             "displayName":  "6aa7bc1847d62244c92619c8__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616ca02e7e7989ca762a"
+    },
+    {
+        "id":  "6aa7bc0ef884d4a1be4b2a19",
+        "originalFileName":  "6aa7bc0ef884d4a1be4b2a19__update_01_Modern Tudor Color Scheme 3 Greenblack.webp",
+        "displayName":  "_update_01_Modern Tudor Color Scheme 3 Greenblack.webp",
+        "contentType":  "image/webp",
+        "size":  26704,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:19:10.872Z",
+        "lastUpdated":  "2026-09-14T09:19:14.700Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc0ef884d4a1be4b2a19__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc0ef884d4a1be4b2a19__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack-p-500.webp",
+                             "displayName":  "6aa7bc0ef884d4a1be4b2a19__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616ced92ab6fcab952e6"
+    },
+    {
+        "id":  "6aa7bc0e757d8f0d92959d8e",
+        "originalFileName":  "6aa7bc0e757d8f0d92959d8e__update_01_Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+        "displayName":  "_update_01_Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+        "contentType":  "image/webp",
+        "size":  28726,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:19:10.453Z",
+        "lastUpdated":  "2026-09-14T09:19:13.460Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc0e757d8f0d92959d8e__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc0e757d8f0d92959d8e__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray-p-500.webp",
+                             "displayName":  "6aa7bc0e757d8f0d92959d8e__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616ced92ab6fcab952e6"
+    },
+    {
+        "id":  "6aa7bc0ef884d4a1be4b29c5",
+        "originalFileName":  "6aa7bc0ef884d4a1be4b29c5__update_01_Modern Tudor Color Scheme 4 Felted Wool.webp",
+        "displayName":  "_update_01_Modern Tudor Color Scheme 4 Felted Wool.webp",
+        "contentType":  "image/webp",
+        "size":  26830,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:19:10.441Z",
+        "lastUpdated":  "2026-09-14T09:19:13.677Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc0ef884d4a1be4b29c5__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc0ef884d4a1be4b29c5__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool-p-500.webp",
+                             "displayName":  "6aa7bc0ef884d4a1be4b29c5__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616ced92ab6fcab952e6"
+    },
+    {
+        "id":  "6aa7bc041796b28dfb64f6c1",
+        "originalFileName":  "6aa7bc041796b28dfb64f6c1__update_01_Modern Cape Dutch Color Scheme 1 Everest.webp",
+        "displayName":  "_update_01_Modern Cape Dutch Color Scheme 1 Everest.webp",
+        "contentType":  "image/webp",
+        "size":  27054,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:19:00.501Z",
+        "lastUpdated":  "2026-09-14T09:19:03.370Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc041796b28dfb64f6c1__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc041796b28dfb64f6c1__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest-p-500.webp",
+                             "displayName":  "6aa7bc041796b28dfb64f6c1__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616ca02e7e7989ca7615"
+    },
+    {
+        "id":  "6aa7bc04d90e0d765a30e875",
+        "originalFileName":  "6aa7bc04d90e0d765a30e875__update_01_Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+        "displayName":  "_update_01_Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+        "contentType":  "image/webp",
+        "size":  27040,
+        "siteId":  "601ca16f0bb27e965ee867a0",
+        "createdOn":  "2026-09-14T09:19:00.498Z",
+        "lastUpdated":  "2026-09-14T09:19:03.495Z",
+        "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc04d90e0d765a30e875__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+        "variants":  [
+                         {
+                             "hostedUrl":  "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc04d90e0d765a30e875__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore-p-500.webp",
+                             "originalFileName":  "_update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore-p-500.webp",
+                             "displayName":  "6aa7bc04d90e0d765a30e875__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore-p-500.webp",
+                             "format":  "webp",
+                             "width":  500,
+                             "height":  null,
+                             "quality":  100,
+                             "error":  null
+                         }
+                     ],
+        "altText":  null,
+        "folderId":  "6a84616ca02e7e7989ca7615"
+    }
+]

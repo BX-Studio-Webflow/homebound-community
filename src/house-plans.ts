@@ -20,11 +20,11 @@ import {
   getHousePlanSwatchProfile,
   getSchemeSwatchVisual,
   getSchemeTokensForHousePlan,
-  isAduCarriageInteriorPlan,
   isPalisadeHousePlan,
   isParkPlaceHousePlan,
 } from '$utils/interior-scheme-swatches';
-import { LotMapController, lotMapConfigFromLocation } from '$utils/lot-map';
+import { lotMapConfigFromLocation, LotMapController } from '$utils/lot-map';
+import { MOSAIC_INTERIOR_URLS } from '$utils/mosaic-refreshed-assets';
 import { StickyNavController } from '$utils/sticky-nav';
 
 const galleryConfigs: GalleryConfig[] = [
@@ -1079,10 +1079,25 @@ window.Webflow.push(() => {
     window.location.pathname.toLowerCase().split('/house-plans/')[1]?.split('/')[0] ?? '';
   const maybeInteriorSlug = (getHousePlanSlugFromPath() ??
     housePlanSlug.replace(/^the-/, '')) as HousePlanSlugForInteriors;
-  const interiorImageUrls: InteriorImageUrls =
+  const parkPlaceInteriorImageUrls: InteriorImageUrls =
     housePlanImageUrlsBySlug[maybeInteriorSlug] ??
     housePlanImageUrlsBySlug.iris ??
     housePlanImageUrlsBySlug.daphne!;
+  const mosaicInteriorImageUrls: InteriorImageUrls = {
+    ...parkPlaceInteriorImageUrls,
+    'kitchen-interior': { ...parkPlaceInteriorImageUrls['kitchen-interior'] },
+    'bedroom-interior': { ...parkPlaceInteriorImageUrls['bedroom-interior'] },
+    'living-interior': { ...parkPlaceInteriorImageUrls['living-interior'] },
+    'bathroom-interior': { ...parkPlaceInteriorImageUrls['bathroom-interior'] },
+  };
+  for (const [key, url] of Object.entries(MOSAIC_INTERIOR_URLS)) {
+    const [planSlug, schemeToken, roomKey] = key.split('|');
+    if (planSlug !== maybeInteriorSlug) continue;
+    mosaicInteriorImageUrls[roomKey as InteriorToken][schemeToken as SchemeToken] = url;
+  }
+  const interiorImageUrls: InteriorImageUrls = housePlanSlug.includes('---mosaic')
+    ? mosaicInteriorImageUrls
+    : parkPlaceInteriorImageUrls;
   const activeSchemeTitleByToken =
     schemeTitleByTokenByHousePlan[maybeInteriorSlug] ?? schemeTitleByToken;
   const swatchProfile = getHousePlanSwatchProfile(maybeInteriorSlug);

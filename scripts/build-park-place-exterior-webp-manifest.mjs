@@ -11,15 +11,15 @@ const outputRoot = 'src/example-assets/Park Place/exteriors-webp-update-01/';
 const source = JSON.parse(await fs.readFile(sourcePath, 'utf8'));
 
 const items = source.items.map((item) => ({
-  ...item,
-  file: item.file
-    .replace(sourceRoot, outputRoot)
-    .replace(/\.(?:jpeg|jpg|png)$/i, '.webp'),
-  format: 'webp',
+    ...item,
+    file: item.file
+        .replace(sourceRoot, outputRoot)
+        .replace(/\.(?:jpeg|jpg|png)$/i, '.webp'),
+    format: 'webp',
 }));
 
 await fs.writeFile(
-  outputPath,
-  `${JSON.stringify({ ...source, optimized: true, quality: 80, items }, null, 2)}\n`,
+    outputPath,
+    `${JSON.stringify({ ...source, optimized: true, quality: 80, items }, null, 2)}\n`,
 );
 console.log(`Wrote ${items.length} optimized Park Place exterior upload records.`);
