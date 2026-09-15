@@ -16,7 +16,7 @@ type HeroSwiperElement = HTMLElement & { swiper?: HeroSwiper };
 export class HeroVideoController {
     private static readonly HERO_SWIPER_SELECTOR = '[hero-swiper]';
     private static readonly VIDEO_SLIDE_SELECTOR = '[data-hb-hero-video]';
-  private resizeObserver: ResizeObserver | null = null;
+    private resizeObserver: ResizeObserver | null = null;
 
     constructor(private readonly configs: HeroVideoConfig[]) { }
 
@@ -34,31 +34,31 @@ export class HeroVideoController {
         if (!swiper || heroSwiper.querySelector(HeroVideoController.VIDEO_SLIDE_SELECTOR)) return;
 
         swiper.addSlide(config.index, this.createSlide(config));
-    this.matchVideoHeight(heroSwiper);
+        this.matchVideoHeight(heroSwiper);
         swiper.on('slideChangeTransitionStart', () => this.pauseVideos(heroSwiper));
         swiper.on('slideChangeTransitionEnd', () => this.playActiveVideo(heroSwiper));
         requestAnimationFrame(() => this.playActiveVideo(heroSwiper));
     }
 
-  private matchVideoHeight(heroSwiper: HTMLElement): void {
-    const videoFrame = heroSwiper.querySelector<HTMLElement>(
-      '[data-hb-hero-video] .one-slide'
-    );
-    const referenceFrame = heroSwiper.querySelector<HTMLElement>(
-      '.swiper-slide:not([data-hb-hero-video]) .one-slide'
-    );
-    if (!videoFrame || !referenceFrame) return;
+    private matchVideoHeight(heroSwiper: HTMLElement): void {
+        const videoFrame = heroSwiper.querySelector<HTMLElement>(
+            '[data-hb-hero-video] .one-slide'
+        );
+        const referenceFrame = heroSwiper.querySelector<HTMLElement>(
+            '.swiper-slide:not([data-hb-hero-video]) .one-slide'
+        );
+        if (!videoFrame || !referenceFrame) return;
 
-    const syncHeight = () => {
-      const { height } = referenceFrame.getBoundingClientRect();
-      if (height > 0) videoFrame.style.height = `${height}px`;
-    };
+        const syncHeight = () => {
+            const { height } = referenceFrame.getBoundingClientRect();
+            if (height > 0) videoFrame.style.height = `${height}px`;
+        };
 
-    syncHeight();
-    this.resizeObserver?.disconnect();
-    this.resizeObserver = new ResizeObserver(syncHeight);
-    this.resizeObserver.observe(referenceFrame);
-  }
+        syncHeight();
+        this.resizeObserver?.disconnect();
+        this.resizeObserver = new ResizeObserver(syncHeight);
+        this.resizeObserver.observe(referenceFrame);
+    }
 
     private pauseVideos(heroSwiper: HTMLElement): void {
         heroSwiper
