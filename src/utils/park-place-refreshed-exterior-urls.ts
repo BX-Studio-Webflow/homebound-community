@@ -6,19 +6,19 @@ export const PARK_PLACE_REFRESHED_EXTERIOR_URLS: Record<string, string> = {
   'addison.transitional|3|Caprock':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc192125ef805b71645d__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp',
   'addison.transitional|4|Alabaster':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc18f348183cebff87bc__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84071b8045ed415db14a4__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp',
   'addison.transitional|2|Iron Ore':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc1847d62244c92619c8__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84071fa85b49e7f7d3edb__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp',
   'addison.tudor|2|Coral Gray':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc117c6fd66c86eac2f0__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp',
   'addison.tudor|5|Altitude Gray':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc109d104f28ede187d2__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp',
   'addison.tudor|3|Greenblack':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc0ef884d4a1be4b2a19__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa90750c4c0d23518803722__update_02_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp',
   'addison.tudor|1|Colonnade Gray':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc0e757d8f0d92959d8e__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa90750377bec32a1a1eb00__update_02_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp',
   'addison.tudor|4|Felted Wool':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc0ef884d4a1be4b29c5__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407262d057680bf84f54__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp',
   'addison.capeDutch|4|Pure White':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc06f884d4a1be4b255a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp',
   'addison.capeDutch|5|Felted Wool':
@@ -26,11 +26,11 @@ export const PARK_PLACE_REFRESHED_EXTERIOR_URLS: Record<string, string> = {
   'addison.capeDutch|2|Urbane Bronze':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc058b001558f0f42139__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp',
   'addison.capeDutch|1|Everest':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc041796b28dfb64f6c1__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa9074f3cbe7d27e4100879__update_02_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp',
   'addison.capeDutch|3|Iron Ore':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc04d90e0d765a30e875__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa9075042fefb4b893ee512__update_02_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp',
   'bandera.transitional|5|Worldly Gray':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418b001558f0f48835__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84072a7e6cc5f9f28aa99__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp',
   'bandera.transitional|2|Iron Ore':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418b001558f0f487d7__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp',
   'bandera.transitional|1|Newport':
@@ -38,7 +38,7 @@ export const PARK_PLACE_REFRESHED_EXTERIOR_URLS: Record<string, string> = {
   'bandera.transitional|3|Caprock':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc41ad56c86481cc9dcf__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp',
   'bandera.transitional|4|Alabaster':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc40b5443afc1476b81a__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840736cf0f7ab6313d873__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp',
   'bandera.tudor|4|Felted Wool':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc393da4674c75d1668e__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp',
   'bandera.tudor|1|Colonnade Gray':
@@ -46,7 +46,7 @@ export const PARK_PLACE_REFRESHED_EXTERIOR_URLS: Record<string, string> = {
   'bandera.tudor|2|Coral Gray':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc398b001558f0f46552__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp',
   'bandera.tudor|5|Altitude Gray':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc37323ef39a7a9c4d2d__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840731c11cd307f8e2f70__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp',
   'bandera.tudor|3|Greenblack':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc36d31a141ebbd7e4c8__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp',
   'bandera.capeDutch|4|Pure White':
@@ -54,7 +54,7 @@ export const PARK_PLACE_REFRESHED_EXTERIOR_URLS: Record<string, string> = {
   'bandera.capeDutch|3|Iron Ore':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c81638901070634b5__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp',
   'bandera.capeDutch|1|Everest':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2a8b001558f0f45911__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840741c11cd307f8e2fe5__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp',
   'bandera.capeDutch|5|Felted Wool':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2ac7138d528e3a1052__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp',
   'bandera.capeDutch|2|Urbane Bronze':
@@ -66,7 +66,7 @@ export const PARK_PLACE_REFRESHED_EXTERIOR_URLS: Record<string, string> = {
   'collin.transitional|5|Worldly Gray':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6be42bb36f4505a969__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp',
   'collin.transitional|4|Alabaster':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6af348183cebffbeed__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407462d057680bf85169__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp',
   'collin.transitional|2|Iron Ore':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc69c7138d528e3a57b0__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp',
   'collin.tudor|1|Colonnade Gray':
@@ -76,19 +76,19 @@ export const PARK_PLACE_REFRESHED_EXTERIOR_URLS: Record<string, string> = {
   'collin.tudor|2|Coral Gray':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c59d9060ea7ad38a3__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp',
   'collin.tudor|3|Greenblack':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5cb5443afc1476c87b__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84075d53f3132b3b5aeb4__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp',
   'collin.tudor|4|Felted Wool':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5cd31a141ebbd7f9e9__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840752df5172621f25726__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp',
   'collin.capeDutch|1|Everest':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc525bb405f1d10c49e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp',
   'collin.capeDutch|5|Felted Wool':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5047d62244c9263e79__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp',
   'collin.capeDutch|4|Pure White':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc50c7138d528e3a46ae__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407628becd398ae5e1e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp',
   'collin.capeDutch|2|Urbane Bronze':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5039d5fa0524a76044__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp',
   'collin.capeDutch|3|Iron Ore':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5038eaf00f0174f917__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84076d53f3132b3b5af65__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp',
   'grayson.transitional|2|Iron Ore':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9138eaf00f01753d06__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp',
   'grayson.transitional|3|Caprock':
@@ -96,7 +96,7 @@ export const PARK_PLACE_REFRESHED_EXTERIOR_URLS: Record<string, string> = {
   'grayson.transitional|1|Newport':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9124ac5a67c599912c__update_01_Transitional%20Color%20Scheme%201%20Newport.webp',
   'grayson.transitional|4|Alabaster':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc90a538e0265f7a6e90__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84076a7e6cc5f9f28ac76__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp',
   'grayson.transitional|5|Worldly Gray':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc908c87da4ea9b7a698__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp',
   'grayson.tudor|1|Colonnade Gray':
@@ -106,7 +106,7 @@ export const PARK_PLACE_REFRESHED_EXTERIOR_URLS: Record<string, string> = {
   'grayson.tudor|4|Felted Wool':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc884777aad14617b3f1__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp',
   'grayson.tudor|5|Altitude Gray':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc885bb405f1d10c6b78__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840776cf0f7ab6313db87__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp',
   'grayson.tudor|2|Coral Gray':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc8714616b12a1b68e63__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp',
   'grayson.capeDutch|1|Everest':
@@ -118,7 +118,7 @@ export const PARK_PLACE_REFRESHED_EXTERIOR_URLS: Record<string, string> = {
   'grayson.capeDutch|2|Urbane Bronze':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b438f7b41b4d6147d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp',
   'grayson.capeDutch|5|Felted Wool':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7ac8165c307761560d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84077a348951c4f245d5d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp',
   'magnolia.transitional|2|Iron Ore':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb337175f386f36ca62__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp',
   'magnolia.transitional|4|Alabaster':
@@ -134,11 +134,11 @@ export const PARK_PLACE_REFRESHED_EXTERIOR_URLS: Record<string, string> = {
   'magnolia.tudor|4|Felted Wool':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca96bccac03cad9dc87__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp',
   'magnolia.tudor|1|Colonnade Gray':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca99d104f28ede1ec57__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840781c11cd307f8e32c5__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp',
   'magnolia.tudor|2|Coral Gray':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca999359da766fe7c7b__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840784b7d133921ae2048__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp',
   'magnolia.tudor|5|Altitude Gray':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca86bccac03cad9dc26__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84078a3fe2c8f9c3bea48__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp',
   'magnolia.capeDutch|4|Pure White':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca08c87da4ea9b7b18c__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp',
   'magnolia.capeDutch|1|Everest':
@@ -148,5 +148,5 @@ export const PARK_PLACE_REFRESHED_EXTERIOR_URLS: Record<string, string> = {
   'magnolia.capeDutch|3|Iron Ore':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9f8c87da4ea9b7b0f4__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp',
   'magnolia.capeDutch|2|Urbane Bronze':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9f757d8f0d92965842__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp',
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84078a3fe2c8f9c3bea71__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp',
 };

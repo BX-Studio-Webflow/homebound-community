@@ -89,6 +89,8 @@ export const PARK_PLACE_REFRESHED_INTERIOR_URLS: Record<string, string> = {
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba95df27c0916a7588ee__update_01_Kitchen.webp',
   'grayson|pos-3|bathroom-interior':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7ba953da4674c75d04b51__update_01_Primary%20Bathroom.webp',
+  'grayson|pos-3|bedroom-interior':
+    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa83890aacfc4a904d26077__update_01_Casual_Organic_Primary_Bedroom.png',
   'magnolia|pos-1|kitchen-interior':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc4777aad14615fd42__update_01_Kitchen.webp',
   'magnolia|pos-1|bedroom-interior':

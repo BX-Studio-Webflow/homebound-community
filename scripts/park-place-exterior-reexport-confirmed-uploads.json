@@ -1,0 +1,173 @@
+[
+  {
+    "key": "addison.transitional|4|Alabaster",
+    "assetId": "6aa84071b8045ed415db14a4",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa84071b8045ed415db14a4__update_01_Transitional Color Scheme 4 Alabaster.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowMVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDFaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzFiODA0NWVkNDE1ZGIxNGE0X191cGRhdGVfMDFfVHJhbnNpdGlvbmFsIENvbG9yIFNjaGVtZSA0IEFsYWJhc3Rlci53ZWJwIn1dfQ==",
+    "signature": "17281fd4f43e9ce2a4871523b679b796ef9bce450875c38061782b4be7888425",
+    "date": "20260914T184401Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Addison/Transitional/_update_01_Transitional Color Scheme 4 Alabaster.webp"
+  },
+  {
+    "key": "addison.transitional|2|Iron Ore",
+    "assetId": "6aa84071fa85b49e7f7d3edb",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa84071fa85b49e7f7d3edb__update_01_Transitional Color Scheme 2 Iron Ore.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowMVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDFaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzFmYTg1YjQ5ZTdmN2QzZWRiX191cGRhdGVfMDFfVHJhbnNpdGlvbmFsIENvbG9yIFNjaGVtZSAyIElyb24gT3JlLndlYnAifV19",
+    "signature": "11e611d478b41b1562a16ee7c4e7be8928a1c1e57882277ea8dfe6af6172300c",
+    "date": "20260914T184401Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Addison/Transitional/_update_01_Transitional Color Scheme 2 Iron Ore.webp"
+  },
+  {
+    "key": "addison.tudor|4|Felted Wool",
+    "assetId": "6aa8407262d057680bf84f54",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa8407262d057680bf84f54__update_01_Modern Tudor Color Scheme 4 Felted Wool.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowMloiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDJaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzI2MmQwNTc2ODBiZjg0ZjU0X191cGRhdGVfMDFfTW9kZXJuIFR1ZG9yIENvbG9yIFNjaGVtZSA0IEZlbHRlZCBXb29sLndlYnAifV19",
+    "signature": "84f0e122b56322f16a36bf16be190b14c0c0ed05d6e27dfc2b70cee61a966c91",
+    "date": "20260914T184402Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Addison/Modern Tudor/_update_01_Modern Tudor Color Scheme 4 Felted Wool.webp"
+  },
+  {
+    "key": "bandera.transitional|5|Worldly Gray",
+    "assetId": "6aa84072a7e6cc5f9f28aa99",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa84072a7e6cc5f9f28aa99__update_01_Transitional Color Scheme 5 Worldly Gray.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowMloiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDJaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzJhN2U2Y2M1ZjlmMjhhYTk5X191cGRhdGVfMDFfVHJhbnNpdGlvbmFsIENvbG9yIFNjaGVtZSA1IFdvcmxkbHkgR3JheS53ZWJwIn1dfQ==",
+    "signature": "f6276c395e113747bb6b014bbb8f0cc858e9cdfed0b939adad97468e4fdcfa71",
+    "date": "20260914T184402Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Bandera/Transitional/_update_01_Transitional Color Scheme 5 Worldly Gray.webp"
+  },
+  {
+    "key": "bandera.transitional|4|Alabaster",
+    "assetId": "6aa840736cf0f7ab6313d873",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa840736cf0f7ab6313d873__update_01_Transitional Color Scheme 4 Alabaster.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowM1oiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDNaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzM2Y2YwZjdhYjYzMTNkODczX191cGRhdGVfMDFfVHJhbnNpdGlvbmFsIENvbG9yIFNjaGVtZSA0IEFsYWJhc3Rlci53ZWJwIn1dfQ==",
+    "signature": "995ac50b9147a26656c85de07bc3be5dc53c128cdb5db721d3fdf1725380bcbe",
+    "date": "20260914T184403Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Bandera/Transitional/_update_01_Transitional Color Scheme 4 Alabaster.webp"
+  },
+  {
+    "key": "bandera.tudor|5|Altitude Gray",
+    "assetId": "6aa840731c11cd307f8e2f70",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa840731c11cd307f8e2f70__update_01_Modern Tudor Color Scheme 5 Altitude Gray.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowM1oiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDNaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzMxYzExY2QzMDdmOGUyZjcwX191cGRhdGVfMDFfTW9kZXJuIFR1ZG9yIENvbG9yIFNjaGVtZSA1IEFsdGl0dWRlIEdyYXkud2VicCJ9XX0=",
+    "signature": "2e62ee8c5fdcb4b5aa3c10fd2c3a6ad3f3f2fb6eb6e4f2814a58855f9ff5bca0",
+    "date": "20260914T184403Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Bandera/Modern Tudor/_update_01_Modern Tudor Color Scheme 5 Altitude Gray.webp"
+  },
+  {
+    "key": "bandera.capeDutch|1|Everest",
+    "assetId": "6aa840741c11cd307f8e2fe5",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa840741c11cd307f8e2fe5__update_01_Modern Cape Dutch Color Scheme 1 Everest.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowNFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDRaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzQxYzExY2QzMDdmOGUyZmU1X191cGRhdGVfMDFfTW9kZXJuIENhcGUgRHV0Y2ggQ29sb3IgU2NoZW1lIDEgRXZlcmVzdC53ZWJwIn1dfQ==",
+    "signature": "1d1671e36651d53c3682626b54d8b92dc8a581d6130bf7972b205297d1c42f6a",
+    "date": "20260914T184404Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Bandera/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 1 Everest.webp"
+  },
+  {
+    "key": "collin.transitional|4|Alabaster",
+    "assetId": "6aa8407462d057680bf85169",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa8407462d057680bf85169__update_01_Transitional Color Scheme 4 Alabaster.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowNFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDRaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzQ2MmQwNTc2ODBiZjg1MTY5X191cGRhdGVfMDFfVHJhbnNpdGlvbmFsIENvbG9yIFNjaGVtZSA0IEFsYWJhc3Rlci53ZWJwIn1dfQ==",
+    "signature": "63aebef46108ad210149af3b46a46e4556f14b449db26c1f8d09613c8366288f",
+    "date": "20260914T184404Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Collin/Transitional/_update_01_Transitional Color Scheme 4 Alabaster.webp"
+  },
+  {
+    "key": "collin.tudor|3|Greenblack",
+    "assetId": "6aa84075d53f3132b3b5aeb4",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa84075d53f3132b3b5aeb4__update_01_Modern Tudor Color Scheme 3 Greenblack.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowNVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDVaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzVkNTNmMzEzMmIzYjVhZWI0X191cGRhdGVfMDFfTW9kZXJuIFR1ZG9yIENvbG9yIFNjaGVtZSAzIEdyZWVuYmxhY2sud2VicCJ9XX0=",
+    "signature": "f4db60c44594bc6267a0992ce2880053456d4bdb918c2af2fc8992bb35b69ef6",
+    "date": "20260914T184405Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Collin/Modern Tudor/_update_01_Modern Tudor Color Scheme 3 Greenblack.webp"
+  },
+  {
+    "key": "collin.tudor|4|Felted Wool",
+    "assetId": "6aa840752df5172621f25726",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa840752df5172621f25726__update_01_Modern Tudor Color Scheme 4 Felted Wool.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowNVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDVaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzUyZGY1MTcyNjIxZjI1NzI2X191cGRhdGVfMDFfTW9kZXJuIFR1ZG9yIENvbG9yIFNjaGVtZSA0IEZlbHRlZCBXb29sLndlYnAifV19",
+    "signature": "be07b05df8f32d531dcf4936cea528dbfc4666dfc78ed953f68ea2bee03305bb",
+    "date": "20260914T184405Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Collin/Modern Tudor/_update_01_Modern Tudor Color Scheme 4 Felted Wool.webp"
+  },
+  {
+    "key": "collin.capeDutch|4|Pure White",
+    "assetId": "6aa8407628becd398ae5e1e3",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa8407628becd398ae5e1e3__update_01_Modern Cape Dutch Color Scheme 4 Pure White.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowNloiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDZaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzYyOGJlY2QzOThhZTVlMWUzX191cGRhdGVfMDFfTW9kZXJuIENhcGUgRHV0Y2ggQ29sb3IgU2NoZW1lIDQgUHVyZSBXaGl0ZS53ZWJwIn1dfQ==",
+    "signature": "4cb8c51b5ea224d2d909e7ce813f5393f2939972dcf07f0c66265c29c51581d4",
+    "date": "20260914T184406Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Collin/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 4 Pure White.webp"
+  },
+  {
+    "key": "collin.capeDutch|3|Iron Ore",
+    "assetId": "6aa84076d53f3132b3b5af65",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa84076d53f3132b3b5af65__update_01_Modern Cape Dutch Color Scheme 3 Iron Ore.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowNloiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDZaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzZkNTNmMzEzMmIzYjVhZjY1X191cGRhdGVfMDFfTW9kZXJuIENhcGUgRHV0Y2ggQ29sb3IgU2NoZW1lIDMgSXJvbiBPcmUud2VicCJ9XX0=",
+    "signature": "ba5bbbfa29eb4eb6fdf00168502e691f37cb840a469e793d902afd1358458f35",
+    "date": "20260914T184406Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Collin/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 3 Iron Ore.webp"
+  },
+  {
+    "key": "grayson.transitional|4|Alabaster",
+    "assetId": "6aa84076a7e6cc5f9f28ac76",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa84076a7e6cc5f9f28ac76__update_01_Transitional Color Scheme 4 Alabaster.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowNloiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDZaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzZhN2U2Y2M1ZjlmMjhhYzc2X191cGRhdGVfMDFfVHJhbnNpdGlvbmFsIENvbG9yIFNjaGVtZSA0IEFsYWJhc3Rlci53ZWJwIn1dfQ==",
+    "signature": "e7333d5a2ec05284560cedf5eb24d2a198e0677d216639f74ca51d92205166c3",
+    "date": "20260914T184406Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Grayson/Transitional/_update_01_Transitional Color Scheme 4 Alabaster.webp"
+  },
+  {
+    "key": "grayson.tudor|5|Altitude Gray",
+    "assetId": "6aa840776cf0f7ab6313db87",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa840776cf0f7ab6313db87__update_01_Modern Tudor Color Scheme 5 Altitude Gray.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowN1oiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDdaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzc2Y2YwZjdhYjYzMTNkYjg3X191cGRhdGVfMDFfTW9kZXJuIFR1ZG9yIENvbG9yIFNjaGVtZSA1IEFsdGl0dWRlIEdyYXkud2VicCJ9XX0=",
+    "signature": "0949330d3c976347aefa3bbf3d30f1853c1bc5e3b3f3b3d852eb6c8cc3106ae4",
+    "date": "20260914T184407Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Grayson/Modern Tudor/_update_01_Modern Tudor Color Scheme 5 Altitude Gray.webp"
+  },
+  {
+    "key": "grayson.capeDutch|5|Felted Wool",
+    "assetId": "6aa84077a348951c4f245d5d",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa84077a348951c4f245d5d__update_01_Modern Cape Dutch Color Scheme 5 Felted Wool.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowN1oiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDdaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzdhMzQ4OTUxYzRmMjQ1ZDVkX191cGRhdGVfMDFfTW9kZXJuIENhcGUgRHV0Y2ggQ29sb3IgU2NoZW1lIDUgRmVsdGVkIFdvb2wud2VicCJ9XX0=",
+    "signature": "0e17296d802660f950353716c333793a87343d39b9d8d7d77f16351f5113f7a3",
+    "date": "20260914T184407Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Grayson/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 5 Felted Wool.webp"
+  },
+  {
+    "key": "magnolia.tudor|1|Colonnade Gray",
+    "assetId": "6aa840781c11cd307f8e32c5",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa840781c11cd307f8e32c5__update_01_Modern Tudor Color Scheme 1 Colonnade Gray.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowOFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDhaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzgxYzExY2QzMDdmOGUzMmM1X191cGRhdGVfMDFfTW9kZXJuIFR1ZG9yIENvbG9yIFNjaGVtZSAxIENvbG9ubmFkZSBHcmF5LndlYnAifV19",
+    "signature": "564f8054b903f12b6d9b4ff6c21871d80386d063ca88bf2f088470103984c8cb",
+    "date": "20260914T184408Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Magnolia/Modern Tudor/_update_01_Modern Tudor Color Scheme 1 Colonnade Gray.webp"
+  },
+  {
+    "key": "magnolia.tudor|2|Coral Gray",
+    "assetId": "6aa840784b7d133921ae2048",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa840784b7d133921ae2048__update_01_Modern Tudor Color Scheme 2 Coral Gray.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowOFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDhaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzg0YjdkMTMzOTIxYWUyMDQ4X191cGRhdGVfMDFfTW9kZXJuIFR1ZG9yIENvbG9yIFNjaGVtZSAyIENvcmFsIEdyYXkud2VicCJ9XX0=",
+    "signature": "1aaf667955389fa1de5d6908438bb05c64a37b5f30e83cc08be82bdd5cc8b0ed",
+    "date": "20260914T184408Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Magnolia/Modern Tudor/_update_01_Modern Tudor Color Scheme 2 Coral Gray.webp"
+  },
+  {
+    "key": "magnolia.tudor|5|Altitude Gray",
+    "assetId": "6aa84078a3fe2c8f9c3bea48",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa84078a3fe2c8f9c3bea48__update_01_Modern Tudor Color Scheme 5 Altitude Gray.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowOFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDhaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzhhM2ZlMmM4ZjljM2JlYTQ4X191cGRhdGVfMDFfTW9kZXJuIFR1ZG9yIENvbG9yIFNjaGVtZSA1IEFsdGl0dWRlIEdyYXkud2VicCJ9XX0=",
+    "signature": "71b148503b45f50e4e6f950e042ae096a96264779ef4c1a8e7a81dde9854034c",
+    "date": "20260914T184408Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Magnolia/Modern Tudor/_update_01_Modern Tudor Color Scheme 5 Altitude Gray.webp"
+  },
+  {
+    "key": "magnolia.capeDutch|2|Urbane Bronze",
+    "assetId": "6aa84078a3fe2c8f9c3bea71",
+    "s3Key": "601ca16f0bb27e965ee867a0/6aa84078a3fe2c8f9c3bea71__update_01_Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp",
+    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNFQxOTo0NDowOFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE0L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNFQxODQ0MDhaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhODQwNzhhM2ZlMmM4ZjljM2JlYTcxX191cGRhdGVfMDFfTW9kZXJuIENhcGUgRHV0Y2ggQ29sb3IgU2NoZW1lIDIgVXJiYW5lIEJyb256ZS53ZWJwIn1dfQ==",
+    "signature": "feaf3cae695d555668bbe11da27730218ae5562c4a1d5cee1a49bbfb84196c1f",
+    "date": "20260914T184408Z",
+    "webpPath": "src/example-assets/Park Place/exteriors-refresh-2/The Magnolia/Modern Cape Dutch/_update_01_Modern Cape Dutch Color Scheme 2 Urbane Bronze.webp"
+  }
+]

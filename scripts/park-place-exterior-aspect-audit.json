@@ -1,0 +1,684 @@
+{
+  "aspectCounts": {
+    "1.50": 71,
+    "1.39": 3,
+    "1.38": 1
+  },
+  "results": [
+    {
+      "key": "addison.transitional|5|Worldly Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc19757d8f0d9295c414__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+      "assetId": "6aa7bc19757d8f0d9295c414",
+      "size": 1347840,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "addison.transitional|1|Newport",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc194a03cba1e864b8de__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+      "assetId": "6aa7bc194a03cba1e864b8de",
+      "size": 1315882,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "addison.transitional|3|Caprock",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc192125ef805b71645d__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+      "assetId": "6aa7bc192125ef805b71645d",
+      "size": 1264114,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "addison.transitional|4|Alabaster",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84071b8045ed415db14a4__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+      "assetId": "6aa84071b8045ed415db14a4",
+      "size": 1266388,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "addison.transitional|2|Iron Ore",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84071fa85b49e7f7d3edb__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+      "assetId": "6aa84071fa85b49e7f7d3edb",
+      "size": 1321946,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "addison.tudor|2|Coral Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc117c6fd66c86eac2f0__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+      "assetId": "6aa7bc117c6fd66c86eac2f0",
+      "size": 1368548,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "addison.tudor|5|Altitude Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc109d104f28ede187d2__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+      "assetId": "6aa7bc109d104f28ede187d2",
+      "size": 1243302,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "addison.tudor|3|Greenblack",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa90750c4c0d23518803722__update_02_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+      "assetId": "6aa90750c4c0d23518803722",
+      "size": 438124,
+      "width": 1145,
+      "height": 826,
+      "aspect": 1.3862
+    },
+    {
+      "key": "addison.tudor|1|Colonnade Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa90750377bec32a1a1eb00__update_02_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+      "assetId": "6aa90750377bec32a1a1eb00",
+      "size": 421622,
+      "width": 1145,
+      "height": 826,
+      "aspect": 1.3862
+    },
+    {
+      "key": "addison.tudor|4|Felted Wool",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407262d057680bf84f54__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+      "assetId": "6aa8407262d057680bf84f54",
+      "size": 1306442,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "addison.capeDutch|4|Pure White",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc06f884d4a1be4b255a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+      "assetId": "6aa7bc06f884d4a1be4b255a",
+      "size": 1430142,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "addison.capeDutch|5|Felted Wool",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc055bb405f1d10beb2b__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+      "assetId": "6aa7bc055bb405f1d10beb2b",
+      "size": 1487708,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "addison.capeDutch|2|Urbane Bronze",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc058b001558f0f42139__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+      "assetId": "6aa7bc058b001558f0f42139",
+      "size": 1340674,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "addison.capeDutch|1|Everest",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa9074f3cbe7d27e4100879__update_02_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+      "assetId": "6aa9074f3cbe7d27e4100879",
+      "size": 427032,
+      "width": 1145,
+      "height": 826,
+      "aspect": 1.3862
+    },
+    {
+      "key": "addison.capeDutch|3|Iron Ore",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa9075042fefb4b893ee512__update_02_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+      "assetId": "6aa9075042fefb4b893ee512",
+      "size": 452574,
+      "width": 1145,
+      "height": 827,
+      "aspect": 1.3845
+    },
+    {
+      "key": "bandera.transitional|5|Worldly Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84072a7e6cc5f9f28aa99__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+      "assetId": "6aa84072a7e6cc5f9f28aa99",
+      "size": 1143434,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "bandera.transitional|2|Iron Ore",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418b001558f0f487d7__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+      "assetId": "6aa7bc418b001558f0f487d7",
+      "size": 27360,
+      "width": 512,
+      "height": 342,
+      "aspect": 1.4971
+    },
+    {
+      "key": "bandera.transitional|1|Newport",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418163890107064db0__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+      "assetId": "6aa7bc418163890107064db0",
+      "size": 1178314,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "bandera.transitional|3|Caprock",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc41ad56c86481cc9dcf__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+      "assetId": "6aa7bc41ad56c86481cc9dcf",
+      "size": 1215930,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "bandera.transitional|4|Alabaster",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840736cf0f7ab6313d873__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+      "assetId": "6aa840736cf0f7ab6313d873",
+      "size": 1146738,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "bandera.tudor|4|Felted Wool",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc393da4674c75d1668e__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+      "assetId": "6aa7bc393da4674c75d1668e",
+      "size": 1302248,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "bandera.tudor|1|Colonnade Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc3914616b12a1b64f9d__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+      "assetId": "6aa7bc3914616b12a1b64f9d",
+      "size": 1217926,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "bandera.tudor|2|Coral Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc398b001558f0f46552__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+      "assetId": "6aa7bc398b001558f0f46552",
+      "size": 1102944,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "bandera.tudor|5|Altitude Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840731c11cd307f8e2f70__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+      "assetId": "6aa840731c11cd307f8e2f70",
+      "size": 1231848,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "bandera.tudor|3|Greenblack",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc36d31a141ebbd7e4c8__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+      "assetId": "6aa7bc36d31a141ebbd7e4c8",
+      "size": 24154,
+      "width": 512,
+      "height": 342,
+      "aspect": 1.4971
+    },
+    {
+      "key": "bandera.capeDutch|4|Pure White",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c3da4674c75d158b7__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+      "assetId": "6aa7bc2c3da4674c75d158b7",
+      "size": 1286524,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "bandera.capeDutch|3|Iron Ore",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c81638901070634b5__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+      "assetId": "6aa7bc2c81638901070634b5",
+      "size": 1386946,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "bandera.capeDutch|1|Everest",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840741c11cd307f8e2fe5__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+      "assetId": "6aa840741c11cd307f8e2fe5",
+      "size": 1179928,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "bandera.capeDutch|5|Felted Wool",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2ac7138d528e3a1052__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+      "assetId": "6aa7bc2ac7138d528e3a1052",
+      "size": 23730,
+      "width": 512,
+      "height": 342,
+      "aspect": 1.4971
+    },
+    {
+      "key": "bandera.capeDutch|2|Urbane Bronze",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2ad90e0d765a30fbc1__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+      "assetId": "6aa7bc2ad90e0d765a30fbc1",
+      "size": 24354,
+      "width": 512,
+      "height": 342,
+      "aspect": 1.4971
+    },
+    {
+      "key": "collin.transitional|1|Newport",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b323ef39a7a9c707f__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+      "assetId": "6aa7bc6b323ef39a7a9c707f",
+      "size": 1553796,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "collin.transitional|3|Caprock",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b2125ef805b71a18e__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+      "assetId": "6aa7bc6b2125ef805b71a18e",
+      "size": 1631218,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "collin.transitional|5|Worldly Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6be42bb36f4505a969__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+      "assetId": "6aa7bc6be42bb36f4505a969",
+      "size": 1556532,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "collin.transitional|4|Alabaster",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407462d057680bf85169__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+      "assetId": "6aa8407462d057680bf85169",
+      "size": 1541996,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "collin.transitional|2|Iron Ore",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc69c7138d528e3a57b0__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+      "assetId": "6aa7bc69c7138d528e3a57b0",
+      "size": 29374,
+      "width": 512,
+      "height": 342,
+      "aspect": 1.4971
+    },
+    {
+      "key": "collin.tudor|1|Colonnade Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5ce5143ea322519226__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+      "assetId": "6aa7bc5ce5143ea322519226",
+      "size": 1602342,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "collin.tudor|5|Altitude Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c193b94d23a39d4c1__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+      "assetId": "6aa7bc5c193b94d23a39d4c1",
+      "size": 1647188,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "collin.tudor|2|Coral Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c59d9060ea7ad38a3__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+      "assetId": "6aa7bc5c59d9060ea7ad38a3",
+      "size": 1600446,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "collin.tudor|3|Greenblack",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84075d53f3132b3b5aeb4__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+      "assetId": "6aa84075d53f3132b3b5aeb4",
+      "size": 1733078,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "collin.tudor|4|Felted Wool",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840752df5172621f25726__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+      "assetId": "6aa840752df5172621f25726",
+      "size": 1594880,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "collin.capeDutch|1|Everest",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc525bb405f1d10c49e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+      "assetId": "6aa7bc525bb405f1d10c49e3",
+      "size": 1638182,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "collin.capeDutch|5|Felted Wool",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5047d62244c9263e79__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+      "assetId": "6aa7bc5047d62244c9263e79",
+      "size": 29596,
+      "width": 512,
+      "height": 342,
+      "aspect": 1.4971
+    },
+    {
+      "key": "collin.capeDutch|4|Pure White",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407628becd398ae5e1e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+      "assetId": "6aa8407628becd398ae5e1e3",
+      "size": 1548732,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "collin.capeDutch|2|Urbane Bronze",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5039d5fa0524a76044__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+      "assetId": "6aa7bc5039d5fa0524a76044",
+      "size": 31130,
+      "width": 512,
+      "height": 342,
+      "aspect": 1.4971
+    },
+    {
+      "key": "collin.capeDutch|3|Iron Ore",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84076d53f3132b3b5af65__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+      "assetId": "6aa84076d53f3132b3b5af65",
+      "size": 1801690,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "grayson.transitional|2|Iron Ore",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9138eaf00f01753d06__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+      "assetId": "6aa7bc9138eaf00f01753d06",
+      "size": 1316514,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "grayson.transitional|3|Caprock",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9139d5fa0524a78d37__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+      "assetId": "6aa7bc9139d5fa0524a78d37",
+      "size": 1419802,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "grayson.transitional|1|Newport",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9124ac5a67c599912c__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+      "assetId": "6aa7bc9124ac5a67c599912c",
+      "size": 1313212,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "grayson.transitional|4|Alabaster",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84076a7e6cc5f9f28ac76__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+      "assetId": "6aa84076a7e6cc5f9f28ac76",
+      "size": 1316748,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "grayson.transitional|5|Worldly Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc908c87da4ea9b7a698__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+      "assetId": "6aa7bc908c87da4ea9b7a698",
+      "size": 28572,
+      "width": 512,
+      "height": 342,
+      "aspect": 1.4971
+    },
+    {
+      "key": "grayson.tudor|1|Colonnade Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc8879cc6cc768b6d94b__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+      "assetId": "6aa7bc8879cc6cc768b6d94b",
+      "size": 1412828,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "grayson.tudor|3|Greenblack",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc88f43dc1e9672082fe__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+      "assetId": "6aa7bc88f43dc1e9672082fe",
+      "size": 1271558,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "grayson.tudor|4|Felted Wool",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc884777aad14617b3f1__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+      "assetId": "6aa7bc884777aad14617b3f1",
+      "size": 1436500,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "grayson.tudor|5|Altitude Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840776cf0f7ab6313db87__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+      "assetId": "6aa840776cf0f7ab6313db87",
+      "size": 1390236,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "grayson.tudor|2|Coral Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc8714616b12a1b68e63__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+      "assetId": "6aa7bc8714616b12a1b68e63",
+      "size": 26896,
+      "width": 512,
+      "height": 342,
+      "aspect": 1.4971
+    },
+    {
+      "key": "grayson.capeDutch|1|Everest",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b5e1e0993e9706ca8__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+      "assetId": "6aa7bc7b5e1e0993e9706ca8",
+      "size": 1437510,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "grayson.capeDutch|4|Pure White",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7bdf27c0916a777006__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+      "assetId": "6aa7bc7bdf27c0916a777006",
+      "size": 1378916,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "grayson.capeDutch|3|Iron Ore",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b6bccac03cad99b9f__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+      "assetId": "6aa7bc7b6bccac03cad99b9f",
+      "size": 1381336,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "grayson.capeDutch|2|Urbane Bronze",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b438f7b41b4d6147d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+      "assetId": "6aa7bc7b438f7b41b4d6147d",
+      "size": 1405624,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "grayson.capeDutch|5|Felted Wool",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84077a348951c4f245d5d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+      "assetId": "6aa84077a348951c4f245d5d",
+      "size": 1311846,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "magnolia.transitional|2|Iron Ore",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb337175f386f36ca62__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+      "assetId": "6aa7bcb337175f386f36ca62",
+      "size": 1310476,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "magnolia.transitional|4|Alabaster",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb39d104f28ede1f232__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+      "assetId": "6aa7bcb39d104f28ede1f232",
+      "size": 1342868,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "magnolia.transitional|3|Caprock",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb238eaf00f0175536f__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+      "assetId": "6aa7bcb238eaf00f0175536f",
+      "size": 26192,
+      "width": 512,
+      "height": 342,
+      "aspect": 1.4971
+    },
+    {
+      "key": "magnolia.transitional|1|Newport",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb245bdcf809889c4c7__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+      "assetId": "6aa7bcb245bdcf809889c4c7",
+      "size": 26216,
+      "width": 512,
+      "height": 342,
+      "aspect": 1.4971
+    },
+    {
+      "key": "magnolia.transitional|5|Worldly Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb231b62b645e9449f2__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+      "assetId": "6aa7bcb231b62b645e9449f2",
+      "size": 25936,
+      "width": 512,
+      "height": 342,
+      "aspect": 1.4971
+    },
+    {
+      "key": "magnolia.tudor|3|Greenblack",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca999359da766fe7cbd__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+      "assetId": "6aa7bca999359da766fe7cbd",
+      "size": 1373688,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "magnolia.tudor|4|Felted Wool",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca96bccac03cad9dc87__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+      "assetId": "6aa7bca96bccac03cad9dc87",
+      "size": 1283332,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "magnolia.tudor|1|Colonnade Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840781c11cd307f8e32c5__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+      "assetId": "6aa840781c11cd307f8e32c5",
+      "size": 1367662,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "magnolia.tudor|2|Coral Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840784b7d133921ae2048__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+      "assetId": "6aa840784b7d133921ae2048",
+      "size": 1375380,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "magnolia.tudor|5|Altitude Gray",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84078a3fe2c8f9c3bea48__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+      "assetId": "6aa84078a3fe2c8f9c3bea48",
+      "size": 1362630,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "magnolia.capeDutch|4|Pure White",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca08c87da4ea9b7b18c__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+      "assetId": "6aa7bca08c87da4ea9b7b18c",
+      "size": 1337214,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "magnolia.capeDutch|1|Everest",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca07c6fd66c86eb4e61__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+      "assetId": "6aa7bca07c6fd66c86eb4e61",
+      "size": 1367762,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "magnolia.capeDutch|5|Felted Wool",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca05bb405f1d10c770a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+      "assetId": "6aa7bca05bb405f1d10c770a",
+      "size": 1471590,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    },
+    {
+      "key": "magnolia.capeDutch|3|Iron Ore",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9f8c87da4ea9b7b0f4__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+      "assetId": "6aa7bc9f8c87da4ea9b7b0f4",
+      "size": 25048,
+      "width": 512,
+      "height": 342,
+      "aspect": 1.4971
+    },
+    {
+      "key": "magnolia.capeDutch|2|Urbane Bronze",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84078a3fe2c8f9c3bea71__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+      "assetId": "6aa84078a3fe2c8f9c3bea71",
+      "size": 1370422,
+      "width": 4096,
+      "height": 2731,
+      "aspect": 1.4998
+    }
+  ]
+}
