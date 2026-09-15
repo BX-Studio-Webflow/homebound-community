@@ -6384,6 +6384,76 @@
     }
   };
 
+  // src/utils/hero-video.ts
+  var HeroVideoController = class _HeroVideoController {
+    constructor(configs) {
+      this.configs = configs;
+    }
+    static HERO_SWIPER_SELECTOR = "[hero-swiper]";
+    static VIDEO_SLIDE_SELECTOR = "[data-hb-hero-video]";
+    resizeObserver = null;
+    init() {
+      const config = this.configs.find(
+        ({ enabled, pathname }) => enabled && pathname === window.location.pathname
+      );
+      if (!config) return;
+      const heroSwiper = document.querySelector(
+        _HeroVideoController.HERO_SWIPER_SELECTOR
+      );
+      const swiper = heroSwiper?.swiper;
+      if (!swiper || heroSwiper.querySelector(_HeroVideoController.VIDEO_SLIDE_SELECTOR)) return;
+      swiper.addSlide(config.index, this.createSlide(config));
+      this.matchVideoHeight(heroSwiper);
+      swiper.on("slideChangeTransitionStart", () => this.pauseVideos(heroSwiper));
+      swiper.on("slideChangeTransitionEnd", () => this.playActiveVideo(heroSwiper));
+      requestAnimationFrame(() => this.playActiveVideo(heroSwiper));
+    }
+    matchVideoHeight(heroSwiper) {
+      const videoFrame = heroSwiper.querySelector(
+        "[data-hb-hero-video] .one-slide"
+      );
+      const referenceFrame = heroSwiper.querySelector(
+        ".swiper-slide:not([data-hb-hero-video]) .one-slide"
+      );
+      if (!videoFrame || !referenceFrame) return;
+      const syncHeight = () => {
+        const { height } = referenceFrame.getBoundingClientRect();
+        if (height > 0) videoFrame.style.height = `${height}px`;
+      };
+      syncHeight();
+      this.resizeObserver?.disconnect();
+      this.resizeObserver = new ResizeObserver(syncHeight);
+      this.resizeObserver.observe(referenceFrame);
+    }
+    pauseVideos(heroSwiper) {
+      heroSwiper.querySelectorAll("[data-hb-hero-video] video").forEach((video) => video.pause());
+    }
+    playActiveVideo(heroSwiper) {
+      const video = heroSwiper.querySelector(
+        "[data-hb-hero-video].swiper-slide-active video"
+      );
+      if (video) void video.play().catch(() => void 0);
+    }
+    createSlide({ videoUrl, title }) {
+      return `
+      <div class="swiper-slide is-hero-video" data-hb-hero-video>
+        <div class="one-slide" style="position:relative;width:100%;overflow:hidden">
+          <video
+            class="Verbal-visual"
+            muted
+            playsinline
+            loop
+            aria-label="${title}"
+            style="position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover"
+          >
+            <source src="${videoUrl}" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    `;
+    }
+  };
+
   // src/utils/interior-color-scheme.ts
   var ColorSchemeController = class {
     hasInit = false;
@@ -7393,6 +7463,15 @@
       containerSelector: ".hidden-community-gallery-collection"
     }
   ];
+  var heroVideoConfigs = [
+    {
+      enabled: true,
+      pathname: "/upcoming-communities/lakeside",
+      videoUrl: "https://player.vimeo.com/progressive_redirect/playback/1180975407/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&signature=2079a861de0de589c730b923f58d52e8ce30e098c37a9c2b8afde2ec25c79236",
+      title: "The Villas at Lakeside video",
+      index: 0
+    }
+  ];
   galleryConfigs.forEach((config) => {
     const element = document.querySelector(config.triggerSelector);
     if (!element) {
@@ -7402,6 +7481,8 @@
   });
   window.Webflow ||= [];
   window.Webflow.push(() => {
+    const heroVideoController = new HeroVideoController(heroVideoConfigs);
+    heroVideoController.init();
     const stickyNavController = new StickyNavController();
     stickyNavController.init();
     const galleryController = new GalleryController(galleryConfigs);
