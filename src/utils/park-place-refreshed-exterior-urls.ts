@@ -10,7 +10,7 @@ export const PARK_PLACE_REFRESHED_EXTERIOR_URLS: Record<string, string> = {
   'addison.transitional|2|Iron Ore':
     'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aa965be594087632ec89ebe_addison-transitional-2-iron-ore-v4.webp',
   'addison.tudor|2|Coral Gray':
-      'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aa96a666ca1939825bc92a0__update_06_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp',
+    'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aa96a666ca1939825bc92a0__update_06_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp',
   'addison.tudor|5|Altitude Gray':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc109d104f28ede187d2__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp',
   'addison.tudor|3|Greenblack':

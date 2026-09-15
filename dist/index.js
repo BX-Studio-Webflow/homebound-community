@@ -1,4 +1,6285 @@
-"use strict";(()=>{var _t=Object.defineProperty;var Ct=(e,t,a)=>t in e?_t(e,t,{enumerable:!0,configurable:!0,writable:!0,value:a}):e[t]=a;var z=(e,t,a)=>Ct(e,typeof t!="symbol"?t+"":t,a);var ue=class{init(){let t=document.querySelectorAll('[dev-target="accordion-item"]');if(!t.length){console.error('AccordionController: No [dev-target="accordion-item"] elements found.');return}t.forEach(a=>{a.addEventListener("mouseenter",()=>{t.forEach(s=>s.classList.remove("is-active")),a.classList.add("is-active")}),a.addEventListener("mouseleave",()=>{a.classList.remove("is-active")})})}};var Et={"explore-plans-trigger":"explore-plans-tab","explore-homes-trigger":"explore-homes-tab"},pe=class{constructor(t={}){z(this,"activeTrigger",null);z(this,"options");z(this,"triggerToPanel");this.options=t,this.triggerToPanel=t.triggerToPanel??Et}init(){let t=document.querySelector('[dev-target="explore-tab-header"]'),a=document.querySelector('[dev-target="explore-tab-body"]');if(!t){console.error('ExploreTabsController: No [dev-target="explore-tab-header"] found.');return}if(!a){console.error('ExploreTabsController: No [dev-target="explore-tab-body"] found.');return}Object.entries(this.triggerToPanel).forEach(([r,i])=>{let l=document.querySelector(`[dev-target="${r}"]`),n=document.querySelector(`[dev-target="${i}"]`);if(!l){console.error(`ExploreTabsController: No [dev-target="${r}"] found.`);return}if(!n){console.error(`ExploreTabsController: No [dev-target="${i}"] found.`);return}l.addEventListener("click",()=>this.activate(r))});let s=Object.keys(this.triggerToPanel),o=s.map(r=>document.querySelector(`[dev-target="${r}"].is-active`)).find(Boolean);if(o){let r=o.getAttribute("dev-target");r&&this.activate(r)}else{let r=s[0];r&&this.activate(r)}}activate(t){if(this.activeTrigger===t)return;let a=this.triggerToPanel[t];a&&(Object.keys(this.triggerToPanel).forEach(s=>{document.querySelector(`[dev-target="${s}"]`)?.classList.toggle("is-active",s===t)}),Object.values(this.triggerToPanel).forEach(s=>{document.querySelector(`[dev-target="${s}"]`)?.classList.toggle("hide",s!==a)}),this.toggleHousePlansCompanionTabs(t),this.activeTrigger=t)}toggleHousePlansCompanionTabs(t){if(!this.options.isHousePlansGallery||!this.options.firstTabSelector||!this.options.secondTabSelector)return;let a=document.querySelector(this.options.firstTabSelector),s=document.querySelector(this.options.secondTabSelector);if(!a||!s){console.error('ExploreTabsController: No [dev-target="first-tab"] or [dev-target="second-tab"] found.');return}let o=Object.keys(this.triggerToPanel)[0],r=t===o;a.classList.toggle("hide",!r),s.classList.toggle("hide",r)}};function qe(e){return e!==null&&typeof e=="object"&&"constructor"in e&&e.constructor===Object}function Ee(e={},t={}){let a=["__proto__","constructor","prototype"];Object.keys(t).filter(s=>a.indexOf(s)<0).forEach(s=>{typeof e[s]>"u"?e[s]=t[s]:qe(t[s])&&qe(e[s])&&Object.keys(t[s]).length>0&&Ee(e[s],t[s])})}var Ye={body:{},addEventListener(){},removeEventListener(){},activeElement:{blur(){},nodeName:""},querySelector(){return null},querySelectorAll(){return[]},getElementById(){return null},createEvent(){return{initEvent(){}}},createElement(){return{children:[],childNodes:[],style:{},setAttribute(){},getElementsByTagName(){return[]}}},createElementNS(){return{}},importNode(){return null},location:{hash:"",host:"",hostname:"",href:"",origin:"",pathname:"",protocol:"",search:""}};function $(){let e=typeof document<"u"?document:{};return Ee(e,Ye),e}var Tt={document:Ye,navigator:{userAgent:""},location:{hash:"",host:"",hostname:"",href:"",origin:"",pathname:"",protocol:"",search:""},history:{replaceState(){},pushState(){},go(){},back(){}},CustomEvent:function(){return this},addEventListener(){},removeEventListener(){},getComputedStyle(){return{getPropertyValue(){return""}}},Image(){},Date(){},screen:{},setTimeout(){},clearTimeout(){},matchMedia(){return{}},requestAnimationFrame(e){return typeof setTimeout>"u"?(e(),null):setTimeout(e,0)},cancelAnimationFrame(e){typeof setTimeout>"u"||clearTimeout(e)}};function O(){let e=typeof window<"u"?window:{};return Ee(e,Tt),e}function je(e=""){return e.trim().split(" ").filter(t=>!!t.trim())}function Ue(e){let t=e;Object.keys(t).forEach(a=>{try{t[a]=null}catch{}try{delete t[a]}catch{}})}function se(e,t=0){return setTimeout(e,t)}function Q(){return Date.now()}function xt(e){let t=O(),a;return t.getComputedStyle&&(a=t.getComputedStyle(e,null)),!a&&e.currentStyle&&(a=e.currentStyle),a||(a=e.style),a}function Te(e,t="x"){let a=O(),s,o,r,i=xt(e);return a.WebKitCSSMatrix?(o=i.transform||i.webkitTransform,o.split(",").length>6&&(o=o.split(", ").map(l=>l.replace(",",".")).join(", ")),r=new a.WebKitCSSMatrix(o==="none"?"":o)):(r=i.MozTransform||i.OTransform||i.MsTransform||i.msTransform||i.transform||i.getPropertyValue("transform").replace("translate(","matrix(1, 0, 0, 1,"),s=r.toString().split(",")),t==="x"&&(a.WebKitCSSMatrix?o=r.m41:s.length===16?o=parseFloat(s[12]):o=parseFloat(s[4])),t==="y"&&(a.WebKitCSSMatrix?o=r.m42:s.length===16?o=parseFloat(s[13]):o=parseFloat(s[5])),o||0}function ae(e){return typeof e=="object"&&e!==null&&e.constructor&&Object.prototype.toString.call(e).slice(8,-1)==="Object"}function Mt(e){return typeof window<"u"&&typeof window.HTMLElement<"u"?e instanceof HTMLElement:e&&(e.nodeType===1||e.nodeType===11)}function R(...e){let t=Object(e[0]);for(let a=1;a<e.length;a+=1){let s=e[a];if(s!=null&&!Mt(s)){let o=Object.keys(Object(s)).filter(r=>r!=="__proto__"&&r!=="constructor"&&r!=="prototype");for(let r=0,i=o.length;r<i;r+=1){let l=o[r],n=Object.getOwnPropertyDescriptor(s,l);n!==void 0&&n.enumerable&&(ae(t[l])&&ae(s[l])?s[l].__swiper__?t[l]=s[l]:R(t[l],s[l]):!ae(t[l])&&ae(s[l])?(t[l]={},s[l].__swiper__?t[l]=s[l]:R(t[l],s[l])):t[l]=s[l])}}}return t}function Y(e,t,a){e.style.setProperty(t,a)}function xe({swiper:e,targetPosition:t,side:a}){let s=O(),o=-e.translate,r=null,i,l=e.params.speed;e.wrapperEl.style.scrollSnapType="none",s.cancelAnimationFrame(e.cssModeFrameID);let n=t>o?"next":"prev",c=(d,h)=>n==="next"&&d>=h||n==="prev"&&d<=h,u=()=>{i=new Date().getTime(),r===null&&(r=i);let d=Math.max(Math.min((i-r)/l,1),0),h=.5-Math.cos(d*Math.PI)/2,f=o+h*(t-o);if(c(f,t)&&(f=t),e.wrapperEl.scrollTo({[a]:f}),c(f,t)){e.wrapperEl.style.overflow="hidden",e.wrapperEl.style.scrollSnapType="",setTimeout(()=>{e.wrapperEl.style.overflow="",e.wrapperEl.scrollTo({[a]:f})}),s.cancelAnimationFrame(e.cssModeFrameID);return}e.cssModeFrameID=s.requestAnimationFrame(u)};u()}function H(e,t=""){let a=O(),s=[...e.children];return a.HTMLSlotElement&&e instanceof HTMLSlotElement&&s.push(...e.assignedElements()),t?s.filter(o=>o.matches(t)):s}function Lt(e,t){let a=[t];for(;a.length>0;){let s=a.shift();if(e===s)return!0;a.push(...s.children,...s.shadowRoot?s.shadowRoot.children:[],...s.assignedElements?s.assignedElements():[])}}function Ke(e,t){let a=O(),s=t.contains(e);return!s&&a.HTMLSlotElement&&t instanceof HTMLSlotElement&&(s=[...t.assignedElements()].includes(e),s||(s=Lt(e,t))),s}function ne(e){try{console.warn(e);return}catch{}}function N(e,t=[]){let a=document.createElement(e);return a.classList.add(...Array.isArray(t)?t:je(t)),a}function me(e){let t=O(),a=$(),s=e.getBoundingClientRect(),o=a.body,r=e.clientTop||o.clientTop||0,i=e.clientLeft||o.clientLeft||0,l=e===t?t.scrollY:e.scrollTop,n=e===t?t.scrollX:e.scrollLeft;return{top:s.top+l-r,left:s.left+n-i}}function Ze(e,t){let a=[];for(;e.previousElementSibling;){let s=e.previousElementSibling;t?s.matches(t)&&a.push(s):a.push(s),e=s}return a}function Je(e,t){let a=[];for(;e.nextElementSibling;){let s=e.nextElementSibling;t?s.matches(t)&&a.push(s):a.push(s),e=s}return a}function F(e,t){return O().getComputedStyle(e,null).getPropertyValue(t)}function ee(e){let t=e,a;if(t){for(a=0;(t=t.previousSibling)!==null;)t.nodeType===1&&(a+=1);return a}}function j(e,t){let a=[],s=e.parentElement;for(;s;)t?s.matches(t)&&a.push(s):a.push(s),s=s.parentElement;return a}function ie(e,t,a){let s=O();return a?e[t==="width"?"offsetWidth":"offsetHeight"]+parseFloat(s.getComputedStyle(e,null).getPropertyValue(t==="width"?"margin-right":"margin-top"))+parseFloat(s.getComputedStyle(e,null).getPropertyValue(t==="width"?"margin-left":"margin-bottom")):e.offsetWidth}function G(e){return(Array.isArray(e)?e:[e]).filter(t=>!!t)}function U(e,t=""){typeof trustedTypes<"u"?e.innerHTML=trustedTypes.createPolicy("html",{createHTML:a=>a}).createHTML(t):e.innerHTML=t}var Me;function zt(){let e=O(),t=$();return{smoothScroll:t.documentElement&&t.documentElement.style&&"scrollBehavior"in t.documentElement.style,touch:!!("ontouchstart"in e||e.DocumentTouch&&t instanceof e.DocumentTouch)}}function ot(){return Me||(Me=zt()),Me}var Le;function Pt({userAgent:e}={}){let t=ot(),a=O(),s=a.navigator.platform,o=e||a.navigator.userAgent,r={ios:!1,android:!1},i=a.screen.width,l=a.screen.height,n=o.match(/(Android);?[\s\/]+([\d.]+)?/),c=o.match(/(iPad)(?!\1).*OS\s([\d_]+)/),u=o.match(/(iPod)(.*OS\s([\d_]+))?/),d=!c&&o.match(/(iPhone\sOS|iOS)\s([\d_]+)/),h=s==="Win32",f=s==="MacIntel",b=["1024x1366","1366x1024","834x1194","1194x834","834x1112","1112x834","768x1024","1024x768","820x1180","1180x820","810x1080","1080x810"];return!c&&f&&t.touch&&b.indexOf(`${i}x${l}`)>=0&&(c=o.match(/(Version)\/([\d.]+)/),c||(c=[0,1,"13_0_0"]),f=!1),n&&!h&&(r.os="android",r.android=!0),(c||d||u)&&(r.os="ios",r.ios=!0),r}function rt(e={}){return Le||(Le=Pt(e)),Le}var ze;function At(){let e=O(),t=rt(),a=!1;function s(){let l=e.navigator.userAgent.toLowerCase();return l.indexOf("safari")>=0&&l.indexOf("chrome")<0&&l.indexOf("android")<0}if(s()){let l=String(e.navigator.userAgent);if(l.includes("Version/")){let[n,c]=l.split("Version/")[1].split(" ")[0].split(".").map(u=>Number(u));a=n<16||n===16&&c<2}}let o=/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(e.navigator.userAgent),r=s(),i=r||o&&t.ios;return{isSafari:a||r,needPerspectiveFix:a,need3dFix:i,isWebView:o}}function nt(){return ze||(ze=At()),ze}function It({swiper:e,on:t,emit:a}){let s=O(),o=null,r=null,i=()=>{!e||e.destroyed||!e.initialized||(a("beforeResize"),a("resize"))},l=()=>{!e||e.destroyed||!e.initialized||(o=new ResizeObserver(u=>{r=s.requestAnimationFrame(()=>{let{width:d,height:h}=e,f=d,b=h;u.forEach(({contentBoxSize:v,contentRect:S,target:p})=>{p&&p!==e.el||(f=S?S.width:(v[0]||v).inlineSize,b=S?S.height:(v[0]||v).blockSize)}),(f!==d||b!==h)&&i()})}),o.observe(e.el))},n=()=>{r&&s.cancelAnimationFrame(r),o&&o.unobserve&&e.el&&(o.unobserve(e.el),o=null)},c=()=>{!e||e.destroyed||!e.initialized||a("orientationchange")};t("init",()=>{if(e.params.resizeObserver&&typeof s.ResizeObserver<"u"){l();return}s.addEventListener("resize",i),s.addEventListener("orientationchange",c)}),t("destroy",()=>{n(),s.removeEventListener("resize",i),s.removeEventListener("orientationchange",c)})}function kt({swiper:e,extendParams:t,on:a,emit:s}){let o=[],r=O(),i=(c,u={})=>{let d=r.MutationObserver||r.WebkitMutationObserver,h=new d(f=>{if(e.__preventObserver__)return;if(f.length===1){s("observerUpdate",f[0]);return}let b=function(){s("observerUpdate",f[0])};r.requestAnimationFrame?r.requestAnimationFrame(b):r.setTimeout(b,0)});h.observe(c,{attributes:typeof u.attributes>"u"?!0:u.attributes,childList:e.isElement||(typeof u.childList>"u"?!0:u).childList,characterData:typeof u.characterData>"u"?!0:u.characterData}),o.push(h)},l=()=>{if(e.params.observer){if(e.params.observeParents){let c=j(e.hostEl);for(let u=0;u<c.length;u+=1)i(c[u])}i(e.hostEl,{childList:e.params.observeSlideChildren}),i(e.wrapperEl,{attributes:!1})}},n=()=>{o.forEach(c=>{c.disconnect()}),o.splice(0,o.length)};t({observer:!1,observeParents:!1,observeSlideChildren:!1}),a("init",l),a("destroy",n)}var Dt={on(e,t,a){let s=this;if(!s.eventsListeners||s.destroyed||typeof t!="function")return s;let o=a?"unshift":"push";return e.split(" ").forEach(r=>{s.eventsListeners[r]||(s.eventsListeners[r]=[]),s.eventsListeners[r][o](t)}),s},once(e,t,a){let s=this;if(!s.eventsListeners||s.destroyed||typeof t!="function")return s;function o(...r){s.off(e,o),o.__emitterProxy&&delete o.__emitterProxy,t.apply(s,r)}return o.__emitterProxy=t,s.on(e,o,a)},onAny(e,t){let a=this;if(!a.eventsListeners||a.destroyed||typeof e!="function")return a;let s=t?"unshift":"push";return a.eventsAnyListeners.indexOf(e)<0&&a.eventsAnyListeners[s](e),a},offAny(e){let t=this;if(!t.eventsListeners||t.destroyed||!t.eventsAnyListeners)return t;let a=t.eventsAnyListeners.indexOf(e);return a>=0&&t.eventsAnyListeners.splice(a,1),t},off(e,t){let a=this;return!a.eventsListeners||a.destroyed||!a.eventsListeners||e.split(" ").forEach(s=>{typeof t>"u"?a.eventsListeners[s]=[]:a.eventsListeners[s]&&a.eventsListeners[s].forEach((o,r)=>{(o===t||o.__emitterProxy&&o.__emitterProxy===t)&&a.eventsListeners[s].splice(r,1)})}),a},emit(...e){let t=this;if(!t.eventsListeners||t.destroyed||!t.eventsListeners)return t;let a,s,o;return typeof e[0]=="string"||Array.isArray(e[0])?(a=e[0],s=e.slice(1,e.length),o=t):(a=e[0].events,s=e[0].data,o=e[0].context||t),s.unshift(o),(Array.isArray(a)?a:a.split(" ")).forEach(i=>{t.eventsAnyListeners&&t.eventsAnyListeners.length&&t.eventsAnyListeners.forEach(l=>{l.apply(o,[i,...s])}),t.eventsListeners&&t.eventsListeners[i]&&t.eventsListeners[i].forEach(l=>{l.apply(o,s)})}),t}};function Ot(){let e=this,t,a,s=e.el;typeof e.params.width<"u"&&e.params.width!==null?t=e.params.width:t=s.clientWidth,typeof e.params.height<"u"&&e.params.height!==null?a=e.params.height:a=s.clientHeight,!(t===0&&e.isHorizontal()||a===0&&e.isVertical())&&(t=t-parseInt(F(s,"padding-left")||0,10)-parseInt(F(s,"padding-right")||0,10),a=a-parseInt(F(s,"padding-top")||0,10)-parseInt(F(s,"padding-bottom")||0,10),Number.isNaN(t)&&(t=0),Number.isNaN(a)&&(a=0),Object.assign(e,{width:t,height:a,size:e.isHorizontal()?t:a}))}function Gt(){let e=this;function t(T,C){return parseFloat(T.getPropertyValue(e.getDirectionLabel(C))||0)}let a=e.params,{wrapperEl:s,slidesEl:o,rtlTranslate:r,wrongRTL:i}=e,l=e.virtual&&a.virtual.enabled,n=l?e.virtual.slides.length:e.slides.length,c=H(o,`.${e.params.slideClass}, swiper-slide`),u=l?e.virtual.slides.length:c.length,d=[],h=[],f=[],b=a.slidesOffsetBefore;typeof b=="function"&&(b=a.slidesOffsetBefore.call(e));let v=a.slidesOffsetAfter;typeof v=="function"&&(v=a.slidesOffsetAfter.call(e));let S=e.snapGrid.length,p=e.slidesGrid.length,m=e.size-b-v,g=a.spaceBetween,y=-b,E=0,M=0;if(typeof m>"u")return;typeof g=="string"&&g.indexOf("%")>=0?g=parseFloat(g.replace("%",""))/100*m:typeof g=="string"&&(g=parseFloat(g)),e.virtualSize=-g-b-v,c.forEach(T=>{r?T.style.marginLeft="":T.style.marginRight="",T.style.marginBottom="",T.style.marginTop=""}),a.centeredSlides&&a.cssMode&&(Y(s,"--swiper-centered-offset-before",""),Y(s,"--swiper-centered-offset-after","")),a.cssMode&&(Y(s,"--swiper-slides-offset-before",`${b}px`),Y(s,"--swiper-slides-offset-after",`${v}px`));let P=a.grid&&a.grid.rows>1&&e.grid;P?e.grid.initSlides(c):e.grid&&e.grid.unsetSlides();let _,k=a.slidesPerView==="auto"&&a.breakpoints&&Object.keys(a.breakpoints).filter(T=>typeof a.breakpoints[T].slidesPerView<"u").length>0;for(let T=0;T<u;T+=1){_=0;let C=c[T];if(!(C&&(P&&e.grid.updateSlide(T,C,c),F(C,"display")==="none"))){if(l&&a.slidesPerView==="auto")a.virtual.slidesPerViewAutoSlideSize&&(_=a.virtual.slidesPerViewAutoSlideSize),_&&C&&(a.roundLengths&&(_=Math.floor(_)),C.style[e.getDirectionLabel("width")]=`${_}px`);else if(a.slidesPerView==="auto"){k&&(C.style[e.getDirectionLabel("width")]="");let x=getComputedStyle(C),A=C.style.transform,L=C.style.webkitTransform;if(A&&(C.style.transform="none"),L&&(C.style.webkitTransform="none"),a.roundLengths)_=e.isHorizontal()?ie(C,"width",!0):ie(C,"height",!0);else{let D=t(x,"width"),X=t(x,"padding-left"),J=t(x,"padding-right"),I=t(x,"margin-left"),B=t(x,"margin-right"),W=x.getPropertyValue("box-sizing");if(W&&W==="border-box")_=D+I+B;else{let{clientWidth:q,offsetWidth:wt}=C;_=D+X+J+I+B+(wt-q)}}A&&(C.style.transform=A),L&&(C.style.webkitTransform=L),a.roundLengths&&(_=Math.floor(_))}else _=(m-(a.slidesPerView-1)*g)/a.slidesPerView,a.roundLengths&&(_=Math.floor(_)),C&&(C.style[e.getDirectionLabel("width")]=`${_}px`);C&&(C.swiperSlideSize=_),f.push(_),a.centeredSlides?(y=y+_/2+E/2+g,E===0&&T!==0&&(y=y-m/2-g),T===0&&(y=y-m/2-g),Math.abs(y)<1/1e3&&(y=0),a.roundLengths&&(y=Math.floor(y)),M%a.slidesPerGroup===0&&d.push(y),h.push(y)):(a.roundLengths&&(y=Math.floor(y)),(M-Math.min(e.params.slidesPerGroupSkip,M))%e.params.slidesPerGroup===0&&d.push(y),h.push(y),y=y+_+g),e.virtualSize+=_+g,E=_,M+=1}}if(e.virtualSize=Math.max(e.virtualSize,m)+v,r&&i&&(a.effect==="slide"||a.effect==="coverflow")&&(s.style.width=`${e.virtualSize+g}px`),a.setWrapperSize&&(s.style[e.getDirectionLabel("width")]=`${e.virtualSize+g}px`),P&&e.grid.updateWrapperSize(_,d),!a.centeredSlides){let T=a.slidesPerView!=="auto"&&a.slidesPerView%1!==0,C=a.snapToSlideEdge&&!a.loop&&(a.slidesPerView==="auto"||T),x=d.length;if(C){let L;if(a.slidesPerView==="auto"){L=1;let D=0;for(let X=f.length-1;X>=0&&(D+=f[X]+(X<f.length-1?g:0),D<=m);X-=1)L=f.length-X}else L=Math.floor(a.slidesPerView);x=Math.max(u-L,0)}let A=[];for(let L=0;L<d.length;L+=1){let D=d[L];a.roundLengths&&(D=Math.floor(D)),C?L<=x&&A.push(D):d[L]<=e.virtualSize-m&&A.push(D)}d=A,Math.floor(e.virtualSize-m)-Math.floor(d[d.length-1])>1&&(C||d.push(e.virtualSize-m))}if(l&&a.loop){let T=f[0]+g;if(a.slidesPerGroup>1){let C=Math.ceil((e.virtual.slidesBefore+e.virtual.slidesAfter)/a.slidesPerGroup),x=T*a.slidesPerGroup;for(let A=0;A<C;A+=1)d.push(d[d.length-1]+x)}for(let C=0;C<e.virtual.slidesBefore+e.virtual.slidesAfter;C+=1)a.slidesPerGroup===1&&d.push(d[d.length-1]+T),h.push(h[h.length-1]+T),e.virtualSize+=T}if(d.length===0&&(d=[0]),g!==0){let T=e.isHorizontal()&&r?"marginLeft":e.getDirectionLabel("marginRight");c.filter((C,x)=>!a.cssMode||a.loop?!0:x!==c.length-1).forEach(C=>{C.style[T]=`${g}px`})}if(a.centeredSlides&&a.centeredSlidesBounds){let T=0;f.forEach(x=>{T+=x+(g||0)}),T-=g;let C=T>m?T-m:0;d=d.map(x=>x<=0?-b:x>C?C+v:x)}if(a.centerInsufficientSlides){let T=0;if(f.forEach(C=>{T+=C+(g||0)}),T-=g,T<m){let C=(m-T)/2;d.forEach((x,A)=>{d[A]=x-C}),h.forEach((x,A)=>{h[A]=x+C})}}if(Object.assign(e,{slides:c,snapGrid:d,slidesGrid:h,slidesSizesGrid:f}),a.centeredSlides&&a.cssMode&&!a.centeredSlidesBounds){Y(s,"--swiper-centered-offset-before",`${-d[0]}px`),Y(s,"--swiper-centered-offset-after",`${e.size/2-f[f.length-1]/2}px`);let T=-e.snapGrid[0],C=-e.slidesGrid[0];e.snapGrid=e.snapGrid.map(x=>x+T),e.slidesGrid=e.slidesGrid.map(x=>x+C)}if(u!==n&&e.emit("slidesLengthChange"),d.length!==S&&(e.params.watchOverflow&&e.checkOverflow(),e.emit("snapGridLengthChange")),h.length!==p&&e.emit("slidesGridLengthChange"),a.watchSlidesProgress&&e.updateSlidesOffset(),e.emit("slidesUpdated"),!l&&!a.cssMode&&(a.effect==="slide"||a.effect==="fade")){let T=`${a.containerModifierClass}backface-hidden`,C=e.el.classList.contains(T);u<=a.maxBackfaceHiddenSlides?C||e.el.classList.add(T):C&&e.el.classList.remove(T)}}function $t(e){let t=this,a=[],s=t.virtual&&t.params.virtual.enabled,o=0,r;typeof e=="number"?t.setTransition(e):e===!0&&t.setTransition(t.params.speed);let i=l=>s?t.slides[t.getSlideIndexByData(l)]:t.slides[l];if(t.params.slidesPerView!=="auto"&&t.params.slidesPerView>1)if(t.params.centeredSlides)(t.visibleSlides||[]).forEach(l=>{a.push(l)});else for(r=0;r<Math.ceil(t.params.slidesPerView);r+=1){let l=t.activeIndex+r;if(l>t.slides.length&&!s)break;a.push(i(l))}else a.push(i(t.activeIndex));for(r=0;r<a.length;r+=1)if(typeof a[r]<"u"){let l=a[r].offsetHeight;o=l>o?l:o}(o||o===0)&&(t.wrapperEl.style.height=`${o}px`)}function Ht(){let e=this,t=e.slides,a=e.isElement?e.isHorizontal()?e.wrapperEl.offsetLeft:e.wrapperEl.offsetTop:0;for(let s=0;s<t.length;s+=1)t[s].swiperSlideOffset=(e.isHorizontal()?t[s].offsetLeft:t[s].offsetTop)-a-e.cssOverflowAdjustment()}var Qe=(e,t,a)=>{t&&!e.classList.contains(a)?e.classList.add(a):!t&&e.classList.contains(a)&&e.classList.remove(a)};function Bt(e=this&&this.translate||0){let t=this,a=t.params,{slides:s,rtlTranslate:o,snapGrid:r}=t;if(s.length===0)return;typeof s[0].swiperSlideOffset>"u"&&t.updateSlidesOffset();let i=-e;o&&(i=e),t.visibleSlidesIndexes=[],t.visibleSlides=[];let l=a.spaceBetween;typeof l=="string"&&l.indexOf("%")>=0?l=parseFloat(l.replace("%",""))/100*t.size:typeof l=="string"&&(l=parseFloat(l));for(let n=0;n<s.length;n+=1){let c=s[n],u=c.swiperSlideOffset;a.cssMode&&a.centeredSlides&&(u-=s[0].swiperSlideOffset);let d=(i+(a.centeredSlides?t.minTranslate():0)-u)/(c.swiperSlideSize+l),h=(i-r[0]+(a.centeredSlides?t.minTranslate():0)-u)/(c.swiperSlideSize+l),f=-(i-u),b=f+t.slidesSizesGrid[n],v=f>=0&&f<=t.size-t.slidesSizesGrid[n],S=f>=0&&f<t.size-1||b>1&&b<=t.size||f<=0&&b>=t.size;S&&(t.visibleSlides.push(c),t.visibleSlidesIndexes.push(n)),Qe(c,S,a.slideVisibleClass),Qe(c,v,a.slideFullyVisibleClass),c.progress=o?-d:d,c.originalProgress=o?-h:h}}function Wt(e){let t=this;if(typeof e>"u"){let u=t.rtlTranslate?-1:1;e=t&&t.translate&&t.translate*u||0}let a=t.params,s=t.maxTranslate()-t.minTranslate(),{progress:o,isBeginning:r,isEnd:i,progressLoop:l}=t,n=r,c=i;if(s===0)o=0,r=!0,i=!0;else{o=(e-t.minTranslate())/s;let u=Math.abs(e-t.minTranslate())<1,d=Math.abs(e-t.maxTranslate())<1;r=u||o<=0,i=d||o>=1,u&&(o=0),d&&(o=1)}if(a.loop){let u=t.getSlideIndexByData(0),d=t.getSlideIndexByData(t.slides.length-1),h=t.slidesGrid[u],f=t.slidesGrid[d],b=t.slidesGrid[t.slidesGrid.length-1],v=Math.abs(e);v>=h?l=(v-h)/b:l=(v+b-f)/b,l>1&&(l-=1)}Object.assign(t,{progress:o,progressLoop:l,isBeginning:r,isEnd:i}),(a.watchSlidesProgress||a.centeredSlides&&a.autoHeight)&&t.updateSlidesProgress(e),r&&!n&&t.emit("reachBeginning toEdge"),i&&!c&&t.emit("reachEnd toEdge"),(n&&!r||c&&!i)&&t.emit("fromEdge"),t.emit("progress",o)}var Pe=(e,t,a)=>{t&&!e.classList.contains(a)?e.classList.add(a):!t&&e.classList.contains(a)&&e.classList.remove(a)};function Rt(){let e=this,{slides:t,params:a,slidesEl:s,activeIndex:o}=e,r=e.virtual&&a.virtual.enabled,i=e.grid&&a.grid&&a.grid.rows>1,l=d=>H(s,`.${a.slideClass}${d}, swiper-slide${d}`)[0],n,c,u;if(r)if(a.loop){let d=o-e.virtual.slidesBefore;d<0&&(d=e.virtual.slides.length+d),d>=e.virtual.slides.length&&(d-=e.virtual.slides.length),n=l(`[data-swiper-slide-index="${d}"]`)}else n=l(`[data-swiper-slide-index="${o}"]`);else i?(n=t.find(d=>d.column===o),u=t.find(d=>d.column===o+1),c=t.find(d=>d.column===o-1)):n=t[o];n&&(i||(u=Je(n,`.${a.slideClass}, swiper-slide`)[0],a.loop&&!u&&(u=t[0]),c=Ze(n,`.${a.slideClass}, swiper-slide`)[0],a.loop&&!c===0&&(c=t[t.length-1]))),t.forEach(d=>{Pe(d,d===n,a.slideActiveClass),Pe(d,d===u,a.slideNextClass),Pe(d,d===c,a.slidePrevClass)}),e.emitSlidesClasses()}var be=(e,t)=>{if(!e||e.destroyed||!e.params)return;let a=()=>e.isElement?"swiper-slide":`.${e.params.slideClass}`,s=t.closest(a());if(s){let o=s.querySelector(`.${e.params.lazyPreloaderClass}`);!o&&e.isElement&&(s.shadowRoot?o=s.shadowRoot.querySelector(`.${e.params.lazyPreloaderClass}`):requestAnimationFrame(()=>{s.shadowRoot&&(o=s.shadowRoot.querySelector(`.${e.params.lazyPreloaderClass}`),o&&!o.lazyPreloaderManaged&&o.remove())})),o&&!o.lazyPreloaderManaged&&o.remove()}},Ae=(e,t)=>{if(!e.slides[t])return;let a=e.slides[t].querySelector('[loading="lazy"]');a&&a.removeAttribute("loading")},De=e=>{if(!e||e.destroyed||!e.params)return;let t=e.params.lazyPreloadPrevNext,a=e.slides.length;if(!a||!t||t<0)return;t=Math.min(t,a);let s=e.params.slidesPerView==="auto"?e.slidesPerViewDynamic():Math.ceil(e.params.slidesPerView),o=e.activeIndex;if(e.params.grid&&e.params.grid.rows>1){let i=o,l=[i-t];l.push(...Array.from({length:t}).map((n,c)=>i+s+c)),e.slides.forEach((n,c)=>{l.includes(n.column)&&Ae(e,c)});return}let r=o+s-1;if(e.params.rewind||e.params.loop)for(let i=o-t;i<=r+t;i+=1){let l=(i%a+a)%a;(l<o||l>r)&&Ae(e,l)}else for(let i=Math.max(o-t,0);i<=Math.min(r+t,a-1);i+=1)i!==o&&(i>r||i<o)&&Ae(e,i)};function Nt(e){let{slidesGrid:t,params:a}=e,s=e.rtlTranslate?e.translate:-e.translate,o;for(let r=0;r<t.length;r+=1)typeof t[r+1]<"u"?s>=t[r]&&s<t[r+1]-(t[r+1]-t[r])/2?o=r:s>=t[r]&&s<t[r+1]&&(o=r+1):s>=t[r]&&(o=r);return a.normalizeSlideIndex&&(o<0||typeof o>"u")&&(o=0),o}function Ft(e){let t=this,a=t.rtlTranslate?t.translate:-t.translate,{snapGrid:s,params:o,activeIndex:r,realIndex:i,snapIndex:l}=t,n=e,c,u=f=>{let b=f-t.virtual.slidesBefore;return b<0&&(b=t.virtual.slides.length+b),b>=t.virtual.slides.length&&(b-=t.virtual.slides.length),b};if(typeof n>"u"&&(n=Nt(t)),s.indexOf(a)>=0)c=s.indexOf(a);else{let f=Math.min(o.slidesPerGroupSkip,n);c=f+Math.floor((n-f)/o.slidesPerGroup)}if(c>=s.length&&(c=s.length-1),n===r&&!t.params.loop){c!==l&&(t.snapIndex=c,t.emit("snapIndexChange"));return}if(n===r&&t.params.loop&&t.virtual&&t.params.virtual.enabled){t.realIndex=u(n);return}let d=t.grid&&o.grid&&o.grid.rows>1,h;if(t.virtual&&o.virtual.enabled)o.loop?h=u(n):h=n;else if(d){let f=t.slides.find(v=>v.column===n),b=parseInt(f.getAttribute("data-swiper-slide-index"),10);Number.isNaN(b)&&(b=Math.max(t.slides.indexOf(f),0)),h=Math.floor(b/o.grid.rows)}else if(t.slides[n]){let f=t.slides[n].getAttribute("data-swiper-slide-index");f?h=parseInt(f,10):h=n}else h=n;Object.assign(t,{previousSnapIndex:l,snapIndex:c,previousRealIndex:i,realIndex:h,previousIndex:r,activeIndex:n}),t.initialized&&De(t),t.emit("activeIndexChange"),t.emit("snapIndexChange"),(t.initialized||t.params.runCallbacksOnInit)&&(i!==h&&t.emit("realIndexChange"),t.emit("slideChange"))}function Vt(e,t){let a=this,s=a.params,o=e.closest(`.${s.slideClass}, swiper-slide`);!o&&a.isElement&&t&&t.length>1&&t.includes(e)&&[...t.slice(t.indexOf(e)+1,t.length)].forEach(l=>{!o&&l.matches&&l.matches(`.${s.slideClass}, swiper-slide`)&&(o=l)});let r=!1,i;if(o){for(let l=0;l<a.slides.length;l+=1)if(a.slides[l]===o){r=!0,i=l;break}}if(o&&r)a.clickedSlide=o,a.virtual&&a.params.virtual.enabled?a.clickedIndex=parseInt(o.getAttribute("data-swiper-slide-index"),10):a.clickedIndex=i;else{a.clickedSlide=void 0,a.clickedIndex=void 0;return}s.slideToClickedSlide&&a.clickedIndex!==void 0&&a.clickedIndex!==a.activeIndex&&a.slideToClickedSlide()}var Xt={updateSize:Ot,updateSlides:Gt,updateAutoHeight:$t,updateSlidesOffset:Ht,updateSlidesProgress:Bt,updateProgress:Wt,updateSlidesClasses:Rt,updateActiveIndex:Ft,updateClickedSlide:Vt};function qt(e=this.isHorizontal()?"x":"y"){let t=this,{params:a,rtlTranslate:s,translate:o,wrapperEl:r}=t;if(a.virtualTranslate)return s?-o:o;if(a.cssMode)return o;let i=Te(r,e);return i+=t.cssOverflowAdjustment(),s&&(i=-i),i||0}function Yt(e,t){let a=this,{rtlTranslate:s,params:o,wrapperEl:r,progress:i}=a,l=0,n=0,c=0;a.isHorizontal()?l=s?-e:e:n=e,o.roundLengths&&(l=Math.floor(l),n=Math.floor(n)),a.previousTranslate=a.translate,a.translate=a.isHorizontal()?l:n,o.cssMode?r[a.isHorizontal()?"scrollLeft":"scrollTop"]=a.isHorizontal()?-l:-n:o.virtualTranslate||(a.isHorizontal()?l-=a.cssOverflowAdjustment():n-=a.cssOverflowAdjustment(),r.style.transform=`translate3d(${l}px, ${n}px, ${c}px)`);let u,d=a.maxTranslate()-a.minTranslate();d===0?u=0:u=(e-a.minTranslate())/d,u!==i&&a.updateProgress(e),a.emit("setTranslate",a.translate,t)}function jt(){return-this.snapGrid[0]}function Ut(){return-this.snapGrid[this.snapGrid.length-1]}function Kt(e=0,t=this.params.speed,a=!0,s=!0,o){let r=this,{params:i,wrapperEl:l}=r;if(r.animating&&i.preventInteractionOnTransition)return!1;let n=r.minTranslate(),c=r.maxTranslate(),u;if(s&&e>n?u=n:s&&e<c?u=c:u=e,r.updateProgress(u),i.cssMode){let d=r.isHorizontal();if(t===0)l[d?"scrollLeft":"scrollTop"]=-u;else{if(!r.support.smoothScroll)return xe({swiper:r,targetPosition:-u,side:d?"left":"top"}),!0;l.scrollTo({[d?"left":"top"]:-u,behavior:"smooth"})}return!0}return t===0?(r.setTransition(0),r.setTranslate(u),a&&(r.emit("beforeTransitionStart",t,o),r.emit("transitionEnd"))):(r.setTransition(t),r.setTranslate(u),a&&(r.emit("beforeTransitionStart",t,o),r.emit("transitionStart")),r.animating||(r.animating=!0,r.onTranslateToWrapperTransitionEnd||(r.onTranslateToWrapperTransitionEnd=function(h){!r||r.destroyed||h.target===this&&(r.wrapperEl.removeEventListener("transitionend",r.onTranslateToWrapperTransitionEnd),r.onTranslateToWrapperTransitionEnd=null,delete r.onTranslateToWrapperTransitionEnd,r.animating=!1,a&&r.emit("transitionEnd"))}),r.wrapperEl.addEventListener("transitionend",r.onTranslateToWrapperTransitionEnd))),!0}var Zt={getTranslate:qt,setTranslate:Yt,minTranslate:jt,maxTranslate:Ut,translateTo:Kt};function Jt(e,t){let a=this;a.params.cssMode||(a.wrapperEl.style.transitionDuration=`${e}ms`,a.wrapperEl.style.transitionDelay=e===0?"0ms":""),a.emit("setTransition",e,t)}function it({swiper:e,runCallbacks:t,direction:a,step:s}){let{activeIndex:o,previousIndex:r}=e,i=a;i||(o>r?i="next":o<r?i="prev":i="reset"),e.emit(`transition${s}`),t&&i==="reset"?e.emit(`slideResetTransition${s}`):t&&o!==r&&(e.emit(`slideChangeTransition${s}`),i==="next"?e.emit(`slideNextTransition${s}`):e.emit(`slidePrevTransition${s}`))}function Qt(e=!0,t){let a=this,{params:s}=a;s.cssMode||(s.autoHeight&&a.updateAutoHeight(),it({swiper:a,runCallbacks:e,direction:t,step:"Start"}))}function ea(e=!0,t){let a=this,{params:s}=a;a.animating=!1,!s.cssMode&&(a.setTransition(0),it({swiper:a,runCallbacks:e,direction:t,step:"End"}))}var ta={setTransition:Jt,transitionStart:Qt,transitionEnd:ea};function aa(e=0,t,a=!0,s,o){typeof e=="string"&&(e=parseInt(e,10));let r=this,i=e;i<0&&(i=0);let{params:l,snapGrid:n,slidesGrid:c,previousIndex:u,activeIndex:d,rtlTranslate:h,wrapperEl:f,enabled:b}=r;if(!b&&!s&&!o||r.destroyed||r.animating&&l.preventInteractionOnTransition)return!1;typeof t>"u"&&(t=r.params.speed);let v=Math.min(r.params.slidesPerGroupSkip,i),S=v+Math.floor((i-v)/r.params.slidesPerGroup);S>=n.length&&(S=n.length-1);let p=-n[S];if(l.normalizeSlideIndex)for(let P=0;P<c.length;P+=1){let _=-Math.floor(p*100),k=Math.floor(c[P]*100),T=Math.floor(c[P+1]*100);typeof c[P+1]<"u"?_>=k&&_<T-(T-k)/2?i=P:_>=k&&_<T&&(i=P+1):_>=k&&(i=P)}if(r.initialized&&i!==d&&(!r.allowSlideNext&&(h?p>r.translate&&p>r.minTranslate():p<r.translate&&p<r.minTranslate())||!r.allowSlidePrev&&p>r.translate&&p>r.maxTranslate()&&(d||0)!==i))return!1;i!==(u||0)&&a&&r.emit("beforeSlideChangeStart"),r.updateProgress(p);let m;i>d?m="next":i<d?m="prev":m="reset";let g=r.virtual&&r.params.virtual.enabled;if(!(g&&o)&&(h&&-p===r.translate||!h&&p===r.translate))return r.updateActiveIndex(i),l.autoHeight&&r.updateAutoHeight(),r.updateSlidesClasses(),l.effect!=="slide"&&r.setTranslate(p),m!=="reset"&&(r.transitionStart(a,m),r.transitionEnd(a,m)),!1;if(l.cssMode){let P=r.isHorizontal(),_=h?p:-p;if(t===0)g&&(r.wrapperEl.style.scrollSnapType="none",r._immediateVirtual=!0),g&&!r._cssModeVirtualInitialSet&&r.params.initialSlide>0?(r._cssModeVirtualInitialSet=!0,requestAnimationFrame(()=>{f[P?"scrollLeft":"scrollTop"]=_})):f[P?"scrollLeft":"scrollTop"]=_,g&&requestAnimationFrame(()=>{r.wrapperEl.style.scrollSnapType="",r._immediateVirtual=!1});else{if(!r.support.smoothScroll)return xe({swiper:r,targetPosition:_,side:P?"left":"top"}),!0;f.scrollTo({[P?"left":"top"]:_,behavior:"smooth"})}return!0}let M=nt().isSafari;return g&&!o&&M&&r.isElement&&r.virtual.update(!1,!1,i),r.setTransition(t),r.setTranslate(p),r.updateActiveIndex(i),r.updateSlidesClasses(),r.emit("beforeTransitionStart",t,s),r.transitionStart(a,m),t===0?r.transitionEnd(a,m):r.animating||(r.animating=!0,r.onSlideToWrapperTransitionEnd||(r.onSlideToWrapperTransitionEnd=function(_){!r||r.destroyed||_.target===this&&(r.wrapperEl.removeEventListener("transitionend",r.onSlideToWrapperTransitionEnd),r.onSlideToWrapperTransitionEnd=null,delete r.onSlideToWrapperTransitionEnd,r.transitionEnd(a,m))}),r.wrapperEl.addEventListener("transitionend",r.onSlideToWrapperTransitionEnd)),!0}function sa(e=0,t,a=!0,s){typeof e=="string"&&(e=parseInt(e,10));let o=this;if(o.destroyed)return;typeof t>"u"&&(t=o.params.speed);let r=o.grid&&o.params.grid&&o.params.grid.rows>1,i=e;if(o.params.loop)if(o.virtual&&o.params.virtual.enabled)i=i+o.virtual.slidesBefore;else{let l;if(r){let v=i*o.params.grid.rows;l=o.slides.find(S=>S.getAttribute("data-swiper-slide-index")*1===v).column}else l=o.getSlideIndexByData(i);let n=r?Math.ceil(o.slides.length/o.params.grid.rows):o.slides.length,{centeredSlides:c,slidesOffsetBefore:u,slidesOffsetAfter:d}=o.params,h=c||!!u||!!d,f=o.params.slidesPerView;f==="auto"?f=o.slidesPerViewDynamic():(f=Math.ceil(parseFloat(o.params.slidesPerView,10)),h&&f%2===0&&(f=f+1));let b=n-l<f;if(h&&(b=b||l<Math.ceil(f/2)),s&&h&&o.params.slidesPerView!=="auto"&&!r&&(b=!1),b){let v=h?l<o.activeIndex?"prev":"next":l-o.activeIndex-1<o.params.slidesPerView?"next":"prev";o.loopFix({direction:v,slideTo:!0,activeSlideIndex:v==="next"?l+1:l-n+1,slideRealIndex:v==="next"?o.realIndex:void 0})}if(r){let v=i*o.params.grid.rows;i=o.slides.find(S=>S.getAttribute("data-swiper-slide-index")*1===v).column}else i=o.getSlideIndexByData(i)}return requestAnimationFrame(()=>{o.slideTo(i,t,a,s)}),o}function oa(e,t=!0,a){let s=this,{enabled:o,params:r,animating:i}=s;if(!o||s.destroyed)return s;typeof e>"u"&&(e=s.params.speed);let l=r.slidesPerGroup;r.slidesPerView==="auto"&&r.slidesPerGroup===1&&r.slidesPerGroupAuto&&(l=Math.max(s.slidesPerViewDynamic("current",!0),1));let n=s.activeIndex<r.slidesPerGroupSkip?1:l,c=s.virtual&&r.virtual.enabled;if(r.loop){if(i&&!c&&r.loopPreventsSliding)return!1;if(s.loopFix({direction:"next"}),s._clientLeft=s.wrapperEl.clientLeft,s.activeIndex===s.slides.length-1&&r.cssMode)return requestAnimationFrame(()=>{s.slideTo(s.activeIndex+n,e,t,a)}),!0}return r.rewind&&s.isEnd?s.slideTo(0,e,t,a):s.slideTo(s.activeIndex+n,e,t,a)}function ra(e,t=!0,a){let s=this,{params:o,snapGrid:r,slidesGrid:i,rtlTranslate:l,enabled:n,animating:c}=s;if(!n||s.destroyed)return s;typeof e>"u"&&(e=s.params.speed);let u=s.virtual&&o.virtual.enabled;if(o.loop){if(c&&!u&&o.loopPreventsSliding)return!1;s.loopFix({direction:"prev"}),s._clientLeft=s.wrapperEl.clientLeft}let d=l?s.translate:-s.translate;function h(m){return m<0?-Math.floor(Math.abs(m)):Math.floor(m)}let f=h(d),b=r.map(m=>h(m)),v=o.freeMode&&o.freeMode.enabled,S=r[b.indexOf(f)-1];if(typeof S>"u"&&(o.cssMode||v)){let m;r.forEach((g,y)=>{f>=g&&(m=y)}),typeof m<"u"&&(S=v?r[m]:r[m>0?m-1:m])}let p=0;if(typeof S<"u"&&(p=i.indexOf(S),p<0&&(p=s.activeIndex-1),o.slidesPerView==="auto"&&o.slidesPerGroup===1&&o.slidesPerGroupAuto&&(p=p-s.slidesPerViewDynamic("previous",!0)+1,p=Math.max(p,0))),o.rewind&&s.isBeginning){let m=s.params.virtual&&s.params.virtual.enabled&&s.virtual?s.virtual.slides.length-1:s.slides.length-1;return s.slideTo(m,e,t,a)}else if(o.loop&&s.activeIndex===0&&o.cssMode)return requestAnimationFrame(()=>{s.slideTo(p,e,t,a)}),!0;return s.slideTo(p,e,t,a)}function na(e,t=!0,a){let s=this;if(!s.destroyed)return typeof e>"u"&&(e=s.params.speed),s.slideTo(s.activeIndex,e,t,a)}function ia(e,t=!0,a,s=.5){let o=this;if(o.destroyed)return;typeof e>"u"&&(e=o.params.speed);let r=o.activeIndex,i=Math.min(o.params.slidesPerGroupSkip,r),l=i+Math.floor((r-i)/o.params.slidesPerGroup),n=o.rtlTranslate?o.translate:-o.translate;if(n>=o.snapGrid[l]){let c=o.snapGrid[l],u=o.snapGrid[l+1];n-c>(u-c)*s&&(r+=o.params.slidesPerGroup)}else{let c=o.snapGrid[l-1],u=o.snapGrid[l];n-c<=(u-c)*s&&(r-=o.params.slidesPerGroup)}return r=Math.max(r,0),r=Math.min(r,o.slidesGrid.length-1),o.slideTo(r,e,t,a)}function la(){let e=this;if(e.destroyed)return;let{params:t,slidesEl:a}=e,s=t.slidesPerView==="auto"?e.slidesPerViewDynamic():t.slidesPerView,o=e.getSlideIndexWhenGrid(e.clickedIndex),r,i=e.isElement?"swiper-slide":`.${t.slideClass}`,l=e.grid&&e.params.grid&&e.params.grid.rows>1;if(t.loop){if(e.animating)return;r=parseInt(e.clickedSlide.getAttribute("data-swiper-slide-index"),10),t.centeredSlides?e.slideToLoop(r):o>(l?(e.slides.length-s)/2-(e.params.grid.rows-1):e.slides.length-s)?(e.loopFix(),o=e.getSlideIndex(H(a,`${i}[data-swiper-slide-index="${r}"]`)[0]),se(()=>{e.slideTo(o)})):e.slideTo(o)}else e.slideTo(o)}var ca={slideTo:aa,slideToLoop:sa,slideNext:oa,slidePrev:ra,slideReset:na,slideToClosest:ia,slideToClickedSlide:la};function da(e,t){let a=this,{params:s,slidesEl:o}=a;if(!s.loop||a.virtual&&a.params.virtual.enabled)return;let r=()=>{H(o,`.${s.slideClass}, swiper-slide`).forEach((b,v)=>{b.setAttribute("data-swiper-slide-index",v)})},i=()=>{let f=H(o,`.${s.slideBlankClass}`);f.forEach(b=>{b.remove()}),f.length>0&&(a.recalcSlides(),a.updateSlides())},l=a.grid&&s.grid&&s.grid.rows>1;s.loopAddBlankSlides&&(s.slidesPerGroup>1||l)&&i();let n=s.slidesPerGroup*(l?s.grid.rows:1),c=a.slides.length%n!==0,u=l&&a.slides.length%s.grid.rows!==0,d=f=>{for(let b=0;b<f;b+=1){let v=a.isElement?N("swiper-slide",[s.slideBlankClass]):N("div",[s.slideClass,s.slideBlankClass]);a.slidesEl.append(v)}};if(c){if(s.loopAddBlankSlides){let f=n-a.slides.length%n;d(f),a.recalcSlides(),a.updateSlides()}else ne("Swiper Loop Warning: The number of slides is not even to slidesPerGroup, loop mode may not function properly. You need to add more slides (or make duplicates, or empty slides)");r()}else if(u){if(s.loopAddBlankSlides){let f=s.grid.rows-a.slides.length%s.grid.rows;d(f),a.recalcSlides(),a.updateSlides()}else ne("Swiper Loop Warning: The number of slides is not even to grid.rows, loop mode may not function properly. You need to add more slides (or make duplicates, or empty slides)");r()}else r();let h=s.centeredSlides||!!s.slidesOffsetBefore||!!s.slidesOffsetAfter;a.loopFix({slideRealIndex:e,direction:h?void 0:"next",initial:t})}function fa({slideRealIndex:e,slideTo:t=!0,direction:a,setTranslate:s,activeSlideIndex:o,initial:r,byController:i,byMousewheel:l}={}){let n=this;if(!n.params.loop)return;n.emit("beforeLoopFix");let{slides:c,allowSlidePrev:u,allowSlideNext:d,slidesEl:h,params:f}=n,{centeredSlides:b,slidesOffsetBefore:v,slidesOffsetAfter:S,initialSlide:p}=f,m=b||!!v||!!S;if(n.allowSlidePrev=!0,n.allowSlideNext=!0,n.virtual&&f.virtual.enabled){t&&(!m&&n.snapIndex===0?n.slideTo(n.virtual.slides.length,0,!1,!0):m&&n.snapIndex<f.slidesPerView?n.slideTo(n.virtual.slides.length+n.snapIndex,0,!1,!0):n.snapIndex===n.snapGrid.length-1&&n.slideTo(n.virtual.slidesBefore,0,!1,!0)),n.allowSlidePrev=u,n.allowSlideNext=d,n.emit("loopFix");return}let g=f.slidesPerView;g==="auto"?g=n.slidesPerViewDynamic():(g=Math.ceil(parseFloat(f.slidesPerView,10)),m&&g%2===0&&(g=g+1));let y=f.slidesPerGroupAuto?g:f.slidesPerGroup,E=m?Math.max(y,Math.ceil(g/2)):y;E%y!==0&&(E+=y-E%y),E+=f.loopAdditionalSlides,n.loopedSlides=E;let M=n.grid&&f.grid&&f.grid.rows>1;c.length<g+E||n.params.effect==="cards"&&c.length<g+E*2?ne("Swiper Loop Warning: The number of slides is not enough for loop mode, it will be disabled or not function properly. You need to add more slides (or make duplicates) or lower the values of slidesPerView and slidesPerGroup parameters"):M&&f.grid.fill==="row"&&ne("Swiper Loop Warning: Loop mode is not compatible with grid.fill = `row`");let P=[],_=[],k=M?Math.ceil(c.length/f.grid.rows):c.length,T=r&&k-p<g&&!m,C=T?p:n.activeIndex;typeof o>"u"?o=n.getSlideIndex(c.find(I=>I.classList.contains(f.slideActiveClass))):C=o;let x=a==="next"||!a,A=a==="prev"||!a,L=0,D=0,J=(M?c[o].column:o)+(m&&typeof s>"u"?-g/2+.5:0);if(J<E){L=Math.max(E-J,y);for(let I=0;I<E-J;I+=1){let B=I-Math.floor(I/k)*k;if(M){let W=k-B-1;for(let q=c.length-1;q>=0;q-=1)c[q].column===W&&P.push(q)}else P.push(k-B-1)}}else if(J+g>k-E){D=Math.max(J-(k-E*2),y),T&&(D=Math.max(D,g-k+p+1));for(let I=0;I<D;I+=1){let B=I-Math.floor(I/k)*k;M?c.forEach((W,q)=>{W.column===B&&_.push(q)}):_.push(B)}}if(n.__preventObserver__=!0,requestAnimationFrame(()=>{n.__preventObserver__=!1}),n.params.effect==="cards"&&c.length<g+E*2&&(_.includes(o)&&_.splice(_.indexOf(o),1),P.includes(o)&&P.splice(P.indexOf(o),1)),A&&P.forEach(I=>{c[I].swiperLoopMoveDOM=!0,h.prepend(c[I]),c[I].swiperLoopMoveDOM=!1}),x&&_.forEach(I=>{c[I].swiperLoopMoveDOM=!0,h.append(c[I]),c[I].swiperLoopMoveDOM=!1}),n.recalcSlides(),f.slidesPerView==="auto"?n.updateSlides():M&&(P.length>0&&A||_.length>0&&x)&&n.slides.forEach((I,B)=>{n.grid.updateSlide(B,I,n.slides)}),f.watchSlidesProgress&&n.updateSlidesOffset(),t){if(P.length>0&&A){if(typeof e>"u"){let I=n.slidesGrid[C],W=n.slidesGrid[C+L]-I;l?n.setTranslate(n.translate-W):(n.slideTo(C+Math.ceil(L),0,!1,!0),s&&(n.touchEventsData.startTranslate=n.touchEventsData.startTranslate-W,n.touchEventsData.currentTranslate=n.touchEventsData.currentTranslate-W))}else if(s){let I=M?P.length/f.grid.rows:P.length;n.slideTo(n.activeIndex+I,0,!1,!0),n.touchEventsData.currentTranslate=n.translate}}else if(_.length>0&&x)if(typeof e>"u"){let I=n.slidesGrid[C],W=n.slidesGrid[C-D]-I;l?n.setTranslate(n.translate-W):(n.slideTo(C-D,0,!1,!0),s&&(n.touchEventsData.startTranslate=n.touchEventsData.startTranslate-W,n.touchEventsData.currentTranslate=n.touchEventsData.currentTranslate-W))}else{let I=M?_.length/f.grid.rows:_.length;n.slideTo(n.activeIndex-I,0,!1,!0)}}if(n.allowSlidePrev=u,n.allowSlideNext=d,n.controller&&n.controller.control&&!i){let I={slideRealIndex:e,direction:a,setTranslate:s,activeSlideIndex:o,byController:!0};Array.isArray(n.controller.control)?n.controller.control.forEach(B=>{!B.destroyed&&B.params.loop&&B.loopFix({...I,slideTo:B.params.slidesPerView===f.slidesPerView?t:!1})}):n.controller.control instanceof n.constructor&&n.controller.control.params.loop&&n.controller.control.loopFix({...I,slideTo:n.controller.control.params.slidesPerView===f.slidesPerView?t:!1})}n.emit("loopFix")}function ua(){let e=this,{params:t,slidesEl:a}=e;if(!t.loop||!a||e.virtual&&e.params.virtual.enabled)return;e.recalcSlides();let s=[];e.slides.forEach(o=>{let r=typeof o.swiperSlideIndex>"u"?o.getAttribute("data-swiper-slide-index")*1:o.swiperSlideIndex;s[r]=o}),e.slides.forEach(o=>{o.removeAttribute("data-swiper-slide-index")}),s.forEach(o=>{a.append(o)}),e.recalcSlides(),e.slideTo(e.realIndex,0)}var pa={loopCreate:da,loopFix:fa,loopDestroy:ua};function ma(e){let t=this;if(!t.params.simulateTouch||t.params.watchOverflow&&t.isLocked||t.params.cssMode)return;let a=t.params.touchEventsTarget==="container"?t.el:t.wrapperEl;t.isElement&&(t.__preventObserver__=!0),a.style.cursor="move",a.style.cursor=e?"grabbing":"grab",t.isElement&&requestAnimationFrame(()=>{t.__preventObserver__=!1})}function ba(){let e=this;e.params.watchOverflow&&e.isLocked||e.params.cssMode||(e.isElement&&(e.__preventObserver__=!0),e[e.params.touchEventsTarget==="container"?"el":"wrapperEl"].style.cursor="",e.isElement&&requestAnimationFrame(()=>{e.__preventObserver__=!1}))}var ha={setGrabCursor:ma,unsetGrabCursor:ba};function ga(e,t=this){function a(s){if(!s||s===$()||s===O())return null;s.assignedSlot&&(s=s.assignedSlot);let o=s.closest(e);return!o&&!s.getRootNode?null:o||a(s.getRootNode().host)}return a(t)}function et(e,t,a){let s=O(),{params:o}=e,r=o.edgeSwipeDetection,i=o.edgeSwipeThreshold;return r&&(a<=i||a>=s.innerWidth-i)?r==="prevent"?(t.preventDefault(),!0):!1:!0}function va(e){let t=this,a=$(),s=e;s.originalEvent&&(s=s.originalEvent);let o=t.touchEventsData;if(s.type==="pointerdown"){if(o.pointerId!==null&&o.pointerId!==s.pointerId)return;o.pointerId=s.pointerId}else s.type==="touchstart"&&s.targetTouches.length===1&&(o.touchId=s.targetTouches[0].identifier);if(s.type==="touchstart"){et(t,s,s.targetTouches[0].pageX);return}let{params:r,touches:i,enabled:l}=t;if(!l||!r.simulateTouch&&s.pointerType==="mouse"||t.animating&&r.preventInteractionOnTransition)return;!t.animating&&r.cssMode&&r.loop&&t.loopFix();let n=s.target;if(r.touchEventsTarget==="wrapper"&&!Ke(n,t.wrapperEl)||"which"in s&&s.which===3||"button"in s&&s.button>0||o.isTouched&&o.isMoved)return;let c=!!r.noSwipingClass&&r.noSwipingClass!=="",u=s.composedPath?s.composedPath():s.path;c&&s.target&&s.target.shadowRoot&&u&&(n=u[0]);let d=r.noSwipingSelector?r.noSwipingSelector:`.${r.noSwipingClass}`,h=!!(s.target&&s.target.shadowRoot);if(r.noSwiping&&(h?ga(d,n):n.closest(d))){t.allowClick=!0;return}if(r.swipeHandler&&!n.closest(r.swipeHandler))return;i.currentX=s.pageX,i.currentY=s.pageY;let f=i.currentX,b=i.currentY;if(!et(t,s,f))return;Object.assign(o,{isTouched:!0,isMoved:!1,allowTouchCallbacks:!0,isScrolling:void 0,startMoving:void 0}),i.startX=f,i.startY=b,o.touchStartTime=Q(),t.allowClick=!0,t.updateSize(),t.swipeDirection=void 0,r.threshold>0&&(o.allowThresholdMove=!1);let v=!0;n.matches(o.focusableElements)&&(v=!1,n.nodeName==="SELECT"&&(o.isTouched=!1)),a.activeElement&&a.activeElement.matches(o.focusableElements)&&a.activeElement!==n&&(s.pointerType==="mouse"||s.pointerType!=="mouse"&&!n.matches(o.focusableElements))&&a.activeElement.blur();let S=v&&t.allowTouchMove&&r.touchStartPreventDefault;(r.touchStartForcePreventDefault||S)&&!n.isContentEditable&&s.preventDefault(),r.freeMode&&r.freeMode.enabled&&t.freeMode&&t.animating&&!r.cssMode&&t.freeMode.onTouchStart(),t.emit("touchStart",s)}function Sa(e){let t=$(),a=this,s=a.touchEventsData,{params:o,touches:r,rtlTranslate:i,enabled:l}=a;if(!l||!o.simulateTouch&&e.pointerType==="mouse")return;let n=e;if(n.originalEvent&&(n=n.originalEvent),n.type==="pointermove"&&(s.touchId!==null||n.pointerId!==s.pointerId))return;let c;if(n.type==="touchmove"){if(c=[...n.changedTouches].find(M=>M.identifier===s.touchId),!c||c.identifier!==s.touchId)return}else c=n;if(!s.isTouched){s.startMoving&&s.isScrolling&&a.emit("touchMoveOpposite",n);return}let u=c.pageX,d=c.pageY;if(n.preventedByNestedSwiper){r.startX=u,r.startY=d;return}if(!a.allowTouchMove){n.target.matches(s.focusableElements)||(a.allowClick=!1),s.isTouched&&(Object.assign(r,{startX:u,startY:d,currentX:u,currentY:d}),s.touchStartTime=Q());return}if(o.touchReleaseOnEdges&&!o.loop)if(a.isVertical()){if(d<r.startY&&a.translate<=a.maxTranslate()||d>r.startY&&a.translate>=a.minTranslate()){s.isTouched=!1,s.isMoved=!1;return}}else{if(i&&(u>r.startX&&-a.translate<=a.maxTranslate()||u<r.startX&&-a.translate>=a.minTranslate()))return;if(!i&&(u<r.startX&&a.translate<=a.maxTranslate()||u>r.startX&&a.translate>=a.minTranslate()))return}if(t.activeElement&&t.activeElement.matches(s.focusableElements)&&t.activeElement!==n.target&&n.pointerType!=="mouse"&&t.activeElement.blur(),t.activeElement&&n.target===t.activeElement&&n.target.matches(s.focusableElements)){s.isMoved=!0,a.allowClick=!1;return}s.allowTouchCallbacks&&a.emit("touchMove",n),r.previousX=r.currentX,r.previousY=r.currentY,r.currentX=u,r.currentY=d;let h=r.currentX-r.startX,f=r.currentY-r.startY;if(a.params.threshold&&Math.sqrt(h**2+f**2)<a.params.threshold)return;if(typeof s.isScrolling>"u"){let M;a.isHorizontal()&&r.currentY===r.startY||a.isVertical()&&r.currentX===r.startX?s.isScrolling=!1:h*h+f*f>=25&&(M=Math.atan2(Math.abs(f),Math.abs(h))*180/Math.PI,s.isScrolling=a.isHorizontal()?M>o.touchAngle:90-M>o.touchAngle)}if(s.isScrolling&&a.emit("touchMoveOpposite",n),typeof s.startMoving>"u"&&(r.currentX!==r.startX||r.currentY!==r.startY)&&(s.startMoving=!0),s.isScrolling||n.type==="touchmove"&&s.preventTouchMoveFromPointerMove){s.isTouched=!1;return}if(!s.startMoving)return;a.allowClick=!1,!o.cssMode&&n.cancelable&&n.preventDefault(),o.touchMoveStopPropagation&&!o.nested&&n.stopPropagation();let b=a.isHorizontal()?h:f,v=a.isHorizontal()?r.currentX-r.previousX:r.currentY-r.previousY;o.oneWayMovement&&(b=Math.abs(b)*(i?1:-1),v=Math.abs(v)*(i?1:-1)),r.diff=b,b*=o.touchRatio,i&&(b=-b,v=-v);let S=a.touchesDirection;a.swipeDirection=b>0?"prev":"next",a.touchesDirection=v>0?"prev":"next";let p=a.params.loop&&!o.cssMode,m=a.touchesDirection==="next"&&a.allowSlideNext||a.touchesDirection==="prev"&&a.allowSlidePrev;if(!s.isMoved){if(p&&m&&a.loopFix({direction:a.swipeDirection}),s.startTranslate=a.getTranslate(),a.setTransition(0),a.animating){let M=new window.CustomEvent("transitionend",{bubbles:!0,cancelable:!0,detail:{bySwiperTouchMove:!0}});a.wrapperEl.dispatchEvent(M)}s.allowMomentumBounce=!1,o.grabCursor&&(a.allowSlideNext===!0||a.allowSlidePrev===!0)&&a.setGrabCursor(!0),a.emit("sliderFirstMove",n)}let g;if(new Date().getTime(),o._loopSwapReset!==!1&&s.isMoved&&s.allowThresholdMove&&S!==a.touchesDirection&&p&&m&&Math.abs(b)>=1){Object.assign(r,{startX:u,startY:d,currentX:u,currentY:d,startTranslate:s.currentTranslate}),s.loopSwapReset=!0,s.startTranslate=s.currentTranslate;return}a.emit("sliderMove",n),s.isMoved=!0,s.currentTranslate=b+s.startTranslate;let y=!0,E=o.resistanceRatio;if(o.touchReleaseOnEdges&&(E=0),b>0?(p&&m&&!g&&s.allowThresholdMove&&s.currentTranslate>(o.centeredSlides?a.minTranslate()-a.slidesSizesGrid[a.activeIndex+1]-(o.slidesPerView!=="auto"&&a.slides.length-o.slidesPerView>=2?a.slidesSizesGrid[a.activeIndex+1]+a.params.spaceBetween:0)-a.params.spaceBetween:a.minTranslate())&&a.loopFix({direction:"prev",setTranslate:!0,activeSlideIndex:0}),s.currentTranslate>a.minTranslate()&&(y=!1,o.resistance&&(s.currentTranslate=a.minTranslate()-1+(-a.minTranslate()+s.startTranslate+b)**E))):b<0&&(p&&m&&!g&&s.allowThresholdMove&&s.currentTranslate<(o.centeredSlides?a.maxTranslate()+a.slidesSizesGrid[a.slidesSizesGrid.length-1]+a.params.spaceBetween+(o.slidesPerView!=="auto"&&a.slides.length-o.slidesPerView>=2?a.slidesSizesGrid[a.slidesSizesGrid.length-1]+a.params.spaceBetween:0):a.maxTranslate())&&a.loopFix({direction:"next",setTranslate:!0,activeSlideIndex:a.slides.length-(o.slidesPerView==="auto"?a.slidesPerViewDynamic():Math.ceil(parseFloat(o.slidesPerView,10)))}),s.currentTranslate<a.maxTranslate()&&(y=!1,o.resistance&&(s.currentTranslate=a.maxTranslate()+1-(a.maxTranslate()-s.startTranslate-b)**E))),y&&(n.preventedByNestedSwiper=!0),!a.allowSlideNext&&a.swipeDirection==="next"&&s.currentTranslate<s.startTranslate&&(s.currentTranslate=s.startTranslate),!a.allowSlidePrev&&a.swipeDirection==="prev"&&s.currentTranslate>s.startTranslate&&(s.currentTranslate=s.startTranslate),!a.allowSlidePrev&&!a.allowSlideNext&&(s.currentTranslate=s.startTranslate),o.threshold>0)if(Math.abs(b)>o.threshold||s.allowThresholdMove){if(!s.allowThresholdMove){s.allowThresholdMove=!0,r.startX=r.currentX,r.startY=r.currentY,s.currentTranslate=s.startTranslate,r.diff=a.isHorizontal()?r.currentX-r.startX:r.currentY-r.startY;return}}else{s.currentTranslate=s.startTranslate;return}!o.followFinger||o.cssMode||((o.freeMode&&o.freeMode.enabled&&a.freeMode||o.watchSlidesProgress)&&(a.updateActiveIndex(),a.updateSlidesClasses()),o.freeMode&&o.freeMode.enabled&&a.freeMode&&a.freeMode.onTouchMove(),a.updateProgress(s.currentTranslate),a.setTranslate(s.currentTranslate))}function ya(e){let t=this,a=t.touchEventsData,s=e;s.originalEvent&&(s=s.originalEvent);let o;if(s.type==="touchend"||s.type==="touchcancel"){if(o=[...s.changedTouches].find(E=>E.identifier===a.touchId),!o||o.identifier!==a.touchId)return}else{if(a.touchId!==null||s.pointerId!==a.pointerId)return;o=s}if(["pointercancel","pointerout","pointerleave","contextmenu"].includes(s.type)&&!(["pointercancel","contextmenu"].includes(s.type)&&(t.browser.isSafari||t.browser.isWebView)))return;a.pointerId=null,a.touchId=null;let{params:i,touches:l,rtlTranslate:n,slidesGrid:c,enabled:u}=t;if(!u||!i.simulateTouch&&s.pointerType==="mouse")return;if(a.allowTouchCallbacks&&t.emit("touchEnd",s),a.allowTouchCallbacks=!1,!a.isTouched){a.isMoved&&i.grabCursor&&t.setGrabCursor(!1),a.isMoved=!1,a.startMoving=!1;return}i.grabCursor&&a.isMoved&&a.isTouched&&(t.allowSlideNext===!0||t.allowSlidePrev===!0)&&t.setGrabCursor(!1);let d=Q(),h=d-a.touchStartTime;if(t.allowClick){let E=s.path||s.composedPath&&s.composedPath();t.updateClickedSlide(E&&E[0]||s.target,E),t.emit("tap click",s),h<300&&d-a.lastClickTime<300&&t.emit("doubleTap doubleClick",s)}if(a.lastClickTime=Q(),se(()=>{t.destroyed||(t.allowClick=!0)}),!a.isTouched||!a.isMoved||!t.swipeDirection||l.diff===0&&!a.loopSwapReset||a.currentTranslate===a.startTranslate&&!a.loopSwapReset){a.isTouched=!1,a.isMoved=!1,a.startMoving=!1;return}a.isTouched=!1,a.isMoved=!1,a.startMoving=!1;let f;if(i.followFinger?f=n?t.translate:-t.translate:f=-a.currentTranslate,i.cssMode)return;if(i.freeMode&&i.freeMode.enabled){t.freeMode.onTouchEnd({currentPos:f});return}let b=f>=-t.maxTranslate()&&!t.params.loop,v=0,S=t.slidesSizesGrid[0];for(let E=0;E<c.length;E+=E<i.slidesPerGroupSkip?1:i.slidesPerGroup){let M=E<i.slidesPerGroupSkip-1?1:i.slidesPerGroup;typeof c[E+M]<"u"?(b||f>=c[E]&&f<c[E+M])&&(v=E,S=c[E+M]-c[E]):(b||f>=c[E])&&(v=E,S=c[c.length-1]-c[c.length-2])}let p=null,m=null;i.rewind&&(t.isBeginning?m=i.virtual&&i.virtual.enabled&&t.virtual?t.virtual.slides.length-1:t.slides.length-1:t.isEnd&&(p=0));let g=(f-c[v])/S,y=v<i.slidesPerGroupSkip-1?1:i.slidesPerGroup;if(h>i.longSwipesMs){if(!i.longSwipes){t.slideTo(t.activeIndex);return}t.swipeDirection==="next"&&(g>=i.longSwipesRatio?t.slideTo(i.rewind&&t.isEnd?p:v+y):t.slideTo(v)),t.swipeDirection==="prev"&&(g>1-i.longSwipesRatio?t.slideTo(v+y):m!==null&&g<0&&Math.abs(g)>i.longSwipesRatio?t.slideTo(m):t.slideTo(v))}else{if(!i.shortSwipes){t.slideTo(t.activeIndex);return}t.navigation&&(s.target===t.navigation.nextEl||s.target===t.navigation.prevEl)?s.target===t.navigation.nextEl?t.slideTo(v+y):t.slideTo(v):(t.swipeDirection==="next"&&t.slideTo(p!==null?p:v+y),t.swipeDirection==="prev"&&t.slideTo(m!==null?m:v))}}function tt(){let e=this,{params:t,el:a}=e;if(a&&a.offsetWidth===0)return;t.breakpoints&&e.setBreakpoint();let{allowSlideNext:s,allowSlidePrev:o,snapGrid:r}=e,i=e.virtual&&e.params.virtual.enabled;e.allowSlideNext=!0,e.allowSlidePrev=!0,e.updateSize(),e.updateSlides(),e.updateSlidesClasses();let l=i&&t.loop;(t.slidesPerView==="auto"||t.slidesPerView>1)&&e.isEnd&&!e.isBeginning&&!e.params.centeredSlides&&!l?e.slideTo(e.slides.length-1,0,!1,!0):e.params.loop&&!i?e.slideToLoop(e.realIndex,0,!1,!0):e.slideTo(e.activeIndex,0,!1,!0),e.autoplay&&e.autoplay.running&&e.autoplay.paused&&(clearTimeout(e.autoplay.resizeTimeout),e.autoplay.resizeTimeout=setTimeout(()=>{e.autoplay&&e.autoplay.running&&e.autoplay.paused&&e.autoplay.resume()},500)),e.allowSlidePrev=o,e.allowSlideNext=s,e.params.watchOverflow&&r!==e.snapGrid&&e.checkOverflow()}function wa(e){let t=this;t.enabled&&(t.allowClick||(t.params.preventClicks&&e.preventDefault(),t.params.preventClicksPropagation&&t.animating&&(e.stopPropagation(),e.stopImmediatePropagation())))}function _a(){let e=this,{wrapperEl:t,rtlTranslate:a,enabled:s}=e;if(!s)return;e.previousTranslate=e.translate,e.isHorizontal()?e.translate=-t.scrollLeft:e.translate=-t.scrollTop,e.translate===0&&(e.translate=0),e.updateActiveIndex(),e.updateSlidesClasses();let o,r=e.maxTranslate()-e.minTranslate();r===0?o=0:o=(e.translate-e.minTranslate())/r,o!==e.progress&&e.updateProgress(a?-e.translate:e.translate),e.emit("setTranslate",e.translate,!1)}function Ca(e){let t=this;be(t,e.target),!(t.params.cssMode||t.params.slidesPerView!=="auto"&&!t.params.autoHeight)&&t.update()}function Ea(){let e=this;e.documentTouchHandlerProceeded||(e.documentTouchHandlerProceeded=!0,e.params.touchReleaseOnEdges&&(e.el.style.touchAction="auto"))}var lt=(e,t)=>{let a=$(),{params:s,el:o,wrapperEl:r,device:i}=e,l=!!s.nested,n=t==="on"?"addEventListener":"removeEventListener",c=t;!o||typeof o=="string"||(a[n]("touchstart",e.onDocumentTouchStart,{passive:!1,capture:l}),o[n]("touchstart",e.onTouchStart,{passive:!1}),o[n]("pointerdown",e.onTouchStart,{passive:!1}),a[n]("touchmove",e.onTouchMove,{passive:!1,capture:l}),a[n]("pointermove",e.onTouchMove,{passive:!1,capture:l}),a[n]("touchend",e.onTouchEnd,{passive:!0}),a[n]("pointerup",e.onTouchEnd,{passive:!0}),a[n]("pointercancel",e.onTouchEnd,{passive:!0}),a[n]("touchcancel",e.onTouchEnd,{passive:!0}),a[n]("pointerout",e.onTouchEnd,{passive:!0}),a[n]("pointerleave",e.onTouchEnd,{passive:!0}),a[n]("contextmenu",e.onTouchEnd,{passive:!0}),(s.preventClicks||s.preventClicksPropagation)&&o[n]("click",e.onClick,!0),s.cssMode&&r[n]("scroll",e.onScroll),s.updateOnWindowResize?e[c](i.ios||i.android?"resize orientationchange observerUpdate":"resize observerUpdate",tt,!0):e[c]("observerUpdate",tt,!0),o[n]("load",e.onLoad,{capture:!0}))};function Ta(){let e=this,{params:t}=e;e.onTouchStart=va.bind(e),e.onTouchMove=Sa.bind(e),e.onTouchEnd=ya.bind(e),e.onDocumentTouchStart=Ea.bind(e),t.cssMode&&(e.onScroll=_a.bind(e)),e.onClick=wa.bind(e),e.onLoad=Ca.bind(e),lt(e,"on")}function xa(){lt(this,"off")}var Ma={attachEvents:Ta,detachEvents:xa},at=(e,t)=>e.grid&&t.grid&&t.grid.rows>1;function La(){let e=this,{realIndex:t,initialized:a,params:s,el:o}=e,r=s.breakpoints;if(!r||r&&Object.keys(r).length===0)return;let i=$(),l=s.breakpointsBase==="window"||!s.breakpointsBase?s.breakpointsBase:"container",n=["window","container"].includes(s.breakpointsBase)||!s.breakpointsBase?e.el:i.querySelector(s.breakpointsBase),c=e.getBreakpoint(r,l,n);if(!c||e.currentBreakpoint===c)return;let d=(c in r?r[c]:void 0)||e.originalParams,h=at(e,s),f=at(e,d),b=e.params.grabCursor,v=d.grabCursor,S=s.enabled;h&&!f?(o.classList.remove(`${s.containerModifierClass}grid`,`${s.containerModifierClass}grid-column`),e.emitContainerClasses()):!h&&f&&(o.classList.add(`${s.containerModifierClass}grid`),(d.grid.fill&&d.grid.fill==="column"||!d.grid.fill&&s.grid.fill==="column")&&o.classList.add(`${s.containerModifierClass}grid-column`),e.emitContainerClasses()),b&&!v?e.unsetGrabCursor():!b&&v&&e.setGrabCursor(),["navigation","pagination","scrollbar"].forEach(M=>{if(typeof d[M]>"u")return;let P=s[M]&&s[M].enabled,_=d[M]&&d[M].enabled;P&&!_&&e[M].disable(),!P&&_&&e[M].enable()});let p=d.direction&&d.direction!==s.direction,m=s.loop&&(d.slidesPerView!==s.slidesPerView||p),g=s.loop;p&&a&&e.changeDirection(),R(e.params,d);let y=e.params.enabled,E=e.params.loop;Object.assign(e,{allowTouchMove:e.params.allowTouchMove,allowSlideNext:e.params.allowSlideNext,allowSlidePrev:e.params.allowSlidePrev}),S&&!y?e.disable():!S&&y&&e.enable(),e.currentBreakpoint=c,e.emit("_beforeBreakpoint",d),a&&(m?(e.loopDestroy(),e.loopCreate(t),e.updateSlides()):!g&&E?(e.loopCreate(t),e.updateSlides()):g&&!E&&e.loopDestroy()),e.emit("breakpoint",d)}function za(e,t="window",a){if(!e||t==="container"&&!a)return;let s=!1,o=O(),r=t==="window"?o.innerHeight:a.clientHeight,i=Object.keys(e).map(l=>{if(typeof l=="string"&&l.indexOf("@")===0){let n=parseFloat(l.substr(1));return{value:r*n,point:l}}return{value:l,point:l}});i.sort((l,n)=>parseInt(l.value,10)-parseInt(n.value,10));for(let l=0;l<i.length;l+=1){let{point:n,value:c}=i[l];t==="window"?o.matchMedia(`(min-width: ${c}px)`).matches&&(s=n):c<=a.clientWidth&&(s=n)}return s||"max"}var Pa={setBreakpoint:La,getBreakpoint:za};function Aa(e,t){let a=[];return e.forEach(s=>{typeof s=="object"?Object.keys(s).forEach(o=>{s[o]&&a.push(t+o)}):typeof s=="string"&&a.push(t+s)}),a}function Ia(){let e=this,{classNames:t,params:a,rtl:s,el:o,device:r}=e,i=Aa(["initialized",a.direction,{"free-mode":e.params.freeMode&&a.freeMode.enabled},{autoheight:a.autoHeight},{rtl:s},{grid:a.grid&&a.grid.rows>1},{"grid-column":a.grid&&a.grid.rows>1&&a.grid.fill==="column"},{android:r.android},{ios:r.ios},{"css-mode":a.cssMode},{centered:a.cssMode&&a.centeredSlides},{"watch-progress":a.watchSlidesProgress}],a.containerModifierClass);t.push(...i),o.classList.add(...t),e.emitContainerClasses()}function ka(){let e=this,{el:t,classNames:a}=e;!t||typeof t=="string"||(t.classList.remove(...a),e.emitContainerClasses())}var Da={addClasses:Ia,removeClasses:ka};function Oa(){let e=this,{isLocked:t,params:a}=e,{slidesOffsetBefore:s}=a;if(s){let o=e.slides.length-1,r=e.slidesGrid[o]+e.slidesSizesGrid[o]+s*2;e.isLocked=e.size>r}else e.isLocked=e.snapGrid.length===1;a.allowSlideNext===!0&&(e.allowSlideNext=!e.isLocked),a.allowSlidePrev===!0&&(e.allowSlidePrev=!e.isLocked),t&&t!==e.isLocked&&(e.isEnd=!1),t!==e.isLocked&&e.emit(e.isLocked?"lock":"unlock")}var Ga={checkOverflow:Oa},st={init:!0,direction:"horizontal",oneWayMovement:!1,swiperElementNodeName:"SWIPER-CONTAINER",touchEventsTarget:"wrapper",initialSlide:0,speed:300,cssMode:!1,updateOnWindowResize:!0,resizeObserver:!0,nested:!1,createElements:!1,eventsPrefix:"swiper",enabled:!0,focusableElements:"input, select, option, textarea, button, video, label",width:null,height:null,preventInteractionOnTransition:!1,userAgent:null,url:null,edgeSwipeDetection:!1,edgeSwipeThreshold:20,autoHeight:!1,setWrapperSize:!1,virtualTranslate:!1,effect:"slide",breakpoints:void 0,breakpointsBase:"window",spaceBetween:0,slidesPerView:1,slidesPerGroup:1,slidesPerGroupSkip:0,slidesPerGroupAuto:!1,centeredSlides:!1,centeredSlidesBounds:!1,slidesOffsetBefore:0,slidesOffsetAfter:0,normalizeSlideIndex:!0,centerInsufficientSlides:!1,snapToSlideEdge:!1,watchOverflow:!0,roundLengths:!1,touchRatio:1,touchAngle:45,simulateTouch:!0,shortSwipes:!0,longSwipes:!0,longSwipesRatio:.5,longSwipesMs:300,followFinger:!0,allowTouchMove:!0,threshold:5,touchMoveStopPropagation:!1,touchStartPreventDefault:!0,touchStartForcePreventDefault:!1,touchReleaseOnEdges:!1,uniqueNavElements:!0,resistance:!0,resistanceRatio:.85,watchSlidesProgress:!1,grabCursor:!1,preventClicks:!0,preventClicksPropagation:!0,slideToClickedSlide:!1,loop:!1,loopAddBlankSlides:!0,loopAdditionalSlides:0,loopPreventsSliding:!0,rewind:!1,allowSlidePrev:!0,allowSlideNext:!0,swipeHandler:null,noSwiping:!0,noSwipingClass:"swiper-no-swiping",noSwipingSelector:null,passiveListeners:!0,maxBackfaceHiddenSlides:10,containerModifierClass:"swiper-",slideClass:"swiper-slide",slideBlankClass:"swiper-slide-blank",slideActiveClass:"swiper-slide-active",slideVisibleClass:"swiper-slide-visible",slideFullyVisibleClass:"swiper-slide-fully-visible",slideNextClass:"swiper-slide-next",slidePrevClass:"swiper-slide-prev",wrapperClass:"swiper-wrapper",lazyPreloaderClass:"swiper-lazy-preloader",lazyPreloadPrevNext:0,runCallbacksOnInit:!0,_emitClasses:!1};function $a(e,t){return function(s={}){let o=Object.keys(s)[0],r=s[o];if(typeof r!="object"||r===null){R(t,s);return}if(e[o]===!0&&(e[o]={enabled:!0}),o==="navigation"&&e[o]&&e[o].enabled&&!e[o].prevEl&&!e[o].nextEl&&(e[o].auto=!0),["pagination","scrollbar"].indexOf(o)>=0&&e[o]&&e[o].enabled&&!e[o].el&&(e[o].auto=!0),!(o in e&&"enabled"in r)){R(t,s);return}typeof e[o]=="object"&&!("enabled"in e[o])&&(e[o].enabled=!0),e[o]||(e[o]={enabled:!1}),R(t,s)}}var Ie={eventsEmitter:Dt,update:Xt,translate:Zt,transition:ta,slide:ca,loop:pa,grabCursor:ha,events:Ma,breakpoints:Pa,checkOverflow:Ga,classes:Da},ke={},V=class e{constructor(...t){let a,s;t.length===1&&t[0].constructor&&Object.prototype.toString.call(t[0]).slice(8,-1)==="Object"?s=t[0]:[a,s]=t,s||(s={}),s=R({},s),a&&!s.el&&(s.el=a);let o=$();if(s.el&&typeof s.el=="string"&&o.querySelectorAll(s.el).length>1){let n=[];return o.querySelectorAll(s.el).forEach(c=>{let u=R({},s,{el:c});n.push(new e(u))}),n}let r=this;r.__swiper__=!0,r.support=ot(),r.device=rt({userAgent:s.userAgent}),r.browser=nt(),r.eventsListeners={},r.eventsAnyListeners=[],r.modules=[...r.__modules__],s.modules&&Array.isArray(s.modules)&&s.modules.forEach(n=>{typeof n=="function"&&r.modules.indexOf(n)<0&&r.modules.push(n)});let i={};r.modules.forEach(n=>{n({params:s,swiper:r,extendParams:$a(s,i),on:r.on.bind(r),once:r.once.bind(r),off:r.off.bind(r),emit:r.emit.bind(r)})});let l=R({},st,i);return r.params=R({},l,ke,s),r.originalParams=R({},r.params),r.passedParams=R({},s),r.params&&r.params.on&&Object.keys(r.params.on).forEach(n=>{r.on(n,r.params.on[n])}),r.params&&r.params.onAny&&r.onAny(r.params.onAny),Object.assign(r,{enabled:r.params.enabled,el:a,classNames:[],slides:[],slidesGrid:[],snapGrid:[],slidesSizesGrid:[],isHorizontal(){return r.params.direction==="horizontal"},isVertical(){return r.params.direction==="vertical"},activeIndex:0,realIndex:0,isBeginning:!0,isEnd:!1,translate:0,previousTranslate:0,progress:0,velocity:0,animating:!1,cssOverflowAdjustment(){return Math.trunc(this.translate/2**23)*2**23},allowSlideNext:r.params.allowSlideNext,allowSlidePrev:r.params.allowSlidePrev,touchEventsData:{isTouched:void 0,isMoved:void 0,allowTouchCallbacks:void 0,touchStartTime:void 0,isScrolling:void 0,currentTranslate:void 0,startTranslate:void 0,allowThresholdMove:void 0,focusableElements:r.params.focusableElements,lastClickTime:0,clickTimeout:void 0,velocities:[],allowMomentumBounce:void 0,startMoving:void 0,pointerId:null,touchId:null},allowClick:!0,allowTouchMove:r.params.allowTouchMove,touches:{startX:0,startY:0,currentX:0,currentY:0,diff:0},imagesToLoad:[],imagesLoaded:0}),r.emit("_swiper"),r.params.init&&r.init(),r}getDirectionLabel(t){return this.isHorizontal()?t:{width:"height","margin-top":"margin-left","margin-bottom ":"margin-right","margin-left":"margin-top","margin-right":"margin-bottom","padding-left":"padding-top","padding-right":"padding-bottom",marginRight:"marginBottom"}[t]}getSlideIndex(t){let{slidesEl:a,params:s}=this,o=H(a,`.${s.slideClass}, swiper-slide`),r=ee(o[0]);return ee(t)-r}getSlideIndexByData(t){return this.getSlideIndex(this.slides.find(a=>a.getAttribute("data-swiper-slide-index")*1===t))}getSlideIndexWhenGrid(t){return this.grid&&this.params.grid&&this.params.grid.rows>1&&(this.params.grid.fill==="column"?t=Math.floor(t/this.params.grid.rows):this.params.grid.fill==="row"&&(t=t%Math.ceil(this.slides.length/this.params.grid.rows))),t}recalcSlides(){let t=this,{slidesEl:a,params:s}=t;t.slides=H(a,`.${s.slideClass}, swiper-slide`)}enable(){let t=this;t.enabled||(t.enabled=!0,t.params.grabCursor&&t.setGrabCursor(),t.emit("enable"))}disable(){let t=this;t.enabled&&(t.enabled=!1,t.params.grabCursor&&t.unsetGrabCursor(),t.emit("disable"))}setProgress(t,a){let s=this;t=Math.min(Math.max(t,0),1);let o=s.minTranslate(),i=(s.maxTranslate()-o)*t+o;s.translateTo(i,typeof a>"u"?0:a),s.updateActiveIndex(),s.updateSlidesClasses()}emitContainerClasses(){let t=this;if(!t.params._emitClasses||!t.el)return;let a=t.el.className.split(" ").filter(s=>s.indexOf("swiper")===0||s.indexOf(t.params.containerModifierClass)===0);t.emit("_containerClasses",a.join(" "))}getSlideClasses(t){let a=this;return a.destroyed?"":t.className.split(" ").filter(s=>s.indexOf("swiper-slide")===0||s.indexOf(a.params.slideClass)===0).join(" ")}emitSlidesClasses(){let t=this;if(!t.params._emitClasses||!t.el)return;let a=[];t.slides.forEach(s=>{let o=t.getSlideClasses(s);a.push({slideEl:s,classNames:o}),t.emit("_slideClass",s,o)}),t.emit("_slideClasses",a)}slidesPerViewDynamic(t="current",a=!1){let s=this,{params:o,slides:r,slidesGrid:i,slidesSizesGrid:l,size:n,activeIndex:c}=s,u=1;if(typeof o.slidesPerView=="number")return o.slidesPerView;if(o.centeredSlides){let d=r[c]?Math.ceil(r[c].swiperSlideSize):0,h;for(let f=c+1;f<r.length;f+=1)r[f]&&!h&&(d+=Math.ceil(r[f].swiperSlideSize),u+=1,d>n&&(h=!0));for(let f=c-1;f>=0;f-=1)r[f]&&!h&&(d+=r[f].swiperSlideSize,u+=1,d>n&&(h=!0))}else if(t==="current")for(let d=c+1;d<r.length;d+=1)(a?i[d]+l[d]-i[c]<n:i[d]-i[c]<n)&&(u+=1);else for(let d=c-1;d>=0;d-=1)i[c]-i[d]<n&&(u+=1);return u}update(){let t=this;if(!t||t.destroyed)return;let{snapGrid:a,params:s}=t;s.breakpoints&&t.setBreakpoint(),[...t.el.querySelectorAll('[loading="lazy"]')].forEach(i=>{i.complete&&be(t,i)}),t.updateSize(),t.updateSlides(),t.updateProgress(),t.updateSlidesClasses();function o(){let i=t.rtlTranslate?t.translate*-1:t.translate,l=Math.min(Math.max(i,t.maxTranslate()),t.minTranslate());t.setTranslate(l),t.updateActiveIndex(),t.updateSlidesClasses()}let r;if(s.freeMode&&s.freeMode.enabled&&!s.cssMode)o(),s.autoHeight&&t.updateAutoHeight();else{if((s.slidesPerView==="auto"||s.slidesPerView>1)&&t.isEnd&&!s.centeredSlides){let i=t.virtual&&s.virtual.enabled?t.virtual.slides:t.slides;r=t.slideTo(i.length-1,0,!1,!0)}else r=t.slideTo(t.activeIndex,0,!1,!0);r||o()}s.watchOverflow&&a!==t.snapGrid&&t.checkOverflow(),t.emit("update")}changeDirection(t,a=!0){let s=this,o=s.params.direction;return t||(t=o==="horizontal"?"vertical":"horizontal"),t===o||t!=="horizontal"&&t!=="vertical"||(s.el.classList.remove(`${s.params.containerModifierClass}${o}`),s.el.classList.add(`${s.params.containerModifierClass}${t}`),s.emitContainerClasses(),s.params.direction=t,s.slides.forEach(r=>{t==="vertical"?r.style.width="":r.style.height=""}),s.emit("changeDirection"),a&&s.update()),s}changeLanguageDirection(t){let a=this;a.rtl&&t==="rtl"||!a.rtl&&t==="ltr"||(a.rtl=t==="rtl",a.rtlTranslate=a.params.direction==="horizontal"&&a.rtl,a.rtl?(a.el.classList.add(`${a.params.containerModifierClass}rtl`),a.el.dir="rtl"):(a.el.classList.remove(`${a.params.containerModifierClass}rtl`),a.el.dir="ltr"),a.update())}mount(t){let a=this;if(a.mounted)return!0;let s=t||a.params.el;if(typeof s=="string"&&(s=document.querySelector(s)),!s)return!1;s.swiper=a,s.parentNode&&s.parentNode.host&&s.parentNode.host.nodeName===a.params.swiperElementNodeName.toUpperCase()&&(a.isElement=!0);let o=()=>`.${(a.params.wrapperClass||"").trim().split(" ").join(".")}`,i=s&&s.shadowRoot&&s.shadowRoot.querySelector?s.shadowRoot.querySelector(o()):H(s,o())[0];return!i&&a.params.createElements&&(i=N("div",a.params.wrapperClass),s.append(i),H(s,`.${a.params.slideClass}`).forEach(l=>{i.append(l)})),Object.assign(a,{el:s,wrapperEl:i,slidesEl:a.isElement&&!s.parentNode.host.slideSlots?s.parentNode.host:i,hostEl:a.isElement?s.parentNode.host:s,mounted:!0,rtl:s.dir.toLowerCase()==="rtl"||F(s,"direction")==="rtl",rtlTranslate:a.params.direction==="horizontal"&&(s.dir.toLowerCase()==="rtl"||F(s,"direction")==="rtl"),wrongRTL:F(i,"display")==="-webkit-box"}),!0}init(t){let a=this;if(a.initialized||a.mount(t)===!1)return a;a.emit("beforeInit"),a.params.breakpoints&&a.setBreakpoint(),a.addClasses(),a.updateSize(),a.updateSlides(),a.params.watchOverflow&&a.checkOverflow(),a.params.grabCursor&&a.enabled&&a.setGrabCursor(),a.params.loop&&a.virtual&&a.params.virtual.enabled?a.slideTo(a.params.initialSlide+a.virtual.slidesBefore,0,a.params.runCallbacksOnInit,!1,!0):a.slideTo(a.params.initialSlide,0,a.params.runCallbacksOnInit,!1,!0),a.params.loop&&a.loopCreate(void 0,!0),a.attachEvents();let o=[...a.el.querySelectorAll('[loading="lazy"]')];return a.isElement&&o.push(...a.hostEl.querySelectorAll('[loading="lazy"]')),o.forEach(r=>{r.complete?be(a,r):r.addEventListener("load",i=>{be(a,i.target)})}),De(a),a.initialized=!0,De(a),a.emit("init"),a.emit("afterInit"),a}destroy(t=!0,a=!0){let s=this,{params:o,el:r,wrapperEl:i,slides:l}=s;return typeof s.params>"u"||s.destroyed||(s.emit("beforeDestroy"),s.initialized=!1,s.detachEvents(),o.loop&&s.loopDestroy(),a&&(s.removeClasses(),r&&typeof r!="string"&&r.removeAttribute("style"),i&&i.removeAttribute("style"),l&&l.length&&l.forEach(n=>{n.classList.remove(o.slideVisibleClass,o.slideFullyVisibleClass,o.slideActiveClass,o.slideNextClass,o.slidePrevClass),n.removeAttribute("style"),n.removeAttribute("data-swiper-slide-index")})),s.emit("destroy"),Object.keys(s.eventsListeners).forEach(n=>{s.off(n)}),t!==!1&&(s.el&&typeof s.el!="string"&&(s.el.swiper=null),Ue(s)),s.destroyed=!0),null}static extendDefaults(t){R(ke,t)}static get extendedDefaults(){return ke}static get defaults(){return st}static installModule(t){e.prototype.__modules__||(e.prototype.__modules__=[]);let a=e.prototype.__modules__;typeof t=="function"&&a.indexOf(t)<0&&a.push(t)}static use(t){return Array.isArray(t)?(t.forEach(a=>e.installModule(a)),e):(e.installModule(t),e)}};Object.keys(Ie).forEach(e=>{Object.keys(Ie[e]).forEach(t=>{V.prototype[t]=Ie[e][t]})});V.use([It,kt]);function Oe({swiper:e,extendParams:t,on:a,emit:s}){let o=$(),r=O();e.keyboard={enabled:!1},t({keyboard:{enabled:!1,onlyInViewport:!0,pageUpDown:!0,speed:void 0}});function i(c){if(!e.enabled)return;let{rtlTranslate:u}=e,d=c;d.originalEvent&&(d=d.originalEvent);let h=d.keyCode||d.charCode,f=e.params.keyboard.pageUpDown,b=f&&h===33,v=f&&h===34,S=h===37,p=h===39,m=h===38,g=h===40;if(!e.allowSlideNext&&(e.isHorizontal()&&p||e.isVertical()&&g||v)||!e.allowSlidePrev&&(e.isHorizontal()&&S||e.isVertical()&&m||b))return!1;if(d.shiftKey||d.altKey||d.ctrlKey||d.metaKey||o.activeElement&&(o.activeElement.isContentEditable||o.activeElement.nodeName&&(o.activeElement.nodeName.toLowerCase()==="input"||o.activeElement.nodeName.toLowerCase()==="textarea")))return;if(e.params.keyboard.onlyInViewport&&(b||v||S||p||m||g)){let E=!1;if(j(e.el,`.${e.params.slideClass}, swiper-slide`).length>0&&j(e.el,`.${e.params.slideActiveClass}`).length===0)return;let M=e.el,P=M.clientWidth,_=M.clientHeight,k=r.innerWidth,T=r.innerHeight,C=me(M);u&&(C.left-=M.scrollLeft);let x=[[C.left,C.top],[C.left+P,C.top],[C.left,C.top+_],[C.left+P,C.top+_]];for(let A=0;A<x.length;A+=1){let L=x[A];if(L[0]>=0&&L[0]<=k&&L[1]>=0&&L[1]<=T){if(L[0]===0&&L[1]===0)continue;E=!0}}if(!E)return}let y=e.params.keyboard.speed;e.isHorizontal()?((b||v||S||p)&&(d.preventDefault?d.preventDefault():d.returnValue=!1),((v||p)&&!u||(b||S)&&u)&&e.slideNext(y),((b||S)&&!u||(v||p)&&u)&&e.slidePrev(y)):((b||v||m||g)&&(d.preventDefault?d.preventDefault():d.returnValue=!1),(v||g)&&e.slideNext(y),(b||m)&&e.slidePrev(y)),s("keyPress",h)}function l(){e.keyboard.enabled||(o.addEventListener("keydown",i),e.keyboard.enabled=!0)}function n(){e.keyboard.enabled&&(o.removeEventListener("keydown",i),e.keyboard.enabled=!1)}a("init",()=>{e.params.keyboard.enabled&&l()}),a("destroy",()=>{e.keyboard.enabled&&n()}),Object.assign(e.keyboard,{enable:l,disable:n})}function le(e,t,a,s){return e.params.createElements&&Object.keys(s).forEach(o=>{if(!a[o]&&a.auto===!0){let r=H(e.el,`.${s[o]}`)[0];r||(r=N("div",s[o]),r.className=s[o],e.el.append(r)),a[o]=r,t[o]=r}}),a}var ct='<svg class="swiper-navigation-icon" width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.38296 20.0762C0.111788 19.805 0.111788 19.3654 0.38296 19.0942L9.19758 10.2796L0.38296 1.46497C0.111788 1.19379 0.111788 0.754138 0.38296 0.482966C0.654131 0.211794 1.09379 0.211794 1.36496 0.482966L10.4341 9.55214C10.8359 9.9539 10.8359 10.6053 10.4341 11.007L1.36496 20.0762C1.09379 20.3474 0.654131 20.3474 0.38296 20.0762Z" fill="currentColor"/></svg>';function Ge({swiper:e,extendParams:t,on:a,emit:s}){t({navigation:{nextEl:null,prevEl:null,addIcons:!0,hideOnClick:!1,disabledClass:"swiper-button-disabled",hiddenClass:"swiper-button-hidden",lockClass:"swiper-button-lock",navigationDisabledClass:"swiper-navigation-disabled"}}),e.navigation={nextEl:null,prevEl:null,arrowSvg:ct};function o(f){let b;return f&&typeof f=="string"&&e.isElement&&(b=e.el.querySelector(f)||e.hostEl.querySelector(f),b)?b:(f&&(typeof f=="string"&&(b=[...document.querySelectorAll(f)]),e.params.uniqueNavElements&&typeof f=="string"&&b&&b.length>1&&e.el.querySelectorAll(f).length===1?b=e.el.querySelector(f):b&&b.length===1&&(b=b[0])),f&&!b?f:b)}function r(f,b){let v=e.params.navigation;f=G(f),f.forEach(S=>{S&&(S.classList[b?"add":"remove"](...v.disabledClass.split(" ")),S.tagName==="BUTTON"&&(S.disabled=b),e.params.watchOverflow&&e.enabled&&S.classList[e.isLocked?"add":"remove"](v.lockClass))})}function i(){let{nextEl:f,prevEl:b}=e.navigation;if(e.params.loop){r(b,!1),r(f,!1);return}r(b,e.isBeginning&&!e.params.rewind),r(f,e.isEnd&&!e.params.rewind)}function l(f){f.preventDefault(),!(e.isBeginning&&!e.params.loop&&!e.params.rewind)&&(e.slidePrev(),s("navigationPrev"))}function n(f){f.preventDefault(),!(e.isEnd&&!e.params.loop&&!e.params.rewind)&&(e.slideNext(),s("navigationNext"))}function c(){let f=e.params.navigation;if(e.params.navigation=le(e,e.originalParams.navigation,e.params.navigation,{nextEl:"swiper-button-next",prevEl:"swiper-button-prev"}),!(f.nextEl||f.prevEl))return;let b=o(f.nextEl),v=o(f.prevEl);Object.assign(e.navigation,{nextEl:b,prevEl:v}),b=G(b),v=G(v);let S=(p,m)=>{if(p){if(f.addIcons&&p.matches(".swiper-button-next,.swiper-button-prev")&&!p.querySelector("svg")){let g=document.createElement("div");U(g,ct),p.appendChild(g.querySelector("svg")),g.remove()}p.addEventListener("click",m==="next"?n:l)}!e.enabled&&p&&p.classList.add(...f.lockClass.split(" "))};b.forEach(p=>S(p,"next")),v.forEach(p=>S(p,"prev"))}function u(){let{nextEl:f,prevEl:b}=e.navigation;f=G(f),b=G(b);let v=(S,p)=>{S.removeEventListener("click",p==="next"?n:l),S.classList.remove(...e.params.navigation.disabledClass.split(" "))};f.forEach(S=>v(S,"next")),b.forEach(S=>v(S,"prev"))}a("init",()=>{e.params.navigation.enabled===!1?h():(c(),i())}),a("toEdge fromEdge lock unlock",()=>{i()}),a("destroy",()=>{u()}),a("enable disable",()=>{let{nextEl:f,prevEl:b}=e.navigation;if(f=G(f),b=G(b),e.enabled){i();return}[...f,...b].filter(v=>!!v).forEach(v=>v.classList.add(e.params.navigation.lockClass))}),a("click",(f,b)=>{let{nextEl:v,prevEl:S}=e.navigation;v=G(v),S=G(S);let p=b.target,m=S.includes(p)||v.includes(p);if(e.isElement&&!m){let g=b.path||b.composedPath&&b.composedPath();g&&(m=g.find(y=>v.includes(y)||S.includes(y)))}if(e.params.navigation.hideOnClick&&!m){if(e.pagination&&e.params.pagination&&e.params.pagination.clickable&&(e.pagination.el===p||e.pagination.el.contains(p)))return;let g;v.length?g=v[0].classList.contains(e.params.navigation.hiddenClass):S.length&&(g=S[0].classList.contains(e.params.navigation.hiddenClass)),s(g===!0?"navigationShow":"navigationHide"),[...v,...S].filter(y=>!!y).forEach(y=>y.classList.toggle(e.params.navigation.hiddenClass))}});let d=()=>{e.el.classList.remove(...e.params.navigation.navigationDisabledClass.split(" ")),c(),i()},h=()=>{e.el.classList.add(...e.params.navigation.navigationDisabledClass.split(" ")),u()};Object.assign(e.navigation,{enable:d,disable:h,update:i,init:c,destroy:u})}function K(e=""){return`.${e.trim().replace(/([\.:!+\/()[\]#>~*^$|=,'"@{}\\])/g,"\\$1").replace(/ /g,".")}`}function $e({swiper:e,extendParams:t,on:a,emit:s}){let o="swiper-pagination";t({pagination:{el:null,bulletElement:"span",clickable:!1,hideOnClick:!1,renderBullet:null,renderProgressbar:null,renderFraction:null,renderCustom:null,progressbarOpposite:!1,type:"bullets",dynamicBullets:!1,dynamicMainBullets:1,formatFractionCurrent:p=>p,formatFractionTotal:p=>p,bulletClass:`${o}-bullet`,bulletActiveClass:`${o}-bullet-active`,modifierClass:`${o}-`,currentClass:`${o}-current`,totalClass:`${o}-total`,hiddenClass:`${o}-hidden`,progressbarFillClass:`${o}-progressbar-fill`,progressbarOppositeClass:`${o}-progressbar-opposite`,clickableClass:`${o}-clickable`,lockClass:`${o}-lock`,horizontalClass:`${o}-horizontal`,verticalClass:`${o}-vertical`,paginationDisabledClass:`${o}-disabled`}}),e.pagination={el:null,bullets:[]};let r,i=0;function l(){return!e.params.pagination.el||!e.pagination.el||Array.isArray(e.pagination.el)&&e.pagination.el.length===0}function n(p,m){let{bulletActiveClass:g}=e.params.pagination;p&&(p=p[`${m==="prev"?"previous":"next"}ElementSibling`],p&&(p.classList.add(`${g}-${m}`),p=p[`${m==="prev"?"previous":"next"}ElementSibling`],p&&p.classList.add(`${g}-${m}-${m}`)))}function c(p,m,g){if(p=p%g,m=m%g,m===p+1)return"next";if(m===p-1)return"previous"}function u(p){let m=p.target.closest(K(e.params.pagination.bulletClass));if(!m)return;p.preventDefault();let g=ee(m)*e.params.slidesPerGroup;if(e.params.loop){if(e.realIndex===g)return;let y=c(e.realIndex,g,e.slides.length);y==="next"?e.slideNext():y==="previous"?e.slidePrev():e.slideToLoop(g)}else e.slideTo(g)}function d(){let p=e.rtl,m=e.params.pagination;if(l())return;let g=e.pagination.el;g=G(g);let y,E,M=e.virtual&&e.params.virtual.enabled?e.virtual.slides.length:e.slides.length,P=e.params.loop?Math.ceil(M/e.params.slidesPerGroup):e.snapGrid.length;if(e.params.loop?(E=e.previousRealIndex||0,y=e.params.slidesPerGroup>1?Math.floor(e.realIndex/e.params.slidesPerGroup):e.realIndex):typeof e.snapIndex<"u"?(y=e.snapIndex,E=e.previousSnapIndex):(E=e.previousIndex||0,y=e.activeIndex||0),m.type==="bullets"&&e.pagination.bullets&&e.pagination.bullets.length>0){let _=e.pagination.bullets,k,T,C;if(m.dynamicBullets&&(r=ie(_[0],e.isHorizontal()?"width":"height",!0),g.forEach(x=>{x.style[e.isHorizontal()?"width":"height"]=`${r*(m.dynamicMainBullets+4)}px`}),m.dynamicMainBullets>1&&E!==void 0&&(i+=y-(E||0),i>m.dynamicMainBullets-1?i=m.dynamicMainBullets-1:i<0&&(i=0)),k=Math.max(y-i,0),T=k+(Math.min(_.length,m.dynamicMainBullets)-1),C=(T+k)/2),_.forEach(x=>{let A=[...["","-next","-next-next","-prev","-prev-prev","-main"].map(L=>`${m.bulletActiveClass}${L}`)].map(L=>typeof L=="string"&&L.includes(" ")?L.split(" "):L).flat();x.classList.remove(...A)}),g.length>1)_.forEach(x=>{let A=ee(x);A===y?x.classList.add(...m.bulletActiveClass.split(" ")):e.isElement&&x.setAttribute("part","bullet"),m.dynamicBullets&&(A>=k&&A<=T&&x.classList.add(...`${m.bulletActiveClass}-main`.split(" ")),A===k&&n(x,"prev"),A===T&&n(x,"next"))});else{let x=_[y];if(x&&x.classList.add(...m.bulletActiveClass.split(" ")),e.isElement&&_.forEach((A,L)=>{A.setAttribute("part",L===y?"bullet-active":"bullet")}),m.dynamicBullets){let A=_[k],L=_[T];for(let D=k;D<=T;D+=1)_[D]&&_[D].classList.add(...`${m.bulletActiveClass}-main`.split(" "));n(A,"prev"),n(L,"next")}}if(m.dynamicBullets){let x=Math.min(_.length,m.dynamicMainBullets+4),A=(r*x-r)/2-C*r,L=p?"right":"left";_.forEach(D=>{D.style[e.isHorizontal()?L:"top"]=`${A}px`})}}g.forEach((_,k)=>{if(m.type==="fraction"&&(_.querySelectorAll(K(m.currentClass)).forEach(T=>{T.textContent=m.formatFractionCurrent(y+1)}),_.querySelectorAll(K(m.totalClass)).forEach(T=>{T.textContent=m.formatFractionTotal(P)})),m.type==="progressbar"){let T;m.progressbarOpposite?T=e.isHorizontal()?"vertical":"horizontal":T=e.isHorizontal()?"horizontal":"vertical";let C=(y+1)/P,x=1,A=1;T==="horizontal"?x=C:A=C,_.querySelectorAll(K(m.progressbarFillClass)).forEach(L=>{L.style.transform=`translate3d(0,0,0) scaleX(${x}) scaleY(${A})`,L.style.transitionDuration=`${e.params.speed}ms`})}m.type==="custom"&&m.renderCustom?(U(_,m.renderCustom(e,y+1,P)),k===0&&s("paginationRender",_)):(k===0&&s("paginationRender",_),s("paginationUpdate",_)),e.params.watchOverflow&&e.enabled&&_.classList[e.isLocked?"add":"remove"](m.lockClass)})}function h(){let p=e.params.pagination;if(l())return;let m=e.virtual&&e.params.virtual.enabled?e.virtual.slides.length:e.grid&&e.params.grid.rows>1?e.slides.length/Math.ceil(e.params.grid.rows):e.slides.length,g=e.pagination.el;g=G(g);let y="";if(p.type==="bullets"){let E=e.params.loop?Math.ceil(m/e.params.slidesPerGroup):e.snapGrid.length;e.params.freeMode&&e.params.freeMode.enabled&&E>m&&(E=m);for(let M=0;M<E;M+=1)p.renderBullet?y+=p.renderBullet.call(e,M,p.bulletClass):y+=`<${p.bulletElement} ${e.isElement?'part="bullet"':""} class="${p.bulletClass}"></${p.bulletElement}>`}p.type==="fraction"&&(p.renderFraction?y=p.renderFraction.call(e,p.currentClass,p.totalClass):y=`<span class="${p.currentClass}"></span> / <span class="${p.totalClass}"></span>`),p.type==="progressbar"&&(p.renderProgressbar?y=p.renderProgressbar.call(e,p.progressbarFillClass):y=`<span class="${p.progressbarFillClass}"></span>`),e.pagination.bullets=[],g.forEach(E=>{p.type!=="custom"&&U(E,y||""),p.type==="bullets"&&e.pagination.bullets.push(...E.querySelectorAll(K(p.bulletClass)))}),p.type!=="custom"&&s("paginationRender",g[0])}function f(){e.params.pagination=le(e,e.originalParams.pagination,e.params.pagination,{el:"swiper-pagination"});let p=e.params.pagination;if(!p.el)return;let m;typeof p.el=="string"&&e.isElement&&(m=e.el.querySelector(p.el)),!m&&typeof p.el=="string"&&(m=[...document.querySelectorAll(p.el)]),m||(m=p.el),!(!m||m.length===0)&&(e.params.uniqueNavElements&&typeof p.el=="string"&&Array.isArray(m)&&m.length>1&&(m=[...e.el.querySelectorAll(p.el)],m.length>1&&(m=m.find(g=>j(g,".swiper")[0]===e.el))),Array.isArray(m)&&m.length===1&&(m=m[0]),Object.assign(e.pagination,{el:m}),m=G(m),m.forEach(g=>{p.type==="bullets"&&p.clickable&&g.classList.add(...(p.clickableClass||"").split(" ")),g.classList.add(p.modifierClass+p.type),g.classList.add(e.isHorizontal()?p.horizontalClass:p.verticalClass),p.type==="bullets"&&p.dynamicBullets&&(g.classList.add(`${p.modifierClass}${p.type}-dynamic`),i=0,p.dynamicMainBullets<1&&(p.dynamicMainBullets=1)),p.type==="progressbar"&&p.progressbarOpposite&&g.classList.add(p.progressbarOppositeClass),p.clickable&&g.addEventListener("click",u),e.enabled||g.classList.add(p.lockClass)}))}function b(){let p=e.params.pagination;if(l())return;let m=e.pagination.el;m&&(m=G(m),m.forEach(g=>{g.classList.remove(p.hiddenClass),g.classList.remove(p.modifierClass+p.type),g.classList.remove(e.isHorizontal()?p.horizontalClass:p.verticalClass),p.clickable&&(g.classList.remove(...(p.clickableClass||"").split(" ")),g.removeEventListener("click",u))})),e.pagination.bullets&&e.pagination.bullets.forEach(g=>g.classList.remove(...p.bulletActiveClass.split(" ")))}a("changeDirection",()=>{if(!e.pagination||!e.pagination.el)return;let p=e.params.pagination,{el:m}=e.pagination;m=G(m),m.forEach(g=>{g.classList.remove(p.horizontalClass,p.verticalClass),g.classList.add(e.isHorizontal()?p.horizontalClass:p.verticalClass)})}),a("init",()=>{e.params.pagination.enabled===!1?S():(f(),h(),d())}),a("activeIndexChange",()=>{typeof e.snapIndex>"u"&&d()}),a("snapIndexChange",()=>{d()}),a("snapGridLengthChange",()=>{h(),d()}),a("destroy",()=>{b()}),a("enable disable",()=>{let{el:p}=e.pagination;p&&(p=G(p),p.forEach(m=>m.classList[e.enabled?"remove":"add"](e.params.pagination.lockClass)))}),a("lock unlock",()=>{d()}),a("click",(p,m)=>{let g=m.target,y=G(e.pagination.el);if(e.params.pagination.el&&e.params.pagination.hideOnClick&&y&&y.length>0&&!g.classList.contains(e.params.pagination.bulletClass)){if(e.navigation&&(e.navigation.nextEl&&g===e.navigation.nextEl||e.navigation.prevEl&&g===e.navigation.prevEl))return;let E=y[0].classList.contains(e.params.pagination.hiddenClass);s(E===!0?"paginationShow":"paginationHide"),y.forEach(M=>M.classList.toggle(e.params.pagination.hiddenClass))}});let v=()=>{e.el.classList.remove(e.params.pagination.paginationDisabledClass);let{el:p}=e.pagination;p&&(p=G(p),p.forEach(m=>m.classList.remove(e.params.pagination.paginationDisabledClass))),f(),h(),d()},S=()=>{e.el.classList.add(e.params.pagination.paginationDisabledClass);let{el:p}=e.pagination;p&&(p=G(p),p.forEach(m=>m.classList.add(e.params.pagination.paginationDisabledClass))),b()};Object.assign(e.pagination,{enable:v,disable:S,render:h,update:d,init:f,destroy:b})}function He({swiper:e,extendParams:t,on:a}){t({thumbs:{swiper:null,multipleActiveThumbs:!0,autoScrollOffset:0,slideThumbActiveClass:"swiper-slide-thumb-active",thumbsContainerClass:"swiper-thumbs"}});let s=!1,o=!1;e.thumbs={swiper:null};function r(){let u=e.thumbs.swiper;return!u||u.destroyed?!1:u.params.virtual&&u.params.virtual.enabled}function i(){let u=e.thumbs.swiper;if(!u||u.destroyed)return;let d=u.clickedIndex,h=u.clickedSlide;if(h&&h.classList.contains(e.params.thumbs.slideThumbActiveClass)||typeof d>"u"||d===null)return;let f;u.params.loop?f=parseInt(u.clickedSlide.getAttribute("data-swiper-slide-index"),10):f=d,e.params.loop?e.slideToLoop(f):e.slideTo(f)}function l(){let{thumbs:u}=e.params;if(s)return!1;s=!0;let d=e.constructor;if(u.swiper instanceof d){if(u.swiper.destroyed)return s=!1,!1;e.thumbs.swiper=u.swiper,Object.assign(e.thumbs.swiper.originalParams,{watchSlidesProgress:!0,slideToClickedSlide:!1}),Object.assign(e.thumbs.swiper.params,{watchSlidesProgress:!0,slideToClickedSlide:!1}),e.thumbs.swiper.update()}else if(ae(u.swiper)){let h=Object.assign({},u.swiper);Object.assign(h,{watchSlidesProgress:!0,slideToClickedSlide:!1}),e.thumbs.swiper=new d(h),o=!0}return e.thumbs.swiper.el.classList.add(e.params.thumbs.thumbsContainerClass),e.thumbs.swiper.on("tap",i),r()&&e.thumbs.swiper.on("virtualUpdate",()=>{n(!1,{autoScroll:!1})}),!0}function n(u,d){let h=e.thumbs.swiper;if(!h||h.destroyed)return;let f=1,b=e.params.thumbs.slideThumbActiveClass;if(e.params.slidesPerView>1&&!e.params.centeredSlides&&(f=e.params.slidesPerView),e.params.thumbs.multipleActiveThumbs||(f=1),f=Math.floor(f),h.slides.forEach(v=>v.classList.remove(b)),h.params.loop||r())for(let v=0;v<f;v+=1)H(h.slidesEl,`[data-swiper-slide-index="${e.realIndex+v}"]`).forEach(S=>{S.classList.add(b)});else for(let v=0;v<f;v+=1)h.slides[e.realIndex+v]&&h.slides[e.realIndex+v].classList.add(b);(d?.autoScroll??!0)&&c(u?0:void 0)}function c(u){let d=e.thumbs.swiper;if(!d||d.destroyed)return;let h=d.params.slidesPerView==="auto"?d.slidesPerViewDynamic():d.params.slidesPerView,f=e.params.thumbs.autoScrollOffset,b=f&&!d.params.loop;if(e.realIndex!==d.realIndex||b){let v=d.activeIndex,S,p;if(d.params.loop){let m=d.slides.find(g=>g.getAttribute("data-swiper-slide-index")===`${e.realIndex}`);S=d.slides.indexOf(m),p=e.activeIndex>e.previousIndex?"next":"prev"}else S=e.realIndex,p=S>e.previousIndex?"next":"prev";b&&(S+=p==="next"?f:-1*f),d.visibleSlidesIndexes&&d.visibleSlidesIndexes.indexOf(S)<0&&(d.params.centeredSlides?S>v?S=S-Math.floor(h/2)+1:S=S+Math.floor(h/2)-1:S>v&&d.params.slidesPerGroup,d.slideTo(S,u))}}a("beforeInit",()=>{let{thumbs:u}=e.params;if(!(!u||!u.swiper))if(typeof u.swiper=="string"||u.swiper instanceof HTMLElement){let d=$(),h=()=>{let b=typeof u.swiper=="string"?d.querySelector(u.swiper):u.swiper;if(b&&b.swiper)u.swiper=b.swiper,l(),n(!0);else if(b){let v=`${e.params.eventsPrefix}init`,S=p=>{u.swiper=p.detail[0],b.removeEventListener(v,S),l(),n(!0),u.swiper.update(),e.update()};b.addEventListener(v,S)}return b},f=()=>{if(e.destroyed)return;h()||requestAnimationFrame(f)};requestAnimationFrame(f)}else l(),n(!0)}),a("slideChange update resize observerUpdate",()=>{n()}),a("setTransition",(u,d)=>{let h=e.thumbs.swiper;!h||h.destroyed||h.setTransition(d)}),a("beforeDestroy",()=>{let u=e.thumbs.swiper;!u||u.destroyed||o&&u.destroy()}),Object.assign(e.thumbs,{init:l,update:n})}var ft={"addison|capeDutch|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc2df27c0916a789bf8_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp","addison|capeDutch|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc238eaf00f01767e78_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","addison|capeDutch|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc109d104f28ede187d2__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","addison|capeDutch|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc055bb405f1d10beb2b__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","addison|capeDutch|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc058b001558f0f42139__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp","addison|transitional|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd23150d47c1d06be2c_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp","addison|transitional|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd2193b94d23a3ae893_Transitional%20Color%20Scheme%201%20Newport.webp","addison|transitional|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd0f884d4a1be4ce3bb_Transitional%20Color%20Scheme%204%20Alabaster.webp","addison|transitional|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc192125ef805b71645d__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp","addison|transitional|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc117c6fd66c86eac2f0__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","addison|tudor|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc9c7138d528e3bcd56_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","addison|tudor|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc94a03cba1e86686df_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","addison|tudor|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc19757d8f0d9295c414__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp","addison|tudor|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc194a03cba1e864b8de__update_01_Transitional%20Color%20Scheme%201%20Newport.webp","addison|tudor|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc06f884d4a1be4b255a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","bandera|capeDutch|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bddaf884d4a1be4ce984_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","bandera|capeDutch|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd95bb405f1d10d91c9_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","bandera|capeDutch|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418163890107064db0__update_01_Transitional%20Color%20Scheme%201%20Newport.webp","bandera|capeDutch|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc393da4674c75d1668e__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","bandera|capeDutch|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc398b001558f0f46552__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","bandera|transitional|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdebdf27c0916a78db6b_Transitional%20Color%20Scheme%204%20Alabaster.webp","bandera|transitional|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdea3150d47c1d06d522_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp","bandera|transitional|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc88f43dc1e9672082fe__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","bandera|transitional|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc41ad56c86481cc9dcf__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp","bandera|transitional|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc3914616b12a1b64f9d__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","bandera|tudor|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bde1c8165c307762c4af_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","bandera|tudor|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bde13da4674c75d2ea0c_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","bandera|tudor|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bde04a03cba1e866a39d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","bandera|tudor|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c3da4674c75d158b7__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","bandera|tudor|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c81638901070634b5__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp","collin|capeDutch|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdf78c87da4ea9b93928_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp","collin|capeDutch|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdf5b5443afc14783129_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","collin|capeDutch|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6be42bb36f4505a969__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp","collin|capeDutch|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c193b94d23a39d4c1__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","collin|capeDutch|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc525bb405f1d10c49e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","collin|transitional|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be083da4674c75d303ed_Transitional%20Color%20Scheme%203%20Caprock.webp","collin|transitional|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be06df27c0916a78f4a3_Transitional%20Color%20Scheme%204%20Alabaster.webp","collin|transitional|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b323ef39a7a9c707f__update_01_Transitional%20Color%20Scheme%201%20Newport.webp","collin|transitional|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5ce5143ea322519226__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","collin|transitional|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c59d9060ea7ad38a3__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","collin|tudor|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff8b001558f0f67503_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","collin|tudor|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff79cc6cc768b84658_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","collin|tudor|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff59d9060ea7ae5856_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","collin|tudor|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdfe79cc6cc768b84625_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","collin|tudor|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b2125ef805b71a18e__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp","grayson|capeDutch|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1059d9060ea7ae7bf6_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp","grayson|capeDutch|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be0f8d303f8756954a4a_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","grayson|capeDutch|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9124ac5a67c599912c__update_01_Transitional%20Color%20Scheme%201%20Newport.webp","grayson|capeDutch|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc884777aad14617b3f1__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","grayson|capeDutch|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b5e1e0993e9706ca8__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","grayson|transitional|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be25b5443afc14787820_Transitional%20Color%20Scheme%204%20Alabaster.webp","grayson|transitional|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9138eaf00f01753d06__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp","grayson|transitional|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9139d5fa0524a78d37__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp","grayson|transitional|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7bdf27c0916a777006__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","grayson|transitional|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b6bccac03cad99b9f__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp","grayson|tudor|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1a14616b12a1b8583b_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","grayson|tudor|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1a9d104f28ede32eac_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","grayson|tudor|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1a38eaf00f0176e5af_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","grayson|tudor|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc8879cc6cc768b6d94b__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","grayson|tudor|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b438f7b41b4d6147d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp","magnolia|capeDutch|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be31a538e0265f7bfda6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp","magnolia|capeDutch|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be30a538e0265f7bfd3d_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","magnolia|capeDutch|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca96bccac03cad9dc87__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","magnolia|capeDutch|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca07c6fd66c86eb4e61__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","magnolia|capeDutch|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca05bb405f1d10c770a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","magnolia|transitional|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be45d31a141ebbd9d43d_Transitional%20Color%20Scheme%204%20Alabaster.webp","magnolia|transitional|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb337175f386f36ca62__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp","magnolia|transitional|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb39d104f28ede1f232__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp","magnolia|transitional|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca999359da766fe7cbd__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","magnolia|transitional|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca08c87da4ea9b7b18c__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","magnolia|tudor|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c45bdcf80988b39b2_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","magnolia|tudor|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c3da4674c75d32704_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","magnolia|tudor|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b39d5fa0524a92348_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","magnolia|tudor|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3bd31a141ebbd9c9dc_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","magnolia|tudor|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b6bccac03cadb990d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp"};var ut={"addison.transitional|5|Worldly Gray":"https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aa965be04118c4af2e1675b_addison-transitional-5-worldly-gray-v4.webp","addison.transitional|1|Newport":"https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aa965bd75c397e8fa023ef7_addison-transitional-1-newport-v4.webp","addison.transitional|3|Caprock":"https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aa965beaa0f24c65c7e0a5a_addison-transitional-3-caprock-v4.webp","addison.transitional|4|Alabaster":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84071b8045ed415db14a4__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp","addison.transitional|2|Iron Ore":"https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aa965be594087632ec89ebe_addison-transitional-2-iron-ore-v4.webp","addison.tudor|2|Coral Gray":"https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aa96a666ca1939825bc92a0__update_06_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","addison.tudor|5|Altitude Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc109d104f28ede187d2__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","addison.tudor|3|Greenblack":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa90750c4c0d23518803722__update_02_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","addison.tudor|1|Colonnade Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa90750377bec32a1a1eb00__update_02_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","addison.tudor|4|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407262d057680bf84f54__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","addison.capeDutch|4|Pure White":"https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aa965bd04118c4af2e16667_addison-cape-dutch-4-pure-white-v4.webp","addison.capeDutch|5|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc055bb405f1d10beb2b__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","addison.capeDutch|2|Urbane Bronze":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc058b001558f0f42139__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp","addison.capeDutch|1|Everest":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa9074f3cbe7d27e4100879__update_02_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","addison.capeDutch|3|Iron Ore":"https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aa965bcbf6448a3c17f5513_addison-cape-dutch-3-iron-ore-v4.webp","bandera.transitional|5|Worldly Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84072a7e6cc5f9f28aa99__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp","bandera.transitional|2|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa96dfa3fee7c49534761e8__update_06_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp","bandera.transitional|1|Newport":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418163890107064db0__update_01_Transitional%20Color%20Scheme%201%20Newport.webp","bandera.transitional|3|Caprock":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc41ad56c86481cc9dcf__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp","bandera.transitional|4|Alabaster":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840736cf0f7ab6313d873__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp","bandera.tudor|4|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc393da4674c75d1668e__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","bandera.tudor|1|Colonnade Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc3914616b12a1b64f9d__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","bandera.tudor|2|Coral Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc398b001558f0f46552__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","bandera.tudor|5|Altitude Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840731c11cd307f8e2f70__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","bandera.tudor|3|Greenblack":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa96dfa8800d47f264573fb__update_06_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","bandera.capeDutch|4|Pure White":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c3da4674c75d158b7__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","bandera.capeDutch|3|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c81638901070634b5__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp","bandera.capeDutch|1|Everest":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840741c11cd307f8e2fe5__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","bandera.capeDutch|5|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa96df972778a0b79c1d729__update_06_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","bandera.capeDutch|2|Urbane Bronze":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa96dfa30c3e4049f707d8a__update_06_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp","collin.transitional|1|Newport":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b323ef39a7a9c707f__update_01_Transitional%20Color%20Scheme%201%20Newport.webp","collin.transitional|3|Caprock":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b2125ef805b71a18e__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp","collin.transitional|5|Worldly Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6be42bb36f4505a969__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp","collin.transitional|4|Alabaster":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407462d057680bf85169__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp","collin.transitional|2|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b51ce96c5e8eefcadc__update_06_The%20Collin%20Transitional%20Color%20Scheme%202%20Iron%20Ore.webp","collin.tudor|1|Colonnade Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5ce5143ea322519226__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","collin.tudor|5|Altitude Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c193b94d23a39d4c1__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","collin.tudor|2|Coral Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c59d9060ea7ad38a3__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","collin.tudor|3|Greenblack":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84075d53f3132b3b5aeb4__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","collin.tudor|4|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840752df5172621f25726__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","collin.capeDutch|1|Everest":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc525bb405f1d10c49e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","collin.capeDutch|5|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b6ddc44ca70fe0abca__update_06_The%20Collin%20Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","collin.capeDutch|4|Pure White":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407628becd398ae5e1e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","collin.capeDutch|2|Urbane Bronze":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b62464faff5eb8cc6d__update_06_The%20Collin%20Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp","collin.capeDutch|3|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84076d53f3132b3b5af65__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp","grayson.transitional|2|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9138eaf00f01753d06__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp","grayson.transitional|3|Caprock":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9139d5fa0524a78d37__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp","grayson.transitional|1|Newport":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9124ac5a67c599912c__update_01_Transitional%20Color%20Scheme%201%20Newport.webp","grayson.transitional|4|Alabaster":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84076a7e6cc5f9f28ac76__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp","grayson.transitional|5|Worldly Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b6e70a35d7ee8a3384__update_06_The%20Grayson%20Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp","grayson.tudor|1|Colonnade Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc8879cc6cc768b6d94b__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","grayson.tudor|3|Greenblack":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc88f43dc1e9672082fe__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","grayson.tudor|4|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc884777aad14617b3f1__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","grayson.tudor|5|Altitude Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840776cf0f7ab6313db87__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","grayson.tudor|2|Coral Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b686f8c2bc945073ca__update_06_The%20Grayson%20Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","grayson.capeDutch|1|Everest":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b5e1e0993e9706ca8__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","grayson.capeDutch|4|Pure White":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7bdf27c0916a777006__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","grayson.capeDutch|3|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b6bccac03cad99b9f__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp","grayson.capeDutch|2|Urbane Bronze":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b438f7b41b4d6147d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp","grayson.capeDutch|5|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84077a348951c4f245d5d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","magnolia.transitional|2|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb337175f386f36ca62__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp","magnolia.transitional|4|Alabaster":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb39d104f28ede1f232__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp","magnolia.transitional|3|Caprock":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b64d032a00c0e45b49__update_06_The%20Magnolia%20Transitional%20Color%20Scheme%203%20Caprock.webp","magnolia.transitional|1|Newport":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b41ce96c5e8eefca4a__update_06_The%20Magnolia%20Transitional%20Color%20Scheme%201%20Newport.webp","magnolia.transitional|5|Worldly Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b612e2e830d2ba5204__update_06_The%20Magnolia%20Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp","magnolia.tudor|3|Greenblack":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca999359da766fe7cbd__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","magnolia.tudor|4|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca96bccac03cad9dc87__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","magnolia.tudor|1|Colonnade Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840781c11cd307f8e32c5__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","magnolia.tudor|2|Coral Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840784b7d133921ae2048__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","magnolia.tudor|5|Altitude Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84078a3fe2c8f9c3bea48__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","magnolia.capeDutch|4|Pure White":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca08c87da4ea9b7b18c__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","magnolia.capeDutch|1|Everest":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca07c6fd66c86eb4e61__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","magnolia.capeDutch|5|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca05bb405f1d10c770a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","magnolia.capeDutch|3|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b64d032a00c0e45b46__update_06_The%20Magnolia%20Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp","magnolia.capeDutch|2|Urbane Bronze":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84078a3fe2c8f9c3bea71__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp"};var Ha={glenview:{spanishContemporary:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22eddb81b67658917d147c_Sch%201%20-%20Sunlit%20Ivory.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd689113f6185fb81bc_Sch%202%20-%20Sandstone%20Villa.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd72ba437a787a12c6e_Sch%203%20-%20Stone%20Garden.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd765053904adda70f1_Sch%204%20-%20Sienna%20Stone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd754f23ca1aa66fd5c_Sch%205%20-%20Coastal%20Villa.webp"],transitionalRanch:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edeba8e815ef475c3e2c_Sch%201%20-%20White%20Oak%20Ranch.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edeb74297c1a3021d0b4_Sch%202%20-%20Midnight%20Ridge.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edebb734c9412a1851a1_Sch%203%20-%20Oakstone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edea46c4dce897c622c0_Sch%204%20-%20White%20Mason.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edeaf11078832301af0d_Sch%205%20-%20Black%20Timber.webp"],coastalColonial:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edad32d82c66475aa7b2_Sch%201%20-%20Saltwood.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac6e6422b45442464d_Sch%202%20-%20Stone%20Harbor.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac9d58911e051d3fba_Sch%203%20-%20Seabreeze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac8f40d304dd481aec_Sch%204%20-%20Ivory%20%26%20Onyx.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edace365374d2b4c2c3f_Sch%205%20-%20Coastal%20Stone.webp"],englishCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbd63fae91f151fd9d0_Sch%201%20-%20Ivory%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbe0c3370fb3e35ffaf_Sch%202%20-%20Abbey%20Iron.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbea3771290396ed4df_Sch%203%20-%20Bronze%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbef4494d74c17404a9_Sch%204%20-%20Manor%20Brick.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbe2c42ef25e857568f_Sch%205%20-%20Chateau%20Stone.webp"]},elm:{spanishContemporary:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecc8f3437fec84c633be_Sch%201%20-%20Sunlit%20Ivory.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecc8f4494d74c17399e4_Sch%202%20-%20Sandstone%20Villa.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecca2472a39b3cbd7498_Sch%203%20-%20Stone%20Garden.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22eccaae1ca7e49161fbc8_Sch%204%20-%20Sienna%20Stone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecca872355c22f8eaadf_Sch%205%20-%20Coastal%20Villa.webp"],transitionalRanch:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecac0c3370fb3e356423_Sch%201%20-%20White%20Oak%20Ranch.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecac269d95cd19e0e026_Sch%202%20-%20Midnight%20Ridge.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecacf110788323011ee1_Sch%203%20-%20Oakstone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecab55c9aaa9438a7a06_Sch%204%20-%20White%20Mason.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecac08f434791bad029e_Sch%205%20-%20Black%20Timber.webp"],coastalColonial:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7f49422c2f9de17695_Sch%201%20-%20Saltwood.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7e9d58911e051c5dc8_Sch%202%20-%20Stone%20Harbor.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7f2472a39b3cbd5614_Sch%203%20-%20Seabreeze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7e61f18799715386b8_Sch%204%20-%20Ivory%20%26%20Onyx.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7fb75aee6fe61ebf09_Sch%205%20-%20Coastal%20Stone.webp"],englishCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec8ff461c0c6633f96a1_Sch%201%20-%20Ivory%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec90872355c22f8e89a8_Sch%202%20-%20Abbey%20Iron.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec9061f1879971538dfd_Sch%203%20-%20Bronze%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec9095a46fd82b1cb0b3_Sch%204%20-%20Manor%20Brick.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec908f40d304dd4776a6_Sch%205%20-%20Chateau%20Stone.webp"]},willow:{spanishContemporary:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c220e6f459b8cc97fc_Sch%201%20-%20Sunlit%20Ivory.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c3679eea90bc21737e_Sch%202%20-%20Sandstone%20Villa.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c227f295bf102c73d9_Sch%203%20-%20Stone%20Garden.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c23b306ae798b2d5b7_Sch%204%20-%20Sienna%20Stone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c207d8f3773f4fde0e_Sch%205%20-%20Coastal%20Villa.webp"],transitionalRanch:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e02f638a601d29fc82_Sch%201%20-%20White%20Oak%20Ranch.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e02d888efac45336f8_Sch%202%20-%20Midnight%20Ridge.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e0b734c9412a19d579_Sch%203%20-%20Oakstone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e0cd6d5d498ce2e8ac_Sch%204%20-%20White%20Mason.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0df57edcdcc3c089676_Sch%205%20-%20Black%20Timber.webp"],coastalColonial:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f085438168dc11d4e604_Sch%201%20-%20Saltwood.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084544db6edddd13c4b_Sch%202%20-%20Stone%20Harbor.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f08420e6f459b8cc8171_Sch%203%20-%20Seabreeze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084ae64905f6a6340f6_Sch%204%20-%20Ivory%20%26%20Onyx.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084f11078832302fea2_Sch%205%20-%20Coastal%20Stone.webp"],englishCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a195a46fd82b1ec05a_Sch%201%20-%20Ivory%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a218fa7f2207b9e007_Sch%202%20-%20Abbey%20Iron.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a1a3771290397042a1_Sch%203%20-%20Bronze%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a1ae1ca7e491642775_Sch%204%20-%20Manor%20Brick.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a12d888efac453195c_Sch%205%20-%20Chateau%20Stone.webp"]},vista:{spanishContemporary:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f167939798a0c8459ed2_Sch%201%20-%20Sunlit%20Ivory.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1666982be65b05567c0_Sch%202%20-%20Sandstone%20Villa.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f167f461c0c66341fa0d_Sch%203%20-%20Stone%20Garden.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1672c42ef25e859297c_Sch%204%20-%20Sienna%20Stone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1664ff4597241d8f033_Sch%205%20-%20Coastal%20Villa.webp"],transitionalRanch:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14f550f4fd0cf5a4561_Sch%201%20-%20White%20Oak%20Ranch.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14e20e6f459b8ccc7ed_Sch%202%20-%20Midnight%20Ridge.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14f52e0fbbd6afa96b4_Sch%203%20-%20Oakstone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14e32d82c66475c84c6_Sch%204%20-%20White%20Mason.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14f4ff4597241d8e0f7_Sch%205%20-%20Black%20Timber.webp"],coastalColonial:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b72c42ef25e8594040_Sch%201%20-%20Saltwood.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b73b306ae798b3454e_Sch%202%20-%20Stone%20Harbor.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b7fccec2bd9f7f3bf0_Sch%203%20-%20Seabreeze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b7f3437fec84c94c74_Sch%204%20-%20Ivory%20%26%20Onyx.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b75d778b0e1d343aec_Sch%205%20-%20Coastal%20Stone.webp"],englishCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f19257edcdcc3c08ed63_Sch%201%20-%20Ivory%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f193475a005a81e89db1_Sch%202%20-%20Abbey%20Iron.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1939619a764f4d5f48a_Sch%203%20-%20Bronze%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1939ab120a2472fcc9b_Sch%204%20-%20Manor%20Brick.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f193f1107883230392a1_Sch%205%20-%20Chateau%20Stone.webp"]},ambrose:{spanishContemporary:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e9d58911e051cc527_Sch%201%20-%20Sunlit%20Ivory.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e50c5363e89576c23_Sch%202%20-%20Sandstone%20Villa.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e57edcdcc3c06dc7f_Sch%203%20-%20Stone%20Garden.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e55c9aaa9438ac2b6_Sch%204%20-%20Sienna%20Stone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e0c3370fb3e359ffd_Sch%205%20-%20Coastal%20Villa.webp"],transitionalRanch:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3920e6f459b8caf257_Sch%201%20-%20White%20Oak%20Ranch.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3af8c13be94948c3b2_Sch%202%20-%20Midnight%20Ridge.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3a61f1879971541248_Sch%203%20-%20Oakstone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3a220472fb3ac3475b_Sch%204%20-%20White%20Mason.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3a939798a0c843907b_Sch%205%20-%20Black%20Timber.webp"],coastalColonial:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecf02d888efac450f505_Sch%201%20-%20Saltwood.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecef2ba437a787a0b71d_Sch%202%20-%20Stone%20Harbor.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecefc74ccc360e2beea9_Sch%203%20-%20Seabreeze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecf0475a005a81e66998_Sch%204%20-%20Ivory%20%26%20Onyx.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecef9619a764f4d3abc5_Sch%205%20-%20Coastal%20Stone.webp"],englishCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed0346c4dce897c5ad7b_Sch%201%20-%20Ivory%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed04269d95cd19e1032b_Sch%202%20-%20Abbey%20Iron.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed048157506f00ae1c15_Sch%203%20-%20Bronze%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed04a8e815ef475bc111_Sch%204%20-%20Manor%20Brick.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed0445c164b3134e1b2d_Sch%205%20-%20Chateau%20Stone.webp"]},alder:{spanishContemporary:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef9295a46fd82b1e4964_Sch%201%20-%20Sunlit%20Ivory.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e50c5363e89576c23_Sch%202%20-%20Sandstone%20Villa.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e57edcdcc3c06dc7f_Sch%203%20-%20Stone%20Garden.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e55c9aaa9438ac2b6_Sch%204%20-%20Sienna%20Stone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e0c3370fb3e359ffd_Sch%205%20-%20Coastal%20Villa.webp"],transitionalRanch:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe29d58911e051e60b9_Sch%201%20-%20White%20Oak%20Ranch.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe4f8ae2a21e657e6c5_Sch%202%20-%20Midnight%20Ridge.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe445c164b3134f6b84_Sch%203%20-%20Oakstone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe32d10f7997d7b25c6_Sch%204%20-%20White%20Mason.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe227f295bf102bdd5f_Sch%205%20-%20Black%20Timber.webp"],coastalColonial:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef682f638a601d296658_Sch%201%20-%20Saltwood.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef67cd6d5d498ce2266f_Sch%202%20-%20Stone%20Harbor.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef6a438168dc11d43cdb_Sch%203%20-%20Seabreeze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef682ba437a787a1fdc9_Sch%204%20-%20Ivory%20%26%20Onyx.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef6874297c1a3022840a_Sch%205%20-%20Coastal%20Stone.webp"],englishCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7b20e6f459b8cc0838_Sch%201%20-%20Ivory%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7cdb1b9afafad4b525_Sch%202%20-%20Abbey%20Iron.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c94fec08c5d9f1fb1_Sch%203%20-%20Bronze%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c679eea90bc20be8b_Sch%204%20-%20Manor%20Brick.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c8157506f00af4584_Sch%205%20-%20Chateau%20Stone.webp"]},"carriage-house-adu":{spanishContemporary:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481b584b9c46e5511c91_Spanish%20Color%20Scheme%201%20Sunlit%20Ivory.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481beb481309db1a7307_Spanish%20Color%20Scheme%202%20Sandstone%20Villa.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481bbef87edeabad2e73_Spanish%20Color%20Scheme%203%20Stone%20Garden.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481b6edcdf3e9d8d46c2_Spanish%20Color%20Scheme%204%20Sienna%20Stone.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481c6a82a8eed0e08ebd_Spanish%20Color%20Scheme%205%20Coastal%20Villa.png"],transitionalRanch:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482bc6a80142bb76cf90_Transitional%20Ranch%20Scheme%201%20White%20Oak%20Ranch.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482a11799919800d8f1b_Transitional%20Ranch%20Scheme%202%20Midnight%20Ridge.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482b6edcdf3e9d8d5cb6_Transitional%20Ranch%20Scheme%203%20Oakstone.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482ad39678ec281b4461_Transitional%20Ranch%20Scheme%204%20White%20Mason.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482b93d8443261da1b0a_Transitional%20Ranch%20Scheme%205%20%20Black%20Timber.png"],coastalColonial:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fc6a82a8eed0e07b4e_Coastal%20Colonial%20Color%20Scheme%201%20Saltwood.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fcc75a7f8c2ef9e0c3_Coastal%20Colonial%20Color%20Scheme%202%20Stone%20Harbor.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fc23e233e2dda5bf19_Coastal%20Colonial%20Color%20Scheme%203%20Seabreeze.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fcb6815eb1f05189ed_Coastal%20Colonial%20Color%20Scheme%204%20Ivory%20%26%20Onyx.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447ffa66dd7f5c7f6a7b1_Coastal%20Colonial%20Color%20Scheme%205%20Coastal%20Stone.png"],englishCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480bd16c9c5509bf96dc_English%20Cottage%20Scheme%201%20Ivory%20Meadow.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480b72ce27915163d94a_English%20Cottage%20Scheme%202%20Abbey%20Iron.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480bc15cbea785d01665_English%20Cottage%20Scheme%203%20Bronze%20Meadow.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480ce7b264502743ccca_English%20Cottage%20Scheme%204%20Manor%20Brick.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480b6b926a8c17016811_English%20Cottage%20Scheme%205%20Chateau%20Stone.png"]},"two-story-adu":{spanishContemporary:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448939b8f033bd6ed4a63_Spanish%20Color%20Scheme%201%20Sunlit%20Ivory.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744893c75a7f8c2efa6206_Spanish%20Color%20Scheme%202%20Sandstone%20Villa.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74489410ccae5bf6232d00_Spanish%20Color%20Scheme%203%20Stone%20Garden.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448939eac13f82c3f13e0_Spanish%20Color%20Scheme%204%20Sienna%20Stone.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744893c75a7f8c2efa620b_Spanish%20Color%20Scheme%205%20Coastal%20Villa.png"],transitionalRanch:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a172ce2791516456e6_Transitional%20Ranch%20Scheme%201%20White%20Oak%20Ranch.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a13cfff99009c92551_Transitional%20Ranch%20Scheme%202%20Midnight%20Ridge.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a1a39fcd4ef158ec4a_Transitional%20Ranch%20Scheme%203%20Oakstone.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a27795e2c6a31f4b43_Transitional%20Ranch%20Scheme%204%20%20White%20Mason.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744aa9d1f5b783e659ddf5_missing%20Transitional%20Ranch%20Scheme%205%20Black%20Timber.png"],coastalColonial:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487bc75a7f8c2efa4a05_Coastal%20Colonial%20Color%20Scheme%201%20Saltwood.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487bc83039285bdf2a72_Coastal%20Colonial%20Color%20Scheme%202%20Stone%20Harbor.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487b204beb02432f65c7_Coastal%20Colonial%20Color%20Scheme%203%20Seabreeze.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487b44a60aa2dd1838f8_Coastal%20Colonial%20Color%20Scheme%204%20Ivory%20%26%20Onyx.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487b6a82a8eed0e0d222_Coastal%20Colonial%20Color%20Scheme%205%20Coastal%20Stone.png"],englishCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744886bef87edeabada8d7_English%20Cottage%20Scheme%201%20Ivory%20Meadow.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744886f0f1ba26b2dd2326_English%20Cottage%20Scheme%202%20Abbey%20Iron.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744886b8fb342e82bed943_English%20Cottage%20Scheme%203%20Bronze%20Meadow.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448869b8f033bd6ed2e48_English%20Cottage%20Scheme%204%20Manor%20Brick.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74488611799919800dea42_English%20Cottage%20Scheme%205%20Chateau%20Stone.png"]}},Ba={"studio-adu":{craftsman:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744849c84ff4e8a34d921c_Craftsman%20Color%20Scheme%201%20Classic%20Cream.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74484910ccae5bf622dc3a_Craftsman%20Color%20Scheme%202%20Soft%20Green.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744849638fdaa6197e9142_Craftsman%20Color%20Scheme%203%20Coastal%20Navy.png"],janesCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448522534f8c0b4c15a8b_Janes%20Cottage%20Color%20Scheme%201%20Warm%20White.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74485372ce279151640663_Janes%20Cottage%20Color%20Scheme%202%20Dusk%20Gray.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744852565ef7b6637304e1_Janes%20Cottage%20Color%20Scheme%203%20Neutral%20Stone.png"],spanish:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448628761de8cb0131cec_Spanish%20Scheme%201%20Coastal%20White.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744862b6815eb1f051dc99_Spanish%20Scheme%202%20Natural%20Gray.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448621674b95bdff4ffb4_Spanish%20Scheme%203%20Garden%20Olive.png"]}},pt=["Classic Cream","Soft Green","Coastal Navy","Warm Taupe","Natural Charcoal"],mt=["Warm White","Dusk Gray","Neutral Stone","Soft White","Historic Gray"],bt=["Coastal White","Natural Gray","Garden Olive","Rich Bronze","Warm Earth Clay"],Wa=[{number:1,name:"Sunlit Ivory"},{number:2,name:"Sandstone Villa"},{number:3,name:"Stone Garden"},{number:4,name:"Sienna Stone"},{number:5,name:"Coastal Villa"}],Ra=[{number:1,name:"White Oak Ranch"},{number:2,name:"Midnight Ridge"},{number:3,name:"Oakstone"},{number:4,name:"White Mason"},{number:5,name:"Black Timber"}],Na=[{number:1,name:"Saltwood"},{number:2,name:"Stone Harbor"},{number:3,name:"Seabreeze"},{number:4,name:"Ivory & Onyx"},{number:5,name:"Coastal Stone"}],Fa=[{number:1,name:"Ivory Meadow"},{number:2,name:"Abbey Iron"},{number:3,name:"Bronze Meadow"},{number:4,name:"Manor Brick"},{number:5,name:"Chateau Stone"}],Va=[{number:1,name:"Everest"},{number:2,name:"Urbane Bronze"},{number:3,name:"Iron Ore"},{number:4,name:"Pure White"},{number:5,name:"Felted Wool"}],Xa=[{number:1,name:"Newport"},{number:2,name:"Iron Ore"},{number:3,name:"Caprock"},{number:4,name:"Alabaster"},{number:5,name:"Worldly Gray"}],qa=[{number:1,name:"Colonnade Gray"},{number:2,name:"Coral Gray"},{number:3,name:"Greenblack"},{number:4,name:"Felted Wool"},{number:5,name:"Altitude Gray"}],Ya={echo:{craftsman:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa1179b6b2a0ae1e8ce5be_Eaton5_Craftsman_Sch1_ClassicCream.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa11798c7f61ed170d02c1_Eaton5_Craftsman_Sch2_SoftGreen.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa1178d4e789851d726afd_Eaton5_Craftsman_Sch3_CoastalNavy.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa1179e37e4c9da35dd349_Eaton5_Craftsman_Sch4_WarmTaupe.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa117934eb986df4409a80_Eaton5_Craftsman_Sch5_NaturalCharcoal.webp"],janesCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f967ed46f583c45fb319_Eaton5_Janes_Cottage_Sch1_WarmWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9673f19c0a2d78cbb9e_Eaton5_Janes_Cottage_Sch2_DuskGray.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f967165e83dd2af826bb_Eaton5_Janes_Cottage_Sch3_NeutralStone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f967a7a2df84652e1078_Eaton5_Janes_Cottage_Sch4_SoftWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9676e59091671c162ac_Eaton5_Janes_Cottage_Sch5_HistoricGray.webp"],spanish:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f981d8030b85e86c5eee_Eaton5_Spanish_Sch1)CoastalWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9818dfc10b3ad322043_Eaton5_Spanish_Sch2_NaturalGray.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f981b3fba19edac10345_Eaton5_Spanish_Sch3_GardenOlive.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9818582aeea3838bcd3_Eaton5_Spanish_Sch4_RichBronze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f981af3855fd07a02254_Eaton5_Spanish_Sch5_WarmEarthClay.webp"]},merrick:{craftsman:["https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d557_69f1f95450b85abd3d949f4e_Eaton4_Craftsman_Sch1_ClassicCream.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d562_69f1f953252b3600fcbe4e80_Eaton4_Craftsman_Sch2_SoftGreen.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003a93c53e9b6387d547_69f1f954f0cccea740cd8b9f_Eaton4_Craftsman_Sch3_CoastalNavy.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d56d_69f1f955180a5af38a774901_Eaton4_Craftsman_Sch4_WarmTaupe.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d581_69f1f953ceb831e555c6f0c2_Eaton4_Craftsman_Sch5_NaturalCharcoal.webp"],janesCottage:["https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d565_69f1fa3cc74e38671839449b_Eaton4_Janes_Cottage_Sch1_WarmWhite.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d57e_69f1fa3cff957cd5197530f5_Eaton4_Janes_Cottage_Sch2_DuskGray.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d55d_69f1fa3c848b541b0e090d97_Eaton4_Janes_Cottage_Sch3_NeutralStone.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d578_69f1fa3cf9c32ba7ba62c7e7_Eaton4_Janes_Cottage_Sch4_SoftWhite.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003a93c53e9b6387d54b_69f1fa3c26c535b3fa92955a_Eaton4_Janes_Cottage_Sch5_HistoricGray.webp"],spanish:["https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d575_69f1fa27d27c3c9e6b23ce8d_Eaton4_Spanish_Sch1_CoastalWhite.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003a93c53e9b6387d54f_69f1fa27b19d1d6237faa1b6_Eaton4_Spanish_Sch2_NaturalGray.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d589_69f1fa27adcc4b13bfb7229e_Eaton4_Spanish_Sch3_GardenOlive.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d586_69f1fa2704074b196573ba2a_Eaton4_Spanish_Sch4_RichBronze.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d55a_69f1fa27d874fa8f14184b4c_Eaton4_Spanish_Sch5_WarmEarthClay.webp"]},chaney:{craftsman:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a6a7a2df84652df1c2_Eaton3_Craftsman_Sch1_ClassicCream.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a571c267c5a6d19d59_Eaton3_Craftsman_Sch2_SoftGreen.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a46e59091671c1452c_Eaton3_Craftsman_Sch3_CoastalNavy.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a5151e31161533467a_Eaton3_Craftsman_Sch4_WarmTaupe.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a5535e1ec75c9ed78b_Eaton3_Craftsman_Sch5_NaturalCharcoal.webp"],janesCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b8a76017d864898f1c_Eaton3_Janes_Sch1_WarmWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b826f327fe8b8314c3_Eaton3_Janes_Sch2_DuskGray.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b86e1c34584269d0b4_Eaton3_Janes_Sch3_NeutralStone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b80f8abd2778a65c61_Eaton3_Janes_Sch4_SoftWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b839d6f0b57222e683_Eaton3_Janes_Sch5_HistoricGray.webp"],spanish:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d119e08a63bb87a563_Eaton3_Spanish_Sch1_CoastalWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d1c002eece10343349_Eaton3_Spanish_Sch2_NaturalGray.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d20cb4d186330f5414_Eaton3_Spanish_Sch3_GardenOlive.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d2d0bc4c3d311c6867_Eaton3_Spanish_Sch4_RichBronze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d1f3573cd92cb08111_Eaton3_Spanish_Sch5_WArmEarthClay.webp"]},loma:{craftsman:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f998b885bb7225449c8e_Eaton2_Craftsman_Sch1_ClassicCream.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f998ff957cd519750e2b_Eaton2_Craftsman_Sch2_SoftGreen.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f99867d6924479cbd2bb_Eaton2_Craftsman_Sch3_CoastalNavy.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f99816ad2a104acb7728_Eaton2_Craftsman_Sch4_WarmTaupe.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9987417fe7fb74e6bbd_Eaton2_Craftsman_Sch5_NaturalCharcoal.webp"],janesCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c94e811fb2f2915ccd_Eaton2_Janes_Sch1_WarmWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c9444f0e9cf3870f8e_Eaton2_Janes_Sch2_DuskGray.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c9e11203e2617c9946_Eaton2_Janes_Sch3_NeutralStone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c9255e1fbe5ac33217_Eaton2_Janes_Sch4_SoftWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c9d3067f0a7efe5fd6_Eaton2_Janes_Sch5_HistoricGray.webp"],spanish:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa0096a959af0bd4ed45_Eaton2_Spanish_Sch1_CoastalWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa00112be277eea18bd4_Eaton2_Spanish_Sch2_NaturalGray.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9ff24369ae8059a02bd_Eaton2_Spanish_Sch3_GardenOlive.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa0052b6244c225fa903_Eaton2_Spanish_Sch4_RichBronze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa079e2ec043052c58e5_Eaton2_Spanish_Sch5_WarmEarthClay.webp"]},sycamore:{craftsman:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa921c26d9ee20d7557e_Eaton1_Craftsman_Sch1_ClassicCream.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa9346432d98c0974cee_Eaton1_Craftsman_Sch2_SoftGreen.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa93d99dbd042136a8c5_Eaton1_Craftsman_Sch3_CoastalNavy.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa9275c170937d547cda_Eaton1_Craftsman_Sch4_WarmTaupe.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa93db5a646b559687d6_Eaton1_Craftsman_Sch5_NaturalCharcoal.webp"],janesCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faac9a388e1b666a2e9f_Eaton1_Janes_Cottage_Sch1_WarmWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faac4cfe0437b90b4fee_Eaton1_Janes_Cottage_Sch2_DuskGray.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faac6ce7a3c2af1aee22_Eaton1_Janes_Cottage_Sch3_NeutralStone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faac00a3f24d2deca82a_Eaton1_Janes_Cottage_Sch4_SoftWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faace73112fa77de5962_Eaton1_Janes_Cottage_Sch5_HistoricGray.webp"],spanish:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1facacf7104f7e2bb4532_Eaton1_Spanish_Sch1_CoastalWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faca832e56e8d1302425_Eaton1_Spanish_Sch2_NaturalGray.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faca7fcd4a25484de868_Eaton1_Spanish_Sch3_GardenOlive.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1facabdcd44c1fee09803_Eaton1_Spanish_Sch4_RichBronze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faca151e31161533c3d7_Eaton1_Spanish_Sch5_WarmEarthClay.webp"]}},re=(e,t)=>e.map((a,s)=>({schemeNumber:s+1,name:a,imageUrl:t[s]??""})),te=(e,t)=>e.map((a,s)=>({schemeNumber:a.number,name:a.name,imageUrl:t[s]??""})),Z=e=>{let t=Ha[e];return[{style:"Spanish Contemporary",slug:`${e}-spanish-contemporary`,colorSchemes:te(Wa,[...t.spanishContemporary])},{style:"Transitional Ranch",slug:`${e}-transitional-ranch`,colorSchemes:te(Ra,[...t.transitionalRanch])},{style:"Coastal Colonial",slug:`${e}-coastal-colonial`,colorSchemes:te(Na,[...t.coastalColonial])},{style:"English Cottage",slug:`${e}-english-cottage`,colorSchemes:te(Fa,[...t.englishCottage])}]},de=e=>{let t=Ya[e];return[{style:"Craftsman",slug:"craftsman-style",colorSchemes:re(pt,t.craftsman)},{style:"Janes Cottage",slug:"janes-cottage",colorSchemes:re(mt,t.janesCottage)},{style:"Spanish Transitional",slug:"spanish-transitional",colorSchemes:re(bt,t.spanish)}]},ja=e=>{let t=Ba[e];return[{style:"Craftsman",slug:"craftsman-style",colorSchemes:re(pt.slice(0,3),t.craftsman)},{style:"Janes Cottage",slug:"janes-cottage",colorSchemes:re(mt.slice(0,3),t.janesCottage)},{style:"Spanish Transitional",slug:"spanish-transitional",colorSchemes:re(bt.slice(0,3),t.spanish)}]},w="https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0",ht={addison:{capeDutch:[`${w}/6a84b1a5b0cd93c94cbe7346_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,`${w}/6a84b1a583d75ceaa6461dcd_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,`${w}/6a84b1a5830be1b62868857d_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,`${w}/6a84b1a56a17c6919f5e0e0e_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,`${w}/6a84b1a5e570e96c28ac12c4_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`],transitional:[`${w}/6a84b1a7b79122ab8a0f40bd_Transitional%20Color%20Scheme%201%20Newport.webp`,`${w}/6a84b1a7b8efd49498294990_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,`${w}/6a84b1a77b6b694595669cd2_Transitional%20Color%20Scheme%203%20Caprock.webp`,`${w}/6a84b1a7f5c02efbf7c77d98_Transitional%20Color%20Scheme%204%20Alabaster.webp`,`${w}/6a84b1a7fcc834951e54f4bf_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`],tudor:[`${w}/6a84b1a6af7a129003ace1ec_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,`${w}/6a84b1a6fcc834951e54f421_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,`${w}/6a84b1a617cf0f48c34c5058_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,`${w}/6a84b1a683d75ceaa6461f26_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,`${w}/6a84b1a67b6b694595669ca2_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`]},bandera:{capeDutch:[`${w}/6a84b2bc1f53dd3717d85d60_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,`${w}/6a84b2bc297085014b204e1c_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,`${w}/6a84b2bcb0cd93c94cbeff9d_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,`${w}/6a84b2bdb79122ab8a0fb25f_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,`${w}/6a84b2bd9a92f58d97c26784_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`],transitional:[`${w}/6a84b2c097c77db82ebab4a2_Transitional%20Color%20Scheme%201%20Newport.webp`,`${w}/6a84b2c004702f83e9ba2ddd_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,`${w}/6a84b2c004702f83e9ba2e1b_Transitional%20Color%20Scheme%203%20Caprock.webp`,`${w}/6a84b2c017cf0f48c34cdcbf_Transitional%20Color%20Scheme%204%20Alabaster.webp`,`${w}/6a84b2c1d62095daa8114600_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`],tudor:[`${w}/6a84b2be9a287322be54c601_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,`${w}/6a84b2bfe570e96c28ac8d97_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,`${w}/6a84b2bf573a47599c830a8d_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,`${w}/6a84b2bf165fa1b5bf5bbab9_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,`${w}/6a84b2c008dc2fe1c6cfdb16_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`]},collin:{capeDutch:[`${w}/6a84b3c647e218625ded7348_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,`${w}/6a84b3c73888a4db5685d9d6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,`${w}/6a84b3c797c77db82ebaf1bc_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,`${w}/6a84b3c7668753f061942f10_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,`${w}/6a84b3c7b79122ab8a107532_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`],transitional:[`${w}/6a84b3c93888a4db5685dad3_Transitional%20Color%20Scheme%201%20Newport.webp`,`${w}/6a84b3ca165fa1b5bf5c40e5_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,`${w}/6a84b3cae570e96c28ad428e_Transitional%20Color%20Scheme%203%20Caprock.webp`,`${w}/6a84b3ca6ca32e7649b97267_Transitional%20Color%20Scheme%204%20Alabaster.webp`,`${w}/6a84b3ca165fa1b5bf5c4159_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`],tudor:[`${w}/6a84b3c7b1357c809573778c_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,`${w}/6a84b3c855df81cb20fbe5e3_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,`${w}/6a84b3c8668753f061942fca_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,`${w}/6a84b3c86ca32e7649b9709d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,`${w}/6a84b3c9d62095daa8120c5f_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`]},grayson:{capeDutch:[`${w}/6a84b4a456716fa5cdfdc6df_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,`${w}/6a84b4a4d7c17df8a732426f_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,`${w}/6a84b4a459e59db0530cb29b_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,`${w}/6a84b4a4573a47599c833035_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,`${w}/6a84b4a5d7c17df8a73242a1_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`],transitional:[`${w}/6a84b4a6165fa1b5bf5ca597_Transitional%20Color%20Scheme%201%20Newport.webp`,`${w}/6a84b4a6165fa1b5bf5ca5ca_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,`${w}/6a84b4a697c77db82ebb267f_Transitional%20Color%20Scheme%203%20Caprock.webp`,`${w}/6a84b4a7b79122ab8a10ff2f_Transitional%20Color%20Scheme%204%20Alabaster.webp`,`${w}/6a84b4a76a17c6919f5e4c29_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`],tudor:[`${w}/6a84b4a5573a47599c833061_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,`${w}/6a84b4a598d45b2c7121e549_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,`${w}/6a84b4a56ca32e7649b9eae7_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,`${w}/6a84b4a66a17c6919f5e4ba9_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,`${w}/6a84b4a6d62095daa8129a86_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`]},magnolia:{capeDutch:[`${w}/6a84b4e5666418f9d40514fd_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,`${w}/6a84b4e6666418f9d405153c_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,`${w}/6a84b4e6b0cd93c94cc02ab5_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,`${w}/6a84b4e647323a2b628f5a3b_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,`${w}/6a84b4e6668753f06194cead_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`],transitional:[`${w}/6a84b4e8b0cd93c94cc02c4b_Transitional%20Color%20Scheme%201%20Newport.webp`,`${w}/6a84b4e808dc2fe1c6d05bb6_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,`${w}/6a84b4e87b6b694595678e17_Transitional%20Color%20Scheme%203%20Caprock.webp`,`${w}/6a84b4e96ca32e7649ba0767_Transitional%20Color%20Scheme%204%20Alabaster.webp`,`${w}/6a84b4e917cf0f48c34d6370_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`],tudor:[`${w}/6a84b4e717cf0f48c34d62b8_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,`${w}/6a84b4e7b0cd93c94cc02b79_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,`${w}/6a84b4e716910f7fe0fd6e86_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,`${w}/6a84b4e7165fa1b5bf5cc6b0_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,`${w}/6a84b4e747e218625dedae9b_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`]}};for(let[e,t]of Object.entries(ut)){let[a,s]=e.split("|"),[o,r]=a.split("."),i=ht[o][r];i[Number(s)-1]=t}var Ua={addison:{capeDutch:"addison-modern-cape-dutch",transitional:"addison-transitional",tudor:"addison-modern-tudor"},bandera:{capeDutch:"bandera-modern-cape-dutch",transitional:"bandera-transitional",tudor:"bandera-modern-tudor"},collin:{capeDutch:"collin-modern-cape-dutch",transitional:"collin-transitional",tudor:"collin-modern-tudor"},grayson:{capeDutch:"grayson-modern-cape-dutch",transitional:"the-grayson-transitional",tudor:"the-grayson-modern-tudor"},magnolia:{capeDutch:"magnolia-modern-cape-dutch",transitional:"magnolia-transitional",tudor:"magnolia-modern-tudor"}},fe=e=>{let t=ht[e],a=Ua[e];return[{style:"Modern Cape Dutch",slug:a.capeDutch,colorSchemes:te(Va,[...t.capeDutch])},{style:"Transitional",slug:a.transitional,colorSchemes:te(Xa,[...t.transitional])},{style:"Modern Tudor",slug:a.tudor,colorSchemes:te(qa,[...t.tudor])}]},Ne={echo:de("echo"),merrick:de("merrick"),chaney:de("chaney"),loma:de("loma"),sycamore:de("sycamore"),glenview:Z("glenview"),elm:Z("elm"),willow:Z("willow"),vista:Z("vista"),ambrose:Z("ambrose"),alder:Z("alder"),"studio-adu":ja("studio-adu"),"carriage-house-adu":Z("carriage-house-adu"),"two-story-adu":Z("two-story-adu"),addison:fe("addison"),bandera:fe("bandera"),collin:fe("collin"),grayson:fe("grayson"),magnolia:fe("magnolia")},Ka={"Modern Cape Dutch":"capeDutch",Transitional:"transitional","Modern Tudor":"tudor"},Za=e=>Ne[e].map(t=>({...t,colorSchemes:t.colorSchemes.map(a=>({...a,imageUrl:ft[`${e}|${Ka[t.style]}|${a.schemeNumber}`]??a.imageUrl}))}));function gt(){let a=(window.location.pathname.toLowerCase().split("/house-plans/")[1]?.split("/")[0]??"").replace(/^the-/,"").replace(/---mosaic$/,"");return a in Ne?a:null}function vt(e,t){let s=(window.location.pathname.toLowerCase().includes("---mosaic")&&["addison","bandera","collin","grayson","magnolia"].includes(e)?Za(e):Ne[e])?.find(o=>o.slug===t);return s?s.colorSchemes.filter(o=>!!o.imageUrl):[]}var ve=class ve{constructor(t){this.configs=t;z(this,"overlay",null);z(this,"swiper",null);z(this,"thumbsSwiper",null);z(this,"caches",new Map);z(this,"observers",[]);this.configs=t}init(){this.configs.forEach(t=>{this.caches.set(t.triggerSelector,[]),this.observeImages(t),this.bindTrigger(t)}),this.bindSlideGalleries(),this.bindMobileGallery(),document.addEventListener("keydown",t=>{t.key==="Escape"&&this.close()})}observeImages(t){let a=()=>{this.caches.set(t.triggerSelector,Array.from(document.querySelectorAll(t.imageSelector)))};a();let s=document.querySelector(t.containerSelector);if(!s){console.error(`GalleryController: container not found \u2014 ${t.containerSelector}`);return}let o=new MutationObserver(a);o.observe(s,{childList:!0,subtree:!0}),this.observers.push(o)}bindTrigger(t){let a=document.querySelectorAll(t.triggerSelector);a.length&&a.forEach(s=>{s.addEventListener("click",()=>{let o=this.caches.get(t.triggerSelector)??[];if(!o.length){console.error(`GalleryController: No images cached for trigger ${t.triggerSelector}.`);return}this.open(o,0)})})}bindSlideGalleries(){document.addEventListener("click",t=>{let a=t.target;if(a.closest('[dev-target="scheme-header"]')||a.closest('[dev-target="scheme-body"]')||a.closest('[dev-target="scheme-arrow"]')||a.closest('[dev-target="scheme-item"]'))return;let s=t.target.closest('[dev-target="slide-image-wrapper"]');if(!s)return;let o=s.closest(".swiper-slide");if(!o)return;let r=this.resolveSlideGalleryImages(o);r.length&&this.open(r,0)})}resolveSlideGalleryImages(t){let a=t.getAttribute("choose-from")?.toLowerCase();if(a==="exterior-schema"||a==="exterior-scheme"){let r=this.getExteriorImagesForSlide(t);if(r.length)return r}let o=Array.from(t.querySelectorAll('img[dev-target="slide-gallery-collection-image"]'));return o.length?o:this.resolveExplorePlansGalleryByHousePlan(t)}resolveExplorePlansGalleryByHousePlan(t){let a=t.querySelector('[dev-target="forward-image"]')?.getAttribute("house-plan")??t.getAttribute("house-plan")??"";if(!a)return[];let s=document.querySelector(`[dev-target="slide-gallery-collection-list-wrapper"][house-plan="${CSS.escape(a)}"]`);return s?Array.from(s.querySelectorAll('img[dev-target="slide-gallery-collection-image"]')):[]}getExteriorImagesForSlide(t){let a=gt();if(!a)return[];let s=t.getAttribute("exterior-style")?.toLowerCase()??"";return vt(a,s).map(o=>this.createImageElement(o.imageUrl,`Scheme ${o.schemeNumber}: ${o.name}`))}createImageElement(t,a=""){let s=document.createElement("img");return s.src=t,s.alt=a,s.title=a,s}bindMobileGallery(){document.addEventListener("click",t=>{let a=t.target.closest('[dev-target="mobile-slide-image-wrapper"]');if(!a)return;let s=a.closest('[dev-target="mobile-swiper"]');if(!s)return;let o=Array.from(s.querySelectorAll('[dev-target="mobile-slide"]')),r=a.closest('[dev-target="mobile-slide"]'),i=r?o.indexOf(r):0,l=o.map(n=>n.querySelector('[dev-target="mobile-slide-image"]')).filter(n=>n!==null);l.length&&this.open(l,Math.max(0,i))})}open(t,a){let s=t.slice(0,ve.MAX_GALLERY_IMAGES);if(!s.length)return;let o=Math.min(Math.max(0,a),s.length-1);this.destroyOverlay(),this.overlay=document.createElement("div"),this.overlay.className="hb-gallery-overlay",this.overlay.innerHTML=`
+"use strict";
+(() => {
+  // bin/live-reload.js
+  new EventSource(`${"http://localhost:3000"}/esbuild`).addEventListener("change", () => location.reload());
+
+  // src/utils/accordion.ts
+  var AccordionController = class {
+    init() {
+      const items = document.querySelectorAll('[dev-target="accordion-item"]');
+      if (!items.length) {
+        console.error('AccordionController: No [dev-target="accordion-item"] elements found.');
+        return;
+      }
+      items.forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+          items.forEach((i) => i.classList.remove("is-active"));
+          item.classList.add("is-active");
+        });
+        item.addEventListener("mouseleave", () => {
+          item.classList.remove("is-active");
+        });
+      });
+    }
+  };
+
+  // src/utils/explore-tabs.ts
+  var DEFAULT_TRIGGER_TO_PANEL = {
+    "explore-plans-trigger": "explore-plans-tab",
+    "explore-homes-trigger": "explore-homes-tab"
+  };
+  var ExploreTabsController = class {
+    activeTrigger = null;
+    options;
+    triggerToPanel;
+    constructor(options = {}) {
+      this.options = options;
+      this.triggerToPanel = options.triggerToPanel ?? DEFAULT_TRIGGER_TO_PANEL;
+    }
+    /**
+     * Initialises the controller: wires tab triggers to panels.
+     * Must be called after the DOM is ready (e.g. inside `window.Webflow.push`).
+     */
+    init() {
+      const header = document.querySelector('[dev-target="explore-tab-header"]');
+      const body = document.querySelector('[dev-target="explore-tab-body"]');
+      if (!header) {
+        console.error('ExploreTabsController: No [dev-target="explore-tab-header"] found.');
+        return;
+      }
+      if (!body) {
+        console.error('ExploreTabsController: No [dev-target="explore-tab-body"] found.');
+        return;
+      }
+      Object.entries(this.triggerToPanel).forEach(([triggerTarget, panelTarget]) => {
+        const trigger = document.querySelector(`[dev-target="${triggerTarget}"]`);
+        const panel = document.querySelector(`[dev-target="${panelTarget}"]`);
+        if (!trigger) {
+          console.error(`ExploreTabsController: No [dev-target="${triggerTarget}"] found.`);
+          return;
+        }
+        if (!panel) {
+          console.error(`ExploreTabsController: No [dev-target="${panelTarget}"] found.`);
+          return;
+        }
+        trigger.addEventListener("click", () => this.activate(triggerTarget));
+      });
+      const triggerKeys = Object.keys(this.triggerToPanel);
+      const initialTrigger = triggerKeys.map((key) => document.querySelector(`[dev-target="${key}"].is-active`)).find(Boolean);
+      if (initialTrigger) {
+        const target = initialTrigger.getAttribute("dev-target");
+        if (target) this.activate(target);
+      } else {
+        const firstKey = triggerKeys[0];
+        if (firstKey) this.activate(firstKey);
+      }
+    }
+    /**
+     * Activates the given trigger and shows its corresponding panel.
+     */
+    activate(triggerTarget) {
+      if (this.activeTrigger === triggerTarget) return;
+      const panelTarget = this.triggerToPanel[triggerTarget];
+      if (!panelTarget) return;
+      Object.keys(this.triggerToPanel).forEach((key) => {
+        const trigger = document.querySelector(`[dev-target="${key}"]`);
+        trigger?.classList.toggle("is-active", key === triggerTarget);
+      });
+      Object.values(this.triggerToPanel).forEach((target) => {
+        const panel = document.querySelector(`[dev-target="${target}"]`);
+        panel?.classList.toggle("hide", target !== panelTarget);
+      });
+      this.toggleHousePlansCompanionTabs(triggerTarget);
+      this.activeTrigger = triggerTarget;
+    }
+    toggleHousePlansCompanionTabs(triggerTarget) {
+      if (!this.options.isHousePlansGallery) return;
+      if (!this.options.firstTabSelector || !this.options.secondTabSelector) return;
+      const firstTab = document.querySelector(this.options.firstTabSelector);
+      const secondTab = document.querySelector(this.options.secondTabSelector);
+      if (!firstTab || !secondTab) {
+        console.error(
+          'ExploreTabsController: No [dev-target="first-tab"] or [dev-target="second-tab"] found.'
+        );
+        return;
+      }
+      const firstTriggerKey = Object.keys(this.triggerToPanel)[0];
+      const isExplorePlansActive = triggerTarget === firstTriggerKey;
+      firstTab.classList.toggle("hide", !isExplorePlansActive);
+      secondTab.classList.toggle("hide", isExplorePlansActive);
+    }
+  };
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/shared/ssr-window.esm.mjs
+  function isObject(obj) {
+    return obj !== null && typeof obj === "object" && "constructor" in obj && obj.constructor === Object;
+  }
+  function extend(target = {}, src = {}) {
+    const noExtend = ["__proto__", "constructor", "prototype"];
+    Object.keys(src).filter((key) => noExtend.indexOf(key) < 0).forEach((key) => {
+      if (typeof target[key] === "undefined") target[key] = src[key];
+      else if (isObject(src[key]) && isObject(target[key]) && Object.keys(src[key]).length > 0) {
+        extend(target[key], src[key]);
+      }
+    });
+  }
+  var ssrDocument = {
+    body: {},
+    addEventListener() {
+    },
+    removeEventListener() {
+    },
+    activeElement: {
+      blur() {
+      },
+      nodeName: ""
+    },
+    querySelector() {
+      return null;
+    },
+    querySelectorAll() {
+      return [];
+    },
+    getElementById() {
+      return null;
+    },
+    createEvent() {
+      return {
+        initEvent() {
+        }
+      };
+    },
+    createElement() {
+      return {
+        children: [],
+        childNodes: [],
+        style: {},
+        setAttribute() {
+        },
+        getElementsByTagName() {
+          return [];
+        }
+      };
+    },
+    createElementNS() {
+      return {};
+    },
+    importNode() {
+      return null;
+    },
+    location: {
+      hash: "",
+      host: "",
+      hostname: "",
+      href: "",
+      origin: "",
+      pathname: "",
+      protocol: "",
+      search: ""
+    }
+  };
+  function getDocument() {
+    const doc = typeof document !== "undefined" ? document : {};
+    extend(doc, ssrDocument);
+    return doc;
+  }
+  var ssrWindow = {
+    document: ssrDocument,
+    navigator: {
+      userAgent: ""
+    },
+    location: {
+      hash: "",
+      host: "",
+      hostname: "",
+      href: "",
+      origin: "",
+      pathname: "",
+      protocol: "",
+      search: ""
+    },
+    history: {
+      replaceState() {
+      },
+      pushState() {
+      },
+      go() {
+      },
+      back() {
+      }
+    },
+    CustomEvent: function CustomEvent() {
+      return this;
+    },
+    addEventListener() {
+    },
+    removeEventListener() {
+    },
+    getComputedStyle() {
+      return {
+        getPropertyValue() {
+          return "";
+        }
+      };
+    },
+    Image() {
+    },
+    Date() {
+    },
+    screen: {},
+    setTimeout() {
+    },
+    clearTimeout() {
+    },
+    matchMedia() {
+      return {};
+    },
+    requestAnimationFrame(callback) {
+      if (typeof setTimeout === "undefined") {
+        callback();
+        return null;
+      }
+      return setTimeout(callback, 0);
+    },
+    cancelAnimationFrame(id) {
+      if (typeof setTimeout === "undefined") {
+        return;
+      }
+      clearTimeout(id);
+    }
+  };
+  function getWindow() {
+    const win = typeof window !== "undefined" ? window : {};
+    extend(win, ssrWindow);
+    return win;
+  }
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/shared/utils.mjs
+  function classesToTokens(classes2 = "") {
+    return classes2.trim().split(" ").filter((c) => !!c.trim());
+  }
+  function deleteProps(obj) {
+    const object = obj;
+    Object.keys(object).forEach((key) => {
+      try {
+        object[key] = null;
+      } catch (e) {
+      }
+      try {
+        delete object[key];
+      } catch (e) {
+      }
+    });
+  }
+  function nextTick(callback, delay = 0) {
+    return setTimeout(callback, delay);
+  }
+  function now() {
+    return Date.now();
+  }
+  function getComputedStyle2(el) {
+    const window2 = getWindow();
+    let style;
+    if (window2.getComputedStyle) {
+      style = window2.getComputedStyle(el, null);
+    }
+    if (!style && el.currentStyle) {
+      style = el.currentStyle;
+    }
+    if (!style) {
+      style = el.style;
+    }
+    return style;
+  }
+  function getTranslate(el, axis = "x") {
+    const window2 = getWindow();
+    let matrix;
+    let curTransform;
+    let transformMatrix;
+    const curStyle = getComputedStyle2(el);
+    if (window2.WebKitCSSMatrix) {
+      curTransform = curStyle.transform || curStyle.webkitTransform;
+      if (curTransform.split(",").length > 6) {
+        curTransform = curTransform.split(", ").map((a) => a.replace(",", ".")).join(", ");
+      }
+      transformMatrix = new window2.WebKitCSSMatrix(curTransform === "none" ? "" : curTransform);
+    } else {
+      transformMatrix = curStyle.MozTransform || curStyle.OTransform || curStyle.MsTransform || curStyle.msTransform || curStyle.transform || curStyle.getPropertyValue("transform").replace("translate(", "matrix(1, 0, 0, 1,");
+      matrix = transformMatrix.toString().split(",");
+    }
+    if (axis === "x") {
+      if (window2.WebKitCSSMatrix) curTransform = transformMatrix.m41;
+      else if (matrix.length === 16) curTransform = parseFloat(matrix[12]);
+      else curTransform = parseFloat(matrix[4]);
+    }
+    if (axis === "y") {
+      if (window2.WebKitCSSMatrix) curTransform = transformMatrix.m42;
+      else if (matrix.length === 16) curTransform = parseFloat(matrix[13]);
+      else curTransform = parseFloat(matrix[5]);
+    }
+    return curTransform || 0;
+  }
+  function isObject2(o) {
+    return typeof o === "object" && o !== null && o.constructor && Object.prototype.toString.call(o).slice(8, -1) === "Object";
+  }
+  function isNode(node) {
+    if (typeof window !== "undefined" && typeof window.HTMLElement !== "undefined") {
+      return node instanceof HTMLElement;
+    }
+    return node && (node.nodeType === 1 || node.nodeType === 11);
+  }
+  function extend2(...args) {
+    const to = Object(args[0]);
+    for (let i = 1; i < args.length; i += 1) {
+      const nextSource = args[i];
+      if (nextSource !== void 0 && nextSource !== null && !isNode(nextSource)) {
+        const keysArray = Object.keys(Object(nextSource)).filter((key) => key !== "__proto__" && key !== "constructor" && key !== "prototype");
+        for (let nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex += 1) {
+          const nextKey = keysArray[nextIndex];
+          const desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
+          if (desc !== void 0 && desc.enumerable) {
+            if (isObject2(to[nextKey]) && isObject2(nextSource[nextKey])) {
+              if (nextSource[nextKey].__swiper__) {
+                to[nextKey] = nextSource[nextKey];
+              } else {
+                extend2(to[nextKey], nextSource[nextKey]);
+              }
+            } else if (!isObject2(to[nextKey]) && isObject2(nextSource[nextKey])) {
+              to[nextKey] = {};
+              if (nextSource[nextKey].__swiper__) {
+                to[nextKey] = nextSource[nextKey];
+              } else {
+                extend2(to[nextKey], nextSource[nextKey]);
+              }
+            } else {
+              to[nextKey] = nextSource[nextKey];
+            }
+          }
+        }
+      }
+    }
+    return to;
+  }
+  function setCSSProperty(el, varName, varValue) {
+    el.style.setProperty(varName, varValue);
+  }
+  function animateCSSModeScroll({
+    swiper,
+    targetPosition,
+    side
+  }) {
+    const window2 = getWindow();
+    const startPosition = -swiper.translate;
+    let startTime = null;
+    let time;
+    const duration = swiper.params.speed;
+    swiper.wrapperEl.style.scrollSnapType = "none";
+    window2.cancelAnimationFrame(swiper.cssModeFrameID);
+    const dir = targetPosition > startPosition ? "next" : "prev";
+    const isOutOfBound = (current, target) => {
+      return dir === "next" && current >= target || dir === "prev" && current <= target;
+    };
+    const animate = () => {
+      time = (/* @__PURE__ */ new Date()).getTime();
+      if (startTime === null) {
+        startTime = time;
+      }
+      const progress = Math.max(Math.min((time - startTime) / duration, 1), 0);
+      const easeProgress = 0.5 - Math.cos(progress * Math.PI) / 2;
+      let currentPosition = startPosition + easeProgress * (targetPosition - startPosition);
+      if (isOutOfBound(currentPosition, targetPosition)) {
+        currentPosition = targetPosition;
+      }
+      swiper.wrapperEl.scrollTo({
+        [side]: currentPosition
+      });
+      if (isOutOfBound(currentPosition, targetPosition)) {
+        swiper.wrapperEl.style.overflow = "hidden";
+        swiper.wrapperEl.style.scrollSnapType = "";
+        setTimeout(() => {
+          swiper.wrapperEl.style.overflow = "";
+          swiper.wrapperEl.scrollTo({
+            [side]: currentPosition
+          });
+        });
+        window2.cancelAnimationFrame(swiper.cssModeFrameID);
+        return;
+      }
+      swiper.cssModeFrameID = window2.requestAnimationFrame(animate);
+    };
+    animate();
+  }
+  function elementChildren(element, selector = "") {
+    const window2 = getWindow();
+    const children = [...element.children];
+    if (window2.HTMLSlotElement && element instanceof HTMLSlotElement) {
+      children.push(...element.assignedElements());
+    }
+    if (!selector) {
+      return children;
+    }
+    return children.filter((el) => el.matches(selector));
+  }
+  function elementIsChildOfSlot(el, slot) {
+    const elementsQueue = [slot];
+    while (elementsQueue.length > 0) {
+      const elementToCheck = elementsQueue.shift();
+      if (el === elementToCheck) {
+        return true;
+      }
+      elementsQueue.push(...elementToCheck.children, ...elementToCheck.shadowRoot ? elementToCheck.shadowRoot.children : [], ...elementToCheck.assignedElements ? elementToCheck.assignedElements() : []);
+    }
+  }
+  function elementIsChildOf(el, parent) {
+    const window2 = getWindow();
+    let isChild = parent.contains(el);
+    if (!isChild && window2.HTMLSlotElement && parent instanceof HTMLSlotElement) {
+      const children = [...parent.assignedElements()];
+      isChild = children.includes(el);
+      if (!isChild) {
+        isChild = elementIsChildOfSlot(el, parent);
+      }
+    }
+    return isChild;
+  }
+  function showWarning(text) {
+    try {
+      console.warn(text);
+      return;
+    } catch (err) {
+    }
+  }
+  function createElement(tag, classes2 = []) {
+    const el = document.createElement(tag);
+    el.classList.add(...Array.isArray(classes2) ? classes2 : classesToTokens(classes2));
+    return el;
+  }
+  function elementOffset(el) {
+    const window2 = getWindow();
+    const document2 = getDocument();
+    const box = el.getBoundingClientRect();
+    const body = document2.body;
+    const clientTop = el.clientTop || body.clientTop || 0;
+    const clientLeft = el.clientLeft || body.clientLeft || 0;
+    const scrollTop = el === window2 ? window2.scrollY : el.scrollTop;
+    const scrollLeft = el === window2 ? window2.scrollX : el.scrollLeft;
+    return {
+      top: box.top + scrollTop - clientTop,
+      left: box.left + scrollLeft - clientLeft
+    };
+  }
+  function elementPrevAll(el, selector) {
+    const prevEls = [];
+    while (el.previousElementSibling) {
+      const prev = el.previousElementSibling;
+      if (selector) {
+        if (prev.matches(selector)) prevEls.push(prev);
+      } else prevEls.push(prev);
+      el = prev;
+    }
+    return prevEls;
+  }
+  function elementNextAll(el, selector) {
+    const nextEls = [];
+    while (el.nextElementSibling) {
+      const next = el.nextElementSibling;
+      if (selector) {
+        if (next.matches(selector)) nextEls.push(next);
+      } else nextEls.push(next);
+      el = next;
+    }
+    return nextEls;
+  }
+  function elementStyle(el, prop) {
+    const window2 = getWindow();
+    return window2.getComputedStyle(el, null).getPropertyValue(prop);
+  }
+  function elementIndex(el) {
+    let child = el;
+    let i;
+    if (child) {
+      i = 0;
+      while ((child = child.previousSibling) !== null) {
+        if (child.nodeType === 1) i += 1;
+      }
+      return i;
+    }
+    return void 0;
+  }
+  function elementParents(el, selector) {
+    const parents = [];
+    let parent = el.parentElement;
+    while (parent) {
+      if (selector) {
+        if (parent.matches(selector)) parents.push(parent);
+      } else {
+        parents.push(parent);
+      }
+      parent = parent.parentElement;
+    }
+    return parents;
+  }
+  function elementOuterSize(el, size, includeMargins) {
+    const window2 = getWindow();
+    if (includeMargins) {
+      return el[size === "width" ? "offsetWidth" : "offsetHeight"] + parseFloat(window2.getComputedStyle(el, null).getPropertyValue(size === "width" ? "margin-right" : "margin-top")) + parseFloat(window2.getComputedStyle(el, null).getPropertyValue(size === "width" ? "margin-left" : "margin-bottom"));
+    }
+    return el.offsetWidth;
+  }
+  function makeElementsArray(el) {
+    return (Array.isArray(el) ? el : [el]).filter((e) => !!e);
+  }
+  function setInnerHTML(el, html = "") {
+    if (typeof trustedTypes !== "undefined") {
+      el.innerHTML = trustedTypes.createPolicy("html", {
+        createHTML: (s) => s
+      }).createHTML(html);
+    } else {
+      el.innerHTML = html;
+    }
+  }
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/shared/swiper-core.mjs
+  var support;
+  function calcSupport() {
+    const window2 = getWindow();
+    const document2 = getDocument();
+    return {
+      smoothScroll: document2.documentElement && document2.documentElement.style && "scrollBehavior" in document2.documentElement.style,
+      touch: !!("ontouchstart" in window2 || window2.DocumentTouch && document2 instanceof window2.DocumentTouch)
+    };
+  }
+  function getSupport() {
+    if (!support) {
+      support = calcSupport();
+    }
+    return support;
+  }
+  var deviceCached;
+  function calcDevice({
+    userAgent
+  } = {}) {
+    const support2 = getSupport();
+    const window2 = getWindow();
+    const platform = window2.navigator.platform;
+    const ua = userAgent || window2.navigator.userAgent;
+    const device = {
+      ios: false,
+      android: false
+    };
+    const screenWidth = window2.screen.width;
+    const screenHeight = window2.screen.height;
+    const android = ua.match(/(Android);?[\s\/]+([\d.]+)?/);
+    let ipad = ua.match(/(iPad)(?!\1).*OS\s([\d_]+)/);
+    const ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/);
+    const iphone = !ipad && ua.match(/(iPhone\sOS|iOS)\s([\d_]+)/);
+    const windows = platform === "Win32";
+    let macos = platform === "MacIntel";
+    const iPadScreens = ["1024x1366", "1366x1024", "834x1194", "1194x834", "834x1112", "1112x834", "768x1024", "1024x768", "820x1180", "1180x820", "810x1080", "1080x810"];
+    if (!ipad && macos && support2.touch && iPadScreens.indexOf(`${screenWidth}x${screenHeight}`) >= 0) {
+      ipad = ua.match(/(Version)\/([\d.]+)/);
+      if (!ipad) ipad = [0, 1, "13_0_0"];
+      macos = false;
+    }
+    if (android && !windows) {
+      device.os = "android";
+      device.android = true;
+    }
+    if (ipad || iphone || ipod) {
+      device.os = "ios";
+      device.ios = true;
+    }
+    return device;
+  }
+  function getDevice(overrides = {}) {
+    if (!deviceCached) {
+      deviceCached = calcDevice(overrides);
+    }
+    return deviceCached;
+  }
+  var browser;
+  function calcBrowser() {
+    const window2 = getWindow();
+    const device = getDevice();
+    let needPerspectiveFix = false;
+    function isSafari() {
+      const ua = window2.navigator.userAgent.toLowerCase();
+      return ua.indexOf("safari") >= 0 && ua.indexOf("chrome") < 0 && ua.indexOf("android") < 0;
+    }
+    if (isSafari()) {
+      const ua = String(window2.navigator.userAgent);
+      if (ua.includes("Version/")) {
+        const [major, minor] = ua.split("Version/")[1].split(" ")[0].split(".").map((num) => Number(num));
+        needPerspectiveFix = major < 16 || major === 16 && minor < 2;
+      }
+    }
+    const isWebView = /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(window2.navigator.userAgent);
+    const isSafariBrowser = isSafari();
+    const need3dFix = isSafariBrowser || isWebView && device.ios;
+    return {
+      isSafari: needPerspectiveFix || isSafariBrowser,
+      needPerspectiveFix,
+      need3dFix,
+      isWebView
+    };
+  }
+  function getBrowser() {
+    if (!browser) {
+      browser = calcBrowser();
+    }
+    return browser;
+  }
+  function Resize({
+    swiper,
+    on,
+    emit
+  }) {
+    const window2 = getWindow();
+    let observer = null;
+    let animationFrame = null;
+    const resizeHandler = () => {
+      if (!swiper || swiper.destroyed || !swiper.initialized) return;
+      emit("beforeResize");
+      emit("resize");
+    };
+    const createObserver = () => {
+      if (!swiper || swiper.destroyed || !swiper.initialized) return;
+      observer = new ResizeObserver((entries) => {
+        animationFrame = window2.requestAnimationFrame(() => {
+          const {
+            width,
+            height
+          } = swiper;
+          let newWidth = width;
+          let newHeight = height;
+          entries.forEach(({
+            contentBoxSize,
+            contentRect,
+            target
+          }) => {
+            if (target && target !== swiper.el) return;
+            newWidth = contentRect ? contentRect.width : (contentBoxSize[0] || contentBoxSize).inlineSize;
+            newHeight = contentRect ? contentRect.height : (contentBoxSize[0] || contentBoxSize).blockSize;
+          });
+          if (newWidth !== width || newHeight !== height) {
+            resizeHandler();
+          }
+        });
+      });
+      observer.observe(swiper.el);
+    };
+    const removeObserver = () => {
+      if (animationFrame) {
+        window2.cancelAnimationFrame(animationFrame);
+      }
+      if (observer && observer.unobserve && swiper.el) {
+        observer.unobserve(swiper.el);
+        observer = null;
+      }
+    };
+    const orientationChangeHandler = () => {
+      if (!swiper || swiper.destroyed || !swiper.initialized) return;
+      emit("orientationchange");
+    };
+    on("init", () => {
+      if (swiper.params.resizeObserver && typeof window2.ResizeObserver !== "undefined") {
+        createObserver();
+        return;
+      }
+      window2.addEventListener("resize", resizeHandler);
+      window2.addEventListener("orientationchange", orientationChangeHandler);
+    });
+    on("destroy", () => {
+      removeObserver();
+      window2.removeEventListener("resize", resizeHandler);
+      window2.removeEventListener("orientationchange", orientationChangeHandler);
+    });
+  }
+  function Observer({
+    swiper,
+    extendParams,
+    on,
+    emit
+  }) {
+    const observers = [];
+    const window2 = getWindow();
+    const attach = (target, options = {}) => {
+      const ObserverFunc = window2.MutationObserver || window2.WebkitMutationObserver;
+      const observer = new ObserverFunc((mutations) => {
+        if (swiper.__preventObserver__) return;
+        if (mutations.length === 1) {
+          emit("observerUpdate", mutations[0]);
+          return;
+        }
+        const observerUpdate = function observerUpdate2() {
+          emit("observerUpdate", mutations[0]);
+        };
+        if (window2.requestAnimationFrame) {
+          window2.requestAnimationFrame(observerUpdate);
+        } else {
+          window2.setTimeout(observerUpdate, 0);
+        }
+      });
+      observer.observe(target, {
+        attributes: typeof options.attributes === "undefined" ? true : options.attributes,
+        childList: swiper.isElement || (typeof options.childList === "undefined" ? true : options).childList,
+        characterData: typeof options.characterData === "undefined" ? true : options.characterData
+      });
+      observers.push(observer);
+    };
+    const init = () => {
+      if (!swiper.params.observer) return;
+      if (swiper.params.observeParents) {
+        const containerParents = elementParents(swiper.hostEl);
+        for (let i = 0; i < containerParents.length; i += 1) {
+          attach(containerParents[i]);
+        }
+      }
+      attach(swiper.hostEl, {
+        childList: swiper.params.observeSlideChildren
+      });
+      attach(swiper.wrapperEl, {
+        attributes: false
+      });
+    };
+    const destroy = () => {
+      observers.forEach((observer) => {
+        observer.disconnect();
+      });
+      observers.splice(0, observers.length);
+    };
+    extendParams({
+      observer: false,
+      observeParents: false,
+      observeSlideChildren: false
+    });
+    on("init", init);
+    on("destroy", destroy);
+  }
+  var eventsEmitter = {
+    on(events2, handler, priority) {
+      const self = this;
+      if (!self.eventsListeners || self.destroyed) return self;
+      if (typeof handler !== "function") return self;
+      const method = priority ? "unshift" : "push";
+      events2.split(" ").forEach((event2) => {
+        if (!self.eventsListeners[event2]) self.eventsListeners[event2] = [];
+        self.eventsListeners[event2][method](handler);
+      });
+      return self;
+    },
+    once(events2, handler, priority) {
+      const self = this;
+      if (!self.eventsListeners || self.destroyed) return self;
+      if (typeof handler !== "function") return self;
+      function onceHandler(...args) {
+        self.off(events2, onceHandler);
+        if (onceHandler.__emitterProxy) {
+          delete onceHandler.__emitterProxy;
+        }
+        handler.apply(self, args);
+      }
+      onceHandler.__emitterProxy = handler;
+      return self.on(events2, onceHandler, priority);
+    },
+    onAny(handler, priority) {
+      const self = this;
+      if (!self.eventsListeners || self.destroyed) return self;
+      if (typeof handler !== "function") return self;
+      const method = priority ? "unshift" : "push";
+      if (self.eventsAnyListeners.indexOf(handler) < 0) {
+        self.eventsAnyListeners[method](handler);
+      }
+      return self;
+    },
+    offAny(handler) {
+      const self = this;
+      if (!self.eventsListeners || self.destroyed) return self;
+      if (!self.eventsAnyListeners) return self;
+      const index = self.eventsAnyListeners.indexOf(handler);
+      if (index >= 0) {
+        self.eventsAnyListeners.splice(index, 1);
+      }
+      return self;
+    },
+    off(events2, handler) {
+      const self = this;
+      if (!self.eventsListeners || self.destroyed) return self;
+      if (!self.eventsListeners) return self;
+      events2.split(" ").forEach((event2) => {
+        if (typeof handler === "undefined") {
+          self.eventsListeners[event2] = [];
+        } else if (self.eventsListeners[event2]) {
+          self.eventsListeners[event2].forEach((eventHandler, index) => {
+            if (eventHandler === handler || eventHandler.__emitterProxy && eventHandler.__emitterProxy === handler) {
+              self.eventsListeners[event2].splice(index, 1);
+            }
+          });
+        }
+      });
+      return self;
+    },
+    emit(...args) {
+      const self = this;
+      if (!self.eventsListeners || self.destroyed) return self;
+      if (!self.eventsListeners) return self;
+      let events2;
+      let data;
+      let context;
+      if (typeof args[0] === "string" || Array.isArray(args[0])) {
+        events2 = args[0];
+        data = args.slice(1, args.length);
+        context = self;
+      } else {
+        events2 = args[0].events;
+        data = args[0].data;
+        context = args[0].context || self;
+      }
+      data.unshift(context);
+      const eventsArray = Array.isArray(events2) ? events2 : events2.split(" ");
+      eventsArray.forEach((event2) => {
+        if (self.eventsAnyListeners && self.eventsAnyListeners.length) {
+          self.eventsAnyListeners.forEach((eventHandler) => {
+            eventHandler.apply(context, [event2, ...data]);
+          });
+        }
+        if (self.eventsListeners && self.eventsListeners[event2]) {
+          self.eventsListeners[event2].forEach((eventHandler) => {
+            eventHandler.apply(context, data);
+          });
+        }
+      });
+      return self;
+    }
+  };
+  function updateSize() {
+    const swiper = this;
+    let width;
+    let height;
+    const el = swiper.el;
+    if (typeof swiper.params.width !== "undefined" && swiper.params.width !== null) {
+      width = swiper.params.width;
+    } else {
+      width = el.clientWidth;
+    }
+    if (typeof swiper.params.height !== "undefined" && swiper.params.height !== null) {
+      height = swiper.params.height;
+    } else {
+      height = el.clientHeight;
+    }
+    if (width === 0 && swiper.isHorizontal() || height === 0 && swiper.isVertical()) {
+      return;
+    }
+    width = width - parseInt(elementStyle(el, "padding-left") || 0, 10) - parseInt(elementStyle(el, "padding-right") || 0, 10);
+    height = height - parseInt(elementStyle(el, "padding-top") || 0, 10) - parseInt(elementStyle(el, "padding-bottom") || 0, 10);
+    if (Number.isNaN(width)) width = 0;
+    if (Number.isNaN(height)) height = 0;
+    Object.assign(swiper, {
+      width,
+      height,
+      size: swiper.isHorizontal() ? width : height
+    });
+  }
+  function updateSlides() {
+    const swiper = this;
+    function getDirectionPropertyValue(node, label) {
+      return parseFloat(node.getPropertyValue(swiper.getDirectionLabel(label)) || 0);
+    }
+    const params = swiper.params;
+    const {
+      wrapperEl,
+      slidesEl,
+      rtlTranslate: rtl,
+      wrongRTL
+    } = swiper;
+    const isVirtual = swiper.virtual && params.virtual.enabled;
+    const previousSlidesLength = isVirtual ? swiper.virtual.slides.length : swiper.slides.length;
+    const slides = elementChildren(slidesEl, `.${swiper.params.slideClass}, swiper-slide`);
+    const slidesLength = isVirtual ? swiper.virtual.slides.length : slides.length;
+    let snapGrid = [];
+    const slidesGrid = [];
+    const slidesSizesGrid = [];
+    let offsetBefore = params.slidesOffsetBefore;
+    if (typeof offsetBefore === "function") {
+      offsetBefore = params.slidesOffsetBefore.call(swiper);
+    }
+    let offsetAfter = params.slidesOffsetAfter;
+    if (typeof offsetAfter === "function") {
+      offsetAfter = params.slidesOffsetAfter.call(swiper);
+    }
+    const previousSnapGridLength = swiper.snapGrid.length;
+    const previousSlidesGridLength = swiper.slidesGrid.length;
+    const swiperSize = swiper.size - offsetBefore - offsetAfter;
+    let spaceBetween = params.spaceBetween;
+    let slidePosition = -offsetBefore;
+    let prevSlideSize = 0;
+    let index = 0;
+    if (typeof swiperSize === "undefined") {
+      return;
+    }
+    if (typeof spaceBetween === "string" && spaceBetween.indexOf("%") >= 0) {
+      spaceBetween = parseFloat(spaceBetween.replace("%", "")) / 100 * swiperSize;
+    } else if (typeof spaceBetween === "string") {
+      spaceBetween = parseFloat(spaceBetween);
+    }
+    swiper.virtualSize = -spaceBetween - offsetBefore - offsetAfter;
+    slides.forEach((slideEl) => {
+      if (rtl) {
+        slideEl.style.marginLeft = "";
+      } else {
+        slideEl.style.marginRight = "";
+      }
+      slideEl.style.marginBottom = "";
+      slideEl.style.marginTop = "";
+    });
+    if (params.centeredSlides && params.cssMode) {
+      setCSSProperty(wrapperEl, "--swiper-centered-offset-before", "");
+      setCSSProperty(wrapperEl, "--swiper-centered-offset-after", "");
+    }
+    if (params.cssMode) {
+      setCSSProperty(wrapperEl, "--swiper-slides-offset-before", `${offsetBefore}px`);
+      setCSSProperty(wrapperEl, "--swiper-slides-offset-after", `${offsetAfter}px`);
+    }
+    const gridEnabled = params.grid && params.grid.rows > 1 && swiper.grid;
+    if (gridEnabled) {
+      swiper.grid.initSlides(slides);
+    } else if (swiper.grid) {
+      swiper.grid.unsetSlides();
+    }
+    let slideSize;
+    const shouldResetSlideSize = params.slidesPerView === "auto" && params.breakpoints && Object.keys(params.breakpoints).filter((key) => {
+      return typeof params.breakpoints[key].slidesPerView !== "undefined";
+    }).length > 0;
+    for (let i = 0; i < slidesLength; i += 1) {
+      slideSize = 0;
+      const slide2 = slides[i];
+      if (slide2) {
+        if (gridEnabled) {
+          swiper.grid.updateSlide(i, slide2, slides);
+        }
+        if (elementStyle(slide2, "display") === "none") continue;
+      }
+      if (isVirtual && params.slidesPerView === "auto") {
+        if (params.virtual.slidesPerViewAutoSlideSize) {
+          slideSize = params.virtual.slidesPerViewAutoSlideSize;
+        }
+        if (slideSize && slide2) {
+          if (params.roundLengths) slideSize = Math.floor(slideSize);
+          slide2.style[swiper.getDirectionLabel("width")] = `${slideSize}px`;
+        }
+      } else if (params.slidesPerView === "auto") {
+        if (shouldResetSlideSize) {
+          slide2.style[swiper.getDirectionLabel("width")] = ``;
+        }
+        const slideStyles = getComputedStyle(slide2);
+        const currentTransform = slide2.style.transform;
+        const currentWebKitTransform = slide2.style.webkitTransform;
+        if (currentTransform) {
+          slide2.style.transform = "none";
+        }
+        if (currentWebKitTransform) {
+          slide2.style.webkitTransform = "none";
+        }
+        if (params.roundLengths) {
+          slideSize = swiper.isHorizontal() ? elementOuterSize(slide2, "width", true) : elementOuterSize(slide2, "height", true);
+        } else {
+          const width = getDirectionPropertyValue(slideStyles, "width");
+          const paddingLeft = getDirectionPropertyValue(slideStyles, "padding-left");
+          const paddingRight = getDirectionPropertyValue(slideStyles, "padding-right");
+          const marginLeft = getDirectionPropertyValue(slideStyles, "margin-left");
+          const marginRight = getDirectionPropertyValue(slideStyles, "margin-right");
+          const boxSizing = slideStyles.getPropertyValue("box-sizing");
+          if (boxSizing && boxSizing === "border-box") {
+            slideSize = width + marginLeft + marginRight;
+          } else {
+            const {
+              clientWidth,
+              offsetWidth
+            } = slide2;
+            slideSize = width + paddingLeft + paddingRight + marginLeft + marginRight + (offsetWidth - clientWidth);
+          }
+        }
+        if (currentTransform) {
+          slide2.style.transform = currentTransform;
+        }
+        if (currentWebKitTransform) {
+          slide2.style.webkitTransform = currentWebKitTransform;
+        }
+        if (params.roundLengths) slideSize = Math.floor(slideSize);
+      } else {
+        slideSize = (swiperSize - (params.slidesPerView - 1) * spaceBetween) / params.slidesPerView;
+        if (params.roundLengths) slideSize = Math.floor(slideSize);
+        if (slide2) {
+          slide2.style[swiper.getDirectionLabel("width")] = `${slideSize}px`;
+        }
+      }
+      if (slide2) {
+        slide2.swiperSlideSize = slideSize;
+      }
+      slidesSizesGrid.push(slideSize);
+      if (params.centeredSlides) {
+        slidePosition = slidePosition + slideSize / 2 + prevSlideSize / 2 + spaceBetween;
+        if (prevSlideSize === 0 && i !== 0) slidePosition = slidePosition - swiperSize / 2 - spaceBetween;
+        if (i === 0) slidePosition = slidePosition - swiperSize / 2 - spaceBetween;
+        if (Math.abs(slidePosition) < 1 / 1e3) slidePosition = 0;
+        if (params.roundLengths) slidePosition = Math.floor(slidePosition);
+        if (index % params.slidesPerGroup === 0) snapGrid.push(slidePosition);
+        slidesGrid.push(slidePosition);
+      } else {
+        if (params.roundLengths) slidePosition = Math.floor(slidePosition);
+        if ((index - Math.min(swiper.params.slidesPerGroupSkip, index)) % swiper.params.slidesPerGroup === 0) snapGrid.push(slidePosition);
+        slidesGrid.push(slidePosition);
+        slidePosition = slidePosition + slideSize + spaceBetween;
+      }
+      swiper.virtualSize += slideSize + spaceBetween;
+      prevSlideSize = slideSize;
+      index += 1;
+    }
+    swiper.virtualSize = Math.max(swiper.virtualSize, swiperSize) + offsetAfter;
+    if (rtl && wrongRTL && (params.effect === "slide" || params.effect === "coverflow")) {
+      wrapperEl.style.width = `${swiper.virtualSize + spaceBetween}px`;
+    }
+    if (params.setWrapperSize) {
+      wrapperEl.style[swiper.getDirectionLabel("width")] = `${swiper.virtualSize + spaceBetween}px`;
+    }
+    if (gridEnabled) {
+      swiper.grid.updateWrapperSize(slideSize, snapGrid);
+    }
+    if (!params.centeredSlides) {
+      const isFractionalSlidesPerView = params.slidesPerView !== "auto" && params.slidesPerView % 1 !== 0;
+      const shouldSnapToSlideEdge = params.snapToSlideEdge && !params.loop && (params.slidesPerView === "auto" || isFractionalSlidesPerView);
+      let lastAllowedSnapIndex = snapGrid.length;
+      if (shouldSnapToSlideEdge) {
+        let minVisibleSlides;
+        if (params.slidesPerView === "auto") {
+          minVisibleSlides = 1;
+          let accumulatedSize = 0;
+          for (let i = slidesSizesGrid.length - 1; i >= 0; i -= 1) {
+            accumulatedSize += slidesSizesGrid[i] + (i < slidesSizesGrid.length - 1 ? spaceBetween : 0);
+            if (accumulatedSize <= swiperSize) {
+              minVisibleSlides = slidesSizesGrid.length - i;
+            } else {
+              break;
+            }
+          }
+        } else {
+          minVisibleSlides = Math.floor(params.slidesPerView);
+        }
+        lastAllowedSnapIndex = Math.max(slidesLength - minVisibleSlides, 0);
+      }
+      const newSlidesGrid = [];
+      for (let i = 0; i < snapGrid.length; i += 1) {
+        let slidesGridItem = snapGrid[i];
+        if (params.roundLengths) slidesGridItem = Math.floor(slidesGridItem);
+        if (shouldSnapToSlideEdge) {
+          if (i <= lastAllowedSnapIndex) {
+            newSlidesGrid.push(slidesGridItem);
+          }
+        } else if (snapGrid[i] <= swiper.virtualSize - swiperSize) {
+          newSlidesGrid.push(slidesGridItem);
+        }
+      }
+      snapGrid = newSlidesGrid;
+      if (Math.floor(swiper.virtualSize - swiperSize) - Math.floor(snapGrid[snapGrid.length - 1]) > 1) {
+        if (!shouldSnapToSlideEdge) {
+          snapGrid.push(swiper.virtualSize - swiperSize);
+        }
+      }
+    }
+    if (isVirtual && params.loop) {
+      const size = slidesSizesGrid[0] + spaceBetween;
+      if (params.slidesPerGroup > 1) {
+        const groups = Math.ceil((swiper.virtual.slidesBefore + swiper.virtual.slidesAfter) / params.slidesPerGroup);
+        const groupSize = size * params.slidesPerGroup;
+        for (let i = 0; i < groups; i += 1) {
+          snapGrid.push(snapGrid[snapGrid.length - 1] + groupSize);
+        }
+      }
+      for (let i = 0; i < swiper.virtual.slidesBefore + swiper.virtual.slidesAfter; i += 1) {
+        if (params.slidesPerGroup === 1) {
+          snapGrid.push(snapGrid[snapGrid.length - 1] + size);
+        }
+        slidesGrid.push(slidesGrid[slidesGrid.length - 1] + size);
+        swiper.virtualSize += size;
+      }
+    }
+    if (snapGrid.length === 0) snapGrid = [0];
+    if (spaceBetween !== 0) {
+      const key = swiper.isHorizontal() && rtl ? "marginLeft" : swiper.getDirectionLabel("marginRight");
+      slides.filter((_, slideIndex) => {
+        if (!params.cssMode || params.loop) return true;
+        if (slideIndex === slides.length - 1) {
+          return false;
+        }
+        return true;
+      }).forEach((slideEl) => {
+        slideEl.style[key] = `${spaceBetween}px`;
+      });
+    }
+    if (params.centeredSlides && params.centeredSlidesBounds) {
+      let allSlidesSize = 0;
+      slidesSizesGrid.forEach((slideSizeValue) => {
+        allSlidesSize += slideSizeValue + (spaceBetween || 0);
+      });
+      allSlidesSize -= spaceBetween;
+      const maxSnap = allSlidesSize > swiperSize ? allSlidesSize - swiperSize : 0;
+      snapGrid = snapGrid.map((snap) => {
+        if (snap <= 0) return -offsetBefore;
+        if (snap > maxSnap) return maxSnap + offsetAfter;
+        return snap;
+      });
+    }
+    if (params.centerInsufficientSlides) {
+      let allSlidesSize = 0;
+      slidesSizesGrid.forEach((slideSizeValue) => {
+        allSlidesSize += slideSizeValue + (spaceBetween || 0);
+      });
+      allSlidesSize -= spaceBetween;
+      if (allSlidesSize < swiperSize) {
+        const allSlidesOffset = (swiperSize - allSlidesSize) / 2;
+        snapGrid.forEach((snap, snapIndex) => {
+          snapGrid[snapIndex] = snap - allSlidesOffset;
+        });
+        slidesGrid.forEach((snap, snapIndex) => {
+          slidesGrid[snapIndex] = snap + allSlidesOffset;
+        });
+      }
+    }
+    Object.assign(swiper, {
+      slides,
+      snapGrid,
+      slidesGrid,
+      slidesSizesGrid
+    });
+    if (params.centeredSlides && params.cssMode && !params.centeredSlidesBounds) {
+      setCSSProperty(wrapperEl, "--swiper-centered-offset-before", `${-snapGrid[0]}px`);
+      setCSSProperty(wrapperEl, "--swiper-centered-offset-after", `${swiper.size / 2 - slidesSizesGrid[slidesSizesGrid.length - 1] / 2}px`);
+      const addToSnapGrid = -swiper.snapGrid[0];
+      const addToSlidesGrid = -swiper.slidesGrid[0];
+      swiper.snapGrid = swiper.snapGrid.map((v) => v + addToSnapGrid);
+      swiper.slidesGrid = swiper.slidesGrid.map((v) => v + addToSlidesGrid);
+    }
+    if (slidesLength !== previousSlidesLength) {
+      swiper.emit("slidesLengthChange");
+    }
+    if (snapGrid.length !== previousSnapGridLength) {
+      if (swiper.params.watchOverflow) swiper.checkOverflow();
+      swiper.emit("snapGridLengthChange");
+    }
+    if (slidesGrid.length !== previousSlidesGridLength) {
+      swiper.emit("slidesGridLengthChange");
+    }
+    if (params.watchSlidesProgress) {
+      swiper.updateSlidesOffset();
+    }
+    swiper.emit("slidesUpdated");
+    if (!isVirtual && !params.cssMode && (params.effect === "slide" || params.effect === "fade")) {
+      const backFaceHiddenClass = `${params.containerModifierClass}backface-hidden`;
+      const hasClassBackfaceClassAdded = swiper.el.classList.contains(backFaceHiddenClass);
+      if (slidesLength <= params.maxBackfaceHiddenSlides) {
+        if (!hasClassBackfaceClassAdded) swiper.el.classList.add(backFaceHiddenClass);
+      } else if (hasClassBackfaceClassAdded) {
+        swiper.el.classList.remove(backFaceHiddenClass);
+      }
+    }
+  }
+  function updateAutoHeight(speed) {
+    const swiper = this;
+    const activeSlides = [];
+    const isVirtual = swiper.virtual && swiper.params.virtual.enabled;
+    let newHeight = 0;
+    let i;
+    if (typeof speed === "number") {
+      swiper.setTransition(speed);
+    } else if (speed === true) {
+      swiper.setTransition(swiper.params.speed);
+    }
+    const getSlideByIndex = (index) => {
+      if (isVirtual) {
+        return swiper.slides[swiper.getSlideIndexByData(index)];
+      }
+      return swiper.slides[index];
+    };
+    if (swiper.params.slidesPerView !== "auto" && swiper.params.slidesPerView > 1) {
+      if (swiper.params.centeredSlides) {
+        (swiper.visibleSlides || []).forEach((slide2) => {
+          activeSlides.push(slide2);
+        });
+      } else {
+        for (i = 0; i < Math.ceil(swiper.params.slidesPerView); i += 1) {
+          const index = swiper.activeIndex + i;
+          if (index > swiper.slides.length && !isVirtual) break;
+          activeSlides.push(getSlideByIndex(index));
+        }
+      }
+    } else {
+      activeSlides.push(getSlideByIndex(swiper.activeIndex));
+    }
+    for (i = 0; i < activeSlides.length; i += 1) {
+      if (typeof activeSlides[i] !== "undefined") {
+        const height = activeSlides[i].offsetHeight;
+        newHeight = height > newHeight ? height : newHeight;
+      }
+    }
+    if (newHeight || newHeight === 0) swiper.wrapperEl.style.height = `${newHeight}px`;
+  }
+  function updateSlidesOffset() {
+    const swiper = this;
+    const slides = swiper.slides;
+    const minusOffset = swiper.isElement ? swiper.isHorizontal() ? swiper.wrapperEl.offsetLeft : swiper.wrapperEl.offsetTop : 0;
+    for (let i = 0; i < slides.length; i += 1) {
+      slides[i].swiperSlideOffset = (swiper.isHorizontal() ? slides[i].offsetLeft : slides[i].offsetTop) - minusOffset - swiper.cssOverflowAdjustment();
+    }
+  }
+  var toggleSlideClasses$1 = (slideEl, condition, className) => {
+    if (condition && !slideEl.classList.contains(className)) {
+      slideEl.classList.add(className);
+    } else if (!condition && slideEl.classList.contains(className)) {
+      slideEl.classList.remove(className);
+    }
+  };
+  function updateSlidesProgress(translate2 = this && this.translate || 0) {
+    const swiper = this;
+    const params = swiper.params;
+    const {
+      slides,
+      rtlTranslate: rtl,
+      snapGrid
+    } = swiper;
+    if (slides.length === 0) return;
+    if (typeof slides[0].swiperSlideOffset === "undefined") swiper.updateSlidesOffset();
+    let offsetCenter = -translate2;
+    if (rtl) offsetCenter = translate2;
+    swiper.visibleSlidesIndexes = [];
+    swiper.visibleSlides = [];
+    let spaceBetween = params.spaceBetween;
+    if (typeof spaceBetween === "string" && spaceBetween.indexOf("%") >= 0) {
+      spaceBetween = parseFloat(spaceBetween.replace("%", "")) / 100 * swiper.size;
+    } else if (typeof spaceBetween === "string") {
+      spaceBetween = parseFloat(spaceBetween);
+    }
+    for (let i = 0; i < slides.length; i += 1) {
+      const slide2 = slides[i];
+      let slideOffset = slide2.swiperSlideOffset;
+      if (params.cssMode && params.centeredSlides) {
+        slideOffset -= slides[0].swiperSlideOffset;
+      }
+      const slideProgress = (offsetCenter + (params.centeredSlides ? swiper.minTranslate() : 0) - slideOffset) / (slide2.swiperSlideSize + spaceBetween);
+      const originalSlideProgress = (offsetCenter - snapGrid[0] + (params.centeredSlides ? swiper.minTranslate() : 0) - slideOffset) / (slide2.swiperSlideSize + spaceBetween);
+      const slideBefore = -(offsetCenter - slideOffset);
+      const slideAfter = slideBefore + swiper.slidesSizesGrid[i];
+      const isFullyVisible = slideBefore >= 0 && slideBefore <= swiper.size - swiper.slidesSizesGrid[i];
+      const isVisible = slideBefore >= 0 && slideBefore < swiper.size - 1 || slideAfter > 1 && slideAfter <= swiper.size || slideBefore <= 0 && slideAfter >= swiper.size;
+      if (isVisible) {
+        swiper.visibleSlides.push(slide2);
+        swiper.visibleSlidesIndexes.push(i);
+      }
+      toggleSlideClasses$1(slide2, isVisible, params.slideVisibleClass);
+      toggleSlideClasses$1(slide2, isFullyVisible, params.slideFullyVisibleClass);
+      slide2.progress = rtl ? -slideProgress : slideProgress;
+      slide2.originalProgress = rtl ? -originalSlideProgress : originalSlideProgress;
+    }
+  }
+  function updateProgress(translate2) {
+    const swiper = this;
+    if (typeof translate2 === "undefined") {
+      const multiplier = swiper.rtlTranslate ? -1 : 1;
+      translate2 = swiper && swiper.translate && swiper.translate * multiplier || 0;
+    }
+    const params = swiper.params;
+    const translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
+    let {
+      progress,
+      isBeginning,
+      isEnd,
+      progressLoop
+    } = swiper;
+    const wasBeginning = isBeginning;
+    const wasEnd = isEnd;
+    if (translatesDiff === 0) {
+      progress = 0;
+      isBeginning = true;
+      isEnd = true;
+    } else {
+      progress = (translate2 - swiper.minTranslate()) / translatesDiff;
+      const isBeginningRounded = Math.abs(translate2 - swiper.minTranslate()) < 1;
+      const isEndRounded = Math.abs(translate2 - swiper.maxTranslate()) < 1;
+      isBeginning = isBeginningRounded || progress <= 0;
+      isEnd = isEndRounded || progress >= 1;
+      if (isBeginningRounded) progress = 0;
+      if (isEndRounded) progress = 1;
+    }
+    if (params.loop) {
+      const firstSlideIndex = swiper.getSlideIndexByData(0);
+      const lastSlideIndex = swiper.getSlideIndexByData(swiper.slides.length - 1);
+      const firstSlideTranslate = swiper.slidesGrid[firstSlideIndex];
+      const lastSlideTranslate = swiper.slidesGrid[lastSlideIndex];
+      const translateMax = swiper.slidesGrid[swiper.slidesGrid.length - 1];
+      const translateAbs = Math.abs(translate2);
+      if (translateAbs >= firstSlideTranslate) {
+        progressLoop = (translateAbs - firstSlideTranslate) / translateMax;
+      } else {
+        progressLoop = (translateAbs + translateMax - lastSlideTranslate) / translateMax;
+      }
+      if (progressLoop > 1) progressLoop -= 1;
+    }
+    Object.assign(swiper, {
+      progress,
+      progressLoop,
+      isBeginning,
+      isEnd
+    });
+    if (params.watchSlidesProgress || params.centeredSlides && params.autoHeight) swiper.updateSlidesProgress(translate2);
+    if (isBeginning && !wasBeginning) {
+      swiper.emit("reachBeginning toEdge");
+    }
+    if (isEnd && !wasEnd) {
+      swiper.emit("reachEnd toEdge");
+    }
+    if (wasBeginning && !isBeginning || wasEnd && !isEnd) {
+      swiper.emit("fromEdge");
+    }
+    swiper.emit("progress", progress);
+  }
+  var toggleSlideClasses = (slideEl, condition, className) => {
+    if (condition && !slideEl.classList.contains(className)) {
+      slideEl.classList.add(className);
+    } else if (!condition && slideEl.classList.contains(className)) {
+      slideEl.classList.remove(className);
+    }
+  };
+  function updateSlidesClasses() {
+    const swiper = this;
+    const {
+      slides,
+      params,
+      slidesEl,
+      activeIndex
+    } = swiper;
+    const isVirtual = swiper.virtual && params.virtual.enabled;
+    const gridEnabled = swiper.grid && params.grid && params.grid.rows > 1;
+    const getFilteredSlide = (selector) => {
+      return elementChildren(slidesEl, `.${params.slideClass}${selector}, swiper-slide${selector}`)[0];
+    };
+    let activeSlide;
+    let prevSlide;
+    let nextSlide;
+    if (isVirtual) {
+      if (params.loop) {
+        let slideIndex = activeIndex - swiper.virtual.slidesBefore;
+        if (slideIndex < 0) slideIndex = swiper.virtual.slides.length + slideIndex;
+        if (slideIndex >= swiper.virtual.slides.length) slideIndex -= swiper.virtual.slides.length;
+        activeSlide = getFilteredSlide(`[data-swiper-slide-index="${slideIndex}"]`);
+      } else {
+        activeSlide = getFilteredSlide(`[data-swiper-slide-index="${activeIndex}"]`);
+      }
+    } else {
+      if (gridEnabled) {
+        activeSlide = slides.find((slideEl) => slideEl.column === activeIndex);
+        nextSlide = slides.find((slideEl) => slideEl.column === activeIndex + 1);
+        prevSlide = slides.find((slideEl) => slideEl.column === activeIndex - 1);
+      } else {
+        activeSlide = slides[activeIndex];
+      }
+    }
+    if (activeSlide) {
+      if (!gridEnabled) {
+        nextSlide = elementNextAll(activeSlide, `.${params.slideClass}, swiper-slide`)[0];
+        if (params.loop && !nextSlide) {
+          nextSlide = slides[0];
+        }
+        prevSlide = elementPrevAll(activeSlide, `.${params.slideClass}, swiper-slide`)[0];
+        if (params.loop && !prevSlide === 0) {
+          prevSlide = slides[slides.length - 1];
+        }
+      }
+    }
+    slides.forEach((slideEl) => {
+      toggleSlideClasses(slideEl, slideEl === activeSlide, params.slideActiveClass);
+      toggleSlideClasses(slideEl, slideEl === nextSlide, params.slideNextClass);
+      toggleSlideClasses(slideEl, slideEl === prevSlide, params.slidePrevClass);
+    });
+    swiper.emitSlidesClasses();
+  }
+  var processLazyPreloader = (swiper, imageEl) => {
+    if (!swiper || swiper.destroyed || !swiper.params) return;
+    const slideSelector = () => swiper.isElement ? `swiper-slide` : `.${swiper.params.slideClass}`;
+    const slideEl = imageEl.closest(slideSelector());
+    if (slideEl) {
+      let lazyEl = slideEl.querySelector(`.${swiper.params.lazyPreloaderClass}`);
+      if (!lazyEl && swiper.isElement) {
+        if (slideEl.shadowRoot) {
+          lazyEl = slideEl.shadowRoot.querySelector(`.${swiper.params.lazyPreloaderClass}`);
+        } else {
+          requestAnimationFrame(() => {
+            if (slideEl.shadowRoot) {
+              lazyEl = slideEl.shadowRoot.querySelector(`.${swiper.params.lazyPreloaderClass}`);
+              if (lazyEl && !lazyEl.lazyPreloaderManaged) lazyEl.remove();
+            }
+          });
+        }
+      }
+      if (lazyEl && !lazyEl.lazyPreloaderManaged) lazyEl.remove();
+    }
+  };
+  var unlazy = (swiper, index) => {
+    if (!swiper.slides[index]) return;
+    const imageEl = swiper.slides[index].querySelector('[loading="lazy"]');
+    if (imageEl) imageEl.removeAttribute("loading");
+  };
+  var preload = (swiper) => {
+    if (!swiper || swiper.destroyed || !swiper.params) return;
+    let amount = swiper.params.lazyPreloadPrevNext;
+    const len = swiper.slides.length;
+    if (!len || !amount || amount < 0) return;
+    amount = Math.min(amount, len);
+    const slidesPerView = swiper.params.slidesPerView === "auto" ? swiper.slidesPerViewDynamic() : Math.ceil(swiper.params.slidesPerView);
+    const activeIndex = swiper.activeIndex;
+    if (swiper.params.grid && swiper.params.grid.rows > 1) {
+      const activeColumn = activeIndex;
+      const preloadColumns = [activeColumn - amount];
+      preloadColumns.push(...Array.from({
+        length: amount
+      }).map((_, i) => {
+        return activeColumn + slidesPerView + i;
+      }));
+      swiper.slides.forEach((slideEl, i) => {
+        if (preloadColumns.includes(slideEl.column)) unlazy(swiper, i);
+      });
+      return;
+    }
+    const slideIndexLastInView = activeIndex + slidesPerView - 1;
+    if (swiper.params.rewind || swiper.params.loop) {
+      for (let i = activeIndex - amount; i <= slideIndexLastInView + amount; i += 1) {
+        const realIndex = (i % len + len) % len;
+        if (realIndex < activeIndex || realIndex > slideIndexLastInView) unlazy(swiper, realIndex);
+      }
+    } else {
+      for (let i = Math.max(activeIndex - amount, 0); i <= Math.min(slideIndexLastInView + amount, len - 1); i += 1) {
+        if (i !== activeIndex && (i > slideIndexLastInView || i < activeIndex)) {
+          unlazy(swiper, i);
+        }
+      }
+    }
+  };
+  function getActiveIndexByTranslate(swiper) {
+    const {
+      slidesGrid,
+      params
+    } = swiper;
+    const translate2 = swiper.rtlTranslate ? swiper.translate : -swiper.translate;
+    let activeIndex;
+    for (let i = 0; i < slidesGrid.length; i += 1) {
+      if (typeof slidesGrid[i + 1] !== "undefined") {
+        if (translate2 >= slidesGrid[i] && translate2 < slidesGrid[i + 1] - (slidesGrid[i + 1] - slidesGrid[i]) / 2) {
+          activeIndex = i;
+        } else if (translate2 >= slidesGrid[i] && translate2 < slidesGrid[i + 1]) {
+          activeIndex = i + 1;
+        }
+      } else if (translate2 >= slidesGrid[i]) {
+        activeIndex = i;
+      }
+    }
+    if (params.normalizeSlideIndex) {
+      if (activeIndex < 0 || typeof activeIndex === "undefined") activeIndex = 0;
+    }
+    return activeIndex;
+  }
+  function updateActiveIndex(newActiveIndex) {
+    const swiper = this;
+    const translate2 = swiper.rtlTranslate ? swiper.translate : -swiper.translate;
+    const {
+      snapGrid,
+      params,
+      activeIndex: previousIndex,
+      realIndex: previousRealIndex,
+      snapIndex: previousSnapIndex
+    } = swiper;
+    let activeIndex = newActiveIndex;
+    let snapIndex;
+    const getVirtualRealIndex = (aIndex) => {
+      let realIndex2 = aIndex - swiper.virtual.slidesBefore;
+      if (realIndex2 < 0) {
+        realIndex2 = swiper.virtual.slides.length + realIndex2;
+      }
+      if (realIndex2 >= swiper.virtual.slides.length) {
+        realIndex2 -= swiper.virtual.slides.length;
+      }
+      return realIndex2;
+    };
+    if (typeof activeIndex === "undefined") {
+      activeIndex = getActiveIndexByTranslate(swiper);
+    }
+    if (snapGrid.indexOf(translate2) >= 0) {
+      snapIndex = snapGrid.indexOf(translate2);
+    } else {
+      const skip = Math.min(params.slidesPerGroupSkip, activeIndex);
+      snapIndex = skip + Math.floor((activeIndex - skip) / params.slidesPerGroup);
+    }
+    if (snapIndex >= snapGrid.length) snapIndex = snapGrid.length - 1;
+    if (activeIndex === previousIndex && !swiper.params.loop) {
+      if (snapIndex !== previousSnapIndex) {
+        swiper.snapIndex = snapIndex;
+        swiper.emit("snapIndexChange");
+      }
+      return;
+    }
+    if (activeIndex === previousIndex && swiper.params.loop && swiper.virtual && swiper.params.virtual.enabled) {
+      swiper.realIndex = getVirtualRealIndex(activeIndex);
+      return;
+    }
+    const gridEnabled = swiper.grid && params.grid && params.grid.rows > 1;
+    let realIndex;
+    if (swiper.virtual && params.virtual.enabled) {
+      if (params.loop) {
+        realIndex = getVirtualRealIndex(activeIndex);
+      } else {
+        realIndex = activeIndex;
+      }
+    } else if (gridEnabled) {
+      const firstSlideInColumn = swiper.slides.find((slideEl) => slideEl.column === activeIndex);
+      let activeSlideIndex = parseInt(firstSlideInColumn.getAttribute("data-swiper-slide-index"), 10);
+      if (Number.isNaN(activeSlideIndex)) {
+        activeSlideIndex = Math.max(swiper.slides.indexOf(firstSlideInColumn), 0);
+      }
+      realIndex = Math.floor(activeSlideIndex / params.grid.rows);
+    } else if (swiper.slides[activeIndex]) {
+      const slideIndex = swiper.slides[activeIndex].getAttribute("data-swiper-slide-index");
+      if (slideIndex) {
+        realIndex = parseInt(slideIndex, 10);
+      } else {
+        realIndex = activeIndex;
+      }
+    } else {
+      realIndex = activeIndex;
+    }
+    Object.assign(swiper, {
+      previousSnapIndex,
+      snapIndex,
+      previousRealIndex,
+      realIndex,
+      previousIndex,
+      activeIndex
+    });
+    if (swiper.initialized) {
+      preload(swiper);
+    }
+    swiper.emit("activeIndexChange");
+    swiper.emit("snapIndexChange");
+    if (swiper.initialized || swiper.params.runCallbacksOnInit) {
+      if (previousRealIndex !== realIndex) {
+        swiper.emit("realIndexChange");
+      }
+      swiper.emit("slideChange");
+    }
+  }
+  function updateClickedSlide(el, path) {
+    const swiper = this;
+    const params = swiper.params;
+    let slide2 = el.closest(`.${params.slideClass}, swiper-slide`);
+    if (!slide2 && swiper.isElement && path && path.length > 1 && path.includes(el)) {
+      [...path.slice(path.indexOf(el) + 1, path.length)].forEach((pathEl) => {
+        if (!slide2 && pathEl.matches && pathEl.matches(`.${params.slideClass}, swiper-slide`)) {
+          slide2 = pathEl;
+        }
+      });
+    }
+    let slideFound = false;
+    let slideIndex;
+    if (slide2) {
+      for (let i = 0; i < swiper.slides.length; i += 1) {
+        if (swiper.slides[i] === slide2) {
+          slideFound = true;
+          slideIndex = i;
+          break;
+        }
+      }
+    }
+    if (slide2 && slideFound) {
+      swiper.clickedSlide = slide2;
+      if (swiper.virtual && swiper.params.virtual.enabled) {
+        swiper.clickedIndex = parseInt(slide2.getAttribute("data-swiper-slide-index"), 10);
+      } else {
+        swiper.clickedIndex = slideIndex;
+      }
+    } else {
+      swiper.clickedSlide = void 0;
+      swiper.clickedIndex = void 0;
+      return;
+    }
+    if (params.slideToClickedSlide && swiper.clickedIndex !== void 0 && swiper.clickedIndex !== swiper.activeIndex) {
+      swiper.slideToClickedSlide();
+    }
+  }
+  var update = {
+    updateSize,
+    updateSlides,
+    updateAutoHeight,
+    updateSlidesOffset,
+    updateSlidesProgress,
+    updateProgress,
+    updateSlidesClasses,
+    updateActiveIndex,
+    updateClickedSlide
+  };
+  function getSwiperTranslate(axis = this.isHorizontal() ? "x" : "y") {
+    const swiper = this;
+    const {
+      params,
+      rtlTranslate: rtl,
+      translate: translate2,
+      wrapperEl
+    } = swiper;
+    if (params.virtualTranslate) {
+      return rtl ? -translate2 : translate2;
+    }
+    if (params.cssMode) {
+      return translate2;
+    }
+    let currentTranslate = getTranslate(wrapperEl, axis);
+    currentTranslate += swiper.cssOverflowAdjustment();
+    if (rtl) currentTranslate = -currentTranslate;
+    return currentTranslate || 0;
+  }
+  function setTranslate(translate2, byController) {
+    const swiper = this;
+    const {
+      rtlTranslate: rtl,
+      params,
+      wrapperEl,
+      progress
+    } = swiper;
+    let x = 0;
+    let y = 0;
+    const z = 0;
+    if (swiper.isHorizontal()) {
+      x = rtl ? -translate2 : translate2;
+    } else {
+      y = translate2;
+    }
+    if (params.roundLengths) {
+      x = Math.floor(x);
+      y = Math.floor(y);
+    }
+    swiper.previousTranslate = swiper.translate;
+    swiper.translate = swiper.isHorizontal() ? x : y;
+    if (params.cssMode) {
+      wrapperEl[swiper.isHorizontal() ? "scrollLeft" : "scrollTop"] = swiper.isHorizontal() ? -x : -y;
+    } else if (!params.virtualTranslate) {
+      if (swiper.isHorizontal()) {
+        x -= swiper.cssOverflowAdjustment();
+      } else {
+        y -= swiper.cssOverflowAdjustment();
+      }
+      wrapperEl.style.transform = `translate3d(${x}px, ${y}px, ${z}px)`;
+    }
+    let newProgress;
+    const translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
+    if (translatesDiff === 0) {
+      newProgress = 0;
+    } else {
+      newProgress = (translate2 - swiper.minTranslate()) / translatesDiff;
+    }
+    if (newProgress !== progress) {
+      swiper.updateProgress(translate2);
+    }
+    swiper.emit("setTranslate", swiper.translate, byController);
+  }
+  function minTranslate() {
+    return -this.snapGrid[0];
+  }
+  function maxTranslate() {
+    return -this.snapGrid[this.snapGrid.length - 1];
+  }
+  function translateTo(translate2 = 0, speed = this.params.speed, runCallbacks = true, translateBounds = true, internal) {
+    const swiper = this;
+    const {
+      params,
+      wrapperEl
+    } = swiper;
+    if (swiper.animating && params.preventInteractionOnTransition) {
+      return false;
+    }
+    const minTranslate2 = swiper.minTranslate();
+    const maxTranslate2 = swiper.maxTranslate();
+    let newTranslate;
+    if (translateBounds && translate2 > minTranslate2) newTranslate = minTranslate2;
+    else if (translateBounds && translate2 < maxTranslate2) newTranslate = maxTranslate2;
+    else newTranslate = translate2;
+    swiper.updateProgress(newTranslate);
+    if (params.cssMode) {
+      const isH = swiper.isHorizontal();
+      if (speed === 0) {
+        wrapperEl[isH ? "scrollLeft" : "scrollTop"] = -newTranslate;
+      } else {
+        if (!swiper.support.smoothScroll) {
+          animateCSSModeScroll({
+            swiper,
+            targetPosition: -newTranslate,
+            side: isH ? "left" : "top"
+          });
+          return true;
+        }
+        wrapperEl.scrollTo({
+          [isH ? "left" : "top"]: -newTranslate,
+          behavior: "smooth"
+        });
+      }
+      return true;
+    }
+    if (speed === 0) {
+      swiper.setTransition(0);
+      swiper.setTranslate(newTranslate);
+      if (runCallbacks) {
+        swiper.emit("beforeTransitionStart", speed, internal);
+        swiper.emit("transitionEnd");
+      }
+    } else {
+      swiper.setTransition(speed);
+      swiper.setTranslate(newTranslate);
+      if (runCallbacks) {
+        swiper.emit("beforeTransitionStart", speed, internal);
+        swiper.emit("transitionStart");
+      }
+      if (!swiper.animating) {
+        swiper.animating = true;
+        if (!swiper.onTranslateToWrapperTransitionEnd) {
+          swiper.onTranslateToWrapperTransitionEnd = function transitionEnd2(e) {
+            if (!swiper || swiper.destroyed) return;
+            if (e.target !== this) return;
+            swiper.wrapperEl.removeEventListener("transitionend", swiper.onTranslateToWrapperTransitionEnd);
+            swiper.onTranslateToWrapperTransitionEnd = null;
+            delete swiper.onTranslateToWrapperTransitionEnd;
+            swiper.animating = false;
+            if (runCallbacks) {
+              swiper.emit("transitionEnd");
+            }
+          };
+        }
+        swiper.wrapperEl.addEventListener("transitionend", swiper.onTranslateToWrapperTransitionEnd);
+      }
+    }
+    return true;
+  }
+  var translate = {
+    getTranslate: getSwiperTranslate,
+    setTranslate,
+    minTranslate,
+    maxTranslate,
+    translateTo
+  };
+  function setTransition(duration, byController) {
+    const swiper = this;
+    if (!swiper.params.cssMode) {
+      swiper.wrapperEl.style.transitionDuration = `${duration}ms`;
+      swiper.wrapperEl.style.transitionDelay = duration === 0 ? `0ms` : "";
+    }
+    swiper.emit("setTransition", duration, byController);
+  }
+  function transitionEmit({
+    swiper,
+    runCallbacks,
+    direction,
+    step
+  }) {
+    const {
+      activeIndex,
+      previousIndex
+    } = swiper;
+    let dir = direction;
+    if (!dir) {
+      if (activeIndex > previousIndex) dir = "next";
+      else if (activeIndex < previousIndex) dir = "prev";
+      else dir = "reset";
+    }
+    swiper.emit(`transition${step}`);
+    if (runCallbacks && dir === "reset") {
+      swiper.emit(`slideResetTransition${step}`);
+    } else if (runCallbacks && activeIndex !== previousIndex) {
+      swiper.emit(`slideChangeTransition${step}`);
+      if (dir === "next") {
+        swiper.emit(`slideNextTransition${step}`);
+      } else {
+        swiper.emit(`slidePrevTransition${step}`);
+      }
+    }
+  }
+  function transitionStart(runCallbacks = true, direction) {
+    const swiper = this;
+    const {
+      params
+    } = swiper;
+    if (params.cssMode) return;
+    if (params.autoHeight) {
+      swiper.updateAutoHeight();
+    }
+    transitionEmit({
+      swiper,
+      runCallbacks,
+      direction,
+      step: "Start"
+    });
+  }
+  function transitionEnd(runCallbacks = true, direction) {
+    const swiper = this;
+    const {
+      params
+    } = swiper;
+    swiper.animating = false;
+    if (params.cssMode) return;
+    swiper.setTransition(0);
+    transitionEmit({
+      swiper,
+      runCallbacks,
+      direction,
+      step: "End"
+    });
+  }
+  var transition = {
+    setTransition,
+    transitionStart,
+    transitionEnd
+  };
+  function slideTo(index = 0, speed, runCallbacks = true, internal, initial) {
+    if (typeof index === "string") {
+      index = parseInt(index, 10);
+    }
+    const swiper = this;
+    let slideIndex = index;
+    if (slideIndex < 0) slideIndex = 0;
+    const {
+      params,
+      snapGrid,
+      slidesGrid,
+      previousIndex,
+      activeIndex,
+      rtlTranslate: rtl,
+      wrapperEl,
+      enabled
+    } = swiper;
+    if (!enabled && !internal && !initial || swiper.destroyed || swiper.animating && params.preventInteractionOnTransition) {
+      return false;
+    }
+    if (typeof speed === "undefined") {
+      speed = swiper.params.speed;
+    }
+    const skip = Math.min(swiper.params.slidesPerGroupSkip, slideIndex);
+    let snapIndex = skip + Math.floor((slideIndex - skip) / swiper.params.slidesPerGroup);
+    if (snapIndex >= snapGrid.length) snapIndex = snapGrid.length - 1;
+    const translate2 = -snapGrid[snapIndex];
+    if (params.normalizeSlideIndex) {
+      for (let i = 0; i < slidesGrid.length; i += 1) {
+        const normalizedTranslate = -Math.floor(translate2 * 100);
+        const normalizedGrid = Math.floor(slidesGrid[i] * 100);
+        const normalizedGridNext = Math.floor(slidesGrid[i + 1] * 100);
+        if (typeof slidesGrid[i + 1] !== "undefined") {
+          if (normalizedTranslate >= normalizedGrid && normalizedTranslate < normalizedGridNext - (normalizedGridNext - normalizedGrid) / 2) {
+            slideIndex = i;
+          } else if (normalizedTranslate >= normalizedGrid && normalizedTranslate < normalizedGridNext) {
+            slideIndex = i + 1;
+          }
+        } else if (normalizedTranslate >= normalizedGrid) {
+          slideIndex = i;
+        }
+      }
+    }
+    if (swiper.initialized && slideIndex !== activeIndex) {
+      if (!swiper.allowSlideNext && (rtl ? translate2 > swiper.translate && translate2 > swiper.minTranslate() : translate2 < swiper.translate && translate2 < swiper.minTranslate())) {
+        return false;
+      }
+      if (!swiper.allowSlidePrev && translate2 > swiper.translate && translate2 > swiper.maxTranslate()) {
+        if ((activeIndex || 0) !== slideIndex) {
+          return false;
+        }
+      }
+    }
+    if (slideIndex !== (previousIndex || 0) && runCallbacks) {
+      swiper.emit("beforeSlideChangeStart");
+    }
+    swiper.updateProgress(translate2);
+    let direction;
+    if (slideIndex > activeIndex) direction = "next";
+    else if (slideIndex < activeIndex) direction = "prev";
+    else direction = "reset";
+    const isVirtual = swiper.virtual && swiper.params.virtual.enabled;
+    const isInitialVirtual = isVirtual && initial;
+    if (!isInitialVirtual && (rtl && -translate2 === swiper.translate || !rtl && translate2 === swiper.translate)) {
+      swiper.updateActiveIndex(slideIndex);
+      if (params.autoHeight) {
+        swiper.updateAutoHeight();
+      }
+      swiper.updateSlidesClasses();
+      if (params.effect !== "slide") {
+        swiper.setTranslate(translate2);
+      }
+      if (direction !== "reset") {
+        swiper.transitionStart(runCallbacks, direction);
+        swiper.transitionEnd(runCallbacks, direction);
+      }
+      return false;
+    }
+    if (params.cssMode) {
+      const isH = swiper.isHorizontal();
+      const t = rtl ? translate2 : -translate2;
+      if (speed === 0) {
+        if (isVirtual) {
+          swiper.wrapperEl.style.scrollSnapType = "none";
+          swiper._immediateVirtual = true;
+        }
+        if (isVirtual && !swiper._cssModeVirtualInitialSet && swiper.params.initialSlide > 0) {
+          swiper._cssModeVirtualInitialSet = true;
+          requestAnimationFrame(() => {
+            wrapperEl[isH ? "scrollLeft" : "scrollTop"] = t;
+          });
+        } else {
+          wrapperEl[isH ? "scrollLeft" : "scrollTop"] = t;
+        }
+        if (isVirtual) {
+          requestAnimationFrame(() => {
+            swiper.wrapperEl.style.scrollSnapType = "";
+            swiper._immediateVirtual = false;
+          });
+        }
+      } else {
+        if (!swiper.support.smoothScroll) {
+          animateCSSModeScroll({
+            swiper,
+            targetPosition: t,
+            side: isH ? "left" : "top"
+          });
+          return true;
+        }
+        wrapperEl.scrollTo({
+          [isH ? "left" : "top"]: t,
+          behavior: "smooth"
+        });
+      }
+      return true;
+    }
+    const browser2 = getBrowser();
+    const isSafari = browser2.isSafari;
+    if (isVirtual && !initial && isSafari && swiper.isElement) {
+      swiper.virtual.update(false, false, slideIndex);
+    }
+    swiper.setTransition(speed);
+    swiper.setTranslate(translate2);
+    swiper.updateActiveIndex(slideIndex);
+    swiper.updateSlidesClasses();
+    swiper.emit("beforeTransitionStart", speed, internal);
+    swiper.transitionStart(runCallbacks, direction);
+    if (speed === 0) {
+      swiper.transitionEnd(runCallbacks, direction);
+    } else if (!swiper.animating) {
+      swiper.animating = true;
+      if (!swiper.onSlideToWrapperTransitionEnd) {
+        swiper.onSlideToWrapperTransitionEnd = function transitionEnd2(e) {
+          if (!swiper || swiper.destroyed) return;
+          if (e.target !== this) return;
+          swiper.wrapperEl.removeEventListener("transitionend", swiper.onSlideToWrapperTransitionEnd);
+          swiper.onSlideToWrapperTransitionEnd = null;
+          delete swiper.onSlideToWrapperTransitionEnd;
+          swiper.transitionEnd(runCallbacks, direction);
+        };
+      }
+      swiper.wrapperEl.addEventListener("transitionend", swiper.onSlideToWrapperTransitionEnd);
+    }
+    return true;
+  }
+  function slideToLoop(index = 0, speed, runCallbacks = true, internal) {
+    if (typeof index === "string") {
+      const indexAsNumber = parseInt(index, 10);
+      index = indexAsNumber;
+    }
+    const swiper = this;
+    if (swiper.destroyed) return;
+    if (typeof speed === "undefined") {
+      speed = swiper.params.speed;
+    }
+    const gridEnabled = swiper.grid && swiper.params.grid && swiper.params.grid.rows > 1;
+    let newIndex = index;
+    if (swiper.params.loop) {
+      if (swiper.virtual && swiper.params.virtual.enabled) {
+        newIndex = newIndex + swiper.virtual.slidesBefore;
+      } else {
+        let targetSlideIndex;
+        if (gridEnabled) {
+          const slideIndex = newIndex * swiper.params.grid.rows;
+          targetSlideIndex = swiper.slides.find((slideEl) => slideEl.getAttribute("data-swiper-slide-index") * 1 === slideIndex).column;
+        } else {
+          targetSlideIndex = swiper.getSlideIndexByData(newIndex);
+        }
+        const cols = gridEnabled ? Math.ceil(swiper.slides.length / swiper.params.grid.rows) : swiper.slides.length;
+        const {
+          centeredSlides,
+          slidesOffsetBefore,
+          slidesOffsetAfter
+        } = swiper.params;
+        const bothDirections = centeredSlides || !!slidesOffsetBefore || !!slidesOffsetAfter;
+        let slidesPerView = swiper.params.slidesPerView;
+        if (slidesPerView === "auto") {
+          slidesPerView = swiper.slidesPerViewDynamic();
+        } else {
+          slidesPerView = Math.ceil(parseFloat(swiper.params.slidesPerView, 10));
+          if (bothDirections && slidesPerView % 2 === 0) {
+            slidesPerView = slidesPerView + 1;
+          }
+        }
+        let needLoopFix = cols - targetSlideIndex < slidesPerView;
+        if (bothDirections) {
+          needLoopFix = needLoopFix || targetSlideIndex < Math.ceil(slidesPerView / 2);
+        }
+        if (internal && bothDirections && swiper.params.slidesPerView !== "auto" && !gridEnabled) {
+          needLoopFix = false;
+        }
+        if (needLoopFix) {
+          const direction = bothDirections ? targetSlideIndex < swiper.activeIndex ? "prev" : "next" : targetSlideIndex - swiper.activeIndex - 1 < swiper.params.slidesPerView ? "next" : "prev";
+          swiper.loopFix({
+            direction,
+            slideTo: true,
+            activeSlideIndex: direction === "next" ? targetSlideIndex + 1 : targetSlideIndex - cols + 1,
+            slideRealIndex: direction === "next" ? swiper.realIndex : void 0
+          });
+        }
+        if (gridEnabled) {
+          const slideIndex = newIndex * swiper.params.grid.rows;
+          newIndex = swiper.slides.find((slideEl) => slideEl.getAttribute("data-swiper-slide-index") * 1 === slideIndex).column;
+        } else {
+          newIndex = swiper.getSlideIndexByData(newIndex);
+        }
+      }
+    }
+    requestAnimationFrame(() => {
+      swiper.slideTo(newIndex, speed, runCallbacks, internal);
+    });
+    return swiper;
+  }
+  function slideNext(speed, runCallbacks = true, internal) {
+    const swiper = this;
+    const {
+      enabled,
+      params,
+      animating
+    } = swiper;
+    if (!enabled || swiper.destroyed) return swiper;
+    if (typeof speed === "undefined") {
+      speed = swiper.params.speed;
+    }
+    let perGroup = params.slidesPerGroup;
+    if (params.slidesPerView === "auto" && params.slidesPerGroup === 1 && params.slidesPerGroupAuto) {
+      perGroup = Math.max(swiper.slidesPerViewDynamic("current", true), 1);
+    }
+    const increment = swiper.activeIndex < params.slidesPerGroupSkip ? 1 : perGroup;
+    const isVirtual = swiper.virtual && params.virtual.enabled;
+    if (params.loop) {
+      if (animating && !isVirtual && params.loopPreventsSliding) return false;
+      swiper.loopFix({
+        direction: "next"
+      });
+      swiper._clientLeft = swiper.wrapperEl.clientLeft;
+      if (swiper.activeIndex === swiper.slides.length - 1 && params.cssMode) {
+        requestAnimationFrame(() => {
+          swiper.slideTo(swiper.activeIndex + increment, speed, runCallbacks, internal);
+        });
+        return true;
+      }
+    }
+    if (params.rewind && swiper.isEnd) {
+      return swiper.slideTo(0, speed, runCallbacks, internal);
+    }
+    return swiper.slideTo(swiper.activeIndex + increment, speed, runCallbacks, internal);
+  }
+  function slidePrev(speed, runCallbacks = true, internal) {
+    const swiper = this;
+    const {
+      params,
+      snapGrid,
+      slidesGrid,
+      rtlTranslate,
+      enabled,
+      animating
+    } = swiper;
+    if (!enabled || swiper.destroyed) return swiper;
+    if (typeof speed === "undefined") {
+      speed = swiper.params.speed;
+    }
+    const isVirtual = swiper.virtual && params.virtual.enabled;
+    if (params.loop) {
+      if (animating && !isVirtual && params.loopPreventsSliding) return false;
+      swiper.loopFix({
+        direction: "prev"
+      });
+      swiper._clientLeft = swiper.wrapperEl.clientLeft;
+    }
+    const translate2 = rtlTranslate ? swiper.translate : -swiper.translate;
+    function normalize(val) {
+      if (val < 0) return -Math.floor(Math.abs(val));
+      return Math.floor(val);
+    }
+    const normalizedTranslate = normalize(translate2);
+    const normalizedSnapGrid = snapGrid.map((val) => normalize(val));
+    const isFreeMode = params.freeMode && params.freeMode.enabled;
+    let prevSnap = snapGrid[normalizedSnapGrid.indexOf(normalizedTranslate) - 1];
+    if (typeof prevSnap === "undefined" && (params.cssMode || isFreeMode)) {
+      let prevSnapIndex;
+      snapGrid.forEach((snap, snapIndex) => {
+        if (normalizedTranslate >= snap) {
+          prevSnapIndex = snapIndex;
+        }
+      });
+      if (typeof prevSnapIndex !== "undefined") {
+        prevSnap = isFreeMode ? snapGrid[prevSnapIndex] : snapGrid[prevSnapIndex > 0 ? prevSnapIndex - 1 : prevSnapIndex];
+      }
+    }
+    let prevIndex = 0;
+    if (typeof prevSnap !== "undefined") {
+      prevIndex = slidesGrid.indexOf(prevSnap);
+      if (prevIndex < 0) prevIndex = swiper.activeIndex - 1;
+      if (params.slidesPerView === "auto" && params.slidesPerGroup === 1 && params.slidesPerGroupAuto) {
+        prevIndex = prevIndex - swiper.slidesPerViewDynamic("previous", true) + 1;
+        prevIndex = Math.max(prevIndex, 0);
+      }
+    }
+    if (params.rewind && swiper.isBeginning) {
+      const lastIndex = swiper.params.virtual && swiper.params.virtual.enabled && swiper.virtual ? swiper.virtual.slides.length - 1 : swiper.slides.length - 1;
+      return swiper.slideTo(lastIndex, speed, runCallbacks, internal);
+    } else if (params.loop && swiper.activeIndex === 0 && params.cssMode) {
+      requestAnimationFrame(() => {
+        swiper.slideTo(prevIndex, speed, runCallbacks, internal);
+      });
+      return true;
+    }
+    return swiper.slideTo(prevIndex, speed, runCallbacks, internal);
+  }
+  function slideReset(speed, runCallbacks = true, internal) {
+    const swiper = this;
+    if (swiper.destroyed) return;
+    if (typeof speed === "undefined") {
+      speed = swiper.params.speed;
+    }
+    return swiper.slideTo(swiper.activeIndex, speed, runCallbacks, internal);
+  }
+  function slideToClosest(speed, runCallbacks = true, internal, threshold = 0.5) {
+    const swiper = this;
+    if (swiper.destroyed) return;
+    if (typeof speed === "undefined") {
+      speed = swiper.params.speed;
+    }
+    let index = swiper.activeIndex;
+    const skip = Math.min(swiper.params.slidesPerGroupSkip, index);
+    const snapIndex = skip + Math.floor((index - skip) / swiper.params.slidesPerGroup);
+    const translate2 = swiper.rtlTranslate ? swiper.translate : -swiper.translate;
+    if (translate2 >= swiper.snapGrid[snapIndex]) {
+      const currentSnap = swiper.snapGrid[snapIndex];
+      const nextSnap = swiper.snapGrid[snapIndex + 1];
+      if (translate2 - currentSnap > (nextSnap - currentSnap) * threshold) {
+        index += swiper.params.slidesPerGroup;
+      }
+    } else {
+      const prevSnap = swiper.snapGrid[snapIndex - 1];
+      const currentSnap = swiper.snapGrid[snapIndex];
+      if (translate2 - prevSnap <= (currentSnap - prevSnap) * threshold) {
+        index -= swiper.params.slidesPerGroup;
+      }
+    }
+    index = Math.max(index, 0);
+    index = Math.min(index, swiper.slidesGrid.length - 1);
+    return swiper.slideTo(index, speed, runCallbacks, internal);
+  }
+  function slideToClickedSlide() {
+    const swiper = this;
+    if (swiper.destroyed) return;
+    const {
+      params,
+      slidesEl
+    } = swiper;
+    const slidesPerView = params.slidesPerView === "auto" ? swiper.slidesPerViewDynamic() : params.slidesPerView;
+    let slideToIndex = swiper.getSlideIndexWhenGrid(swiper.clickedIndex);
+    let realIndex;
+    const slideSelector = swiper.isElement ? `swiper-slide` : `.${params.slideClass}`;
+    const isGrid = swiper.grid && swiper.params.grid && swiper.params.grid.rows > 1;
+    if (params.loop) {
+      if (swiper.animating) return;
+      realIndex = parseInt(swiper.clickedSlide.getAttribute("data-swiper-slide-index"), 10);
+      if (params.centeredSlides) {
+        swiper.slideToLoop(realIndex);
+      } else if (slideToIndex > (isGrid ? (swiper.slides.length - slidesPerView) / 2 - (swiper.params.grid.rows - 1) : swiper.slides.length - slidesPerView)) {
+        swiper.loopFix();
+        slideToIndex = swiper.getSlideIndex(elementChildren(slidesEl, `${slideSelector}[data-swiper-slide-index="${realIndex}"]`)[0]);
+        nextTick(() => {
+          swiper.slideTo(slideToIndex);
+        });
+      } else {
+        swiper.slideTo(slideToIndex);
+      }
+    } else {
+      swiper.slideTo(slideToIndex);
+    }
+  }
+  var slide = {
+    slideTo,
+    slideToLoop,
+    slideNext,
+    slidePrev,
+    slideReset,
+    slideToClosest,
+    slideToClickedSlide
+  };
+  function loopCreate(slideRealIndex, initial) {
+    const swiper = this;
+    const {
+      params,
+      slidesEl
+    } = swiper;
+    if (!params.loop || swiper.virtual && swiper.params.virtual.enabled) return;
+    const initSlides = () => {
+      const slides = elementChildren(slidesEl, `.${params.slideClass}, swiper-slide`);
+      slides.forEach((el, index) => {
+        el.setAttribute("data-swiper-slide-index", index);
+      });
+    };
+    const clearBlankSlides = () => {
+      const slides = elementChildren(slidesEl, `.${params.slideBlankClass}`);
+      slides.forEach((el) => {
+        el.remove();
+      });
+      if (slides.length > 0) {
+        swiper.recalcSlides();
+        swiper.updateSlides();
+      }
+    };
+    const gridEnabled = swiper.grid && params.grid && params.grid.rows > 1;
+    if (params.loopAddBlankSlides && (params.slidesPerGroup > 1 || gridEnabled)) {
+      clearBlankSlides();
+    }
+    const slidesPerGroup = params.slidesPerGroup * (gridEnabled ? params.grid.rows : 1);
+    const shouldFillGroup = swiper.slides.length % slidesPerGroup !== 0;
+    const shouldFillGrid = gridEnabled && swiper.slides.length % params.grid.rows !== 0;
+    const addBlankSlides = (amountOfSlides) => {
+      for (let i = 0; i < amountOfSlides; i += 1) {
+        const slideEl = swiper.isElement ? createElement("swiper-slide", [params.slideBlankClass]) : createElement("div", [params.slideClass, params.slideBlankClass]);
+        swiper.slidesEl.append(slideEl);
+      }
+    };
+    if (shouldFillGroup) {
+      if (params.loopAddBlankSlides) {
+        const slidesToAdd = slidesPerGroup - swiper.slides.length % slidesPerGroup;
+        addBlankSlides(slidesToAdd);
+        swiper.recalcSlides();
+        swiper.updateSlides();
+      } else {
+        showWarning("Swiper Loop Warning: The number of slides is not even to slidesPerGroup, loop mode may not function properly. You need to add more slides (or make duplicates, or empty slides)");
+      }
+      initSlides();
+    } else if (shouldFillGrid) {
+      if (params.loopAddBlankSlides) {
+        const slidesToAdd = params.grid.rows - swiper.slides.length % params.grid.rows;
+        addBlankSlides(slidesToAdd);
+        swiper.recalcSlides();
+        swiper.updateSlides();
+      } else {
+        showWarning("Swiper Loop Warning: The number of slides is not even to grid.rows, loop mode may not function properly. You need to add more slides (or make duplicates, or empty slides)");
+      }
+      initSlides();
+    } else {
+      initSlides();
+    }
+    const bothDirections = params.centeredSlides || !!params.slidesOffsetBefore || !!params.slidesOffsetAfter;
+    swiper.loopFix({
+      slideRealIndex,
+      direction: bothDirections ? void 0 : "next",
+      initial
+    });
+  }
+  function loopFix({
+    slideRealIndex,
+    slideTo: slideTo2 = true,
+    direction,
+    setTranslate: setTranslate2,
+    activeSlideIndex,
+    initial,
+    byController,
+    byMousewheel
+  } = {}) {
+    const swiper = this;
+    if (!swiper.params.loop) return;
+    swiper.emit("beforeLoopFix");
+    const {
+      slides,
+      allowSlidePrev,
+      allowSlideNext,
+      slidesEl,
+      params
+    } = swiper;
+    const {
+      centeredSlides,
+      slidesOffsetBefore,
+      slidesOffsetAfter,
+      initialSlide
+    } = params;
+    const bothDirections = centeredSlides || !!slidesOffsetBefore || !!slidesOffsetAfter;
+    swiper.allowSlidePrev = true;
+    swiper.allowSlideNext = true;
+    if (swiper.virtual && params.virtual.enabled) {
+      if (slideTo2) {
+        if (!bothDirections && swiper.snapIndex === 0) {
+          swiper.slideTo(swiper.virtual.slides.length, 0, false, true);
+        } else if (bothDirections && swiper.snapIndex < params.slidesPerView) {
+          swiper.slideTo(swiper.virtual.slides.length + swiper.snapIndex, 0, false, true);
+        } else if (swiper.snapIndex === swiper.snapGrid.length - 1) {
+          swiper.slideTo(swiper.virtual.slidesBefore, 0, false, true);
+        }
+      }
+      swiper.allowSlidePrev = allowSlidePrev;
+      swiper.allowSlideNext = allowSlideNext;
+      swiper.emit("loopFix");
+      return;
+    }
+    let slidesPerView = params.slidesPerView;
+    if (slidesPerView === "auto") {
+      slidesPerView = swiper.slidesPerViewDynamic();
+    } else {
+      slidesPerView = Math.ceil(parseFloat(params.slidesPerView, 10));
+      if (bothDirections && slidesPerView % 2 === 0) {
+        slidesPerView = slidesPerView + 1;
+      }
+    }
+    const slidesPerGroup = params.slidesPerGroupAuto ? slidesPerView : params.slidesPerGroup;
+    let loopedSlides = bothDirections ? Math.max(slidesPerGroup, Math.ceil(slidesPerView / 2)) : slidesPerGroup;
+    if (loopedSlides % slidesPerGroup !== 0) {
+      loopedSlides += slidesPerGroup - loopedSlides % slidesPerGroup;
+    }
+    loopedSlides += params.loopAdditionalSlides;
+    swiper.loopedSlides = loopedSlides;
+    const gridEnabled = swiper.grid && params.grid && params.grid.rows > 1;
+    if (slides.length < slidesPerView + loopedSlides || swiper.params.effect === "cards" && slides.length < slidesPerView + loopedSlides * 2) {
+      showWarning("Swiper Loop Warning: The number of slides is not enough for loop mode, it will be disabled or not function properly. You need to add more slides (or make duplicates) or lower the values of slidesPerView and slidesPerGroup parameters");
+    } else if (gridEnabled && params.grid.fill === "row") {
+      showWarning("Swiper Loop Warning: Loop mode is not compatible with grid.fill = `row`");
+    }
+    const prependSlidesIndexes = [];
+    const appendSlidesIndexes = [];
+    const cols = gridEnabled ? Math.ceil(slides.length / params.grid.rows) : slides.length;
+    const isInitialOverflow = initial && cols - initialSlide < slidesPerView && !bothDirections;
+    let activeIndex = isInitialOverflow ? initialSlide : swiper.activeIndex;
+    if (typeof activeSlideIndex === "undefined") {
+      activeSlideIndex = swiper.getSlideIndex(slides.find((el) => el.classList.contains(params.slideActiveClass)));
+    } else {
+      activeIndex = activeSlideIndex;
+    }
+    const isNext = direction === "next" || !direction;
+    const isPrev = direction === "prev" || !direction;
+    let slidesPrepended = 0;
+    let slidesAppended = 0;
+    const activeColIndex = gridEnabled ? slides[activeSlideIndex].column : activeSlideIndex;
+    const activeColIndexWithShift = activeColIndex + (bothDirections && typeof setTranslate2 === "undefined" ? -slidesPerView / 2 + 0.5 : 0);
+    if (activeColIndexWithShift < loopedSlides) {
+      slidesPrepended = Math.max(loopedSlides - activeColIndexWithShift, slidesPerGroup);
+      for (let i = 0; i < loopedSlides - activeColIndexWithShift; i += 1) {
+        const index = i - Math.floor(i / cols) * cols;
+        if (gridEnabled) {
+          const colIndexToPrepend = cols - index - 1;
+          for (let i2 = slides.length - 1; i2 >= 0; i2 -= 1) {
+            if (slides[i2].column === colIndexToPrepend) prependSlidesIndexes.push(i2);
+          }
+        } else {
+          prependSlidesIndexes.push(cols - index - 1);
+        }
+      }
+    } else if (activeColIndexWithShift + slidesPerView > cols - loopedSlides) {
+      slidesAppended = Math.max(activeColIndexWithShift - (cols - loopedSlides * 2), slidesPerGroup);
+      if (isInitialOverflow) {
+        slidesAppended = Math.max(slidesAppended, slidesPerView - cols + initialSlide + 1);
+      }
+      for (let i = 0; i < slidesAppended; i += 1) {
+        const index = i - Math.floor(i / cols) * cols;
+        if (gridEnabled) {
+          slides.forEach((slide2, slideIndex) => {
+            if (slide2.column === index) appendSlidesIndexes.push(slideIndex);
+          });
+        } else {
+          appendSlidesIndexes.push(index);
+        }
+      }
+    }
+    swiper.__preventObserver__ = true;
+    requestAnimationFrame(() => {
+      swiper.__preventObserver__ = false;
+    });
+    if (swiper.params.effect === "cards" && slides.length < slidesPerView + loopedSlides * 2) {
+      if (appendSlidesIndexes.includes(activeSlideIndex)) {
+        appendSlidesIndexes.splice(appendSlidesIndexes.indexOf(activeSlideIndex), 1);
+      }
+      if (prependSlidesIndexes.includes(activeSlideIndex)) {
+        prependSlidesIndexes.splice(prependSlidesIndexes.indexOf(activeSlideIndex), 1);
+      }
+    }
+    if (isPrev) {
+      prependSlidesIndexes.forEach((index) => {
+        slides[index].swiperLoopMoveDOM = true;
+        slidesEl.prepend(slides[index]);
+        slides[index].swiperLoopMoveDOM = false;
+      });
+    }
+    if (isNext) {
+      appendSlidesIndexes.forEach((index) => {
+        slides[index].swiperLoopMoveDOM = true;
+        slidesEl.append(slides[index]);
+        slides[index].swiperLoopMoveDOM = false;
+      });
+    }
+    swiper.recalcSlides();
+    if (params.slidesPerView === "auto") {
+      swiper.updateSlides();
+    } else if (gridEnabled && (prependSlidesIndexes.length > 0 && isPrev || appendSlidesIndexes.length > 0 && isNext)) {
+      swiper.slides.forEach((slide2, slideIndex) => {
+        swiper.grid.updateSlide(slideIndex, slide2, swiper.slides);
+      });
+    }
+    if (params.watchSlidesProgress) {
+      swiper.updateSlidesOffset();
+    }
+    if (slideTo2) {
+      if (prependSlidesIndexes.length > 0 && isPrev) {
+        if (typeof slideRealIndex === "undefined") {
+          const currentSlideTranslate = swiper.slidesGrid[activeIndex];
+          const newSlideTranslate = swiper.slidesGrid[activeIndex + slidesPrepended];
+          const diff = newSlideTranslate - currentSlideTranslate;
+          if (byMousewheel) {
+            swiper.setTranslate(swiper.translate - diff);
+          } else {
+            swiper.slideTo(activeIndex + Math.ceil(slidesPrepended), 0, false, true);
+            if (setTranslate2) {
+              swiper.touchEventsData.startTranslate = swiper.touchEventsData.startTranslate - diff;
+              swiper.touchEventsData.currentTranslate = swiper.touchEventsData.currentTranslate - diff;
+            }
+          }
+        } else {
+          if (setTranslate2) {
+            const shift = gridEnabled ? prependSlidesIndexes.length / params.grid.rows : prependSlidesIndexes.length;
+            swiper.slideTo(swiper.activeIndex + shift, 0, false, true);
+            swiper.touchEventsData.currentTranslate = swiper.translate;
+          }
+        }
+      } else if (appendSlidesIndexes.length > 0 && isNext) {
+        if (typeof slideRealIndex === "undefined") {
+          const currentSlideTranslate = swiper.slidesGrid[activeIndex];
+          const newSlideTranslate = swiper.slidesGrid[activeIndex - slidesAppended];
+          const diff = newSlideTranslate - currentSlideTranslate;
+          if (byMousewheel) {
+            swiper.setTranslate(swiper.translate - diff);
+          } else {
+            swiper.slideTo(activeIndex - slidesAppended, 0, false, true);
+            if (setTranslate2) {
+              swiper.touchEventsData.startTranslate = swiper.touchEventsData.startTranslate - diff;
+              swiper.touchEventsData.currentTranslate = swiper.touchEventsData.currentTranslate - diff;
+            }
+          }
+        } else {
+          const shift = gridEnabled ? appendSlidesIndexes.length / params.grid.rows : appendSlidesIndexes.length;
+          swiper.slideTo(swiper.activeIndex - shift, 0, false, true);
+        }
+      }
+    }
+    swiper.allowSlidePrev = allowSlidePrev;
+    swiper.allowSlideNext = allowSlideNext;
+    if (swiper.controller && swiper.controller.control && !byController) {
+      const loopParams = {
+        slideRealIndex,
+        direction,
+        setTranslate: setTranslate2,
+        activeSlideIndex,
+        byController: true
+      };
+      if (Array.isArray(swiper.controller.control)) {
+        swiper.controller.control.forEach((c) => {
+          if (!c.destroyed && c.params.loop) c.loopFix({
+            ...loopParams,
+            slideTo: c.params.slidesPerView === params.slidesPerView ? slideTo2 : false
+          });
+        });
+      } else if (swiper.controller.control instanceof swiper.constructor && swiper.controller.control.params.loop) {
+        swiper.controller.control.loopFix({
+          ...loopParams,
+          slideTo: swiper.controller.control.params.slidesPerView === params.slidesPerView ? slideTo2 : false
+        });
+      }
+    }
+    swiper.emit("loopFix");
+  }
+  function loopDestroy() {
+    const swiper = this;
+    const {
+      params,
+      slidesEl
+    } = swiper;
+    if (!params.loop || !slidesEl || swiper.virtual && swiper.params.virtual.enabled) return;
+    swiper.recalcSlides();
+    const newSlidesOrder = [];
+    swiper.slides.forEach((slideEl) => {
+      const index = typeof slideEl.swiperSlideIndex === "undefined" ? slideEl.getAttribute("data-swiper-slide-index") * 1 : slideEl.swiperSlideIndex;
+      newSlidesOrder[index] = slideEl;
+    });
+    swiper.slides.forEach((slideEl) => {
+      slideEl.removeAttribute("data-swiper-slide-index");
+    });
+    newSlidesOrder.forEach((slideEl) => {
+      slidesEl.append(slideEl);
+    });
+    swiper.recalcSlides();
+    swiper.slideTo(swiper.realIndex, 0);
+  }
+  var loop = {
+    loopCreate,
+    loopFix,
+    loopDestroy
+  };
+  function setGrabCursor(moving) {
+    const swiper = this;
+    if (!swiper.params.simulateTouch || swiper.params.watchOverflow && swiper.isLocked || swiper.params.cssMode) return;
+    const el = swiper.params.touchEventsTarget === "container" ? swiper.el : swiper.wrapperEl;
+    if (swiper.isElement) {
+      swiper.__preventObserver__ = true;
+    }
+    el.style.cursor = "move";
+    el.style.cursor = moving ? "grabbing" : "grab";
+    if (swiper.isElement) {
+      requestAnimationFrame(() => {
+        swiper.__preventObserver__ = false;
+      });
+    }
+  }
+  function unsetGrabCursor() {
+    const swiper = this;
+    if (swiper.params.watchOverflow && swiper.isLocked || swiper.params.cssMode) {
+      return;
+    }
+    if (swiper.isElement) {
+      swiper.__preventObserver__ = true;
+    }
+    swiper[swiper.params.touchEventsTarget === "container" ? "el" : "wrapperEl"].style.cursor = "";
+    if (swiper.isElement) {
+      requestAnimationFrame(() => {
+        swiper.__preventObserver__ = false;
+      });
+    }
+  }
+  var grabCursor = {
+    setGrabCursor,
+    unsetGrabCursor
+  };
+  function closestElement(selector, base = this) {
+    function __closestFrom(el) {
+      if (!el || el === getDocument() || el === getWindow()) return null;
+      if (el.assignedSlot) el = el.assignedSlot;
+      const found = el.closest(selector);
+      if (!found && !el.getRootNode) {
+        return null;
+      }
+      return found || __closestFrom(el.getRootNode().host);
+    }
+    return __closestFrom(base);
+  }
+  function preventEdgeSwipe(swiper, event2, startX) {
+    const window2 = getWindow();
+    const {
+      params
+    } = swiper;
+    const edgeSwipeDetection = params.edgeSwipeDetection;
+    const edgeSwipeThreshold = params.edgeSwipeThreshold;
+    if (edgeSwipeDetection && (startX <= edgeSwipeThreshold || startX >= window2.innerWidth - edgeSwipeThreshold)) {
+      if (edgeSwipeDetection === "prevent") {
+        event2.preventDefault();
+        return true;
+      }
+      return false;
+    }
+    return true;
+  }
+  function onTouchStart(event2) {
+    const swiper = this;
+    const document2 = getDocument();
+    let e = event2;
+    if (e.originalEvent) e = e.originalEvent;
+    const data = swiper.touchEventsData;
+    if (e.type === "pointerdown") {
+      if (data.pointerId !== null && data.pointerId !== e.pointerId) {
+        return;
+      }
+      data.pointerId = e.pointerId;
+    } else if (e.type === "touchstart" && e.targetTouches.length === 1) {
+      data.touchId = e.targetTouches[0].identifier;
+    }
+    if (e.type === "touchstart") {
+      preventEdgeSwipe(swiper, e, e.targetTouches[0].pageX);
+      return;
+    }
+    const {
+      params,
+      touches,
+      enabled
+    } = swiper;
+    if (!enabled) return;
+    if (!params.simulateTouch && e.pointerType === "mouse") return;
+    if (swiper.animating && params.preventInteractionOnTransition) {
+      return;
+    }
+    if (!swiper.animating && params.cssMode && params.loop) {
+      swiper.loopFix();
+    }
+    let targetEl = e.target;
+    if (params.touchEventsTarget === "wrapper") {
+      if (!elementIsChildOf(targetEl, swiper.wrapperEl)) return;
+    }
+    if ("which" in e && e.which === 3) return;
+    if ("button" in e && e.button > 0) return;
+    if (data.isTouched && data.isMoved) return;
+    const swipingClassHasValue = !!params.noSwipingClass && params.noSwipingClass !== "";
+    const eventPath = e.composedPath ? e.composedPath() : e.path;
+    if (swipingClassHasValue && e.target && e.target.shadowRoot && eventPath) {
+      targetEl = eventPath[0];
+    }
+    const noSwipingSelector = params.noSwipingSelector ? params.noSwipingSelector : `.${params.noSwipingClass}`;
+    const isTargetShadow = !!(e.target && e.target.shadowRoot);
+    if (params.noSwiping && (isTargetShadow ? closestElement(noSwipingSelector, targetEl) : targetEl.closest(noSwipingSelector))) {
+      swiper.allowClick = true;
+      return;
+    }
+    if (params.swipeHandler) {
+      if (!targetEl.closest(params.swipeHandler)) return;
+    }
+    touches.currentX = e.pageX;
+    touches.currentY = e.pageY;
+    const startX = touches.currentX;
+    const startY = touches.currentY;
+    if (!preventEdgeSwipe(swiper, e, startX)) {
+      return;
+    }
+    Object.assign(data, {
+      isTouched: true,
+      isMoved: false,
+      allowTouchCallbacks: true,
+      isScrolling: void 0,
+      startMoving: void 0
+    });
+    touches.startX = startX;
+    touches.startY = startY;
+    data.touchStartTime = now();
+    swiper.allowClick = true;
+    swiper.updateSize();
+    swiper.swipeDirection = void 0;
+    if (params.threshold > 0) data.allowThresholdMove = false;
+    let preventDefault = true;
+    if (targetEl.matches(data.focusableElements)) {
+      preventDefault = false;
+      if (targetEl.nodeName === "SELECT") {
+        data.isTouched = false;
+      }
+    }
+    if (document2.activeElement && document2.activeElement.matches(data.focusableElements) && document2.activeElement !== targetEl && (e.pointerType === "mouse" || e.pointerType !== "mouse" && !targetEl.matches(data.focusableElements))) {
+      document2.activeElement.blur();
+    }
+    const shouldPreventDefault = preventDefault && swiper.allowTouchMove && params.touchStartPreventDefault;
+    if ((params.touchStartForcePreventDefault || shouldPreventDefault) && !targetEl.isContentEditable) {
+      e.preventDefault();
+    }
+    if (params.freeMode && params.freeMode.enabled && swiper.freeMode && swiper.animating && !params.cssMode) {
+      swiper.freeMode.onTouchStart();
+    }
+    swiper.emit("touchStart", e);
+  }
+  function onTouchMove(event2) {
+    const document2 = getDocument();
+    const swiper = this;
+    const data = swiper.touchEventsData;
+    const {
+      params,
+      touches,
+      rtlTranslate: rtl,
+      enabled
+    } = swiper;
+    if (!enabled) return;
+    if (!params.simulateTouch && event2.pointerType === "mouse") return;
+    let e = event2;
+    if (e.originalEvent) e = e.originalEvent;
+    if (e.type === "pointermove") {
+      if (data.touchId !== null) return;
+      const id = e.pointerId;
+      if (id !== data.pointerId) return;
+    }
+    let targetTouch;
+    if (e.type === "touchmove") {
+      targetTouch = [...e.changedTouches].find((t) => t.identifier === data.touchId);
+      if (!targetTouch || targetTouch.identifier !== data.touchId) return;
+    } else {
+      targetTouch = e;
+    }
+    if (!data.isTouched) {
+      if (data.startMoving && data.isScrolling) {
+        swiper.emit("touchMoveOpposite", e);
+      }
+      return;
+    }
+    const pageX = targetTouch.pageX;
+    const pageY = targetTouch.pageY;
+    if (e.preventedByNestedSwiper) {
+      touches.startX = pageX;
+      touches.startY = pageY;
+      return;
+    }
+    if (!swiper.allowTouchMove) {
+      if (!e.target.matches(data.focusableElements)) {
+        swiper.allowClick = false;
+      }
+      if (data.isTouched) {
+        Object.assign(touches, {
+          startX: pageX,
+          startY: pageY,
+          currentX: pageX,
+          currentY: pageY
+        });
+        data.touchStartTime = now();
+      }
+      return;
+    }
+    if (params.touchReleaseOnEdges && !params.loop) {
+      if (swiper.isVertical()) {
+        if (pageY < touches.startY && swiper.translate <= swiper.maxTranslate() || pageY > touches.startY && swiper.translate >= swiper.minTranslate()) {
+          data.isTouched = false;
+          data.isMoved = false;
+          return;
+        }
+      } else if (rtl && (pageX > touches.startX && -swiper.translate <= swiper.maxTranslate() || pageX < touches.startX && -swiper.translate >= swiper.minTranslate())) {
+        return;
+      } else if (!rtl && (pageX < touches.startX && swiper.translate <= swiper.maxTranslate() || pageX > touches.startX && swiper.translate >= swiper.minTranslate())) {
+        return;
+      }
+    }
+    if (document2.activeElement && document2.activeElement.matches(data.focusableElements) && document2.activeElement !== e.target && e.pointerType !== "mouse") {
+      document2.activeElement.blur();
+    }
+    if (document2.activeElement) {
+      if (e.target === document2.activeElement && e.target.matches(data.focusableElements)) {
+        data.isMoved = true;
+        swiper.allowClick = false;
+        return;
+      }
+    }
+    if (data.allowTouchCallbacks) {
+      swiper.emit("touchMove", e);
+    }
+    touches.previousX = touches.currentX;
+    touches.previousY = touches.currentY;
+    touches.currentX = pageX;
+    touches.currentY = pageY;
+    const diffX = touches.currentX - touches.startX;
+    const diffY = touches.currentY - touches.startY;
+    if (swiper.params.threshold && Math.sqrt(diffX ** 2 + diffY ** 2) < swiper.params.threshold) return;
+    if (typeof data.isScrolling === "undefined") {
+      let touchAngle;
+      if (swiper.isHorizontal() && touches.currentY === touches.startY || swiper.isVertical() && touches.currentX === touches.startX) {
+        data.isScrolling = false;
+      } else {
+        if (diffX * diffX + diffY * diffY >= 25) {
+          touchAngle = Math.atan2(Math.abs(diffY), Math.abs(diffX)) * 180 / Math.PI;
+          data.isScrolling = swiper.isHorizontal() ? touchAngle > params.touchAngle : 90 - touchAngle > params.touchAngle;
+        }
+      }
+    }
+    if (data.isScrolling) {
+      swiper.emit("touchMoveOpposite", e);
+    }
+    if (typeof data.startMoving === "undefined") {
+      if (touches.currentX !== touches.startX || touches.currentY !== touches.startY) {
+        data.startMoving = true;
+      }
+    }
+    if (data.isScrolling || e.type === "touchmove" && data.preventTouchMoveFromPointerMove) {
+      data.isTouched = false;
+      return;
+    }
+    if (!data.startMoving) {
+      return;
+    }
+    swiper.allowClick = false;
+    if (!params.cssMode && e.cancelable) {
+      e.preventDefault();
+    }
+    if (params.touchMoveStopPropagation && !params.nested) {
+      e.stopPropagation();
+    }
+    let diff = swiper.isHorizontal() ? diffX : diffY;
+    let touchesDiff = swiper.isHorizontal() ? touches.currentX - touches.previousX : touches.currentY - touches.previousY;
+    if (params.oneWayMovement) {
+      diff = Math.abs(diff) * (rtl ? 1 : -1);
+      touchesDiff = Math.abs(touchesDiff) * (rtl ? 1 : -1);
+    }
+    touches.diff = diff;
+    diff *= params.touchRatio;
+    if (rtl) {
+      diff = -diff;
+      touchesDiff = -touchesDiff;
+    }
+    const prevTouchesDirection = swiper.touchesDirection;
+    swiper.swipeDirection = diff > 0 ? "prev" : "next";
+    swiper.touchesDirection = touchesDiff > 0 ? "prev" : "next";
+    const isLoop = swiper.params.loop && !params.cssMode;
+    const allowLoopFix = swiper.touchesDirection === "next" && swiper.allowSlideNext || swiper.touchesDirection === "prev" && swiper.allowSlidePrev;
+    if (!data.isMoved) {
+      if (isLoop && allowLoopFix) {
+        swiper.loopFix({
+          direction: swiper.swipeDirection
+        });
+      }
+      data.startTranslate = swiper.getTranslate();
+      swiper.setTransition(0);
+      if (swiper.animating) {
+        const evt = new window.CustomEvent("transitionend", {
+          bubbles: true,
+          cancelable: true,
+          detail: {
+            bySwiperTouchMove: true
+          }
+        });
+        swiper.wrapperEl.dispatchEvent(evt);
+      }
+      data.allowMomentumBounce = false;
+      if (params.grabCursor && (swiper.allowSlideNext === true || swiper.allowSlidePrev === true)) {
+        swiper.setGrabCursor(true);
+      }
+      swiper.emit("sliderFirstMove", e);
+    }
+    let loopFixed;
+    (/* @__PURE__ */ new Date()).getTime();
+    if (params._loopSwapReset !== false && data.isMoved && data.allowThresholdMove && prevTouchesDirection !== swiper.touchesDirection && isLoop && allowLoopFix && Math.abs(diff) >= 1) {
+      Object.assign(touches, {
+        startX: pageX,
+        startY: pageY,
+        currentX: pageX,
+        currentY: pageY,
+        startTranslate: data.currentTranslate
+      });
+      data.loopSwapReset = true;
+      data.startTranslate = data.currentTranslate;
+      return;
+    }
+    swiper.emit("sliderMove", e);
+    data.isMoved = true;
+    data.currentTranslate = diff + data.startTranslate;
+    let disableParentSwiper = true;
+    let resistanceRatio = params.resistanceRatio;
+    if (params.touchReleaseOnEdges) {
+      resistanceRatio = 0;
+    }
+    if (diff > 0) {
+      if (isLoop && allowLoopFix && !loopFixed && data.allowThresholdMove && data.currentTranslate > (params.centeredSlides ? swiper.minTranslate() - swiper.slidesSizesGrid[swiper.activeIndex + 1] - (params.slidesPerView !== "auto" && swiper.slides.length - params.slidesPerView >= 2 ? swiper.slidesSizesGrid[swiper.activeIndex + 1] + swiper.params.spaceBetween : 0) - swiper.params.spaceBetween : swiper.minTranslate())) {
+        swiper.loopFix({
+          direction: "prev",
+          setTranslate: true,
+          activeSlideIndex: 0
+        });
+      }
+      if (data.currentTranslate > swiper.minTranslate()) {
+        disableParentSwiper = false;
+        if (params.resistance) {
+          data.currentTranslate = swiper.minTranslate() - 1 + (-swiper.minTranslate() + data.startTranslate + diff) ** resistanceRatio;
+        }
+      }
+    } else if (diff < 0) {
+      if (isLoop && allowLoopFix && !loopFixed && data.allowThresholdMove && data.currentTranslate < (params.centeredSlides ? swiper.maxTranslate() + swiper.slidesSizesGrid[swiper.slidesSizesGrid.length - 1] + swiper.params.spaceBetween + (params.slidesPerView !== "auto" && swiper.slides.length - params.slidesPerView >= 2 ? swiper.slidesSizesGrid[swiper.slidesSizesGrid.length - 1] + swiper.params.spaceBetween : 0) : swiper.maxTranslate())) {
+        swiper.loopFix({
+          direction: "next",
+          setTranslate: true,
+          activeSlideIndex: swiper.slides.length - (params.slidesPerView === "auto" ? swiper.slidesPerViewDynamic() : Math.ceil(parseFloat(params.slidesPerView, 10)))
+        });
+      }
+      if (data.currentTranslate < swiper.maxTranslate()) {
+        disableParentSwiper = false;
+        if (params.resistance) {
+          data.currentTranslate = swiper.maxTranslate() + 1 - (swiper.maxTranslate() - data.startTranslate - diff) ** resistanceRatio;
+        }
+      }
+    }
+    if (disableParentSwiper) {
+      e.preventedByNestedSwiper = true;
+    }
+    if (!swiper.allowSlideNext && swiper.swipeDirection === "next" && data.currentTranslate < data.startTranslate) {
+      data.currentTranslate = data.startTranslate;
+    }
+    if (!swiper.allowSlidePrev && swiper.swipeDirection === "prev" && data.currentTranslate > data.startTranslate) {
+      data.currentTranslate = data.startTranslate;
+    }
+    if (!swiper.allowSlidePrev && !swiper.allowSlideNext) {
+      data.currentTranslate = data.startTranslate;
+    }
+    if (params.threshold > 0) {
+      if (Math.abs(diff) > params.threshold || data.allowThresholdMove) {
+        if (!data.allowThresholdMove) {
+          data.allowThresholdMove = true;
+          touches.startX = touches.currentX;
+          touches.startY = touches.currentY;
+          data.currentTranslate = data.startTranslate;
+          touches.diff = swiper.isHorizontal() ? touches.currentX - touches.startX : touches.currentY - touches.startY;
+          return;
+        }
+      } else {
+        data.currentTranslate = data.startTranslate;
+        return;
+      }
+    }
+    if (!params.followFinger || params.cssMode) return;
+    if (params.freeMode && params.freeMode.enabled && swiper.freeMode || params.watchSlidesProgress) {
+      swiper.updateActiveIndex();
+      swiper.updateSlidesClasses();
+    }
+    if (params.freeMode && params.freeMode.enabled && swiper.freeMode) {
+      swiper.freeMode.onTouchMove();
+    }
+    swiper.updateProgress(data.currentTranslate);
+    swiper.setTranslate(data.currentTranslate);
+  }
+  function onTouchEnd(event2) {
+    const swiper = this;
+    const data = swiper.touchEventsData;
+    let e = event2;
+    if (e.originalEvent) e = e.originalEvent;
+    let targetTouch;
+    const isTouchEvent = e.type === "touchend" || e.type === "touchcancel";
+    if (!isTouchEvent) {
+      if (data.touchId !== null) return;
+      if (e.pointerId !== data.pointerId) return;
+      targetTouch = e;
+    } else {
+      targetTouch = [...e.changedTouches].find((t) => t.identifier === data.touchId);
+      if (!targetTouch || targetTouch.identifier !== data.touchId) return;
+    }
+    if (["pointercancel", "pointerout", "pointerleave", "contextmenu"].includes(e.type)) {
+      const proceed = ["pointercancel", "contextmenu"].includes(e.type) && (swiper.browser.isSafari || swiper.browser.isWebView);
+      if (!proceed) {
+        return;
+      }
+    }
+    data.pointerId = null;
+    data.touchId = null;
+    const {
+      params,
+      touches,
+      rtlTranslate: rtl,
+      slidesGrid,
+      enabled
+    } = swiper;
+    if (!enabled) return;
+    if (!params.simulateTouch && e.pointerType === "mouse") return;
+    if (data.allowTouchCallbacks) {
+      swiper.emit("touchEnd", e);
+    }
+    data.allowTouchCallbacks = false;
+    if (!data.isTouched) {
+      if (data.isMoved && params.grabCursor) {
+        swiper.setGrabCursor(false);
+      }
+      data.isMoved = false;
+      data.startMoving = false;
+      return;
+    }
+    if (params.grabCursor && data.isMoved && data.isTouched && (swiper.allowSlideNext === true || swiper.allowSlidePrev === true)) {
+      swiper.setGrabCursor(false);
+    }
+    const touchEndTime = now();
+    const timeDiff = touchEndTime - data.touchStartTime;
+    if (swiper.allowClick) {
+      const pathTree = e.path || e.composedPath && e.composedPath();
+      swiper.updateClickedSlide(pathTree && pathTree[0] || e.target, pathTree);
+      swiper.emit("tap click", e);
+      if (timeDiff < 300 && touchEndTime - data.lastClickTime < 300) {
+        swiper.emit("doubleTap doubleClick", e);
+      }
+    }
+    data.lastClickTime = now();
+    nextTick(() => {
+      if (!swiper.destroyed) swiper.allowClick = true;
+    });
+    if (!data.isTouched || !data.isMoved || !swiper.swipeDirection || touches.diff === 0 && !data.loopSwapReset || data.currentTranslate === data.startTranslate && !data.loopSwapReset) {
+      data.isTouched = false;
+      data.isMoved = false;
+      data.startMoving = false;
+      return;
+    }
+    data.isTouched = false;
+    data.isMoved = false;
+    data.startMoving = false;
+    let currentPos;
+    if (params.followFinger) {
+      currentPos = rtl ? swiper.translate : -swiper.translate;
+    } else {
+      currentPos = -data.currentTranslate;
+    }
+    if (params.cssMode) {
+      return;
+    }
+    if (params.freeMode && params.freeMode.enabled) {
+      swiper.freeMode.onTouchEnd({
+        currentPos
+      });
+      return;
+    }
+    const swipeToLast = currentPos >= -swiper.maxTranslate() && !swiper.params.loop;
+    let stopIndex = 0;
+    let groupSize = swiper.slidesSizesGrid[0];
+    for (let i = 0; i < slidesGrid.length; i += i < params.slidesPerGroupSkip ? 1 : params.slidesPerGroup) {
+      const increment2 = i < params.slidesPerGroupSkip - 1 ? 1 : params.slidesPerGroup;
+      if (typeof slidesGrid[i + increment2] !== "undefined") {
+        if (swipeToLast || currentPos >= slidesGrid[i] && currentPos < slidesGrid[i + increment2]) {
+          stopIndex = i;
+          groupSize = slidesGrid[i + increment2] - slidesGrid[i];
+        }
+      } else if (swipeToLast || currentPos >= slidesGrid[i]) {
+        stopIndex = i;
+        groupSize = slidesGrid[slidesGrid.length - 1] - slidesGrid[slidesGrid.length - 2];
+      }
+    }
+    let rewindFirstIndex = null;
+    let rewindLastIndex = null;
+    if (params.rewind) {
+      if (swiper.isBeginning) {
+        rewindLastIndex = params.virtual && params.virtual.enabled && swiper.virtual ? swiper.virtual.slides.length - 1 : swiper.slides.length - 1;
+      } else if (swiper.isEnd) {
+        rewindFirstIndex = 0;
+      }
+    }
+    const ratio = (currentPos - slidesGrid[stopIndex]) / groupSize;
+    const increment = stopIndex < params.slidesPerGroupSkip - 1 ? 1 : params.slidesPerGroup;
+    if (timeDiff > params.longSwipesMs) {
+      if (!params.longSwipes) {
+        swiper.slideTo(swiper.activeIndex);
+        return;
+      }
+      if (swiper.swipeDirection === "next") {
+        if (ratio >= params.longSwipesRatio) swiper.slideTo(params.rewind && swiper.isEnd ? rewindFirstIndex : stopIndex + increment);
+        else swiper.slideTo(stopIndex);
+      }
+      if (swiper.swipeDirection === "prev") {
+        if (ratio > 1 - params.longSwipesRatio) {
+          swiper.slideTo(stopIndex + increment);
+        } else if (rewindLastIndex !== null && ratio < 0 && Math.abs(ratio) > params.longSwipesRatio) {
+          swiper.slideTo(rewindLastIndex);
+        } else {
+          swiper.slideTo(stopIndex);
+        }
+      }
+    } else {
+      if (!params.shortSwipes) {
+        swiper.slideTo(swiper.activeIndex);
+        return;
+      }
+      const isNavButtonTarget = swiper.navigation && (e.target === swiper.navigation.nextEl || e.target === swiper.navigation.prevEl);
+      if (!isNavButtonTarget) {
+        if (swiper.swipeDirection === "next") {
+          swiper.slideTo(rewindFirstIndex !== null ? rewindFirstIndex : stopIndex + increment);
+        }
+        if (swiper.swipeDirection === "prev") {
+          swiper.slideTo(rewindLastIndex !== null ? rewindLastIndex : stopIndex);
+        }
+      } else if (e.target === swiper.navigation.nextEl) {
+        swiper.slideTo(stopIndex + increment);
+      } else {
+        swiper.slideTo(stopIndex);
+      }
+    }
+  }
+  function onResize() {
+    const swiper = this;
+    const {
+      params,
+      el
+    } = swiper;
+    if (el && el.offsetWidth === 0) return;
+    if (params.breakpoints) {
+      swiper.setBreakpoint();
+    }
+    const {
+      allowSlideNext,
+      allowSlidePrev,
+      snapGrid
+    } = swiper;
+    const isVirtual = swiper.virtual && swiper.params.virtual.enabled;
+    swiper.allowSlideNext = true;
+    swiper.allowSlidePrev = true;
+    swiper.updateSize();
+    swiper.updateSlides();
+    swiper.updateSlidesClasses();
+    const isVirtualLoop = isVirtual && params.loop;
+    if ((params.slidesPerView === "auto" || params.slidesPerView > 1) && swiper.isEnd && !swiper.isBeginning && !swiper.params.centeredSlides && !isVirtualLoop) {
+      swiper.slideTo(swiper.slides.length - 1, 0, false, true);
+    } else {
+      if (swiper.params.loop && !isVirtual) {
+        swiper.slideToLoop(swiper.realIndex, 0, false, true);
+      } else {
+        swiper.slideTo(swiper.activeIndex, 0, false, true);
+      }
+    }
+    if (swiper.autoplay && swiper.autoplay.running && swiper.autoplay.paused) {
+      clearTimeout(swiper.autoplay.resizeTimeout);
+      swiper.autoplay.resizeTimeout = setTimeout(() => {
+        if (swiper.autoplay && swiper.autoplay.running && swiper.autoplay.paused) {
+          swiper.autoplay.resume();
+        }
+      }, 500);
+    }
+    swiper.allowSlidePrev = allowSlidePrev;
+    swiper.allowSlideNext = allowSlideNext;
+    if (swiper.params.watchOverflow && snapGrid !== swiper.snapGrid) {
+      swiper.checkOverflow();
+    }
+  }
+  function onClick(e) {
+    const swiper = this;
+    if (!swiper.enabled) return;
+    if (!swiper.allowClick) {
+      if (swiper.params.preventClicks) e.preventDefault();
+      if (swiper.params.preventClicksPropagation && swiper.animating) {
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+      }
+    }
+  }
+  function onScroll() {
+    const swiper = this;
+    const {
+      wrapperEl,
+      rtlTranslate,
+      enabled
+    } = swiper;
+    if (!enabled) return;
+    swiper.previousTranslate = swiper.translate;
+    if (swiper.isHorizontal()) {
+      swiper.translate = -wrapperEl.scrollLeft;
+    } else {
+      swiper.translate = -wrapperEl.scrollTop;
+    }
+    if (swiper.translate === 0) swiper.translate = 0;
+    swiper.updateActiveIndex();
+    swiper.updateSlidesClasses();
+    let newProgress;
+    const translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
+    if (translatesDiff === 0) {
+      newProgress = 0;
+    } else {
+      newProgress = (swiper.translate - swiper.minTranslate()) / translatesDiff;
+    }
+    if (newProgress !== swiper.progress) {
+      swiper.updateProgress(rtlTranslate ? -swiper.translate : swiper.translate);
+    }
+    swiper.emit("setTranslate", swiper.translate, false);
+  }
+  function onLoad(e) {
+    const swiper = this;
+    processLazyPreloader(swiper, e.target);
+    if (swiper.params.cssMode || swiper.params.slidesPerView !== "auto" && !swiper.params.autoHeight) {
+      return;
+    }
+    swiper.update();
+  }
+  function onDocumentTouchStart() {
+    const swiper = this;
+    if (swiper.documentTouchHandlerProceeded) return;
+    swiper.documentTouchHandlerProceeded = true;
+    if (swiper.params.touchReleaseOnEdges) {
+      swiper.el.style.touchAction = "auto";
+    }
+  }
+  var events = (swiper, method) => {
+    const document2 = getDocument();
+    const {
+      params,
+      el,
+      wrapperEl,
+      device
+    } = swiper;
+    const capture = !!params.nested;
+    const domMethod = method === "on" ? "addEventListener" : "removeEventListener";
+    const swiperMethod = method;
+    if (!el || typeof el === "string") return;
+    document2[domMethod]("touchstart", swiper.onDocumentTouchStart, {
+      passive: false,
+      capture
+    });
+    el[domMethod]("touchstart", swiper.onTouchStart, {
+      passive: false
+    });
+    el[domMethod]("pointerdown", swiper.onTouchStart, {
+      passive: false
+    });
+    document2[domMethod]("touchmove", swiper.onTouchMove, {
+      passive: false,
+      capture
+    });
+    document2[domMethod]("pointermove", swiper.onTouchMove, {
+      passive: false,
+      capture
+    });
+    document2[domMethod]("touchend", swiper.onTouchEnd, {
+      passive: true
+    });
+    document2[domMethod]("pointerup", swiper.onTouchEnd, {
+      passive: true
+    });
+    document2[domMethod]("pointercancel", swiper.onTouchEnd, {
+      passive: true
+    });
+    document2[domMethod]("touchcancel", swiper.onTouchEnd, {
+      passive: true
+    });
+    document2[domMethod]("pointerout", swiper.onTouchEnd, {
+      passive: true
+    });
+    document2[domMethod]("pointerleave", swiper.onTouchEnd, {
+      passive: true
+    });
+    document2[domMethod]("contextmenu", swiper.onTouchEnd, {
+      passive: true
+    });
+    if (params.preventClicks || params.preventClicksPropagation) {
+      el[domMethod]("click", swiper.onClick, true);
+    }
+    if (params.cssMode) {
+      wrapperEl[domMethod]("scroll", swiper.onScroll);
+    }
+    if (params.updateOnWindowResize) {
+      swiper[swiperMethod](device.ios || device.android ? "resize orientationchange observerUpdate" : "resize observerUpdate", onResize, true);
+    } else {
+      swiper[swiperMethod]("observerUpdate", onResize, true);
+    }
+    el[domMethod]("load", swiper.onLoad, {
+      capture: true
+    });
+  };
+  function attachEvents() {
+    const swiper = this;
+    const {
+      params
+    } = swiper;
+    swiper.onTouchStart = onTouchStart.bind(swiper);
+    swiper.onTouchMove = onTouchMove.bind(swiper);
+    swiper.onTouchEnd = onTouchEnd.bind(swiper);
+    swiper.onDocumentTouchStart = onDocumentTouchStart.bind(swiper);
+    if (params.cssMode) {
+      swiper.onScroll = onScroll.bind(swiper);
+    }
+    swiper.onClick = onClick.bind(swiper);
+    swiper.onLoad = onLoad.bind(swiper);
+    events(swiper, "on");
+  }
+  function detachEvents() {
+    const swiper = this;
+    events(swiper, "off");
+  }
+  var events$1 = {
+    attachEvents,
+    detachEvents
+  };
+  var isGridEnabled = (swiper, params) => {
+    return swiper.grid && params.grid && params.grid.rows > 1;
+  };
+  function setBreakpoint() {
+    const swiper = this;
+    const {
+      realIndex,
+      initialized,
+      params,
+      el
+    } = swiper;
+    const breakpoints2 = params.breakpoints;
+    if (!breakpoints2 || breakpoints2 && Object.keys(breakpoints2).length === 0) return;
+    const document2 = getDocument();
+    const breakpointsBase = params.breakpointsBase === "window" || !params.breakpointsBase ? params.breakpointsBase : "container";
+    const breakpointContainer = ["window", "container"].includes(params.breakpointsBase) || !params.breakpointsBase ? swiper.el : document2.querySelector(params.breakpointsBase);
+    const breakpoint = swiper.getBreakpoint(breakpoints2, breakpointsBase, breakpointContainer);
+    if (!breakpoint || swiper.currentBreakpoint === breakpoint) return;
+    const breakpointOnlyParams = breakpoint in breakpoints2 ? breakpoints2[breakpoint] : void 0;
+    const breakpointParams = breakpointOnlyParams || swiper.originalParams;
+    const wasMultiRow = isGridEnabled(swiper, params);
+    const isMultiRow = isGridEnabled(swiper, breakpointParams);
+    const wasGrabCursor = swiper.params.grabCursor;
+    const isGrabCursor = breakpointParams.grabCursor;
+    const wasEnabled = params.enabled;
+    if (wasMultiRow && !isMultiRow) {
+      el.classList.remove(`${params.containerModifierClass}grid`, `${params.containerModifierClass}grid-column`);
+      swiper.emitContainerClasses();
+    } else if (!wasMultiRow && isMultiRow) {
+      el.classList.add(`${params.containerModifierClass}grid`);
+      if (breakpointParams.grid.fill && breakpointParams.grid.fill === "column" || !breakpointParams.grid.fill && params.grid.fill === "column") {
+        el.classList.add(`${params.containerModifierClass}grid-column`);
+      }
+      swiper.emitContainerClasses();
+    }
+    if (wasGrabCursor && !isGrabCursor) {
+      swiper.unsetGrabCursor();
+    } else if (!wasGrabCursor && isGrabCursor) {
+      swiper.setGrabCursor();
+    }
+    ["navigation", "pagination", "scrollbar"].forEach((prop) => {
+      if (typeof breakpointParams[prop] === "undefined") return;
+      const wasModuleEnabled = params[prop] && params[prop].enabled;
+      const isModuleEnabled = breakpointParams[prop] && breakpointParams[prop].enabled;
+      if (wasModuleEnabled && !isModuleEnabled) {
+        swiper[prop].disable();
+      }
+      if (!wasModuleEnabled && isModuleEnabled) {
+        swiper[prop].enable();
+      }
+    });
+    const directionChanged = breakpointParams.direction && breakpointParams.direction !== params.direction;
+    const needsReLoop = params.loop && (breakpointParams.slidesPerView !== params.slidesPerView || directionChanged);
+    const wasLoop = params.loop;
+    if (directionChanged && initialized) {
+      swiper.changeDirection();
+    }
+    extend2(swiper.params, breakpointParams);
+    const isEnabled = swiper.params.enabled;
+    const hasLoop = swiper.params.loop;
+    Object.assign(swiper, {
+      allowTouchMove: swiper.params.allowTouchMove,
+      allowSlideNext: swiper.params.allowSlideNext,
+      allowSlidePrev: swiper.params.allowSlidePrev
+    });
+    if (wasEnabled && !isEnabled) {
+      swiper.disable();
+    } else if (!wasEnabled && isEnabled) {
+      swiper.enable();
+    }
+    swiper.currentBreakpoint = breakpoint;
+    swiper.emit("_beforeBreakpoint", breakpointParams);
+    if (initialized) {
+      if (needsReLoop) {
+        swiper.loopDestroy();
+        swiper.loopCreate(realIndex);
+        swiper.updateSlides();
+      } else if (!wasLoop && hasLoop) {
+        swiper.loopCreate(realIndex);
+        swiper.updateSlides();
+      } else if (wasLoop && !hasLoop) {
+        swiper.loopDestroy();
+      }
+    }
+    swiper.emit("breakpoint", breakpointParams);
+  }
+  function getBreakpoint(breakpoints2, base = "window", containerEl) {
+    if (!breakpoints2 || base === "container" && !containerEl) return void 0;
+    let breakpoint = false;
+    const window2 = getWindow();
+    const currentHeight = base === "window" ? window2.innerHeight : containerEl.clientHeight;
+    const points = Object.keys(breakpoints2).map((point) => {
+      if (typeof point === "string" && point.indexOf("@") === 0) {
+        const minRatio = parseFloat(point.substr(1));
+        const value = currentHeight * minRatio;
+        return {
+          value,
+          point
+        };
+      }
+      return {
+        value: point,
+        point
+      };
+    });
+    points.sort((a, b) => parseInt(a.value, 10) - parseInt(b.value, 10));
+    for (let i = 0; i < points.length; i += 1) {
+      const {
+        point,
+        value
+      } = points[i];
+      if (base === "window") {
+        if (window2.matchMedia(`(min-width: ${value}px)`).matches) {
+          breakpoint = point;
+        }
+      } else if (value <= containerEl.clientWidth) {
+        breakpoint = point;
+      }
+    }
+    return breakpoint || "max";
+  }
+  var breakpoints = {
+    setBreakpoint,
+    getBreakpoint
+  };
+  function prepareClasses(entries, prefix) {
+    const resultClasses = [];
+    entries.forEach((item) => {
+      if (typeof item === "object") {
+        Object.keys(item).forEach((classNames) => {
+          if (item[classNames]) {
+            resultClasses.push(prefix + classNames);
+          }
+        });
+      } else if (typeof item === "string") {
+        resultClasses.push(prefix + item);
+      }
+    });
+    return resultClasses;
+  }
+  function addClasses() {
+    const swiper = this;
+    const {
+      classNames,
+      params,
+      rtl,
+      el,
+      device
+    } = swiper;
+    const suffixes = prepareClasses(["initialized", params.direction, {
+      "free-mode": swiper.params.freeMode && params.freeMode.enabled
+    }, {
+      "autoheight": params.autoHeight
+    }, {
+      "rtl": rtl
+    }, {
+      "grid": params.grid && params.grid.rows > 1
+    }, {
+      "grid-column": params.grid && params.grid.rows > 1 && params.grid.fill === "column"
+    }, {
+      "android": device.android
+    }, {
+      "ios": device.ios
+    }, {
+      "css-mode": params.cssMode
+    }, {
+      "centered": params.cssMode && params.centeredSlides
+    }, {
+      "watch-progress": params.watchSlidesProgress
+    }], params.containerModifierClass);
+    classNames.push(...suffixes);
+    el.classList.add(...classNames);
+    swiper.emitContainerClasses();
+  }
+  function removeClasses() {
+    const swiper = this;
+    const {
+      el,
+      classNames
+    } = swiper;
+    if (!el || typeof el === "string") return;
+    el.classList.remove(...classNames);
+    swiper.emitContainerClasses();
+  }
+  var classes = {
+    addClasses,
+    removeClasses
+  };
+  function checkOverflow() {
+    const swiper = this;
+    const {
+      isLocked: wasLocked,
+      params
+    } = swiper;
+    const {
+      slidesOffsetBefore
+    } = params;
+    if (slidesOffsetBefore) {
+      const lastSlideIndex = swiper.slides.length - 1;
+      const lastSlideRightEdge = swiper.slidesGrid[lastSlideIndex] + swiper.slidesSizesGrid[lastSlideIndex] + slidesOffsetBefore * 2;
+      swiper.isLocked = swiper.size > lastSlideRightEdge;
+    } else {
+      swiper.isLocked = swiper.snapGrid.length === 1;
+    }
+    if (params.allowSlideNext === true) {
+      swiper.allowSlideNext = !swiper.isLocked;
+    }
+    if (params.allowSlidePrev === true) {
+      swiper.allowSlidePrev = !swiper.isLocked;
+    }
+    if (wasLocked && wasLocked !== swiper.isLocked) {
+      swiper.isEnd = false;
+    }
+    if (wasLocked !== swiper.isLocked) {
+      swiper.emit(swiper.isLocked ? "lock" : "unlock");
+    }
+  }
+  var checkOverflow$1 = {
+    checkOverflow
+  };
+  var defaults = {
+    init: true,
+    direction: "horizontal",
+    oneWayMovement: false,
+    swiperElementNodeName: "SWIPER-CONTAINER",
+    touchEventsTarget: "wrapper",
+    initialSlide: 0,
+    speed: 300,
+    cssMode: false,
+    updateOnWindowResize: true,
+    resizeObserver: true,
+    nested: false,
+    createElements: false,
+    eventsPrefix: "swiper",
+    enabled: true,
+    focusableElements: "input, select, option, textarea, button, video, label",
+    // Overrides
+    width: null,
+    height: null,
+    //
+    preventInteractionOnTransition: false,
+    // ssr
+    userAgent: null,
+    url: null,
+    // To support iOS's swipe-to-go-back gesture (when being used in-app).
+    edgeSwipeDetection: false,
+    edgeSwipeThreshold: 20,
+    // Autoheight
+    autoHeight: false,
+    // Set wrapper width
+    setWrapperSize: false,
+    // Virtual Translate
+    virtualTranslate: false,
+    // Effects
+    effect: "slide",
+    // 'slide' or 'fade' or 'cube' or 'coverflow' or 'flip'
+    // Breakpoints
+    breakpoints: void 0,
+    breakpointsBase: "window",
+    // Slides grid
+    spaceBetween: 0,
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    slidesPerGroupSkip: 0,
+    slidesPerGroupAuto: false,
+    centeredSlides: false,
+    centeredSlidesBounds: false,
+    slidesOffsetBefore: 0,
+    // in px
+    slidesOffsetAfter: 0,
+    // in px
+    normalizeSlideIndex: true,
+    centerInsufficientSlides: false,
+    snapToSlideEdge: false,
+    // Disable swiper and hide navigation when container not overflow
+    watchOverflow: true,
+    // Round length
+    roundLengths: false,
+    // Touches
+    touchRatio: 1,
+    touchAngle: 45,
+    simulateTouch: true,
+    shortSwipes: true,
+    longSwipes: true,
+    longSwipesRatio: 0.5,
+    longSwipesMs: 300,
+    followFinger: true,
+    allowTouchMove: true,
+    threshold: 5,
+    touchMoveStopPropagation: false,
+    touchStartPreventDefault: true,
+    touchStartForcePreventDefault: false,
+    touchReleaseOnEdges: false,
+    // Unique Navigation Elements
+    uniqueNavElements: true,
+    // Resistance
+    resistance: true,
+    resistanceRatio: 0.85,
+    // Progress
+    watchSlidesProgress: false,
+    // Cursor
+    grabCursor: false,
+    // Clicks
+    preventClicks: true,
+    preventClicksPropagation: true,
+    slideToClickedSlide: false,
+    // loop
+    loop: false,
+    loopAddBlankSlides: true,
+    loopAdditionalSlides: 0,
+    loopPreventsSliding: true,
+    // rewind
+    rewind: false,
+    // Swiping/no swiping
+    allowSlidePrev: true,
+    allowSlideNext: true,
+    swipeHandler: null,
+    // '.swipe-handler',
+    noSwiping: true,
+    noSwipingClass: "swiper-no-swiping",
+    noSwipingSelector: null,
+    // Passive Listeners
+    passiveListeners: true,
+    maxBackfaceHiddenSlides: 10,
+    // NS
+    containerModifierClass: "swiper-",
+    // NEW
+    slideClass: "swiper-slide",
+    slideBlankClass: "swiper-slide-blank",
+    slideActiveClass: "swiper-slide-active",
+    slideVisibleClass: "swiper-slide-visible",
+    slideFullyVisibleClass: "swiper-slide-fully-visible",
+    slideNextClass: "swiper-slide-next",
+    slidePrevClass: "swiper-slide-prev",
+    wrapperClass: "swiper-wrapper",
+    lazyPreloaderClass: "swiper-lazy-preloader",
+    lazyPreloadPrevNext: 0,
+    // Callbacks
+    runCallbacksOnInit: true,
+    // Internals
+    _emitClasses: false
+  };
+  function moduleExtendParams(params, allModulesParams) {
+    return function extendParams(obj = {}) {
+      const moduleParamName = Object.keys(obj)[0];
+      const moduleParams = obj[moduleParamName];
+      if (typeof moduleParams !== "object" || moduleParams === null) {
+        extend2(allModulesParams, obj);
+        return;
+      }
+      if (params[moduleParamName] === true) {
+        params[moduleParamName] = {
+          enabled: true
+        };
+      }
+      if (moduleParamName === "navigation" && params[moduleParamName] && params[moduleParamName].enabled && !params[moduleParamName].prevEl && !params[moduleParamName].nextEl) {
+        params[moduleParamName].auto = true;
+      }
+      if (["pagination", "scrollbar"].indexOf(moduleParamName) >= 0 && params[moduleParamName] && params[moduleParamName].enabled && !params[moduleParamName].el) {
+        params[moduleParamName].auto = true;
+      }
+      if (!(moduleParamName in params && "enabled" in moduleParams)) {
+        extend2(allModulesParams, obj);
+        return;
+      }
+      if (typeof params[moduleParamName] === "object" && !("enabled" in params[moduleParamName])) {
+        params[moduleParamName].enabled = true;
+      }
+      if (!params[moduleParamName]) params[moduleParamName] = {
+        enabled: false
+      };
+      extend2(allModulesParams, obj);
+    };
+  }
+  var prototypes = {
+    eventsEmitter,
+    update,
+    translate,
+    transition,
+    slide,
+    loop,
+    grabCursor,
+    events: events$1,
+    breakpoints,
+    checkOverflow: checkOverflow$1,
+    classes
+  };
+  var extendedDefaults = {};
+  var Swiper = class _Swiper {
+    constructor(...args) {
+      let el;
+      let params;
+      if (args.length === 1 && args[0].constructor && Object.prototype.toString.call(args[0]).slice(8, -1) === "Object") {
+        params = args[0];
+      } else {
+        [el, params] = args;
+      }
+      if (!params) params = {};
+      params = extend2({}, params);
+      if (el && !params.el) params.el = el;
+      const document2 = getDocument();
+      if (params.el && typeof params.el === "string" && document2.querySelectorAll(params.el).length > 1) {
+        const swipers = [];
+        document2.querySelectorAll(params.el).forEach((containerEl) => {
+          const newParams = extend2({}, params, {
+            el: containerEl
+          });
+          swipers.push(new _Swiper(newParams));
+        });
+        return swipers;
+      }
+      const swiper = this;
+      swiper.__swiper__ = true;
+      swiper.support = getSupport();
+      swiper.device = getDevice({
+        userAgent: params.userAgent
+      });
+      swiper.browser = getBrowser();
+      swiper.eventsListeners = {};
+      swiper.eventsAnyListeners = [];
+      swiper.modules = [...swiper.__modules__];
+      if (params.modules && Array.isArray(params.modules)) {
+        params.modules.forEach((mod) => {
+          if (typeof mod === "function" && swiper.modules.indexOf(mod) < 0) {
+            swiper.modules.push(mod);
+          }
+        });
+      }
+      const allModulesParams = {};
+      swiper.modules.forEach((mod) => {
+        mod({
+          params,
+          swiper,
+          extendParams: moduleExtendParams(params, allModulesParams),
+          on: swiper.on.bind(swiper),
+          once: swiper.once.bind(swiper),
+          off: swiper.off.bind(swiper),
+          emit: swiper.emit.bind(swiper)
+        });
+      });
+      const swiperParams = extend2({}, defaults, allModulesParams);
+      swiper.params = extend2({}, swiperParams, extendedDefaults, params);
+      swiper.originalParams = extend2({}, swiper.params);
+      swiper.passedParams = extend2({}, params);
+      if (swiper.params && swiper.params.on) {
+        Object.keys(swiper.params.on).forEach((eventName) => {
+          swiper.on(eventName, swiper.params.on[eventName]);
+        });
+      }
+      if (swiper.params && swiper.params.onAny) {
+        swiper.onAny(swiper.params.onAny);
+      }
+      Object.assign(swiper, {
+        enabled: swiper.params.enabled,
+        el,
+        // Classes
+        classNames: [],
+        // Slides
+        slides: [],
+        slidesGrid: [],
+        snapGrid: [],
+        slidesSizesGrid: [],
+        // isDirection
+        isHorizontal() {
+          return swiper.params.direction === "horizontal";
+        },
+        isVertical() {
+          return swiper.params.direction === "vertical";
+        },
+        // Indexes
+        activeIndex: 0,
+        realIndex: 0,
+        //
+        isBeginning: true,
+        isEnd: false,
+        // Props
+        translate: 0,
+        previousTranslate: 0,
+        progress: 0,
+        velocity: 0,
+        animating: false,
+        cssOverflowAdjustment() {
+          return Math.trunc(this.translate / 2 ** 23) * 2 ** 23;
+        },
+        // Locks
+        allowSlideNext: swiper.params.allowSlideNext,
+        allowSlidePrev: swiper.params.allowSlidePrev,
+        // Touch Events
+        touchEventsData: {
+          isTouched: void 0,
+          isMoved: void 0,
+          allowTouchCallbacks: void 0,
+          touchStartTime: void 0,
+          isScrolling: void 0,
+          currentTranslate: void 0,
+          startTranslate: void 0,
+          allowThresholdMove: void 0,
+          // Form elements to match
+          focusableElements: swiper.params.focusableElements,
+          // Last click time
+          lastClickTime: 0,
+          clickTimeout: void 0,
+          // Velocities
+          velocities: [],
+          allowMomentumBounce: void 0,
+          startMoving: void 0,
+          pointerId: null,
+          touchId: null
+        },
+        // Clicks
+        allowClick: true,
+        // Touches
+        allowTouchMove: swiper.params.allowTouchMove,
+        touches: {
+          startX: 0,
+          startY: 0,
+          currentX: 0,
+          currentY: 0,
+          diff: 0
+        },
+        // Images
+        imagesToLoad: [],
+        imagesLoaded: 0
+      });
+      swiper.emit("_swiper");
+      if (swiper.params.init) {
+        swiper.init();
+      }
+      return swiper;
+    }
+    getDirectionLabel(property) {
+      if (this.isHorizontal()) {
+        return property;
+      }
+      return {
+        "width": "height",
+        "margin-top": "margin-left",
+        "margin-bottom ": "margin-right",
+        "margin-left": "margin-top",
+        "margin-right": "margin-bottom",
+        "padding-left": "padding-top",
+        "padding-right": "padding-bottom",
+        "marginRight": "marginBottom"
+      }[property];
+    }
+    getSlideIndex(slideEl) {
+      const {
+        slidesEl,
+        params
+      } = this;
+      const slides = elementChildren(slidesEl, `.${params.slideClass}, swiper-slide`);
+      const firstSlideIndex = elementIndex(slides[0]);
+      return elementIndex(slideEl) - firstSlideIndex;
+    }
+    getSlideIndexByData(index) {
+      return this.getSlideIndex(this.slides.find((slideEl) => slideEl.getAttribute("data-swiper-slide-index") * 1 === index));
+    }
+    getSlideIndexWhenGrid(index) {
+      if (this.grid && this.params.grid && this.params.grid.rows > 1) {
+        if (this.params.grid.fill === "column") {
+          index = Math.floor(index / this.params.grid.rows);
+        } else if (this.params.grid.fill === "row") {
+          index = index % Math.ceil(this.slides.length / this.params.grid.rows);
+        }
+      }
+      return index;
+    }
+    recalcSlides() {
+      const swiper = this;
+      const {
+        slidesEl,
+        params
+      } = swiper;
+      swiper.slides = elementChildren(slidesEl, `.${params.slideClass}, swiper-slide`);
+    }
+    enable() {
+      const swiper = this;
+      if (swiper.enabled) return;
+      swiper.enabled = true;
+      if (swiper.params.grabCursor) {
+        swiper.setGrabCursor();
+      }
+      swiper.emit("enable");
+    }
+    disable() {
+      const swiper = this;
+      if (!swiper.enabled) return;
+      swiper.enabled = false;
+      if (swiper.params.grabCursor) {
+        swiper.unsetGrabCursor();
+      }
+      swiper.emit("disable");
+    }
+    setProgress(progress, speed) {
+      const swiper = this;
+      progress = Math.min(Math.max(progress, 0), 1);
+      const min = swiper.minTranslate();
+      const max = swiper.maxTranslate();
+      const current = (max - min) * progress + min;
+      swiper.translateTo(current, typeof speed === "undefined" ? 0 : speed);
+      swiper.updateActiveIndex();
+      swiper.updateSlidesClasses();
+    }
+    emitContainerClasses() {
+      const swiper = this;
+      if (!swiper.params._emitClasses || !swiper.el) return;
+      const cls = swiper.el.className.split(" ").filter((className) => {
+        return className.indexOf("swiper") === 0 || className.indexOf(swiper.params.containerModifierClass) === 0;
+      });
+      swiper.emit("_containerClasses", cls.join(" "));
+    }
+    getSlideClasses(slideEl) {
+      const swiper = this;
+      if (swiper.destroyed) return "";
+      return slideEl.className.split(" ").filter((className) => {
+        return className.indexOf("swiper-slide") === 0 || className.indexOf(swiper.params.slideClass) === 0;
+      }).join(" ");
+    }
+    emitSlidesClasses() {
+      const swiper = this;
+      if (!swiper.params._emitClasses || !swiper.el) return;
+      const updates = [];
+      swiper.slides.forEach((slideEl) => {
+        const classNames = swiper.getSlideClasses(slideEl);
+        updates.push({
+          slideEl,
+          classNames
+        });
+        swiper.emit("_slideClass", slideEl, classNames);
+      });
+      swiper.emit("_slideClasses", updates);
+    }
+    slidesPerViewDynamic(view = "current", exact = false) {
+      const swiper = this;
+      const {
+        params,
+        slides,
+        slidesGrid,
+        slidesSizesGrid,
+        size: swiperSize,
+        activeIndex
+      } = swiper;
+      let spv = 1;
+      if (typeof params.slidesPerView === "number") return params.slidesPerView;
+      if (params.centeredSlides) {
+        let slideSize = slides[activeIndex] ? Math.ceil(slides[activeIndex].swiperSlideSize) : 0;
+        let breakLoop;
+        for (let i = activeIndex + 1; i < slides.length; i += 1) {
+          if (slides[i] && !breakLoop) {
+            slideSize += Math.ceil(slides[i].swiperSlideSize);
+            spv += 1;
+            if (slideSize > swiperSize) breakLoop = true;
+          }
+        }
+        for (let i = activeIndex - 1; i >= 0; i -= 1) {
+          if (slides[i] && !breakLoop) {
+            slideSize += slides[i].swiperSlideSize;
+            spv += 1;
+            if (slideSize > swiperSize) breakLoop = true;
+          }
+        }
+      } else {
+        if (view === "current") {
+          for (let i = activeIndex + 1; i < slides.length; i += 1) {
+            const slideInView = exact ? slidesGrid[i] + slidesSizesGrid[i] - slidesGrid[activeIndex] < swiperSize : slidesGrid[i] - slidesGrid[activeIndex] < swiperSize;
+            if (slideInView) {
+              spv += 1;
+            }
+          }
+        } else {
+          for (let i = activeIndex - 1; i >= 0; i -= 1) {
+            const slideInView = slidesGrid[activeIndex] - slidesGrid[i] < swiperSize;
+            if (slideInView) {
+              spv += 1;
+            }
+          }
+        }
+      }
+      return spv;
+    }
+    update() {
+      const swiper = this;
+      if (!swiper || swiper.destroyed) return;
+      const {
+        snapGrid,
+        params
+      } = swiper;
+      if (params.breakpoints) {
+        swiper.setBreakpoint();
+      }
+      [...swiper.el.querySelectorAll('[loading="lazy"]')].forEach((imageEl) => {
+        if (imageEl.complete) {
+          processLazyPreloader(swiper, imageEl);
+        }
+      });
+      swiper.updateSize();
+      swiper.updateSlides();
+      swiper.updateProgress();
+      swiper.updateSlidesClasses();
+      function setTranslate2() {
+        const translateValue = swiper.rtlTranslate ? swiper.translate * -1 : swiper.translate;
+        const newTranslate = Math.min(Math.max(translateValue, swiper.maxTranslate()), swiper.minTranslate());
+        swiper.setTranslate(newTranslate);
+        swiper.updateActiveIndex();
+        swiper.updateSlidesClasses();
+      }
+      let translated;
+      if (params.freeMode && params.freeMode.enabled && !params.cssMode) {
+        setTranslate2();
+        if (params.autoHeight) {
+          swiper.updateAutoHeight();
+        }
+      } else {
+        if ((params.slidesPerView === "auto" || params.slidesPerView > 1) && swiper.isEnd && !params.centeredSlides) {
+          const slides = swiper.virtual && params.virtual.enabled ? swiper.virtual.slides : swiper.slides;
+          translated = swiper.slideTo(slides.length - 1, 0, false, true);
+        } else {
+          translated = swiper.slideTo(swiper.activeIndex, 0, false, true);
+        }
+        if (!translated) {
+          setTranslate2();
+        }
+      }
+      if (params.watchOverflow && snapGrid !== swiper.snapGrid) {
+        swiper.checkOverflow();
+      }
+      swiper.emit("update");
+    }
+    changeDirection(newDirection, needUpdate = true) {
+      const swiper = this;
+      const currentDirection = swiper.params.direction;
+      if (!newDirection) {
+        newDirection = currentDirection === "horizontal" ? "vertical" : "horizontal";
+      }
+      if (newDirection === currentDirection || newDirection !== "horizontal" && newDirection !== "vertical") {
+        return swiper;
+      }
+      swiper.el.classList.remove(`${swiper.params.containerModifierClass}${currentDirection}`);
+      swiper.el.classList.add(`${swiper.params.containerModifierClass}${newDirection}`);
+      swiper.emitContainerClasses();
+      swiper.params.direction = newDirection;
+      swiper.slides.forEach((slideEl) => {
+        if (newDirection === "vertical") {
+          slideEl.style.width = "";
+        } else {
+          slideEl.style.height = "";
+        }
+      });
+      swiper.emit("changeDirection");
+      if (needUpdate) swiper.update();
+      return swiper;
+    }
+    changeLanguageDirection(direction) {
+      const swiper = this;
+      if (swiper.rtl && direction === "rtl" || !swiper.rtl && direction === "ltr") return;
+      swiper.rtl = direction === "rtl";
+      swiper.rtlTranslate = swiper.params.direction === "horizontal" && swiper.rtl;
+      if (swiper.rtl) {
+        swiper.el.classList.add(`${swiper.params.containerModifierClass}rtl`);
+        swiper.el.dir = "rtl";
+      } else {
+        swiper.el.classList.remove(`${swiper.params.containerModifierClass}rtl`);
+        swiper.el.dir = "ltr";
+      }
+      swiper.update();
+    }
+    mount(element) {
+      const swiper = this;
+      if (swiper.mounted) return true;
+      let el = element || swiper.params.el;
+      if (typeof el === "string") {
+        el = document.querySelector(el);
+      }
+      if (!el) {
+        return false;
+      }
+      el.swiper = swiper;
+      if (el.parentNode && el.parentNode.host && el.parentNode.host.nodeName === swiper.params.swiperElementNodeName.toUpperCase()) {
+        swiper.isElement = true;
+      }
+      const getWrapperSelector = () => {
+        return `.${(swiper.params.wrapperClass || "").trim().split(" ").join(".")}`;
+      };
+      const getWrapper = () => {
+        if (el && el.shadowRoot && el.shadowRoot.querySelector) {
+          const res = el.shadowRoot.querySelector(getWrapperSelector());
+          return res;
+        }
+        return elementChildren(el, getWrapperSelector())[0];
+      };
+      let wrapperEl = getWrapper();
+      if (!wrapperEl && swiper.params.createElements) {
+        wrapperEl = createElement("div", swiper.params.wrapperClass);
+        el.append(wrapperEl);
+        elementChildren(el, `.${swiper.params.slideClass}`).forEach((slideEl) => {
+          wrapperEl.append(slideEl);
+        });
+      }
+      Object.assign(swiper, {
+        el,
+        wrapperEl,
+        slidesEl: swiper.isElement && !el.parentNode.host.slideSlots ? el.parentNode.host : wrapperEl,
+        hostEl: swiper.isElement ? el.parentNode.host : el,
+        mounted: true,
+        // RTL
+        rtl: el.dir.toLowerCase() === "rtl" || elementStyle(el, "direction") === "rtl",
+        rtlTranslate: swiper.params.direction === "horizontal" && (el.dir.toLowerCase() === "rtl" || elementStyle(el, "direction") === "rtl"),
+        wrongRTL: elementStyle(wrapperEl, "display") === "-webkit-box"
+      });
+      return true;
+    }
+    init(el) {
+      const swiper = this;
+      if (swiper.initialized) return swiper;
+      const mounted = swiper.mount(el);
+      if (mounted === false) return swiper;
+      swiper.emit("beforeInit");
+      if (swiper.params.breakpoints) {
+        swiper.setBreakpoint();
+      }
+      swiper.addClasses();
+      swiper.updateSize();
+      swiper.updateSlides();
+      if (swiper.params.watchOverflow) {
+        swiper.checkOverflow();
+      }
+      if (swiper.params.grabCursor && swiper.enabled) {
+        swiper.setGrabCursor();
+      }
+      if (swiper.params.loop && swiper.virtual && swiper.params.virtual.enabled) {
+        swiper.slideTo(swiper.params.initialSlide + swiper.virtual.slidesBefore, 0, swiper.params.runCallbacksOnInit, false, true);
+      } else {
+        swiper.slideTo(swiper.params.initialSlide, 0, swiper.params.runCallbacksOnInit, false, true);
+      }
+      if (swiper.params.loop) {
+        swiper.loopCreate(void 0, true);
+      }
+      swiper.attachEvents();
+      const lazyElements = [...swiper.el.querySelectorAll('[loading="lazy"]')];
+      if (swiper.isElement) {
+        lazyElements.push(...swiper.hostEl.querySelectorAll('[loading="lazy"]'));
+      }
+      lazyElements.forEach((imageEl) => {
+        if (imageEl.complete) {
+          processLazyPreloader(swiper, imageEl);
+        } else {
+          imageEl.addEventListener("load", (e) => {
+            processLazyPreloader(swiper, e.target);
+          });
+        }
+      });
+      preload(swiper);
+      swiper.initialized = true;
+      preload(swiper);
+      swiper.emit("init");
+      swiper.emit("afterInit");
+      return swiper;
+    }
+    destroy(deleteInstance = true, cleanStyles = true) {
+      const swiper = this;
+      const {
+        params,
+        el,
+        wrapperEl,
+        slides
+      } = swiper;
+      if (typeof swiper.params === "undefined" || swiper.destroyed) {
+        return null;
+      }
+      swiper.emit("beforeDestroy");
+      swiper.initialized = false;
+      swiper.detachEvents();
+      if (params.loop) {
+        swiper.loopDestroy();
+      }
+      if (cleanStyles) {
+        swiper.removeClasses();
+        if (el && typeof el !== "string") {
+          el.removeAttribute("style");
+        }
+        if (wrapperEl) {
+          wrapperEl.removeAttribute("style");
+        }
+        if (slides && slides.length) {
+          slides.forEach((slideEl) => {
+            slideEl.classList.remove(params.slideVisibleClass, params.slideFullyVisibleClass, params.slideActiveClass, params.slideNextClass, params.slidePrevClass);
+            slideEl.removeAttribute("style");
+            slideEl.removeAttribute("data-swiper-slide-index");
+          });
+        }
+      }
+      swiper.emit("destroy");
+      Object.keys(swiper.eventsListeners).forEach((eventName) => {
+        swiper.off(eventName);
+      });
+      if (deleteInstance !== false) {
+        if (swiper.el && typeof swiper.el !== "string") {
+          swiper.el.swiper = null;
+        }
+        deleteProps(swiper);
+      }
+      swiper.destroyed = true;
+      return null;
+    }
+    static extendDefaults(newDefaults) {
+      extend2(extendedDefaults, newDefaults);
+    }
+    static get extendedDefaults() {
+      return extendedDefaults;
+    }
+    static get defaults() {
+      return defaults;
+    }
+    static installModule(mod) {
+      if (!_Swiper.prototype.__modules__) _Swiper.prototype.__modules__ = [];
+      const modules = _Swiper.prototype.__modules__;
+      if (typeof mod === "function" && modules.indexOf(mod) < 0) {
+        modules.push(mod);
+      }
+    }
+    static use(module) {
+      if (Array.isArray(module)) {
+        module.forEach((m) => _Swiper.installModule(m));
+        return _Swiper;
+      }
+      _Swiper.installModule(module);
+      return _Swiper;
+    }
+  };
+  Object.keys(prototypes).forEach((prototypeGroup) => {
+    Object.keys(prototypes[prototypeGroup]).forEach((protoMethod) => {
+      Swiper.prototype[protoMethod] = prototypes[prototypeGroup][protoMethod];
+    });
+  });
+  Swiper.use([Resize, Observer]);
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/modules/keyboard.mjs
+  function Keyboard({
+    swiper,
+    extendParams,
+    on,
+    emit
+  }) {
+    const document2 = getDocument();
+    const window2 = getWindow();
+    swiper.keyboard = {
+      enabled: false
+    };
+    extendParams({
+      keyboard: {
+        enabled: false,
+        onlyInViewport: true,
+        pageUpDown: true,
+        speed: void 0
+      }
+    });
+    function handle(event2) {
+      if (!swiper.enabled) return;
+      const {
+        rtlTranslate: rtl
+      } = swiper;
+      let e = event2;
+      if (e.originalEvent) e = e.originalEvent;
+      const kc = e.keyCode || e.charCode;
+      const pageUpDown = swiper.params.keyboard.pageUpDown;
+      const isPageUp = pageUpDown && kc === 33;
+      const isPageDown = pageUpDown && kc === 34;
+      const isArrowLeft = kc === 37;
+      const isArrowRight = kc === 39;
+      const isArrowUp = kc === 38;
+      const isArrowDown = kc === 40;
+      if (!swiper.allowSlideNext && (swiper.isHorizontal() && isArrowRight || swiper.isVertical() && isArrowDown || isPageDown)) {
+        return false;
+      }
+      if (!swiper.allowSlidePrev && (swiper.isHorizontal() && isArrowLeft || swiper.isVertical() && isArrowUp || isPageUp)) {
+        return false;
+      }
+      if (e.shiftKey || e.altKey || e.ctrlKey || e.metaKey) {
+        return void 0;
+      }
+      if (document2.activeElement && (document2.activeElement.isContentEditable || document2.activeElement.nodeName && (document2.activeElement.nodeName.toLowerCase() === "input" || document2.activeElement.nodeName.toLowerCase() === "textarea"))) {
+        return void 0;
+      }
+      if (swiper.params.keyboard.onlyInViewport && (isPageUp || isPageDown || isArrowLeft || isArrowRight || isArrowUp || isArrowDown)) {
+        let inView = false;
+        if (elementParents(swiper.el, `.${swiper.params.slideClass}, swiper-slide`).length > 0 && elementParents(swiper.el, `.${swiper.params.slideActiveClass}`).length === 0) {
+          return void 0;
+        }
+        const el = swiper.el;
+        const swiperWidth = el.clientWidth;
+        const swiperHeight = el.clientHeight;
+        const windowWidth = window2.innerWidth;
+        const windowHeight = window2.innerHeight;
+        const swiperOffset = elementOffset(el);
+        if (rtl) swiperOffset.left -= el.scrollLeft;
+        const swiperCoord = [[swiperOffset.left, swiperOffset.top], [swiperOffset.left + swiperWidth, swiperOffset.top], [swiperOffset.left, swiperOffset.top + swiperHeight], [swiperOffset.left + swiperWidth, swiperOffset.top + swiperHeight]];
+        for (let i = 0; i < swiperCoord.length; i += 1) {
+          const point = swiperCoord[i];
+          if (point[0] >= 0 && point[0] <= windowWidth && point[1] >= 0 && point[1] <= windowHeight) {
+            if (point[0] === 0 && point[1] === 0) continue;
+            inView = true;
+          }
+        }
+        if (!inView) return void 0;
+      }
+      const speed = swiper.params.keyboard.speed;
+      if (swiper.isHorizontal()) {
+        if (isPageUp || isPageDown || isArrowLeft || isArrowRight) {
+          if (e.preventDefault) e.preventDefault();
+          else e.returnValue = false;
+        }
+        if ((isPageDown || isArrowRight) && !rtl || (isPageUp || isArrowLeft) && rtl) swiper.slideNext(speed);
+        if ((isPageUp || isArrowLeft) && !rtl || (isPageDown || isArrowRight) && rtl) swiper.slidePrev(speed);
+      } else {
+        if (isPageUp || isPageDown || isArrowUp || isArrowDown) {
+          if (e.preventDefault) e.preventDefault();
+          else e.returnValue = false;
+        }
+        if (isPageDown || isArrowDown) swiper.slideNext(speed);
+        if (isPageUp || isArrowUp) swiper.slidePrev(speed);
+      }
+      emit("keyPress", kc);
+      return void 0;
+    }
+    function enable() {
+      if (swiper.keyboard.enabled) return;
+      document2.addEventListener("keydown", handle);
+      swiper.keyboard.enabled = true;
+    }
+    function disable() {
+      if (!swiper.keyboard.enabled) return;
+      document2.removeEventListener("keydown", handle);
+      swiper.keyboard.enabled = false;
+    }
+    on("init", () => {
+      if (swiper.params.keyboard.enabled) {
+        enable();
+      }
+    });
+    on("destroy", () => {
+      if (swiper.keyboard.enabled) {
+        disable();
+      }
+    });
+    Object.assign(swiper.keyboard, {
+      enable,
+      disable
+    });
+  }
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/shared/create-element-if-not-defined.mjs
+  function createElementIfNotDefined(swiper, originalParams, params, checkProps) {
+    if (swiper.params.createElements) {
+      Object.keys(checkProps).forEach((key) => {
+        if (!params[key] && params.auto === true) {
+          let element = elementChildren(swiper.el, `.${checkProps[key]}`)[0];
+          if (!element) {
+            element = createElement("div", checkProps[key]);
+            element.className = checkProps[key];
+            swiper.el.append(element);
+          }
+          params[key] = element;
+          originalParams[key] = element;
+        }
+      });
+    }
+    return params;
+  }
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/modules/navigation.mjs
+  var arrowSvg = `<svg class="swiper-navigation-icon" width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.38296 20.0762C0.111788 19.805 0.111788 19.3654 0.38296 19.0942L9.19758 10.2796L0.38296 1.46497C0.111788 1.19379 0.111788 0.754138 0.38296 0.482966C0.654131 0.211794 1.09379 0.211794 1.36496 0.482966L10.4341 9.55214C10.8359 9.9539 10.8359 10.6053 10.4341 11.007L1.36496 20.0762C1.09379 20.3474 0.654131 20.3474 0.38296 20.0762Z" fill="currentColor"/></svg>`;
+  function Navigation({
+    swiper,
+    extendParams,
+    on,
+    emit
+  }) {
+    extendParams({
+      navigation: {
+        nextEl: null,
+        prevEl: null,
+        addIcons: true,
+        hideOnClick: false,
+        disabledClass: "swiper-button-disabled",
+        hiddenClass: "swiper-button-hidden",
+        lockClass: "swiper-button-lock",
+        navigationDisabledClass: "swiper-navigation-disabled"
+      }
+    });
+    swiper.navigation = {
+      nextEl: null,
+      prevEl: null,
+      arrowSvg
+    };
+    function getEl(el) {
+      let res;
+      if (el && typeof el === "string" && swiper.isElement) {
+        res = swiper.el.querySelector(el) || swiper.hostEl.querySelector(el);
+        if (res) return res;
+      }
+      if (el) {
+        if (typeof el === "string") res = [...document.querySelectorAll(el)];
+        if (swiper.params.uniqueNavElements && typeof el === "string" && res && res.length > 1 && swiper.el.querySelectorAll(el).length === 1) {
+          res = swiper.el.querySelector(el);
+        } else if (res && res.length === 1) {
+          res = res[0];
+        }
+      }
+      if (el && !res) return el;
+      return res;
+    }
+    function toggleEl(el, disabled) {
+      const params = swiper.params.navigation;
+      el = makeElementsArray(el);
+      el.forEach((subEl) => {
+        if (subEl) {
+          subEl.classList[disabled ? "add" : "remove"](...params.disabledClass.split(" "));
+          if (subEl.tagName === "BUTTON") subEl.disabled = disabled;
+          if (swiper.params.watchOverflow && swiper.enabled) {
+            subEl.classList[swiper.isLocked ? "add" : "remove"](params.lockClass);
+          }
+        }
+      });
+    }
+    function update2() {
+      const {
+        nextEl,
+        prevEl
+      } = swiper.navigation;
+      if (swiper.params.loop) {
+        toggleEl(prevEl, false);
+        toggleEl(nextEl, false);
+        return;
+      }
+      toggleEl(prevEl, swiper.isBeginning && !swiper.params.rewind);
+      toggleEl(nextEl, swiper.isEnd && !swiper.params.rewind);
+    }
+    function onPrevClick(e) {
+      e.preventDefault();
+      if (swiper.isBeginning && !swiper.params.loop && !swiper.params.rewind) return;
+      swiper.slidePrev();
+      emit("navigationPrev");
+    }
+    function onNextClick(e) {
+      e.preventDefault();
+      if (swiper.isEnd && !swiper.params.loop && !swiper.params.rewind) return;
+      swiper.slideNext();
+      emit("navigationNext");
+    }
+    function init() {
+      const params = swiper.params.navigation;
+      swiper.params.navigation = createElementIfNotDefined(swiper, swiper.originalParams.navigation, swiper.params.navigation, {
+        nextEl: "swiper-button-next",
+        prevEl: "swiper-button-prev"
+      });
+      if (!(params.nextEl || params.prevEl)) return;
+      let nextEl = getEl(params.nextEl);
+      let prevEl = getEl(params.prevEl);
+      Object.assign(swiper.navigation, {
+        nextEl,
+        prevEl
+      });
+      nextEl = makeElementsArray(nextEl);
+      prevEl = makeElementsArray(prevEl);
+      const initButton = (el, dir) => {
+        if (el) {
+          if (params.addIcons && el.matches(".swiper-button-next,.swiper-button-prev") && !el.querySelector("svg")) {
+            const tempEl = document.createElement("div");
+            setInnerHTML(tempEl, arrowSvg);
+            el.appendChild(tempEl.querySelector("svg"));
+            tempEl.remove();
+          }
+          el.addEventListener("click", dir === "next" ? onNextClick : onPrevClick);
+        }
+        if (!swiper.enabled && el) {
+          el.classList.add(...params.lockClass.split(" "));
+        }
+      };
+      nextEl.forEach((el) => initButton(el, "next"));
+      prevEl.forEach((el) => initButton(el, "prev"));
+    }
+    function destroy() {
+      let {
+        nextEl,
+        prevEl
+      } = swiper.navigation;
+      nextEl = makeElementsArray(nextEl);
+      prevEl = makeElementsArray(prevEl);
+      const destroyButton = (el, dir) => {
+        el.removeEventListener("click", dir === "next" ? onNextClick : onPrevClick);
+        el.classList.remove(...swiper.params.navigation.disabledClass.split(" "));
+      };
+      nextEl.forEach((el) => destroyButton(el, "next"));
+      prevEl.forEach((el) => destroyButton(el, "prev"));
+    }
+    on("init", () => {
+      if (swiper.params.navigation.enabled === false) {
+        disable();
+      } else {
+        init();
+        update2();
+      }
+    });
+    on("toEdge fromEdge lock unlock", () => {
+      update2();
+    });
+    on("destroy", () => {
+      destroy();
+    });
+    on("enable disable", () => {
+      let {
+        nextEl,
+        prevEl
+      } = swiper.navigation;
+      nextEl = makeElementsArray(nextEl);
+      prevEl = makeElementsArray(prevEl);
+      if (swiper.enabled) {
+        update2();
+        return;
+      }
+      [...nextEl, ...prevEl].filter((el) => !!el).forEach((el) => el.classList.add(swiper.params.navigation.lockClass));
+    });
+    on("click", (_s, e) => {
+      let {
+        nextEl,
+        prevEl
+      } = swiper.navigation;
+      nextEl = makeElementsArray(nextEl);
+      prevEl = makeElementsArray(prevEl);
+      const targetEl = e.target;
+      let targetIsButton = prevEl.includes(targetEl) || nextEl.includes(targetEl);
+      if (swiper.isElement && !targetIsButton) {
+        const path = e.path || e.composedPath && e.composedPath();
+        if (path) {
+          targetIsButton = path.find((pathEl) => nextEl.includes(pathEl) || prevEl.includes(pathEl));
+        }
+      }
+      if (swiper.params.navigation.hideOnClick && !targetIsButton) {
+        if (swiper.pagination && swiper.params.pagination && swiper.params.pagination.clickable && (swiper.pagination.el === targetEl || swiper.pagination.el.contains(targetEl))) return;
+        let isHidden;
+        if (nextEl.length) {
+          isHidden = nextEl[0].classList.contains(swiper.params.navigation.hiddenClass);
+        } else if (prevEl.length) {
+          isHidden = prevEl[0].classList.contains(swiper.params.navigation.hiddenClass);
+        }
+        if (isHidden === true) {
+          emit("navigationShow");
+        } else {
+          emit("navigationHide");
+        }
+        [...nextEl, ...prevEl].filter((el) => !!el).forEach((el) => el.classList.toggle(swiper.params.navigation.hiddenClass));
+      }
+    });
+    const enable = () => {
+      swiper.el.classList.remove(...swiper.params.navigation.navigationDisabledClass.split(" "));
+      init();
+      update2();
+    };
+    const disable = () => {
+      swiper.el.classList.add(...swiper.params.navigation.navigationDisabledClass.split(" "));
+      destroy();
+    };
+    Object.assign(swiper.navigation, {
+      enable,
+      disable,
+      update: update2,
+      init,
+      destroy
+    });
+  }
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/shared/classes-to-selector.mjs
+  function classesToSelector(classes2 = "") {
+    return `.${classes2.trim().replace(/([\.:!+\/()[\]#>~*^$|=,'"@{}\\])/g, "\\$1").replace(/ /g, ".")}`;
+  }
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/modules/pagination.mjs
+  function Pagination({
+    swiper,
+    extendParams,
+    on,
+    emit
+  }) {
+    const pfx = "swiper-pagination";
+    extendParams({
+      pagination: {
+        el: null,
+        bulletElement: "span",
+        clickable: false,
+        hideOnClick: false,
+        renderBullet: null,
+        renderProgressbar: null,
+        renderFraction: null,
+        renderCustom: null,
+        progressbarOpposite: false,
+        type: "bullets",
+        // 'bullets' or 'progressbar' or 'fraction' or 'custom'
+        dynamicBullets: false,
+        dynamicMainBullets: 1,
+        formatFractionCurrent: (number) => number,
+        formatFractionTotal: (number) => number,
+        bulletClass: `${pfx}-bullet`,
+        bulletActiveClass: `${pfx}-bullet-active`,
+        modifierClass: `${pfx}-`,
+        currentClass: `${pfx}-current`,
+        totalClass: `${pfx}-total`,
+        hiddenClass: `${pfx}-hidden`,
+        progressbarFillClass: `${pfx}-progressbar-fill`,
+        progressbarOppositeClass: `${pfx}-progressbar-opposite`,
+        clickableClass: `${pfx}-clickable`,
+        lockClass: `${pfx}-lock`,
+        horizontalClass: `${pfx}-horizontal`,
+        verticalClass: `${pfx}-vertical`,
+        paginationDisabledClass: `${pfx}-disabled`
+      }
+    });
+    swiper.pagination = {
+      el: null,
+      bullets: []
+    };
+    let bulletSize;
+    let dynamicBulletIndex = 0;
+    function isPaginationDisabled() {
+      return !swiper.params.pagination.el || !swiper.pagination.el || Array.isArray(swiper.pagination.el) && swiper.pagination.el.length === 0;
+    }
+    function setSideBullets(bulletEl, position) {
+      const {
+        bulletActiveClass
+      } = swiper.params.pagination;
+      if (!bulletEl) return;
+      bulletEl = bulletEl[`${position === "prev" ? "previous" : "next"}ElementSibling`];
+      if (bulletEl) {
+        bulletEl.classList.add(`${bulletActiveClass}-${position}`);
+        bulletEl = bulletEl[`${position === "prev" ? "previous" : "next"}ElementSibling`];
+        if (bulletEl) {
+          bulletEl.classList.add(`${bulletActiveClass}-${position}-${position}`);
+        }
+      }
+    }
+    function getMoveDirection(prevIndex, nextIndex, length) {
+      prevIndex = prevIndex % length;
+      nextIndex = nextIndex % length;
+      if (nextIndex === prevIndex + 1) {
+        return "next";
+      } else if (nextIndex === prevIndex - 1) {
+        return "previous";
+      }
+      return;
+    }
+    function onBulletClick(e) {
+      const bulletEl = e.target.closest(classesToSelector(swiper.params.pagination.bulletClass));
+      if (!bulletEl) {
+        return;
+      }
+      e.preventDefault();
+      const index = elementIndex(bulletEl) * swiper.params.slidesPerGroup;
+      if (swiper.params.loop) {
+        if (swiper.realIndex === index) return;
+        const moveDirection = getMoveDirection(swiper.realIndex, index, swiper.slides.length);
+        if (moveDirection === "next") {
+          swiper.slideNext();
+        } else if (moveDirection === "previous") {
+          swiper.slidePrev();
+        } else {
+          swiper.slideToLoop(index);
+        }
+      } else {
+        swiper.slideTo(index);
+      }
+    }
+    function update2() {
+      const rtl = swiper.rtl;
+      const params = swiper.params.pagination;
+      if (isPaginationDisabled()) return;
+      let el = swiper.pagination.el;
+      el = makeElementsArray(el);
+      let current;
+      let previousIndex;
+      const slidesLength = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides.length : swiper.slides.length;
+      const total = swiper.params.loop ? Math.ceil(slidesLength / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
+      if (swiper.params.loop) {
+        previousIndex = swiper.previousRealIndex || 0;
+        current = swiper.params.slidesPerGroup > 1 ? Math.floor(swiper.realIndex / swiper.params.slidesPerGroup) : swiper.realIndex;
+      } else if (typeof swiper.snapIndex !== "undefined") {
+        current = swiper.snapIndex;
+        previousIndex = swiper.previousSnapIndex;
+      } else {
+        previousIndex = swiper.previousIndex || 0;
+        current = swiper.activeIndex || 0;
+      }
+      if (params.type === "bullets" && swiper.pagination.bullets && swiper.pagination.bullets.length > 0) {
+        const bullets = swiper.pagination.bullets;
+        let firstIndex;
+        let lastIndex;
+        let midIndex;
+        if (params.dynamicBullets) {
+          bulletSize = elementOuterSize(bullets[0], swiper.isHorizontal() ? "width" : "height", true);
+          el.forEach((subEl) => {
+            subEl.style[swiper.isHorizontal() ? "width" : "height"] = `${bulletSize * (params.dynamicMainBullets + 4)}px`;
+          });
+          if (params.dynamicMainBullets > 1 && previousIndex !== void 0) {
+            dynamicBulletIndex += current - (previousIndex || 0);
+            if (dynamicBulletIndex > params.dynamicMainBullets - 1) {
+              dynamicBulletIndex = params.dynamicMainBullets - 1;
+            } else if (dynamicBulletIndex < 0) {
+              dynamicBulletIndex = 0;
+            }
+          }
+          firstIndex = Math.max(current - dynamicBulletIndex, 0);
+          lastIndex = firstIndex + (Math.min(bullets.length, params.dynamicMainBullets) - 1);
+          midIndex = (lastIndex + firstIndex) / 2;
+        }
+        bullets.forEach((bulletEl) => {
+          const classesToRemove = [...["", "-next", "-next-next", "-prev", "-prev-prev", "-main"].map((suffix) => `${params.bulletActiveClass}${suffix}`)].map((s) => typeof s === "string" && s.includes(" ") ? s.split(" ") : s).flat();
+          bulletEl.classList.remove(...classesToRemove);
+        });
+        if (el.length > 1) {
+          bullets.forEach((bullet) => {
+            const bulletIndex = elementIndex(bullet);
+            if (bulletIndex === current) {
+              bullet.classList.add(...params.bulletActiveClass.split(" "));
+            } else if (swiper.isElement) {
+              bullet.setAttribute("part", "bullet");
+            }
+            if (params.dynamicBullets) {
+              if (bulletIndex >= firstIndex && bulletIndex <= lastIndex) {
+                bullet.classList.add(...`${params.bulletActiveClass}-main`.split(" "));
+              }
+              if (bulletIndex === firstIndex) {
+                setSideBullets(bullet, "prev");
+              }
+              if (bulletIndex === lastIndex) {
+                setSideBullets(bullet, "next");
+              }
+            }
+          });
+        } else {
+          const bullet = bullets[current];
+          if (bullet) {
+            bullet.classList.add(...params.bulletActiveClass.split(" "));
+          }
+          if (swiper.isElement) {
+            bullets.forEach((bulletEl, bulletIndex) => {
+              bulletEl.setAttribute("part", bulletIndex === current ? "bullet-active" : "bullet");
+            });
+          }
+          if (params.dynamicBullets) {
+            const firstDisplayedBullet = bullets[firstIndex];
+            const lastDisplayedBullet = bullets[lastIndex];
+            for (let i = firstIndex; i <= lastIndex; i += 1) {
+              if (bullets[i]) {
+                bullets[i].classList.add(...`${params.bulletActiveClass}-main`.split(" "));
+              }
+            }
+            setSideBullets(firstDisplayedBullet, "prev");
+            setSideBullets(lastDisplayedBullet, "next");
+          }
+        }
+        if (params.dynamicBullets) {
+          const dynamicBulletsLength = Math.min(bullets.length, params.dynamicMainBullets + 4);
+          const bulletsOffset = (bulletSize * dynamicBulletsLength - bulletSize) / 2 - midIndex * bulletSize;
+          const offsetProp = rtl ? "right" : "left";
+          bullets.forEach((bullet) => {
+            bullet.style[swiper.isHorizontal() ? offsetProp : "top"] = `${bulletsOffset}px`;
+          });
+        }
+      }
+      el.forEach((subEl, subElIndex) => {
+        if (params.type === "fraction") {
+          subEl.querySelectorAll(classesToSelector(params.currentClass)).forEach((fractionEl) => {
+            fractionEl.textContent = params.formatFractionCurrent(current + 1);
+          });
+          subEl.querySelectorAll(classesToSelector(params.totalClass)).forEach((totalEl) => {
+            totalEl.textContent = params.formatFractionTotal(total);
+          });
+        }
+        if (params.type === "progressbar") {
+          let progressbarDirection;
+          if (params.progressbarOpposite) {
+            progressbarDirection = swiper.isHorizontal() ? "vertical" : "horizontal";
+          } else {
+            progressbarDirection = swiper.isHorizontal() ? "horizontal" : "vertical";
+          }
+          const scale = (current + 1) / total;
+          let scaleX = 1;
+          let scaleY = 1;
+          if (progressbarDirection === "horizontal") {
+            scaleX = scale;
+          } else {
+            scaleY = scale;
+          }
+          subEl.querySelectorAll(classesToSelector(params.progressbarFillClass)).forEach((progressEl) => {
+            progressEl.style.transform = `translate3d(0,0,0) scaleX(${scaleX}) scaleY(${scaleY})`;
+            progressEl.style.transitionDuration = `${swiper.params.speed}ms`;
+          });
+        }
+        if (params.type === "custom" && params.renderCustom) {
+          setInnerHTML(subEl, params.renderCustom(swiper, current + 1, total));
+          if (subElIndex === 0) emit("paginationRender", subEl);
+        } else {
+          if (subElIndex === 0) emit("paginationRender", subEl);
+          emit("paginationUpdate", subEl);
+        }
+        if (swiper.params.watchOverflow && swiper.enabled) {
+          subEl.classList[swiper.isLocked ? "add" : "remove"](params.lockClass);
+        }
+      });
+    }
+    function render() {
+      const params = swiper.params.pagination;
+      if (isPaginationDisabled()) return;
+      const slidesLength = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides.length : swiper.grid && swiper.params.grid.rows > 1 ? swiper.slides.length / Math.ceil(swiper.params.grid.rows) : swiper.slides.length;
+      let el = swiper.pagination.el;
+      el = makeElementsArray(el);
+      let paginationHTML = "";
+      if (params.type === "bullets") {
+        let numberOfBullets = swiper.params.loop ? Math.ceil(slidesLength / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
+        if (swiper.params.freeMode && swiper.params.freeMode.enabled && numberOfBullets > slidesLength) {
+          numberOfBullets = slidesLength;
+        }
+        for (let i = 0; i < numberOfBullets; i += 1) {
+          if (params.renderBullet) {
+            paginationHTML += params.renderBullet.call(swiper, i, params.bulletClass);
+          } else {
+            paginationHTML += `<${params.bulletElement} ${swiper.isElement ? 'part="bullet"' : ""} class="${params.bulletClass}"></${params.bulletElement}>`;
+          }
+        }
+      }
+      if (params.type === "fraction") {
+        if (params.renderFraction) {
+          paginationHTML = params.renderFraction.call(swiper, params.currentClass, params.totalClass);
+        } else {
+          paginationHTML = `<span class="${params.currentClass}"></span> / <span class="${params.totalClass}"></span>`;
+        }
+      }
+      if (params.type === "progressbar") {
+        if (params.renderProgressbar) {
+          paginationHTML = params.renderProgressbar.call(swiper, params.progressbarFillClass);
+        } else {
+          paginationHTML = `<span class="${params.progressbarFillClass}"></span>`;
+        }
+      }
+      swiper.pagination.bullets = [];
+      el.forEach((subEl) => {
+        if (params.type !== "custom") {
+          setInnerHTML(subEl, paginationHTML || "");
+        }
+        if (params.type === "bullets") {
+          swiper.pagination.bullets.push(...subEl.querySelectorAll(classesToSelector(params.bulletClass)));
+        }
+      });
+      if (params.type !== "custom") {
+        emit("paginationRender", el[0]);
+      }
+    }
+    function init() {
+      swiper.params.pagination = createElementIfNotDefined(swiper, swiper.originalParams.pagination, swiper.params.pagination, {
+        el: "swiper-pagination"
+      });
+      const params = swiper.params.pagination;
+      if (!params.el) return;
+      let el;
+      if (typeof params.el === "string" && swiper.isElement) {
+        el = swiper.el.querySelector(params.el);
+      }
+      if (!el && typeof params.el === "string") {
+        el = [...document.querySelectorAll(params.el)];
+      }
+      if (!el) {
+        el = params.el;
+      }
+      if (!el || el.length === 0) return;
+      if (swiper.params.uniqueNavElements && typeof params.el === "string" && Array.isArray(el) && el.length > 1) {
+        el = [...swiper.el.querySelectorAll(params.el)];
+        if (el.length > 1) {
+          el = el.find((subEl) => {
+            if (elementParents(subEl, ".swiper")[0] !== swiper.el) return false;
+            return true;
+          });
+        }
+      }
+      if (Array.isArray(el) && el.length === 1) el = el[0];
+      Object.assign(swiper.pagination, {
+        el
+      });
+      el = makeElementsArray(el);
+      el.forEach((subEl) => {
+        if (params.type === "bullets" && params.clickable) {
+          subEl.classList.add(...(params.clickableClass || "").split(" "));
+        }
+        subEl.classList.add(params.modifierClass + params.type);
+        subEl.classList.add(swiper.isHorizontal() ? params.horizontalClass : params.verticalClass);
+        if (params.type === "bullets" && params.dynamicBullets) {
+          subEl.classList.add(`${params.modifierClass}${params.type}-dynamic`);
+          dynamicBulletIndex = 0;
+          if (params.dynamicMainBullets < 1) {
+            params.dynamicMainBullets = 1;
+          }
+        }
+        if (params.type === "progressbar" && params.progressbarOpposite) {
+          subEl.classList.add(params.progressbarOppositeClass);
+        }
+        if (params.clickable) {
+          subEl.addEventListener("click", onBulletClick);
+        }
+        if (!swiper.enabled) {
+          subEl.classList.add(params.lockClass);
+        }
+      });
+    }
+    function destroy() {
+      const params = swiper.params.pagination;
+      if (isPaginationDisabled()) return;
+      let el = swiper.pagination.el;
+      if (el) {
+        el = makeElementsArray(el);
+        el.forEach((subEl) => {
+          subEl.classList.remove(params.hiddenClass);
+          subEl.classList.remove(params.modifierClass + params.type);
+          subEl.classList.remove(swiper.isHorizontal() ? params.horizontalClass : params.verticalClass);
+          if (params.clickable) {
+            subEl.classList.remove(...(params.clickableClass || "").split(" "));
+            subEl.removeEventListener("click", onBulletClick);
+          }
+        });
+      }
+      if (swiper.pagination.bullets) swiper.pagination.bullets.forEach((subEl) => subEl.classList.remove(...params.bulletActiveClass.split(" ")));
+    }
+    on("changeDirection", () => {
+      if (!swiper.pagination || !swiper.pagination.el) return;
+      const params = swiper.params.pagination;
+      let {
+        el
+      } = swiper.pagination;
+      el = makeElementsArray(el);
+      el.forEach((subEl) => {
+        subEl.classList.remove(params.horizontalClass, params.verticalClass);
+        subEl.classList.add(swiper.isHorizontal() ? params.horizontalClass : params.verticalClass);
+      });
+    });
+    on("init", () => {
+      if (swiper.params.pagination.enabled === false) {
+        disable();
+      } else {
+        init();
+        render();
+        update2();
+      }
+    });
+    on("activeIndexChange", () => {
+      if (typeof swiper.snapIndex === "undefined") {
+        update2();
+      }
+    });
+    on("snapIndexChange", () => {
+      update2();
+    });
+    on("snapGridLengthChange", () => {
+      render();
+      update2();
+    });
+    on("destroy", () => {
+      destroy();
+    });
+    on("enable disable", () => {
+      let {
+        el
+      } = swiper.pagination;
+      if (el) {
+        el = makeElementsArray(el);
+        el.forEach((subEl) => subEl.classList[swiper.enabled ? "remove" : "add"](swiper.params.pagination.lockClass));
+      }
+    });
+    on("lock unlock", () => {
+      update2();
+    });
+    on("click", (_s, e) => {
+      const targetEl = e.target;
+      const el = makeElementsArray(swiper.pagination.el);
+      if (swiper.params.pagination.el && swiper.params.pagination.hideOnClick && el && el.length > 0 && !targetEl.classList.contains(swiper.params.pagination.bulletClass)) {
+        if (swiper.navigation && (swiper.navigation.nextEl && targetEl === swiper.navigation.nextEl || swiper.navigation.prevEl && targetEl === swiper.navigation.prevEl)) return;
+        const isHidden = el[0].classList.contains(swiper.params.pagination.hiddenClass);
+        if (isHidden === true) {
+          emit("paginationShow");
+        } else {
+          emit("paginationHide");
+        }
+        el.forEach((subEl) => subEl.classList.toggle(swiper.params.pagination.hiddenClass));
+      }
+    });
+    const enable = () => {
+      swiper.el.classList.remove(swiper.params.pagination.paginationDisabledClass);
+      let {
+        el
+      } = swiper.pagination;
+      if (el) {
+        el = makeElementsArray(el);
+        el.forEach((subEl) => subEl.classList.remove(swiper.params.pagination.paginationDisabledClass));
+      }
+      init();
+      render();
+      update2();
+    };
+    const disable = () => {
+      swiper.el.classList.add(swiper.params.pagination.paginationDisabledClass);
+      let {
+        el
+      } = swiper.pagination;
+      if (el) {
+        el = makeElementsArray(el);
+        el.forEach((subEl) => subEl.classList.add(swiper.params.pagination.paginationDisabledClass));
+      }
+      destroy();
+    };
+    Object.assign(swiper.pagination, {
+      enable,
+      disable,
+      render,
+      update: update2,
+      init,
+      destroy
+    });
+  }
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/modules/thumbs.mjs
+  function Thumb({
+    swiper,
+    extendParams,
+    on
+  }) {
+    extendParams({
+      thumbs: {
+        swiper: null,
+        multipleActiveThumbs: true,
+        autoScrollOffset: 0,
+        slideThumbActiveClass: "swiper-slide-thumb-active",
+        thumbsContainerClass: "swiper-thumbs"
+      }
+    });
+    let initialized = false;
+    let swiperCreated = false;
+    swiper.thumbs = {
+      swiper: null
+    };
+    function isVirtualEnabled() {
+      const thumbsSwiper = swiper.thumbs.swiper;
+      if (!thumbsSwiper || thumbsSwiper.destroyed) return false;
+      return thumbsSwiper.params.virtual && thumbsSwiper.params.virtual.enabled;
+    }
+    function onThumbClick() {
+      const thumbsSwiper = swiper.thumbs.swiper;
+      if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+      const clickedIndex = thumbsSwiper.clickedIndex;
+      const clickedSlide = thumbsSwiper.clickedSlide;
+      if (clickedSlide && clickedSlide.classList.contains(swiper.params.thumbs.slideThumbActiveClass)) return;
+      if (typeof clickedIndex === "undefined" || clickedIndex === null) return;
+      let slideToIndex;
+      if (thumbsSwiper.params.loop) {
+        slideToIndex = parseInt(thumbsSwiper.clickedSlide.getAttribute("data-swiper-slide-index"), 10);
+      } else {
+        slideToIndex = clickedIndex;
+      }
+      if (swiper.params.loop) {
+        swiper.slideToLoop(slideToIndex);
+      } else {
+        swiper.slideTo(slideToIndex);
+      }
+    }
+    function init() {
+      const {
+        thumbs: thumbsParams
+      } = swiper.params;
+      if (initialized) return false;
+      initialized = true;
+      const SwiperClass = swiper.constructor;
+      if (thumbsParams.swiper instanceof SwiperClass) {
+        if (thumbsParams.swiper.destroyed) {
+          initialized = false;
+          return false;
+        }
+        swiper.thumbs.swiper = thumbsParams.swiper;
+        Object.assign(swiper.thumbs.swiper.originalParams, {
+          watchSlidesProgress: true,
+          slideToClickedSlide: false
+        });
+        Object.assign(swiper.thumbs.swiper.params, {
+          watchSlidesProgress: true,
+          slideToClickedSlide: false
+        });
+        swiper.thumbs.swiper.update();
+      } else if (isObject2(thumbsParams.swiper)) {
+        const thumbsSwiperParams = Object.assign({}, thumbsParams.swiper);
+        Object.assign(thumbsSwiperParams, {
+          watchSlidesProgress: true,
+          slideToClickedSlide: false
+        });
+        swiper.thumbs.swiper = new SwiperClass(thumbsSwiperParams);
+        swiperCreated = true;
+      }
+      swiper.thumbs.swiper.el.classList.add(swiper.params.thumbs.thumbsContainerClass);
+      swiper.thumbs.swiper.on("tap", onThumbClick);
+      if (isVirtualEnabled()) {
+        swiper.thumbs.swiper.on("virtualUpdate", () => {
+          update2(false, {
+            autoScroll: false
+          });
+        });
+      }
+      return true;
+    }
+    function update2(initial, p) {
+      const thumbsSwiper = swiper.thumbs.swiper;
+      if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+      let thumbsToActivate = 1;
+      const thumbActiveClass = swiper.params.thumbs.slideThumbActiveClass;
+      if (swiper.params.slidesPerView > 1 && !swiper.params.centeredSlides) {
+        thumbsToActivate = swiper.params.slidesPerView;
+      }
+      if (!swiper.params.thumbs.multipleActiveThumbs) {
+        thumbsToActivate = 1;
+      }
+      thumbsToActivate = Math.floor(thumbsToActivate);
+      thumbsSwiper.slides.forEach((slideEl) => slideEl.classList.remove(thumbActiveClass));
+      if (thumbsSwiper.params.loop || isVirtualEnabled()) {
+        for (let i = 0; i < thumbsToActivate; i += 1) {
+          elementChildren(thumbsSwiper.slidesEl, `[data-swiper-slide-index="${swiper.realIndex + i}"]`).forEach((slideEl) => {
+            slideEl.classList.add(thumbActiveClass);
+          });
+        }
+      } else {
+        for (let i = 0; i < thumbsToActivate; i += 1) {
+          if (thumbsSwiper.slides[swiper.realIndex + i]) {
+            thumbsSwiper.slides[swiper.realIndex + i].classList.add(thumbActiveClass);
+          }
+        }
+      }
+      if (p?.autoScroll ?? true) {
+        autoScroll(initial ? 0 : void 0);
+      }
+    }
+    function autoScroll(slideSpeed) {
+      const thumbsSwiper = swiper.thumbs.swiper;
+      if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+      const slidesPerView = thumbsSwiper.params.slidesPerView === "auto" ? thumbsSwiper.slidesPerViewDynamic() : thumbsSwiper.params.slidesPerView;
+      const autoScrollOffset = swiper.params.thumbs.autoScrollOffset;
+      const useOffset = autoScrollOffset && !thumbsSwiper.params.loop;
+      if (swiper.realIndex !== thumbsSwiper.realIndex || useOffset) {
+        const currentThumbsIndex = thumbsSwiper.activeIndex;
+        let newThumbsIndex;
+        let direction;
+        if (thumbsSwiper.params.loop) {
+          const newThumbsSlide = thumbsSwiper.slides.find((slideEl) => slideEl.getAttribute("data-swiper-slide-index") === `${swiper.realIndex}`);
+          newThumbsIndex = thumbsSwiper.slides.indexOf(newThumbsSlide);
+          direction = swiper.activeIndex > swiper.previousIndex ? "next" : "prev";
+        } else {
+          newThumbsIndex = swiper.realIndex;
+          direction = newThumbsIndex > swiper.previousIndex ? "next" : "prev";
+        }
+        if (useOffset) {
+          newThumbsIndex += direction === "next" ? autoScrollOffset : -1 * autoScrollOffset;
+        }
+        if (thumbsSwiper.visibleSlidesIndexes && thumbsSwiper.visibleSlidesIndexes.indexOf(newThumbsIndex) < 0) {
+          if (thumbsSwiper.params.centeredSlides) {
+            if (newThumbsIndex > currentThumbsIndex) {
+              newThumbsIndex = newThumbsIndex - Math.floor(slidesPerView / 2) + 1;
+            } else {
+              newThumbsIndex = newThumbsIndex + Math.floor(slidesPerView / 2) - 1;
+            }
+          } else if (newThumbsIndex > currentThumbsIndex && thumbsSwiper.params.slidesPerGroup === 1) ;
+          thumbsSwiper.slideTo(newThumbsIndex, slideSpeed);
+        }
+      }
+    }
+    on("beforeInit", () => {
+      const {
+        thumbs
+      } = swiper.params;
+      if (!thumbs || !thumbs.swiper) return;
+      if (typeof thumbs.swiper === "string" || thumbs.swiper instanceof HTMLElement) {
+        const document2 = getDocument();
+        const getThumbsElementAndInit = () => {
+          const thumbsElement = typeof thumbs.swiper === "string" ? document2.querySelector(thumbs.swiper) : thumbs.swiper;
+          if (thumbsElement && thumbsElement.swiper) {
+            thumbs.swiper = thumbsElement.swiper;
+            init();
+            update2(true);
+          } else if (thumbsElement) {
+            const eventName = `${swiper.params.eventsPrefix}init`;
+            const onThumbsSwiper = (e) => {
+              thumbs.swiper = e.detail[0];
+              thumbsElement.removeEventListener(eventName, onThumbsSwiper);
+              init();
+              update2(true);
+              thumbs.swiper.update();
+              swiper.update();
+            };
+            thumbsElement.addEventListener(eventName, onThumbsSwiper);
+          }
+          return thumbsElement;
+        };
+        const watchForThumbsToAppear = () => {
+          if (swiper.destroyed) return;
+          const thumbsElement = getThumbsElementAndInit();
+          if (!thumbsElement) {
+            requestAnimationFrame(watchForThumbsToAppear);
+          }
+        };
+        requestAnimationFrame(watchForThumbsToAppear);
+      } else {
+        init();
+        update2(true);
+      }
+    });
+    on("slideChange update resize observerUpdate", () => {
+      update2();
+    });
+    on("setTransition", (_s, duration) => {
+      const thumbsSwiper = swiper.thumbs.swiper;
+      if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+      thumbsSwiper.setTransition(duration);
+    });
+    on("beforeDestroy", () => {
+      const thumbsSwiper = swiper.thumbs.swiper;
+      if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+      if (swiperCreated) {
+        thumbsSwiper.destroy();
+      }
+    });
+    Object.assign(swiper.thumbs, {
+      init,
+      update: update2
+    });
+  }
+
+  // src/utils/mosaic-refreshed-assets.ts
+  var MOSAIC_EXTERIOR_URLS = {
+    "addison|capeDutch|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc2df27c0916a789bf8_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "addison|capeDutch|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc238eaf00f01767e78_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "addison|capeDutch|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc109d104f28ede187d2__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "addison|capeDutch|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc055bb405f1d10beb2b__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "addison|capeDutch|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc058b001558f0f42139__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "addison|transitional|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd23150d47c1d06be2c_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "addison|transitional|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd2193b94d23a3ae893_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "addison|transitional|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd0f884d4a1be4ce3bb_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "addison|transitional|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc192125ef805b71645d__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "addison|transitional|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc117c6fd66c86eac2f0__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "addison|tudor|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc9c7138d528e3bcd56_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "addison|tudor|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc94a03cba1e86686df_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "addison|tudor|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc19757d8f0d9295c414__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "addison|tudor|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc194a03cba1e864b8de__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "addison|tudor|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc06f884d4a1be4b255a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "bandera|capeDutch|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bddaf884d4a1be4ce984_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "bandera|capeDutch|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd95bb405f1d10d91c9_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "bandera|capeDutch|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418163890107064db0__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "bandera|capeDutch|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc393da4674c75d1668e__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "bandera|capeDutch|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc398b001558f0f46552__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "bandera|transitional|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdebdf27c0916a78db6b_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "bandera|transitional|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdea3150d47c1d06d522_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "bandera|transitional|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc88f43dc1e9672082fe__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "bandera|transitional|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc41ad56c86481cc9dcf__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "bandera|transitional|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc3914616b12a1b64f9d__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "bandera|tudor|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bde1c8165c307762c4af_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "bandera|tudor|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bde13da4674c75d2ea0c_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "bandera|tudor|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bde04a03cba1e866a39d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "bandera|tudor|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c3da4674c75d158b7__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "bandera|tudor|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c81638901070634b5__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "collin|capeDutch|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdf78c87da4ea9b93928_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "collin|capeDutch|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdf5b5443afc14783129_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "collin|capeDutch|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6be42bb36f4505a969__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "collin|capeDutch|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c193b94d23a39d4c1__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "collin|capeDutch|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc525bb405f1d10c49e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "collin|transitional|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be083da4674c75d303ed_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "collin|transitional|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be06df27c0916a78f4a3_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "collin|transitional|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b323ef39a7a9c707f__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "collin|transitional|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5ce5143ea322519226__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "collin|transitional|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c59d9060ea7ad38a3__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "collin|tudor|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff8b001558f0f67503_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "collin|tudor|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff79cc6cc768b84658_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "collin|tudor|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff59d9060ea7ae5856_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "collin|tudor|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdfe79cc6cc768b84625_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "collin|tudor|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b2125ef805b71a18e__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "grayson|capeDutch|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1059d9060ea7ae7bf6_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "grayson|capeDutch|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be0f8d303f8756954a4a_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "grayson|capeDutch|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9124ac5a67c599912c__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "grayson|capeDutch|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc884777aad14617b3f1__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "grayson|capeDutch|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b5e1e0993e9706ca8__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "grayson|transitional|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be25b5443afc14787820_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "grayson|transitional|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9138eaf00f01753d06__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "grayson|transitional|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9139d5fa0524a78d37__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "grayson|transitional|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7bdf27c0916a777006__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "grayson|transitional|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b6bccac03cad99b9f__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "grayson|tudor|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1a14616b12a1b8583b_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "grayson|tudor|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1a9d104f28ede32eac_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "grayson|tudor|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1a38eaf00f0176e5af_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "grayson|tudor|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc8879cc6cc768b6d94b__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "grayson|tudor|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b438f7b41b4d6147d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "magnolia|capeDutch|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be31a538e0265f7bfda6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "magnolia|capeDutch|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be30a538e0265f7bfd3d_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "magnolia|capeDutch|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca96bccac03cad9dc87__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "magnolia|capeDutch|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca07c6fd66c86eb4e61__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "magnolia|capeDutch|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca05bb405f1d10c770a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "magnolia|transitional|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be45d31a141ebbd9d43d_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "magnolia|transitional|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb337175f386f36ca62__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "magnolia|transitional|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb39d104f28ede1f232__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "magnolia|transitional|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca999359da766fe7cbd__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "magnolia|transitional|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca08c87da4ea9b7b18c__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "magnolia|tudor|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c45bdcf80988b39b2_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "magnolia|tudor|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c3da4674c75d32704_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "magnolia|tudor|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b39d5fa0524a92348_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "magnolia|tudor|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3bd31a141ebbd9c9dc_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "magnolia|tudor|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b6bccac03cadb990d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp"
+  };
+
+  // src/utils/park-place-refreshed-exterior-urls.ts
+  var PARK_PLACE_REFRESHED_EXTERIOR_URLS = {
+    "addison.transitional|5|Worldly Gray": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aa965be04118c4af2e1675b_addison-transitional-5-worldly-gray-v4.webp",
+    "addison.transitional|1|Newport": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aa965bd75c397e8fa023ef7_addison-transitional-1-newport-v4.webp",
+    "addison.transitional|3|Caprock": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aa965beaa0f24c65c7e0a5a_addison-transitional-3-caprock-v4.webp",
+    "addison.transitional|4|Alabaster": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84071b8045ed415db14a4__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "addison.transitional|2|Iron Ore": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aa965be594087632ec89ebe_addison-transitional-2-iron-ore-v4.webp",
+    "addison.tudor|2|Coral Gray": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aa96a666ca1939825bc92a0__update_06_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "addison.tudor|5|Altitude Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc109d104f28ede187d2__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "addison.tudor|3|Greenblack": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa90750c4c0d23518803722__update_02_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "addison.tudor|1|Colonnade Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa90750377bec32a1a1eb00__update_02_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "addison.tudor|4|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407262d057680bf84f54__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "addison.capeDutch|4|Pure White": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aa965bd04118c4af2e16667_addison-cape-dutch-4-pure-white-v4.webp",
+    "addison.capeDutch|5|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc055bb405f1d10beb2b__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "addison.capeDutch|2|Urbane Bronze": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc058b001558f0f42139__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "addison.capeDutch|1|Everest": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa9074f3cbe7d27e4100879__update_02_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "addison.capeDutch|3|Iron Ore": "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aa965bcbf6448a3c17f5513_addison-cape-dutch-3-iron-ore-v4.webp",
+    "bandera.transitional|5|Worldly Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84072a7e6cc5f9f28aa99__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "bandera.transitional|2|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa96dfa3fee7c49534761e8__update_06_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "bandera.transitional|1|Newport": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418163890107064db0__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "bandera.transitional|3|Caprock": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc41ad56c86481cc9dcf__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "bandera.transitional|4|Alabaster": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840736cf0f7ab6313d873__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "bandera.tudor|4|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc393da4674c75d1668e__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "bandera.tudor|1|Colonnade Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc3914616b12a1b64f9d__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "bandera.tudor|2|Coral Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc398b001558f0f46552__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "bandera.tudor|5|Altitude Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840731c11cd307f8e2f70__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "bandera.tudor|3|Greenblack": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa96dfa8800d47f264573fb__update_06_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "bandera.capeDutch|4|Pure White": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c3da4674c75d158b7__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "bandera.capeDutch|3|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c81638901070634b5__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "bandera.capeDutch|1|Everest": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840741c11cd307f8e2fe5__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "bandera.capeDutch|5|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa96df972778a0b79c1d729__update_06_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "bandera.capeDutch|2|Urbane Bronze": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa96dfa30c3e4049f707d8a__update_06_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "collin.transitional|1|Newport": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b323ef39a7a9c707f__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "collin.transitional|3|Caprock": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b2125ef805b71a18e__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "collin.transitional|5|Worldly Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6be42bb36f4505a969__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "collin.transitional|4|Alabaster": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407462d057680bf85169__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "collin.transitional|2|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b51ce96c5e8eefcadc__update_06_The%20Collin%20Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "collin.tudor|1|Colonnade Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5ce5143ea322519226__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "collin.tudor|5|Altitude Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c193b94d23a39d4c1__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "collin.tudor|2|Coral Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c59d9060ea7ad38a3__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "collin.tudor|3|Greenblack": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84075d53f3132b3b5aeb4__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "collin.tudor|4|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840752df5172621f25726__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "collin.capeDutch|1|Everest": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc525bb405f1d10c49e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "collin.capeDutch|5|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b6ddc44ca70fe0abca__update_06_The%20Collin%20Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "collin.capeDutch|4|Pure White": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407628becd398ae5e1e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "collin.capeDutch|2|Urbane Bronze": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b62464faff5eb8cc6d__update_06_The%20Collin%20Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "collin.capeDutch|3|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84076d53f3132b3b5af65__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "grayson.transitional|2|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9138eaf00f01753d06__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "grayson.transitional|3|Caprock": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9139d5fa0524a78d37__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "grayson.transitional|1|Newport": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9124ac5a67c599912c__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "grayson.transitional|4|Alabaster": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84076a7e6cc5f9f28ac76__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "grayson.transitional|5|Worldly Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b6e70a35d7ee8a3384__update_06_The%20Grayson%20Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "grayson.tudor|1|Colonnade Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc8879cc6cc768b6d94b__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "grayson.tudor|3|Greenblack": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc88f43dc1e9672082fe__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "grayson.tudor|4|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc884777aad14617b3f1__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "grayson.tudor|5|Altitude Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840776cf0f7ab6313db87__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "grayson.tudor|2|Coral Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b686f8c2bc945073ca__update_06_The%20Grayson%20Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "grayson.capeDutch|1|Everest": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b5e1e0993e9706ca8__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "grayson.capeDutch|4|Pure White": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7bdf27c0916a777006__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "grayson.capeDutch|3|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b6bccac03cad99b9f__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "grayson.capeDutch|2|Urbane Bronze": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b438f7b41b4d6147d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "grayson.capeDutch|5|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84077a348951c4f245d5d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "magnolia.transitional|2|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb337175f386f36ca62__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "magnolia.transitional|4|Alabaster": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb39d104f28ede1f232__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "magnolia.transitional|3|Caprock": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b64d032a00c0e45b49__update_06_The%20Magnolia%20Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "magnolia.transitional|1|Newport": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b41ce96c5e8eefca4a__update_06_The%20Magnolia%20Transitional%20Color%20Scheme%201%20Newport.webp",
+    "magnolia.transitional|5|Worldly Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b612e2e830d2ba5204__update_06_The%20Magnolia%20Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "magnolia.tudor|3|Greenblack": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca999359da766fe7cbd__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "magnolia.tudor|4|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca96bccac03cad9dc87__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "magnolia.tudor|1|Colonnade Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840781c11cd307f8e32c5__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "magnolia.tudor|2|Coral Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840784b7d133921ae2048__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "magnolia.tudor|5|Altitude Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84078a3fe2c8f9c3bea48__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "magnolia.capeDutch|4|Pure White": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca08c87da4ea9b7b18c__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "magnolia.capeDutch|1|Everest": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca07c6fd66c86eb4e61__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "magnolia.capeDutch|5|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca05bb405f1d10c770a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "magnolia.capeDutch|3|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa970b64d032a00c0e45b46__update_06_The%20Magnolia%20Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "magnolia.capeDutch|2|Urbane Bronze": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84078a3fe2c8f9c3bea71__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp"
+  };
+
+  // src/utils/exterior-scheme-modal.ts
+  var NEW_COMMUNITY_EXTERIOR_IMAGE_URLS = {
+    glenview: {
+      spanishContemporary: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22eddb81b67658917d147c_Sch%201%20-%20Sunlit%20Ivory.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd689113f6185fb81bc_Sch%202%20-%20Sandstone%20Villa.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd72ba437a787a12c6e_Sch%203%20-%20Stone%20Garden.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd765053904adda70f1_Sch%204%20-%20Sienna%20Stone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd754f23ca1aa66fd5c_Sch%205%20-%20Coastal%20Villa.webp"
+      ],
+      transitionalRanch: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edeba8e815ef475c3e2c_Sch%201%20-%20White%20Oak%20Ranch.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edeb74297c1a3021d0b4_Sch%202%20-%20Midnight%20Ridge.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edebb734c9412a1851a1_Sch%203%20-%20Oakstone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edea46c4dce897c622c0_Sch%204%20-%20White%20Mason.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edeaf11078832301af0d_Sch%205%20-%20Black%20Timber.webp"
+      ],
+      coastalColonial: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edad32d82c66475aa7b2_Sch%201%20-%20Saltwood.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac6e6422b45442464d_Sch%202%20-%20Stone%20Harbor.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac9d58911e051d3fba_Sch%203%20-%20Seabreeze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac8f40d304dd481aec_Sch%204%20-%20Ivory%20%26%20Onyx.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edace365374d2b4c2c3f_Sch%205%20-%20Coastal%20Stone.webp"
+      ],
+      englishCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbd63fae91f151fd9d0_Sch%201%20-%20Ivory%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbe0c3370fb3e35ffaf_Sch%202%20-%20Abbey%20Iron.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbea3771290396ed4df_Sch%203%20-%20Bronze%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbef4494d74c17404a9_Sch%204%20-%20Manor%20Brick.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbe2c42ef25e857568f_Sch%205%20-%20Chateau%20Stone.webp"
+      ]
+    },
+    elm: {
+      spanishContemporary: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecc8f3437fec84c633be_Sch%201%20-%20Sunlit%20Ivory.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecc8f4494d74c17399e4_Sch%202%20-%20Sandstone%20Villa.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecca2472a39b3cbd7498_Sch%203%20-%20Stone%20Garden.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22eccaae1ca7e49161fbc8_Sch%204%20-%20Sienna%20Stone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecca872355c22f8eaadf_Sch%205%20-%20Coastal%20Villa.webp"
+      ],
+      transitionalRanch: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecac0c3370fb3e356423_Sch%201%20-%20White%20Oak%20Ranch.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecac269d95cd19e0e026_Sch%202%20-%20Midnight%20Ridge.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecacf110788323011ee1_Sch%203%20-%20Oakstone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecab55c9aaa9438a7a06_Sch%204%20-%20White%20Mason.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecac08f434791bad029e_Sch%205%20-%20Black%20Timber.webp"
+      ],
+      coastalColonial: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7f49422c2f9de17695_Sch%201%20-%20Saltwood.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7e9d58911e051c5dc8_Sch%202%20-%20Stone%20Harbor.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7f2472a39b3cbd5614_Sch%203%20-%20Seabreeze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7e61f18799715386b8_Sch%204%20-%20Ivory%20%26%20Onyx.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7fb75aee6fe61ebf09_Sch%205%20-%20Coastal%20Stone.webp"
+      ],
+      englishCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec8ff461c0c6633f96a1_Sch%201%20-%20Ivory%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec90872355c22f8e89a8_Sch%202%20-%20Abbey%20Iron.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec9061f1879971538dfd_Sch%203%20-%20Bronze%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec9095a46fd82b1cb0b3_Sch%204%20-%20Manor%20Brick.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec908f40d304dd4776a6_Sch%205%20-%20Chateau%20Stone.webp"
+      ]
+    },
+    willow: {
+      spanishContemporary: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c220e6f459b8cc97fc_Sch%201%20-%20Sunlit%20Ivory.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c3679eea90bc21737e_Sch%202%20-%20Sandstone%20Villa.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c227f295bf102c73d9_Sch%203%20-%20Stone%20Garden.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c23b306ae798b2d5b7_Sch%204%20-%20Sienna%20Stone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c207d8f3773f4fde0e_Sch%205%20-%20Coastal%20Villa.webp"
+      ],
+      transitionalRanch: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e02f638a601d29fc82_Sch%201%20-%20White%20Oak%20Ranch.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e02d888efac45336f8_Sch%202%20-%20Midnight%20Ridge.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e0b734c9412a19d579_Sch%203%20-%20Oakstone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e0cd6d5d498ce2e8ac_Sch%204%20-%20White%20Mason.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0df57edcdcc3c089676_Sch%205%20-%20Black%20Timber.webp"
+      ],
+      coastalColonial: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f085438168dc11d4e604_Sch%201%20-%20Saltwood.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084544db6edddd13c4b_Sch%202%20-%20Stone%20Harbor.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f08420e6f459b8cc8171_Sch%203%20-%20Seabreeze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084ae64905f6a6340f6_Sch%204%20-%20Ivory%20%26%20Onyx.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084f11078832302fea2_Sch%205%20-%20Coastal%20Stone.webp"
+      ],
+      englishCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a195a46fd82b1ec05a_Sch%201%20-%20Ivory%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a218fa7f2207b9e007_Sch%202%20-%20Abbey%20Iron.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a1a3771290397042a1_Sch%203%20-%20Bronze%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a1ae1ca7e491642775_Sch%204%20-%20Manor%20Brick.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a12d888efac453195c_Sch%205%20-%20Chateau%20Stone.webp"
+      ]
+    },
+    vista: {
+      spanishContemporary: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f167939798a0c8459ed2_Sch%201%20-%20Sunlit%20Ivory.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1666982be65b05567c0_Sch%202%20-%20Sandstone%20Villa.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f167f461c0c66341fa0d_Sch%203%20-%20Stone%20Garden.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1672c42ef25e859297c_Sch%204%20-%20Sienna%20Stone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1664ff4597241d8f033_Sch%205%20-%20Coastal%20Villa.webp"
+      ],
+      transitionalRanch: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14f550f4fd0cf5a4561_Sch%201%20-%20White%20Oak%20Ranch.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14e20e6f459b8ccc7ed_Sch%202%20-%20Midnight%20Ridge.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14f52e0fbbd6afa96b4_Sch%203%20-%20Oakstone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14e32d82c66475c84c6_Sch%204%20-%20White%20Mason.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14f4ff4597241d8e0f7_Sch%205%20-%20Black%20Timber.webp"
+      ],
+      coastalColonial: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b72c42ef25e8594040_Sch%201%20-%20Saltwood.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b73b306ae798b3454e_Sch%202%20-%20Stone%20Harbor.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b7fccec2bd9f7f3bf0_Sch%203%20-%20Seabreeze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b7f3437fec84c94c74_Sch%204%20-%20Ivory%20%26%20Onyx.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b75d778b0e1d343aec_Sch%205%20-%20Coastal%20Stone.webp"
+      ],
+      englishCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f19257edcdcc3c08ed63_Sch%201%20-%20Ivory%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f193475a005a81e89db1_Sch%202%20-%20Abbey%20Iron.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1939619a764f4d5f48a_Sch%203%20-%20Bronze%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1939ab120a2472fcc9b_Sch%204%20-%20Manor%20Brick.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f193f1107883230392a1_Sch%205%20-%20Chateau%20Stone.webp"
+      ]
+    },
+    ambrose: {
+      spanishContemporary: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e9d58911e051cc527_Sch%201%20-%20Sunlit%20Ivory.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e50c5363e89576c23_Sch%202%20-%20Sandstone%20Villa.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e57edcdcc3c06dc7f_Sch%203%20-%20Stone%20Garden.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e55c9aaa9438ac2b6_Sch%204%20-%20Sienna%20Stone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e0c3370fb3e359ffd_Sch%205%20-%20Coastal%20Villa.webp"
+      ],
+      transitionalRanch: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3920e6f459b8caf257_Sch%201%20-%20White%20Oak%20Ranch.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3af8c13be94948c3b2_Sch%202%20-%20Midnight%20Ridge.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3a61f1879971541248_Sch%203%20-%20Oakstone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3a220472fb3ac3475b_Sch%204%20-%20White%20Mason.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3a939798a0c843907b_Sch%205%20-%20Black%20Timber.webp"
+      ],
+      coastalColonial: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecf02d888efac450f505_Sch%201%20-%20Saltwood.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecef2ba437a787a0b71d_Sch%202%20-%20Stone%20Harbor.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecefc74ccc360e2beea9_Sch%203%20-%20Seabreeze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecf0475a005a81e66998_Sch%204%20-%20Ivory%20%26%20Onyx.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecef9619a764f4d3abc5_Sch%205%20-%20Coastal%20Stone.webp"
+      ],
+      englishCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed0346c4dce897c5ad7b_Sch%201%20-%20Ivory%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed04269d95cd19e1032b_Sch%202%20-%20Abbey%20Iron.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed048157506f00ae1c15_Sch%203%20-%20Bronze%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed04a8e815ef475bc111_Sch%204%20-%20Manor%20Brick.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed0445c164b3134e1b2d_Sch%205%20-%20Chateau%20Stone.webp"
+      ]
+    },
+    alder: {
+      spanishContemporary: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef9295a46fd82b1e4964_Sch%201%20-%20Sunlit%20Ivory.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e50c5363e89576c23_Sch%202%20-%20Sandstone%20Villa.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e57edcdcc3c06dc7f_Sch%203%20-%20Stone%20Garden.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e55c9aaa9438ac2b6_Sch%204%20-%20Sienna%20Stone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e0c3370fb3e359ffd_Sch%205%20-%20Coastal%20Villa.webp"
+      ],
+      transitionalRanch: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe29d58911e051e60b9_Sch%201%20-%20White%20Oak%20Ranch.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe4f8ae2a21e657e6c5_Sch%202%20-%20Midnight%20Ridge.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe445c164b3134f6b84_Sch%203%20-%20Oakstone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe32d10f7997d7b25c6_Sch%204%20-%20White%20Mason.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe227f295bf102bdd5f_Sch%205%20-%20Black%20Timber.webp"
+      ],
+      coastalColonial: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef682f638a601d296658_Sch%201%20-%20Saltwood.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef67cd6d5d498ce2266f_Sch%202%20-%20Stone%20Harbor.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef6a438168dc11d43cdb_Sch%203%20-%20Seabreeze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef682ba437a787a1fdc9_Sch%204%20-%20Ivory%20%26%20Onyx.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef6874297c1a3022840a_Sch%205%20-%20Coastal%20Stone.webp"
+      ],
+      englishCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7b20e6f459b8cc0838_Sch%201%20-%20Ivory%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7cdb1b9afafad4b525_Sch%202%20-%20Abbey%20Iron.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c94fec08c5d9f1fb1_Sch%203%20-%20Bronze%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c679eea90bc20be8b_Sch%204%20-%20Manor%20Brick.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c8157506f00af4584_Sch%205%20-%20Chateau%20Stone.webp"
+      ]
+    },
+    "carriage-house-adu": {
+      spanishContemporary: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481b584b9c46e5511c91_Spanish%20Color%20Scheme%201%20Sunlit%20Ivory.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481beb481309db1a7307_Spanish%20Color%20Scheme%202%20Sandstone%20Villa.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481bbef87edeabad2e73_Spanish%20Color%20Scheme%203%20Stone%20Garden.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481b6edcdf3e9d8d46c2_Spanish%20Color%20Scheme%204%20Sienna%20Stone.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481c6a82a8eed0e08ebd_Spanish%20Color%20Scheme%205%20Coastal%20Villa.png"
+      ],
+      transitionalRanch: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482bc6a80142bb76cf90_Transitional%20Ranch%20Scheme%201%20White%20Oak%20Ranch.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482a11799919800d8f1b_Transitional%20Ranch%20Scheme%202%20Midnight%20Ridge.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482b6edcdf3e9d8d5cb6_Transitional%20Ranch%20Scheme%203%20Oakstone.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482ad39678ec281b4461_Transitional%20Ranch%20Scheme%204%20White%20Mason.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482b93d8443261da1b0a_Transitional%20Ranch%20Scheme%205%20%20Black%20Timber.png"
+      ],
+      coastalColonial: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fc6a82a8eed0e07b4e_Coastal%20Colonial%20Color%20Scheme%201%20Saltwood.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fcc75a7f8c2ef9e0c3_Coastal%20Colonial%20Color%20Scheme%202%20Stone%20Harbor.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fc23e233e2dda5bf19_Coastal%20Colonial%20Color%20Scheme%203%20Seabreeze.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fcb6815eb1f05189ed_Coastal%20Colonial%20Color%20Scheme%204%20Ivory%20%26%20Onyx.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447ffa66dd7f5c7f6a7b1_Coastal%20Colonial%20Color%20Scheme%205%20Coastal%20Stone.png"
+      ],
+      englishCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480bd16c9c5509bf96dc_English%20Cottage%20Scheme%201%20Ivory%20Meadow.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480b72ce27915163d94a_English%20Cottage%20Scheme%202%20Abbey%20Iron.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480bc15cbea785d01665_English%20Cottage%20Scheme%203%20Bronze%20Meadow.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480ce7b264502743ccca_English%20Cottage%20Scheme%204%20Manor%20Brick.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480b6b926a8c17016811_English%20Cottage%20Scheme%205%20Chateau%20Stone.png"
+      ]
+    },
+    "two-story-adu": {
+      spanishContemporary: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448939b8f033bd6ed4a63_Spanish%20Color%20Scheme%201%20Sunlit%20Ivory.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744893c75a7f8c2efa6206_Spanish%20Color%20Scheme%202%20Sandstone%20Villa.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74489410ccae5bf6232d00_Spanish%20Color%20Scheme%203%20Stone%20Garden.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448939eac13f82c3f13e0_Spanish%20Color%20Scheme%204%20Sienna%20Stone.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744893c75a7f8c2efa620b_Spanish%20Color%20Scheme%205%20Coastal%20Villa.png"
+      ],
+      transitionalRanch: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a172ce2791516456e6_Transitional%20Ranch%20Scheme%201%20White%20Oak%20Ranch.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a13cfff99009c92551_Transitional%20Ranch%20Scheme%202%20Midnight%20Ridge.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a1a39fcd4ef158ec4a_Transitional%20Ranch%20Scheme%203%20Oakstone.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a27795e2c6a31f4b43_Transitional%20Ranch%20Scheme%204%20%20White%20Mason.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744aa9d1f5b783e659ddf5_missing%20Transitional%20Ranch%20Scheme%205%20Black%20Timber.png"
+      ],
+      coastalColonial: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487bc75a7f8c2efa4a05_Coastal%20Colonial%20Color%20Scheme%201%20Saltwood.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487bc83039285bdf2a72_Coastal%20Colonial%20Color%20Scheme%202%20Stone%20Harbor.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487b204beb02432f65c7_Coastal%20Colonial%20Color%20Scheme%203%20Seabreeze.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487b44a60aa2dd1838f8_Coastal%20Colonial%20Color%20Scheme%204%20Ivory%20%26%20Onyx.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487b6a82a8eed0e0d222_Coastal%20Colonial%20Color%20Scheme%205%20Coastal%20Stone.png"
+      ],
+      englishCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744886bef87edeabada8d7_English%20Cottage%20Scheme%201%20Ivory%20Meadow.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744886f0f1ba26b2dd2326_English%20Cottage%20Scheme%202%20Abbey%20Iron.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744886b8fb342e82bed943_English%20Cottage%20Scheme%203%20Bronze%20Meadow.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448869b8f033bd6ed2e48_English%20Cottage%20Scheme%204%20Manor%20Brick.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74488611799919800dea42_English%20Cottage%20Scheme%205%20Chateau%20Stone.png"
+      ]
+    }
+  };
+  var STUDIO_ADU_EXTERIOR_IMAGE_URLS = {
+    "studio-adu": {
+      craftsman: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744849c84ff4e8a34d921c_Craftsman%20Color%20Scheme%201%20Classic%20Cream.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74484910ccae5bf622dc3a_Craftsman%20Color%20Scheme%202%20Soft%20Green.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744849638fdaa6197e9142_Craftsman%20Color%20Scheme%203%20Coastal%20Navy.png"
+      ],
+      janesCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448522534f8c0b4c15a8b_Janes%20Cottage%20Color%20Scheme%201%20Warm%20White.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74485372ce279151640663_Janes%20Cottage%20Color%20Scheme%202%20Dusk%20Gray.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744852565ef7b6637304e1_Janes%20Cottage%20Color%20Scheme%203%20Neutral%20Stone.png"
+      ],
+      spanish: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448628761de8cb0131cec_Spanish%20Scheme%201%20Coastal%20White.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744862b6815eb1f051dc99_Spanish%20Scheme%202%20Natural%20Gray.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448621674b95bdff4ffb4_Spanish%20Scheme%203%20Garden%20Olive.png"
+      ]
+    }
+  };
+  var CRAFTSMAN_NAMES = [
+    "Classic Cream",
+    "Soft Green",
+    "Coastal Navy",
+    "Warm Taupe",
+    "Natural Charcoal"
+  ];
+  var JANES_COTTAGE_NAMES = [
+    "Warm White",
+    "Dusk Gray",
+    "Neutral Stone",
+    "Soft White",
+    "Historic Gray"
+  ];
+  var SPANISH_NAMES = [
+    "Coastal White",
+    "Natural Gray",
+    "Garden Olive",
+    "Rich Bronze",
+    "Warm Earth Clay"
+  ];
+  var SPANISH_CONTEMPORARY_SCHEMES = [
+    { number: 1, name: "Sunlit Ivory" },
+    { number: 2, name: "Sandstone Villa" },
+    { number: 3, name: "Stone Garden" },
+    { number: 4, name: "Sienna Stone" },
+    { number: 5, name: "Coastal Villa" }
+  ];
+  var TRANSITIONAL_RANCH_SCHEMES = [
+    { number: 1, name: "White Oak Ranch" },
+    { number: 2, name: "Midnight Ridge" },
+    { number: 3, name: "Oakstone" },
+    { number: 4, name: "White Mason" },
+    { number: 5, name: "Black Timber" }
+  ];
+  var COASTAL_COLONIAL_SCHEMES = [
+    { number: 1, name: "Saltwood" },
+    { number: 2, name: "Stone Harbor" },
+    { number: 3, name: "Seabreeze" },
+    { number: 4, name: "Ivory & Onyx" },
+    { number: 5, name: "Coastal Stone" }
+  ];
+  var ENGLISH_COTTAGE_SCHEMES = [
+    { number: 1, name: "Ivory Meadow" },
+    { number: 2, name: "Abbey Iron" },
+    { number: 3, name: "Bronze Meadow" },
+    { number: 4, name: "Manor Brick" },
+    { number: 5, name: "Chateau Stone" }
+  ];
+  var PARK_PLACE_CAPE_DUTCH_SCHEMES = [
+    { number: 1, name: "Everest" },
+    { number: 2, name: "Urbane Bronze" },
+    { number: 3, name: "Iron Ore" },
+    { number: 4, name: "Pure White" },
+    { number: 5, name: "Felted Wool" }
+  ];
+  var PARK_PLACE_TRANSITIONAL_SCHEMES = [
+    { number: 1, name: "Newport" },
+    { number: 2, name: "Iron Ore" },
+    { number: 3, name: "Caprock" },
+    { number: 4, name: "Alabaster" },
+    { number: 5, name: "Worldly Gray" }
+  ];
+  var PARK_PLACE_TUDOR_SCHEMES = [
+    { number: 1, name: "Colonnade Gray" },
+    { number: 2, name: "Coral Gray" },
+    { number: 3, name: "Greenblack" },
+    { number: 4, name: "Felted Wool" },
+    { number: 5, name: "Altitude Gray" }
+  ];
+  var EXTERIOR_IMAGE_SETS_BY_PLAN = {
+    echo: {
+      craftsman: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa1179b6b2a0ae1e8ce5be_Eaton5_Craftsman_Sch1_ClassicCream.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa11798c7f61ed170d02c1_Eaton5_Craftsman_Sch2_SoftGreen.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa1178d4e789851d726afd_Eaton5_Craftsman_Sch3_CoastalNavy.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa1179e37e4c9da35dd349_Eaton5_Craftsman_Sch4_WarmTaupe.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa117934eb986df4409a80_Eaton5_Craftsman_Sch5_NaturalCharcoal.webp"
+      ],
+      janesCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f967ed46f583c45fb319_Eaton5_Janes_Cottage_Sch1_WarmWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9673f19c0a2d78cbb9e_Eaton5_Janes_Cottage_Sch2_DuskGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f967165e83dd2af826bb_Eaton5_Janes_Cottage_Sch3_NeutralStone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f967a7a2df84652e1078_Eaton5_Janes_Cottage_Sch4_SoftWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9676e59091671c162ac_Eaton5_Janes_Cottage_Sch5_HistoricGray.webp"
+      ],
+      spanish: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f981d8030b85e86c5eee_Eaton5_Spanish_Sch1)CoastalWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9818dfc10b3ad322043_Eaton5_Spanish_Sch2_NaturalGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f981b3fba19edac10345_Eaton5_Spanish_Sch3_GardenOlive.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9818582aeea3838bcd3_Eaton5_Spanish_Sch4_RichBronze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f981af3855fd07a02254_Eaton5_Spanish_Sch5_WarmEarthClay.webp"
+      ]
+    },
+    merrick: {
+      craftsman: [
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d557_69f1f95450b85abd3d949f4e_Eaton4_Craftsman_Sch1_ClassicCream.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d562_69f1f953252b3600fcbe4e80_Eaton4_Craftsman_Sch2_SoftGreen.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003a93c53e9b6387d547_69f1f954f0cccea740cd8b9f_Eaton4_Craftsman_Sch3_CoastalNavy.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d56d_69f1f955180a5af38a774901_Eaton4_Craftsman_Sch4_WarmTaupe.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d581_69f1f953ceb831e555c6f0c2_Eaton4_Craftsman_Sch5_NaturalCharcoal.webp"
+      ],
+      janesCottage: [
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d565_69f1fa3cc74e38671839449b_Eaton4_Janes_Cottage_Sch1_WarmWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d57e_69f1fa3cff957cd5197530f5_Eaton4_Janes_Cottage_Sch2_DuskGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d55d_69f1fa3c848b541b0e090d97_Eaton4_Janes_Cottage_Sch3_NeutralStone.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d578_69f1fa3cf9c32ba7ba62c7e7_Eaton4_Janes_Cottage_Sch4_SoftWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003a93c53e9b6387d54b_69f1fa3c26c535b3fa92955a_Eaton4_Janes_Cottage_Sch5_HistoricGray.webp"
+      ],
+      spanish: [
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d575_69f1fa27d27c3c9e6b23ce8d_Eaton4_Spanish_Sch1_CoastalWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003a93c53e9b6387d54f_69f1fa27b19d1d6237faa1b6_Eaton4_Spanish_Sch2_NaturalGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d589_69f1fa27adcc4b13bfb7229e_Eaton4_Spanish_Sch3_GardenOlive.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d586_69f1fa2704074b196573ba2a_Eaton4_Spanish_Sch4_RichBronze.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d55a_69f1fa27d874fa8f14184b4c_Eaton4_Spanish_Sch5_WarmEarthClay.webp"
+      ]
+    },
+    chaney: {
+      craftsman: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a6a7a2df84652df1c2_Eaton3_Craftsman_Sch1_ClassicCream.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a571c267c5a6d19d59_Eaton3_Craftsman_Sch2_SoftGreen.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a46e59091671c1452c_Eaton3_Craftsman_Sch3_CoastalNavy.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a5151e31161533467a_Eaton3_Craftsman_Sch4_WarmTaupe.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a5535e1ec75c9ed78b_Eaton3_Craftsman_Sch5_NaturalCharcoal.webp"
+      ],
+      janesCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b8a76017d864898f1c_Eaton3_Janes_Sch1_WarmWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b826f327fe8b8314c3_Eaton3_Janes_Sch2_DuskGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b86e1c34584269d0b4_Eaton3_Janes_Sch3_NeutralStone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b80f8abd2778a65c61_Eaton3_Janes_Sch4_SoftWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b839d6f0b57222e683_Eaton3_Janes_Sch5_HistoricGray.webp"
+      ],
+      spanish: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d119e08a63bb87a563_Eaton3_Spanish_Sch1_CoastalWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d1c002eece10343349_Eaton3_Spanish_Sch2_NaturalGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d20cb4d186330f5414_Eaton3_Spanish_Sch3_GardenOlive.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d2d0bc4c3d311c6867_Eaton3_Spanish_Sch4_RichBronze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d1f3573cd92cb08111_Eaton3_Spanish_Sch5_WArmEarthClay.webp"
+      ]
+    },
+    loma: {
+      craftsman: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f998b885bb7225449c8e_Eaton2_Craftsman_Sch1_ClassicCream.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f998ff957cd519750e2b_Eaton2_Craftsman_Sch2_SoftGreen.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f99867d6924479cbd2bb_Eaton2_Craftsman_Sch3_CoastalNavy.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f99816ad2a104acb7728_Eaton2_Craftsman_Sch4_WarmTaupe.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9987417fe7fb74e6bbd_Eaton2_Craftsman_Sch5_NaturalCharcoal.webp"
+      ],
+      janesCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c94e811fb2f2915ccd_Eaton2_Janes_Sch1_WarmWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c9444f0e9cf3870f8e_Eaton2_Janes_Sch2_DuskGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c9e11203e2617c9946_Eaton2_Janes_Sch3_NeutralStone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c9255e1fbe5ac33217_Eaton2_Janes_Sch4_SoftWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c9d3067f0a7efe5fd6_Eaton2_Janes_Sch5_HistoricGray.webp"
+      ],
+      spanish: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa0096a959af0bd4ed45_Eaton2_Spanish_Sch1_CoastalWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa00112be277eea18bd4_Eaton2_Spanish_Sch2_NaturalGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9ff24369ae8059a02bd_Eaton2_Spanish_Sch3_GardenOlive.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa0052b6244c225fa903_Eaton2_Spanish_Sch4_RichBronze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa079e2ec043052c58e5_Eaton2_Spanish_Sch5_WarmEarthClay.webp"
+      ]
+    },
+    sycamore: {
+      craftsman: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa921c26d9ee20d7557e_Eaton1_Craftsman_Sch1_ClassicCream.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa9346432d98c0974cee_Eaton1_Craftsman_Sch2_SoftGreen.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa93d99dbd042136a8c5_Eaton1_Craftsman_Sch3_CoastalNavy.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa9275c170937d547cda_Eaton1_Craftsman_Sch4_WarmTaupe.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa93db5a646b559687d6_Eaton1_Craftsman_Sch5_NaturalCharcoal.webp"
+      ],
+      janesCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faac9a388e1b666a2e9f_Eaton1_Janes_Cottage_Sch1_WarmWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faac4cfe0437b90b4fee_Eaton1_Janes_Cottage_Sch2_DuskGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faac6ce7a3c2af1aee22_Eaton1_Janes_Cottage_Sch3_NeutralStone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faac00a3f24d2deca82a_Eaton1_Janes_Cottage_Sch4_SoftWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faace73112fa77de5962_Eaton1_Janes_Cottage_Sch5_HistoricGray.webp"
+      ],
+      spanish: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1facacf7104f7e2bb4532_Eaton1_Spanish_Sch1_CoastalWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faca832e56e8d1302425_Eaton1_Spanish_Sch2_NaturalGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faca7fcd4a25484de868_Eaton1_Spanish_Sch3_GardenOlive.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1facabdcd44c1fee09803_Eaton1_Spanish_Sch4_RichBronze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faca151e31161533c3d7_Eaton1_Spanish_Sch5_WarmEarthClay.webp"
+      ]
+    }
+  };
+  var toSchemes = (names, urls) => names.map((name, index) => ({
+    schemeNumber: index + 1,
+    name,
+    imageUrl: urls[index] ?? ""
+  }));
+  var toNumberedSchemes = (schemes, urls) => schemes.map((scheme, index) => ({
+    schemeNumber: scheme.number,
+    name: scheme.name,
+    imageUrl: urls[index] ?? ""
+  }));
+  var buildNewCommunityExteriors = (planSlug) => {
+    const imageUrls = NEW_COMMUNITY_EXTERIOR_IMAGE_URLS[planSlug];
+    return [
+      {
+        style: "Spanish Contemporary",
+        slug: `${planSlug}-spanish-contemporary`,
+        colorSchemes: toNumberedSchemes(SPANISH_CONTEMPORARY_SCHEMES, [
+          ...imageUrls.spanishContemporary
+        ])
+      },
+      {
+        style: "Transitional Ranch",
+        slug: `${planSlug}-transitional-ranch`,
+        colorSchemes: toNumberedSchemes(TRANSITIONAL_RANCH_SCHEMES, [...imageUrls.transitionalRanch])
+      },
+      {
+        style: "Coastal Colonial",
+        slug: `${planSlug}-coastal-colonial`,
+        colorSchemes: toNumberedSchemes(COASTAL_COLONIAL_SCHEMES, [...imageUrls.coastalColonial])
+      },
+      {
+        style: "English Cottage",
+        slug: `${planSlug}-english-cottage`,
+        colorSchemes: toNumberedSchemes(ENGLISH_COTTAGE_SCHEMES, [...imageUrls.englishCottage])
+      }
+    ];
+  };
+  var buildExteriorsForPlan = (planSlug) => {
+    const imageSet = EXTERIOR_IMAGE_SETS_BY_PLAN[planSlug];
+    return [
+      {
+        style: "Craftsman",
+        slug: "craftsman-style",
+        colorSchemes: toSchemes(CRAFTSMAN_NAMES, imageSet.craftsman)
+      },
+      {
+        style: "Janes Cottage",
+        slug: "janes-cottage",
+        colorSchemes: toSchemes(JANES_COTTAGE_NAMES, imageSet.janesCottage)
+      },
+      {
+        style: "Spanish Transitional",
+        slug: "spanish-transitional",
+        colorSchemes: toSchemes(SPANISH_NAMES, imageSet.spanish)
+      }
+    ];
+  };
+  var buildStudioAduExteriors = (planSlug) => {
+    const imageSet = STUDIO_ADU_EXTERIOR_IMAGE_URLS[planSlug];
+    return [
+      {
+        style: "Craftsman",
+        slug: "craftsman-style",
+        colorSchemes: toSchemes(CRAFTSMAN_NAMES.slice(0, 3), imageSet.craftsman)
+      },
+      {
+        style: "Janes Cottage",
+        slug: "janes-cottage",
+        colorSchemes: toSchemes(JANES_COTTAGE_NAMES.slice(0, 3), imageSet.janesCottage)
+      },
+      {
+        style: "Spanish Transitional",
+        slug: "spanish-transitional",
+        colorSchemes: toSchemes(SPANISH_NAMES.slice(0, 3), imageSet.spanish)
+      }
+    ];
+  };
+  var PARK_PLACE_CDN = "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0";
+  var PARK_PLACE_EXTERIOR_IMAGE_URLS = {
+    addison: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b1a5b0cd93c94cbe7346_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a583d75ceaa6461dcd_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a5830be1b62868857d_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a56a17c6919f5e0e0e_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a5e570e96c28ac12c4_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b1a7b79122ab8a0f40bd_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a7b8efd49498294990_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a77b6b694595669cd2_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a7f5c02efbf7c77d98_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a7fcc834951e54f4bf_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b1a6af7a129003ace1ec_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a6fcc834951e54f421_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a617cf0f48c34c5058_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a683d75ceaa6461f26_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a67b6b694595669ca2_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    },
+    bandera: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b2bc1f53dd3717d85d60_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bc297085014b204e1c_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bcb0cd93c94cbeff9d_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bdb79122ab8a0fb25f_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bd9a92f58d97c26784_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b2c097c77db82ebab4a2_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c004702f83e9ba2ddd_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c004702f83e9ba2e1b_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c017cf0f48c34cdcbf_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c1d62095daa8114600_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b2be9a287322be54c601_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bfe570e96c28ac8d97_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bf573a47599c830a8d_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bf165fa1b5bf5bbab9_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c008dc2fe1c6cfdb16_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    },
+    collin: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b3c647e218625ded7348_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c73888a4db5685d9d6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c797c77db82ebaf1bc_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c7668753f061942f10_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c7b79122ab8a107532_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b3c93888a4db5685dad3_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b3ca165fa1b5bf5c40e5_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b3cae570e96c28ad428e_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b3ca6ca32e7649b97267_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b3ca165fa1b5bf5c4159_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b3c7b1357c809573778c_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c855df81cb20fbe5e3_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c8668753f061942fca_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c86ca32e7649b9709d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c9d62095daa8120c5f_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    },
+    grayson: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b4a456716fa5cdfdc6df_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a4d7c17df8a732426f_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a459e59db0530cb29b_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a4573a47599c833035_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a5d7c17df8a73242a1_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b4a6165fa1b5bf5ca597_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a6165fa1b5bf5ca5ca_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a697c77db82ebb267f_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a7b79122ab8a10ff2f_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a76a17c6919f5e4c29_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b4a5573a47599c833061_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a598d45b2c7121e549_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a56ca32e7649b9eae7_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a66a17c6919f5e4ba9_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a6d62095daa8129a86_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    },
+    magnolia: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b4e5666418f9d40514fd_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e6666418f9d405153c_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e6b0cd93c94cc02ab5_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e647323a2b628f5a3b_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e6668753f06194cead_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b4e8b0cd93c94cc02c4b_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e808dc2fe1c6d05bb6_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e87b6b694595678e17_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e96ca32e7649ba0767_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e917cf0f48c34d6370_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b4e717cf0f48c34d62b8_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e7b0cd93c94cc02b79_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e716910f7fe0fd6e86_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e7165fa1b5bf5cc6b0_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e747e218625dedae9b_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    }
+  };
+  for (const [key, url] of Object.entries(PARK_PLACE_REFRESHED_EXTERIOR_URLS)) {
+    const [planAndStyle, schemeNumber] = key.split("|");
+    const [planSlug, styleKey] = planAndStyle.split(".");
+    const schemes = PARK_PLACE_EXTERIOR_IMAGE_URLS[planSlug][styleKey];
+    schemes[Number(schemeNumber) - 1] = url;
+  }
+  var PARK_PLACE_STYLE_SLUGS = {
+    addison: {
+      capeDutch: "addison-modern-cape-dutch",
+      transitional: "addison-transitional",
+      tudor: "addison-modern-tudor"
+    },
+    bandera: {
+      capeDutch: "bandera-modern-cape-dutch",
+      transitional: "bandera-transitional",
+      tudor: "bandera-modern-tudor"
+    },
+    collin: {
+      capeDutch: "collin-modern-cape-dutch",
+      transitional: "collin-transitional",
+      tudor: "collin-modern-tudor"
+    },
+    grayson: {
+      capeDutch: "grayson-modern-cape-dutch",
+      transitional: "the-grayson-transitional",
+      tudor: "the-grayson-modern-tudor"
+    },
+    magnolia: {
+      capeDutch: "magnolia-modern-cape-dutch",
+      transitional: "magnolia-transitional",
+      tudor: "magnolia-modern-tudor"
+    }
+  };
+  var buildParkPlaceExteriors = (planSlug) => {
+    const imageUrls = PARK_PLACE_EXTERIOR_IMAGE_URLS[planSlug];
+    const slugs = PARK_PLACE_STYLE_SLUGS[planSlug];
+    return [
+      {
+        style: "Modern Cape Dutch",
+        slug: slugs.capeDutch,
+        colorSchemes: toNumberedSchemes(PARK_PLACE_CAPE_DUTCH_SCHEMES, [...imageUrls.capeDutch])
+      },
+      {
+        style: "Transitional",
+        slug: slugs.transitional,
+        colorSchemes: toNumberedSchemes(PARK_PLACE_TRANSITIONAL_SCHEMES, [...imageUrls.transitional])
+      },
+      {
+        style: "Modern Tudor",
+        slug: slugs.tudor,
+        colorSchemes: toNumberedSchemes(PARK_PLACE_TUDOR_SCHEMES, [...imageUrls.tudor])
+      }
+    ];
+  };
+  var EXTERIORS_BY_PLAN = {
+    echo: buildExteriorsForPlan("echo"),
+    merrick: buildExteriorsForPlan("merrick"),
+    chaney: buildExteriorsForPlan("chaney"),
+    loma: buildExteriorsForPlan("loma"),
+    sycamore: buildExteriorsForPlan("sycamore"),
+    glenview: buildNewCommunityExteriors("glenview"),
+    elm: buildNewCommunityExteriors("elm"),
+    willow: buildNewCommunityExteriors("willow"),
+    vista: buildNewCommunityExteriors("vista"),
+    ambrose: buildNewCommunityExteriors("ambrose"),
+    alder: buildNewCommunityExteriors("alder"),
+    "studio-adu": buildStudioAduExteriors("studio-adu"),
+    "carriage-house-adu": buildNewCommunityExteriors("carriage-house-adu"),
+    "two-story-adu": buildNewCommunityExteriors("two-story-adu"),
+    addison: buildParkPlaceExteriors("addison"),
+    bandera: buildParkPlaceExteriors("bandera"),
+    collin: buildParkPlaceExteriors("collin"),
+    grayson: buildParkPlaceExteriors("grayson"),
+    magnolia: buildParkPlaceExteriors("magnolia")
+  };
+  var MOSAIC_STYLE_KEYS = {
+    "Modern Cape Dutch": "capeDutch",
+    Transitional: "transitional",
+    "Modern Tudor": "tudor"
+  };
+  var buildMosaicExteriors = (planSlug) => EXTERIORS_BY_PLAN[planSlug].map((definition) => ({
+    ...definition,
+    colorSchemes: definition.colorSchemes.map((scheme) => ({
+      ...scheme,
+      imageUrl: MOSAIC_EXTERIOR_URLS[`${planSlug}|${MOSAIC_STYLE_KEYS[definition.style]}|${scheme.schemeNumber}`] ?? scheme.imageUrl
+    }))
+  }));
+  function getHousePlanSlugFromPath() {
+    const maybeSlug = window.location.pathname.toLowerCase().split("/house-plans/")[1]?.split("/")[0] ?? "";
+    const normalizedSlug = maybeSlug.replace(/^the-/, "");
+    const canonicalSlug = normalizedSlug.replace(/---mosaic$/, "");
+    if (canonicalSlug in EXTERIORS_BY_PLAN) {
+      return canonicalSlug;
+    }
+    return null;
+  }
+  function getExteriorColorSchemesForStyle(planSlug, exteriorStyleSlug) {
+    const exteriors = window.location.pathname.toLowerCase().includes("---mosaic") && ["addison", "bandera", "collin", "grayson", "magnolia"].includes(planSlug) ? buildMosaicExteriors(planSlug) : EXTERIORS_BY_PLAN[planSlug];
+    const exterior = exteriors?.find((item) => item.slug === exteriorStyleSlug);
+    if (!exterior) return [];
+    return exterior.colorSchemes.filter((scheme) => Boolean(scheme.imageUrl));
+  }
+
+  // src/utils/gallery.ts
+  var GalleryController = class _GalleryController {
+    constructor(configs) {
+      this.configs = configs;
+      this.configs = configs;
+    }
+    static MAX_GALLERY_IMAGES = 25;
+    overlay = null;
+    swiper = null;
+    thumbsSwiper = null;
+    /** Per-config image cache, keyed by {@link GalleryConfig.triggerSelector} */
+    caches = /* @__PURE__ */ new Map();
+    observers = [];
+    init() {
+      this.configs.forEach((config) => {
+        this.caches.set(config.triggerSelector, []);
+        this.observeImages(config);
+        this.bindTrigger(config);
+      });
+      this.bindSlideGalleries();
+      this.bindMobileGallery();
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") this.close();
+      });
+    }
+    /**
+     * Seed and maintain the image cache for a single gallery config.
+     * Observes the Webflow CMS wrapper so images added after page paint are captured.
+     */
+    observeImages(config) {
+      const refresh = () => {
+        this.caches.set(
+          config.triggerSelector,
+          Array.from(document.querySelectorAll(config.imageSelector))
+        );
+      };
+      refresh();
+      const container = document.querySelector(config.containerSelector);
+      if (!container) {
+        console.error(`GalleryController: container not found \u2014 ${config.containerSelector}`);
+        return;
+      }
+      const observer = new MutationObserver(refresh);
+      observer.observe(container, { childList: true, subtree: true });
+      this.observers.push(observer);
+    }
+    /** Attach a click listener to all trigger elements for a config. */
+    bindTrigger(config) {
+      const triggers = document.querySelectorAll(config.triggerSelector);
+      if (!triggers.length) return;
+      triggers.forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+          const imgs = this.caches.get(config.triggerSelector) ?? [];
+          if (!imgs.length) {
+            console.error(
+              `GalleryController: No images cached for trigger ${config.triggerSelector}.`
+            );
+            return;
+          }
+          this.open(imgs, 0);
+        });
+      });
+    }
+    /**
+     * Per-slide gallery: clicking [dev-target="slide-image-wrapper"] opens a gallery
+     * populated from [dev-target="slide-gallery-collection-image"] images on the slide,
+     * or — for Available Homes — from the matching Explore Plans hidden list
+     * (`[dev-target="slide-gallery-collection-list-wrapper"][house-plan="…"]`).
+     * Images are queried at click time so no cache or MutationObserver is needed.
+     */
+    bindSlideGalleries() {
+      document.addEventListener("click", (e) => {
+        const clickTarget = e.target;
+        if (clickTarget.closest('[dev-target="scheme-header"]') || clickTarget.closest('[dev-target="scheme-body"]') || clickTarget.closest('[dev-target="scheme-arrow"]') || clickTarget.closest('[dev-target="scheme-item"]')) {
+          return;
+        }
+        const wrapper = e.target.closest('[dev-target="slide-image-wrapper"]');
+        if (!wrapper) return;
+        const slide2 = wrapper.closest(".swiper-slide");
+        if (!slide2) return;
+        const imgs = this.resolveSlideGalleryImages(slide2);
+        if (!imgs.length) return;
+        this.open(imgs, 0);
+      });
+    }
+    resolveSlideGalleryImages(slide2) {
+      const chooseFrom = slide2.getAttribute("choose-from")?.toLowerCase();
+      const shouldUseExteriorSet = chooseFrom === "exterior-schema" || chooseFrom === "exterior-scheme";
+      if (shouldUseExteriorSet) {
+        const exteriorImages = this.getExteriorImagesForSlide(slide2);
+        if (exteriorImages.length) return exteriorImages;
+      }
+      const inSlide = Array.from(
+        slide2.querySelectorAll('img[dev-target="slide-gallery-collection-image"]')
+      );
+      if (inSlide.length) return inSlide;
+      return this.resolveExplorePlansGalleryByHousePlan(slide2);
+    }
+    /**
+     * Available Homes slides carry `house-plan` on the forward image but no embedded gallery list.
+     * Reuse the Explore Plans tab's hidden CMS repeater for the same slug (still in DOM when tab is hidden).
+     */
+    resolveExplorePlansGalleryByHousePlan(slide2) {
+      const housePlanSlug = slide2.querySelector('[dev-target="forward-image"]')?.getAttribute("house-plan") ?? slide2.getAttribute("house-plan") ?? "";
+      if (!housePlanSlug) return [];
+      const galleryWrapper = document.querySelector(
+        `[dev-target="slide-gallery-collection-list-wrapper"][house-plan="${CSS.escape(housePlanSlug)}"]`
+      );
+      if (!galleryWrapper) return [];
+      return Array.from(
+        galleryWrapper.querySelectorAll(
+          'img[dev-target="slide-gallery-collection-image"]'
+        )
+      );
+    }
+    getExteriorImagesForSlide(slide2) {
+      const planSlug = getHousePlanSlugFromPath();
+      if (!planSlug) return [];
+      const exteriorStyle = slide2.getAttribute("exterior-style")?.toLowerCase() ?? "";
+      return getExteriorColorSchemesForStyle(planSlug, exteriorStyle).map(
+        (scheme) => this.createImageElement(
+          scheme.imageUrl,
+          `Scheme ${scheme.schemeNumber}: ${scheme.name}`
+        )
+      );
+    }
+    createImageElement(url, tooltip = "") {
+      const img = document.createElement("img");
+      img.src = url;
+      img.alt = tooltip;
+      img.title = tooltip;
+      return img;
+    }
+    /**
+     * Mobile gallery: clicking `[dev-target="mobile-slide-image-wrapper"]` opens a lightbox
+     * with all `[dev-target="mobile-slide-image"]` images from the parent
+     * `[dev-target="mobile-swiper"]`, starting at the clicked slide's index.
+     */
+    bindMobileGallery() {
+      document.addEventListener("click", (e) => {
+        const wrapper = e.target.closest(
+          '[dev-target="mobile-slide-image-wrapper"]'
+        );
+        if (!wrapper) return;
+        const swiper = wrapper.closest('[dev-target="mobile-swiper"]');
+        if (!swiper) return;
+        const allSlides = Array.from(
+          swiper.querySelectorAll('[dev-target="mobile-slide"]')
+        );
+        const clickedSlide = wrapper.closest('[dev-target="mobile-slide"]');
+        const startIndex = clickedSlide ? allSlides.indexOf(clickedSlide) : 0;
+        const imgs = allSlides.map((slide2) => slide2.querySelector('[dev-target="mobile-slide-image"]')).filter((img) => img !== null);
+        if (!imgs.length) return;
+        this.open(imgs, Math.max(0, startIndex));
+      });
+    }
+    open(imgs, startIndex) {
+      const limitedImgs = imgs.slice(0, _GalleryController.MAX_GALLERY_IMAGES);
+      if (!limitedImgs.length) return;
+      const boundedStartIndex = Math.min(Math.max(0, startIndex), limitedImgs.length - 1);
+      this.destroyOverlay();
+      this.overlay = document.createElement("div");
+      this.overlay.className = "hb-gallery-overlay";
+      this.overlay.innerHTML = `
       <button class="hb-gallery-close" aria-label="Close gallery">&#x2715;</button>
       <div class="hb-gallery-main-wrap">
         <div class="swiper hb-gallery-swiper">
@@ -11,8 +6292,1175 @@
           <div class="swiper-wrapper"></div>
         </div>
       </div>
-    `;let r=this.overlay.querySelector(".hb-gallery-swiper .swiper-wrapper"),i=this.overlay.querySelector(".hb-gallery-thumbs .swiper-wrapper");s.forEach(c=>{let u=document.createElement("div");u.className="swiper-slide";let d=document.createElement("img");d.src=c.src,d.alt=c.alt,d.title=c.title,c.srcset&&(d.srcset=c.srcset),c.sizes&&(d.sizes=c.sizes),u.appendChild(d),r.appendChild(u);let h=document.createElement("div");h.className="swiper-slide";let f=document.createElement("img");f.src=c.src,f.alt=c.alt,f.title=c.title,h.appendChild(f),i.appendChild(h)}),document.body.appendChild(this.overlay),document.body.style.overflow="hidden",this.overlay.querySelector(".hb-gallery-close").addEventListener("click",()=>this.close()),this.overlay.addEventListener("click",c=>{c.target===this.overlay&&this.close()});let l=this.overlay.querySelector(".hb-gallery-swiper"),n=this.overlay.querySelector(".hb-gallery-thumbs");this.thumbsSwiper=new V(n,{slidesPerView:"auto",spaceBetween:8,watchSlidesProgress:!0,freeMode:!0}),this.swiper=new V(l,{modules:[Ge,$e,Oe,He],initialSlide:o,loop:s.length>1,keyboard:{enabled:!0},navigation:{nextEl:l.querySelector(".swiper-button-next"),prevEl:l.querySelector(".swiper-button-prev")},pagination:{el:l.querySelector(".swiper-pagination"),type:"fraction"},thumbs:{swiper:this.thumbsSwiper}}),requestAnimationFrame(()=>{this.overlay?.classList.add("is-open")})}close(){if(!this.overlay)return;this.overlay.classList.remove("is-open"),document.body.style.overflow="";let{overlay:t}=this,a=()=>{this.destroySwipers(),t.remove(),this.overlay===t&&(this.overlay=null)};t.addEventListener("transitionend",a,{once:!0})}destroySwipers(){this.thumbsSwiper&&typeof this.thumbsSwiper.destroy=="function"&&this.thumbsSwiper.destroy(!0,!0),this.thumbsSwiper=null,this.swiper&&typeof this.swiper.destroy=="function"&&this.swiper.destroy(!0,!0),this.swiper=null}destroyOverlay(){this.destroySwipers(),this.overlay?.remove(),this.overlay=null,document.body.style.overflow=""}destroy(){this.observers.forEach(t=>t.disconnect()),this.observers=[],this.close()}};z(ve,"MAX_GALLERY_IMAGES",25);var ge=ve;var Se=class{constructor(t){z(this,"hasInit",!1);z(this,"preloadedImageUrls",new Set);z(this,"config");this.config=t}init(){this.hasInit||(this.hasInit=!0,this.config.bindings.forEach(t=>{if(!t.schemeButtons.length)return;this.preloadContextImageUrls(t);let{context:a}=t;if(a?.contextButtons.length){let o=this.getInitialContextToken(a);o&&this.setActiveContextToken(a,o),a.contextButtons.forEach(r=>{r.addEventListener("click",()=>{let i=r.getAttribute("dev-target");if(!i)return;this.setActiveContextToken(a,i);let n=a.resetSchemeOnContextChange??!1?this.getDefaultSchemeToken(t):this.getActiveSchemeToken(t)??this.getDefaultSchemeToken(t);n&&this.apply(t,n,i)})})}let s=this.getDefaultSchemeToken(t);s?this.apply(t,s,this.getActiveContextToken(t.context)):this.syncButtonVisuals(t),t.schemeButtons.forEach(o=>{o.addEventListener("click",()=>{let r=o.getAttribute("dev-target");if(!r){console.error("ColorSchemeController: scheme button is missing dev-target attribute.");return}this.apply(t,r,this.getActiveContextToken(t.context))})})}))}apply(t,a,s){let o=t.schemeButtons.find(n=>n.getAttribute("dev-target")===a);if(!o){console.error(`ColorSchemeController: no scheme button found for token "${a}".`);return}let r=s?t.context?.imageUrlByContextAndScheme?.[s]:void 0,i=r?.[a],l=!!(r&&a in r);if(i)t.forwardImage.src=i,t.forwardImage.removeAttribute("srcset"),t.forwardImage.removeAttribute("sizes");else if(!l){let n=t.schemeImagesByToken.get(a);n&&(t.forwardImage.src=n.src,n.srcset&&(t.forwardImage.srcset=n.srcset),n.sizes&&(t.forwardImage.sizes=n.sizes),n.alt&&(t.forwardImage.alt=n.alt))}if(s&&t.context?.titleElement&&t.context?.titleByContextAndScheme){let n=t.context.titleByContextAndScheme[s]?.[a];n&&(t.context.titleElement.textContent=n)}this.syncButtonVisuals(t,o)}getDefaultSchemeToken(t){let a=t.context?.defaultSchemeToken;if(a&&this.hasSchemeButton(t,a))return a;let s=this.getActiveSchemeToken(t);return s||(t.schemeButtons.find(o=>o.getAttribute("dev-target"))?.getAttribute("dev-target")??void 0)}getActiveSchemeToken(t){return t.schemeButtons.find(a=>a.classList.contains("is-active"))?.getAttribute("dev-target")??void 0}hasSchemeButton(t,a){return t.schemeButtons.some(s=>s.getAttribute("dev-target")===a)}getInitialContextToken(t){if(t.defaultContextToken&&this.hasContextButton(t,t.defaultContextToken))return t.defaultContextToken;let a=t.contextButtons.find(s=>s.classList.contains("is-active"))?.getAttribute("dev-target")??void 0;return a||(t.contextButtons.find(s=>s.getAttribute("dev-target"))?.getAttribute("dev-target")??void 0)}getActiveContextToken(t){if(t)return t.contextButtons.find(a=>a.classList.contains("is-active"))?.getAttribute("dev-target")??void 0}setActiveContextToken(t,a){t.contextButtons.forEach(s=>{let o=s.getAttribute("dev-target")??"";s.classList.toggle("is-active",o===a)})}hasContextButton(t,a){return t.contextButtons.some(s=>s.getAttribute("dev-target")===a)}preloadContextImageUrls(t){let{context:a}=t;a?.imageUrlByContextAndScheme&&a.preloadImageUrls!==!1&&Object.values(a.imageUrlByContextAndScheme).forEach(s=>{Object.values(s).forEach(o=>{if(!o||this.preloadedImageUrls.has(o))return;this.preloadedImageUrls.add(o);let r=new Image;r.src=o,r.decode?.().catch(()=>{})})})}syncButtonVisuals(t,a){let{activeStrokeWidth:s,inactiveStrokeWidth:o,activeCircleRadius:r,inactiveCircleRadius:i}=this.getVisuals(t);t.schemeButtons.forEach(l=>{let n=a?l===a:l.classList.contains("is-active");l.classList.toggle("is-active",n);let c=l.querySelector("circle");c&&(c.setAttribute("stroke-width",String(n?s:o)),c.setAttribute("r",String(n?r:i)))})}getVisuals(t){return{activeStrokeWidth:t.visual?.activeStrokeWidth??this.config.activeStrokeWidth??2,inactiveStrokeWidth:t.visual?.inactiveStrokeWidth??this.config.inactiveStrokeWidth??.5,activeCircleRadius:t.visual?.activeCircleRadius??this.config.activeCircleRadius??21.5,inactiveCircleRadius:t.visual?.inactiveCircleRadius??this.config.inactiveCircleRadius??22.5}}};var Ja=new Set(["Layer_1","C_Amenity_Center"]);function ye(e,t){let a=new Set([e]);t&&a.add(t);let s=e.match(/^_(\d+)([A-Za-z])$/);s&&(a.add(`${s[1]}${s[2]}`),a.add(`${s[2]}${s[1]}`));let o=e.match(/^([A-Za-z])(\d+)$/);o&&a.add(`${o[2]}${o[1]}`);let r=e.match(/^(\d+)([A-Za-z])$/);return r&&a.add(`${r[2]}${r[1]}`),[...a]}var Fe="http://www.w3.org/2000/svg",Qa={"For Sale":"#657839","Not Available for Sale":"#d17520","Under Contract":"#8b514e","Not Available":"#3A759D"};function es(e){return e.trim().toLowerCase().replace(/\s+/g,"-").replace(/[^a-z0-9-]/g,"")}var we={mapWidth:1162.54,mapHeight:912.76},Ve={mapWidth:1247.80285,mapHeight:670.33693},ts={"park-place":{...Ve,highlightStyle:"fill"},mosaic:{...Ve,highlightStyle:"stroke"},mosic:{...Ve,highlightStyle:"stroke"},"lake-side":{...we,highlightStyle:"fill"},lakeside:{...we,highlightStyle:"fill"}};function St(e=window.location.pathname){let t=e.toLowerCase().split("/upcoming-communities/")[1]?.split("/")[0]??"";return ts[t]??{}}var _e=class{constructor(t={}){z(this,"svgEl",null);z(this,"activeId",null);z(this,"isPanning",!1);z(this,"lotsByKey",new Map);z(this,"config");z(this,"originalW",we.mapWidth);z(this,"originalH",we.mapHeight);z(this,"MIN_ZOOM",1);z(this,"MAX_ZOOM",8);z(this,"DISABLE_ZOOM_WITH_MOUSE_SCROLL",!0);z(this,"vb",{x:0,y:0,w:this.originalW,h:this.originalH});this.config=t}async init(){if(!await this.injectSvg())return;let t=document.querySelectorAll('[dev-target="one-lot"][lot-number]');t.length||console.error('LotMapController: No [dev-target="one-lot"][lot-number] found \u2014 add lot-number to each CMS lot card to enable bidirectional hover.'),this.applyLabelColors(),this.applyCardPillAvailabilityClasses(),this.bindSvgHover(),this.bindCardHover(t),this.bindZoom(),this.injectZoomControls(),this.bindFilter();let{isZoomMode:a,focusLotNumber:s,focusZoomFactor:o=3.5}=this.config;a&&s?requestAnimationFrame(()=>{requestAnimationFrame(()=>{this.focusViewOnLot(s,o),this.highlight(s,!1)})}):a&&!s&&console.error('LotMapController: isZoomMode is true but focusLotNumber is missing \u2014 set focusLotNumber or a CMS `lot-number` on [dev-target="one-lot"].')}focusViewOnLot(t,a){if(!this.svgEl)return;let s=this.findLot(t)?.shape;if(!s){console.error(`LotMapController: No SVG lot group #${t} \u2014 cannot focus view.`);return}let o;try{o=s.getBBox()}catch{return}if(o.width<=0&&o.height<=0){console.error(`LotMapController: Empty geometry for lot #${t} \u2014 cannot focus view.`);return}let r=o.x+o.width/2,i=o.y+o.height/2,l=this.originalW/this.MAX_ZOOM,n=this.originalW/Math.max(a,1),c=Math.max(o.width,o.height)*3,u=Math.min(this.originalW,Math.max(l,Math.max(n,c))),d=u*this.originalH/this.originalW;this.vb.x=r-u/2,this.vb.y=i-d/2,this.vb.w=u,this.vb.h=d,this.clampViewBox()}bindFilter(){let t={available:"For Sale",reserved:"Not Available for Sale",sold:"Under Contract","model-home":"Not Available"},a=null,s=()=>{let o=0;document.querySelectorAll('[dev-target="one-lot"]').forEach(i=>{let l=a===null||i.getAttribute("availability")===t[a];i.classList.toggle("hide",!l),l&&(o+=1)}),document.querySelector('[dev-target="no-items-found"]')?.classList.toggle("hide",o>0)};Object.keys(t).forEach(o=>{let r=document.querySelector(`[dev-target="${o}"]`);if(!r){console.error(`LotMapController: no filter pill found for dev-target="${o}".`);return}r.addEventListener("click",()=>{document.querySelector(`[dev-target="${a}"]`)?.classList.remove("is-active"),a=a===o?null:o,a&&r.classList.add("is-active"),s()})})}applyLabelColors(){if(!this.svgEl){console.error("LotMapController: applyLabelColors called but svgEl is null.");return}let t=new Map;document.querySelectorAll('[dev-target="one-lot"][lot-number]').forEach(a=>{let s=a.getAttribute("lot-number"),o=a.getAttribute("availability");s&&o&&t.set(s,o)}),this.svgEl.querySelectorAll('g[id$="Label"]').forEach(a=>{let{id:s}=a,o=s.replace(/Label$/,""),r=ye(o,null).map(l=>t.get(l)).find(Boolean)??t.get(o),i=r?Qa[r]??"#657839":"#657839";a.querySelector("rect")?.style.setProperty("fill",i)})}applyCardPillAvailabilityClasses(){document.querySelectorAll('[dev-target="one-lot"]').forEach(t=>{let a=t.getAttribute("availability"),s=t.querySelector('[dev-target="pill-component"]');if(!a||!s)return;let o=es(a);o&&s.classList.add(o)})}async injectSvg(){let t=document.querySelector('[dev-target="svg-text-holder"]'),a=document.querySelector('[dev-target="svg-target-wrapper"]');if(!t)return console.error('LotMapController: No [dev-target="svg-text-holder"] element found.'),!1;if(!a)return console.error('LotMapController: No [dev-target="svg-target-wrapper"] element found.'),!1;let s=(t.textContent??"").trim();if(!s)return console.error('LotMapController: [dev-target="svg-text-holder"] is empty.'),!1;let o=s.includes("<svg"),r=/^https?:\/\//i.test(s),i;try{if(o)i=this.sanitizeSvg(s);else if(r){let u=await fetch(s);if(!u.ok)throw new Error(`Fetch failed with status ${u.status}`);i=this.sanitizeSvg(await u.text())}else return console.error('LotMapController: [dev-target="svg-text-holder"] must contain inline SVG or an https URL.'),!1}catch(u){return console.error("LotMapController: Failed to load SVG.",u),!1}let c=new DOMParser().parseFromString(i,"image/svg+xml").querySelector("svg");return c?(a.replaceChildren(c),this.svgEl=c,this.svgEl.style.width="100%",this.svgEl.style.height="100%",this.svgEl.style.display="block",this.applyMapSize(),this.indexLots(),this.ensureLotLabels(),!0):(console.error("LotMapController: SVG parse failed \u2014 no <svg> found."),!1)}sanitizeSvg(t){return t.replace(/=\d+"/g,'="').replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi,"")}applyMapSize(){let t=this.svgEl?.getAttribute("viewBox")?.trim().split(/[\s,]+/).map(Number),a=t?.length===4&&t[2]>0&&t[3]>0?{w:t[2],h:t[3]}:null;this.originalW=this.config.mapWidth??a?.w??this.originalW,this.originalH=this.config.mapHeight??a?.h??this.originalH,this.vb={x:0,y:0,w:this.originalW,h:this.originalH},this.config.highlightStyle==="stroke"&&this.svgEl?.classList.add("lot-map__svg--stroke-highlight")}ensureLotLabels(){if(!this.svgEl)return;let t=new Set;document.querySelectorAll('[dev-target="one-lot"][lot-number]').forEach(s=>{let o=s.getAttribute("lot-number");o&&t.add(o)});let a=new Set;this.lotsByKey.forEach(s=>{if(a.has(s.shape)||s.label)return;a.add(s.shape);let{id:o}=s.shape;if(!o)return;let r=ye(o,s.shape.getAttribute("data-lot-location")).find(v=>t.has(v));if(!r)return;let i;try{i=s.shape.getBBox()}catch{return}if(i.width<=0&&i.height<=0)return;let l=r,n=l.length>2?28.5:23.79,c=11.25,u=i.x+i.width/2-n/2,d=i.y+i.height/2-c/2,h=document.createElementNS(Fe,"g");h.setAttribute("id",`${o}Label`);let f=document.createElementNS(Fe,"rect");f.setAttribute("x",String(u)),f.setAttribute("y",String(d)),f.setAttribute("width",String(n)),f.setAttribute("height",String(c)),f.setAttribute("rx","5.62"),f.setAttribute("ry","5.62"),f.setAttribute("fill","#657839");let b=document.createElementNS(Fe,"text");b.setAttribute("transform",`translate(${u+n/2} ${d+c*.78})`),b.setAttribute("text-anchor","middle"),b.setAttribute("fill","#fff"),b.setAttribute("font-family",'"Good Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'),b.setAttribute("font-size","9"),b.setAttribute("font-weight","600"),b.textContent=l,h.append(f,b),this.svgEl.appendChild(h)}),this.indexLots()}indexLots(){if(this.lotsByKey.clear(),!this.svgEl)return;Array.from(this.svgEl.querySelectorAll("g[id]")).forEach(a=>{let{id:s}=a;if(!s||Ja.has(s)||s.endsWith("Label")||s.endsWith("Border"))return;let o={shape:a,label:this.svgEl.querySelector(`#${CSS.escape(s)}Label`),border:this.svgEl.querySelector(`#${CSS.escape(s)}Border`)};ye(s,a.getAttribute("data-lot-location")).forEach(r=>{this.lotsByKey.set(r,o)})})}findLot(t){return this.lotsByKey.get(t)}applyViewBox(){let{x:t,y:a,w:s,h:o}=this.vb;this.svgEl?.setAttribute("viewBox",`${t} ${a} ${s} ${o}`)}clampViewBox(){this.vb.x=Math.max(0,Math.min(this.vb.x,this.originalW-this.vb.w)),this.vb.y=Math.max(0,Math.min(this.vb.y,this.originalH-this.vb.h)),this.applyViewBox()}toSvgPoint(t,a){let s=this.svgEl.getBoundingClientRect();return{x:this.vb.x+(t-s.left)/s.width*this.vb.w,y:this.vb.y+(a-s.top)/s.height*this.vb.h}}zoomAround(t,a,s){let o=this.vb.w*t,r=this.originalW/o;if(r<this.MIN_ZOOM||r>this.MAX_ZOOM){this.clampViewBox();return}this.vb.x=a+(this.vb.x-a)*t,this.vb.y=s+(this.vb.y-s)*t,this.vb.w=o,this.vb.h=this.vb.h*t,this.clampViewBox()}zoomBy(t){let a=this.vb.x+this.vb.w/2,s=this.vb.y+this.vb.h/2;this.zoomAround(t,a,s)}resetZoom(){this.vb={x:0,y:0,w:this.originalW,h:this.originalH},this.applyViewBox()}bindZoom(){if(!this.svgEl){console.error("LotMapController: bindZoom called but svgEl is null.");return}let t=this.svgEl;t.addEventListener("wheel",c=>{if(this.DISABLE_ZOOM_WITH_MOUSE_SCROLL)return;c.preventDefault();let u=c.deltaY<0?.85:1/.85,{x:d,y:h}=this.toSvgPoint(c.clientX,c.clientY);this.zoomAround(u,d,h)},{passive:!1});let a={x:0,y:0},s={...this.vb};t.addEventListener("mousedown",c=>{c.button!==0&&c.button!==1||(c.preventDefault(),this.isPanning=!0,a={x:c.clientX,y:c.clientY},s={...this.vb},t.classList.add("lot-map__svg--panning"))}),window.addEventListener("mousemove",c=>{if(!this.isPanning)return;let u=t.getBoundingClientRect();this.vb.x=s.x-(c.clientX-a.x)/u.width*s.w,this.vb.y=s.y-(c.clientY-a.y)/u.height*s.h,this.clampViewBox()}),window.addEventListener("mouseup",c=>{!this.isPanning||c.button!==0&&c.button!==1||(this.isPanning=!1,t.classList.remove("lot-map__svg--panning"))});let o=!1,r=0,i={x:0,y:0},l=c=>Math.hypot(c[0].clientX-c[1].clientX,c[0].clientY-c[1].clientY),n=c=>({x:(c[0].clientX+c[1].clientX)/2,y:(c[0].clientY+c[1].clientY)/2});t.addEventListener("touchstart",c=>{c.preventDefault(),o=!0,c.touches.length===2?(this.isPanning=!1,r=l(c.touches),i=n(c.touches)):(this.isPanning=!0,a={x:c.touches[0].clientX,y:c.touches[0].clientY},s={...this.vb})},{passive:!1}),window.addEventListener("touchmove",c=>{if(o){if(c.preventDefault(),c.touches.length===2){this.isPanning=!1;let u=l(c.touches),d=n(c.touches),h=r/u,f=this.toSvgPoint(d.x,d.y);this.zoomAround(h,f.x,f.y);let b=t.getBoundingClientRect();this.vb.x-=(d.x-i.x)/b.width*this.vb.w,this.vb.y-=(d.y-i.y)/b.height*this.vb.h,this.clampViewBox(),r=u,i=d}else if(c.touches.length===1&&this.isPanning){let u=t.getBoundingClientRect(),d=(c.touches[0].clientX-a.x)/u.width*s.w,h=(c.touches[0].clientY-a.y)/u.height*s.h;this.vb.x=s.x-d,this.vb.y=s.y-h,this.clampViewBox()}}},{passive:!1}),window.addEventListener("touchend",()=>{o&&(o=!1,this.isPanning=!1)})}injectZoomControls(){let t=this.svgEl?.parentElement;if(!t){console.error("LotMapController: injectZoomControls called but SVG has no parent.");return}getComputedStyle(t).position==="static"&&(t.style.position="relative");let a=document.createElement("div");a.className="lot-map__zoom-controls",a.setAttribute("aria-label","Map zoom controls"),a.innerHTML=`
+    `;
+      const mainWrapper = this.overlay.querySelector(
+        ".hb-gallery-swiper .swiper-wrapper"
+      );
+      const thumbWrapper = this.overlay.querySelector(
+        ".hb-gallery-thumbs .swiper-wrapper"
+      );
+      limitedImgs.forEach((img) => {
+        const slide2 = document.createElement("div");
+        slide2.className = "swiper-slide";
+        const slideImg = document.createElement("img");
+        slideImg.src = img.src;
+        slideImg.alt = img.alt;
+        slideImg.title = img.title;
+        if (img.srcset) slideImg.srcset = img.srcset;
+        if (img.sizes) slideImg.sizes = img.sizes;
+        slide2.appendChild(slideImg);
+        mainWrapper.appendChild(slide2);
+        const thumbSlide = document.createElement("div");
+        thumbSlide.className = "swiper-slide";
+        const thumbImg = document.createElement("img");
+        thumbImg.src = img.src;
+        thumbImg.alt = img.alt;
+        thumbImg.title = img.title;
+        thumbSlide.appendChild(thumbImg);
+        thumbWrapper.appendChild(thumbSlide);
+      });
+      document.body.appendChild(this.overlay);
+      document.body.style.overflow = "hidden";
+      this.overlay.querySelector(".hb-gallery-close").addEventListener("click", () => this.close());
+      this.overlay.addEventListener("click", (e) => {
+        if (e.target === this.overlay) this.close();
+      });
+      const mainEl = this.overlay.querySelector(".hb-gallery-swiper");
+      const thumbsEl = this.overlay.querySelector(".hb-gallery-thumbs");
+      this.thumbsSwiper = new Swiper(thumbsEl, {
+        slidesPerView: "auto",
+        spaceBetween: 8,
+        watchSlidesProgress: true,
+        freeMode: true
+      });
+      this.swiper = new Swiper(mainEl, {
+        modules: [Navigation, Pagination, Keyboard, Thumb],
+        initialSlide: boundedStartIndex,
+        loop: limitedImgs.length > 1,
+        keyboard: { enabled: true },
+        navigation: {
+          nextEl: mainEl.querySelector(".swiper-button-next"),
+          prevEl: mainEl.querySelector(".swiper-button-prev")
+        },
+        pagination: {
+          el: mainEl.querySelector(".swiper-pagination"),
+          type: "fraction"
+        },
+        thumbs: {
+          swiper: this.thumbsSwiper
+        }
+      });
+      requestAnimationFrame(() => {
+        this.overlay?.classList.add("is-open");
+      });
+    }
+    close() {
+      if (!this.overlay) return;
+      this.overlay.classList.remove("is-open");
+      document.body.style.overflow = "";
+      const { overlay } = this;
+      const onTransitionEnd = () => {
+        this.destroySwipers();
+        overlay.remove();
+        if (this.overlay === overlay) {
+          this.overlay = null;
+        }
+      };
+      overlay.addEventListener("transitionend", onTransitionEnd, { once: true });
+    }
+    destroySwipers() {
+      if (this.thumbsSwiper && typeof this.thumbsSwiper.destroy === "function") {
+        this.thumbsSwiper.destroy(true, true);
+      }
+      this.thumbsSwiper = null;
+      if (this.swiper && typeof this.swiper.destroy === "function") {
+        this.swiper.destroy(true, true);
+      }
+      this.swiper = null;
+    }
+    destroyOverlay() {
+      this.destroySwipers();
+      this.overlay?.remove();
+      this.overlay = null;
+      document.body.style.overflow = "";
+    }
+    destroy() {
+      this.observers.forEach((o) => o.disconnect());
+      this.observers = [];
+      this.close();
+    }
+  };
+
+  // src/utils/interior-color-scheme.ts
+  var ColorSchemeController = class {
+    hasInit = false;
+    preloadedImageUrls = /* @__PURE__ */ new Set();
+    config;
+    constructor(config) {
+      this.config = config;
+    }
+    init() {
+      if (this.hasInit) return;
+      this.hasInit = true;
+      this.config.bindings.forEach((binding) => {
+        if (!binding.schemeButtons.length) return;
+        this.preloadContextImageUrls(binding);
+        const { context } = binding;
+        if (context?.contextButtons.length) {
+          const initialContextToken = this.getInitialContextToken(context);
+          if (initialContextToken) this.setActiveContextToken(context, initialContextToken);
+          context.contextButtons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const contextToken = btn.getAttribute("dev-target");
+              if (!contextToken) return;
+              this.setActiveContextToken(context, contextToken);
+              const shouldResetScheme = context.resetSchemeOnContextChange ?? false;
+              const nextSchemeToken = shouldResetScheme ? this.getDefaultSchemeToken(binding) : this.getActiveSchemeToken(binding) ?? this.getDefaultSchemeToken(binding);
+              if (!nextSchemeToken) return;
+              this.apply(binding, nextSchemeToken, contextToken);
+            });
+          });
+        }
+        const initialSchemeToken = this.getDefaultSchemeToken(binding);
+        if (initialSchemeToken) {
+          this.apply(binding, initialSchemeToken, this.getActiveContextToken(binding.context));
+        } else {
+          this.syncButtonVisuals(binding);
+        }
+        binding.schemeButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const token = btn.getAttribute("dev-target");
+            if (!token) {
+              console.error("ColorSchemeController: scheme button is missing dev-target attribute.");
+              return;
+            }
+            this.apply(binding, token, this.getActiveContextToken(binding.context));
+          });
+        });
+      });
+    }
+    apply(binding, token, contextToken) {
+      const activeBtn = binding.schemeButtons.find((btn) => btn.getAttribute("dev-target") === token);
+      if (!activeBtn) {
+        console.error(`ColorSchemeController: no scheme button found for token "${token}".`);
+        return;
+      }
+      const contextSchemeMap = contextToken ? binding.context?.imageUrlByContextAndScheme?.[contextToken] : void 0;
+      const contextualImageUrl = contextSchemeMap?.[token];
+      const hasContextualMapping = Boolean(contextSchemeMap && token in contextSchemeMap);
+      if (contextualImageUrl) {
+        binding.forwardImage.src = contextualImageUrl;
+        binding.forwardImage.removeAttribute("srcset");
+        binding.forwardImage.removeAttribute("sizes");
+      } else if (!hasContextualMapping) {
+        const schemeImg = binding.schemeImagesByToken.get(token);
+        if (schemeImg) {
+          binding.forwardImage.src = schemeImg.src;
+          if (schemeImg.srcset) binding.forwardImage.srcset = schemeImg.srcset;
+          if (schemeImg.sizes) binding.forwardImage.sizes = schemeImg.sizes;
+          if (schemeImg.alt) binding.forwardImage.alt = schemeImg.alt;
+        }
+      }
+      if (contextToken && binding.context?.titleElement && binding.context?.titleByContextAndScheme) {
+        const title = binding.context.titleByContextAndScheme[contextToken]?.[token];
+        if (title) binding.context.titleElement.textContent = title;
+      }
+      this.syncButtonVisuals(binding, activeBtn);
+    }
+    getDefaultSchemeToken(binding) {
+      const contextDefault = binding.context?.defaultSchemeToken;
+      if (contextDefault && this.hasSchemeButton(binding, contextDefault)) return contextDefault;
+      const activeToken = this.getActiveSchemeToken(binding);
+      if (activeToken) return activeToken;
+      return binding.schemeButtons.find((btn) => btn.getAttribute("dev-target"))?.getAttribute("dev-target") ?? void 0;
+    }
+    getActiveSchemeToken(binding) {
+      return binding.schemeButtons.find((btn) => btn.classList.contains("is-active"))?.getAttribute("dev-target") ?? void 0;
+    }
+    hasSchemeButton(binding, token) {
+      return binding.schemeButtons.some((btn) => btn.getAttribute("dev-target") === token);
+    }
+    getInitialContextToken(context) {
+      if (context.defaultContextToken && this.hasContextButton(context, context.defaultContextToken)) {
+        return context.defaultContextToken;
+      }
+      const activeContextToken = context.contextButtons.find((btn) => btn.classList.contains("is-active"))?.getAttribute("dev-target") ?? void 0;
+      if (activeContextToken) return activeContextToken;
+      return context.contextButtons.find((btn) => btn.getAttribute("dev-target"))?.getAttribute("dev-target") ?? void 0;
+    }
+    getActiveContextToken(context) {
+      if (!context) return void 0;
+      return context.contextButtons.find((btn) => btn.classList.contains("is-active"))?.getAttribute("dev-target") ?? void 0;
+    }
+    setActiveContextToken(context, token) {
+      context.contextButtons.forEach((btn) => {
+        const btnToken = btn.getAttribute("dev-target") ?? "";
+        btn.classList.toggle("is-active", btnToken === token);
+      });
+    }
+    hasContextButton(context, token) {
+      return context.contextButtons.some((btn) => btn.getAttribute("dev-target") === token);
+    }
+    preloadContextImageUrls(binding) {
+      const { context } = binding;
+      if (!context?.imageUrlByContextAndScheme) return;
+      if (context.preloadImageUrls === false) return;
+      Object.values(context.imageUrlByContextAndScheme).forEach((schemeMap) => {
+        Object.values(schemeMap).forEach((imageUrl) => {
+          if (!imageUrl || this.preloadedImageUrls.has(imageUrl)) return;
+          this.preloadedImageUrls.add(imageUrl);
+          const image = new Image();
+          image.src = imageUrl;
+          void image.decode?.().catch(() => {
+          });
+        });
+      });
+    }
+    syncButtonVisuals(binding, activeBtn) {
+      const { activeStrokeWidth, inactiveStrokeWidth, activeCircleRadius, inactiveCircleRadius } = this.getVisuals(binding);
+      binding.schemeButtons.forEach((btn) => {
+        const isActive = activeBtn ? btn === activeBtn : btn.classList.contains("is-active");
+        btn.classList.toggle("is-active", isActive);
+        const circle = btn.querySelector("circle");
+        if (!circle) return;
+        circle.setAttribute(
+          "stroke-width",
+          String(isActive ? activeStrokeWidth : inactiveStrokeWidth)
+        );
+        circle.setAttribute("r", String(isActive ? activeCircleRadius : inactiveCircleRadius));
+      });
+    }
+    getVisuals(binding) {
+      return {
+        activeStrokeWidth: binding.visual?.activeStrokeWidth ?? this.config.activeStrokeWidth ?? 2,
+        inactiveStrokeWidth: binding.visual?.inactiveStrokeWidth ?? this.config.inactiveStrokeWidth ?? 0.5,
+        activeCircleRadius: binding.visual?.activeCircleRadius ?? this.config.activeCircleRadius ?? 21.5,
+        inactiveCircleRadius: binding.visual?.inactiveCircleRadius ?? this.config.inactiveCircleRadius ?? 22.5
+      };
+    }
+  };
+
+  // src/utils/lot-map.ts
+  var SKIP_LOT_IDS = /* @__PURE__ */ new Set(["Layer_1", "C_Amenity_Center"]);
+  function lotKeysForGroup(id, dataLotLocation) {
+    const keys = /* @__PURE__ */ new Set([id]);
+    if (dataLotLocation) keys.add(dataLotLocation);
+    const underscored = id.match(/^_(\d+)([A-Za-z])$/);
+    if (underscored) {
+      keys.add(`${underscored[1]}${underscored[2]}`);
+      keys.add(`${underscored[2]}${underscored[1]}`);
+    }
+    const letterFirst = id.match(/^([A-Za-z])(\d+)$/);
+    if (letterFirst) keys.add(`${letterFirst[2]}${letterFirst[1]}`);
+    const numberFirst = id.match(/^(\d+)([A-Za-z])$/);
+    if (numberFirst) keys.add(`${numberFirst[2]}${numberFirst[1]}`);
+    return [...keys];
+  }
+  var SVG_NS = "http://www.w3.org/2000/svg";
+  var AVAILABILITY_COLORS = {
+    "For Sale": "#657839",
+    "Not Available for Sale": "#d17520",
+    "Under Contract": "#8b514e",
+    "Not Available": "#3A759D"
+  };
+  function availabilityToPillClass(raw) {
+    return raw.trim().toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+  }
+  var LAKESIDE_MAP = { mapWidth: 1162.54, mapHeight: 912.76 };
+  var PARK_PLACE_MAP = { mapWidth: 1247.80285, mapHeight: 670.33693 };
+  var LOT_MAP_CONFIG_BY_SLUG = {
+    "park-place": { ...PARK_PLACE_MAP, highlightStyle: "fill" },
+    mosaic: { ...PARK_PLACE_MAP, highlightStyle: "stroke" },
+    mosic: { ...PARK_PLACE_MAP, highlightStyle: "stroke" },
+    "lake-side": { ...LAKESIDE_MAP, highlightStyle: "fill" },
+    lakeside: { ...LAKESIDE_MAP, highlightStyle: "fill" }
+  };
+  function lotMapConfigFromLocation(pathname = window.location.pathname) {
+    const slug = pathname.toLowerCase().split("/upcoming-communities/")[1]?.split("/")[0] ?? "";
+    return LOT_MAP_CONFIG_BY_SLUG[slug] ?? {};
+  }
+  var LotMapController = class {
+    svgEl = null;
+    activeId = null;
+    isPanning = false;
+    lotsByKey = /* @__PURE__ */ new Map();
+    config;
+    /** Native width of the SVG viewBox. */
+    originalW = LAKESIDE_MAP.mapWidth;
+    /** Native height of the SVG viewBox. */
+    originalH = LAKESIDE_MAP.mapHeight;
+    /** Minimum zoom factor — prevents zooming out past the full map (1 = full map). */
+    MIN_ZOOM = 1;
+    /** Maximum zoom factor. */
+    MAX_ZOOM = 8;
+    /** Zoom factor for the zoom buttons. */
+    DISABLE_ZOOM_WITH_MOUSE_SCROLL = true;
+    vb = { x: 0, y: 0, w: this.originalW, h: this.originalH };
+    constructor(config = {}) {
+      this.config = config;
+    }
+    /**
+     * Initialises the controller: injects the SVG (inline markup or URL), then
+     * wires hover and zoom. Must be called after the DOM is ready
+     * (e.g. inside `window.Webflow.push`).
+     */
+    async init() {
+      if (!await this.injectSvg()) return;
+      const cards = document.querySelectorAll('[dev-target="one-lot"][lot-number]');
+      if (!cards.length) {
+        console.error(
+          'LotMapController: No [dev-target="one-lot"][lot-number] found \u2014 add lot-number to each CMS lot card to enable bidirectional hover.'
+        );
+      }
+      this.applyLabelColors();
+      this.applyCardPillAvailabilityClasses();
+      this.bindSvgHover();
+      this.bindCardHover(cards);
+      this.bindZoom();
+      this.injectZoomControls();
+      this.bindFilter();
+      const { isZoomMode, focusLotNumber, focusZoomFactor = 3.5 } = this.config;
+      if (isZoomMode && focusLotNumber) {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            this.focusViewOnLot(focusLotNumber, focusZoomFactor);
+            this.highlight(focusLotNumber, false);
+          });
+        });
+      } else if (isZoomMode && !focusLotNumber) {
+        console.error(
+          'LotMapController: isZoomMode is true but focusLotNumber is missing \u2014 set focusLotNumber or a CMS `lot-number` on [dev-target="one-lot"].'
+        );
+      }
+    }
+    /**
+     * Sets the viewBox to frame the lot shape group in SVG space, with padding and a
+     * zoom level derived from {@link focusZoomFactor}.
+     */
+    focusViewOnLot(lotId, zoomFactor) {
+      if (!this.svgEl) return;
+      const shape = this.findLot(lotId)?.shape;
+      if (!shape) {
+        console.error(`LotMapController: No SVG lot group #${lotId} \u2014 cannot focus view.`);
+        return;
+      }
+      let bbox;
+      try {
+        bbox = shape.getBBox();
+      } catch {
+        return;
+      }
+      if (bbox.width <= 0 && bbox.height <= 0) {
+        console.error(`LotMapController: Empty geometry for lot #${lotId} \u2014 cannot focus view.`);
+        return;
+      }
+      const cx = bbox.x + bbox.width / 2;
+      const cy = bbox.y + bbox.height / 2;
+      const minWFromMaxZoom = this.originalW / this.MAX_ZOOM;
+      const fromMapZoom = this.originalW / Math.max(zoomFactor, 1);
+      const fromLotPadding = Math.max(bbox.width, bbox.height) * 3;
+      const targetW = Math.min(
+        this.originalW,
+        Math.max(minWFromMaxZoom, Math.max(fromMapZoom, fromLotPadding))
+      );
+      const targetH = targetW * this.originalH / this.originalW;
+      this.vb.x = cx - targetW / 2;
+      this.vb.y = cy - targetH / 2;
+      this.vb.w = targetW;
+      this.vb.h = targetH;
+      this.clampViewBox();
+    }
+    bindFilter() {
+      const map = {
+        available: "For Sale",
+        reserved: "Not Available for Sale",
+        sold: "Under Contract",
+        "model-home": "Not Available"
+      };
+      let activeKey = null;
+      const applyFilter = () => {
+        let visibleCount = 0;
+        document.querySelectorAll('[dev-target="one-lot"]').forEach((lot) => {
+          const matches = activeKey === null || lot.getAttribute("availability") === map[activeKey];
+          lot.classList.toggle("hide", !matches);
+          if (matches) visibleCount += 1;
+        });
+        const noItems = document.querySelector('[dev-target="no-items-found"]');
+        noItems?.classList.toggle("hide", visibleCount > 0);
+      };
+      Object.keys(map).forEach((key) => {
+        const pill = document.querySelector(`[dev-target="${key}"]`);
+        if (!pill) {
+          console.error(`LotMapController: no filter pill found for dev-target="${key}".`);
+          return;
+        }
+        pill.addEventListener("click", () => {
+          document.querySelector(`[dev-target="${activeKey}"]`)?.classList.remove("is-active");
+          activeKey = activeKey === key ? null : key;
+          if (activeKey) pill.classList.add("is-active");
+          applyFilter();
+        });
+      });
+    }
+    /**
+     * Sets each SVG label group's rect fill color based on the lot's availability
+     * from the CMS cards. Uses {@link AVAILABILITY_COLORS}; unknown values default to #657839.
+     */
+    applyLabelColors() {
+      if (!this.svgEl) {
+        console.error("LotMapController: applyLabelColors called but svgEl is null.");
+        return;
+      }
+      const lotToAvailability = /* @__PURE__ */ new Map();
+      document.querySelectorAll('[dev-target="one-lot"][lot-number]').forEach((card) => {
+        const lotNumber = card.getAttribute("lot-number");
+        const availability = card.getAttribute("availability");
+        if (lotNumber && availability) lotToAvailability.set(lotNumber, availability);
+      });
+      this.svgEl.querySelectorAll('g[id$="Label"]').forEach((labelGroup) => {
+        const { id } = labelGroup;
+        const lotNumber = id.replace(/Label$/, "");
+        const availability = lotKeysForGroup(lotNumber, null).map((key) => lotToAvailability.get(key)).find(Boolean) ?? lotToAvailability.get(lotNumber);
+        const color = availability ? AVAILABILITY_COLORS[availability] ?? "#657839" : "#657839";
+        labelGroup.querySelector("rect")?.style.setProperty("fill", color);
+      });
+    }
+    /**
+     * Adds a kebab-case class derived from each card's `availability` attribute to the
+     * nested `[dev-target="pill-component"]` for CMS styling (e.g. `under-contract`).
+     */
+    applyCardPillAvailabilityClasses() {
+      document.querySelectorAll('[dev-target="one-lot"]').forEach((card) => {
+        const raw = card.getAttribute("availability");
+        const pill = card.querySelector('[dev-target="pill-component"]');
+        if (!raw || !pill) return;
+        const slug = availabilityToPillClass(raw);
+        if (slug) pill.classList.add(slug);
+      });
+    }
+    /**
+     * Reads SVG markup or an absolute SVG URL from `[dev-target="svg-text-holder"]`,
+     * sanitises it, and injects it into `[dev-target="svg-target-wrapper"]`.
+     * Matches house-plan floor maps: inline `<svg>` or `https://…`.
+     *
+     * @returns `true` on success, `false` if a required element is missing or
+     *   the holder does not contain valid SVG markup or a fetchable URL.
+     */
+    async injectSvg() {
+      const textHolder = document.querySelector('[dev-target="svg-text-holder"]');
+      const targetWrapper = document.querySelector('[dev-target="svg-target-wrapper"]');
+      if (!textHolder) {
+        console.error('LotMapController: No [dev-target="svg-text-holder"] element found.');
+        return false;
+      }
+      if (!targetWrapper) {
+        console.error('LotMapController: No [dev-target="svg-target-wrapper"] element found.');
+        return false;
+      }
+      const raw = (textHolder.textContent ?? "").trim();
+      if (!raw) {
+        console.error('LotMapController: [dev-target="svg-text-holder"] is empty.');
+        return false;
+      }
+      const isSvgMarkup = raw.includes("<svg");
+      const isUrl = /^https?:\/\//i.test(raw);
+      let svgText;
+      try {
+        if (isSvgMarkup) {
+          svgText = this.sanitizeSvg(raw);
+        } else if (isUrl) {
+          const res = await fetch(raw);
+          if (!res.ok) {
+            throw new Error(`Fetch failed with status ${res.status}`);
+          }
+          svgText = this.sanitizeSvg(await res.text());
+        } else {
+          console.error(
+            'LotMapController: [dev-target="svg-text-holder"] must contain inline SVG or an https URL.'
+          );
+          return false;
+        }
+      } catch (error) {
+        console.error("LotMapController: Failed to load SVG.", error);
+        return false;
+      }
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(svgText, "image/svg+xml");
+      const svgEl = doc.querySelector("svg");
+      if (!svgEl) {
+        console.error("LotMapController: SVG parse failed \u2014 no <svg> found.");
+        return false;
+      }
+      targetWrapper.replaceChildren(svgEl);
+      this.svgEl = svgEl;
+      this.svgEl.style.width = "100%";
+      this.svgEl.style.height = "100%";
+      this.svgEl.style.display = "block";
+      this.applyMapSize();
+      this.indexLots();
+      this.ensureLotLabels();
+      return true;
+    }
+    /**
+     * Sanitises SVG markup by fixing broken Webflow attributes and removing script tags.
+     */
+    sanitizeSvg(svg) {
+      return svg.replace(/=\d+"/g, '="').replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, "");
+    }
+    /**
+     * Sets native map size from config, then the SVG `viewBox`, then Lakeside fallbacks.
+     */
+    applyMapSize() {
+      const tokens = this.svgEl?.getAttribute("viewBox")?.trim().split(/[\s,]+/).map(Number);
+      const fromView = tokens?.length === 4 && tokens[2] > 0 && tokens[3] > 0 ? { w: tokens[2], h: tokens[3] } : null;
+      this.originalW = this.config.mapWidth ?? fromView?.w ?? this.originalW;
+      this.originalH = this.config.mapHeight ?? fromView?.h ?? this.originalH;
+      this.vb = { x: 0, y: 0, w: this.originalW, h: this.originalH };
+      if (this.config.highlightStyle === "stroke") {
+        this.svgEl?.classList.add("lot-map__svg--stroke-highlight");
+      }
+    }
+    /**
+     * Adds Lakeside-style lot pills when the SVG has none (Park Place). Existing
+     * `*Label` groups are left unchanged. Display text is number-then-letter (`1B`).
+     * Park Place has no baked-in pills, so they are created here for lots that
+     * appear in the right-side CMS list (`lot-number` on `[dev-target="one-lot"]`).
+     */
+    ensureLotLabels() {
+      if (!this.svgEl) return;
+      const cmsLotNumbers = /* @__PURE__ */ new Set();
+      document.querySelectorAll('[dev-target="one-lot"][lot-number]').forEach((card) => {
+        const lotNumber = card.getAttribute("lot-number");
+        if (lotNumber) cmsLotNumbers.add(lotNumber);
+      });
+      const seen = /* @__PURE__ */ new Set();
+      this.lotsByKey.forEach((hit) => {
+        if (seen.has(hit.shape) || hit.label) return;
+        seen.add(hit.shape);
+        const { id } = hit.shape;
+        if (!id) return;
+        const cmsLotNumber = lotKeysForGroup(id, hit.shape.getAttribute("data-lot-location")).find(
+          (key) => cmsLotNumbers.has(key)
+        );
+        if (!cmsLotNumber) return;
+        let bbox;
+        try {
+          bbox = hit.shape.getBBox();
+        } catch {
+          return;
+        }
+        if (bbox.width <= 0 && bbox.height <= 0) return;
+        const text = cmsLotNumber;
+        const w = text.length > 2 ? 28.5 : 23.79;
+        const h = 11.25;
+        const x = bbox.x + bbox.width / 2 - w / 2;
+        const y = bbox.y + bbox.height / 2 - h / 2;
+        const label = document.createElementNS(SVG_NS, "g");
+        label.setAttribute("id", `${id}Label`);
+        const rect = document.createElementNS(SVG_NS, "rect");
+        rect.setAttribute("x", String(x));
+        rect.setAttribute("y", String(y));
+        rect.setAttribute("width", String(w));
+        rect.setAttribute("height", String(h));
+        rect.setAttribute("rx", "5.62");
+        rect.setAttribute("ry", "5.62");
+        rect.setAttribute("fill", "#657839");
+        const textEl = document.createElementNS(SVG_NS, "text");
+        textEl.setAttribute("transform", `translate(${x + w / 2} ${y + h * 0.78})`);
+        textEl.setAttribute("text-anchor", "middle");
+        textEl.setAttribute("fill", "#fff");
+        textEl.setAttribute(
+          "font-family",
+          '"Good Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+        );
+        textEl.setAttribute("font-size", "9");
+        textEl.setAttribute("font-weight", "600");
+        textEl.textContent = text;
+        label.append(rect, textEl);
+        this.svgEl.appendChild(label);
+      });
+      this.indexLots();
+    }
+    /**
+     * Indexes lot shapes (and optional label/border siblings) under every CMS-friendly key.
+     */
+    indexLots() {
+      this.lotsByKey.clear();
+      if (!this.svgEl) return;
+      const groups = Array.from(this.svgEl.querySelectorAll("g[id]"));
+      groups.forEach((group) => {
+        const { id } = group;
+        if (!id || SKIP_LOT_IDS.has(id) || id.endsWith("Label") || id.endsWith("Border")) return;
+        const hit = {
+          shape: group,
+          label: this.svgEl.querySelector(`#${CSS.escape(id)}Label`),
+          border: this.svgEl.querySelector(`#${CSS.escape(id)}Border`)
+        };
+        lotKeysForGroup(id, group.getAttribute("data-lot-location")).forEach((key) => {
+          this.lotsByKey.set(key, hit);
+        });
+      });
+    }
+    findLot(lotId) {
+      return this.lotsByKey.get(lotId);
+    }
+    /**
+     * Writes the current {@link ViewBox} state back to the SVG `viewBox` attribute.
+     */
+    applyViewBox() {
+      const { x, y, w, h } = this.vb;
+      this.svgEl?.setAttribute("viewBox", `${x} ${y} ${w} ${h}`);
+    }
+    /**
+     * Clamps the viewBox so the visible area stays within map bounds.
+     * Prevents panning the map out of view at any zoom level.
+     */
+    clampViewBox() {
+      this.vb.x = Math.max(0, Math.min(this.vb.x, this.originalW - this.vb.w));
+      this.vb.y = Math.max(0, Math.min(this.vb.y, this.originalH - this.vb.h));
+      this.applyViewBox();
+    }
+    /**
+     * Converts a screen-space client coordinate to SVG-space coordinates,
+     * accounting for the current viewBox pan and zoom.
+     *
+     * @param clientX - Horizontal client coordinate (e.g. from a mouse event).
+     * @param clientY - Vertical client coordinate.
+     * @returns The equivalent point in SVG user units.
+     */
+    toSvgPoint(clientX, clientY) {
+      const rect = this.svgEl.getBoundingClientRect();
+      return {
+        x: this.vb.x + (clientX - rect.left) / rect.width * this.vb.w,
+        y: this.vb.y + (clientY - rect.top) / rect.height * this.vb.h
+      };
+    }
+    /**
+     * Scales the viewBox by `scale` around a fixed SVG-space origin point,
+     * clamped to {@link MIN_ZOOM} / {@link MAX_ZOOM}.
+     *
+     * @param scale   - Multiplier applied to the viewBox dimensions (< 1 zooms in).
+     * @param originX - SVG-space X coordinate to zoom around.
+     * @param originY - SVG-space Y coordinate to zoom around.
+     */
+    zoomAround(scale, originX, originY) {
+      const newW = this.vb.w * scale;
+      const zoom = this.originalW / newW;
+      if (zoom < this.MIN_ZOOM || zoom > this.MAX_ZOOM) {
+        this.clampViewBox();
+        return;
+      }
+      this.vb.x = originX + (this.vb.x - originX) * scale;
+      this.vb.y = originY + (this.vb.y - originY) * scale;
+      this.vb.w = newW;
+      this.vb.h = this.vb.h * scale;
+      this.clampViewBox();
+    }
+    /**
+     * Zooms by `scale` around the centre of the current viewBox.
+     * Used by the +/− buttons.
+     *
+     * @param scale - Multiplier applied to the viewBox dimensions (< 1 zooms in).
+     */
+    zoomBy(scale) {
+      const cx = this.vb.x + this.vb.w / 2;
+      const cy = this.vb.y + this.vb.h / 2;
+      this.zoomAround(scale, cx, cy);
+    }
+    /**
+     * Resets the viewBox to the original full-map dimensions.
+     */
+    resetZoom() {
+      this.vb = { x: 0, y: 0, w: this.originalW, h: this.originalH };
+      this.applyViewBox();
+    }
+    /**
+     * Attaches mouse-wheel zoom, left/middle-click drag pan, and touch
+     * pinch-to-zoom / single-finger pan event listeners to the SVG.
+     *
+     * Mouse and touch move/end listeners are bound to `window` so gestures
+     * continue working when the pointer leaves the SVG boundary.
+     * `preventDefault()` is only called when an interaction originated on
+     * the SVG, leaving all other page scroll unaffected.
+     */
+    bindZoom() {
+      if (!this.svgEl) {
+        console.error("LotMapController: bindZoom called but svgEl is null.");
+        return;
+      }
+      const svg = this.svgEl;
+      svg.addEventListener(
+        "wheel",
+        (e) => {
+          if (this.DISABLE_ZOOM_WITH_MOUSE_SCROLL) return;
+          e.preventDefault();
+          const scale = e.deltaY < 0 ? 0.85 : 1 / 0.85;
+          const { x, y } = this.toSvgPoint(e.clientX, e.clientY);
+          this.zoomAround(scale, x, y);
+        },
+        { passive: false }
+      );
+      let startClient = { x: 0, y: 0 };
+      let startVb = { ...this.vb };
+      svg.addEventListener("mousedown", (e) => {
+        if (e.button !== 0 && e.button !== 1) return;
+        e.preventDefault();
+        this.isPanning = true;
+        startClient = { x: e.clientX, y: e.clientY };
+        startVb = { ...this.vb };
+        svg.classList.add("lot-map__svg--panning");
+      });
+      window.addEventListener("mousemove", (e) => {
+        if (!this.isPanning) return;
+        const rect = svg.getBoundingClientRect();
+        this.vb.x = startVb.x - (e.clientX - startClient.x) / rect.width * startVb.w;
+        this.vb.y = startVb.y - (e.clientY - startClient.y) / rect.height * startVb.h;
+        this.clampViewBox();
+      });
+      window.addEventListener("mouseup", (e) => {
+        if (!this.isPanning || e.button !== 0 && e.button !== 1) return;
+        this.isPanning = false;
+        svg.classList.remove("lot-map__svg--panning");
+      });
+      let isTouching = false;
+      let lastDist = 0;
+      let lastMid = { x: 0, y: 0 };
+      const touchDist = (t) => Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
+      const touchMid = (t) => ({
+        x: (t[0].clientX + t[1].clientX) / 2,
+        y: (t[0].clientY + t[1].clientY) / 2
+      });
+      svg.addEventListener(
+        "touchstart",
+        (e) => {
+          e.preventDefault();
+          isTouching = true;
+          if (e.touches.length === 2) {
+            this.isPanning = false;
+            lastDist = touchDist(e.touches);
+            lastMid = touchMid(e.touches);
+          } else {
+            this.isPanning = true;
+            startClient = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+            startVb = { ...this.vb };
+          }
+        },
+        { passive: false }
+      );
+      window.addEventListener(
+        "touchmove",
+        (e) => {
+          if (!isTouching) return;
+          e.preventDefault();
+          if (e.touches.length === 2) {
+            this.isPanning = false;
+            const dist = touchDist(e.touches);
+            const mid = touchMid(e.touches);
+            const scale = lastDist / dist;
+            const origin = this.toSvgPoint(mid.x, mid.y);
+            this.zoomAround(scale, origin.x, origin.y);
+            const rect = svg.getBoundingClientRect();
+            this.vb.x -= (mid.x - lastMid.x) / rect.width * this.vb.w;
+            this.vb.y -= (mid.y - lastMid.y) / rect.height * this.vb.h;
+            this.clampViewBox();
+            lastDist = dist;
+            lastMid = mid;
+          } else if (e.touches.length === 1 && this.isPanning) {
+            const rect = svg.getBoundingClientRect();
+            const dx = (e.touches[0].clientX - startClient.x) / rect.width * startVb.w;
+            const dy = (e.touches[0].clientY - startClient.y) / rect.height * startVb.h;
+            this.vb.x = startVb.x - dx;
+            this.vb.y = startVb.y - dy;
+            this.clampViewBox();
+          }
+        },
+        { passive: false }
+      );
+      window.addEventListener("touchend", () => {
+        if (!isTouching) return;
+        isTouching = false;
+        this.isPanning = false;
+      });
+    }
+    /**
+     * Creates and appends +/− and reset zoom buttons as a sibling of the `<svg>`.
+     * Forces the parent wrapper to `position: relative` if it is `static`.
+     */
+    injectZoomControls() {
+      const wrapper = this.svgEl?.parentElement;
+      if (!wrapper) {
+        console.error("LotMapController: injectZoomControls called but SVG has no parent.");
+        return;
+      }
+      if (getComputedStyle(wrapper).position === "static") {
+        wrapper.style.position = "relative";
+      }
+      const controls = document.createElement("div");
+      controls.className = "lot-map__zoom-controls";
+      controls.setAttribute("aria-label", "Map zoom controls");
+      controls.innerHTML = `
       <button class="lot-map__zoom-btn" data-zoom="in"    title="Zoom in"   aria-label="Zoom in">+</button>
       <button class="lot-map__zoom-btn" data-zoom="reset" title="Reset zoom" aria-label="Reset zoom">\u2299</button>
       <button class="lot-map__zoom-btn" data-zoom="out"   title="Zoom out"  aria-label="Zoom out">\u2212</button>
-    `,a.addEventListener("click",s=>{let o=s.target.closest("[data-zoom]");if(!o)return;let{zoom:r}=o.dataset;r==="in"?this.zoomBy(.7):r==="out"?this.zoomBy(1/.7):r==="reset"&&this.resetZoom()}),t.appendChild(a)}bindSvgHover(){if(!this.svgEl){console.error("LotMapController: bindSvgHover called but svgEl is null.");return}let t=new Set;this.lotsByKey.forEach((a,s)=>{if(t.has(a.shape))return;t.add(a.shape);let o=a.shape.id||s;a.shape.style.cursor="pointer",a.shape.addEventListener("mouseenter",()=>this.highlight(o)),a.shape.addEventListener("mouseleave",()=>this.clearHighlight()),a.shape.addEventListener("mousedown",r=>r.stopPropagation()),a.shape.addEventListener("click",()=>this.highlight(o,!0)),a.label&&(a.label.style.cursor="pointer",a.label.addEventListener("mouseenter",()=>this.highlight(o)),a.label.addEventListener("mouseleave",()=>this.clearHighlight()),a.label.addEventListener("mousedown",r=>r.stopPropagation()),a.label.addEventListener("click",()=>this.highlight(o,!0)))})}bindCardHover(t){t.forEach(a=>{let s=a.getAttribute("lot-number"),o=a.getAttribute("price");s&&(a.addEventListener("mouseenter",()=>this.highlight(s)),a.addEventListener("mouseleave",()=>this.clearHighlight()),o==="Inquire for Pricing"&&a.querySelector('[dev-target="starting-from-text"]')?.classList.add("hide"))})}highlight(t,a=!1){if(this.isPanning||this.activeId===t&&!a)return;this.clearHighlight(),this.activeId=t;let s=this.findLot(t);this.svgEl&&s&&(s.shape.classList.add("lot-map__shape--active"),s.label?.classList.add("lot-map__label--active"));let o=ye(t,null).map(i=>`[dev-target="one-lot"][lot-number="${i}"]`),r=document.querySelector(o.join(","));r?(this.config.isZoomMode||r.classList.add("lot-map__card--active"),a&&(r.classList.remove("hide"),r.scrollIntoView({behavior:"smooth",block:"center"}))):a&&console.error(`LotMapController: No CMS lot card for map lot \u2014 expected [dev-target="one-lot"][lot-number="${t}"].`)}clearHighlight(){this.activeId=null,this.svgEl?.querySelectorAll(".lot-map__shape--active").forEach(t=>t.classList.remove("lot-map__shape--active")),this.svgEl?.querySelectorAll(".lot-map__label--active").forEach(t=>t.classList.remove("lot-map__label--active")),document.querySelector(".lot-map__card--active")?.classList.remove("lot-map__card--active")}};var Xe={linkSelector:".tab-links[dev-target]",navContainerSelector:".tab-header",stripSelector:'[dev-target="tab-left"]',mobileBreakpoint:767,observerRootMargin:"-10% 0px -85% 0px",observerThreshold:0,sectionMap:{overview:"overview-section","floor-plans":"floor-plans-section",amentities:"amentities-section",personalisation:"personalization-section","browse-homes":"lots-section",process:"process-section"},sectionOrder:["overview","floor-plans","amentities","personalisation","browse-homes"]},Ce=class{constructor(t){z(this,"links",[]);z(this,"observer",null);z(this,"visibleSections",new Set);z(this,"sectionMap");z(this,"sectionOrder");z(this,"linkSelector");z(this,"navContainerSelector");z(this,"stripSelector");z(this,"mobileBreakpoint");z(this,"observerRootMargin");z(this,"observerThreshold");let a={...Xe,...t,sectionMap:{...Xe.sectionMap,...t?.sectionMap},sectionOrder:t?.sectionOrder??Xe.sectionOrder};this.linkSelector=a.linkSelector,this.navContainerSelector=a.navContainerSelector,this.stripSelector=a.stripSelector,this.mobileBreakpoint=a.mobileBreakpoint,this.observerRootMargin=a.observerRootMargin,this.observerThreshold=a.observerThreshold,this.sectionMap=a.sectionMap,this.sectionOrder=a.sectionOrder}init(){if(this.links=Array.from(document.querySelectorAll(this.linkSelector)),!this.links.length){console.error("StickyNavController: No tab links found.");return}this.setupClickHandlers(),this.setupScrollObserver(),requestAnimationFrame(()=>{let t=this.links.find(a=>a.classList.contains("is-active"))??this.links[0];t&&(t.classList.add("is-active"),this.scrollLinkIntoStrip(t))})}setupClickHandlers(){this.links.forEach(t=>{t.addEventListener("click",a=>{a.preventDefault();let s=t.getAttribute("dev-target");if(!s)return;let o=this.sectionMap[s];if(!o)return;let r=document.getElementById(o);if(!r){console.error(`StickyNavController: Section #${o} not found.`);return}let i=t.closest(this.navContainerSelector),l=i?i.offsetHeight:0,n=r.getBoundingClientRect().top+window.scrollY-l;window.scrollTo({top:n,behavior:"smooth"}),this.setActiveLink(s)})})}setupScrollObserver(){this.observer=new IntersectionObserver(t=>{t.forEach(s=>{let o=this.getDevTargetBySectionId(s.target.id);o&&(s.isIntersecting?this.visibleSections.add(o):this.visibleSections.delete(o))});let a=this.sectionOrder.find(s=>this.visibleSections.has(s));a&&this.setActiveLink(a)},{rootMargin:this.observerRootMargin,threshold:this.observerThreshold}),this.sectionOrder.forEach(t=>{let a=this.sectionMap[t];if(!a)return;let s=document.getElementById(a);s?this.observer.observe(s):console.error(`StickyNavController: Section #${a} not found in DOM.`)})}setActiveLink(t){this.links.forEach(a=>{let s=a.getAttribute("dev-target")===t;a.classList.toggle("is-active",s),s&&this.scrollLinkIntoStrip(a)})}scrollLinkIntoStrip(t){if(window.innerWidth>this.mobileBreakpoint)return;let a=t.closest(this.stripSelector);if(!a)return;let s=t.offsetLeft+t.offsetWidth/2-a.offsetWidth/2,o=a.scrollWidth-a.offsetWidth;a.scrollTo({left:Math.min(Math.max(0,s),o),behavior:"smooth"})}getDevTargetBySectionId(t){return this.sectionOrder.find(a=>this.sectionMap[a]===t)??null}destroy(){this.observer?.disconnect(),this.observer=null,this.visibleSections.clear()}};var yt=[{triggerSelector:'[dev-target="image-gallery"]',imageSelector:'[dev-target="hidden-main-gallery-images"]',containerSelector:"[hero-swiper]"},{triggerSelector:'[dev-target="community-gallery"]',imageSelector:'img[dev-target="hidden-community-gallery-images"]',containerSelector:".hidden-community-gallery-collection"}];yt.forEach(e=>{if(!document.querySelector(e.triggerSelector)){console.error(`GalleryController: element not found \u2014 ${e.triggerSelector}`);return}});window.Webflow||(window.Webflow=[]);window.Webflow.push(()=>{new Ce().init(),new ge(yt).init(),new ue().init(),new pe().init();let r=Array.from(document.querySelectorAll('[dev-target="explore-image-colors"]')).flatMap(l=>{let n=l.querySelector('img[dev-target="exploration-forward-image"]');if(!n)return[];let c=Array.from(l.querySelectorAll('[dev-target$="-scheme"]'));if(!c.length)return[];let u=new Map;return c.forEach(d=>{let h=d.getAttribute("dev-target");if(!h)return;let f=l.querySelector(`img[dev-target="${h}-image"]`);if(!f){console.error(`ColorSchemeController (explore-image-colors): no hidden scheme image for token "${h}".`);return}u.set(h,f)}),u.size?[{forwardImage:n,schemeButtons:c,schemeImagesByToken:u,visual:{activeStrokeWidth:.5,inactiveStrokeWidth:2,activeCircleRadius:22.25,inactiveCircleRadius:21.5}}]:[]});r.length&&new Se({bindings:r}).init(),new _e(St()).init()});})();
+    `;
+      controls.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-zoom]");
+        if (!btn) return;
+        const { zoom } = btn.dataset;
+        if (zoom === "in") this.zoomBy(0.7);
+        else if (zoom === "out") this.zoomBy(1 / 0.7);
+        else if (zoom === "reset") this.resetZoom();
+      });
+      wrapper.appendChild(controls);
+    }
+    /**
+     * Auto-discovers lot shape groups. Labels are optional; Park Place lots have
+     * outlines instead of Lakeside-style badges.
+     */
+    bindSvgHover() {
+      if (!this.svgEl) {
+        console.error("LotMapController: bindSvgHover called but svgEl is null.");
+        return;
+      }
+      const seen = /* @__PURE__ */ new Set();
+      this.lotsByKey.forEach((hit, key) => {
+        if (seen.has(hit.shape)) return;
+        seen.add(hit.shape);
+        const lotId = hit.shape.id || key;
+        hit.shape.style.cursor = "pointer";
+        hit.shape.addEventListener("mouseenter", () => this.highlight(lotId));
+        hit.shape.addEventListener("mouseleave", () => this.clearHighlight());
+        hit.shape.addEventListener("mousedown", (e) => e.stopPropagation());
+        hit.shape.addEventListener("click", () => this.highlight(lotId, true));
+        if (hit.label) {
+          hit.label.style.cursor = "pointer";
+          hit.label.addEventListener("mouseenter", () => this.highlight(lotId));
+          hit.label.addEventListener("mouseleave", () => this.clearHighlight());
+          hit.label.addEventListener("mousedown", (e) => e.stopPropagation());
+          hit.label.addEventListener("click", () => this.highlight(lotId, true));
+        }
+      });
+    }
+    /**
+     * Attaches `mouseenter`/`mouseleave` listeners to the CMS lot cards.
+     * - If the lot price is 'Inquire for Pricing', it will hide the 'Starting from' text.
+     *
+     * @param cards - All `[dev-target="one-lot"][lot-number]` elements on the page.
+     */
+    bindCardHover(cards) {
+      cards.forEach((card) => {
+        const lotNumber = card.getAttribute("lot-number");
+        const price = card.getAttribute("price");
+        if (!lotNumber) return;
+        card.addEventListener("mouseenter", () => this.highlight(lotNumber));
+        card.addEventListener("mouseleave", () => this.clearHighlight());
+        if (price === "Inquire for Pricing") {
+          card.querySelector('[dev-target="starting-from-text"]')?.classList.add("hide");
+        }
+      });
+    }
+    /**
+     * Activates the SVG shape, label, and CMS card for the given lot ID.
+     * Optionally scrolls the card into view (only when triggered by map click, not hover).
+     * No-ops if the lot is already active or if a pan is in progress.
+     *
+     * @param lotId - Lot identifier matching both the SVG `<g id>` and `lot-number` attribute.
+     * @param scrollToCard - When true, scrolls the lot card into view in the list. Use for map clicks only.
+     */
+    highlight(lotId, scrollToCard = false) {
+      if (this.isPanning) return;
+      if (this.activeId === lotId && !scrollToCard) return;
+      this.clearHighlight();
+      this.activeId = lotId;
+      const lot = this.findLot(lotId);
+      if (this.svgEl && lot) {
+        lot.shape.classList.add("lot-map__shape--active");
+        lot.label?.classList.add("lot-map__label--active");
+      }
+      const cardSelectors = lotKeysForGroup(lotId, null).map(
+        (key) => `[dev-target="one-lot"][lot-number="${key}"]`
+      );
+      const card = document.querySelector(cardSelectors.join(","));
+      if (card) {
+        if (!this.config.isZoomMode) {
+          card.classList.add("lot-map__card--active");
+        }
+        if (scrollToCard) {
+          card.classList.remove("hide");
+          card.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      } else if (scrollToCard) {
+        console.error(
+          `LotMapController: No CMS lot card for map lot \u2014 expected [dev-target="one-lot"][lot-number="${lotId}"].`
+        );
+      }
+    }
+    /**
+     * Removes all active highlight classes and resets {@link activeId}.
+     */
+    clearHighlight() {
+      this.activeId = null;
+      this.svgEl?.querySelectorAll(".lot-map__shape--active").forEach((el) => el.classList.remove("lot-map__shape--active"));
+      this.svgEl?.querySelectorAll(".lot-map__label--active").forEach((el) => el.classList.remove("lot-map__label--active"));
+      document.querySelector(".lot-map__card--active")?.classList.remove("lot-map__card--active");
+    }
+  };
+
+  // src/utils/sticky-nav.ts
+  var defaultStickyNavConfig = {
+    linkSelector: ".tab-links[dev-target]",
+    navContainerSelector: ".tab-header",
+    stripSelector: '[dev-target="tab-left"]',
+    mobileBreakpoint: 767,
+    observerRootMargin: "-10% 0px -85% 0px",
+    observerThreshold: 0,
+    sectionMap: {
+      overview: "overview-section",
+      "floor-plans": "floor-plans-section",
+      amentities: "amentities-section",
+      personalisation: "personalization-section",
+      "browse-homes": "lots-section",
+      process: "process-section"
+    },
+    sectionOrder: ["overview", "floor-plans", "amentities", "personalisation", "browse-homes"]
+  };
+  var StickyNavController = class {
+    links = [];
+    observer = null;
+    visibleSections = /* @__PURE__ */ new Set();
+    /**
+     * Maps dev-target attribute values to their corresponding section IDs.
+     * Handles spelling mismatches between the nav markup and section IDs.
+     */
+    sectionMap;
+    /**
+     * Ordered list of dev-target values matching the top-to-bottom page section order.
+     * Used to determine which section is "topmost" when multiple are visible at once.
+     */
+    sectionOrder;
+    linkSelector;
+    navContainerSelector;
+    stripSelector;
+    mobileBreakpoint;
+    observerRootMargin;
+    observerThreshold;
+    constructor(config) {
+      const resolvedConfig = {
+        ...defaultStickyNavConfig,
+        ...config,
+        sectionMap: {
+          ...defaultStickyNavConfig.sectionMap,
+          ...config?.sectionMap
+        },
+        sectionOrder: config?.sectionOrder ?? defaultStickyNavConfig.sectionOrder
+      };
+      this.linkSelector = resolvedConfig.linkSelector;
+      this.navContainerSelector = resolvedConfig.navContainerSelector;
+      this.stripSelector = resolvedConfig.stripSelector;
+      this.mobileBreakpoint = resolvedConfig.mobileBreakpoint;
+      this.observerRootMargin = resolvedConfig.observerRootMargin;
+      this.observerThreshold = resolvedConfig.observerThreshold;
+      this.sectionMap = resolvedConfig.sectionMap;
+      this.sectionOrder = resolvedConfig.sectionOrder;
+    }
+    init() {
+      this.links = Array.from(document.querySelectorAll(this.linkSelector));
+      if (!this.links.length) {
+        console.error("StickyNavController: No tab links found.");
+        return;
+      }
+      this.setupClickHandlers();
+      this.setupScrollObserver();
+      requestAnimationFrame(() => {
+        const initialActive = this.links.find((l) => l.classList.contains("is-active")) ?? this.links[0];
+        if (initialActive) {
+          initialActive.classList.add("is-active");
+          this.scrollLinkIntoStrip(initialActive);
+        }
+      });
+    }
+    /**
+     * Smooth-scroll to the target section on click/tap.
+     * Offsets the scroll position by the sticky nav height so the section
+     * heading isn't hidden behind the bar.
+     */
+    setupClickHandlers() {
+      this.links.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = link.getAttribute("dev-target");
+          if (!target) return;
+          const sectionId = this.sectionMap[target];
+          if (!sectionId) return;
+          const section = document.getElementById(sectionId);
+          if (!section) {
+            console.error(`StickyNavController: Section #${sectionId} not found.`);
+            return;
+          }
+          const navBar = link.closest(this.navContainerSelector);
+          const navHeight = navBar ? navBar.offsetHeight : 0;
+          const sectionTop = section.getBoundingClientRect().top + window.scrollY - navHeight;
+          window.scrollTo({ top: sectionTop, behavior: "smooth" });
+          this.setActiveLink(target);
+        });
+      });
+    }
+    /**
+     * Use IntersectionObserver to keep the active link in sync with scroll position.
+     *
+     * rootMargin '-10% 0px -85% 0px' shrinks the observable viewport to a band near
+     * the top of the screen (roughly the top 15%, offset slightly for the sticky bar).
+     * A section "intersects" when its top edge enters that band, which is the natural
+     * moment a reader considers themselves to be inside that section.
+     *
+     * Among all currently intersecting sections, the one that appears earliest in
+     * sectionOrder wins, so rapidly scrolled or short sections stay consistent.
+     */
+    setupScrollObserver() {
+      this.observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const devTarget = this.getDevTargetBySectionId(entry.target.id);
+            if (!devTarget) return;
+            if (entry.isIntersecting) {
+              this.visibleSections.add(devTarget);
+            } else {
+              this.visibleSections.delete(devTarget);
+            }
+          });
+          const activeTarget = this.sectionOrder.find((t) => this.visibleSections.has(t));
+          if (activeTarget) {
+            this.setActiveLink(activeTarget);
+          }
+        },
+        {
+          rootMargin: this.observerRootMargin,
+          threshold: this.observerThreshold
+        }
+      );
+      this.sectionOrder.forEach((target) => {
+        const sectionId = this.sectionMap[target];
+        if (!sectionId) return;
+        const section = document.getElementById(sectionId);
+        if (section) {
+          this.observer.observe(section);
+        } else {
+          console.error(`StickyNavController: Section #${sectionId} not found in DOM.`);
+        }
+      });
+    }
+    setActiveLink(targetName) {
+      this.links.forEach((link) => {
+        const isActive = link.getAttribute("dev-target") === targetName;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) this.scrollLinkIntoStrip(link);
+      });
+    }
+    /**
+     * On mobile (≤767px), scroll the strip so the active link is centred in the
+     * visible area.
+     *
+     * The strip has `position: relative` (set in CSS), which makes it the
+     * offsetParent for its children. This means `link.offsetLeft` is always
+     * measured from the strip's own left edge — no ancestor-chain ambiguity.
+     *
+     * Clamped to [0, maxScroll] so we never show blank space at either end.
+     */
+    scrollLinkIntoStrip(link) {
+      if (window.innerWidth > this.mobileBreakpoint) return;
+      const strip = link.closest(this.stripSelector);
+      if (!strip) return;
+      const targetScrollLeft = link.offsetLeft + link.offsetWidth / 2 - strip.offsetWidth / 2;
+      const maxScroll = strip.scrollWidth - strip.offsetWidth;
+      strip.scrollTo({
+        left: Math.min(Math.max(0, targetScrollLeft), maxScroll),
+        behavior: "smooth"
+      });
+    }
+    getDevTargetBySectionId(sectionId) {
+      return this.sectionOrder.find((key) => this.sectionMap[key] === sectionId) ?? null;
+    }
+    destroy() {
+      this.observer?.disconnect();
+      this.observer = null;
+      this.visibleSections.clear();
+    }
+  };
+
+  // src/index.ts
+  var galleryConfigs = [
+    {
+      triggerSelector: '[dev-target="image-gallery"]',
+      imageSelector: '[dev-target="hidden-main-gallery-images"]',
+      containerSelector: "[hero-swiper]"
+    },
+    {
+      triggerSelector: '[dev-target="community-gallery"]',
+      imageSelector: 'img[dev-target="hidden-community-gallery-images"]',
+      containerSelector: ".hidden-community-gallery-collection"
+    }
+  ];
+  galleryConfigs.forEach((config) => {
+    const element = document.querySelector(config.triggerSelector);
+    if (!element) {
+      console.error(`GalleryController: element not found \u2014 ${config.triggerSelector}`);
+      return;
+    }
+  });
+  window.Webflow ||= [];
+  window.Webflow.push(() => {
+    const stickyNavController = new StickyNavController();
+    stickyNavController.init();
+    const galleryController = new GalleryController(galleryConfigs);
+    galleryController.init();
+    const accordionController = new AccordionController();
+    accordionController.init();
+    const exploreTabsController = new ExploreTabsController();
+    exploreTabsController.init();
+    const exploreColorRoots = Array.from(
+      document.querySelectorAll('[dev-target="explore-image-colors"]')
+    );
+    const exploreColorBindings = exploreColorRoots.flatMap((root) => {
+      const forwardImage = root.querySelector(
+        'img[dev-target="exploration-forward-image"]'
+      );
+      if (!forwardImage) return [];
+      const schemeButtons = Array.from(root.querySelectorAll('[dev-target$="-scheme"]'));
+      if (!schemeButtons.length) return [];
+      const schemeImagesByToken = /* @__PURE__ */ new Map();
+      schemeButtons.forEach((btn) => {
+        const token = btn.getAttribute("dev-target");
+        if (!token) return;
+        const schemeImg = root.querySelector(`img[dev-target="${token}-image"]`);
+        if (!schemeImg) {
+          console.error(
+            `ColorSchemeController (explore-image-colors): no hidden scheme image for token "${token}".`
+          );
+          return;
+        }
+        schemeImagesByToken.set(token, schemeImg);
+      });
+      if (!schemeImagesByToken.size) return [];
+      return [
+        {
+          forwardImage,
+          schemeButtons,
+          schemeImagesByToken,
+          visual: {
+            activeStrokeWidth: 0.5,
+            inactiveStrokeWidth: 2,
+            activeCircleRadius: 22.25,
+            inactiveCircleRadius: 21.5
+          }
+        }
+      ];
+    });
+    if (exploreColorBindings.length) {
+      const colorSchemeController = new ColorSchemeController({ bindings: exploreColorBindings });
+      colorSchemeController.init();
+    }
+    const lotMapController = new LotMapController(lotMapConfigFromLocation());
+    void lotMapController.init();
+  });
+})();
+//# sourceMappingURL=index.js.map

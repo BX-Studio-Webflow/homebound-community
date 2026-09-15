@@ -1,65 +1,65 @@
 [
-  {
-    "key": "addison.capeDutch|3|Iron Ore",
-    "credential": "AKIAQLLHWD6MEJGETLST/20260915/us-east-1/s3/aws4_request",
-    "date": "20260915T153524Z",
-    "s3Key": "601ca16f0bb27e965ee867a0/6aa965bcbf6448a3c17f5513_addison-cape-dutch-3-iron-ore-v4.webp",
-    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNVQxNjozNToyNFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE1L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNVQxNTM1MjRaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhOTY1YmNiZjY0NDhhM2MxN2Y1NTEzX2FkZGlzb24tY2FwZS1kdXRjaC0zLWlyb24tb3JlLXY0LndlYnAifV19",
-    "signature": "01a6864a0d84b7a937e1c7d31a0f143cdbb42f150f92df4024ac30b3ae219711",
-    "webpPath": "src/example-assets/Park Place/exteriors-refresh-3/The Addison/Modern Cape Dutch/_update_04_Modern Cape Dutch Color Scheme 3 Iron Ore.webp"
-  },
-  {
-    "key": "addison.capeDutch|4|Pure White",
-    "credential": "AKIAQLLHWD6MEJGETLST/20260915/us-east-1/s3/aws4_request",
-    "date": "20260915T153525Z",
-    "s3Key": "601ca16f0bb27e965ee867a0/6aa965bd04118c4af2e16667_addison-cape-dutch-4-pure-white-v4.webp",
-    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNVQxNjozNToyNVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE1L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNVQxNTM1MjVaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhOTY1YmQwNDExOGM0YWYyZTE2NjY3X2FkZGlzb24tY2FwZS1kdXRjaC00LXB1cmUtd2hpdGUtdjQud2VicCJ9XX0=",
-    "signature": "7da23729949a4ce475a9ed10d6c1a8d605880969a13ba0c0974cb5feb7e01e9f",
-    "webpPath": "src/example-assets/Park Place/exteriors-refresh-3/The Addison/Modern Cape Dutch/_update_04_Modern Cape Dutch Color Scheme 4 Pure White.webp"
-  },
-  {
-    "key": "addison.transitional|1|Newport",
-    "credential": "AKIAQLLHWD6MEJGETLST/20260915/us-east-1/s3/aws4_request",
-    "date": "20260915T153525Z",
-    "s3Key": "601ca16f0bb27e965ee867a0/6aa965bd75c397e8fa023ef7_addison-transitional-1-newport-v4.webp",
-    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNVQxNjozNToyNVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE1L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNVQxNTM1MjVaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhOTY1YmQ3NWMzOTdlOGZhMDIzZWY3X2FkZGlzb24tdHJhbnNpdGlvbmFsLTEtbmV3cG9ydC12NC53ZWJwIn1dfQ==",
-    "signature": "a387cef7d9ec5522b35299f40888e9c2e7d1d92a3f7186c4b8b6f020db4c3e11",
-    "webpPath": "src/example-assets/Park Place/exteriors-refresh-3/The Addison/Transitional/_update_04_Transitional Color Scheme 1 Newport.webp"
-  },
-  {
-    "key": "addison.transitional|2|Iron Ore",
-    "credential": "AKIAQLLHWD6MEJGETLST/20260915/us-east-1/s3/aws4_request",
-    "date": "20260915T153526Z",
-    "s3Key": "601ca16f0bb27e965ee867a0/6aa965be594087632ec89ebe_addison-transitional-2-iron-ore-v4.webp",
-    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNVQxNjozNToyNloiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE1L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNVQxNTM1MjZaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhOTY1YmU1OTQwODc2MzJlYzg5ZWJlX2FkZGlzb24tdHJhbnNpdGlvbmFsLTItaXJvbi1vcmUtdjQud2VicCJ9XX0=",
-    "signature": "82d94ec36f6df6628c78bd471f264241f86ef26731ac92a70c1191a2759efcfa",
-    "webpPath": "src/example-assets/Park Place/exteriors-refresh-3/The Addison/Transitional/_update_04_Transitional Color Scheme 2 Iron Ore.webp"
-  },
-  {
-    "key": "addison.transitional|3|Caprock",
-    "credential": "AKIAQLLHWD6MEJGETLST/20260915/us-east-1/s3/aws4_request",
-    "date": "20260915T153526Z",
-    "s3Key": "601ca16f0bb27e965ee867a0/6aa965beaa0f24c65c7e0a5a_addison-transitional-3-caprock-v4.webp",
-    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNVQxNjozNToyNloiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE1L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNVQxNTM1MjZaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhOTY1YmVhYTBmMjRjNjVjN2UwYTVhX2FkZGlzb24tdHJhbnNpdGlvbmFsLTMtY2Fwcm9jay12NC53ZWJwIn1dfQ==",
-    "signature": "de6c5d8a3eb6b69113e1a0cedcddd3acf06973ef3c472abbe4585e67f10bf32f",
-    "webpPath": "src/example-assets/Park Place/exteriors-refresh-3/The Addison/Transitional/_update_04_Transitional Color Scheme 3 Caprock.webp"
-  },
-  {
-    "key": "addison.transitional|5|Worldly Gray",
-    "credential": "AKIAQLLHWD6MEJGETLST/20260915/us-east-1/s3/aws4_request",
-    "date": "20260915T153526Z",
-    "s3Key": "601ca16f0bb27e965ee867a0/6aa965be04118c4af2e1675b_addison-transitional-5-worldly-gray-v4.webp",
-    "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNVQxNjozNToyNloiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE1L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNVQxNTM1MjZaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhOTY1YmUwNDExOGM0YWYyZTE2NzViX2FkZGlzb24tdHJhbnNpdGlvbmFsLTUtd29ybGRseS1ncmF5LXY0LndlYnAifV19",
-    "signature": "47910735a0bd2f52dc5c6ef8f0d9570483cb0a62044c076d5def9ec52c51b79f",
-    "webpPath": "src/example-assets/Park Place/exteriors-refresh-3/The Addison/Transitional/_update_04_Transitional Color Scheme 5 Worldly Gray.webp"
-  },
-  {
-    "key": "addison.tudor|2|Coral Gray",
-    "credential": "AKIAQLLHWD6MEJGETLST/20260915/us-east-1/s3/aws4_request",
-      "date": "20260915T153657Z",
-    "s3Key": "601ca16f0bb27e965ee867a0/6aa965bf75c397e8fa023f96_addison-modern-tudor-2-coral-gray-v4.webp",
-      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNVQxNjozNjo1N1oiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aCIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE1L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNVQxNTM2NTdaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhOTY1YmY3NWMzOTdlOGZhMDIzZjk2X2FkZGlzb24tbW9kZXJuLXR1ZG9yLTItY29yYWwtZ3JheS12NC53ZWJwIn1dfQ==",
-      "signature": "1e175273a8efcc607e3ebcd5e776c5e1d727bcab5c103d96529bf1ba53671f1d",
-    "webpPath": "src/example-assets/Park Place/exteriors-refresh-3/The Addison/Modern Tudor/_update_04_Modern Tudor Color Scheme 2 Coral Gray.webp"
-  }
+    {
+        "key": "addison.capeDutch|3|Iron Ore",
+        "credential": "AKIAQLLHWD6MEJGETLST/20260915/us-east-1/s3/aws4_request",
+        "date": "20260915T153524Z",
+        "s3Key": "601ca16f0bb27e965ee867a0/6aa965bcbf6448a3c17f5513_addison-cape-dutch-3-iron-ore-v4.webp",
+        "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNVQxNjozNToyNFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE1L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNVQxNTM1MjRaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhOTY1YmNiZjY0NDhhM2MxN2Y1NTEzX2FkZGlzb24tY2FwZS1kdXRjaC0zLWlyb24tb3JlLXY0LndlYnAifV19",
+        "signature": "01a6864a0d84b7a937e1c7d31a0f143cdbb42f150f92df4024ac30b3ae219711",
+        "webpPath": "src/example-assets/Park Place/exteriors-refresh-3/The Addison/Modern Cape Dutch/_update_04_Modern Cape Dutch Color Scheme 3 Iron Ore.webp"
+    },
+    {
+        "key": "addison.capeDutch|4|Pure White",
+        "credential": "AKIAQLLHWD6MEJGETLST/20260915/us-east-1/s3/aws4_request",
+        "date": "20260915T153525Z",
+        "s3Key": "601ca16f0bb27e965ee867a0/6aa965bd04118c4af2e16667_addison-cape-dutch-4-pure-white-v4.webp",
+        "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNVQxNjozNToyNVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE1L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNVQxNTM1MjVaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhOTY1YmQwNDExOGM0YWYyZTE2NjY3X2FkZGlzb24tY2FwZS1kdXRjaC00LXB1cmUtd2hpdGUtdjQud2VicCJ9XX0=",
+        "signature": "7da23729949a4ce475a9ed10d6c1a8d605880969a13ba0c0974cb5feb7e01e9f",
+        "webpPath": "src/example-assets/Park Place/exteriors-refresh-3/The Addison/Modern Cape Dutch/_update_04_Modern Cape Dutch Color Scheme 4 Pure White.webp"
+    },
+    {
+        "key": "addison.transitional|1|Newport",
+        "credential": "AKIAQLLHWD6MEJGETLST/20260915/us-east-1/s3/aws4_request",
+        "date": "20260915T153525Z",
+        "s3Key": "601ca16f0bb27e965ee867a0/6aa965bd75c397e8fa023ef7_addison-transitional-1-newport-v4.webp",
+        "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNVQxNjozNToyNVoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE1L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNVQxNTM1MjVaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhOTY1YmQ3NWMzOTdlOGZhMDIzZWY3X2FkZGlzb24tdHJhbnNpdGlvbmFsLTEtbmV3cG9ydC12NC53ZWJwIn1dfQ==",
+        "signature": "a387cef7d9ec5522b35299f40888e9c2e7d1d92a3f7186c4b8b6f020db4c3e11",
+        "webpPath": "src/example-assets/Park Place/exteriors-refresh-3/The Addison/Transitional/_update_04_Transitional Color Scheme 1 Newport.webp"
+    },
+    {
+        "key": "addison.transitional|2|Iron Ore",
+        "credential": "AKIAQLLHWD6MEJGETLST/20260915/us-east-1/s3/aws4_request",
+        "date": "20260915T153526Z",
+        "s3Key": "601ca16f0bb27e965ee867a0/6aa965be594087632ec89ebe_addison-transitional-2-iron-ore-v4.webp",
+        "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNVQxNjozNToyNloiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE1L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNVQxNTM1MjZaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhOTY1YmU1OTQwODc2MzJlYzg5ZWJlX2FkZGlzb24tdHJhbnNpdGlvbmFsLTItaXJvbi1vcmUtdjQud2VicCJ9XX0=",
+        "signature": "82d94ec36f6df6628c78bd471f264241f86ef26731ac92a70c1191a2759efcfa",
+        "webpPath": "src/example-assets/Park Place/exteriors-refresh-3/The Addison/Transitional/_update_04_Transitional Color Scheme 2 Iron Ore.webp"
+    },
+    {
+        "key": "addison.transitional|3|Caprock",
+        "credential": "AKIAQLLHWD6MEJGETLST/20260915/us-east-1/s3/aws4_request",
+        "date": "20260915T153526Z",
+        "s3Key": "601ca16f0bb27e965ee867a0/6aa965beaa0f24c65c7e0a5a_addison-transitional-3-caprock-v4.webp",
+        "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNVQxNjozNToyNloiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE1L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNVQxNTM1MjZaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhOTY1YmVhYTBmMjRjNjVjN2UwYTVhX2FkZGlzb24tdHJhbnNpdGlvbmFsLTMtY2Fwcm9jay12NC53ZWJwIn1dfQ==",
+        "signature": "de6c5d8a3eb6b69113e1a0cedcddd3acf06973ef3c472abbe4585e67f10bf32f",
+        "webpPath": "src/example-assets/Park Place/exteriors-refresh-3/The Addison/Transitional/_update_04_Transitional Color Scheme 3 Caprock.webp"
+    },
+    {
+        "key": "addison.transitional|5|Worldly Gray",
+        "credential": "AKIAQLLHWD6MEJGETLST/20260915/us-east-1/s3/aws4_request",
+        "date": "20260915T153526Z",
+        "s3Key": "601ca16f0bb27e965ee867a0/6aa965be04118c4af2e1675b_addison-transitional-5-worldly-gray-v4.webp",
+        "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNVQxNjozNToyNloiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE1L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNVQxNTM1MjZaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhOTY1YmUwNDExOGM0YWYyZTE2NzViX2FkZGlzb24tdHJhbnNpdGlvbmFsLTUtd29ybGRseS1ncmF5LXY0LndlYnAifV19",
+        "signature": "47910735a0bd2f52dc5c6ef8f0d9570483cb0a62044c076d5def9ec52c51b79f",
+        "webpPath": "src/example-assets/Park Place/exteriors-refresh-3/The Addison/Transitional/_update_04_Transitional Color Scheme 5 Worldly Gray.webp"
+    },
+    {
+        "key": "addison.tudor|2|Coral Gray",
+        "credential": "AKIAQLLHWD6MEJGETLST/20260915/us-east-1/s3/aws4_request",
+        "date": "20260915T153657Z",
+        "s3Key": "601ca16f0bb27e965ee867a0/6aa965bf75c397e8fa023f96_addison-modern-tudor-2-coral-gray-v4.webp",
+        "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNVQxNjozNjo1N1oiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aCIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE1L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNVQxNTM2NTdaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhOTY1YmY3NWMzOTdlOGZhMDIzZjk2X2FkZGlzb24tbW9kZXJuLXR1ZG9yLTItY29yYWwtZ3JheS12NC53ZWJwIn1dfQ==",
+        "signature": "1e175273a8efcc607e3ebcd5e776c5e1d727bcab5c103d96529bf1ba53671f1d",
+        "webpPath": "src/example-assets/Park Place/exteriors-refresh-3/The Addison/Modern Tudor/_update_04_Modern Tudor Color Scheme 2 Coral Gray.webp"
+    }
 ]
