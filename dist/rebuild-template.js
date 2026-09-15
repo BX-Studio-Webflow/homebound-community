@@ -1,4 +1,6260 @@
-"use strict";(()=>{var ft=Object.defineProperty;var pt=(e,a,t)=>a in e?ft(e,a,{enumerable:!0,configurable:!0,writable:!0,value:t}):e[a]=t;var B=(e,a,t)=>pt(e,typeof a!="symbol"?a+"":a,t);var ut={"explore-plans-trigger":"explore-plans-tab","explore-homes-trigger":"explore-homes-tab"},pe=class{constructor(a={}){B(this,"activeTrigger",null);B(this,"options");B(this,"triggerToPanel");this.options=a,this.triggerToPanel=a.triggerToPanel??ut}init(){let a=document.querySelector('[dev-target="explore-tab-header"]'),t=document.querySelector('[dev-target="explore-tab-body"]');if(!a){console.error('ExploreTabsController: No [dev-target="explore-tab-header"] found.');return}if(!t){console.error('ExploreTabsController: No [dev-target="explore-tab-body"] found.');return}Object.entries(this.triggerToPanel).forEach(([o,i])=>{let l=document.querySelector(`[dev-target="${o}"]`),n=document.querySelector(`[dev-target="${i}"]`);if(!l){console.error(`ExploreTabsController: No [dev-target="${o}"] found.`);return}if(!n){console.error(`ExploreTabsController: No [dev-target="${i}"] found.`);return}l.addEventListener("click",()=>this.activate(o))});let s=Object.keys(this.triggerToPanel),r=s.map(o=>document.querySelector(`[dev-target="${o}"].is-active`)).find(Boolean);if(r){let o=r.getAttribute("dev-target");o&&this.activate(o)}else{let o=s[0];o&&this.activate(o)}}activate(a){if(this.activeTrigger===a)return;let t=this.triggerToPanel[a];t&&(Object.keys(this.triggerToPanel).forEach(s=>{document.querySelector(`[dev-target="${s}"]`)?.classList.toggle("is-active",s===a)}),Object.values(this.triggerToPanel).forEach(s=>{document.querySelector(`[dev-target="${s}"]`)?.classList.toggle("hide",s!==t)}),this.toggleHousePlansCompanionTabs(a),this.activeTrigger=a)}toggleHousePlansCompanionTabs(a){if(!this.options.isHousePlansGallery||!this.options.firstTabSelector||!this.options.secondTabSelector)return;let t=document.querySelector(this.options.firstTabSelector),s=document.querySelector(this.options.secondTabSelector);if(!t||!s){console.error('ExploreTabsController: No [dev-target="first-tab"] or [dev-target="second-tab"] found.');return}let r=Object.keys(this.triggerToPanel)[0],o=a===r;t.classList.toggle("hide",!o),s.classList.toggle("hide",o)}};function $e(e){return e!==null&&typeof e=="object"&&"constructor"in e&&e.constructor===Object}function Se(e={},a={}){let t=["__proto__","constructor","prototype"];Object.keys(a).filter(s=>t.indexOf(s)<0).forEach(s=>{typeof e[s]>"u"?e[s]=a[s]:$e(a[s])&&$e(e[s])&&Object.keys(a[s]).length>0&&Se(e[s],a[s])})}var He={body:{},addEventListener(){},removeEventListener(){},activeElement:{blur(){},nodeName:""},querySelector(){return null},querySelectorAll(){return[]},getElementById(){return null},createEvent(){return{initEvent(){}}},createElement(){return{children:[],childNodes:[],style:{},setAttribute(){},getElementsByTagName(){return[]}}},createElementNS(){return{}},importNode(){return null},location:{hash:"",host:"",hostname:"",href:"",origin:"",pathname:"",protocol:"",search:""}};function G(){let e=typeof document<"u"?document:{};return Se(e,He),e}var mt={document:He,navigator:{userAgent:""},location:{hash:"",host:"",hostname:"",href:"",origin:"",pathname:"",protocol:"",search:""},history:{replaceState(){},pushState(){},go(){},back(){}},CustomEvent:function(){return this},addEventListener(){},removeEventListener(){},getComputedStyle(){return{getPropertyValue(){return""}}},Image(){},Date(){},screen:{},setTimeout(){},clearTimeout(){},matchMedia(){return{}},requestAnimationFrame(e){return typeof setTimeout>"u"?(e(),null):setTimeout(e,0)},cancelAnimationFrame(e){typeof setTimeout>"u"||clearTimeout(e)}};function O(){let e=typeof window<"u"?window:{};return Se(e,mt),e}function We(e=""){return e.trim().split(" ").filter(a=>!!a.trim())}function Re(e){let a=e;Object.keys(a).forEach(t=>{try{a[t]=null}catch{}try{delete a[t]}catch{}})}function se(e,a=0){return setTimeout(e,a)}function Q(){return Date.now()}function bt(e){let a=O(),t;return a.getComputedStyle&&(t=a.getComputedStyle(e,null)),!t&&e.currentStyle&&(t=e.currentStyle),t||(t=e.style),t}function we(e,a="x"){let t=O(),s,r,o,i=bt(e);return t.WebKitCSSMatrix?(r=i.transform||i.webkitTransform,r.split(",").length>6&&(r=r.split(", ").map(l=>l.replace(",",".")).join(", ")),o=new t.WebKitCSSMatrix(r==="none"?"":r)):(o=i.MozTransform||i.OTransform||i.MsTransform||i.msTransform||i.transform||i.getPropertyValue("transform").replace("translate(","matrix(1, 0, 0, 1,"),s=o.toString().split(",")),a==="x"&&(t.WebKitCSSMatrix?r=o.m41:s.length===16?r=parseFloat(s[12]):r=parseFloat(s[4])),a==="y"&&(t.WebKitCSSMatrix?r=o.m42:s.length===16?r=parseFloat(s[13]):r=parseFloat(s[5])),r||0}function ae(e){return typeof e=="object"&&e!==null&&e.constructor&&Object.prototype.toString.call(e).slice(8,-1)==="Object"}function ht(e){return typeof window<"u"&&typeof window.HTMLElement<"u"?e instanceof HTMLElement:e&&(e.nodeType===1||e.nodeType===11)}function R(...e){let a=Object(e[0]);for(let t=1;t<e.length;t+=1){let s=e[t];if(s!=null&&!ht(s)){let r=Object.keys(Object(s)).filter(o=>o!=="__proto__"&&o!=="constructor"&&o!=="prototype");for(let o=0,i=r.length;o<i;o+=1){let l=r[o],n=Object.getOwnPropertyDescriptor(s,l);n!==void 0&&n.enumerable&&(ae(a[l])&&ae(s[l])?s[l].__swiper__?a[l]=s[l]:R(a[l],s[l]):!ae(a[l])&&ae(s[l])?(a[l]={},s[l].__swiper__?a[l]=s[l]:R(a[l],s[l])):a[l]=s[l])}}}return a}function q(e,a,t){e.style.setProperty(a,t)}function ve({swiper:e,targetPosition:a,side:t}){let s=O(),r=-e.translate,o=null,i,l=e.params.speed;e.wrapperEl.style.scrollSnapType="none",s.cancelAnimationFrame(e.cssModeFrameID);let n=a>r?"next":"prev",p=(c,g)=>n==="next"&&c>=g||n==="prev"&&c<=g,m=()=>{i=new Date().getTime(),o===null&&(o=i);let c=Math.max(Math.min((i-o)/l,1),0),g=.5-Math.cos(c*Math.PI)/2,d=r+g*(a-r);if(p(d,a)&&(d=a),e.wrapperEl.scrollTo({[t]:d}),p(d,a)){e.wrapperEl.style.overflow="hidden",e.wrapperEl.style.scrollSnapType="",setTimeout(()=>{e.wrapperEl.style.overflow="",e.wrapperEl.scrollTo({[t]:d})}),s.cancelAnimationFrame(e.cssModeFrameID);return}e.cssModeFrameID=s.requestAnimationFrame(m)};m()}function $(e,a=""){let t=O(),s=[...e.children];return t.HTMLSlotElement&&e instanceof HTMLSlotElement&&s.push(...e.assignedElements()),a?s.filter(r=>r.matches(a)):s}function gt(e,a){let t=[a];for(;t.length>0;){let s=t.shift();if(e===s)return!0;t.push(...s.children,...s.shadowRoot?s.shadowRoot.children:[],...s.assignedElements?s.assignedElements():[])}}function Be(e,a){let t=O(),s=a.contains(e);return!s&&t.HTMLSlotElement&&a instanceof HTMLSlotElement&&(s=[...a.assignedElements()].includes(e),s||(s=gt(e,a))),s}function ne(e){try{console.warn(e);return}catch{}}function N(e,a=[]){let t=document.createElement(e);return t.classList.add(...Array.isArray(a)?a:We(a)),t}function ue(e){let a=O(),t=G(),s=e.getBoundingClientRect(),r=t.body,o=e.clientTop||r.clientTop||0,i=e.clientLeft||r.clientLeft||0,l=e===a?a.scrollY:e.scrollTop,n=e===a?a.scrollX:e.scrollLeft;return{top:s.top+l-o,left:s.left+n-i}}function Ne(e,a){let t=[];for(;e.previousElementSibling;){let s=e.previousElementSibling;a?s.matches(a)&&t.push(s):t.push(s),e=s}return t}function Fe(e,a){let t=[];for(;e.nextElementSibling;){let s=e.nextElementSibling;a?s.matches(a)&&t.push(s):t.push(s),e=s}return t}function F(e,a){return O().getComputedStyle(e,null).getPropertyValue(a)}function ee(e){let a=e,t;if(a){for(t=0;(a=a.previousSibling)!==null;)a.nodeType===1&&(t+=1);return t}}function j(e,a){let t=[],s=e.parentElement;for(;s;)a?s.matches(a)&&t.push(s):t.push(s),s=s.parentElement;return t}function ie(e,a,t){let s=O();return t?e[a==="width"?"offsetWidth":"offsetHeight"]+parseFloat(s.getComputedStyle(e,null).getPropertyValue(a==="width"?"margin-right":"margin-top"))+parseFloat(s.getComputedStyle(e,null).getPropertyValue(a==="width"?"margin-left":"margin-bottom")):e.offsetWidth}function k(e){return(Array.isArray(e)?e:[e]).filter(a=>!!a)}function U(e,a=""){typeof trustedTypes<"u"?e.innerHTML=trustedTypes.createPolicy("html",{createHTML:t=>t}).createHTML(a):e.innerHTML=a}var ye;function St(){let e=O(),a=G();return{smoothScroll:a.documentElement&&a.documentElement.style&&"scrollBehavior"in a.documentElement.style,touch:!!("ontouchstart"in e||e.DocumentTouch&&a instanceof e.DocumentTouch)}}function Ue(){return ye||(ye=St()),ye}var _e;function wt({userAgent:e}={}){let a=Ue(),t=O(),s=t.navigator.platform,r=e||t.navigator.userAgent,o={ios:!1,android:!1},i=t.screen.width,l=t.screen.height,n=r.match(/(Android);?[\s\/]+([\d.]+)?/),p=r.match(/(iPad)(?!\1).*OS\s([\d_]+)/),m=r.match(/(iPod)(.*OS\s([\d_]+))?/),c=!p&&r.match(/(iPhone\sOS|iOS)\s([\d_]+)/),g=s==="Win32",d=s==="MacIntel",b=["1024x1366","1366x1024","834x1194","1194x834","834x1112","1112x834","768x1024","1024x768","820x1180","1180x820","810x1080","1080x810"];return!p&&d&&a.touch&&b.indexOf(`${i}x${l}`)>=0&&(p=r.match(/(Version)\/([\d.]+)/),p||(p=[0,1,"13_0_0"]),d=!1),n&&!g&&(o.os="android",o.android=!0),(p||c||m)&&(o.os="ios",o.ios=!0),o}function Ke(e={}){return _e||(_e=wt(e)),_e}var Ce;function vt(){let e=O(),a=Ke(),t=!1;function s(){let l=e.navigator.userAgent.toLowerCase();return l.indexOf("safari")>=0&&l.indexOf("chrome")<0&&l.indexOf("android")<0}if(s()){let l=String(e.navigator.userAgent);if(l.includes("Version/")){let[n,p]=l.split("Version/")[1].split(" ")[0].split(".").map(m=>Number(m));t=n<16||n===16&&p<2}}let r=/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(e.navigator.userAgent),o=s(),i=o||r&&a.ios;return{isSafari:t||o,needPerspectiveFix:t,need3dFix:i,isWebView:r}}function Je(){return Ce||(Ce=vt()),Ce}function yt({swiper:e,on:a,emit:t}){let s=O(),r=null,o=null,i=()=>{!e||e.destroyed||!e.initialized||(t("beforeResize"),t("resize"))},l=()=>{!e||e.destroyed||!e.initialized||(r=new ResizeObserver(m=>{o=s.requestAnimationFrame(()=>{let{width:c,height:g}=e,d=c,b=g;m.forEach(({contentBoxSize:S,contentRect:w,target:f})=>{f&&f!==e.el||(d=w?w.width:(S[0]||S).inlineSize,b=w?w.height:(S[0]||S).blockSize)}),(d!==c||b!==g)&&i()})}),r.observe(e.el))},n=()=>{o&&s.cancelAnimationFrame(o),r&&r.unobserve&&e.el&&(r.unobserve(e.el),r=null)},p=()=>{!e||e.destroyed||!e.initialized||t("orientationchange")};a("init",()=>{if(e.params.resizeObserver&&typeof s.ResizeObserver<"u"){l();return}s.addEventListener("resize",i),s.addEventListener("orientationchange",p)}),a("destroy",()=>{n(),s.removeEventListener("resize",i),s.removeEventListener("orientationchange",p)})}function _t({swiper:e,extendParams:a,on:t,emit:s}){let r=[],o=O(),i=(p,m={})=>{let c=o.MutationObserver||o.WebkitMutationObserver,g=new c(d=>{if(e.__preventObserver__)return;if(d.length===1){s("observerUpdate",d[0]);return}let b=function(){s("observerUpdate",d[0])};o.requestAnimationFrame?o.requestAnimationFrame(b):o.setTimeout(b,0)});g.observe(p,{attributes:typeof m.attributes>"u"?!0:m.attributes,childList:e.isElement||(typeof m.childList>"u"?!0:m).childList,characterData:typeof m.characterData>"u"?!0:m.characterData}),r.push(g)},l=()=>{if(e.params.observer){if(e.params.observeParents){let p=j(e.hostEl);for(let m=0;m<p.length;m+=1)i(p[m])}i(e.hostEl,{childList:e.params.observeSlideChildren}),i(e.wrapperEl,{attributes:!1})}},n=()=>{r.forEach(p=>{p.disconnect()}),r.splice(0,r.length)};a({observer:!1,observeParents:!1,observeSlideChildren:!1}),t("init",l),t("destroy",n)}var Ct={on(e,a,t){let s=this;if(!s.eventsListeners||s.destroyed||typeof a!="function")return s;let r=t?"unshift":"push";return e.split(" ").forEach(o=>{s.eventsListeners[o]||(s.eventsListeners[o]=[]),s.eventsListeners[o][r](a)}),s},once(e,a,t){let s=this;if(!s.eventsListeners||s.destroyed||typeof a!="function")return s;function r(...o){s.off(e,r),r.__emitterProxy&&delete r.__emitterProxy,a.apply(s,o)}return r.__emitterProxy=a,s.on(e,r,t)},onAny(e,a){let t=this;if(!t.eventsListeners||t.destroyed||typeof e!="function")return t;let s=a?"unshift":"push";return t.eventsAnyListeners.indexOf(e)<0&&t.eventsAnyListeners[s](e),t},offAny(e){let a=this;if(!a.eventsListeners||a.destroyed||!a.eventsAnyListeners)return a;let t=a.eventsAnyListeners.indexOf(e);return t>=0&&a.eventsAnyListeners.splice(t,1),a},off(e,a){let t=this;return!t.eventsListeners||t.destroyed||!t.eventsListeners||e.split(" ").forEach(s=>{typeof a>"u"?t.eventsListeners[s]=[]:t.eventsListeners[s]&&t.eventsListeners[s].forEach((r,o)=>{(r===a||r.__emitterProxy&&r.__emitterProxy===a)&&t.eventsListeners[s].splice(o,1)})}),t},emit(...e){let a=this;if(!a.eventsListeners||a.destroyed||!a.eventsListeners)return a;let t,s,r;return typeof e[0]=="string"||Array.isArray(e[0])?(t=e[0],s=e.slice(1,e.length),r=a):(t=e[0].events,s=e[0].data,r=e[0].context||a),s.unshift(r),(Array.isArray(t)?t:t.split(" ")).forEach(i=>{a.eventsAnyListeners&&a.eventsAnyListeners.length&&a.eventsAnyListeners.forEach(l=>{l.apply(r,[i,...s])}),a.eventsListeners&&a.eventsListeners[i]&&a.eventsListeners[i].forEach(l=>{l.apply(r,s)})}),a}};function Et(){let e=this,a,t,s=e.el;typeof e.params.width<"u"&&e.params.width!==null?a=e.params.width:a=s.clientWidth,typeof e.params.height<"u"&&e.params.height!==null?t=e.params.height:t=s.clientHeight,!(a===0&&e.isHorizontal()||t===0&&e.isVertical())&&(a=a-parseInt(F(s,"padding-left")||0,10)-parseInt(F(s,"padding-right")||0,10),t=t-parseInt(F(s,"padding-top")||0,10)-parseInt(F(s,"padding-bottom")||0,10),Number.isNaN(a)&&(a=0),Number.isNaN(t)&&(t=0),Object.assign(e,{width:a,height:t,size:e.isHorizontal()?a:t}))}function Tt(){let e=this;function a(T,C){return parseFloat(T.getPropertyValue(e.getDirectionLabel(C))||0)}let t=e.params,{wrapperEl:s,slidesEl:r,rtlTranslate:o,wrongRTL:i}=e,l=e.virtual&&t.virtual.enabled,n=l?e.virtual.slides.length:e.slides.length,p=$(r,`.${e.params.slideClass}, swiper-slide`),m=l?e.virtual.slides.length:p.length,c=[],g=[],d=[],b=t.slidesOffsetBefore;typeof b=="function"&&(b=t.slidesOffsetBefore.call(e));let S=t.slidesOffsetAfter;typeof S=="function"&&(S=t.slidesOffsetAfter.call(e));let w=e.snapGrid.length,f=e.slidesGrid.length,u=e.size-b-S,h=t.spaceBetween,v=-b,E=0,M=0;if(typeof u>"u")return;typeof h=="string"&&h.indexOf("%")>=0?h=parseFloat(h.replace("%",""))/100*u:typeof h=="string"&&(h=parseFloat(h)),e.virtualSize=-h-b-S,p.forEach(T=>{o?T.style.marginLeft="":T.style.marginRight="",T.style.marginBottom="",T.style.marginTop=""}),t.centeredSlides&&t.cssMode&&(q(s,"--swiper-centered-offset-before",""),q(s,"--swiper-centered-offset-after","")),t.cssMode&&(q(s,"--swiper-slides-offset-before",`${b}px`),q(s,"--swiper-slides-offset-after",`${S}px`));let z=t.grid&&t.grid.rows>1&&e.grid;z?e.grid.initSlides(p):e.grid&&e.grid.unsetSlides();let _,A=t.slidesPerView==="auto"&&t.breakpoints&&Object.keys(t.breakpoints).filter(T=>typeof t.breakpoints[T].slidesPerView<"u").length>0;for(let T=0;T<m;T+=1){_=0;let C=p[T];if(!(C&&(z&&e.grid.updateSlide(T,C,p),F(C,"display")==="none"))){if(l&&t.slidesPerView==="auto")t.virtual.slidesPerViewAutoSlideSize&&(_=t.virtual.slidesPerViewAutoSlideSize),_&&C&&(t.roundLengths&&(_=Math.floor(_)),C.style[e.getDirectionLabel("width")]=`${_}px`);else if(t.slidesPerView==="auto"){A&&(C.style[e.getDirectionLabel("width")]="");let x=getComputedStyle(C),I=C.style.transform,P=C.style.webkitTransform;if(I&&(C.style.transform="none"),P&&(C.style.webkitTransform="none"),t.roundLengths)_=e.isHorizontal()?ie(C,"width",!0):ie(C,"height",!0);else{let D=a(x,"width"),X=a(x,"padding-left"),Z=a(x,"padding-right"),L=a(x,"margin-left"),H=a(x,"margin-right"),W=x.getPropertyValue("box-sizing");if(W&&W==="border-box")_=D+L+H;else{let{clientWidth:Y,offsetWidth:dt}=C;_=D+X+Z+L+H+(dt-Y)}}I&&(C.style.transform=I),P&&(C.style.webkitTransform=P),t.roundLengths&&(_=Math.floor(_))}else _=(u-(t.slidesPerView-1)*h)/t.slidesPerView,t.roundLengths&&(_=Math.floor(_)),C&&(C.style[e.getDirectionLabel("width")]=`${_}px`);C&&(C.swiperSlideSize=_),d.push(_),t.centeredSlides?(v=v+_/2+E/2+h,E===0&&T!==0&&(v=v-u/2-h),T===0&&(v=v-u/2-h),Math.abs(v)<1/1e3&&(v=0),t.roundLengths&&(v=Math.floor(v)),M%t.slidesPerGroup===0&&c.push(v),g.push(v)):(t.roundLengths&&(v=Math.floor(v)),(M-Math.min(e.params.slidesPerGroupSkip,M))%e.params.slidesPerGroup===0&&c.push(v),g.push(v),v=v+_+h),e.virtualSize+=_+h,E=_,M+=1}}if(e.virtualSize=Math.max(e.virtualSize,u)+S,o&&i&&(t.effect==="slide"||t.effect==="coverflow")&&(s.style.width=`${e.virtualSize+h}px`),t.setWrapperSize&&(s.style[e.getDirectionLabel("width")]=`${e.virtualSize+h}px`),z&&e.grid.updateWrapperSize(_,c),!t.centeredSlides){let T=t.slidesPerView!=="auto"&&t.slidesPerView%1!==0,C=t.snapToSlideEdge&&!t.loop&&(t.slidesPerView==="auto"||T),x=c.length;if(C){let P;if(t.slidesPerView==="auto"){P=1;let D=0;for(let X=d.length-1;X>=0&&(D+=d[X]+(X<d.length-1?h:0),D<=u);X-=1)P=d.length-X}else P=Math.floor(t.slidesPerView);x=Math.max(m-P,0)}let I=[];for(let P=0;P<c.length;P+=1){let D=c[P];t.roundLengths&&(D=Math.floor(D)),C?P<=x&&I.push(D):c[P]<=e.virtualSize-u&&I.push(D)}c=I,Math.floor(e.virtualSize-u)-Math.floor(c[c.length-1])>1&&(C||c.push(e.virtualSize-u))}if(l&&t.loop){let T=d[0]+h;if(t.slidesPerGroup>1){let C=Math.ceil((e.virtual.slidesBefore+e.virtual.slidesAfter)/t.slidesPerGroup),x=T*t.slidesPerGroup;for(let I=0;I<C;I+=1)c.push(c[c.length-1]+x)}for(let C=0;C<e.virtual.slidesBefore+e.virtual.slidesAfter;C+=1)t.slidesPerGroup===1&&c.push(c[c.length-1]+T),g.push(g[g.length-1]+T),e.virtualSize+=T}if(c.length===0&&(c=[0]),h!==0){let T=e.isHorizontal()&&o?"marginLeft":e.getDirectionLabel("marginRight");p.filter((C,x)=>!t.cssMode||t.loop?!0:x!==p.length-1).forEach(C=>{C.style[T]=`${h}px`})}if(t.centeredSlides&&t.centeredSlidesBounds){let T=0;d.forEach(x=>{T+=x+(h||0)}),T-=h;let C=T>u?T-u:0;c=c.map(x=>x<=0?-b:x>C?C+S:x)}if(t.centerInsufficientSlides){let T=0;if(d.forEach(C=>{T+=C+(h||0)}),T-=h,T<u){let C=(u-T)/2;c.forEach((x,I)=>{c[I]=x-C}),g.forEach((x,I)=>{g[I]=x+C})}}if(Object.assign(e,{slides:p,snapGrid:c,slidesGrid:g,slidesSizesGrid:d}),t.centeredSlides&&t.cssMode&&!t.centeredSlidesBounds){q(s,"--swiper-centered-offset-before",`${-c[0]}px`),q(s,"--swiper-centered-offset-after",`${e.size/2-d[d.length-1]/2}px`);let T=-e.snapGrid[0],C=-e.slidesGrid[0];e.snapGrid=e.snapGrid.map(x=>x+T),e.slidesGrid=e.slidesGrid.map(x=>x+C)}if(m!==n&&e.emit("slidesLengthChange"),c.length!==w&&(e.params.watchOverflow&&e.checkOverflow(),e.emit("snapGridLengthChange")),g.length!==f&&e.emit("slidesGridLengthChange"),t.watchSlidesProgress&&e.updateSlidesOffset(),e.emit("slidesUpdated"),!l&&!t.cssMode&&(t.effect==="slide"||t.effect==="fade")){let T=`${t.containerModifierClass}backface-hidden`,C=e.el.classList.contains(T);m<=t.maxBackfaceHiddenSlides?C||e.el.classList.add(T):C&&e.el.classList.remove(T)}}function xt(e){let a=this,t=[],s=a.virtual&&a.params.virtual.enabled,r=0,o;typeof e=="number"?a.setTransition(e):e===!0&&a.setTransition(a.params.speed);let i=l=>s?a.slides[a.getSlideIndexByData(l)]:a.slides[l];if(a.params.slidesPerView!=="auto"&&a.params.slidesPerView>1)if(a.params.centeredSlides)(a.visibleSlides||[]).forEach(l=>{t.push(l)});else for(o=0;o<Math.ceil(a.params.slidesPerView);o+=1){let l=a.activeIndex+o;if(l>a.slides.length&&!s)break;t.push(i(l))}else t.push(i(a.activeIndex));for(o=0;o<t.length;o+=1)if(typeof t[o]<"u"){let l=t[o].offsetHeight;r=l>r?l:r}(r||r===0)&&(a.wrapperEl.style.height=`${r}px`)}function Mt(){let e=this,a=e.slides,t=e.isElement?e.isHorizontal()?e.wrapperEl.offsetLeft:e.wrapperEl.offsetTop:0;for(let s=0;s<a.length;s+=1)a[s].swiperSlideOffset=(e.isHorizontal()?a[s].offsetLeft:a[s].offsetTop)-t-e.cssOverflowAdjustment()}var Ve=(e,a,t)=>{a&&!e.classList.contains(t)?e.classList.add(t):!a&&e.classList.contains(t)&&e.classList.remove(t)};function Pt(e=this&&this.translate||0){let a=this,t=a.params,{slides:s,rtlTranslate:r,snapGrid:o}=a;if(s.length===0)return;typeof s[0].swiperSlideOffset>"u"&&a.updateSlidesOffset();let i=-e;r&&(i=e),a.visibleSlidesIndexes=[],a.visibleSlides=[];let l=t.spaceBetween;typeof l=="string"&&l.indexOf("%")>=0?l=parseFloat(l.replace("%",""))/100*a.size:typeof l=="string"&&(l=parseFloat(l));for(let n=0;n<s.length;n+=1){let p=s[n],m=p.swiperSlideOffset;t.cssMode&&t.centeredSlides&&(m-=s[0].swiperSlideOffset);let c=(i+(t.centeredSlides?a.minTranslate():0)-m)/(p.swiperSlideSize+l),g=(i-o[0]+(t.centeredSlides?a.minTranslate():0)-m)/(p.swiperSlideSize+l),d=-(i-m),b=d+a.slidesSizesGrid[n],S=d>=0&&d<=a.size-a.slidesSizesGrid[n],w=d>=0&&d<a.size-1||b>1&&b<=a.size||d<=0&&b>=a.size;w&&(a.visibleSlides.push(p),a.visibleSlidesIndexes.push(n)),Ve(p,w,t.slideVisibleClass),Ve(p,S,t.slideFullyVisibleClass),p.progress=r?-c:c,p.originalProgress=r?-g:g}}function zt(e){let a=this;if(typeof e>"u"){let m=a.rtlTranslate?-1:1;e=a&&a.translate&&a.translate*m||0}let t=a.params,s=a.maxTranslate()-a.minTranslate(),{progress:r,isBeginning:o,isEnd:i,progressLoop:l}=a,n=o,p=i;if(s===0)r=0,o=!0,i=!0;else{r=(e-a.minTranslate())/s;let m=Math.abs(e-a.minTranslate())<1,c=Math.abs(e-a.maxTranslate())<1;o=m||r<=0,i=c||r>=1,m&&(r=0),c&&(r=1)}if(t.loop){let m=a.getSlideIndexByData(0),c=a.getSlideIndexByData(a.slides.length-1),g=a.slidesGrid[m],d=a.slidesGrid[c],b=a.slidesGrid[a.slidesGrid.length-1],S=Math.abs(e);S>=g?l=(S-g)/b:l=(S+b-d)/b,l>1&&(l-=1)}Object.assign(a,{progress:r,progressLoop:l,isBeginning:o,isEnd:i}),(t.watchSlidesProgress||t.centeredSlides&&t.autoHeight)&&a.updateSlidesProgress(e),o&&!n&&a.emit("reachBeginning toEdge"),i&&!p&&a.emit("reachEnd toEdge"),(n&&!o||p&&!i)&&a.emit("fromEdge"),a.emit("progress",r)}var Ee=(e,a,t)=>{a&&!e.classList.contains(t)?e.classList.add(t):!a&&e.classList.contains(t)&&e.classList.remove(t)};function It(){let e=this,{slides:a,params:t,slidesEl:s,activeIndex:r}=e,o=e.virtual&&t.virtual.enabled,i=e.grid&&t.grid&&t.grid.rows>1,l=c=>$(s,`.${t.slideClass}${c}, swiper-slide${c}`)[0],n,p,m;if(o)if(t.loop){let c=r-e.virtual.slidesBefore;c<0&&(c=e.virtual.slides.length+c),c>=e.virtual.slides.length&&(c-=e.virtual.slides.length),n=l(`[data-swiper-slide-index="${c}"]`)}else n=l(`[data-swiper-slide-index="${r}"]`);else i?(n=a.find(c=>c.column===r),m=a.find(c=>c.column===r+1),p=a.find(c=>c.column===r-1)):n=a[r];n&&(i||(m=Fe(n,`.${t.slideClass}, swiper-slide`)[0],t.loop&&!m&&(m=a[0]),p=Ne(n,`.${t.slideClass}, swiper-slide`)[0],t.loop&&!p===0&&(p=a[a.length-1]))),a.forEach(c=>{Ee(c,c===n,t.slideActiveClass),Ee(c,c===m,t.slideNextClass),Ee(c,c===p,t.slidePrevClass)}),e.emitSlidesClasses()}var me=(e,a)=>{if(!e||e.destroyed||!e.params)return;let t=()=>e.isElement?"swiper-slide":`.${e.params.slideClass}`,s=a.closest(t());if(s){let r=s.querySelector(`.${e.params.lazyPreloaderClass}`);!r&&e.isElement&&(s.shadowRoot?r=s.shadowRoot.querySelector(`.${e.params.lazyPreloaderClass}`):requestAnimationFrame(()=>{s.shadowRoot&&(r=s.shadowRoot.querySelector(`.${e.params.lazyPreloaderClass}`),r&&!r.lazyPreloaderManaged&&r.remove())})),r&&!r.lazyPreloaderManaged&&r.remove()}},Te=(e,a)=>{if(!e.slides[a])return;let t=e.slides[a].querySelector('[loading="lazy"]');t&&t.removeAttribute("loading")},Pe=e=>{if(!e||e.destroyed||!e.params)return;let a=e.params.lazyPreloadPrevNext,t=e.slides.length;if(!t||!a||a<0)return;a=Math.min(a,t);let s=e.params.slidesPerView==="auto"?e.slidesPerViewDynamic():Math.ceil(e.params.slidesPerView),r=e.activeIndex;if(e.params.grid&&e.params.grid.rows>1){let i=r,l=[i-a];l.push(...Array.from({length:a}).map((n,p)=>i+s+p)),e.slides.forEach((n,p)=>{l.includes(n.column)&&Te(e,p)});return}let o=r+s-1;if(e.params.rewind||e.params.loop)for(let i=r-a;i<=o+a;i+=1){let l=(i%t+t)%t;(l<r||l>o)&&Te(e,l)}else for(let i=Math.max(r-a,0);i<=Math.min(o+a,t-1);i+=1)i!==r&&(i>o||i<r)&&Te(e,i)};function Lt(e){let{slidesGrid:a,params:t}=e,s=e.rtlTranslate?e.translate:-e.translate,r;for(let o=0;o<a.length;o+=1)typeof a[o+1]<"u"?s>=a[o]&&s<a[o+1]-(a[o+1]-a[o])/2?r=o:s>=a[o]&&s<a[o+1]&&(r=o+1):s>=a[o]&&(r=o);return t.normalizeSlideIndex&&(r<0||typeof r>"u")&&(r=0),r}function At(e){let a=this,t=a.rtlTranslate?a.translate:-a.translate,{snapGrid:s,params:r,activeIndex:o,realIndex:i,snapIndex:l}=a,n=e,p,m=d=>{let b=d-a.virtual.slidesBefore;return b<0&&(b=a.virtual.slides.length+b),b>=a.virtual.slides.length&&(b-=a.virtual.slides.length),b};if(typeof n>"u"&&(n=Lt(a)),s.indexOf(t)>=0)p=s.indexOf(t);else{let d=Math.min(r.slidesPerGroupSkip,n);p=d+Math.floor((n-d)/r.slidesPerGroup)}if(p>=s.length&&(p=s.length-1),n===o&&!a.params.loop){p!==l&&(a.snapIndex=p,a.emit("snapIndexChange"));return}if(n===o&&a.params.loop&&a.virtual&&a.params.virtual.enabled){a.realIndex=m(n);return}let c=a.grid&&r.grid&&r.grid.rows>1,g;if(a.virtual&&r.virtual.enabled)r.loop?g=m(n):g=n;else if(c){let d=a.slides.find(S=>S.column===n),b=parseInt(d.getAttribute("data-swiper-slide-index"),10);Number.isNaN(b)&&(b=Math.max(a.slides.indexOf(d),0)),g=Math.floor(b/r.grid.rows)}else if(a.slides[n]){let d=a.slides[n].getAttribute("data-swiper-slide-index");d?g=parseInt(d,10):g=n}else g=n;Object.assign(a,{previousSnapIndex:l,snapIndex:p,previousRealIndex:i,realIndex:g,previousIndex:o,activeIndex:n}),a.initialized&&Pe(a),a.emit("activeIndexChange"),a.emit("snapIndexChange"),(a.initialized||a.params.runCallbacksOnInit)&&(i!==g&&a.emit("realIndexChange"),a.emit("slideChange"))}function Dt(e,a){let t=this,s=t.params,r=e.closest(`.${s.slideClass}, swiper-slide`);!r&&t.isElement&&a&&a.length>1&&a.includes(e)&&[...a.slice(a.indexOf(e)+1,a.length)].forEach(l=>{!r&&l.matches&&l.matches(`.${s.slideClass}, swiper-slide`)&&(r=l)});let o=!1,i;if(r){for(let l=0;l<t.slides.length;l+=1)if(t.slides[l]===r){o=!0,i=l;break}}if(r&&o)t.clickedSlide=r,t.virtual&&t.params.virtual.enabled?t.clickedIndex=parseInt(r.getAttribute("data-swiper-slide-index"),10):t.clickedIndex=i;else{t.clickedSlide=void 0,t.clickedIndex=void 0;return}s.slideToClickedSlide&&t.clickedIndex!==void 0&&t.clickedIndex!==t.activeIndex&&t.slideToClickedSlide()}var Ot={updateSize:Et,updateSlides:Tt,updateAutoHeight:xt,updateSlidesOffset:Mt,updateSlidesProgress:Pt,updateProgress:zt,updateSlidesClasses:It,updateActiveIndex:At,updateClickedSlide:Dt};function kt(e=this.isHorizontal()?"x":"y"){let a=this,{params:t,rtlTranslate:s,translate:r,wrapperEl:o}=a;if(t.virtualTranslate)return s?-r:r;if(t.cssMode)return r;let i=we(o,e);return i+=a.cssOverflowAdjustment(),s&&(i=-i),i||0}function Gt(e,a){let t=this,{rtlTranslate:s,params:r,wrapperEl:o,progress:i}=t,l=0,n=0,p=0;t.isHorizontal()?l=s?-e:e:n=e,r.roundLengths&&(l=Math.floor(l),n=Math.floor(n)),t.previousTranslate=t.translate,t.translate=t.isHorizontal()?l:n,r.cssMode?o[t.isHorizontal()?"scrollLeft":"scrollTop"]=t.isHorizontal()?-l:-n:r.virtualTranslate||(t.isHorizontal()?l-=t.cssOverflowAdjustment():n-=t.cssOverflowAdjustment(),o.style.transform=`translate3d(${l}px, ${n}px, ${p}px)`);let m,c=t.maxTranslate()-t.minTranslate();c===0?m=0:m=(e-t.minTranslate())/c,m!==i&&t.updateProgress(e),t.emit("setTranslate",t.translate,a)}function $t(){return-this.snapGrid[0]}function Ht(){return-this.snapGrid[this.snapGrid.length-1]}function Wt(e=0,a=this.params.speed,t=!0,s=!0,r){let o=this,{params:i,wrapperEl:l}=o;if(o.animating&&i.preventInteractionOnTransition)return!1;let n=o.minTranslate(),p=o.maxTranslate(),m;if(s&&e>n?m=n:s&&e<p?m=p:m=e,o.updateProgress(m),i.cssMode){let c=o.isHorizontal();if(a===0)l[c?"scrollLeft":"scrollTop"]=-m;else{if(!o.support.smoothScroll)return ve({swiper:o,targetPosition:-m,side:c?"left":"top"}),!0;l.scrollTo({[c?"left":"top"]:-m,behavior:"smooth"})}return!0}return a===0?(o.setTransition(0),o.setTranslate(m),t&&(o.emit("beforeTransitionStart",a,r),o.emit("transitionEnd"))):(o.setTransition(a),o.setTranslate(m),t&&(o.emit("beforeTransitionStart",a,r),o.emit("transitionStart")),o.animating||(o.animating=!0,o.onTranslateToWrapperTransitionEnd||(o.onTranslateToWrapperTransitionEnd=function(g){!o||o.destroyed||g.target===this&&(o.wrapperEl.removeEventListener("transitionend",o.onTranslateToWrapperTransitionEnd),o.onTranslateToWrapperTransitionEnd=null,delete o.onTranslateToWrapperTransitionEnd,o.animating=!1,t&&o.emit("transitionEnd"))}),o.wrapperEl.addEventListener("transitionend",o.onTranslateToWrapperTransitionEnd))),!0}var Rt={getTranslate:kt,setTranslate:Gt,minTranslate:$t,maxTranslate:Ht,translateTo:Wt};function Bt(e,a){let t=this;t.params.cssMode||(t.wrapperEl.style.transitionDuration=`${e}ms`,t.wrapperEl.style.transitionDelay=e===0?"0ms":""),t.emit("setTransition",e,a)}function Ze({swiper:e,runCallbacks:a,direction:t,step:s}){let{activeIndex:r,previousIndex:o}=e,i=t;i||(r>o?i="next":r<o?i="prev":i="reset"),e.emit(`transition${s}`),a&&i==="reset"?e.emit(`slideResetTransition${s}`):a&&r!==o&&(e.emit(`slideChangeTransition${s}`),i==="next"?e.emit(`slideNextTransition${s}`):e.emit(`slidePrevTransition${s}`))}function Nt(e=!0,a){let t=this,{params:s}=t;s.cssMode||(s.autoHeight&&t.updateAutoHeight(),Ze({swiper:t,runCallbacks:e,direction:a,step:"Start"}))}function Ft(e=!0,a){let t=this,{params:s}=t;t.animating=!1,!s.cssMode&&(t.setTransition(0),Ze({swiper:t,runCallbacks:e,direction:a,step:"End"}))}var Vt={setTransition:Bt,transitionStart:Nt,transitionEnd:Ft};function Xt(e=0,a,t=!0,s,r){typeof e=="string"&&(e=parseInt(e,10));let o=this,i=e;i<0&&(i=0);let{params:l,snapGrid:n,slidesGrid:p,previousIndex:m,activeIndex:c,rtlTranslate:g,wrapperEl:d,enabled:b}=o;if(!b&&!s&&!r||o.destroyed||o.animating&&l.preventInteractionOnTransition)return!1;typeof a>"u"&&(a=o.params.speed);let S=Math.min(o.params.slidesPerGroupSkip,i),w=S+Math.floor((i-S)/o.params.slidesPerGroup);w>=n.length&&(w=n.length-1);let f=-n[w];if(l.normalizeSlideIndex)for(let z=0;z<p.length;z+=1){let _=-Math.floor(f*100),A=Math.floor(p[z]*100),T=Math.floor(p[z+1]*100);typeof p[z+1]<"u"?_>=A&&_<T-(T-A)/2?i=z:_>=A&&_<T&&(i=z+1):_>=A&&(i=z)}if(o.initialized&&i!==c&&(!o.allowSlideNext&&(g?f>o.translate&&f>o.minTranslate():f<o.translate&&f<o.minTranslate())||!o.allowSlidePrev&&f>o.translate&&f>o.maxTranslate()&&(c||0)!==i))return!1;i!==(m||0)&&t&&o.emit("beforeSlideChangeStart"),o.updateProgress(f);let u;i>c?u="next":i<c?u="prev":u="reset";let h=o.virtual&&o.params.virtual.enabled;if(!(h&&r)&&(g&&-f===o.translate||!g&&f===o.translate))return o.updateActiveIndex(i),l.autoHeight&&o.updateAutoHeight(),o.updateSlidesClasses(),l.effect!=="slide"&&o.setTranslate(f),u!=="reset"&&(o.transitionStart(t,u),o.transitionEnd(t,u)),!1;if(l.cssMode){let z=o.isHorizontal(),_=g?f:-f;if(a===0)h&&(o.wrapperEl.style.scrollSnapType="none",o._immediateVirtual=!0),h&&!o._cssModeVirtualInitialSet&&o.params.initialSlide>0?(o._cssModeVirtualInitialSet=!0,requestAnimationFrame(()=>{d[z?"scrollLeft":"scrollTop"]=_})):d[z?"scrollLeft":"scrollTop"]=_,h&&requestAnimationFrame(()=>{o.wrapperEl.style.scrollSnapType="",o._immediateVirtual=!1});else{if(!o.support.smoothScroll)return ve({swiper:o,targetPosition:_,side:z?"left":"top"}),!0;d.scrollTo({[z?"left":"top"]:_,behavior:"smooth"})}return!0}let M=Je().isSafari;return h&&!r&&M&&o.isElement&&o.virtual.update(!1,!1,i),o.setTransition(a),o.setTranslate(f),o.updateActiveIndex(i),o.updateSlidesClasses(),o.emit("beforeTransitionStart",a,s),o.transitionStart(t,u),a===0?o.transitionEnd(t,u):o.animating||(o.animating=!0,o.onSlideToWrapperTransitionEnd||(o.onSlideToWrapperTransitionEnd=function(_){!o||o.destroyed||_.target===this&&(o.wrapperEl.removeEventListener("transitionend",o.onSlideToWrapperTransitionEnd),o.onSlideToWrapperTransitionEnd=null,delete o.onSlideToWrapperTransitionEnd,o.transitionEnd(t,u))}),o.wrapperEl.addEventListener("transitionend",o.onSlideToWrapperTransitionEnd)),!0}function Yt(e=0,a,t=!0,s){typeof e=="string"&&(e=parseInt(e,10));let r=this;if(r.destroyed)return;typeof a>"u"&&(a=r.params.speed);let o=r.grid&&r.params.grid&&r.params.grid.rows>1,i=e;if(r.params.loop)if(r.virtual&&r.params.virtual.enabled)i=i+r.virtual.slidesBefore;else{let l;if(o){let S=i*r.params.grid.rows;l=r.slides.find(w=>w.getAttribute("data-swiper-slide-index")*1===S).column}else l=r.getSlideIndexByData(i);let n=o?Math.ceil(r.slides.length/r.params.grid.rows):r.slides.length,{centeredSlides:p,slidesOffsetBefore:m,slidesOffsetAfter:c}=r.params,g=p||!!m||!!c,d=r.params.slidesPerView;d==="auto"?d=r.slidesPerViewDynamic():(d=Math.ceil(parseFloat(r.params.slidesPerView,10)),g&&d%2===0&&(d=d+1));let b=n-l<d;if(g&&(b=b||l<Math.ceil(d/2)),s&&g&&r.params.slidesPerView!=="auto"&&!o&&(b=!1),b){let S=g?l<r.activeIndex?"prev":"next":l-r.activeIndex-1<r.params.slidesPerView?"next":"prev";r.loopFix({direction:S,slideTo:!0,activeSlideIndex:S==="next"?l+1:l-n+1,slideRealIndex:S==="next"?r.realIndex:void 0})}if(o){let S=i*r.params.grid.rows;i=r.slides.find(w=>w.getAttribute("data-swiper-slide-index")*1===S).column}else i=r.getSlideIndexByData(i)}return requestAnimationFrame(()=>{r.slideTo(i,a,t,s)}),r}function qt(e,a=!0,t){let s=this,{enabled:r,params:o,animating:i}=s;if(!r||s.destroyed)return s;typeof e>"u"&&(e=s.params.speed);let l=o.slidesPerGroup;o.slidesPerView==="auto"&&o.slidesPerGroup===1&&o.slidesPerGroupAuto&&(l=Math.max(s.slidesPerViewDynamic("current",!0),1));let n=s.activeIndex<o.slidesPerGroupSkip?1:l,p=s.virtual&&o.virtual.enabled;if(o.loop){if(i&&!p&&o.loopPreventsSliding)return!1;if(s.loopFix({direction:"next"}),s._clientLeft=s.wrapperEl.clientLeft,s.activeIndex===s.slides.length-1&&o.cssMode)return requestAnimationFrame(()=>{s.slideTo(s.activeIndex+n,e,a,t)}),!0}return o.rewind&&s.isEnd?s.slideTo(0,e,a,t):s.slideTo(s.activeIndex+n,e,a,t)}function jt(e,a=!0,t){let s=this,{params:r,snapGrid:o,slidesGrid:i,rtlTranslate:l,enabled:n,animating:p}=s;if(!n||s.destroyed)return s;typeof e>"u"&&(e=s.params.speed);let m=s.virtual&&r.virtual.enabled;if(r.loop){if(p&&!m&&r.loopPreventsSliding)return!1;s.loopFix({direction:"prev"}),s._clientLeft=s.wrapperEl.clientLeft}let c=l?s.translate:-s.translate;function g(u){return u<0?-Math.floor(Math.abs(u)):Math.floor(u)}let d=g(c),b=o.map(u=>g(u)),S=r.freeMode&&r.freeMode.enabled,w=o[b.indexOf(d)-1];if(typeof w>"u"&&(r.cssMode||S)){let u;o.forEach((h,v)=>{d>=h&&(u=v)}),typeof u<"u"&&(w=S?o[u]:o[u>0?u-1:u])}let f=0;if(typeof w<"u"&&(f=i.indexOf(w),f<0&&(f=s.activeIndex-1),r.slidesPerView==="auto"&&r.slidesPerGroup===1&&r.slidesPerGroupAuto&&(f=f-s.slidesPerViewDynamic("previous",!0)+1,f=Math.max(f,0))),r.rewind&&s.isBeginning){let u=s.params.virtual&&s.params.virtual.enabled&&s.virtual?s.virtual.slides.length-1:s.slides.length-1;return s.slideTo(u,e,a,t)}else if(r.loop&&s.activeIndex===0&&r.cssMode)return requestAnimationFrame(()=>{s.slideTo(f,e,a,t)}),!0;return s.slideTo(f,e,a,t)}function Ut(e,a=!0,t){let s=this;if(!s.destroyed)return typeof e>"u"&&(e=s.params.speed),s.slideTo(s.activeIndex,e,a,t)}function Kt(e,a=!0,t,s=.5){let r=this;if(r.destroyed)return;typeof e>"u"&&(e=r.params.speed);let o=r.activeIndex,i=Math.min(r.params.slidesPerGroupSkip,o),l=i+Math.floor((o-i)/r.params.slidesPerGroup),n=r.rtlTranslate?r.translate:-r.translate;if(n>=r.snapGrid[l]){let p=r.snapGrid[l],m=r.snapGrid[l+1];n-p>(m-p)*s&&(o+=r.params.slidesPerGroup)}else{let p=r.snapGrid[l-1],m=r.snapGrid[l];n-p<=(m-p)*s&&(o-=r.params.slidesPerGroup)}return o=Math.max(o,0),o=Math.min(o,r.slidesGrid.length-1),r.slideTo(o,e,a,t)}function Jt(){let e=this;if(e.destroyed)return;let{params:a,slidesEl:t}=e,s=a.slidesPerView==="auto"?e.slidesPerViewDynamic():a.slidesPerView,r=e.getSlideIndexWhenGrid(e.clickedIndex),o,i=e.isElement?"swiper-slide":`.${a.slideClass}`,l=e.grid&&e.params.grid&&e.params.grid.rows>1;if(a.loop){if(e.animating)return;o=parseInt(e.clickedSlide.getAttribute("data-swiper-slide-index"),10),a.centeredSlides?e.slideToLoop(o):r>(l?(e.slides.length-s)/2-(e.params.grid.rows-1):e.slides.length-s)?(e.loopFix(),r=e.getSlideIndex($(t,`${i}[data-swiper-slide-index="${o}"]`)[0]),se(()=>{e.slideTo(r)})):e.slideTo(r)}else e.slideTo(r)}var Zt={slideTo:Xt,slideToLoop:Yt,slideNext:qt,slidePrev:jt,slideReset:Ut,slideToClosest:Kt,slideToClickedSlide:Jt};function Qt(e,a){let t=this,{params:s,slidesEl:r}=t;if(!s.loop||t.virtual&&t.params.virtual.enabled)return;let o=()=>{$(r,`.${s.slideClass}, swiper-slide`).forEach((b,S)=>{b.setAttribute("data-swiper-slide-index",S)})},i=()=>{let d=$(r,`.${s.slideBlankClass}`);d.forEach(b=>{b.remove()}),d.length>0&&(t.recalcSlides(),t.updateSlides())},l=t.grid&&s.grid&&s.grid.rows>1;s.loopAddBlankSlides&&(s.slidesPerGroup>1||l)&&i();let n=s.slidesPerGroup*(l?s.grid.rows:1),p=t.slides.length%n!==0,m=l&&t.slides.length%s.grid.rows!==0,c=d=>{for(let b=0;b<d;b+=1){let S=t.isElement?N("swiper-slide",[s.slideBlankClass]):N("div",[s.slideClass,s.slideBlankClass]);t.slidesEl.append(S)}};if(p){if(s.loopAddBlankSlides){let d=n-t.slides.length%n;c(d),t.recalcSlides(),t.updateSlides()}else ne("Swiper Loop Warning: The number of slides is not even to slidesPerGroup, loop mode may not function properly. You need to add more slides (or make duplicates, or empty slides)");o()}else if(m){if(s.loopAddBlankSlides){let d=s.grid.rows-t.slides.length%s.grid.rows;c(d),t.recalcSlides(),t.updateSlides()}else ne("Swiper Loop Warning: The number of slides is not even to grid.rows, loop mode may not function properly. You need to add more slides (or make duplicates, or empty slides)");o()}else o();let g=s.centeredSlides||!!s.slidesOffsetBefore||!!s.slidesOffsetAfter;t.loopFix({slideRealIndex:e,direction:g?void 0:"next",initial:a})}function ea({slideRealIndex:e,slideTo:a=!0,direction:t,setTranslate:s,activeSlideIndex:r,initial:o,byController:i,byMousewheel:l}={}){let n=this;if(!n.params.loop)return;n.emit("beforeLoopFix");let{slides:p,allowSlidePrev:m,allowSlideNext:c,slidesEl:g,params:d}=n,{centeredSlides:b,slidesOffsetBefore:S,slidesOffsetAfter:w,initialSlide:f}=d,u=b||!!S||!!w;if(n.allowSlidePrev=!0,n.allowSlideNext=!0,n.virtual&&d.virtual.enabled){a&&(!u&&n.snapIndex===0?n.slideTo(n.virtual.slides.length,0,!1,!0):u&&n.snapIndex<d.slidesPerView?n.slideTo(n.virtual.slides.length+n.snapIndex,0,!1,!0):n.snapIndex===n.snapGrid.length-1&&n.slideTo(n.virtual.slidesBefore,0,!1,!0)),n.allowSlidePrev=m,n.allowSlideNext=c,n.emit("loopFix");return}let h=d.slidesPerView;h==="auto"?h=n.slidesPerViewDynamic():(h=Math.ceil(parseFloat(d.slidesPerView,10)),u&&h%2===0&&(h=h+1));let v=d.slidesPerGroupAuto?h:d.slidesPerGroup,E=u?Math.max(v,Math.ceil(h/2)):v;E%v!==0&&(E+=v-E%v),E+=d.loopAdditionalSlides,n.loopedSlides=E;let M=n.grid&&d.grid&&d.grid.rows>1;p.length<h+E||n.params.effect==="cards"&&p.length<h+E*2?ne("Swiper Loop Warning: The number of slides is not enough for loop mode, it will be disabled or not function properly. You need to add more slides (or make duplicates) or lower the values of slidesPerView and slidesPerGroup parameters"):M&&d.grid.fill==="row"&&ne("Swiper Loop Warning: Loop mode is not compatible with grid.fill = `row`");let z=[],_=[],A=M?Math.ceil(p.length/d.grid.rows):p.length,T=o&&A-f<h&&!u,C=T?f:n.activeIndex;typeof r>"u"?r=n.getSlideIndex(p.find(L=>L.classList.contains(d.slideActiveClass))):C=r;let x=t==="next"||!t,I=t==="prev"||!t,P=0,D=0,Z=(M?p[r].column:r)+(u&&typeof s>"u"?-h/2+.5:0);if(Z<E){P=Math.max(E-Z,v);for(let L=0;L<E-Z;L+=1){let H=L-Math.floor(L/A)*A;if(M){let W=A-H-1;for(let Y=p.length-1;Y>=0;Y-=1)p[Y].column===W&&z.push(Y)}else z.push(A-H-1)}}else if(Z+h>A-E){D=Math.max(Z-(A-E*2),v),T&&(D=Math.max(D,h-A+f+1));for(let L=0;L<D;L+=1){let H=L-Math.floor(L/A)*A;M?p.forEach((W,Y)=>{W.column===H&&_.push(Y)}):_.push(H)}}if(n.__preventObserver__=!0,requestAnimationFrame(()=>{n.__preventObserver__=!1}),n.params.effect==="cards"&&p.length<h+E*2&&(_.includes(r)&&_.splice(_.indexOf(r),1),z.includes(r)&&z.splice(z.indexOf(r),1)),I&&z.forEach(L=>{p[L].swiperLoopMoveDOM=!0,g.prepend(p[L]),p[L].swiperLoopMoveDOM=!1}),x&&_.forEach(L=>{p[L].swiperLoopMoveDOM=!0,g.append(p[L]),p[L].swiperLoopMoveDOM=!1}),n.recalcSlides(),d.slidesPerView==="auto"?n.updateSlides():M&&(z.length>0&&I||_.length>0&&x)&&n.slides.forEach((L,H)=>{n.grid.updateSlide(H,L,n.slides)}),d.watchSlidesProgress&&n.updateSlidesOffset(),a){if(z.length>0&&I){if(typeof e>"u"){let L=n.slidesGrid[C],W=n.slidesGrid[C+P]-L;l?n.setTranslate(n.translate-W):(n.slideTo(C+Math.ceil(P),0,!1,!0),s&&(n.touchEventsData.startTranslate=n.touchEventsData.startTranslate-W,n.touchEventsData.currentTranslate=n.touchEventsData.currentTranslate-W))}else if(s){let L=M?z.length/d.grid.rows:z.length;n.slideTo(n.activeIndex+L,0,!1,!0),n.touchEventsData.currentTranslate=n.translate}}else if(_.length>0&&x)if(typeof e>"u"){let L=n.slidesGrid[C],W=n.slidesGrid[C-D]-L;l?n.setTranslate(n.translate-W):(n.slideTo(C-D,0,!1,!0),s&&(n.touchEventsData.startTranslate=n.touchEventsData.startTranslate-W,n.touchEventsData.currentTranslate=n.touchEventsData.currentTranslate-W))}else{let L=M?_.length/d.grid.rows:_.length;n.slideTo(n.activeIndex-L,0,!1,!0)}}if(n.allowSlidePrev=m,n.allowSlideNext=c,n.controller&&n.controller.control&&!i){let L={slideRealIndex:e,direction:t,setTranslate:s,activeSlideIndex:r,byController:!0};Array.isArray(n.controller.control)?n.controller.control.forEach(H=>{!H.destroyed&&H.params.loop&&H.loopFix({...L,slideTo:H.params.slidesPerView===d.slidesPerView?a:!1})}):n.controller.control instanceof n.constructor&&n.controller.control.params.loop&&n.controller.control.loopFix({...L,slideTo:n.controller.control.params.slidesPerView===d.slidesPerView?a:!1})}n.emit("loopFix")}function ta(){let e=this,{params:a,slidesEl:t}=e;if(!a.loop||!t||e.virtual&&e.params.virtual.enabled)return;e.recalcSlides();let s=[];e.slides.forEach(r=>{let o=typeof r.swiperSlideIndex>"u"?r.getAttribute("data-swiper-slide-index")*1:r.swiperSlideIndex;s[o]=r}),e.slides.forEach(r=>{r.removeAttribute("data-swiper-slide-index")}),s.forEach(r=>{t.append(r)}),e.recalcSlides(),e.slideTo(e.realIndex,0)}var aa={loopCreate:Qt,loopFix:ea,loopDestroy:ta};function sa(e){let a=this;if(!a.params.simulateTouch||a.params.watchOverflow&&a.isLocked||a.params.cssMode)return;let t=a.params.touchEventsTarget==="container"?a.el:a.wrapperEl;a.isElement&&(a.__preventObserver__=!0),t.style.cursor="move",t.style.cursor=e?"grabbing":"grab",a.isElement&&requestAnimationFrame(()=>{a.__preventObserver__=!1})}function oa(){let e=this;e.params.watchOverflow&&e.isLocked||e.params.cssMode||(e.isElement&&(e.__preventObserver__=!0),e[e.params.touchEventsTarget==="container"?"el":"wrapperEl"].style.cursor="",e.isElement&&requestAnimationFrame(()=>{e.__preventObserver__=!1}))}var ra={setGrabCursor:sa,unsetGrabCursor:oa};function na(e,a=this){function t(s){if(!s||s===G()||s===O())return null;s.assignedSlot&&(s=s.assignedSlot);let r=s.closest(e);return!r&&!s.getRootNode?null:r||t(s.getRootNode().host)}return t(a)}function Xe(e,a,t){let s=O(),{params:r}=e,o=r.edgeSwipeDetection,i=r.edgeSwipeThreshold;return o&&(t<=i||t>=s.innerWidth-i)?o==="prevent"?(a.preventDefault(),!0):!1:!0}function ia(e){let a=this,t=G(),s=e;s.originalEvent&&(s=s.originalEvent);let r=a.touchEventsData;if(s.type==="pointerdown"){if(r.pointerId!==null&&r.pointerId!==s.pointerId)return;r.pointerId=s.pointerId}else s.type==="touchstart"&&s.targetTouches.length===1&&(r.touchId=s.targetTouches[0].identifier);if(s.type==="touchstart"){Xe(a,s,s.targetTouches[0].pageX);return}let{params:o,touches:i,enabled:l}=a;if(!l||!o.simulateTouch&&s.pointerType==="mouse"||a.animating&&o.preventInteractionOnTransition)return;!a.animating&&o.cssMode&&o.loop&&a.loopFix();let n=s.target;if(o.touchEventsTarget==="wrapper"&&!Be(n,a.wrapperEl)||"which"in s&&s.which===3||"button"in s&&s.button>0||r.isTouched&&r.isMoved)return;let p=!!o.noSwipingClass&&o.noSwipingClass!=="",m=s.composedPath?s.composedPath():s.path;p&&s.target&&s.target.shadowRoot&&m&&(n=m[0]);let c=o.noSwipingSelector?o.noSwipingSelector:`.${o.noSwipingClass}`,g=!!(s.target&&s.target.shadowRoot);if(o.noSwiping&&(g?na(c,n):n.closest(c))){a.allowClick=!0;return}if(o.swipeHandler&&!n.closest(o.swipeHandler))return;i.currentX=s.pageX,i.currentY=s.pageY;let d=i.currentX,b=i.currentY;if(!Xe(a,s,d))return;Object.assign(r,{isTouched:!0,isMoved:!1,allowTouchCallbacks:!0,isScrolling:void 0,startMoving:void 0}),i.startX=d,i.startY=b,r.touchStartTime=Q(),a.allowClick=!0,a.updateSize(),a.swipeDirection=void 0,o.threshold>0&&(r.allowThresholdMove=!1);let S=!0;n.matches(r.focusableElements)&&(S=!1,n.nodeName==="SELECT"&&(r.isTouched=!1)),t.activeElement&&t.activeElement.matches(r.focusableElements)&&t.activeElement!==n&&(s.pointerType==="mouse"||s.pointerType!=="mouse"&&!n.matches(r.focusableElements))&&t.activeElement.blur();let w=S&&a.allowTouchMove&&o.touchStartPreventDefault;(o.touchStartForcePreventDefault||w)&&!n.isContentEditable&&s.preventDefault(),o.freeMode&&o.freeMode.enabled&&a.freeMode&&a.animating&&!o.cssMode&&a.freeMode.onTouchStart(),a.emit("touchStart",s)}function la(e){let a=G(),t=this,s=t.touchEventsData,{params:r,touches:o,rtlTranslate:i,enabled:l}=t;if(!l||!r.simulateTouch&&e.pointerType==="mouse")return;let n=e;if(n.originalEvent&&(n=n.originalEvent),n.type==="pointermove"&&(s.touchId!==null||n.pointerId!==s.pointerId))return;let p;if(n.type==="touchmove"){if(p=[...n.changedTouches].find(M=>M.identifier===s.touchId),!p||p.identifier!==s.touchId)return}else p=n;if(!s.isTouched){s.startMoving&&s.isScrolling&&t.emit("touchMoveOpposite",n);return}let m=p.pageX,c=p.pageY;if(n.preventedByNestedSwiper){o.startX=m,o.startY=c;return}if(!t.allowTouchMove){n.target.matches(s.focusableElements)||(t.allowClick=!1),s.isTouched&&(Object.assign(o,{startX:m,startY:c,currentX:m,currentY:c}),s.touchStartTime=Q());return}if(r.touchReleaseOnEdges&&!r.loop)if(t.isVertical()){if(c<o.startY&&t.translate<=t.maxTranslate()||c>o.startY&&t.translate>=t.minTranslate()){s.isTouched=!1,s.isMoved=!1;return}}else{if(i&&(m>o.startX&&-t.translate<=t.maxTranslate()||m<o.startX&&-t.translate>=t.minTranslate()))return;if(!i&&(m<o.startX&&t.translate<=t.maxTranslate()||m>o.startX&&t.translate>=t.minTranslate()))return}if(a.activeElement&&a.activeElement.matches(s.focusableElements)&&a.activeElement!==n.target&&n.pointerType!=="mouse"&&a.activeElement.blur(),a.activeElement&&n.target===a.activeElement&&n.target.matches(s.focusableElements)){s.isMoved=!0,t.allowClick=!1;return}s.allowTouchCallbacks&&t.emit("touchMove",n),o.previousX=o.currentX,o.previousY=o.currentY,o.currentX=m,o.currentY=c;let g=o.currentX-o.startX,d=o.currentY-o.startY;if(t.params.threshold&&Math.sqrt(g**2+d**2)<t.params.threshold)return;if(typeof s.isScrolling>"u"){let M;t.isHorizontal()&&o.currentY===o.startY||t.isVertical()&&o.currentX===o.startX?s.isScrolling=!1:g*g+d*d>=25&&(M=Math.atan2(Math.abs(d),Math.abs(g))*180/Math.PI,s.isScrolling=t.isHorizontal()?M>r.touchAngle:90-M>r.touchAngle)}if(s.isScrolling&&t.emit("touchMoveOpposite",n),typeof s.startMoving>"u"&&(o.currentX!==o.startX||o.currentY!==o.startY)&&(s.startMoving=!0),s.isScrolling||n.type==="touchmove"&&s.preventTouchMoveFromPointerMove){s.isTouched=!1;return}if(!s.startMoving)return;t.allowClick=!1,!r.cssMode&&n.cancelable&&n.preventDefault(),r.touchMoveStopPropagation&&!r.nested&&n.stopPropagation();let b=t.isHorizontal()?g:d,S=t.isHorizontal()?o.currentX-o.previousX:o.currentY-o.previousY;r.oneWayMovement&&(b=Math.abs(b)*(i?1:-1),S=Math.abs(S)*(i?1:-1)),o.diff=b,b*=r.touchRatio,i&&(b=-b,S=-S);let w=t.touchesDirection;t.swipeDirection=b>0?"prev":"next",t.touchesDirection=S>0?"prev":"next";let f=t.params.loop&&!r.cssMode,u=t.touchesDirection==="next"&&t.allowSlideNext||t.touchesDirection==="prev"&&t.allowSlidePrev;if(!s.isMoved){if(f&&u&&t.loopFix({direction:t.swipeDirection}),s.startTranslate=t.getTranslate(),t.setTransition(0),t.animating){let M=new window.CustomEvent("transitionend",{bubbles:!0,cancelable:!0,detail:{bySwiperTouchMove:!0}});t.wrapperEl.dispatchEvent(M)}s.allowMomentumBounce=!1,r.grabCursor&&(t.allowSlideNext===!0||t.allowSlidePrev===!0)&&t.setGrabCursor(!0),t.emit("sliderFirstMove",n)}let h;if(new Date().getTime(),r._loopSwapReset!==!1&&s.isMoved&&s.allowThresholdMove&&w!==t.touchesDirection&&f&&u&&Math.abs(b)>=1){Object.assign(o,{startX:m,startY:c,currentX:m,currentY:c,startTranslate:s.currentTranslate}),s.loopSwapReset=!0,s.startTranslate=s.currentTranslate;return}t.emit("sliderMove",n),s.isMoved=!0,s.currentTranslate=b+s.startTranslate;let v=!0,E=r.resistanceRatio;if(r.touchReleaseOnEdges&&(E=0),b>0?(f&&u&&!h&&s.allowThresholdMove&&s.currentTranslate>(r.centeredSlides?t.minTranslate()-t.slidesSizesGrid[t.activeIndex+1]-(r.slidesPerView!=="auto"&&t.slides.length-r.slidesPerView>=2?t.slidesSizesGrid[t.activeIndex+1]+t.params.spaceBetween:0)-t.params.spaceBetween:t.minTranslate())&&t.loopFix({direction:"prev",setTranslate:!0,activeSlideIndex:0}),s.currentTranslate>t.minTranslate()&&(v=!1,r.resistance&&(s.currentTranslate=t.minTranslate()-1+(-t.minTranslate()+s.startTranslate+b)**E))):b<0&&(f&&u&&!h&&s.allowThresholdMove&&s.currentTranslate<(r.centeredSlides?t.maxTranslate()+t.slidesSizesGrid[t.slidesSizesGrid.length-1]+t.params.spaceBetween+(r.slidesPerView!=="auto"&&t.slides.length-r.slidesPerView>=2?t.slidesSizesGrid[t.slidesSizesGrid.length-1]+t.params.spaceBetween:0):t.maxTranslate())&&t.loopFix({direction:"next",setTranslate:!0,activeSlideIndex:t.slides.length-(r.slidesPerView==="auto"?t.slidesPerViewDynamic():Math.ceil(parseFloat(r.slidesPerView,10)))}),s.currentTranslate<t.maxTranslate()&&(v=!1,r.resistance&&(s.currentTranslate=t.maxTranslate()+1-(t.maxTranslate()-s.startTranslate-b)**E))),v&&(n.preventedByNestedSwiper=!0),!t.allowSlideNext&&t.swipeDirection==="next"&&s.currentTranslate<s.startTranslate&&(s.currentTranslate=s.startTranslate),!t.allowSlidePrev&&t.swipeDirection==="prev"&&s.currentTranslate>s.startTranslate&&(s.currentTranslate=s.startTranslate),!t.allowSlidePrev&&!t.allowSlideNext&&(s.currentTranslate=s.startTranslate),r.threshold>0)if(Math.abs(b)>r.threshold||s.allowThresholdMove){if(!s.allowThresholdMove){s.allowThresholdMove=!0,o.startX=o.currentX,o.startY=o.currentY,s.currentTranslate=s.startTranslate,o.diff=t.isHorizontal()?o.currentX-o.startX:o.currentY-o.startY;return}}else{s.currentTranslate=s.startTranslate;return}!r.followFinger||r.cssMode||((r.freeMode&&r.freeMode.enabled&&t.freeMode||r.watchSlidesProgress)&&(t.updateActiveIndex(),t.updateSlidesClasses()),r.freeMode&&r.freeMode.enabled&&t.freeMode&&t.freeMode.onTouchMove(),t.updateProgress(s.currentTranslate),t.setTranslate(s.currentTranslate))}function ca(e){let a=this,t=a.touchEventsData,s=e;s.originalEvent&&(s=s.originalEvent);let r;if(s.type==="touchend"||s.type==="touchcancel"){if(r=[...s.changedTouches].find(E=>E.identifier===t.touchId),!r||r.identifier!==t.touchId)return}else{if(t.touchId!==null||s.pointerId!==t.pointerId)return;r=s}if(["pointercancel","pointerout","pointerleave","contextmenu"].includes(s.type)&&!(["pointercancel","contextmenu"].includes(s.type)&&(a.browser.isSafari||a.browser.isWebView)))return;t.pointerId=null,t.touchId=null;let{params:i,touches:l,rtlTranslate:n,slidesGrid:p,enabled:m}=a;if(!m||!i.simulateTouch&&s.pointerType==="mouse")return;if(t.allowTouchCallbacks&&a.emit("touchEnd",s),t.allowTouchCallbacks=!1,!t.isTouched){t.isMoved&&i.grabCursor&&a.setGrabCursor(!1),t.isMoved=!1,t.startMoving=!1;return}i.grabCursor&&t.isMoved&&t.isTouched&&(a.allowSlideNext===!0||a.allowSlidePrev===!0)&&a.setGrabCursor(!1);let c=Q(),g=c-t.touchStartTime;if(a.allowClick){let E=s.path||s.composedPath&&s.composedPath();a.updateClickedSlide(E&&E[0]||s.target,E),a.emit("tap click",s),g<300&&c-t.lastClickTime<300&&a.emit("doubleTap doubleClick",s)}if(t.lastClickTime=Q(),se(()=>{a.destroyed||(a.allowClick=!0)}),!t.isTouched||!t.isMoved||!a.swipeDirection||l.diff===0&&!t.loopSwapReset||t.currentTranslate===t.startTranslate&&!t.loopSwapReset){t.isTouched=!1,t.isMoved=!1,t.startMoving=!1;return}t.isTouched=!1,t.isMoved=!1,t.startMoving=!1;let d;if(i.followFinger?d=n?a.translate:-a.translate:d=-t.currentTranslate,i.cssMode)return;if(i.freeMode&&i.freeMode.enabled){a.freeMode.onTouchEnd({currentPos:d});return}let b=d>=-a.maxTranslate()&&!a.params.loop,S=0,w=a.slidesSizesGrid[0];for(let E=0;E<p.length;E+=E<i.slidesPerGroupSkip?1:i.slidesPerGroup){let M=E<i.slidesPerGroupSkip-1?1:i.slidesPerGroup;typeof p[E+M]<"u"?(b||d>=p[E]&&d<p[E+M])&&(S=E,w=p[E+M]-p[E]):(b||d>=p[E])&&(S=E,w=p[p.length-1]-p[p.length-2])}let f=null,u=null;i.rewind&&(a.isBeginning?u=i.virtual&&i.virtual.enabled&&a.virtual?a.virtual.slides.length-1:a.slides.length-1:a.isEnd&&(f=0));let h=(d-p[S])/w,v=S<i.slidesPerGroupSkip-1?1:i.slidesPerGroup;if(g>i.longSwipesMs){if(!i.longSwipes){a.slideTo(a.activeIndex);return}a.swipeDirection==="next"&&(h>=i.longSwipesRatio?a.slideTo(i.rewind&&a.isEnd?f:S+v):a.slideTo(S)),a.swipeDirection==="prev"&&(h>1-i.longSwipesRatio?a.slideTo(S+v):u!==null&&h<0&&Math.abs(h)>i.longSwipesRatio?a.slideTo(u):a.slideTo(S))}else{if(!i.shortSwipes){a.slideTo(a.activeIndex);return}a.navigation&&(s.target===a.navigation.nextEl||s.target===a.navigation.prevEl)?s.target===a.navigation.nextEl?a.slideTo(S+v):a.slideTo(S):(a.swipeDirection==="next"&&a.slideTo(f!==null?f:S+v),a.swipeDirection==="prev"&&a.slideTo(u!==null?u:S))}}function Ye(){let e=this,{params:a,el:t}=e;if(t&&t.offsetWidth===0)return;a.breakpoints&&e.setBreakpoint();let{allowSlideNext:s,allowSlidePrev:r,snapGrid:o}=e,i=e.virtual&&e.params.virtual.enabled;e.allowSlideNext=!0,e.allowSlidePrev=!0,e.updateSize(),e.updateSlides(),e.updateSlidesClasses();let l=i&&a.loop;(a.slidesPerView==="auto"||a.slidesPerView>1)&&e.isEnd&&!e.isBeginning&&!e.params.centeredSlides&&!l?e.slideTo(e.slides.length-1,0,!1,!0):e.params.loop&&!i?e.slideToLoop(e.realIndex,0,!1,!0):e.slideTo(e.activeIndex,0,!1,!0),e.autoplay&&e.autoplay.running&&e.autoplay.paused&&(clearTimeout(e.autoplay.resizeTimeout),e.autoplay.resizeTimeout=setTimeout(()=>{e.autoplay&&e.autoplay.running&&e.autoplay.paused&&e.autoplay.resume()},500)),e.allowSlidePrev=r,e.allowSlideNext=s,e.params.watchOverflow&&o!==e.snapGrid&&e.checkOverflow()}function da(e){let a=this;a.enabled&&(a.allowClick||(a.params.preventClicks&&e.preventDefault(),a.params.preventClicksPropagation&&a.animating&&(e.stopPropagation(),e.stopImmediatePropagation())))}function fa(){let e=this,{wrapperEl:a,rtlTranslate:t,enabled:s}=e;if(!s)return;e.previousTranslate=e.translate,e.isHorizontal()?e.translate=-a.scrollLeft:e.translate=-a.scrollTop,e.translate===0&&(e.translate=0),e.updateActiveIndex(),e.updateSlidesClasses();let r,o=e.maxTranslate()-e.minTranslate();o===0?r=0:r=(e.translate-e.minTranslate())/o,r!==e.progress&&e.updateProgress(t?-e.translate:e.translate),e.emit("setTranslate",e.translate,!1)}function pa(e){let a=this;me(a,e.target),!(a.params.cssMode||a.params.slidesPerView!=="auto"&&!a.params.autoHeight)&&a.update()}function ua(){let e=this;e.documentTouchHandlerProceeded||(e.documentTouchHandlerProceeded=!0,e.params.touchReleaseOnEdges&&(e.el.style.touchAction="auto"))}var Qe=(e,a)=>{let t=G(),{params:s,el:r,wrapperEl:o,device:i}=e,l=!!s.nested,n=a==="on"?"addEventListener":"removeEventListener",p=a;!r||typeof r=="string"||(t[n]("touchstart",e.onDocumentTouchStart,{passive:!1,capture:l}),r[n]("touchstart",e.onTouchStart,{passive:!1}),r[n]("pointerdown",e.onTouchStart,{passive:!1}),t[n]("touchmove",e.onTouchMove,{passive:!1,capture:l}),t[n]("pointermove",e.onTouchMove,{passive:!1,capture:l}),t[n]("touchend",e.onTouchEnd,{passive:!0}),t[n]("pointerup",e.onTouchEnd,{passive:!0}),t[n]("pointercancel",e.onTouchEnd,{passive:!0}),t[n]("touchcancel",e.onTouchEnd,{passive:!0}),t[n]("pointerout",e.onTouchEnd,{passive:!0}),t[n]("pointerleave",e.onTouchEnd,{passive:!0}),t[n]("contextmenu",e.onTouchEnd,{passive:!0}),(s.preventClicks||s.preventClicksPropagation)&&r[n]("click",e.onClick,!0),s.cssMode&&o[n]("scroll",e.onScroll),s.updateOnWindowResize?e[p](i.ios||i.android?"resize orientationchange observerUpdate":"resize observerUpdate",Ye,!0):e[p]("observerUpdate",Ye,!0),r[n]("load",e.onLoad,{capture:!0}))};function ma(){let e=this,{params:a}=e;e.onTouchStart=ia.bind(e),e.onTouchMove=la.bind(e),e.onTouchEnd=ca.bind(e),e.onDocumentTouchStart=ua.bind(e),a.cssMode&&(e.onScroll=fa.bind(e)),e.onClick=da.bind(e),e.onLoad=pa.bind(e),Qe(e,"on")}function ba(){Qe(this,"off")}var ha={attachEvents:ma,detachEvents:ba},qe=(e,a)=>e.grid&&a.grid&&a.grid.rows>1;function ga(){let e=this,{realIndex:a,initialized:t,params:s,el:r}=e,o=s.breakpoints;if(!o||o&&Object.keys(o).length===0)return;let i=G(),l=s.breakpointsBase==="window"||!s.breakpointsBase?s.breakpointsBase:"container",n=["window","container"].includes(s.breakpointsBase)||!s.breakpointsBase?e.el:i.querySelector(s.breakpointsBase),p=e.getBreakpoint(o,l,n);if(!p||e.currentBreakpoint===p)return;let c=(p in o?o[p]:void 0)||e.originalParams,g=qe(e,s),d=qe(e,c),b=e.params.grabCursor,S=c.grabCursor,w=s.enabled;g&&!d?(r.classList.remove(`${s.containerModifierClass}grid`,`${s.containerModifierClass}grid-column`),e.emitContainerClasses()):!g&&d&&(r.classList.add(`${s.containerModifierClass}grid`),(c.grid.fill&&c.grid.fill==="column"||!c.grid.fill&&s.grid.fill==="column")&&r.classList.add(`${s.containerModifierClass}grid-column`),e.emitContainerClasses()),b&&!S?e.unsetGrabCursor():!b&&S&&e.setGrabCursor(),["navigation","pagination","scrollbar"].forEach(M=>{if(typeof c[M]>"u")return;let z=s[M]&&s[M].enabled,_=c[M]&&c[M].enabled;z&&!_&&e[M].disable(),!z&&_&&e[M].enable()});let f=c.direction&&c.direction!==s.direction,u=s.loop&&(c.slidesPerView!==s.slidesPerView||f),h=s.loop;f&&t&&e.changeDirection(),R(e.params,c);let v=e.params.enabled,E=e.params.loop;Object.assign(e,{allowTouchMove:e.params.allowTouchMove,allowSlideNext:e.params.allowSlideNext,allowSlidePrev:e.params.allowSlidePrev}),w&&!v?e.disable():!w&&v&&e.enable(),e.currentBreakpoint=p,e.emit("_beforeBreakpoint",c),t&&(u?(e.loopDestroy(),e.loopCreate(a),e.updateSlides()):!h&&E?(e.loopCreate(a),e.updateSlides()):h&&!E&&e.loopDestroy()),e.emit("breakpoint",c)}function Sa(e,a="window",t){if(!e||a==="container"&&!t)return;let s=!1,r=O(),o=a==="window"?r.innerHeight:t.clientHeight,i=Object.keys(e).map(l=>{if(typeof l=="string"&&l.indexOf("@")===0){let n=parseFloat(l.substr(1));return{value:o*n,point:l}}return{value:l,point:l}});i.sort((l,n)=>parseInt(l.value,10)-parseInt(n.value,10));for(let l=0;l<i.length;l+=1){let{point:n,value:p}=i[l];a==="window"?r.matchMedia(`(min-width: ${p}px)`).matches&&(s=n):p<=t.clientWidth&&(s=n)}return s||"max"}var wa={setBreakpoint:ga,getBreakpoint:Sa};function va(e,a){let t=[];return e.forEach(s=>{typeof s=="object"?Object.keys(s).forEach(r=>{s[r]&&t.push(a+r)}):typeof s=="string"&&t.push(a+s)}),t}function ya(){let e=this,{classNames:a,params:t,rtl:s,el:r,device:o}=e,i=va(["initialized",t.direction,{"free-mode":e.params.freeMode&&t.freeMode.enabled},{autoheight:t.autoHeight},{rtl:s},{grid:t.grid&&t.grid.rows>1},{"grid-column":t.grid&&t.grid.rows>1&&t.grid.fill==="column"},{android:o.android},{ios:o.ios},{"css-mode":t.cssMode},{centered:t.cssMode&&t.centeredSlides},{"watch-progress":t.watchSlidesProgress}],t.containerModifierClass);a.push(...i),r.classList.add(...a),e.emitContainerClasses()}function _a(){let e=this,{el:a,classNames:t}=e;!a||typeof a=="string"||(a.classList.remove(...t),e.emitContainerClasses())}var Ca={addClasses:ya,removeClasses:_a};function Ea(){let e=this,{isLocked:a,params:t}=e,{slidesOffsetBefore:s}=t;if(s){let r=e.slides.length-1,o=e.slidesGrid[r]+e.slidesSizesGrid[r]+s*2;e.isLocked=e.size>o}else e.isLocked=e.snapGrid.length===1;t.allowSlideNext===!0&&(e.allowSlideNext=!e.isLocked),t.allowSlidePrev===!0&&(e.allowSlidePrev=!e.isLocked),a&&a!==e.isLocked&&(e.isEnd=!1),a!==e.isLocked&&e.emit(e.isLocked?"lock":"unlock")}var Ta={checkOverflow:Ea},je={init:!0,direction:"horizontal",oneWayMovement:!1,swiperElementNodeName:"SWIPER-CONTAINER",touchEventsTarget:"wrapper",initialSlide:0,speed:300,cssMode:!1,updateOnWindowResize:!0,resizeObserver:!0,nested:!1,createElements:!1,eventsPrefix:"swiper",enabled:!0,focusableElements:"input, select, option, textarea, button, video, label",width:null,height:null,preventInteractionOnTransition:!1,userAgent:null,url:null,edgeSwipeDetection:!1,edgeSwipeThreshold:20,autoHeight:!1,setWrapperSize:!1,virtualTranslate:!1,effect:"slide",breakpoints:void 0,breakpointsBase:"window",spaceBetween:0,slidesPerView:1,slidesPerGroup:1,slidesPerGroupSkip:0,slidesPerGroupAuto:!1,centeredSlides:!1,centeredSlidesBounds:!1,slidesOffsetBefore:0,slidesOffsetAfter:0,normalizeSlideIndex:!0,centerInsufficientSlides:!1,snapToSlideEdge:!1,watchOverflow:!0,roundLengths:!1,touchRatio:1,touchAngle:45,simulateTouch:!0,shortSwipes:!0,longSwipes:!0,longSwipesRatio:.5,longSwipesMs:300,followFinger:!0,allowTouchMove:!0,threshold:5,touchMoveStopPropagation:!1,touchStartPreventDefault:!0,touchStartForcePreventDefault:!1,touchReleaseOnEdges:!1,uniqueNavElements:!0,resistance:!0,resistanceRatio:.85,watchSlidesProgress:!1,grabCursor:!1,preventClicks:!0,preventClicksPropagation:!0,slideToClickedSlide:!1,loop:!1,loopAddBlankSlides:!0,loopAdditionalSlides:0,loopPreventsSliding:!0,rewind:!1,allowSlidePrev:!0,allowSlideNext:!0,swipeHandler:null,noSwiping:!0,noSwipingClass:"swiper-no-swiping",noSwipingSelector:null,passiveListeners:!0,maxBackfaceHiddenSlides:10,containerModifierClass:"swiper-",slideClass:"swiper-slide",slideBlankClass:"swiper-slide-blank",slideActiveClass:"swiper-slide-active",slideVisibleClass:"swiper-slide-visible",slideFullyVisibleClass:"swiper-slide-fully-visible",slideNextClass:"swiper-slide-next",slidePrevClass:"swiper-slide-prev",wrapperClass:"swiper-wrapper",lazyPreloaderClass:"swiper-lazy-preloader",lazyPreloadPrevNext:0,runCallbacksOnInit:!0,_emitClasses:!1};function xa(e,a){return function(s={}){let r=Object.keys(s)[0],o=s[r];if(typeof o!="object"||o===null){R(a,s);return}if(e[r]===!0&&(e[r]={enabled:!0}),r==="navigation"&&e[r]&&e[r].enabled&&!e[r].prevEl&&!e[r].nextEl&&(e[r].auto=!0),["pagination","scrollbar"].indexOf(r)>=0&&e[r]&&e[r].enabled&&!e[r].el&&(e[r].auto=!0),!(r in e&&"enabled"in o)){R(a,s);return}typeof e[r]=="object"&&!("enabled"in e[r])&&(e[r].enabled=!0),e[r]||(e[r]={enabled:!1}),R(a,s)}}var xe={eventsEmitter:Ct,update:Ot,translate:Rt,transition:Vt,slide:Zt,loop:aa,grabCursor:ra,events:ha,breakpoints:wa,checkOverflow:Ta,classes:Ca},Me={},V=class e{constructor(...a){let t,s;a.length===1&&a[0].constructor&&Object.prototype.toString.call(a[0]).slice(8,-1)==="Object"?s=a[0]:[t,s]=a,s||(s={}),s=R({},s),t&&!s.el&&(s.el=t);let r=G();if(s.el&&typeof s.el=="string"&&r.querySelectorAll(s.el).length>1){let n=[];return r.querySelectorAll(s.el).forEach(p=>{let m=R({},s,{el:p});n.push(new e(m))}),n}let o=this;o.__swiper__=!0,o.support=Ue(),o.device=Ke({userAgent:s.userAgent}),o.browser=Je(),o.eventsListeners={},o.eventsAnyListeners=[],o.modules=[...o.__modules__],s.modules&&Array.isArray(s.modules)&&s.modules.forEach(n=>{typeof n=="function"&&o.modules.indexOf(n)<0&&o.modules.push(n)});let i={};o.modules.forEach(n=>{n({params:s,swiper:o,extendParams:xa(s,i),on:o.on.bind(o),once:o.once.bind(o),off:o.off.bind(o),emit:o.emit.bind(o)})});let l=R({},je,i);return o.params=R({},l,Me,s),o.originalParams=R({},o.params),o.passedParams=R({},s),o.params&&o.params.on&&Object.keys(o.params.on).forEach(n=>{o.on(n,o.params.on[n])}),o.params&&o.params.onAny&&o.onAny(o.params.onAny),Object.assign(o,{enabled:o.params.enabled,el:t,classNames:[],slides:[],slidesGrid:[],snapGrid:[],slidesSizesGrid:[],isHorizontal(){return o.params.direction==="horizontal"},isVertical(){return o.params.direction==="vertical"},activeIndex:0,realIndex:0,isBeginning:!0,isEnd:!1,translate:0,previousTranslate:0,progress:0,velocity:0,animating:!1,cssOverflowAdjustment(){return Math.trunc(this.translate/2**23)*2**23},allowSlideNext:o.params.allowSlideNext,allowSlidePrev:o.params.allowSlidePrev,touchEventsData:{isTouched:void 0,isMoved:void 0,allowTouchCallbacks:void 0,touchStartTime:void 0,isScrolling:void 0,currentTranslate:void 0,startTranslate:void 0,allowThresholdMove:void 0,focusableElements:o.params.focusableElements,lastClickTime:0,clickTimeout:void 0,velocities:[],allowMomentumBounce:void 0,startMoving:void 0,pointerId:null,touchId:null},allowClick:!0,allowTouchMove:o.params.allowTouchMove,touches:{startX:0,startY:0,currentX:0,currentY:0,diff:0},imagesToLoad:[],imagesLoaded:0}),o.emit("_swiper"),o.params.init&&o.init(),o}getDirectionLabel(a){return this.isHorizontal()?a:{width:"height","margin-top":"margin-left","margin-bottom ":"margin-right","margin-left":"margin-top","margin-right":"margin-bottom","padding-left":"padding-top","padding-right":"padding-bottom",marginRight:"marginBottom"}[a]}getSlideIndex(a){let{slidesEl:t,params:s}=this,r=$(t,`.${s.slideClass}, swiper-slide`),o=ee(r[0]);return ee(a)-o}getSlideIndexByData(a){return this.getSlideIndex(this.slides.find(t=>t.getAttribute("data-swiper-slide-index")*1===a))}getSlideIndexWhenGrid(a){return this.grid&&this.params.grid&&this.params.grid.rows>1&&(this.params.grid.fill==="column"?a=Math.floor(a/this.params.grid.rows):this.params.grid.fill==="row"&&(a=a%Math.ceil(this.slides.length/this.params.grid.rows))),a}recalcSlides(){let a=this,{slidesEl:t,params:s}=a;a.slides=$(t,`.${s.slideClass}, swiper-slide`)}enable(){let a=this;a.enabled||(a.enabled=!0,a.params.grabCursor&&a.setGrabCursor(),a.emit("enable"))}disable(){let a=this;a.enabled&&(a.enabled=!1,a.params.grabCursor&&a.unsetGrabCursor(),a.emit("disable"))}setProgress(a,t){let s=this;a=Math.min(Math.max(a,0),1);let r=s.minTranslate(),i=(s.maxTranslate()-r)*a+r;s.translateTo(i,typeof t>"u"?0:t),s.updateActiveIndex(),s.updateSlidesClasses()}emitContainerClasses(){let a=this;if(!a.params._emitClasses||!a.el)return;let t=a.el.className.split(" ").filter(s=>s.indexOf("swiper")===0||s.indexOf(a.params.containerModifierClass)===0);a.emit("_containerClasses",t.join(" "))}getSlideClasses(a){let t=this;return t.destroyed?"":a.className.split(" ").filter(s=>s.indexOf("swiper-slide")===0||s.indexOf(t.params.slideClass)===0).join(" ")}emitSlidesClasses(){let a=this;if(!a.params._emitClasses||!a.el)return;let t=[];a.slides.forEach(s=>{let r=a.getSlideClasses(s);t.push({slideEl:s,classNames:r}),a.emit("_slideClass",s,r)}),a.emit("_slideClasses",t)}slidesPerViewDynamic(a="current",t=!1){let s=this,{params:r,slides:o,slidesGrid:i,slidesSizesGrid:l,size:n,activeIndex:p}=s,m=1;if(typeof r.slidesPerView=="number")return r.slidesPerView;if(r.centeredSlides){let c=o[p]?Math.ceil(o[p].swiperSlideSize):0,g;for(let d=p+1;d<o.length;d+=1)o[d]&&!g&&(c+=Math.ceil(o[d].swiperSlideSize),m+=1,c>n&&(g=!0));for(let d=p-1;d>=0;d-=1)o[d]&&!g&&(c+=o[d].swiperSlideSize,m+=1,c>n&&(g=!0))}else if(a==="current")for(let c=p+1;c<o.length;c+=1)(t?i[c]+l[c]-i[p]<n:i[c]-i[p]<n)&&(m+=1);else for(let c=p-1;c>=0;c-=1)i[p]-i[c]<n&&(m+=1);return m}update(){let a=this;if(!a||a.destroyed)return;let{snapGrid:t,params:s}=a;s.breakpoints&&a.setBreakpoint(),[...a.el.querySelectorAll('[loading="lazy"]')].forEach(i=>{i.complete&&me(a,i)}),a.updateSize(),a.updateSlides(),a.updateProgress(),a.updateSlidesClasses();function r(){let i=a.rtlTranslate?a.translate*-1:a.translate,l=Math.min(Math.max(i,a.maxTranslate()),a.minTranslate());a.setTranslate(l),a.updateActiveIndex(),a.updateSlidesClasses()}let o;if(s.freeMode&&s.freeMode.enabled&&!s.cssMode)r(),s.autoHeight&&a.updateAutoHeight();else{if((s.slidesPerView==="auto"||s.slidesPerView>1)&&a.isEnd&&!s.centeredSlides){let i=a.virtual&&s.virtual.enabled?a.virtual.slides:a.slides;o=a.slideTo(i.length-1,0,!1,!0)}else o=a.slideTo(a.activeIndex,0,!1,!0);o||r()}s.watchOverflow&&t!==a.snapGrid&&a.checkOverflow(),a.emit("update")}changeDirection(a,t=!0){let s=this,r=s.params.direction;return a||(a=r==="horizontal"?"vertical":"horizontal"),a===r||a!=="horizontal"&&a!=="vertical"||(s.el.classList.remove(`${s.params.containerModifierClass}${r}`),s.el.classList.add(`${s.params.containerModifierClass}${a}`),s.emitContainerClasses(),s.params.direction=a,s.slides.forEach(o=>{a==="vertical"?o.style.width="":o.style.height=""}),s.emit("changeDirection"),t&&s.update()),s}changeLanguageDirection(a){let t=this;t.rtl&&a==="rtl"||!t.rtl&&a==="ltr"||(t.rtl=a==="rtl",t.rtlTranslate=t.params.direction==="horizontal"&&t.rtl,t.rtl?(t.el.classList.add(`${t.params.containerModifierClass}rtl`),t.el.dir="rtl"):(t.el.classList.remove(`${t.params.containerModifierClass}rtl`),t.el.dir="ltr"),t.update())}mount(a){let t=this;if(t.mounted)return!0;let s=a||t.params.el;if(typeof s=="string"&&(s=document.querySelector(s)),!s)return!1;s.swiper=t,s.parentNode&&s.parentNode.host&&s.parentNode.host.nodeName===t.params.swiperElementNodeName.toUpperCase()&&(t.isElement=!0);let r=()=>`.${(t.params.wrapperClass||"").trim().split(" ").join(".")}`,i=s&&s.shadowRoot&&s.shadowRoot.querySelector?s.shadowRoot.querySelector(r()):$(s,r())[0];return!i&&t.params.createElements&&(i=N("div",t.params.wrapperClass),s.append(i),$(s,`.${t.params.slideClass}`).forEach(l=>{i.append(l)})),Object.assign(t,{el:s,wrapperEl:i,slidesEl:t.isElement&&!s.parentNode.host.slideSlots?s.parentNode.host:i,hostEl:t.isElement?s.parentNode.host:s,mounted:!0,rtl:s.dir.toLowerCase()==="rtl"||F(s,"direction")==="rtl",rtlTranslate:t.params.direction==="horizontal"&&(s.dir.toLowerCase()==="rtl"||F(s,"direction")==="rtl"),wrongRTL:F(i,"display")==="-webkit-box"}),!0}init(a){let t=this;if(t.initialized||t.mount(a)===!1)return t;t.emit("beforeInit"),t.params.breakpoints&&t.setBreakpoint(),t.addClasses(),t.updateSize(),t.updateSlides(),t.params.watchOverflow&&t.checkOverflow(),t.params.grabCursor&&t.enabled&&t.setGrabCursor(),t.params.loop&&t.virtual&&t.params.virtual.enabled?t.slideTo(t.params.initialSlide+t.virtual.slidesBefore,0,t.params.runCallbacksOnInit,!1,!0):t.slideTo(t.params.initialSlide,0,t.params.runCallbacksOnInit,!1,!0),t.params.loop&&t.loopCreate(void 0,!0),t.attachEvents();let r=[...t.el.querySelectorAll('[loading="lazy"]')];return t.isElement&&r.push(...t.hostEl.querySelectorAll('[loading="lazy"]')),r.forEach(o=>{o.complete?me(t,o):o.addEventListener("load",i=>{me(t,i.target)})}),Pe(t),t.initialized=!0,Pe(t),t.emit("init"),t.emit("afterInit"),t}destroy(a=!0,t=!0){let s=this,{params:r,el:o,wrapperEl:i,slides:l}=s;return typeof s.params>"u"||s.destroyed||(s.emit("beforeDestroy"),s.initialized=!1,s.detachEvents(),r.loop&&s.loopDestroy(),t&&(s.removeClasses(),o&&typeof o!="string"&&o.removeAttribute("style"),i&&i.removeAttribute("style"),l&&l.length&&l.forEach(n=>{n.classList.remove(r.slideVisibleClass,r.slideFullyVisibleClass,r.slideActiveClass,r.slideNextClass,r.slidePrevClass),n.removeAttribute("style"),n.removeAttribute("data-swiper-slide-index")})),s.emit("destroy"),Object.keys(s.eventsListeners).forEach(n=>{s.off(n)}),a!==!1&&(s.el&&typeof s.el!="string"&&(s.el.swiper=null),Re(s)),s.destroyed=!0),null}static extendDefaults(a){R(Me,a)}static get extendedDefaults(){return Me}static get defaults(){return je}static installModule(a){e.prototype.__modules__||(e.prototype.__modules__=[]);let t=e.prototype.__modules__;typeof a=="function"&&t.indexOf(a)<0&&t.push(a)}static use(a){return Array.isArray(a)?(a.forEach(t=>e.installModule(t)),e):(e.installModule(a),e)}};Object.keys(xe).forEach(e=>{Object.keys(xe[e]).forEach(a=>{V.prototype[a]=xe[e][a]})});V.use([yt,_t]);function ze({swiper:e,extendParams:a,on:t,emit:s}){let r=G(),o=O();e.keyboard={enabled:!1},a({keyboard:{enabled:!1,onlyInViewport:!0,pageUpDown:!0,speed:void 0}});function i(p){if(!e.enabled)return;let{rtlTranslate:m}=e,c=p;c.originalEvent&&(c=c.originalEvent);let g=c.keyCode||c.charCode,d=e.params.keyboard.pageUpDown,b=d&&g===33,S=d&&g===34,w=g===37,f=g===39,u=g===38,h=g===40;if(!e.allowSlideNext&&(e.isHorizontal()&&f||e.isVertical()&&h||S)||!e.allowSlidePrev&&(e.isHorizontal()&&w||e.isVertical()&&u||b))return!1;if(c.shiftKey||c.altKey||c.ctrlKey||c.metaKey||r.activeElement&&(r.activeElement.isContentEditable||r.activeElement.nodeName&&(r.activeElement.nodeName.toLowerCase()==="input"||r.activeElement.nodeName.toLowerCase()==="textarea")))return;if(e.params.keyboard.onlyInViewport&&(b||S||w||f||u||h)){let E=!1;if(j(e.el,`.${e.params.slideClass}, swiper-slide`).length>0&&j(e.el,`.${e.params.slideActiveClass}`).length===0)return;let M=e.el,z=M.clientWidth,_=M.clientHeight,A=o.innerWidth,T=o.innerHeight,C=ue(M);m&&(C.left-=M.scrollLeft);let x=[[C.left,C.top],[C.left+z,C.top],[C.left,C.top+_],[C.left+z,C.top+_]];for(let I=0;I<x.length;I+=1){let P=x[I];if(P[0]>=0&&P[0]<=A&&P[1]>=0&&P[1]<=T){if(P[0]===0&&P[1]===0)continue;E=!0}}if(!E)return}let v=e.params.keyboard.speed;e.isHorizontal()?((b||S||w||f)&&(c.preventDefault?c.preventDefault():c.returnValue=!1),((S||f)&&!m||(b||w)&&m)&&e.slideNext(v),((b||w)&&!m||(S||f)&&m)&&e.slidePrev(v)):((b||S||u||h)&&(c.preventDefault?c.preventDefault():c.returnValue=!1),(S||h)&&e.slideNext(v),(b||u)&&e.slidePrev(v)),s("keyPress",g)}function l(){e.keyboard.enabled||(r.addEventListener("keydown",i),e.keyboard.enabled=!0)}function n(){e.keyboard.enabled&&(r.removeEventListener("keydown",i),e.keyboard.enabled=!1)}t("init",()=>{e.params.keyboard.enabled&&l()}),t("destroy",()=>{e.keyboard.enabled&&n()}),Object.assign(e.keyboard,{enable:l,disable:n})}function le(e,a,t,s){return e.params.createElements&&Object.keys(s).forEach(r=>{if(!t[r]&&t.auto===!0){let o=$(e.el,`.${s[r]}`)[0];o||(o=N("div",s[r]),o.className=s[r],e.el.append(o)),t[r]=o,a[r]=o}}),t}var et='<svg class="swiper-navigation-icon" width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.38296 20.0762C0.111788 19.805 0.111788 19.3654 0.38296 19.0942L9.19758 10.2796L0.38296 1.46497C0.111788 1.19379 0.111788 0.754138 0.38296 0.482966C0.654131 0.211794 1.09379 0.211794 1.36496 0.482966L10.4341 9.55214C10.8359 9.9539 10.8359 10.6053 10.4341 11.007L1.36496 20.0762C1.09379 20.3474 0.654131 20.3474 0.38296 20.0762Z" fill="currentColor"/></svg>';function Ie({swiper:e,extendParams:a,on:t,emit:s}){a({navigation:{nextEl:null,prevEl:null,addIcons:!0,hideOnClick:!1,disabledClass:"swiper-button-disabled",hiddenClass:"swiper-button-hidden",lockClass:"swiper-button-lock",navigationDisabledClass:"swiper-navigation-disabled"}}),e.navigation={nextEl:null,prevEl:null,arrowSvg:et};function r(d){let b;return d&&typeof d=="string"&&e.isElement&&(b=e.el.querySelector(d)||e.hostEl.querySelector(d),b)?b:(d&&(typeof d=="string"&&(b=[...document.querySelectorAll(d)]),e.params.uniqueNavElements&&typeof d=="string"&&b&&b.length>1&&e.el.querySelectorAll(d).length===1?b=e.el.querySelector(d):b&&b.length===1&&(b=b[0])),d&&!b?d:b)}function o(d,b){let S=e.params.navigation;d=k(d),d.forEach(w=>{w&&(w.classList[b?"add":"remove"](...S.disabledClass.split(" ")),w.tagName==="BUTTON"&&(w.disabled=b),e.params.watchOverflow&&e.enabled&&w.classList[e.isLocked?"add":"remove"](S.lockClass))})}function i(){let{nextEl:d,prevEl:b}=e.navigation;if(e.params.loop){o(b,!1),o(d,!1);return}o(b,e.isBeginning&&!e.params.rewind),o(d,e.isEnd&&!e.params.rewind)}function l(d){d.preventDefault(),!(e.isBeginning&&!e.params.loop&&!e.params.rewind)&&(e.slidePrev(),s("navigationPrev"))}function n(d){d.preventDefault(),!(e.isEnd&&!e.params.loop&&!e.params.rewind)&&(e.slideNext(),s("navigationNext"))}function p(){let d=e.params.navigation;if(e.params.navigation=le(e,e.originalParams.navigation,e.params.navigation,{nextEl:"swiper-button-next",prevEl:"swiper-button-prev"}),!(d.nextEl||d.prevEl))return;let b=r(d.nextEl),S=r(d.prevEl);Object.assign(e.navigation,{nextEl:b,prevEl:S}),b=k(b),S=k(S);let w=(f,u)=>{if(f){if(d.addIcons&&f.matches(".swiper-button-next,.swiper-button-prev")&&!f.querySelector("svg")){let h=document.createElement("div");U(h,et),f.appendChild(h.querySelector("svg")),h.remove()}f.addEventListener("click",u==="next"?n:l)}!e.enabled&&f&&f.classList.add(...d.lockClass.split(" "))};b.forEach(f=>w(f,"next")),S.forEach(f=>w(f,"prev"))}function m(){let{nextEl:d,prevEl:b}=e.navigation;d=k(d),b=k(b);let S=(w,f)=>{w.removeEventListener("click",f==="next"?n:l),w.classList.remove(...e.params.navigation.disabledClass.split(" "))};d.forEach(w=>S(w,"next")),b.forEach(w=>S(w,"prev"))}t("init",()=>{e.params.navigation.enabled===!1?g():(p(),i())}),t("toEdge fromEdge lock unlock",()=>{i()}),t("destroy",()=>{m()}),t("enable disable",()=>{let{nextEl:d,prevEl:b}=e.navigation;if(d=k(d),b=k(b),e.enabled){i();return}[...d,...b].filter(S=>!!S).forEach(S=>S.classList.add(e.params.navigation.lockClass))}),t("click",(d,b)=>{let{nextEl:S,prevEl:w}=e.navigation;S=k(S),w=k(w);let f=b.target,u=w.includes(f)||S.includes(f);if(e.isElement&&!u){let h=b.path||b.composedPath&&b.composedPath();h&&(u=h.find(v=>S.includes(v)||w.includes(v)))}if(e.params.navigation.hideOnClick&&!u){if(e.pagination&&e.params.pagination&&e.params.pagination.clickable&&(e.pagination.el===f||e.pagination.el.contains(f)))return;let h;S.length?h=S[0].classList.contains(e.params.navigation.hiddenClass):w.length&&(h=w[0].classList.contains(e.params.navigation.hiddenClass)),s(h===!0?"navigationShow":"navigationHide"),[...S,...w].filter(v=>!!v).forEach(v=>v.classList.toggle(e.params.navigation.hiddenClass))}});let c=()=>{e.el.classList.remove(...e.params.navigation.navigationDisabledClass.split(" ")),p(),i()},g=()=>{e.el.classList.add(...e.params.navigation.navigationDisabledClass.split(" ")),m()};Object.assign(e.navigation,{enable:c,disable:g,update:i,init:p,destroy:m})}function K(e=""){return`.${e.trim().replace(/([\.:!+\/()[\]#>~*^$|=,'"@{}\\])/g,"\\$1").replace(/ /g,".")}`}function Le({swiper:e,extendParams:a,on:t,emit:s}){let r="swiper-pagination";a({pagination:{el:null,bulletElement:"span",clickable:!1,hideOnClick:!1,renderBullet:null,renderProgressbar:null,renderFraction:null,renderCustom:null,progressbarOpposite:!1,type:"bullets",dynamicBullets:!1,dynamicMainBullets:1,formatFractionCurrent:f=>f,formatFractionTotal:f=>f,bulletClass:`${r}-bullet`,bulletActiveClass:`${r}-bullet-active`,modifierClass:`${r}-`,currentClass:`${r}-current`,totalClass:`${r}-total`,hiddenClass:`${r}-hidden`,progressbarFillClass:`${r}-progressbar-fill`,progressbarOppositeClass:`${r}-progressbar-opposite`,clickableClass:`${r}-clickable`,lockClass:`${r}-lock`,horizontalClass:`${r}-horizontal`,verticalClass:`${r}-vertical`,paginationDisabledClass:`${r}-disabled`}}),e.pagination={el:null,bullets:[]};let o,i=0;function l(){return!e.params.pagination.el||!e.pagination.el||Array.isArray(e.pagination.el)&&e.pagination.el.length===0}function n(f,u){let{bulletActiveClass:h}=e.params.pagination;f&&(f=f[`${u==="prev"?"previous":"next"}ElementSibling`],f&&(f.classList.add(`${h}-${u}`),f=f[`${u==="prev"?"previous":"next"}ElementSibling`],f&&f.classList.add(`${h}-${u}-${u}`)))}function p(f,u,h){if(f=f%h,u=u%h,u===f+1)return"next";if(u===f-1)return"previous"}function m(f){let u=f.target.closest(K(e.params.pagination.bulletClass));if(!u)return;f.preventDefault();let h=ee(u)*e.params.slidesPerGroup;if(e.params.loop){if(e.realIndex===h)return;let v=p(e.realIndex,h,e.slides.length);v==="next"?e.slideNext():v==="previous"?e.slidePrev():e.slideToLoop(h)}else e.slideTo(h)}function c(){let f=e.rtl,u=e.params.pagination;if(l())return;let h=e.pagination.el;h=k(h);let v,E,M=e.virtual&&e.params.virtual.enabled?e.virtual.slides.length:e.slides.length,z=e.params.loop?Math.ceil(M/e.params.slidesPerGroup):e.snapGrid.length;if(e.params.loop?(E=e.previousRealIndex||0,v=e.params.slidesPerGroup>1?Math.floor(e.realIndex/e.params.slidesPerGroup):e.realIndex):typeof e.snapIndex<"u"?(v=e.snapIndex,E=e.previousSnapIndex):(E=e.previousIndex||0,v=e.activeIndex||0),u.type==="bullets"&&e.pagination.bullets&&e.pagination.bullets.length>0){let _=e.pagination.bullets,A,T,C;if(u.dynamicBullets&&(o=ie(_[0],e.isHorizontal()?"width":"height",!0),h.forEach(x=>{x.style[e.isHorizontal()?"width":"height"]=`${o*(u.dynamicMainBullets+4)}px`}),u.dynamicMainBullets>1&&E!==void 0&&(i+=v-(E||0),i>u.dynamicMainBullets-1?i=u.dynamicMainBullets-1:i<0&&(i=0)),A=Math.max(v-i,0),T=A+(Math.min(_.length,u.dynamicMainBullets)-1),C=(T+A)/2),_.forEach(x=>{let I=[...["","-next","-next-next","-prev","-prev-prev","-main"].map(P=>`${u.bulletActiveClass}${P}`)].map(P=>typeof P=="string"&&P.includes(" ")?P.split(" "):P).flat();x.classList.remove(...I)}),h.length>1)_.forEach(x=>{let I=ee(x);I===v?x.classList.add(...u.bulletActiveClass.split(" ")):e.isElement&&x.setAttribute("part","bullet"),u.dynamicBullets&&(I>=A&&I<=T&&x.classList.add(...`${u.bulletActiveClass}-main`.split(" ")),I===A&&n(x,"prev"),I===T&&n(x,"next"))});else{let x=_[v];if(x&&x.classList.add(...u.bulletActiveClass.split(" ")),e.isElement&&_.forEach((I,P)=>{I.setAttribute("part",P===v?"bullet-active":"bullet")}),u.dynamicBullets){let I=_[A],P=_[T];for(let D=A;D<=T;D+=1)_[D]&&_[D].classList.add(...`${u.bulletActiveClass}-main`.split(" "));n(I,"prev"),n(P,"next")}}if(u.dynamicBullets){let x=Math.min(_.length,u.dynamicMainBullets+4),I=(o*x-o)/2-C*o,P=f?"right":"left";_.forEach(D=>{D.style[e.isHorizontal()?P:"top"]=`${I}px`})}}h.forEach((_,A)=>{if(u.type==="fraction"&&(_.querySelectorAll(K(u.currentClass)).forEach(T=>{T.textContent=u.formatFractionCurrent(v+1)}),_.querySelectorAll(K(u.totalClass)).forEach(T=>{T.textContent=u.formatFractionTotal(z)})),u.type==="progressbar"){let T;u.progressbarOpposite?T=e.isHorizontal()?"vertical":"horizontal":T=e.isHorizontal()?"horizontal":"vertical";let C=(v+1)/z,x=1,I=1;T==="horizontal"?x=C:I=C,_.querySelectorAll(K(u.progressbarFillClass)).forEach(P=>{P.style.transform=`translate3d(0,0,0) scaleX(${x}) scaleY(${I})`,P.style.transitionDuration=`${e.params.speed}ms`})}u.type==="custom"&&u.renderCustom?(U(_,u.renderCustom(e,v+1,z)),A===0&&s("paginationRender",_)):(A===0&&s("paginationRender",_),s("paginationUpdate",_)),e.params.watchOverflow&&e.enabled&&_.classList[e.isLocked?"add":"remove"](u.lockClass)})}function g(){let f=e.params.pagination;if(l())return;let u=e.virtual&&e.params.virtual.enabled?e.virtual.slides.length:e.grid&&e.params.grid.rows>1?e.slides.length/Math.ceil(e.params.grid.rows):e.slides.length,h=e.pagination.el;h=k(h);let v="";if(f.type==="bullets"){let E=e.params.loop?Math.ceil(u/e.params.slidesPerGroup):e.snapGrid.length;e.params.freeMode&&e.params.freeMode.enabled&&E>u&&(E=u);for(let M=0;M<E;M+=1)f.renderBullet?v+=f.renderBullet.call(e,M,f.bulletClass):v+=`<${f.bulletElement} ${e.isElement?'part="bullet"':""} class="${f.bulletClass}"></${f.bulletElement}>`}f.type==="fraction"&&(f.renderFraction?v=f.renderFraction.call(e,f.currentClass,f.totalClass):v=`<span class="${f.currentClass}"></span> / <span class="${f.totalClass}"></span>`),f.type==="progressbar"&&(f.renderProgressbar?v=f.renderProgressbar.call(e,f.progressbarFillClass):v=`<span class="${f.progressbarFillClass}"></span>`),e.pagination.bullets=[],h.forEach(E=>{f.type!=="custom"&&U(E,v||""),f.type==="bullets"&&e.pagination.bullets.push(...E.querySelectorAll(K(f.bulletClass)))}),f.type!=="custom"&&s("paginationRender",h[0])}function d(){e.params.pagination=le(e,e.originalParams.pagination,e.params.pagination,{el:"swiper-pagination"});let f=e.params.pagination;if(!f.el)return;let u;typeof f.el=="string"&&e.isElement&&(u=e.el.querySelector(f.el)),!u&&typeof f.el=="string"&&(u=[...document.querySelectorAll(f.el)]),u||(u=f.el),!(!u||u.length===0)&&(e.params.uniqueNavElements&&typeof f.el=="string"&&Array.isArray(u)&&u.length>1&&(u=[...e.el.querySelectorAll(f.el)],u.length>1&&(u=u.find(h=>j(h,".swiper")[0]===e.el))),Array.isArray(u)&&u.length===1&&(u=u[0]),Object.assign(e.pagination,{el:u}),u=k(u),u.forEach(h=>{f.type==="bullets"&&f.clickable&&h.classList.add(...(f.clickableClass||"").split(" ")),h.classList.add(f.modifierClass+f.type),h.classList.add(e.isHorizontal()?f.horizontalClass:f.verticalClass),f.type==="bullets"&&f.dynamicBullets&&(h.classList.add(`${f.modifierClass}${f.type}-dynamic`),i=0,f.dynamicMainBullets<1&&(f.dynamicMainBullets=1)),f.type==="progressbar"&&f.progressbarOpposite&&h.classList.add(f.progressbarOppositeClass),f.clickable&&h.addEventListener("click",m),e.enabled||h.classList.add(f.lockClass)}))}function b(){let f=e.params.pagination;if(l())return;let u=e.pagination.el;u&&(u=k(u),u.forEach(h=>{h.classList.remove(f.hiddenClass),h.classList.remove(f.modifierClass+f.type),h.classList.remove(e.isHorizontal()?f.horizontalClass:f.verticalClass),f.clickable&&(h.classList.remove(...(f.clickableClass||"").split(" ")),h.removeEventListener("click",m))})),e.pagination.bullets&&e.pagination.bullets.forEach(h=>h.classList.remove(...f.bulletActiveClass.split(" ")))}t("changeDirection",()=>{if(!e.pagination||!e.pagination.el)return;let f=e.params.pagination,{el:u}=e.pagination;u=k(u),u.forEach(h=>{h.classList.remove(f.horizontalClass,f.verticalClass),h.classList.add(e.isHorizontal()?f.horizontalClass:f.verticalClass)})}),t("init",()=>{e.params.pagination.enabled===!1?w():(d(),g(),c())}),t("activeIndexChange",()=>{typeof e.snapIndex>"u"&&c()}),t("snapIndexChange",()=>{c()}),t("snapGridLengthChange",()=>{g(),c()}),t("destroy",()=>{b()}),t("enable disable",()=>{let{el:f}=e.pagination;f&&(f=k(f),f.forEach(u=>u.classList[e.enabled?"remove":"add"](e.params.pagination.lockClass)))}),t("lock unlock",()=>{c()}),t("click",(f,u)=>{let h=u.target,v=k(e.pagination.el);if(e.params.pagination.el&&e.params.pagination.hideOnClick&&v&&v.length>0&&!h.classList.contains(e.params.pagination.bulletClass)){if(e.navigation&&(e.navigation.nextEl&&h===e.navigation.nextEl||e.navigation.prevEl&&h===e.navigation.prevEl))return;let E=v[0].classList.contains(e.params.pagination.hiddenClass);s(E===!0?"paginationShow":"paginationHide"),v.forEach(M=>M.classList.toggle(e.params.pagination.hiddenClass))}});let S=()=>{e.el.classList.remove(e.params.pagination.paginationDisabledClass);let{el:f}=e.pagination;f&&(f=k(f),f.forEach(u=>u.classList.remove(e.params.pagination.paginationDisabledClass))),d(),g(),c()},w=()=>{e.el.classList.add(e.params.pagination.paginationDisabledClass);let{el:f}=e.pagination;f&&(f=k(f),f.forEach(u=>u.classList.add(e.params.pagination.paginationDisabledClass))),b()};Object.assign(e.pagination,{enable:S,disable:w,render:g,update:c,init:d,destroy:b})}function Ae({swiper:e,extendParams:a,on:t}){a({thumbs:{swiper:null,multipleActiveThumbs:!0,autoScrollOffset:0,slideThumbActiveClass:"swiper-slide-thumb-active",thumbsContainerClass:"swiper-thumbs"}});let s=!1,r=!1;e.thumbs={swiper:null};function o(){let m=e.thumbs.swiper;return!m||m.destroyed?!1:m.params.virtual&&m.params.virtual.enabled}function i(){let m=e.thumbs.swiper;if(!m||m.destroyed)return;let c=m.clickedIndex,g=m.clickedSlide;if(g&&g.classList.contains(e.params.thumbs.slideThumbActiveClass)||typeof c>"u"||c===null)return;let d;m.params.loop?d=parseInt(m.clickedSlide.getAttribute("data-swiper-slide-index"),10):d=c,e.params.loop?e.slideToLoop(d):e.slideTo(d)}function l(){let{thumbs:m}=e.params;if(s)return!1;s=!0;let c=e.constructor;if(m.swiper instanceof c){if(m.swiper.destroyed)return s=!1,!1;e.thumbs.swiper=m.swiper,Object.assign(e.thumbs.swiper.originalParams,{watchSlidesProgress:!0,slideToClickedSlide:!1}),Object.assign(e.thumbs.swiper.params,{watchSlidesProgress:!0,slideToClickedSlide:!1}),e.thumbs.swiper.update()}else if(ae(m.swiper)){let g=Object.assign({},m.swiper);Object.assign(g,{watchSlidesProgress:!0,slideToClickedSlide:!1}),e.thumbs.swiper=new c(g),r=!0}return e.thumbs.swiper.el.classList.add(e.params.thumbs.thumbsContainerClass),e.thumbs.swiper.on("tap",i),o()&&e.thumbs.swiper.on("virtualUpdate",()=>{n(!1,{autoScroll:!1})}),!0}function n(m,c){let g=e.thumbs.swiper;if(!g||g.destroyed)return;let d=1,b=e.params.thumbs.slideThumbActiveClass;if(e.params.slidesPerView>1&&!e.params.centeredSlides&&(d=e.params.slidesPerView),e.params.thumbs.multipleActiveThumbs||(d=1),d=Math.floor(d),g.slides.forEach(S=>S.classList.remove(b)),g.params.loop||o())for(let S=0;S<d;S+=1)$(g.slidesEl,`[data-swiper-slide-index="${e.realIndex+S}"]`).forEach(w=>{w.classList.add(b)});else for(let S=0;S<d;S+=1)g.slides[e.realIndex+S]&&g.slides[e.realIndex+S].classList.add(b);(c?.autoScroll??!0)&&p(m?0:void 0)}function p(m){let c=e.thumbs.swiper;if(!c||c.destroyed)return;let g=c.params.slidesPerView==="auto"?c.slidesPerViewDynamic():c.params.slidesPerView,d=e.params.thumbs.autoScrollOffset,b=d&&!c.params.loop;if(e.realIndex!==c.realIndex||b){let S=c.activeIndex,w,f;if(c.params.loop){let u=c.slides.find(h=>h.getAttribute("data-swiper-slide-index")===`${e.realIndex}`);w=c.slides.indexOf(u),f=e.activeIndex>e.previousIndex?"next":"prev"}else w=e.realIndex,f=w>e.previousIndex?"next":"prev";b&&(w+=f==="next"?d:-1*d),c.visibleSlidesIndexes&&c.visibleSlidesIndexes.indexOf(w)<0&&(c.params.centeredSlides?w>S?w=w-Math.floor(g/2)+1:w=w+Math.floor(g/2)-1:w>S&&c.params.slidesPerGroup,c.slideTo(w,m))}}t("beforeInit",()=>{let{thumbs:m}=e.params;if(!(!m||!m.swiper))if(typeof m.swiper=="string"||m.swiper instanceof HTMLElement){let c=G(),g=()=>{let b=typeof m.swiper=="string"?c.querySelector(m.swiper):m.swiper;if(b&&b.swiper)m.swiper=b.swiper,l(),n(!0);else if(b){let S=`${e.params.eventsPrefix}init`,w=f=>{m.swiper=f.detail[0],b.removeEventListener(S,w),l(),n(!0),m.swiper.update(),e.update()};b.addEventListener(S,w)}return b},d=()=>{if(e.destroyed)return;g()||requestAnimationFrame(d)};requestAnimationFrame(d)}else l(),n(!0)}),t("slideChange update resize observerUpdate",()=>{n()}),t("setTransition",(m,c)=>{let g=e.thumbs.swiper;!g||g.destroyed||g.setTransition(c)}),t("beforeDestroy",()=>{let m=e.thumbs.swiper;!m||m.destroyed||r&&m.destroy()}),Object.assign(e.thumbs,{init:l,update:n})}var at={"addison|capeDutch|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc2df27c0916a789bf8_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp","addison|capeDutch|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc238eaf00f01767e78_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","addison|capeDutch|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc109d104f28ede187d2__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","addison|capeDutch|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc055bb405f1d10beb2b__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","addison|capeDutch|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc058b001558f0f42139__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp","addison|transitional|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd23150d47c1d06be2c_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp","addison|transitional|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd2193b94d23a3ae893_Transitional%20Color%20Scheme%201%20Newport.webp","addison|transitional|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd0f884d4a1be4ce3bb_Transitional%20Color%20Scheme%204%20Alabaster.webp","addison|transitional|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc192125ef805b71645d__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp","addison|transitional|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc117c6fd66c86eac2f0__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","addison|tudor|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc9c7138d528e3bcd56_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","addison|tudor|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc94a03cba1e86686df_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","addison|tudor|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc19757d8f0d9295c414__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp","addison|tudor|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc194a03cba1e864b8de__update_01_Transitional%20Color%20Scheme%201%20Newport.webp","addison|tudor|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc06f884d4a1be4b255a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","bandera|capeDutch|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bddaf884d4a1be4ce984_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","bandera|capeDutch|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd95bb405f1d10d91c9_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","bandera|capeDutch|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418163890107064db0__update_01_Transitional%20Color%20Scheme%201%20Newport.webp","bandera|capeDutch|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc393da4674c75d1668e__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","bandera|capeDutch|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc398b001558f0f46552__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","bandera|transitional|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdebdf27c0916a78db6b_Transitional%20Color%20Scheme%204%20Alabaster.webp","bandera|transitional|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdea3150d47c1d06d522_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp","bandera|transitional|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc88f43dc1e9672082fe__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","bandera|transitional|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc41ad56c86481cc9dcf__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp","bandera|transitional|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc3914616b12a1b64f9d__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","bandera|tudor|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bde1c8165c307762c4af_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","bandera|tudor|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bde13da4674c75d2ea0c_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","bandera|tudor|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bde04a03cba1e866a39d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","bandera|tudor|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c3da4674c75d158b7__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","bandera|tudor|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c81638901070634b5__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp","collin|capeDutch|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdf78c87da4ea9b93928_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp","collin|capeDutch|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdf5b5443afc14783129_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","collin|capeDutch|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6be42bb36f4505a969__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp","collin|capeDutch|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c193b94d23a39d4c1__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","collin|capeDutch|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc525bb405f1d10c49e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","collin|transitional|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be083da4674c75d303ed_Transitional%20Color%20Scheme%203%20Caprock.webp","collin|transitional|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be06df27c0916a78f4a3_Transitional%20Color%20Scheme%204%20Alabaster.webp","collin|transitional|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b323ef39a7a9c707f__update_01_Transitional%20Color%20Scheme%201%20Newport.webp","collin|transitional|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5ce5143ea322519226__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","collin|transitional|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c59d9060ea7ad38a3__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","collin|tudor|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff8b001558f0f67503_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","collin|tudor|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff79cc6cc768b84658_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","collin|tudor|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff59d9060ea7ae5856_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","collin|tudor|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdfe79cc6cc768b84625_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","collin|tudor|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b2125ef805b71a18e__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp","grayson|capeDutch|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1059d9060ea7ae7bf6_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp","grayson|capeDutch|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be0f8d303f8756954a4a_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","grayson|capeDutch|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9124ac5a67c599912c__update_01_Transitional%20Color%20Scheme%201%20Newport.webp","grayson|capeDutch|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc884777aad14617b3f1__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","grayson|capeDutch|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b5e1e0993e9706ca8__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","grayson|transitional|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be25b5443afc14787820_Transitional%20Color%20Scheme%204%20Alabaster.webp","grayson|transitional|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9138eaf00f01753d06__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp","grayson|transitional|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9139d5fa0524a78d37__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp","grayson|transitional|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7bdf27c0916a777006__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","grayson|transitional|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b6bccac03cad99b9f__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp","grayson|tudor|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1a14616b12a1b8583b_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","grayson|tudor|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1a9d104f28ede32eac_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","grayson|tudor|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1a38eaf00f0176e5af_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","grayson|tudor|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc8879cc6cc768b6d94b__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","grayson|tudor|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b438f7b41b4d6147d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp","magnolia|capeDutch|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be31a538e0265f7bfda6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp","magnolia|capeDutch|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be30a538e0265f7bfd3d_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","magnolia|capeDutch|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca96bccac03cad9dc87__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","magnolia|capeDutch|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca07c6fd66c86eb4e61__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","magnolia|capeDutch|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca05bb405f1d10c770a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","magnolia|transitional|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be45d31a141ebbd9d43d_Transitional%20Color%20Scheme%204%20Alabaster.webp","magnolia|transitional|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb337175f386f36ca62__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp","magnolia|transitional|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb39d104f28ede1f232__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp","magnolia|transitional|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca999359da766fe7cbd__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","magnolia|transitional|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca08c87da4ea9b7b18c__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","magnolia|tudor|2":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c45bdcf80988b39b2_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","magnolia|tudor|3":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c3da4674c75d32704_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","magnolia|tudor|5":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b39d5fa0524a92348_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","magnolia|tudor|1":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3bd31a141ebbd9c9dc_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","magnolia|tudor|4":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b6bccac03cadb990d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp"};var st={"addison.transitional|5|Worldly Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc19757d8f0d9295c414__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp","addison.transitional|1|Newport":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc194a03cba1e864b8de__update_01_Transitional%20Color%20Scheme%201%20Newport.webp","addison.transitional|3|Caprock":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc192125ef805b71645d__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp","addison.transitional|4|Alabaster":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84071b8045ed415db14a4__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp","addison.transitional|2|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84071fa85b49e7f7d3edb__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp","addison.tudor|2|Coral Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc117c6fd66c86eac2f0__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","addison.tudor|5|Altitude Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc109d104f28ede187d2__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","addison.tudor|3|Greenblack":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa90750c4c0d23518803722__update_02_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","addison.tudor|1|Colonnade Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa90750377bec32a1a1eb00__update_02_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","addison.tudor|4|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407262d057680bf84f54__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","addison.capeDutch|4|Pure White":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc06f884d4a1be4b255a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","addison.capeDutch|5|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc055bb405f1d10beb2b__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","addison.capeDutch|2|Urbane Bronze":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc058b001558f0f42139__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp","addison.capeDutch|1|Everest":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa9074f3cbe7d27e4100879__update_02_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","addison.capeDutch|3|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa9075042fefb4b893ee512__update_02_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp","bandera.transitional|5|Worldly Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84072a7e6cc5f9f28aa99__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp","bandera.transitional|2|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418b001558f0f487d7__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp","bandera.transitional|1|Newport":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418163890107064db0__update_01_Transitional%20Color%20Scheme%201%20Newport.webp","bandera.transitional|3|Caprock":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc41ad56c86481cc9dcf__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp","bandera.transitional|4|Alabaster":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840736cf0f7ab6313d873__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp","bandera.tudor|4|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc393da4674c75d1668e__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","bandera.tudor|1|Colonnade Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc3914616b12a1b64f9d__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","bandera.tudor|2|Coral Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc398b001558f0f46552__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","bandera.tudor|5|Altitude Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840731c11cd307f8e2f70__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","bandera.tudor|3|Greenblack":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc36d31a141ebbd7e4c8__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","bandera.capeDutch|4|Pure White":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c3da4674c75d158b7__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","bandera.capeDutch|3|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c81638901070634b5__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp","bandera.capeDutch|1|Everest":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840741c11cd307f8e2fe5__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","bandera.capeDutch|5|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2ac7138d528e3a1052__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","bandera.capeDutch|2|Urbane Bronze":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2ad90e0d765a30fbc1__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp","collin.transitional|1|Newport":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b323ef39a7a9c707f__update_01_Transitional%20Color%20Scheme%201%20Newport.webp","collin.transitional|3|Caprock":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b2125ef805b71a18e__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp","collin.transitional|5|Worldly Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6be42bb36f4505a969__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp","collin.transitional|4|Alabaster":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407462d057680bf85169__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp","collin.transitional|2|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc69c7138d528e3a57b0__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp","collin.tudor|1|Colonnade Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5ce5143ea322519226__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","collin.tudor|5|Altitude Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c193b94d23a39d4c1__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","collin.tudor|2|Coral Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c59d9060ea7ad38a3__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","collin.tudor|3|Greenblack":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84075d53f3132b3b5aeb4__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","collin.tudor|4|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840752df5172621f25726__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","collin.capeDutch|1|Everest":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc525bb405f1d10c49e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","collin.capeDutch|5|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5047d62244c9263e79__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","collin.capeDutch|4|Pure White":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407628becd398ae5e1e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","collin.capeDutch|2|Urbane Bronze":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5039d5fa0524a76044__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp","collin.capeDutch|3|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84076d53f3132b3b5af65__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp","grayson.transitional|2|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9138eaf00f01753d06__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp","grayson.transitional|3|Caprock":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9139d5fa0524a78d37__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp","grayson.transitional|1|Newport":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9124ac5a67c599912c__update_01_Transitional%20Color%20Scheme%201%20Newport.webp","grayson.transitional|4|Alabaster":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84076a7e6cc5f9f28ac76__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp","grayson.transitional|5|Worldly Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc908c87da4ea9b7a698__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp","grayson.tudor|1|Colonnade Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc8879cc6cc768b6d94b__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","grayson.tudor|3|Greenblack":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc88f43dc1e9672082fe__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","grayson.tudor|4|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc884777aad14617b3f1__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","grayson.tudor|5|Altitude Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840776cf0f7ab6313db87__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","grayson.tudor|2|Coral Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc8714616b12a1b68e63__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","grayson.capeDutch|1|Everest":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b5e1e0993e9706ca8__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","grayson.capeDutch|4|Pure White":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7bdf27c0916a777006__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","grayson.capeDutch|3|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b6bccac03cad99b9f__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp","grayson.capeDutch|2|Urbane Bronze":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b438f7b41b4d6147d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp","grayson.capeDutch|5|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84077a348951c4f245d5d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","magnolia.transitional|2|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb337175f386f36ca62__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp","magnolia.transitional|4|Alabaster":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb39d104f28ede1f232__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp","magnolia.transitional|3|Caprock":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb238eaf00f0175536f__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp","magnolia.transitional|1|Newport":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb245bdcf809889c4c7__update_01_Transitional%20Color%20Scheme%201%20Newport.webp","magnolia.transitional|5|Worldly Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb231b62b645e9449f2__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp","magnolia.tudor|3|Greenblack":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca999359da766fe7cbd__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp","magnolia.tudor|4|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca96bccac03cad9dc87__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp","magnolia.tudor|1|Colonnade Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840781c11cd307f8e32c5__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp","magnolia.tudor|2|Coral Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840784b7d133921ae2048__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp","magnolia.tudor|5|Altitude Gray":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84078a3fe2c8f9c3bea48__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp","magnolia.capeDutch|4|Pure White":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca08c87da4ea9b7b18c__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp","magnolia.capeDutch|1|Everest":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca07c6fd66c86eb4e61__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp","magnolia.capeDutch|5|Felted Wool":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca05bb405f1d10c770a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp","magnolia.capeDutch|3|Iron Ore":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9f8c87da4ea9b7b0f4__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp","magnolia.capeDutch|2|Urbane Bronze":"https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84078a3fe2c8f9c3bea71__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp"};var Ma={glenview:{spanishContemporary:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22eddb81b67658917d147c_Sch%201%20-%20Sunlit%20Ivory.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd689113f6185fb81bc_Sch%202%20-%20Sandstone%20Villa.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd72ba437a787a12c6e_Sch%203%20-%20Stone%20Garden.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd765053904adda70f1_Sch%204%20-%20Sienna%20Stone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd754f23ca1aa66fd5c_Sch%205%20-%20Coastal%20Villa.webp"],transitionalRanch:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edeba8e815ef475c3e2c_Sch%201%20-%20White%20Oak%20Ranch.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edeb74297c1a3021d0b4_Sch%202%20-%20Midnight%20Ridge.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edebb734c9412a1851a1_Sch%203%20-%20Oakstone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edea46c4dce897c622c0_Sch%204%20-%20White%20Mason.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edeaf11078832301af0d_Sch%205%20-%20Black%20Timber.webp"],coastalColonial:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edad32d82c66475aa7b2_Sch%201%20-%20Saltwood.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac6e6422b45442464d_Sch%202%20-%20Stone%20Harbor.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac9d58911e051d3fba_Sch%203%20-%20Seabreeze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac8f40d304dd481aec_Sch%204%20-%20Ivory%20%26%20Onyx.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edace365374d2b4c2c3f_Sch%205%20-%20Coastal%20Stone.webp"],englishCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbd63fae91f151fd9d0_Sch%201%20-%20Ivory%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbe0c3370fb3e35ffaf_Sch%202%20-%20Abbey%20Iron.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbea3771290396ed4df_Sch%203%20-%20Bronze%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbef4494d74c17404a9_Sch%204%20-%20Manor%20Brick.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbe2c42ef25e857568f_Sch%205%20-%20Chateau%20Stone.webp"]},elm:{spanishContemporary:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecc8f3437fec84c633be_Sch%201%20-%20Sunlit%20Ivory.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecc8f4494d74c17399e4_Sch%202%20-%20Sandstone%20Villa.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecca2472a39b3cbd7498_Sch%203%20-%20Stone%20Garden.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22eccaae1ca7e49161fbc8_Sch%204%20-%20Sienna%20Stone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecca872355c22f8eaadf_Sch%205%20-%20Coastal%20Villa.webp"],transitionalRanch:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecac0c3370fb3e356423_Sch%201%20-%20White%20Oak%20Ranch.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecac269d95cd19e0e026_Sch%202%20-%20Midnight%20Ridge.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecacf110788323011ee1_Sch%203%20-%20Oakstone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecab55c9aaa9438a7a06_Sch%204%20-%20White%20Mason.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecac08f434791bad029e_Sch%205%20-%20Black%20Timber.webp"],coastalColonial:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7f49422c2f9de17695_Sch%201%20-%20Saltwood.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7e9d58911e051c5dc8_Sch%202%20-%20Stone%20Harbor.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7f2472a39b3cbd5614_Sch%203%20-%20Seabreeze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7e61f18799715386b8_Sch%204%20-%20Ivory%20%26%20Onyx.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7fb75aee6fe61ebf09_Sch%205%20-%20Coastal%20Stone.webp"],englishCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec8ff461c0c6633f96a1_Sch%201%20-%20Ivory%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec90872355c22f8e89a8_Sch%202%20-%20Abbey%20Iron.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec9061f1879971538dfd_Sch%203%20-%20Bronze%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec9095a46fd82b1cb0b3_Sch%204%20-%20Manor%20Brick.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec908f40d304dd4776a6_Sch%205%20-%20Chateau%20Stone.webp"]},willow:{spanishContemporary:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c220e6f459b8cc97fc_Sch%201%20-%20Sunlit%20Ivory.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c3679eea90bc21737e_Sch%202%20-%20Sandstone%20Villa.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c227f295bf102c73d9_Sch%203%20-%20Stone%20Garden.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c23b306ae798b2d5b7_Sch%204%20-%20Sienna%20Stone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c207d8f3773f4fde0e_Sch%205%20-%20Coastal%20Villa.webp"],transitionalRanch:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e02f638a601d29fc82_Sch%201%20-%20White%20Oak%20Ranch.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e02d888efac45336f8_Sch%202%20-%20Midnight%20Ridge.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e0b734c9412a19d579_Sch%203%20-%20Oakstone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e0cd6d5d498ce2e8ac_Sch%204%20-%20White%20Mason.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0df57edcdcc3c089676_Sch%205%20-%20Black%20Timber.webp"],coastalColonial:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f085438168dc11d4e604_Sch%201%20-%20Saltwood.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084544db6edddd13c4b_Sch%202%20-%20Stone%20Harbor.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f08420e6f459b8cc8171_Sch%203%20-%20Seabreeze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084ae64905f6a6340f6_Sch%204%20-%20Ivory%20%26%20Onyx.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084f11078832302fea2_Sch%205%20-%20Coastal%20Stone.webp"],englishCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a195a46fd82b1ec05a_Sch%201%20-%20Ivory%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a218fa7f2207b9e007_Sch%202%20-%20Abbey%20Iron.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a1a3771290397042a1_Sch%203%20-%20Bronze%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a1ae1ca7e491642775_Sch%204%20-%20Manor%20Brick.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a12d888efac453195c_Sch%205%20-%20Chateau%20Stone.webp"]},vista:{spanishContemporary:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f167939798a0c8459ed2_Sch%201%20-%20Sunlit%20Ivory.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1666982be65b05567c0_Sch%202%20-%20Sandstone%20Villa.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f167f461c0c66341fa0d_Sch%203%20-%20Stone%20Garden.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1672c42ef25e859297c_Sch%204%20-%20Sienna%20Stone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1664ff4597241d8f033_Sch%205%20-%20Coastal%20Villa.webp"],transitionalRanch:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14f550f4fd0cf5a4561_Sch%201%20-%20White%20Oak%20Ranch.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14e20e6f459b8ccc7ed_Sch%202%20-%20Midnight%20Ridge.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14f52e0fbbd6afa96b4_Sch%203%20-%20Oakstone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14e32d82c66475c84c6_Sch%204%20-%20White%20Mason.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14f4ff4597241d8e0f7_Sch%205%20-%20Black%20Timber.webp"],coastalColonial:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b72c42ef25e8594040_Sch%201%20-%20Saltwood.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b73b306ae798b3454e_Sch%202%20-%20Stone%20Harbor.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b7fccec2bd9f7f3bf0_Sch%203%20-%20Seabreeze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b7f3437fec84c94c74_Sch%204%20-%20Ivory%20%26%20Onyx.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b75d778b0e1d343aec_Sch%205%20-%20Coastal%20Stone.webp"],englishCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f19257edcdcc3c08ed63_Sch%201%20-%20Ivory%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f193475a005a81e89db1_Sch%202%20-%20Abbey%20Iron.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1939619a764f4d5f48a_Sch%203%20-%20Bronze%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1939ab120a2472fcc9b_Sch%204%20-%20Manor%20Brick.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f193f1107883230392a1_Sch%205%20-%20Chateau%20Stone.webp"]},ambrose:{spanishContemporary:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e9d58911e051cc527_Sch%201%20-%20Sunlit%20Ivory.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e50c5363e89576c23_Sch%202%20-%20Sandstone%20Villa.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e57edcdcc3c06dc7f_Sch%203%20-%20Stone%20Garden.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e55c9aaa9438ac2b6_Sch%204%20-%20Sienna%20Stone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e0c3370fb3e359ffd_Sch%205%20-%20Coastal%20Villa.webp"],transitionalRanch:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3920e6f459b8caf257_Sch%201%20-%20White%20Oak%20Ranch.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3af8c13be94948c3b2_Sch%202%20-%20Midnight%20Ridge.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3a61f1879971541248_Sch%203%20-%20Oakstone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3a220472fb3ac3475b_Sch%204%20-%20White%20Mason.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3a939798a0c843907b_Sch%205%20-%20Black%20Timber.webp"],coastalColonial:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecf02d888efac450f505_Sch%201%20-%20Saltwood.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecef2ba437a787a0b71d_Sch%202%20-%20Stone%20Harbor.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecefc74ccc360e2beea9_Sch%203%20-%20Seabreeze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecf0475a005a81e66998_Sch%204%20-%20Ivory%20%26%20Onyx.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecef9619a764f4d3abc5_Sch%205%20-%20Coastal%20Stone.webp"],englishCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed0346c4dce897c5ad7b_Sch%201%20-%20Ivory%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed04269d95cd19e1032b_Sch%202%20-%20Abbey%20Iron.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed048157506f00ae1c15_Sch%203%20-%20Bronze%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed04a8e815ef475bc111_Sch%204%20-%20Manor%20Brick.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed0445c164b3134e1b2d_Sch%205%20-%20Chateau%20Stone.webp"]},alder:{spanishContemporary:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef9295a46fd82b1e4964_Sch%201%20-%20Sunlit%20Ivory.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e50c5363e89576c23_Sch%202%20-%20Sandstone%20Villa.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e57edcdcc3c06dc7f_Sch%203%20-%20Stone%20Garden.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e55c9aaa9438ac2b6_Sch%204%20-%20Sienna%20Stone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e0c3370fb3e359ffd_Sch%205%20-%20Coastal%20Villa.webp"],transitionalRanch:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe29d58911e051e60b9_Sch%201%20-%20White%20Oak%20Ranch.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe4f8ae2a21e657e6c5_Sch%202%20-%20Midnight%20Ridge.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe445c164b3134f6b84_Sch%203%20-%20Oakstone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe32d10f7997d7b25c6_Sch%204%20-%20White%20Mason.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe227f295bf102bdd5f_Sch%205%20-%20Black%20Timber.webp"],coastalColonial:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef682f638a601d296658_Sch%201%20-%20Saltwood.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef67cd6d5d498ce2266f_Sch%202%20-%20Stone%20Harbor.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef6a438168dc11d43cdb_Sch%203%20-%20Seabreeze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef682ba437a787a1fdc9_Sch%204%20-%20Ivory%20%26%20Onyx.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef6874297c1a3022840a_Sch%205%20-%20Coastal%20Stone.webp"],englishCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7b20e6f459b8cc0838_Sch%201%20-%20Ivory%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7cdb1b9afafad4b525_Sch%202%20-%20Abbey%20Iron.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c94fec08c5d9f1fb1_Sch%203%20-%20Bronze%20Meadow.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c679eea90bc20be8b_Sch%204%20-%20Manor%20Brick.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c8157506f00af4584_Sch%205%20-%20Chateau%20Stone.webp"]},"carriage-house-adu":{spanishContemporary:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481b584b9c46e5511c91_Spanish%20Color%20Scheme%201%20Sunlit%20Ivory.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481beb481309db1a7307_Spanish%20Color%20Scheme%202%20Sandstone%20Villa.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481bbef87edeabad2e73_Spanish%20Color%20Scheme%203%20Stone%20Garden.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481b6edcdf3e9d8d46c2_Spanish%20Color%20Scheme%204%20Sienna%20Stone.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481c6a82a8eed0e08ebd_Spanish%20Color%20Scheme%205%20Coastal%20Villa.png"],transitionalRanch:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482bc6a80142bb76cf90_Transitional%20Ranch%20Scheme%201%20White%20Oak%20Ranch.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482a11799919800d8f1b_Transitional%20Ranch%20Scheme%202%20Midnight%20Ridge.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482b6edcdf3e9d8d5cb6_Transitional%20Ranch%20Scheme%203%20Oakstone.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482ad39678ec281b4461_Transitional%20Ranch%20Scheme%204%20White%20Mason.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482b93d8443261da1b0a_Transitional%20Ranch%20Scheme%205%20%20Black%20Timber.png"],coastalColonial:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fc6a82a8eed0e07b4e_Coastal%20Colonial%20Color%20Scheme%201%20Saltwood.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fcc75a7f8c2ef9e0c3_Coastal%20Colonial%20Color%20Scheme%202%20Stone%20Harbor.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fc23e233e2dda5bf19_Coastal%20Colonial%20Color%20Scheme%203%20Seabreeze.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fcb6815eb1f05189ed_Coastal%20Colonial%20Color%20Scheme%204%20Ivory%20%26%20Onyx.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447ffa66dd7f5c7f6a7b1_Coastal%20Colonial%20Color%20Scheme%205%20Coastal%20Stone.png"],englishCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480bd16c9c5509bf96dc_English%20Cottage%20Scheme%201%20Ivory%20Meadow.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480b72ce27915163d94a_English%20Cottage%20Scheme%202%20Abbey%20Iron.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480bc15cbea785d01665_English%20Cottage%20Scheme%203%20Bronze%20Meadow.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480ce7b264502743ccca_English%20Cottage%20Scheme%204%20Manor%20Brick.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480b6b926a8c17016811_English%20Cottage%20Scheme%205%20Chateau%20Stone.png"]},"two-story-adu":{spanishContemporary:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448939b8f033bd6ed4a63_Spanish%20Color%20Scheme%201%20Sunlit%20Ivory.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744893c75a7f8c2efa6206_Spanish%20Color%20Scheme%202%20Sandstone%20Villa.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74489410ccae5bf6232d00_Spanish%20Color%20Scheme%203%20Stone%20Garden.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448939eac13f82c3f13e0_Spanish%20Color%20Scheme%204%20Sienna%20Stone.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744893c75a7f8c2efa620b_Spanish%20Color%20Scheme%205%20Coastal%20Villa.png"],transitionalRanch:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a172ce2791516456e6_Transitional%20Ranch%20Scheme%201%20White%20Oak%20Ranch.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a13cfff99009c92551_Transitional%20Ranch%20Scheme%202%20Midnight%20Ridge.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a1a39fcd4ef158ec4a_Transitional%20Ranch%20Scheme%203%20Oakstone.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a27795e2c6a31f4b43_Transitional%20Ranch%20Scheme%204%20%20White%20Mason.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744aa9d1f5b783e659ddf5_missing%20Transitional%20Ranch%20Scheme%205%20Black%20Timber.png"],coastalColonial:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487bc75a7f8c2efa4a05_Coastal%20Colonial%20Color%20Scheme%201%20Saltwood.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487bc83039285bdf2a72_Coastal%20Colonial%20Color%20Scheme%202%20Stone%20Harbor.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487b204beb02432f65c7_Coastal%20Colonial%20Color%20Scheme%203%20Seabreeze.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487b44a60aa2dd1838f8_Coastal%20Colonial%20Color%20Scheme%204%20Ivory%20%26%20Onyx.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487b6a82a8eed0e0d222_Coastal%20Colonial%20Color%20Scheme%205%20Coastal%20Stone.png"],englishCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744886bef87edeabada8d7_English%20Cottage%20Scheme%201%20Ivory%20Meadow.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744886f0f1ba26b2dd2326_English%20Cottage%20Scheme%202%20Abbey%20Iron.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744886b8fb342e82bed943_English%20Cottage%20Scheme%203%20Bronze%20Meadow.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448869b8f033bd6ed2e48_English%20Cottage%20Scheme%204%20Manor%20Brick.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74488611799919800dea42_English%20Cottage%20Scheme%205%20Chateau%20Stone.png"]}},Pa={"studio-adu":{craftsman:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744849c84ff4e8a34d921c_Craftsman%20Color%20Scheme%201%20Classic%20Cream.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74484910ccae5bf622dc3a_Craftsman%20Color%20Scheme%202%20Soft%20Green.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744849638fdaa6197e9142_Craftsman%20Color%20Scheme%203%20Coastal%20Navy.png"],janesCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448522534f8c0b4c15a8b_Janes%20Cottage%20Color%20Scheme%201%20Warm%20White.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74485372ce279151640663_Janes%20Cottage%20Color%20Scheme%202%20Dusk%20Gray.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744852565ef7b6637304e1_Janes%20Cottage%20Color%20Scheme%203%20Neutral%20Stone.png"],spanish:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448628761de8cb0131cec_Spanish%20Scheme%201%20Coastal%20White.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744862b6815eb1f051dc99_Spanish%20Scheme%202%20Natural%20Gray.png","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448621674b95bdff4ffb4_Spanish%20Scheme%203%20Garden%20Olive.png"]}},ot=["Classic Cream","Soft Green","Coastal Navy","Warm Taupe","Natural Charcoal"],rt=["Warm White","Dusk Gray","Neutral Stone","Soft White","Historic Gray"],nt=["Coastal White","Natural Gray","Garden Olive","Rich Bronze","Warm Earth Clay"],za=[{number:1,name:"Sunlit Ivory"},{number:2,name:"Sandstone Villa"},{number:3,name:"Stone Garden"},{number:4,name:"Sienna Stone"},{number:5,name:"Coastal Villa"}],Ia=[{number:1,name:"White Oak Ranch"},{number:2,name:"Midnight Ridge"},{number:3,name:"Oakstone"},{number:4,name:"White Mason"},{number:5,name:"Black Timber"}],La=[{number:1,name:"Saltwood"},{number:2,name:"Stone Harbor"},{number:3,name:"Seabreeze"},{number:4,name:"Ivory & Onyx"},{number:5,name:"Coastal Stone"}],Aa=[{number:1,name:"Ivory Meadow"},{number:2,name:"Abbey Iron"},{number:3,name:"Bronze Meadow"},{number:4,name:"Manor Brick"},{number:5,name:"Chateau Stone"}],Da=[{number:1,name:"Everest"},{number:2,name:"Urbane Bronze"},{number:3,name:"Iron Ore"},{number:4,name:"Pure White"},{number:5,name:"Felted Wool"}],Oa=[{number:1,name:"Newport"},{number:2,name:"Iron Ore"},{number:3,name:"Caprock"},{number:4,name:"Alabaster"},{number:5,name:"Worldly Gray"}],ka=[{number:1,name:"Colonnade Gray"},{number:2,name:"Coral Gray"},{number:3,name:"Greenblack"},{number:4,name:"Felted Wool"},{number:5,name:"Altitude Gray"}],Ga={echo:{craftsman:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa1179b6b2a0ae1e8ce5be_Eaton5_Craftsman_Sch1_ClassicCream.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa11798c7f61ed170d02c1_Eaton5_Craftsman_Sch2_SoftGreen.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa1178d4e789851d726afd_Eaton5_Craftsman_Sch3_CoastalNavy.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa1179e37e4c9da35dd349_Eaton5_Craftsman_Sch4_WarmTaupe.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa117934eb986df4409a80_Eaton5_Craftsman_Sch5_NaturalCharcoal.webp"],janesCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f967ed46f583c45fb319_Eaton5_Janes_Cottage_Sch1_WarmWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9673f19c0a2d78cbb9e_Eaton5_Janes_Cottage_Sch2_DuskGray.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f967165e83dd2af826bb_Eaton5_Janes_Cottage_Sch3_NeutralStone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f967a7a2df84652e1078_Eaton5_Janes_Cottage_Sch4_SoftWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9676e59091671c162ac_Eaton5_Janes_Cottage_Sch5_HistoricGray.webp"],spanish:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f981d8030b85e86c5eee_Eaton5_Spanish_Sch1)CoastalWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9818dfc10b3ad322043_Eaton5_Spanish_Sch2_NaturalGray.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f981b3fba19edac10345_Eaton5_Spanish_Sch3_GardenOlive.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9818582aeea3838bcd3_Eaton5_Spanish_Sch4_RichBronze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f981af3855fd07a02254_Eaton5_Spanish_Sch5_WarmEarthClay.webp"]},merrick:{craftsman:["https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d557_69f1f95450b85abd3d949f4e_Eaton4_Craftsman_Sch1_ClassicCream.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d562_69f1f953252b3600fcbe4e80_Eaton4_Craftsman_Sch2_SoftGreen.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003a93c53e9b6387d547_69f1f954f0cccea740cd8b9f_Eaton4_Craftsman_Sch3_CoastalNavy.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d56d_69f1f955180a5af38a774901_Eaton4_Craftsman_Sch4_WarmTaupe.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d581_69f1f953ceb831e555c6f0c2_Eaton4_Craftsman_Sch5_NaturalCharcoal.webp"],janesCottage:["https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d565_69f1fa3cc74e38671839449b_Eaton4_Janes_Cottage_Sch1_WarmWhite.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d57e_69f1fa3cff957cd5197530f5_Eaton4_Janes_Cottage_Sch2_DuskGray.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d55d_69f1fa3c848b541b0e090d97_Eaton4_Janes_Cottage_Sch3_NeutralStone.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d578_69f1fa3cf9c32ba7ba62c7e7_Eaton4_Janes_Cottage_Sch4_SoftWhite.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003a93c53e9b6387d54b_69f1fa3c26c535b3fa92955a_Eaton4_Janes_Cottage_Sch5_HistoricGray.webp"],spanish:["https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d575_69f1fa27d27c3c9e6b23ce8d_Eaton4_Spanish_Sch1_CoastalWhite.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003a93c53e9b6387d54f_69f1fa27b19d1d6237faa1b6_Eaton4_Spanish_Sch2_NaturalGray.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d589_69f1fa27adcc4b13bfb7229e_Eaton4_Spanish_Sch3_GardenOlive.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d586_69f1fa2704074b196573ba2a_Eaton4_Spanish_Sch4_RichBronze.webp","https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d55a_69f1fa27d874fa8f14184b4c_Eaton4_Spanish_Sch5_WarmEarthClay.webp"]},chaney:{craftsman:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a6a7a2df84652df1c2_Eaton3_Craftsman_Sch1_ClassicCream.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a571c267c5a6d19d59_Eaton3_Craftsman_Sch2_SoftGreen.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a46e59091671c1452c_Eaton3_Craftsman_Sch3_CoastalNavy.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a5151e31161533467a_Eaton3_Craftsman_Sch4_WarmTaupe.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a5535e1ec75c9ed78b_Eaton3_Craftsman_Sch5_NaturalCharcoal.webp"],janesCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b8a76017d864898f1c_Eaton3_Janes_Sch1_WarmWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b826f327fe8b8314c3_Eaton3_Janes_Sch2_DuskGray.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b86e1c34584269d0b4_Eaton3_Janes_Sch3_NeutralStone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b80f8abd2778a65c61_Eaton3_Janes_Sch4_SoftWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b839d6f0b57222e683_Eaton3_Janes_Sch5_HistoricGray.webp"],spanish:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d119e08a63bb87a563_Eaton3_Spanish_Sch1_CoastalWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d1c002eece10343349_Eaton3_Spanish_Sch2_NaturalGray.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d20cb4d186330f5414_Eaton3_Spanish_Sch3_GardenOlive.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d2d0bc4c3d311c6867_Eaton3_Spanish_Sch4_RichBronze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d1f3573cd92cb08111_Eaton3_Spanish_Sch5_WArmEarthClay.webp"]},loma:{craftsman:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f998b885bb7225449c8e_Eaton2_Craftsman_Sch1_ClassicCream.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f998ff957cd519750e2b_Eaton2_Craftsman_Sch2_SoftGreen.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f99867d6924479cbd2bb_Eaton2_Craftsman_Sch3_CoastalNavy.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f99816ad2a104acb7728_Eaton2_Craftsman_Sch4_WarmTaupe.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9987417fe7fb74e6bbd_Eaton2_Craftsman_Sch5_NaturalCharcoal.webp"],janesCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c94e811fb2f2915ccd_Eaton2_Janes_Sch1_WarmWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c9444f0e9cf3870f8e_Eaton2_Janes_Sch2_DuskGray.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c9e11203e2617c9946_Eaton2_Janes_Sch3_NeutralStone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c9255e1fbe5ac33217_Eaton2_Janes_Sch4_SoftWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c9d3067f0a7efe5fd6_Eaton2_Janes_Sch5_HistoricGray.webp"],spanish:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa0096a959af0bd4ed45_Eaton2_Spanish_Sch1_CoastalWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa00112be277eea18bd4_Eaton2_Spanish_Sch2_NaturalGray.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9ff24369ae8059a02bd_Eaton2_Spanish_Sch3_GardenOlive.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa0052b6244c225fa903_Eaton2_Spanish_Sch4_RichBronze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa079e2ec043052c58e5_Eaton2_Spanish_Sch5_WarmEarthClay.webp"]},sycamore:{craftsman:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa921c26d9ee20d7557e_Eaton1_Craftsman_Sch1_ClassicCream.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa9346432d98c0974cee_Eaton1_Craftsman_Sch2_SoftGreen.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa93d99dbd042136a8c5_Eaton1_Craftsman_Sch3_CoastalNavy.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa9275c170937d547cda_Eaton1_Craftsman_Sch4_WarmTaupe.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa93db5a646b559687d6_Eaton1_Craftsman_Sch5_NaturalCharcoal.webp"],janesCottage:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faac9a388e1b666a2e9f_Eaton1_Janes_Cottage_Sch1_WarmWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faac4cfe0437b90b4fee_Eaton1_Janes_Cottage_Sch2_DuskGray.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faac6ce7a3c2af1aee22_Eaton1_Janes_Cottage_Sch3_NeutralStone.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faac00a3f24d2deca82a_Eaton1_Janes_Cottage_Sch4_SoftWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faace73112fa77de5962_Eaton1_Janes_Cottage_Sch5_HistoricGray.webp"],spanish:["https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1facacf7104f7e2bb4532_Eaton1_Spanish_Sch1_CoastalWhite.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faca832e56e8d1302425_Eaton1_Spanish_Sch2_NaturalGray.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faca7fcd4a25484de868_Eaton1_Spanish_Sch3_GardenOlive.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1facabdcd44c1fee09803_Eaton1_Spanish_Sch4_RichBronze.webp","https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faca151e31161533c3d7_Eaton1_Spanish_Sch5_WarmEarthClay.webp"]}},re=(e,a)=>e.map((t,s)=>({schemeNumber:s+1,name:t,imageUrl:a[s]??""})),te=(e,a)=>e.map((t,s)=>({schemeNumber:t.number,name:t.name,imageUrl:a[s]??""})),J=e=>{let a=Ma[e];return[{style:"Spanish Contemporary",slug:`${e}-spanish-contemporary`,colorSchemes:te(za,[...a.spanishContemporary])},{style:"Transitional Ranch",slug:`${e}-transitional-ranch`,colorSchemes:te(Ia,[...a.transitionalRanch])},{style:"Coastal Colonial",slug:`${e}-coastal-colonial`,colorSchemes:te(La,[...a.coastalColonial])},{style:"English Cottage",slug:`${e}-english-cottage`,colorSchemes:te(Aa,[...a.englishCottage])}]},de=e=>{let a=Ga[e];return[{style:"Craftsman",slug:"craftsman-style",colorSchemes:re(ot,a.craftsman)},{style:"Janes Cottage",slug:"janes-cottage",colorSchemes:re(rt,a.janesCottage)},{style:"Spanish Transitional",slug:"spanish-transitional",colorSchemes:re(nt,a.spanish)}]},$a=e=>{let a=Pa[e];return[{style:"Craftsman",slug:"craftsman-style",colorSchemes:re(ot.slice(0,3),a.craftsman)},{style:"Janes Cottage",slug:"janes-cottage",colorSchemes:re(rt.slice(0,3),a.janesCottage)},{style:"Spanish Transitional",slug:"spanish-transitional",colorSchemes:re(nt.slice(0,3),a.spanish)}]},y="https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0",it={addison:{capeDutch:[`${y}/6a84b1a5b0cd93c94cbe7346_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,`${y}/6a84b1a583d75ceaa6461dcd_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,`${y}/6a84b1a5830be1b62868857d_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,`${y}/6a84b1a56a17c6919f5e0e0e_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,`${y}/6a84b1a5e570e96c28ac12c4_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`],transitional:[`${y}/6a84b1a7b79122ab8a0f40bd_Transitional%20Color%20Scheme%201%20Newport.webp`,`${y}/6a84b1a7b8efd49498294990_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,`${y}/6a84b1a77b6b694595669cd2_Transitional%20Color%20Scheme%203%20Caprock.webp`,`${y}/6a84b1a7f5c02efbf7c77d98_Transitional%20Color%20Scheme%204%20Alabaster.webp`,`${y}/6a84b1a7fcc834951e54f4bf_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`],tudor:[`${y}/6a84b1a6af7a129003ace1ec_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,`${y}/6a84b1a6fcc834951e54f421_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,`${y}/6a84b1a617cf0f48c34c5058_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,`${y}/6a84b1a683d75ceaa6461f26_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,`${y}/6a84b1a67b6b694595669ca2_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`]},bandera:{capeDutch:[`${y}/6a84b2bc1f53dd3717d85d60_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,`${y}/6a84b2bc297085014b204e1c_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,`${y}/6a84b2bcb0cd93c94cbeff9d_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,`${y}/6a84b2bdb79122ab8a0fb25f_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,`${y}/6a84b2bd9a92f58d97c26784_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`],transitional:[`${y}/6a84b2c097c77db82ebab4a2_Transitional%20Color%20Scheme%201%20Newport.webp`,`${y}/6a84b2c004702f83e9ba2ddd_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,`${y}/6a84b2c004702f83e9ba2e1b_Transitional%20Color%20Scheme%203%20Caprock.webp`,`${y}/6a84b2c017cf0f48c34cdcbf_Transitional%20Color%20Scheme%204%20Alabaster.webp`,`${y}/6a84b2c1d62095daa8114600_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`],tudor:[`${y}/6a84b2be9a287322be54c601_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,`${y}/6a84b2bfe570e96c28ac8d97_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,`${y}/6a84b2bf573a47599c830a8d_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,`${y}/6a84b2bf165fa1b5bf5bbab9_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,`${y}/6a84b2c008dc2fe1c6cfdb16_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`]},collin:{capeDutch:[`${y}/6a84b3c647e218625ded7348_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,`${y}/6a84b3c73888a4db5685d9d6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,`${y}/6a84b3c797c77db82ebaf1bc_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,`${y}/6a84b3c7668753f061942f10_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,`${y}/6a84b3c7b79122ab8a107532_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`],transitional:[`${y}/6a84b3c93888a4db5685dad3_Transitional%20Color%20Scheme%201%20Newport.webp`,`${y}/6a84b3ca165fa1b5bf5c40e5_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,`${y}/6a84b3cae570e96c28ad428e_Transitional%20Color%20Scheme%203%20Caprock.webp`,`${y}/6a84b3ca6ca32e7649b97267_Transitional%20Color%20Scheme%204%20Alabaster.webp`,`${y}/6a84b3ca165fa1b5bf5c4159_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`],tudor:[`${y}/6a84b3c7b1357c809573778c_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,`${y}/6a84b3c855df81cb20fbe5e3_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,`${y}/6a84b3c8668753f061942fca_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,`${y}/6a84b3c86ca32e7649b9709d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,`${y}/6a84b3c9d62095daa8120c5f_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`]},grayson:{capeDutch:[`${y}/6a84b4a456716fa5cdfdc6df_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,`${y}/6a84b4a4d7c17df8a732426f_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,`${y}/6a84b4a459e59db0530cb29b_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,`${y}/6a84b4a4573a47599c833035_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,`${y}/6a84b4a5d7c17df8a73242a1_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`],transitional:[`${y}/6a84b4a6165fa1b5bf5ca597_Transitional%20Color%20Scheme%201%20Newport.webp`,`${y}/6a84b4a6165fa1b5bf5ca5ca_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,`${y}/6a84b4a697c77db82ebb267f_Transitional%20Color%20Scheme%203%20Caprock.webp`,`${y}/6a84b4a7b79122ab8a10ff2f_Transitional%20Color%20Scheme%204%20Alabaster.webp`,`${y}/6a84b4a76a17c6919f5e4c29_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`],tudor:[`${y}/6a84b4a5573a47599c833061_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,`${y}/6a84b4a598d45b2c7121e549_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,`${y}/6a84b4a56ca32e7649b9eae7_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,`${y}/6a84b4a66a17c6919f5e4ba9_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,`${y}/6a84b4a6d62095daa8129a86_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`]},magnolia:{capeDutch:[`${y}/6a84b4e5666418f9d40514fd_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,`${y}/6a84b4e6666418f9d405153c_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,`${y}/6a84b4e6b0cd93c94cc02ab5_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,`${y}/6a84b4e647323a2b628f5a3b_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,`${y}/6a84b4e6668753f06194cead_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`],transitional:[`${y}/6a84b4e8b0cd93c94cc02c4b_Transitional%20Color%20Scheme%201%20Newport.webp`,`${y}/6a84b4e808dc2fe1c6d05bb6_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,`${y}/6a84b4e87b6b694595678e17_Transitional%20Color%20Scheme%203%20Caprock.webp`,`${y}/6a84b4e96ca32e7649ba0767_Transitional%20Color%20Scheme%204%20Alabaster.webp`,`${y}/6a84b4e917cf0f48c34d6370_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`],tudor:[`${y}/6a84b4e717cf0f48c34d62b8_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,`${y}/6a84b4e7b0cd93c94cc02b79_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,`${y}/6a84b4e716910f7fe0fd6e86_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,`${y}/6a84b4e7165fa1b5bf5cc6b0_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,`${y}/6a84b4e747e218625dedae9b_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`]}};for(let[e,a]of Object.entries(st)){let[t,s]=e.split("|"),[r,o]=t.split("."),i=it[r][o];i[Number(s)-1]=a}var Ha={addison:{capeDutch:"addison-modern-cape-dutch",transitional:"addison-transitional",tudor:"addison-modern-tudor"},bandera:{capeDutch:"bandera-modern-cape-dutch",transitional:"bandera-transitional",tudor:"bandera-modern-tudor"},collin:{capeDutch:"collin-modern-cape-dutch",transitional:"collin-transitional",tudor:"collin-modern-tudor"},grayson:{capeDutch:"grayson-modern-cape-dutch",transitional:"the-grayson-transitional",tudor:"the-grayson-modern-tudor"},magnolia:{capeDutch:"magnolia-modern-cape-dutch",transitional:"magnolia-transitional",tudor:"magnolia-modern-tudor"}},fe=e=>{let a=it[e],t=Ha[e];return[{style:"Modern Cape Dutch",slug:t.capeDutch,colorSchemes:te(Da,[...a.capeDutch])},{style:"Transitional",slug:t.transitional,colorSchemes:te(Oa,[...a.transitional])},{style:"Modern Tudor",slug:t.tudor,colorSchemes:te(ka,[...a.tudor])}]},Ge={echo:de("echo"),merrick:de("merrick"),chaney:de("chaney"),loma:de("loma"),sycamore:de("sycamore"),glenview:J("glenview"),elm:J("elm"),willow:J("willow"),vista:J("vista"),ambrose:J("ambrose"),alder:J("alder"),"studio-adu":$a("studio-adu"),"carriage-house-adu":J("carriage-house-adu"),"two-story-adu":J("two-story-adu"),addison:fe("addison"),bandera:fe("bandera"),collin:fe("collin"),grayson:fe("grayson"),magnolia:fe("magnolia")},Wa={"Modern Cape Dutch":"capeDutch",Transitional:"transitional","Modern Tudor":"tudor"},Ra=e=>Ge[e].map(a=>({...a,colorSchemes:a.colorSchemes.map(t=>({...t,imageUrl:at[`${e}|${Wa[a.style]}|${t.schemeNumber}`]??t.imageUrl}))}));function lt(){let t=(window.location.pathname.toLowerCase().split("/house-plans/")[1]?.split("/")[0]??"").replace(/^the-/,"").replace(/---mosaic$/,"");return t in Ge?t:null}function ct(e,a){let s=(window.location.pathname.toLowerCase().includes("---mosaic")&&["addison","bandera","collin","grayson","magnolia"].includes(e)?Ra(e):Ge[e])?.find(r=>r.slug===a);return s?s.colorSchemes.map(r=>r.imageUrl).filter(Boolean):[]}var ge=class ge{constructor(a){this.configs=a;B(this,"overlay",null);B(this,"swiper",null);B(this,"thumbsSwiper",null);B(this,"caches",new Map);B(this,"observers",[]);this.configs=a}init(){this.configs.forEach(a=>{this.caches.set(a.triggerSelector,[]),this.observeImages(a),this.bindTrigger(a)}),this.bindSlideGalleries(),this.bindMobileGallery(),document.addEventListener("keydown",a=>{a.key==="Escape"&&this.close()})}observeImages(a){let t=()=>{this.caches.set(a.triggerSelector,Array.from(document.querySelectorAll(a.imageSelector)))};t();let s=document.querySelector(a.containerSelector);if(!s){console.error(`GalleryController: container not found \u2014 ${a.containerSelector}`);return}let r=new MutationObserver(t);r.observe(s,{childList:!0,subtree:!0}),this.observers.push(r)}bindTrigger(a){let t=document.querySelectorAll(a.triggerSelector);t.length&&t.forEach(s=>{s.addEventListener("click",()=>{let r=this.caches.get(a.triggerSelector)??[];if(!r.length){console.error(`GalleryController: No images cached for trigger ${a.triggerSelector}.`);return}this.open(r,0)})})}bindSlideGalleries(){document.addEventListener("click",a=>{let t=a.target;if(t.closest('[dev-target="scheme-header"]')||t.closest('[dev-target="scheme-body"]')||t.closest('[dev-target="scheme-arrow"]')||t.closest('[dev-target="scheme-item"]'))return;let s=a.target.closest('[dev-target="slide-image-wrapper"]');if(!s)return;let r=s.closest(".swiper-slide");if(!r)return;let o=this.resolveSlideGalleryImages(r);o.length&&this.open(o,0)})}resolveSlideGalleryImages(a){let t=a.getAttribute("choose-from")?.toLowerCase();if(t==="exterior-schema"||t==="exterior-scheme"){let o=this.getExteriorImagesForSlide(a);if(o.length)return o}let r=Array.from(a.querySelectorAll('img[dev-target="slide-gallery-collection-image"]'));return r.length?r:this.resolveExplorePlansGalleryByHousePlan(a)}resolveExplorePlansGalleryByHousePlan(a){let t=a.querySelector('[dev-target="forward-image"]')?.getAttribute("house-plan")??a.getAttribute("house-plan")??"";if(!t)return[];let s=document.querySelector(`[dev-target="slide-gallery-collection-list-wrapper"][house-plan="${CSS.escape(t)}"]`);return s?Array.from(s.querySelectorAll('img[dev-target="slide-gallery-collection-image"]')):[]}getExteriorImagesForSlide(a){let t=lt();if(!t)return[];let s=a.getAttribute("exterior-style")?.toLowerCase()??"";return ct(t,s).map(o=>this.createImageElement(o))}createImageElement(a){let t=document.createElement("img");return t.src=a,t.alt="",t}bindMobileGallery(){document.addEventListener("click",a=>{let t=a.target.closest('[dev-target="mobile-slide-image-wrapper"]');if(!t)return;let s=t.closest('[dev-target="mobile-swiper"]');if(!s)return;let r=Array.from(s.querySelectorAll('[dev-target="mobile-slide"]')),o=t.closest('[dev-target="mobile-slide"]'),i=o?r.indexOf(o):0,l=r.map(n=>n.querySelector('[dev-target="mobile-slide-image"]')).filter(n=>n!==null);l.length&&this.open(l,Math.max(0,i))})}open(a,t){let s=a.slice(0,ge.MAX_GALLERY_IMAGES);if(!s.length)return;let r=Math.min(Math.max(0,t),s.length-1);this.destroyOverlay(),this.overlay=document.createElement("div"),this.overlay.className="hb-gallery-overlay",this.overlay.innerHTML=`
+"use strict";
+(() => {
+  // bin/live-reload.js
+  new EventSource(`${"http://localhost:3000"}/esbuild`).addEventListener("change", () => location.reload());
+
+  // src/utils/explore-tabs.ts
+  var DEFAULT_TRIGGER_TO_PANEL = {
+    "explore-plans-trigger": "explore-plans-tab",
+    "explore-homes-trigger": "explore-homes-tab"
+  };
+  var ExploreTabsController = class {
+    activeTrigger = null;
+    options;
+    triggerToPanel;
+    constructor(options = {}) {
+      this.options = options;
+      this.triggerToPanel = options.triggerToPanel ?? DEFAULT_TRIGGER_TO_PANEL;
+    }
+    /**
+     * Initialises the controller: wires tab triggers to panels.
+     * Must be called after the DOM is ready (e.g. inside `window.Webflow.push`).
+     */
+    init() {
+      const header = document.querySelector('[dev-target="explore-tab-header"]');
+      const body = document.querySelector('[dev-target="explore-tab-body"]');
+      if (!header) {
+        console.error('ExploreTabsController: No [dev-target="explore-tab-header"] found.');
+        return;
+      }
+      if (!body) {
+        console.error('ExploreTabsController: No [dev-target="explore-tab-body"] found.');
+        return;
+      }
+      Object.entries(this.triggerToPanel).forEach(([triggerTarget, panelTarget]) => {
+        const trigger = document.querySelector(`[dev-target="${triggerTarget}"]`);
+        const panel = document.querySelector(`[dev-target="${panelTarget}"]`);
+        if (!trigger) {
+          console.error(`ExploreTabsController: No [dev-target="${triggerTarget}"] found.`);
+          return;
+        }
+        if (!panel) {
+          console.error(`ExploreTabsController: No [dev-target="${panelTarget}"] found.`);
+          return;
+        }
+        trigger.addEventListener("click", () => this.activate(triggerTarget));
+      });
+      const triggerKeys = Object.keys(this.triggerToPanel);
+      const initialTrigger = triggerKeys.map((key) => document.querySelector(`[dev-target="${key}"].is-active`)).find(Boolean);
+      if (initialTrigger) {
+        const target = initialTrigger.getAttribute("dev-target");
+        if (target) this.activate(target);
+      } else {
+        const firstKey = triggerKeys[0];
+        if (firstKey) this.activate(firstKey);
+      }
+    }
+    /**
+     * Activates the given trigger and shows its corresponding panel.
+     */
+    activate(triggerTarget) {
+      if (this.activeTrigger === triggerTarget) return;
+      const panelTarget = this.triggerToPanel[triggerTarget];
+      if (!panelTarget) return;
+      Object.keys(this.triggerToPanel).forEach((key) => {
+        const trigger = document.querySelector(`[dev-target="${key}"]`);
+        trigger?.classList.toggle("is-active", key === triggerTarget);
+      });
+      Object.values(this.triggerToPanel).forEach((target) => {
+        const panel = document.querySelector(`[dev-target="${target}"]`);
+        panel?.classList.toggle("hide", target !== panelTarget);
+      });
+      this.toggleHousePlansCompanionTabs(triggerTarget);
+      this.activeTrigger = triggerTarget;
+    }
+    toggleHousePlansCompanionTabs(triggerTarget) {
+      if (!this.options.isHousePlansGallery) return;
+      if (!this.options.firstTabSelector || !this.options.secondTabSelector) return;
+      const firstTab = document.querySelector(this.options.firstTabSelector);
+      const secondTab = document.querySelector(this.options.secondTabSelector);
+      if (!firstTab || !secondTab) {
+        console.error(
+          'ExploreTabsController: No [dev-target="first-tab"] or [dev-target="second-tab"] found.'
+        );
+        return;
+      }
+      const firstTriggerKey = Object.keys(this.triggerToPanel)[0];
+      const isExplorePlansActive = triggerTarget === firstTriggerKey;
+      firstTab.classList.toggle("hide", !isExplorePlansActive);
+      secondTab.classList.toggle("hide", isExplorePlansActive);
+    }
+  };
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/shared/ssr-window.esm.mjs
+  function isObject(obj) {
+    return obj !== null && typeof obj === "object" && "constructor" in obj && obj.constructor === Object;
+  }
+  function extend(target = {}, src = {}) {
+    const noExtend = ["__proto__", "constructor", "prototype"];
+    Object.keys(src).filter((key) => noExtend.indexOf(key) < 0).forEach((key) => {
+      if (typeof target[key] === "undefined") target[key] = src[key];
+      else if (isObject(src[key]) && isObject(target[key]) && Object.keys(src[key]).length > 0) {
+        extend(target[key], src[key]);
+      }
+    });
+  }
+  var ssrDocument = {
+    body: {},
+    addEventListener() {
+    },
+    removeEventListener() {
+    },
+    activeElement: {
+      blur() {
+      },
+      nodeName: ""
+    },
+    querySelector() {
+      return null;
+    },
+    querySelectorAll() {
+      return [];
+    },
+    getElementById() {
+      return null;
+    },
+    createEvent() {
+      return {
+        initEvent() {
+        }
+      };
+    },
+    createElement() {
+      return {
+        children: [],
+        childNodes: [],
+        style: {},
+        setAttribute() {
+        },
+        getElementsByTagName() {
+          return [];
+        }
+      };
+    },
+    createElementNS() {
+      return {};
+    },
+    importNode() {
+      return null;
+    },
+    location: {
+      hash: "",
+      host: "",
+      hostname: "",
+      href: "",
+      origin: "",
+      pathname: "",
+      protocol: "",
+      search: ""
+    }
+  };
+  function getDocument() {
+    const doc = typeof document !== "undefined" ? document : {};
+    extend(doc, ssrDocument);
+    return doc;
+  }
+  var ssrWindow = {
+    document: ssrDocument,
+    navigator: {
+      userAgent: ""
+    },
+    location: {
+      hash: "",
+      host: "",
+      hostname: "",
+      href: "",
+      origin: "",
+      pathname: "",
+      protocol: "",
+      search: ""
+    },
+    history: {
+      replaceState() {
+      },
+      pushState() {
+      },
+      go() {
+      },
+      back() {
+      }
+    },
+    CustomEvent: function CustomEvent() {
+      return this;
+    },
+    addEventListener() {
+    },
+    removeEventListener() {
+    },
+    getComputedStyle() {
+      return {
+        getPropertyValue() {
+          return "";
+        }
+      };
+    },
+    Image() {
+    },
+    Date() {
+    },
+    screen: {},
+    setTimeout() {
+    },
+    clearTimeout() {
+    },
+    matchMedia() {
+      return {};
+    },
+    requestAnimationFrame(callback) {
+      if (typeof setTimeout === "undefined") {
+        callback();
+        return null;
+      }
+      return setTimeout(callback, 0);
+    },
+    cancelAnimationFrame(id) {
+      if (typeof setTimeout === "undefined") {
+        return;
+      }
+      clearTimeout(id);
+    }
+  };
+  function getWindow() {
+    const win = typeof window !== "undefined" ? window : {};
+    extend(win, ssrWindow);
+    return win;
+  }
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/shared/utils.mjs
+  function classesToTokens(classes2 = "") {
+    return classes2.trim().split(" ").filter((c) => !!c.trim());
+  }
+  function deleteProps(obj) {
+    const object = obj;
+    Object.keys(object).forEach((key) => {
+      try {
+        object[key] = null;
+      } catch (e) {
+      }
+      try {
+        delete object[key];
+      } catch (e) {
+      }
+    });
+  }
+  function nextTick(callback, delay = 0) {
+    return setTimeout(callback, delay);
+  }
+  function now() {
+    return Date.now();
+  }
+  function getComputedStyle2(el) {
+    const window2 = getWindow();
+    let style;
+    if (window2.getComputedStyle) {
+      style = window2.getComputedStyle(el, null);
+    }
+    if (!style && el.currentStyle) {
+      style = el.currentStyle;
+    }
+    if (!style) {
+      style = el.style;
+    }
+    return style;
+  }
+  function getTranslate(el, axis = "x") {
+    const window2 = getWindow();
+    let matrix;
+    let curTransform;
+    let transformMatrix;
+    const curStyle = getComputedStyle2(el);
+    if (window2.WebKitCSSMatrix) {
+      curTransform = curStyle.transform || curStyle.webkitTransform;
+      if (curTransform.split(",").length > 6) {
+        curTransform = curTransform.split(", ").map((a) => a.replace(",", ".")).join(", ");
+      }
+      transformMatrix = new window2.WebKitCSSMatrix(curTransform === "none" ? "" : curTransform);
+    } else {
+      transformMatrix = curStyle.MozTransform || curStyle.OTransform || curStyle.MsTransform || curStyle.msTransform || curStyle.transform || curStyle.getPropertyValue("transform").replace("translate(", "matrix(1, 0, 0, 1,");
+      matrix = transformMatrix.toString().split(",");
+    }
+    if (axis === "x") {
+      if (window2.WebKitCSSMatrix) curTransform = transformMatrix.m41;
+      else if (matrix.length === 16) curTransform = parseFloat(matrix[12]);
+      else curTransform = parseFloat(matrix[4]);
+    }
+    if (axis === "y") {
+      if (window2.WebKitCSSMatrix) curTransform = transformMatrix.m42;
+      else if (matrix.length === 16) curTransform = parseFloat(matrix[13]);
+      else curTransform = parseFloat(matrix[5]);
+    }
+    return curTransform || 0;
+  }
+  function isObject2(o) {
+    return typeof o === "object" && o !== null && o.constructor && Object.prototype.toString.call(o).slice(8, -1) === "Object";
+  }
+  function isNode(node) {
+    if (typeof window !== "undefined" && typeof window.HTMLElement !== "undefined") {
+      return node instanceof HTMLElement;
+    }
+    return node && (node.nodeType === 1 || node.nodeType === 11);
+  }
+  function extend2(...args) {
+    const to = Object(args[0]);
+    for (let i = 1; i < args.length; i += 1) {
+      const nextSource = args[i];
+      if (nextSource !== void 0 && nextSource !== null && !isNode(nextSource)) {
+        const keysArray = Object.keys(Object(nextSource)).filter((key) => key !== "__proto__" && key !== "constructor" && key !== "prototype");
+        for (let nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex += 1) {
+          const nextKey = keysArray[nextIndex];
+          const desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
+          if (desc !== void 0 && desc.enumerable) {
+            if (isObject2(to[nextKey]) && isObject2(nextSource[nextKey])) {
+              if (nextSource[nextKey].__swiper__) {
+                to[nextKey] = nextSource[nextKey];
+              } else {
+                extend2(to[nextKey], nextSource[nextKey]);
+              }
+            } else if (!isObject2(to[nextKey]) && isObject2(nextSource[nextKey])) {
+              to[nextKey] = {};
+              if (nextSource[nextKey].__swiper__) {
+                to[nextKey] = nextSource[nextKey];
+              } else {
+                extend2(to[nextKey], nextSource[nextKey]);
+              }
+            } else {
+              to[nextKey] = nextSource[nextKey];
+            }
+          }
+        }
+      }
+    }
+    return to;
+  }
+  function setCSSProperty(el, varName, varValue) {
+    el.style.setProperty(varName, varValue);
+  }
+  function animateCSSModeScroll({
+    swiper,
+    targetPosition,
+    side
+  }) {
+    const window2 = getWindow();
+    const startPosition = -swiper.translate;
+    let startTime = null;
+    let time;
+    const duration = swiper.params.speed;
+    swiper.wrapperEl.style.scrollSnapType = "none";
+    window2.cancelAnimationFrame(swiper.cssModeFrameID);
+    const dir = targetPosition > startPosition ? "next" : "prev";
+    const isOutOfBound = (current, target) => {
+      return dir === "next" && current >= target || dir === "prev" && current <= target;
+    };
+    const animate = () => {
+      time = (/* @__PURE__ */ new Date()).getTime();
+      if (startTime === null) {
+        startTime = time;
+      }
+      const progress = Math.max(Math.min((time - startTime) / duration, 1), 0);
+      const easeProgress = 0.5 - Math.cos(progress * Math.PI) / 2;
+      let currentPosition = startPosition + easeProgress * (targetPosition - startPosition);
+      if (isOutOfBound(currentPosition, targetPosition)) {
+        currentPosition = targetPosition;
+      }
+      swiper.wrapperEl.scrollTo({
+        [side]: currentPosition
+      });
+      if (isOutOfBound(currentPosition, targetPosition)) {
+        swiper.wrapperEl.style.overflow = "hidden";
+        swiper.wrapperEl.style.scrollSnapType = "";
+        setTimeout(() => {
+          swiper.wrapperEl.style.overflow = "";
+          swiper.wrapperEl.scrollTo({
+            [side]: currentPosition
+          });
+        });
+        window2.cancelAnimationFrame(swiper.cssModeFrameID);
+        return;
+      }
+      swiper.cssModeFrameID = window2.requestAnimationFrame(animate);
+    };
+    animate();
+  }
+  function elementChildren(element, selector = "") {
+    const window2 = getWindow();
+    const children = [...element.children];
+    if (window2.HTMLSlotElement && element instanceof HTMLSlotElement) {
+      children.push(...element.assignedElements());
+    }
+    if (!selector) {
+      return children;
+    }
+    return children.filter((el) => el.matches(selector));
+  }
+  function elementIsChildOfSlot(el, slot) {
+    const elementsQueue = [slot];
+    while (elementsQueue.length > 0) {
+      const elementToCheck = elementsQueue.shift();
+      if (el === elementToCheck) {
+        return true;
+      }
+      elementsQueue.push(...elementToCheck.children, ...elementToCheck.shadowRoot ? elementToCheck.shadowRoot.children : [], ...elementToCheck.assignedElements ? elementToCheck.assignedElements() : []);
+    }
+  }
+  function elementIsChildOf(el, parent) {
+    const window2 = getWindow();
+    let isChild = parent.contains(el);
+    if (!isChild && window2.HTMLSlotElement && parent instanceof HTMLSlotElement) {
+      const children = [...parent.assignedElements()];
+      isChild = children.includes(el);
+      if (!isChild) {
+        isChild = elementIsChildOfSlot(el, parent);
+      }
+    }
+    return isChild;
+  }
+  function showWarning(text) {
+    try {
+      console.warn(text);
+      return;
+    } catch (err) {
+    }
+  }
+  function createElement(tag, classes2 = []) {
+    const el = document.createElement(tag);
+    el.classList.add(...Array.isArray(classes2) ? classes2 : classesToTokens(classes2));
+    return el;
+  }
+  function elementOffset(el) {
+    const window2 = getWindow();
+    const document2 = getDocument();
+    const box = el.getBoundingClientRect();
+    const body = document2.body;
+    const clientTop = el.clientTop || body.clientTop || 0;
+    const clientLeft = el.clientLeft || body.clientLeft || 0;
+    const scrollTop = el === window2 ? window2.scrollY : el.scrollTop;
+    const scrollLeft = el === window2 ? window2.scrollX : el.scrollLeft;
+    return {
+      top: box.top + scrollTop - clientTop,
+      left: box.left + scrollLeft - clientLeft
+    };
+  }
+  function elementPrevAll(el, selector) {
+    const prevEls = [];
+    while (el.previousElementSibling) {
+      const prev = el.previousElementSibling;
+      if (selector) {
+        if (prev.matches(selector)) prevEls.push(prev);
+      } else prevEls.push(prev);
+      el = prev;
+    }
+    return prevEls;
+  }
+  function elementNextAll(el, selector) {
+    const nextEls = [];
+    while (el.nextElementSibling) {
+      const next = el.nextElementSibling;
+      if (selector) {
+        if (next.matches(selector)) nextEls.push(next);
+      } else nextEls.push(next);
+      el = next;
+    }
+    return nextEls;
+  }
+  function elementStyle(el, prop) {
+    const window2 = getWindow();
+    return window2.getComputedStyle(el, null).getPropertyValue(prop);
+  }
+  function elementIndex(el) {
+    let child = el;
+    let i;
+    if (child) {
+      i = 0;
+      while ((child = child.previousSibling) !== null) {
+        if (child.nodeType === 1) i += 1;
+      }
+      return i;
+    }
+    return void 0;
+  }
+  function elementParents(el, selector) {
+    const parents = [];
+    let parent = el.parentElement;
+    while (parent) {
+      if (selector) {
+        if (parent.matches(selector)) parents.push(parent);
+      } else {
+        parents.push(parent);
+      }
+      parent = parent.parentElement;
+    }
+    return parents;
+  }
+  function elementOuterSize(el, size, includeMargins) {
+    const window2 = getWindow();
+    if (includeMargins) {
+      return el[size === "width" ? "offsetWidth" : "offsetHeight"] + parseFloat(window2.getComputedStyle(el, null).getPropertyValue(size === "width" ? "margin-right" : "margin-top")) + parseFloat(window2.getComputedStyle(el, null).getPropertyValue(size === "width" ? "margin-left" : "margin-bottom"));
+    }
+    return el.offsetWidth;
+  }
+  function makeElementsArray(el) {
+    return (Array.isArray(el) ? el : [el]).filter((e) => !!e);
+  }
+  function setInnerHTML(el, html = "") {
+    if (typeof trustedTypes !== "undefined") {
+      el.innerHTML = trustedTypes.createPolicy("html", {
+        createHTML: (s) => s
+      }).createHTML(html);
+    } else {
+      el.innerHTML = html;
+    }
+  }
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/shared/swiper-core.mjs
+  var support;
+  function calcSupport() {
+    const window2 = getWindow();
+    const document2 = getDocument();
+    return {
+      smoothScroll: document2.documentElement && document2.documentElement.style && "scrollBehavior" in document2.documentElement.style,
+      touch: !!("ontouchstart" in window2 || window2.DocumentTouch && document2 instanceof window2.DocumentTouch)
+    };
+  }
+  function getSupport() {
+    if (!support) {
+      support = calcSupport();
+    }
+    return support;
+  }
+  var deviceCached;
+  function calcDevice({
+    userAgent
+  } = {}) {
+    const support2 = getSupport();
+    const window2 = getWindow();
+    const platform = window2.navigator.platform;
+    const ua = userAgent || window2.navigator.userAgent;
+    const device = {
+      ios: false,
+      android: false
+    };
+    const screenWidth = window2.screen.width;
+    const screenHeight = window2.screen.height;
+    const android = ua.match(/(Android);?[\s\/]+([\d.]+)?/);
+    let ipad = ua.match(/(iPad)(?!\1).*OS\s([\d_]+)/);
+    const ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/);
+    const iphone = !ipad && ua.match(/(iPhone\sOS|iOS)\s([\d_]+)/);
+    const windows = platform === "Win32";
+    let macos = platform === "MacIntel";
+    const iPadScreens = ["1024x1366", "1366x1024", "834x1194", "1194x834", "834x1112", "1112x834", "768x1024", "1024x768", "820x1180", "1180x820", "810x1080", "1080x810"];
+    if (!ipad && macos && support2.touch && iPadScreens.indexOf(`${screenWidth}x${screenHeight}`) >= 0) {
+      ipad = ua.match(/(Version)\/([\d.]+)/);
+      if (!ipad) ipad = [0, 1, "13_0_0"];
+      macos = false;
+    }
+    if (android && !windows) {
+      device.os = "android";
+      device.android = true;
+    }
+    if (ipad || iphone || ipod) {
+      device.os = "ios";
+      device.ios = true;
+    }
+    return device;
+  }
+  function getDevice(overrides = {}) {
+    if (!deviceCached) {
+      deviceCached = calcDevice(overrides);
+    }
+    return deviceCached;
+  }
+  var browser;
+  function calcBrowser() {
+    const window2 = getWindow();
+    const device = getDevice();
+    let needPerspectiveFix = false;
+    function isSafari() {
+      const ua = window2.navigator.userAgent.toLowerCase();
+      return ua.indexOf("safari") >= 0 && ua.indexOf("chrome") < 0 && ua.indexOf("android") < 0;
+    }
+    if (isSafari()) {
+      const ua = String(window2.navigator.userAgent);
+      if (ua.includes("Version/")) {
+        const [major, minor] = ua.split("Version/")[1].split(" ")[0].split(".").map((num) => Number(num));
+        needPerspectiveFix = major < 16 || major === 16 && minor < 2;
+      }
+    }
+    const isWebView = /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(window2.navigator.userAgent);
+    const isSafariBrowser = isSafari();
+    const need3dFix = isSafariBrowser || isWebView && device.ios;
+    return {
+      isSafari: needPerspectiveFix || isSafariBrowser,
+      needPerspectiveFix,
+      need3dFix,
+      isWebView
+    };
+  }
+  function getBrowser() {
+    if (!browser) {
+      browser = calcBrowser();
+    }
+    return browser;
+  }
+  function Resize({
+    swiper,
+    on,
+    emit
+  }) {
+    const window2 = getWindow();
+    let observer = null;
+    let animationFrame = null;
+    const resizeHandler = () => {
+      if (!swiper || swiper.destroyed || !swiper.initialized) return;
+      emit("beforeResize");
+      emit("resize");
+    };
+    const createObserver = () => {
+      if (!swiper || swiper.destroyed || !swiper.initialized) return;
+      observer = new ResizeObserver((entries) => {
+        animationFrame = window2.requestAnimationFrame(() => {
+          const {
+            width,
+            height
+          } = swiper;
+          let newWidth = width;
+          let newHeight = height;
+          entries.forEach(({
+            contentBoxSize,
+            contentRect,
+            target
+          }) => {
+            if (target && target !== swiper.el) return;
+            newWidth = contentRect ? contentRect.width : (contentBoxSize[0] || contentBoxSize).inlineSize;
+            newHeight = contentRect ? contentRect.height : (contentBoxSize[0] || contentBoxSize).blockSize;
+          });
+          if (newWidth !== width || newHeight !== height) {
+            resizeHandler();
+          }
+        });
+      });
+      observer.observe(swiper.el);
+    };
+    const removeObserver = () => {
+      if (animationFrame) {
+        window2.cancelAnimationFrame(animationFrame);
+      }
+      if (observer && observer.unobserve && swiper.el) {
+        observer.unobserve(swiper.el);
+        observer = null;
+      }
+    };
+    const orientationChangeHandler = () => {
+      if (!swiper || swiper.destroyed || !swiper.initialized) return;
+      emit("orientationchange");
+    };
+    on("init", () => {
+      if (swiper.params.resizeObserver && typeof window2.ResizeObserver !== "undefined") {
+        createObserver();
+        return;
+      }
+      window2.addEventListener("resize", resizeHandler);
+      window2.addEventListener("orientationchange", orientationChangeHandler);
+    });
+    on("destroy", () => {
+      removeObserver();
+      window2.removeEventListener("resize", resizeHandler);
+      window2.removeEventListener("orientationchange", orientationChangeHandler);
+    });
+  }
+  function Observer({
+    swiper,
+    extendParams,
+    on,
+    emit
+  }) {
+    const observers = [];
+    const window2 = getWindow();
+    const attach = (target, options = {}) => {
+      const ObserverFunc = window2.MutationObserver || window2.WebkitMutationObserver;
+      const observer = new ObserverFunc((mutations) => {
+        if (swiper.__preventObserver__) return;
+        if (mutations.length === 1) {
+          emit("observerUpdate", mutations[0]);
+          return;
+        }
+        const observerUpdate = function observerUpdate2() {
+          emit("observerUpdate", mutations[0]);
+        };
+        if (window2.requestAnimationFrame) {
+          window2.requestAnimationFrame(observerUpdate);
+        } else {
+          window2.setTimeout(observerUpdate, 0);
+        }
+      });
+      observer.observe(target, {
+        attributes: typeof options.attributes === "undefined" ? true : options.attributes,
+        childList: swiper.isElement || (typeof options.childList === "undefined" ? true : options).childList,
+        characterData: typeof options.characterData === "undefined" ? true : options.characterData
+      });
+      observers.push(observer);
+    };
+    const init = () => {
+      if (!swiper.params.observer) return;
+      if (swiper.params.observeParents) {
+        const containerParents = elementParents(swiper.hostEl);
+        for (let i = 0; i < containerParents.length; i += 1) {
+          attach(containerParents[i]);
+        }
+      }
+      attach(swiper.hostEl, {
+        childList: swiper.params.observeSlideChildren
+      });
+      attach(swiper.wrapperEl, {
+        attributes: false
+      });
+    };
+    const destroy = () => {
+      observers.forEach((observer) => {
+        observer.disconnect();
+      });
+      observers.splice(0, observers.length);
+    };
+    extendParams({
+      observer: false,
+      observeParents: false,
+      observeSlideChildren: false
+    });
+    on("init", init);
+    on("destroy", destroy);
+  }
+  var eventsEmitter = {
+    on(events2, handler, priority) {
+      const self = this;
+      if (!self.eventsListeners || self.destroyed) return self;
+      if (typeof handler !== "function") return self;
+      const method = priority ? "unshift" : "push";
+      events2.split(" ").forEach((event2) => {
+        if (!self.eventsListeners[event2]) self.eventsListeners[event2] = [];
+        self.eventsListeners[event2][method](handler);
+      });
+      return self;
+    },
+    once(events2, handler, priority) {
+      const self = this;
+      if (!self.eventsListeners || self.destroyed) return self;
+      if (typeof handler !== "function") return self;
+      function onceHandler(...args) {
+        self.off(events2, onceHandler);
+        if (onceHandler.__emitterProxy) {
+          delete onceHandler.__emitterProxy;
+        }
+        handler.apply(self, args);
+      }
+      onceHandler.__emitterProxy = handler;
+      return self.on(events2, onceHandler, priority);
+    },
+    onAny(handler, priority) {
+      const self = this;
+      if (!self.eventsListeners || self.destroyed) return self;
+      if (typeof handler !== "function") return self;
+      const method = priority ? "unshift" : "push";
+      if (self.eventsAnyListeners.indexOf(handler) < 0) {
+        self.eventsAnyListeners[method](handler);
+      }
+      return self;
+    },
+    offAny(handler) {
+      const self = this;
+      if (!self.eventsListeners || self.destroyed) return self;
+      if (!self.eventsAnyListeners) return self;
+      const index = self.eventsAnyListeners.indexOf(handler);
+      if (index >= 0) {
+        self.eventsAnyListeners.splice(index, 1);
+      }
+      return self;
+    },
+    off(events2, handler) {
+      const self = this;
+      if (!self.eventsListeners || self.destroyed) return self;
+      if (!self.eventsListeners) return self;
+      events2.split(" ").forEach((event2) => {
+        if (typeof handler === "undefined") {
+          self.eventsListeners[event2] = [];
+        } else if (self.eventsListeners[event2]) {
+          self.eventsListeners[event2].forEach((eventHandler, index) => {
+            if (eventHandler === handler || eventHandler.__emitterProxy && eventHandler.__emitterProxy === handler) {
+              self.eventsListeners[event2].splice(index, 1);
+            }
+          });
+        }
+      });
+      return self;
+    },
+    emit(...args) {
+      const self = this;
+      if (!self.eventsListeners || self.destroyed) return self;
+      if (!self.eventsListeners) return self;
+      let events2;
+      let data;
+      let context;
+      if (typeof args[0] === "string" || Array.isArray(args[0])) {
+        events2 = args[0];
+        data = args.slice(1, args.length);
+        context = self;
+      } else {
+        events2 = args[0].events;
+        data = args[0].data;
+        context = args[0].context || self;
+      }
+      data.unshift(context);
+      const eventsArray = Array.isArray(events2) ? events2 : events2.split(" ");
+      eventsArray.forEach((event2) => {
+        if (self.eventsAnyListeners && self.eventsAnyListeners.length) {
+          self.eventsAnyListeners.forEach((eventHandler) => {
+            eventHandler.apply(context, [event2, ...data]);
+          });
+        }
+        if (self.eventsListeners && self.eventsListeners[event2]) {
+          self.eventsListeners[event2].forEach((eventHandler) => {
+            eventHandler.apply(context, data);
+          });
+        }
+      });
+      return self;
+    }
+  };
+  function updateSize() {
+    const swiper = this;
+    let width;
+    let height;
+    const el = swiper.el;
+    if (typeof swiper.params.width !== "undefined" && swiper.params.width !== null) {
+      width = swiper.params.width;
+    } else {
+      width = el.clientWidth;
+    }
+    if (typeof swiper.params.height !== "undefined" && swiper.params.height !== null) {
+      height = swiper.params.height;
+    } else {
+      height = el.clientHeight;
+    }
+    if (width === 0 && swiper.isHorizontal() || height === 0 && swiper.isVertical()) {
+      return;
+    }
+    width = width - parseInt(elementStyle(el, "padding-left") || 0, 10) - parseInt(elementStyle(el, "padding-right") || 0, 10);
+    height = height - parseInt(elementStyle(el, "padding-top") || 0, 10) - parseInt(elementStyle(el, "padding-bottom") || 0, 10);
+    if (Number.isNaN(width)) width = 0;
+    if (Number.isNaN(height)) height = 0;
+    Object.assign(swiper, {
+      width,
+      height,
+      size: swiper.isHorizontal() ? width : height
+    });
+  }
+  function updateSlides() {
+    const swiper = this;
+    function getDirectionPropertyValue(node, label) {
+      return parseFloat(node.getPropertyValue(swiper.getDirectionLabel(label)) || 0);
+    }
+    const params = swiper.params;
+    const {
+      wrapperEl,
+      slidesEl,
+      rtlTranslate: rtl,
+      wrongRTL
+    } = swiper;
+    const isVirtual = swiper.virtual && params.virtual.enabled;
+    const previousSlidesLength = isVirtual ? swiper.virtual.slides.length : swiper.slides.length;
+    const slides = elementChildren(slidesEl, `.${swiper.params.slideClass}, swiper-slide`);
+    const slidesLength = isVirtual ? swiper.virtual.slides.length : slides.length;
+    let snapGrid = [];
+    const slidesGrid = [];
+    const slidesSizesGrid = [];
+    let offsetBefore = params.slidesOffsetBefore;
+    if (typeof offsetBefore === "function") {
+      offsetBefore = params.slidesOffsetBefore.call(swiper);
+    }
+    let offsetAfter = params.slidesOffsetAfter;
+    if (typeof offsetAfter === "function") {
+      offsetAfter = params.slidesOffsetAfter.call(swiper);
+    }
+    const previousSnapGridLength = swiper.snapGrid.length;
+    const previousSlidesGridLength = swiper.slidesGrid.length;
+    const swiperSize = swiper.size - offsetBefore - offsetAfter;
+    let spaceBetween = params.spaceBetween;
+    let slidePosition = -offsetBefore;
+    let prevSlideSize = 0;
+    let index = 0;
+    if (typeof swiperSize === "undefined") {
+      return;
+    }
+    if (typeof spaceBetween === "string" && spaceBetween.indexOf("%") >= 0) {
+      spaceBetween = parseFloat(spaceBetween.replace("%", "")) / 100 * swiperSize;
+    } else if (typeof spaceBetween === "string") {
+      spaceBetween = parseFloat(spaceBetween);
+    }
+    swiper.virtualSize = -spaceBetween - offsetBefore - offsetAfter;
+    slides.forEach((slideEl) => {
+      if (rtl) {
+        slideEl.style.marginLeft = "";
+      } else {
+        slideEl.style.marginRight = "";
+      }
+      slideEl.style.marginBottom = "";
+      slideEl.style.marginTop = "";
+    });
+    if (params.centeredSlides && params.cssMode) {
+      setCSSProperty(wrapperEl, "--swiper-centered-offset-before", "");
+      setCSSProperty(wrapperEl, "--swiper-centered-offset-after", "");
+    }
+    if (params.cssMode) {
+      setCSSProperty(wrapperEl, "--swiper-slides-offset-before", `${offsetBefore}px`);
+      setCSSProperty(wrapperEl, "--swiper-slides-offset-after", `${offsetAfter}px`);
+    }
+    const gridEnabled = params.grid && params.grid.rows > 1 && swiper.grid;
+    if (gridEnabled) {
+      swiper.grid.initSlides(slides);
+    } else if (swiper.grid) {
+      swiper.grid.unsetSlides();
+    }
+    let slideSize;
+    const shouldResetSlideSize = params.slidesPerView === "auto" && params.breakpoints && Object.keys(params.breakpoints).filter((key) => {
+      return typeof params.breakpoints[key].slidesPerView !== "undefined";
+    }).length > 0;
+    for (let i = 0; i < slidesLength; i += 1) {
+      slideSize = 0;
+      const slide2 = slides[i];
+      if (slide2) {
+        if (gridEnabled) {
+          swiper.grid.updateSlide(i, slide2, slides);
+        }
+        if (elementStyle(slide2, "display") === "none") continue;
+      }
+      if (isVirtual && params.slidesPerView === "auto") {
+        if (params.virtual.slidesPerViewAutoSlideSize) {
+          slideSize = params.virtual.slidesPerViewAutoSlideSize;
+        }
+        if (slideSize && slide2) {
+          if (params.roundLengths) slideSize = Math.floor(slideSize);
+          slide2.style[swiper.getDirectionLabel("width")] = `${slideSize}px`;
+        }
+      } else if (params.slidesPerView === "auto") {
+        if (shouldResetSlideSize) {
+          slide2.style[swiper.getDirectionLabel("width")] = ``;
+        }
+        const slideStyles = getComputedStyle(slide2);
+        const currentTransform = slide2.style.transform;
+        const currentWebKitTransform = slide2.style.webkitTransform;
+        if (currentTransform) {
+          slide2.style.transform = "none";
+        }
+        if (currentWebKitTransform) {
+          slide2.style.webkitTransform = "none";
+        }
+        if (params.roundLengths) {
+          slideSize = swiper.isHorizontal() ? elementOuterSize(slide2, "width", true) : elementOuterSize(slide2, "height", true);
+        } else {
+          const width = getDirectionPropertyValue(slideStyles, "width");
+          const paddingLeft = getDirectionPropertyValue(slideStyles, "padding-left");
+          const paddingRight = getDirectionPropertyValue(slideStyles, "padding-right");
+          const marginLeft = getDirectionPropertyValue(slideStyles, "margin-left");
+          const marginRight = getDirectionPropertyValue(slideStyles, "margin-right");
+          const boxSizing = slideStyles.getPropertyValue("box-sizing");
+          if (boxSizing && boxSizing === "border-box") {
+            slideSize = width + marginLeft + marginRight;
+          } else {
+            const {
+              clientWidth,
+              offsetWidth
+            } = slide2;
+            slideSize = width + paddingLeft + paddingRight + marginLeft + marginRight + (offsetWidth - clientWidth);
+          }
+        }
+        if (currentTransform) {
+          slide2.style.transform = currentTransform;
+        }
+        if (currentWebKitTransform) {
+          slide2.style.webkitTransform = currentWebKitTransform;
+        }
+        if (params.roundLengths) slideSize = Math.floor(slideSize);
+      } else {
+        slideSize = (swiperSize - (params.slidesPerView - 1) * spaceBetween) / params.slidesPerView;
+        if (params.roundLengths) slideSize = Math.floor(slideSize);
+        if (slide2) {
+          slide2.style[swiper.getDirectionLabel("width")] = `${slideSize}px`;
+        }
+      }
+      if (slide2) {
+        slide2.swiperSlideSize = slideSize;
+      }
+      slidesSizesGrid.push(slideSize);
+      if (params.centeredSlides) {
+        slidePosition = slidePosition + slideSize / 2 + prevSlideSize / 2 + spaceBetween;
+        if (prevSlideSize === 0 && i !== 0) slidePosition = slidePosition - swiperSize / 2 - spaceBetween;
+        if (i === 0) slidePosition = slidePosition - swiperSize / 2 - spaceBetween;
+        if (Math.abs(slidePosition) < 1 / 1e3) slidePosition = 0;
+        if (params.roundLengths) slidePosition = Math.floor(slidePosition);
+        if (index % params.slidesPerGroup === 0) snapGrid.push(slidePosition);
+        slidesGrid.push(slidePosition);
+      } else {
+        if (params.roundLengths) slidePosition = Math.floor(slidePosition);
+        if ((index - Math.min(swiper.params.slidesPerGroupSkip, index)) % swiper.params.slidesPerGroup === 0) snapGrid.push(slidePosition);
+        slidesGrid.push(slidePosition);
+        slidePosition = slidePosition + slideSize + spaceBetween;
+      }
+      swiper.virtualSize += slideSize + spaceBetween;
+      prevSlideSize = slideSize;
+      index += 1;
+    }
+    swiper.virtualSize = Math.max(swiper.virtualSize, swiperSize) + offsetAfter;
+    if (rtl && wrongRTL && (params.effect === "slide" || params.effect === "coverflow")) {
+      wrapperEl.style.width = `${swiper.virtualSize + spaceBetween}px`;
+    }
+    if (params.setWrapperSize) {
+      wrapperEl.style[swiper.getDirectionLabel("width")] = `${swiper.virtualSize + spaceBetween}px`;
+    }
+    if (gridEnabled) {
+      swiper.grid.updateWrapperSize(slideSize, snapGrid);
+    }
+    if (!params.centeredSlides) {
+      const isFractionalSlidesPerView = params.slidesPerView !== "auto" && params.slidesPerView % 1 !== 0;
+      const shouldSnapToSlideEdge = params.snapToSlideEdge && !params.loop && (params.slidesPerView === "auto" || isFractionalSlidesPerView);
+      let lastAllowedSnapIndex = snapGrid.length;
+      if (shouldSnapToSlideEdge) {
+        let minVisibleSlides;
+        if (params.slidesPerView === "auto") {
+          minVisibleSlides = 1;
+          let accumulatedSize = 0;
+          for (let i = slidesSizesGrid.length - 1; i >= 0; i -= 1) {
+            accumulatedSize += slidesSizesGrid[i] + (i < slidesSizesGrid.length - 1 ? spaceBetween : 0);
+            if (accumulatedSize <= swiperSize) {
+              minVisibleSlides = slidesSizesGrid.length - i;
+            } else {
+              break;
+            }
+          }
+        } else {
+          minVisibleSlides = Math.floor(params.slidesPerView);
+        }
+        lastAllowedSnapIndex = Math.max(slidesLength - minVisibleSlides, 0);
+      }
+      const newSlidesGrid = [];
+      for (let i = 0; i < snapGrid.length; i += 1) {
+        let slidesGridItem = snapGrid[i];
+        if (params.roundLengths) slidesGridItem = Math.floor(slidesGridItem);
+        if (shouldSnapToSlideEdge) {
+          if (i <= lastAllowedSnapIndex) {
+            newSlidesGrid.push(slidesGridItem);
+          }
+        } else if (snapGrid[i] <= swiper.virtualSize - swiperSize) {
+          newSlidesGrid.push(slidesGridItem);
+        }
+      }
+      snapGrid = newSlidesGrid;
+      if (Math.floor(swiper.virtualSize - swiperSize) - Math.floor(snapGrid[snapGrid.length - 1]) > 1) {
+        if (!shouldSnapToSlideEdge) {
+          snapGrid.push(swiper.virtualSize - swiperSize);
+        }
+      }
+    }
+    if (isVirtual && params.loop) {
+      const size = slidesSizesGrid[0] + spaceBetween;
+      if (params.slidesPerGroup > 1) {
+        const groups = Math.ceil((swiper.virtual.slidesBefore + swiper.virtual.slidesAfter) / params.slidesPerGroup);
+        const groupSize = size * params.slidesPerGroup;
+        for (let i = 0; i < groups; i += 1) {
+          snapGrid.push(snapGrid[snapGrid.length - 1] + groupSize);
+        }
+      }
+      for (let i = 0; i < swiper.virtual.slidesBefore + swiper.virtual.slidesAfter; i += 1) {
+        if (params.slidesPerGroup === 1) {
+          snapGrid.push(snapGrid[snapGrid.length - 1] + size);
+        }
+        slidesGrid.push(slidesGrid[slidesGrid.length - 1] + size);
+        swiper.virtualSize += size;
+      }
+    }
+    if (snapGrid.length === 0) snapGrid = [0];
+    if (spaceBetween !== 0) {
+      const key = swiper.isHorizontal() && rtl ? "marginLeft" : swiper.getDirectionLabel("marginRight");
+      slides.filter((_, slideIndex) => {
+        if (!params.cssMode || params.loop) return true;
+        if (slideIndex === slides.length - 1) {
+          return false;
+        }
+        return true;
+      }).forEach((slideEl) => {
+        slideEl.style[key] = `${spaceBetween}px`;
+      });
+    }
+    if (params.centeredSlides && params.centeredSlidesBounds) {
+      let allSlidesSize = 0;
+      slidesSizesGrid.forEach((slideSizeValue) => {
+        allSlidesSize += slideSizeValue + (spaceBetween || 0);
+      });
+      allSlidesSize -= spaceBetween;
+      const maxSnap = allSlidesSize > swiperSize ? allSlidesSize - swiperSize : 0;
+      snapGrid = snapGrid.map((snap) => {
+        if (snap <= 0) return -offsetBefore;
+        if (snap > maxSnap) return maxSnap + offsetAfter;
+        return snap;
+      });
+    }
+    if (params.centerInsufficientSlides) {
+      let allSlidesSize = 0;
+      slidesSizesGrid.forEach((slideSizeValue) => {
+        allSlidesSize += slideSizeValue + (spaceBetween || 0);
+      });
+      allSlidesSize -= spaceBetween;
+      if (allSlidesSize < swiperSize) {
+        const allSlidesOffset = (swiperSize - allSlidesSize) / 2;
+        snapGrid.forEach((snap, snapIndex) => {
+          snapGrid[snapIndex] = snap - allSlidesOffset;
+        });
+        slidesGrid.forEach((snap, snapIndex) => {
+          slidesGrid[snapIndex] = snap + allSlidesOffset;
+        });
+      }
+    }
+    Object.assign(swiper, {
+      slides,
+      snapGrid,
+      slidesGrid,
+      slidesSizesGrid
+    });
+    if (params.centeredSlides && params.cssMode && !params.centeredSlidesBounds) {
+      setCSSProperty(wrapperEl, "--swiper-centered-offset-before", `${-snapGrid[0]}px`);
+      setCSSProperty(wrapperEl, "--swiper-centered-offset-after", `${swiper.size / 2 - slidesSizesGrid[slidesSizesGrid.length - 1] / 2}px`);
+      const addToSnapGrid = -swiper.snapGrid[0];
+      const addToSlidesGrid = -swiper.slidesGrid[0];
+      swiper.snapGrid = swiper.snapGrid.map((v) => v + addToSnapGrid);
+      swiper.slidesGrid = swiper.slidesGrid.map((v) => v + addToSlidesGrid);
+    }
+    if (slidesLength !== previousSlidesLength) {
+      swiper.emit("slidesLengthChange");
+    }
+    if (snapGrid.length !== previousSnapGridLength) {
+      if (swiper.params.watchOverflow) swiper.checkOverflow();
+      swiper.emit("snapGridLengthChange");
+    }
+    if (slidesGrid.length !== previousSlidesGridLength) {
+      swiper.emit("slidesGridLengthChange");
+    }
+    if (params.watchSlidesProgress) {
+      swiper.updateSlidesOffset();
+    }
+    swiper.emit("slidesUpdated");
+    if (!isVirtual && !params.cssMode && (params.effect === "slide" || params.effect === "fade")) {
+      const backFaceHiddenClass = `${params.containerModifierClass}backface-hidden`;
+      const hasClassBackfaceClassAdded = swiper.el.classList.contains(backFaceHiddenClass);
+      if (slidesLength <= params.maxBackfaceHiddenSlides) {
+        if (!hasClassBackfaceClassAdded) swiper.el.classList.add(backFaceHiddenClass);
+      } else if (hasClassBackfaceClassAdded) {
+        swiper.el.classList.remove(backFaceHiddenClass);
+      }
+    }
+  }
+  function updateAutoHeight(speed) {
+    const swiper = this;
+    const activeSlides = [];
+    const isVirtual = swiper.virtual && swiper.params.virtual.enabled;
+    let newHeight = 0;
+    let i;
+    if (typeof speed === "number") {
+      swiper.setTransition(speed);
+    } else if (speed === true) {
+      swiper.setTransition(swiper.params.speed);
+    }
+    const getSlideByIndex = (index) => {
+      if (isVirtual) {
+        return swiper.slides[swiper.getSlideIndexByData(index)];
+      }
+      return swiper.slides[index];
+    };
+    if (swiper.params.slidesPerView !== "auto" && swiper.params.slidesPerView > 1) {
+      if (swiper.params.centeredSlides) {
+        (swiper.visibleSlides || []).forEach((slide2) => {
+          activeSlides.push(slide2);
+        });
+      } else {
+        for (i = 0; i < Math.ceil(swiper.params.slidesPerView); i += 1) {
+          const index = swiper.activeIndex + i;
+          if (index > swiper.slides.length && !isVirtual) break;
+          activeSlides.push(getSlideByIndex(index));
+        }
+      }
+    } else {
+      activeSlides.push(getSlideByIndex(swiper.activeIndex));
+    }
+    for (i = 0; i < activeSlides.length; i += 1) {
+      if (typeof activeSlides[i] !== "undefined") {
+        const height = activeSlides[i].offsetHeight;
+        newHeight = height > newHeight ? height : newHeight;
+      }
+    }
+    if (newHeight || newHeight === 0) swiper.wrapperEl.style.height = `${newHeight}px`;
+  }
+  function updateSlidesOffset() {
+    const swiper = this;
+    const slides = swiper.slides;
+    const minusOffset = swiper.isElement ? swiper.isHorizontal() ? swiper.wrapperEl.offsetLeft : swiper.wrapperEl.offsetTop : 0;
+    for (let i = 0; i < slides.length; i += 1) {
+      slides[i].swiperSlideOffset = (swiper.isHorizontal() ? slides[i].offsetLeft : slides[i].offsetTop) - minusOffset - swiper.cssOverflowAdjustment();
+    }
+  }
+  var toggleSlideClasses$1 = (slideEl, condition, className) => {
+    if (condition && !slideEl.classList.contains(className)) {
+      slideEl.classList.add(className);
+    } else if (!condition && slideEl.classList.contains(className)) {
+      slideEl.classList.remove(className);
+    }
+  };
+  function updateSlidesProgress(translate2 = this && this.translate || 0) {
+    const swiper = this;
+    const params = swiper.params;
+    const {
+      slides,
+      rtlTranslate: rtl,
+      snapGrid
+    } = swiper;
+    if (slides.length === 0) return;
+    if (typeof slides[0].swiperSlideOffset === "undefined") swiper.updateSlidesOffset();
+    let offsetCenter = -translate2;
+    if (rtl) offsetCenter = translate2;
+    swiper.visibleSlidesIndexes = [];
+    swiper.visibleSlides = [];
+    let spaceBetween = params.spaceBetween;
+    if (typeof spaceBetween === "string" && spaceBetween.indexOf("%") >= 0) {
+      spaceBetween = parseFloat(spaceBetween.replace("%", "")) / 100 * swiper.size;
+    } else if (typeof spaceBetween === "string") {
+      spaceBetween = parseFloat(spaceBetween);
+    }
+    for (let i = 0; i < slides.length; i += 1) {
+      const slide2 = slides[i];
+      let slideOffset = slide2.swiperSlideOffset;
+      if (params.cssMode && params.centeredSlides) {
+        slideOffset -= slides[0].swiperSlideOffset;
+      }
+      const slideProgress = (offsetCenter + (params.centeredSlides ? swiper.minTranslate() : 0) - slideOffset) / (slide2.swiperSlideSize + spaceBetween);
+      const originalSlideProgress = (offsetCenter - snapGrid[0] + (params.centeredSlides ? swiper.minTranslate() : 0) - slideOffset) / (slide2.swiperSlideSize + spaceBetween);
+      const slideBefore = -(offsetCenter - slideOffset);
+      const slideAfter = slideBefore + swiper.slidesSizesGrid[i];
+      const isFullyVisible = slideBefore >= 0 && slideBefore <= swiper.size - swiper.slidesSizesGrid[i];
+      const isVisible = slideBefore >= 0 && slideBefore < swiper.size - 1 || slideAfter > 1 && slideAfter <= swiper.size || slideBefore <= 0 && slideAfter >= swiper.size;
+      if (isVisible) {
+        swiper.visibleSlides.push(slide2);
+        swiper.visibleSlidesIndexes.push(i);
+      }
+      toggleSlideClasses$1(slide2, isVisible, params.slideVisibleClass);
+      toggleSlideClasses$1(slide2, isFullyVisible, params.slideFullyVisibleClass);
+      slide2.progress = rtl ? -slideProgress : slideProgress;
+      slide2.originalProgress = rtl ? -originalSlideProgress : originalSlideProgress;
+    }
+  }
+  function updateProgress(translate2) {
+    const swiper = this;
+    if (typeof translate2 === "undefined") {
+      const multiplier = swiper.rtlTranslate ? -1 : 1;
+      translate2 = swiper && swiper.translate && swiper.translate * multiplier || 0;
+    }
+    const params = swiper.params;
+    const translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
+    let {
+      progress,
+      isBeginning,
+      isEnd,
+      progressLoop
+    } = swiper;
+    const wasBeginning = isBeginning;
+    const wasEnd = isEnd;
+    if (translatesDiff === 0) {
+      progress = 0;
+      isBeginning = true;
+      isEnd = true;
+    } else {
+      progress = (translate2 - swiper.minTranslate()) / translatesDiff;
+      const isBeginningRounded = Math.abs(translate2 - swiper.minTranslate()) < 1;
+      const isEndRounded = Math.abs(translate2 - swiper.maxTranslate()) < 1;
+      isBeginning = isBeginningRounded || progress <= 0;
+      isEnd = isEndRounded || progress >= 1;
+      if (isBeginningRounded) progress = 0;
+      if (isEndRounded) progress = 1;
+    }
+    if (params.loop) {
+      const firstSlideIndex = swiper.getSlideIndexByData(0);
+      const lastSlideIndex = swiper.getSlideIndexByData(swiper.slides.length - 1);
+      const firstSlideTranslate = swiper.slidesGrid[firstSlideIndex];
+      const lastSlideTranslate = swiper.slidesGrid[lastSlideIndex];
+      const translateMax = swiper.slidesGrid[swiper.slidesGrid.length - 1];
+      const translateAbs = Math.abs(translate2);
+      if (translateAbs >= firstSlideTranslate) {
+        progressLoop = (translateAbs - firstSlideTranslate) / translateMax;
+      } else {
+        progressLoop = (translateAbs + translateMax - lastSlideTranslate) / translateMax;
+      }
+      if (progressLoop > 1) progressLoop -= 1;
+    }
+    Object.assign(swiper, {
+      progress,
+      progressLoop,
+      isBeginning,
+      isEnd
+    });
+    if (params.watchSlidesProgress || params.centeredSlides && params.autoHeight) swiper.updateSlidesProgress(translate2);
+    if (isBeginning && !wasBeginning) {
+      swiper.emit("reachBeginning toEdge");
+    }
+    if (isEnd && !wasEnd) {
+      swiper.emit("reachEnd toEdge");
+    }
+    if (wasBeginning && !isBeginning || wasEnd && !isEnd) {
+      swiper.emit("fromEdge");
+    }
+    swiper.emit("progress", progress);
+  }
+  var toggleSlideClasses = (slideEl, condition, className) => {
+    if (condition && !slideEl.classList.contains(className)) {
+      slideEl.classList.add(className);
+    } else if (!condition && slideEl.classList.contains(className)) {
+      slideEl.classList.remove(className);
+    }
+  };
+  function updateSlidesClasses() {
+    const swiper = this;
+    const {
+      slides,
+      params,
+      slidesEl,
+      activeIndex
+    } = swiper;
+    const isVirtual = swiper.virtual && params.virtual.enabled;
+    const gridEnabled = swiper.grid && params.grid && params.grid.rows > 1;
+    const getFilteredSlide = (selector) => {
+      return elementChildren(slidesEl, `.${params.slideClass}${selector}, swiper-slide${selector}`)[0];
+    };
+    let activeSlide;
+    let prevSlide;
+    let nextSlide;
+    if (isVirtual) {
+      if (params.loop) {
+        let slideIndex = activeIndex - swiper.virtual.slidesBefore;
+        if (slideIndex < 0) slideIndex = swiper.virtual.slides.length + slideIndex;
+        if (slideIndex >= swiper.virtual.slides.length) slideIndex -= swiper.virtual.slides.length;
+        activeSlide = getFilteredSlide(`[data-swiper-slide-index="${slideIndex}"]`);
+      } else {
+        activeSlide = getFilteredSlide(`[data-swiper-slide-index="${activeIndex}"]`);
+      }
+    } else {
+      if (gridEnabled) {
+        activeSlide = slides.find((slideEl) => slideEl.column === activeIndex);
+        nextSlide = slides.find((slideEl) => slideEl.column === activeIndex + 1);
+        prevSlide = slides.find((slideEl) => slideEl.column === activeIndex - 1);
+      } else {
+        activeSlide = slides[activeIndex];
+      }
+    }
+    if (activeSlide) {
+      if (!gridEnabled) {
+        nextSlide = elementNextAll(activeSlide, `.${params.slideClass}, swiper-slide`)[0];
+        if (params.loop && !nextSlide) {
+          nextSlide = slides[0];
+        }
+        prevSlide = elementPrevAll(activeSlide, `.${params.slideClass}, swiper-slide`)[0];
+        if (params.loop && !prevSlide === 0) {
+          prevSlide = slides[slides.length - 1];
+        }
+      }
+    }
+    slides.forEach((slideEl) => {
+      toggleSlideClasses(slideEl, slideEl === activeSlide, params.slideActiveClass);
+      toggleSlideClasses(slideEl, slideEl === nextSlide, params.slideNextClass);
+      toggleSlideClasses(slideEl, slideEl === prevSlide, params.slidePrevClass);
+    });
+    swiper.emitSlidesClasses();
+  }
+  var processLazyPreloader = (swiper, imageEl) => {
+    if (!swiper || swiper.destroyed || !swiper.params) return;
+    const slideSelector = () => swiper.isElement ? `swiper-slide` : `.${swiper.params.slideClass}`;
+    const slideEl = imageEl.closest(slideSelector());
+    if (slideEl) {
+      let lazyEl = slideEl.querySelector(`.${swiper.params.lazyPreloaderClass}`);
+      if (!lazyEl && swiper.isElement) {
+        if (slideEl.shadowRoot) {
+          lazyEl = slideEl.shadowRoot.querySelector(`.${swiper.params.lazyPreloaderClass}`);
+        } else {
+          requestAnimationFrame(() => {
+            if (slideEl.shadowRoot) {
+              lazyEl = slideEl.shadowRoot.querySelector(`.${swiper.params.lazyPreloaderClass}`);
+              if (lazyEl && !lazyEl.lazyPreloaderManaged) lazyEl.remove();
+            }
+          });
+        }
+      }
+      if (lazyEl && !lazyEl.lazyPreloaderManaged) lazyEl.remove();
+    }
+  };
+  var unlazy = (swiper, index) => {
+    if (!swiper.slides[index]) return;
+    const imageEl = swiper.slides[index].querySelector('[loading="lazy"]');
+    if (imageEl) imageEl.removeAttribute("loading");
+  };
+  var preload = (swiper) => {
+    if (!swiper || swiper.destroyed || !swiper.params) return;
+    let amount = swiper.params.lazyPreloadPrevNext;
+    const len = swiper.slides.length;
+    if (!len || !amount || amount < 0) return;
+    amount = Math.min(amount, len);
+    const slidesPerView = swiper.params.slidesPerView === "auto" ? swiper.slidesPerViewDynamic() : Math.ceil(swiper.params.slidesPerView);
+    const activeIndex = swiper.activeIndex;
+    if (swiper.params.grid && swiper.params.grid.rows > 1) {
+      const activeColumn = activeIndex;
+      const preloadColumns = [activeColumn - amount];
+      preloadColumns.push(...Array.from({
+        length: amount
+      }).map((_, i) => {
+        return activeColumn + slidesPerView + i;
+      }));
+      swiper.slides.forEach((slideEl, i) => {
+        if (preloadColumns.includes(slideEl.column)) unlazy(swiper, i);
+      });
+      return;
+    }
+    const slideIndexLastInView = activeIndex + slidesPerView - 1;
+    if (swiper.params.rewind || swiper.params.loop) {
+      for (let i = activeIndex - amount; i <= slideIndexLastInView + amount; i += 1) {
+        const realIndex = (i % len + len) % len;
+        if (realIndex < activeIndex || realIndex > slideIndexLastInView) unlazy(swiper, realIndex);
+      }
+    } else {
+      for (let i = Math.max(activeIndex - amount, 0); i <= Math.min(slideIndexLastInView + amount, len - 1); i += 1) {
+        if (i !== activeIndex && (i > slideIndexLastInView || i < activeIndex)) {
+          unlazy(swiper, i);
+        }
+      }
+    }
+  };
+  function getActiveIndexByTranslate(swiper) {
+    const {
+      slidesGrid,
+      params
+    } = swiper;
+    const translate2 = swiper.rtlTranslate ? swiper.translate : -swiper.translate;
+    let activeIndex;
+    for (let i = 0; i < slidesGrid.length; i += 1) {
+      if (typeof slidesGrid[i + 1] !== "undefined") {
+        if (translate2 >= slidesGrid[i] && translate2 < slidesGrid[i + 1] - (slidesGrid[i + 1] - slidesGrid[i]) / 2) {
+          activeIndex = i;
+        } else if (translate2 >= slidesGrid[i] && translate2 < slidesGrid[i + 1]) {
+          activeIndex = i + 1;
+        }
+      } else if (translate2 >= slidesGrid[i]) {
+        activeIndex = i;
+      }
+    }
+    if (params.normalizeSlideIndex) {
+      if (activeIndex < 0 || typeof activeIndex === "undefined") activeIndex = 0;
+    }
+    return activeIndex;
+  }
+  function updateActiveIndex(newActiveIndex) {
+    const swiper = this;
+    const translate2 = swiper.rtlTranslate ? swiper.translate : -swiper.translate;
+    const {
+      snapGrid,
+      params,
+      activeIndex: previousIndex,
+      realIndex: previousRealIndex,
+      snapIndex: previousSnapIndex
+    } = swiper;
+    let activeIndex = newActiveIndex;
+    let snapIndex;
+    const getVirtualRealIndex = (aIndex) => {
+      let realIndex2 = aIndex - swiper.virtual.slidesBefore;
+      if (realIndex2 < 0) {
+        realIndex2 = swiper.virtual.slides.length + realIndex2;
+      }
+      if (realIndex2 >= swiper.virtual.slides.length) {
+        realIndex2 -= swiper.virtual.slides.length;
+      }
+      return realIndex2;
+    };
+    if (typeof activeIndex === "undefined") {
+      activeIndex = getActiveIndexByTranslate(swiper);
+    }
+    if (snapGrid.indexOf(translate2) >= 0) {
+      snapIndex = snapGrid.indexOf(translate2);
+    } else {
+      const skip = Math.min(params.slidesPerGroupSkip, activeIndex);
+      snapIndex = skip + Math.floor((activeIndex - skip) / params.slidesPerGroup);
+    }
+    if (snapIndex >= snapGrid.length) snapIndex = snapGrid.length - 1;
+    if (activeIndex === previousIndex && !swiper.params.loop) {
+      if (snapIndex !== previousSnapIndex) {
+        swiper.snapIndex = snapIndex;
+        swiper.emit("snapIndexChange");
+      }
+      return;
+    }
+    if (activeIndex === previousIndex && swiper.params.loop && swiper.virtual && swiper.params.virtual.enabled) {
+      swiper.realIndex = getVirtualRealIndex(activeIndex);
+      return;
+    }
+    const gridEnabled = swiper.grid && params.grid && params.grid.rows > 1;
+    let realIndex;
+    if (swiper.virtual && params.virtual.enabled) {
+      if (params.loop) {
+        realIndex = getVirtualRealIndex(activeIndex);
+      } else {
+        realIndex = activeIndex;
+      }
+    } else if (gridEnabled) {
+      const firstSlideInColumn = swiper.slides.find((slideEl) => slideEl.column === activeIndex);
+      let activeSlideIndex = parseInt(firstSlideInColumn.getAttribute("data-swiper-slide-index"), 10);
+      if (Number.isNaN(activeSlideIndex)) {
+        activeSlideIndex = Math.max(swiper.slides.indexOf(firstSlideInColumn), 0);
+      }
+      realIndex = Math.floor(activeSlideIndex / params.grid.rows);
+    } else if (swiper.slides[activeIndex]) {
+      const slideIndex = swiper.slides[activeIndex].getAttribute("data-swiper-slide-index");
+      if (slideIndex) {
+        realIndex = parseInt(slideIndex, 10);
+      } else {
+        realIndex = activeIndex;
+      }
+    } else {
+      realIndex = activeIndex;
+    }
+    Object.assign(swiper, {
+      previousSnapIndex,
+      snapIndex,
+      previousRealIndex,
+      realIndex,
+      previousIndex,
+      activeIndex
+    });
+    if (swiper.initialized) {
+      preload(swiper);
+    }
+    swiper.emit("activeIndexChange");
+    swiper.emit("snapIndexChange");
+    if (swiper.initialized || swiper.params.runCallbacksOnInit) {
+      if (previousRealIndex !== realIndex) {
+        swiper.emit("realIndexChange");
+      }
+      swiper.emit("slideChange");
+    }
+  }
+  function updateClickedSlide(el, path) {
+    const swiper = this;
+    const params = swiper.params;
+    let slide2 = el.closest(`.${params.slideClass}, swiper-slide`);
+    if (!slide2 && swiper.isElement && path && path.length > 1 && path.includes(el)) {
+      [...path.slice(path.indexOf(el) + 1, path.length)].forEach((pathEl) => {
+        if (!slide2 && pathEl.matches && pathEl.matches(`.${params.slideClass}, swiper-slide`)) {
+          slide2 = pathEl;
+        }
+      });
+    }
+    let slideFound = false;
+    let slideIndex;
+    if (slide2) {
+      for (let i = 0; i < swiper.slides.length; i += 1) {
+        if (swiper.slides[i] === slide2) {
+          slideFound = true;
+          slideIndex = i;
+          break;
+        }
+      }
+    }
+    if (slide2 && slideFound) {
+      swiper.clickedSlide = slide2;
+      if (swiper.virtual && swiper.params.virtual.enabled) {
+        swiper.clickedIndex = parseInt(slide2.getAttribute("data-swiper-slide-index"), 10);
+      } else {
+        swiper.clickedIndex = slideIndex;
+      }
+    } else {
+      swiper.clickedSlide = void 0;
+      swiper.clickedIndex = void 0;
+      return;
+    }
+    if (params.slideToClickedSlide && swiper.clickedIndex !== void 0 && swiper.clickedIndex !== swiper.activeIndex) {
+      swiper.slideToClickedSlide();
+    }
+  }
+  var update = {
+    updateSize,
+    updateSlides,
+    updateAutoHeight,
+    updateSlidesOffset,
+    updateSlidesProgress,
+    updateProgress,
+    updateSlidesClasses,
+    updateActiveIndex,
+    updateClickedSlide
+  };
+  function getSwiperTranslate(axis = this.isHorizontal() ? "x" : "y") {
+    const swiper = this;
+    const {
+      params,
+      rtlTranslate: rtl,
+      translate: translate2,
+      wrapperEl
+    } = swiper;
+    if (params.virtualTranslate) {
+      return rtl ? -translate2 : translate2;
+    }
+    if (params.cssMode) {
+      return translate2;
+    }
+    let currentTranslate = getTranslate(wrapperEl, axis);
+    currentTranslate += swiper.cssOverflowAdjustment();
+    if (rtl) currentTranslate = -currentTranslate;
+    return currentTranslate || 0;
+  }
+  function setTranslate(translate2, byController) {
+    const swiper = this;
+    const {
+      rtlTranslate: rtl,
+      params,
+      wrapperEl,
+      progress
+    } = swiper;
+    let x = 0;
+    let y = 0;
+    const z = 0;
+    if (swiper.isHorizontal()) {
+      x = rtl ? -translate2 : translate2;
+    } else {
+      y = translate2;
+    }
+    if (params.roundLengths) {
+      x = Math.floor(x);
+      y = Math.floor(y);
+    }
+    swiper.previousTranslate = swiper.translate;
+    swiper.translate = swiper.isHorizontal() ? x : y;
+    if (params.cssMode) {
+      wrapperEl[swiper.isHorizontal() ? "scrollLeft" : "scrollTop"] = swiper.isHorizontal() ? -x : -y;
+    } else if (!params.virtualTranslate) {
+      if (swiper.isHorizontal()) {
+        x -= swiper.cssOverflowAdjustment();
+      } else {
+        y -= swiper.cssOverflowAdjustment();
+      }
+      wrapperEl.style.transform = `translate3d(${x}px, ${y}px, ${z}px)`;
+    }
+    let newProgress;
+    const translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
+    if (translatesDiff === 0) {
+      newProgress = 0;
+    } else {
+      newProgress = (translate2 - swiper.minTranslate()) / translatesDiff;
+    }
+    if (newProgress !== progress) {
+      swiper.updateProgress(translate2);
+    }
+    swiper.emit("setTranslate", swiper.translate, byController);
+  }
+  function minTranslate() {
+    return -this.snapGrid[0];
+  }
+  function maxTranslate() {
+    return -this.snapGrid[this.snapGrid.length - 1];
+  }
+  function translateTo(translate2 = 0, speed = this.params.speed, runCallbacks = true, translateBounds = true, internal) {
+    const swiper = this;
+    const {
+      params,
+      wrapperEl
+    } = swiper;
+    if (swiper.animating && params.preventInteractionOnTransition) {
+      return false;
+    }
+    const minTranslate2 = swiper.minTranslate();
+    const maxTranslate2 = swiper.maxTranslate();
+    let newTranslate;
+    if (translateBounds && translate2 > minTranslate2) newTranslate = minTranslate2;
+    else if (translateBounds && translate2 < maxTranslate2) newTranslate = maxTranslate2;
+    else newTranslate = translate2;
+    swiper.updateProgress(newTranslate);
+    if (params.cssMode) {
+      const isH = swiper.isHorizontal();
+      if (speed === 0) {
+        wrapperEl[isH ? "scrollLeft" : "scrollTop"] = -newTranslate;
+      } else {
+        if (!swiper.support.smoothScroll) {
+          animateCSSModeScroll({
+            swiper,
+            targetPosition: -newTranslate,
+            side: isH ? "left" : "top"
+          });
+          return true;
+        }
+        wrapperEl.scrollTo({
+          [isH ? "left" : "top"]: -newTranslate,
+          behavior: "smooth"
+        });
+      }
+      return true;
+    }
+    if (speed === 0) {
+      swiper.setTransition(0);
+      swiper.setTranslate(newTranslate);
+      if (runCallbacks) {
+        swiper.emit("beforeTransitionStart", speed, internal);
+        swiper.emit("transitionEnd");
+      }
+    } else {
+      swiper.setTransition(speed);
+      swiper.setTranslate(newTranslate);
+      if (runCallbacks) {
+        swiper.emit("beforeTransitionStart", speed, internal);
+        swiper.emit("transitionStart");
+      }
+      if (!swiper.animating) {
+        swiper.animating = true;
+        if (!swiper.onTranslateToWrapperTransitionEnd) {
+          swiper.onTranslateToWrapperTransitionEnd = function transitionEnd2(e) {
+            if (!swiper || swiper.destroyed) return;
+            if (e.target !== this) return;
+            swiper.wrapperEl.removeEventListener("transitionend", swiper.onTranslateToWrapperTransitionEnd);
+            swiper.onTranslateToWrapperTransitionEnd = null;
+            delete swiper.onTranslateToWrapperTransitionEnd;
+            swiper.animating = false;
+            if (runCallbacks) {
+              swiper.emit("transitionEnd");
+            }
+          };
+        }
+        swiper.wrapperEl.addEventListener("transitionend", swiper.onTranslateToWrapperTransitionEnd);
+      }
+    }
+    return true;
+  }
+  var translate = {
+    getTranslate: getSwiperTranslate,
+    setTranslate,
+    minTranslate,
+    maxTranslate,
+    translateTo
+  };
+  function setTransition(duration, byController) {
+    const swiper = this;
+    if (!swiper.params.cssMode) {
+      swiper.wrapperEl.style.transitionDuration = `${duration}ms`;
+      swiper.wrapperEl.style.transitionDelay = duration === 0 ? `0ms` : "";
+    }
+    swiper.emit("setTransition", duration, byController);
+  }
+  function transitionEmit({
+    swiper,
+    runCallbacks,
+    direction,
+    step
+  }) {
+    const {
+      activeIndex,
+      previousIndex
+    } = swiper;
+    let dir = direction;
+    if (!dir) {
+      if (activeIndex > previousIndex) dir = "next";
+      else if (activeIndex < previousIndex) dir = "prev";
+      else dir = "reset";
+    }
+    swiper.emit(`transition${step}`);
+    if (runCallbacks && dir === "reset") {
+      swiper.emit(`slideResetTransition${step}`);
+    } else if (runCallbacks && activeIndex !== previousIndex) {
+      swiper.emit(`slideChangeTransition${step}`);
+      if (dir === "next") {
+        swiper.emit(`slideNextTransition${step}`);
+      } else {
+        swiper.emit(`slidePrevTransition${step}`);
+      }
+    }
+  }
+  function transitionStart(runCallbacks = true, direction) {
+    const swiper = this;
+    const {
+      params
+    } = swiper;
+    if (params.cssMode) return;
+    if (params.autoHeight) {
+      swiper.updateAutoHeight();
+    }
+    transitionEmit({
+      swiper,
+      runCallbacks,
+      direction,
+      step: "Start"
+    });
+  }
+  function transitionEnd(runCallbacks = true, direction) {
+    const swiper = this;
+    const {
+      params
+    } = swiper;
+    swiper.animating = false;
+    if (params.cssMode) return;
+    swiper.setTransition(0);
+    transitionEmit({
+      swiper,
+      runCallbacks,
+      direction,
+      step: "End"
+    });
+  }
+  var transition = {
+    setTransition,
+    transitionStart,
+    transitionEnd
+  };
+  function slideTo(index = 0, speed, runCallbacks = true, internal, initial) {
+    if (typeof index === "string") {
+      index = parseInt(index, 10);
+    }
+    const swiper = this;
+    let slideIndex = index;
+    if (slideIndex < 0) slideIndex = 0;
+    const {
+      params,
+      snapGrid,
+      slidesGrid,
+      previousIndex,
+      activeIndex,
+      rtlTranslate: rtl,
+      wrapperEl,
+      enabled
+    } = swiper;
+    if (!enabled && !internal && !initial || swiper.destroyed || swiper.animating && params.preventInteractionOnTransition) {
+      return false;
+    }
+    if (typeof speed === "undefined") {
+      speed = swiper.params.speed;
+    }
+    const skip = Math.min(swiper.params.slidesPerGroupSkip, slideIndex);
+    let snapIndex = skip + Math.floor((slideIndex - skip) / swiper.params.slidesPerGroup);
+    if (snapIndex >= snapGrid.length) snapIndex = snapGrid.length - 1;
+    const translate2 = -snapGrid[snapIndex];
+    if (params.normalizeSlideIndex) {
+      for (let i = 0; i < slidesGrid.length; i += 1) {
+        const normalizedTranslate = -Math.floor(translate2 * 100);
+        const normalizedGrid = Math.floor(slidesGrid[i] * 100);
+        const normalizedGridNext = Math.floor(slidesGrid[i + 1] * 100);
+        if (typeof slidesGrid[i + 1] !== "undefined") {
+          if (normalizedTranslate >= normalizedGrid && normalizedTranslate < normalizedGridNext - (normalizedGridNext - normalizedGrid) / 2) {
+            slideIndex = i;
+          } else if (normalizedTranslate >= normalizedGrid && normalizedTranslate < normalizedGridNext) {
+            slideIndex = i + 1;
+          }
+        } else if (normalizedTranslate >= normalizedGrid) {
+          slideIndex = i;
+        }
+      }
+    }
+    if (swiper.initialized && slideIndex !== activeIndex) {
+      if (!swiper.allowSlideNext && (rtl ? translate2 > swiper.translate && translate2 > swiper.minTranslate() : translate2 < swiper.translate && translate2 < swiper.minTranslate())) {
+        return false;
+      }
+      if (!swiper.allowSlidePrev && translate2 > swiper.translate && translate2 > swiper.maxTranslate()) {
+        if ((activeIndex || 0) !== slideIndex) {
+          return false;
+        }
+      }
+    }
+    if (slideIndex !== (previousIndex || 0) && runCallbacks) {
+      swiper.emit("beforeSlideChangeStart");
+    }
+    swiper.updateProgress(translate2);
+    let direction;
+    if (slideIndex > activeIndex) direction = "next";
+    else if (slideIndex < activeIndex) direction = "prev";
+    else direction = "reset";
+    const isVirtual = swiper.virtual && swiper.params.virtual.enabled;
+    const isInitialVirtual = isVirtual && initial;
+    if (!isInitialVirtual && (rtl && -translate2 === swiper.translate || !rtl && translate2 === swiper.translate)) {
+      swiper.updateActiveIndex(slideIndex);
+      if (params.autoHeight) {
+        swiper.updateAutoHeight();
+      }
+      swiper.updateSlidesClasses();
+      if (params.effect !== "slide") {
+        swiper.setTranslate(translate2);
+      }
+      if (direction !== "reset") {
+        swiper.transitionStart(runCallbacks, direction);
+        swiper.transitionEnd(runCallbacks, direction);
+      }
+      return false;
+    }
+    if (params.cssMode) {
+      const isH = swiper.isHorizontal();
+      const t = rtl ? translate2 : -translate2;
+      if (speed === 0) {
+        if (isVirtual) {
+          swiper.wrapperEl.style.scrollSnapType = "none";
+          swiper._immediateVirtual = true;
+        }
+        if (isVirtual && !swiper._cssModeVirtualInitialSet && swiper.params.initialSlide > 0) {
+          swiper._cssModeVirtualInitialSet = true;
+          requestAnimationFrame(() => {
+            wrapperEl[isH ? "scrollLeft" : "scrollTop"] = t;
+          });
+        } else {
+          wrapperEl[isH ? "scrollLeft" : "scrollTop"] = t;
+        }
+        if (isVirtual) {
+          requestAnimationFrame(() => {
+            swiper.wrapperEl.style.scrollSnapType = "";
+            swiper._immediateVirtual = false;
+          });
+        }
+      } else {
+        if (!swiper.support.smoothScroll) {
+          animateCSSModeScroll({
+            swiper,
+            targetPosition: t,
+            side: isH ? "left" : "top"
+          });
+          return true;
+        }
+        wrapperEl.scrollTo({
+          [isH ? "left" : "top"]: t,
+          behavior: "smooth"
+        });
+      }
+      return true;
+    }
+    const browser2 = getBrowser();
+    const isSafari = browser2.isSafari;
+    if (isVirtual && !initial && isSafari && swiper.isElement) {
+      swiper.virtual.update(false, false, slideIndex);
+    }
+    swiper.setTransition(speed);
+    swiper.setTranslate(translate2);
+    swiper.updateActiveIndex(slideIndex);
+    swiper.updateSlidesClasses();
+    swiper.emit("beforeTransitionStart", speed, internal);
+    swiper.transitionStart(runCallbacks, direction);
+    if (speed === 0) {
+      swiper.transitionEnd(runCallbacks, direction);
+    } else if (!swiper.animating) {
+      swiper.animating = true;
+      if (!swiper.onSlideToWrapperTransitionEnd) {
+        swiper.onSlideToWrapperTransitionEnd = function transitionEnd2(e) {
+          if (!swiper || swiper.destroyed) return;
+          if (e.target !== this) return;
+          swiper.wrapperEl.removeEventListener("transitionend", swiper.onSlideToWrapperTransitionEnd);
+          swiper.onSlideToWrapperTransitionEnd = null;
+          delete swiper.onSlideToWrapperTransitionEnd;
+          swiper.transitionEnd(runCallbacks, direction);
+        };
+      }
+      swiper.wrapperEl.addEventListener("transitionend", swiper.onSlideToWrapperTransitionEnd);
+    }
+    return true;
+  }
+  function slideToLoop(index = 0, speed, runCallbacks = true, internal) {
+    if (typeof index === "string") {
+      const indexAsNumber = parseInt(index, 10);
+      index = indexAsNumber;
+    }
+    const swiper = this;
+    if (swiper.destroyed) return;
+    if (typeof speed === "undefined") {
+      speed = swiper.params.speed;
+    }
+    const gridEnabled = swiper.grid && swiper.params.grid && swiper.params.grid.rows > 1;
+    let newIndex = index;
+    if (swiper.params.loop) {
+      if (swiper.virtual && swiper.params.virtual.enabled) {
+        newIndex = newIndex + swiper.virtual.slidesBefore;
+      } else {
+        let targetSlideIndex;
+        if (gridEnabled) {
+          const slideIndex = newIndex * swiper.params.grid.rows;
+          targetSlideIndex = swiper.slides.find((slideEl) => slideEl.getAttribute("data-swiper-slide-index") * 1 === slideIndex).column;
+        } else {
+          targetSlideIndex = swiper.getSlideIndexByData(newIndex);
+        }
+        const cols = gridEnabled ? Math.ceil(swiper.slides.length / swiper.params.grid.rows) : swiper.slides.length;
+        const {
+          centeredSlides,
+          slidesOffsetBefore,
+          slidesOffsetAfter
+        } = swiper.params;
+        const bothDirections = centeredSlides || !!slidesOffsetBefore || !!slidesOffsetAfter;
+        let slidesPerView = swiper.params.slidesPerView;
+        if (slidesPerView === "auto") {
+          slidesPerView = swiper.slidesPerViewDynamic();
+        } else {
+          slidesPerView = Math.ceil(parseFloat(swiper.params.slidesPerView, 10));
+          if (bothDirections && slidesPerView % 2 === 0) {
+            slidesPerView = slidesPerView + 1;
+          }
+        }
+        let needLoopFix = cols - targetSlideIndex < slidesPerView;
+        if (bothDirections) {
+          needLoopFix = needLoopFix || targetSlideIndex < Math.ceil(slidesPerView / 2);
+        }
+        if (internal && bothDirections && swiper.params.slidesPerView !== "auto" && !gridEnabled) {
+          needLoopFix = false;
+        }
+        if (needLoopFix) {
+          const direction = bothDirections ? targetSlideIndex < swiper.activeIndex ? "prev" : "next" : targetSlideIndex - swiper.activeIndex - 1 < swiper.params.slidesPerView ? "next" : "prev";
+          swiper.loopFix({
+            direction,
+            slideTo: true,
+            activeSlideIndex: direction === "next" ? targetSlideIndex + 1 : targetSlideIndex - cols + 1,
+            slideRealIndex: direction === "next" ? swiper.realIndex : void 0
+          });
+        }
+        if (gridEnabled) {
+          const slideIndex = newIndex * swiper.params.grid.rows;
+          newIndex = swiper.slides.find((slideEl) => slideEl.getAttribute("data-swiper-slide-index") * 1 === slideIndex).column;
+        } else {
+          newIndex = swiper.getSlideIndexByData(newIndex);
+        }
+      }
+    }
+    requestAnimationFrame(() => {
+      swiper.slideTo(newIndex, speed, runCallbacks, internal);
+    });
+    return swiper;
+  }
+  function slideNext(speed, runCallbacks = true, internal) {
+    const swiper = this;
+    const {
+      enabled,
+      params,
+      animating
+    } = swiper;
+    if (!enabled || swiper.destroyed) return swiper;
+    if (typeof speed === "undefined") {
+      speed = swiper.params.speed;
+    }
+    let perGroup = params.slidesPerGroup;
+    if (params.slidesPerView === "auto" && params.slidesPerGroup === 1 && params.slidesPerGroupAuto) {
+      perGroup = Math.max(swiper.slidesPerViewDynamic("current", true), 1);
+    }
+    const increment = swiper.activeIndex < params.slidesPerGroupSkip ? 1 : perGroup;
+    const isVirtual = swiper.virtual && params.virtual.enabled;
+    if (params.loop) {
+      if (animating && !isVirtual && params.loopPreventsSliding) return false;
+      swiper.loopFix({
+        direction: "next"
+      });
+      swiper._clientLeft = swiper.wrapperEl.clientLeft;
+      if (swiper.activeIndex === swiper.slides.length - 1 && params.cssMode) {
+        requestAnimationFrame(() => {
+          swiper.slideTo(swiper.activeIndex + increment, speed, runCallbacks, internal);
+        });
+        return true;
+      }
+    }
+    if (params.rewind && swiper.isEnd) {
+      return swiper.slideTo(0, speed, runCallbacks, internal);
+    }
+    return swiper.slideTo(swiper.activeIndex + increment, speed, runCallbacks, internal);
+  }
+  function slidePrev(speed, runCallbacks = true, internal) {
+    const swiper = this;
+    const {
+      params,
+      snapGrid,
+      slidesGrid,
+      rtlTranslate,
+      enabled,
+      animating
+    } = swiper;
+    if (!enabled || swiper.destroyed) return swiper;
+    if (typeof speed === "undefined") {
+      speed = swiper.params.speed;
+    }
+    const isVirtual = swiper.virtual && params.virtual.enabled;
+    if (params.loop) {
+      if (animating && !isVirtual && params.loopPreventsSliding) return false;
+      swiper.loopFix({
+        direction: "prev"
+      });
+      swiper._clientLeft = swiper.wrapperEl.clientLeft;
+    }
+    const translate2 = rtlTranslate ? swiper.translate : -swiper.translate;
+    function normalize(val) {
+      if (val < 0) return -Math.floor(Math.abs(val));
+      return Math.floor(val);
+    }
+    const normalizedTranslate = normalize(translate2);
+    const normalizedSnapGrid = snapGrid.map((val) => normalize(val));
+    const isFreeMode = params.freeMode && params.freeMode.enabled;
+    let prevSnap = snapGrid[normalizedSnapGrid.indexOf(normalizedTranslate) - 1];
+    if (typeof prevSnap === "undefined" && (params.cssMode || isFreeMode)) {
+      let prevSnapIndex;
+      snapGrid.forEach((snap, snapIndex) => {
+        if (normalizedTranslate >= snap) {
+          prevSnapIndex = snapIndex;
+        }
+      });
+      if (typeof prevSnapIndex !== "undefined") {
+        prevSnap = isFreeMode ? snapGrid[prevSnapIndex] : snapGrid[prevSnapIndex > 0 ? prevSnapIndex - 1 : prevSnapIndex];
+      }
+    }
+    let prevIndex = 0;
+    if (typeof prevSnap !== "undefined") {
+      prevIndex = slidesGrid.indexOf(prevSnap);
+      if (prevIndex < 0) prevIndex = swiper.activeIndex - 1;
+      if (params.slidesPerView === "auto" && params.slidesPerGroup === 1 && params.slidesPerGroupAuto) {
+        prevIndex = prevIndex - swiper.slidesPerViewDynamic("previous", true) + 1;
+        prevIndex = Math.max(prevIndex, 0);
+      }
+    }
+    if (params.rewind && swiper.isBeginning) {
+      const lastIndex = swiper.params.virtual && swiper.params.virtual.enabled && swiper.virtual ? swiper.virtual.slides.length - 1 : swiper.slides.length - 1;
+      return swiper.slideTo(lastIndex, speed, runCallbacks, internal);
+    } else if (params.loop && swiper.activeIndex === 0 && params.cssMode) {
+      requestAnimationFrame(() => {
+        swiper.slideTo(prevIndex, speed, runCallbacks, internal);
+      });
+      return true;
+    }
+    return swiper.slideTo(prevIndex, speed, runCallbacks, internal);
+  }
+  function slideReset(speed, runCallbacks = true, internal) {
+    const swiper = this;
+    if (swiper.destroyed) return;
+    if (typeof speed === "undefined") {
+      speed = swiper.params.speed;
+    }
+    return swiper.slideTo(swiper.activeIndex, speed, runCallbacks, internal);
+  }
+  function slideToClosest(speed, runCallbacks = true, internal, threshold = 0.5) {
+    const swiper = this;
+    if (swiper.destroyed) return;
+    if (typeof speed === "undefined") {
+      speed = swiper.params.speed;
+    }
+    let index = swiper.activeIndex;
+    const skip = Math.min(swiper.params.slidesPerGroupSkip, index);
+    const snapIndex = skip + Math.floor((index - skip) / swiper.params.slidesPerGroup);
+    const translate2 = swiper.rtlTranslate ? swiper.translate : -swiper.translate;
+    if (translate2 >= swiper.snapGrid[snapIndex]) {
+      const currentSnap = swiper.snapGrid[snapIndex];
+      const nextSnap = swiper.snapGrid[snapIndex + 1];
+      if (translate2 - currentSnap > (nextSnap - currentSnap) * threshold) {
+        index += swiper.params.slidesPerGroup;
+      }
+    } else {
+      const prevSnap = swiper.snapGrid[snapIndex - 1];
+      const currentSnap = swiper.snapGrid[snapIndex];
+      if (translate2 - prevSnap <= (currentSnap - prevSnap) * threshold) {
+        index -= swiper.params.slidesPerGroup;
+      }
+    }
+    index = Math.max(index, 0);
+    index = Math.min(index, swiper.slidesGrid.length - 1);
+    return swiper.slideTo(index, speed, runCallbacks, internal);
+  }
+  function slideToClickedSlide() {
+    const swiper = this;
+    if (swiper.destroyed) return;
+    const {
+      params,
+      slidesEl
+    } = swiper;
+    const slidesPerView = params.slidesPerView === "auto" ? swiper.slidesPerViewDynamic() : params.slidesPerView;
+    let slideToIndex = swiper.getSlideIndexWhenGrid(swiper.clickedIndex);
+    let realIndex;
+    const slideSelector = swiper.isElement ? `swiper-slide` : `.${params.slideClass}`;
+    const isGrid = swiper.grid && swiper.params.grid && swiper.params.grid.rows > 1;
+    if (params.loop) {
+      if (swiper.animating) return;
+      realIndex = parseInt(swiper.clickedSlide.getAttribute("data-swiper-slide-index"), 10);
+      if (params.centeredSlides) {
+        swiper.slideToLoop(realIndex);
+      } else if (slideToIndex > (isGrid ? (swiper.slides.length - slidesPerView) / 2 - (swiper.params.grid.rows - 1) : swiper.slides.length - slidesPerView)) {
+        swiper.loopFix();
+        slideToIndex = swiper.getSlideIndex(elementChildren(slidesEl, `${slideSelector}[data-swiper-slide-index="${realIndex}"]`)[0]);
+        nextTick(() => {
+          swiper.slideTo(slideToIndex);
+        });
+      } else {
+        swiper.slideTo(slideToIndex);
+      }
+    } else {
+      swiper.slideTo(slideToIndex);
+    }
+  }
+  var slide = {
+    slideTo,
+    slideToLoop,
+    slideNext,
+    slidePrev,
+    slideReset,
+    slideToClosest,
+    slideToClickedSlide
+  };
+  function loopCreate(slideRealIndex, initial) {
+    const swiper = this;
+    const {
+      params,
+      slidesEl
+    } = swiper;
+    if (!params.loop || swiper.virtual && swiper.params.virtual.enabled) return;
+    const initSlides = () => {
+      const slides = elementChildren(slidesEl, `.${params.slideClass}, swiper-slide`);
+      slides.forEach((el, index) => {
+        el.setAttribute("data-swiper-slide-index", index);
+      });
+    };
+    const clearBlankSlides = () => {
+      const slides = elementChildren(slidesEl, `.${params.slideBlankClass}`);
+      slides.forEach((el) => {
+        el.remove();
+      });
+      if (slides.length > 0) {
+        swiper.recalcSlides();
+        swiper.updateSlides();
+      }
+    };
+    const gridEnabled = swiper.grid && params.grid && params.grid.rows > 1;
+    if (params.loopAddBlankSlides && (params.slidesPerGroup > 1 || gridEnabled)) {
+      clearBlankSlides();
+    }
+    const slidesPerGroup = params.slidesPerGroup * (gridEnabled ? params.grid.rows : 1);
+    const shouldFillGroup = swiper.slides.length % slidesPerGroup !== 0;
+    const shouldFillGrid = gridEnabled && swiper.slides.length % params.grid.rows !== 0;
+    const addBlankSlides = (amountOfSlides) => {
+      for (let i = 0; i < amountOfSlides; i += 1) {
+        const slideEl = swiper.isElement ? createElement("swiper-slide", [params.slideBlankClass]) : createElement("div", [params.slideClass, params.slideBlankClass]);
+        swiper.slidesEl.append(slideEl);
+      }
+    };
+    if (shouldFillGroup) {
+      if (params.loopAddBlankSlides) {
+        const slidesToAdd = slidesPerGroup - swiper.slides.length % slidesPerGroup;
+        addBlankSlides(slidesToAdd);
+        swiper.recalcSlides();
+        swiper.updateSlides();
+      } else {
+        showWarning("Swiper Loop Warning: The number of slides is not even to slidesPerGroup, loop mode may not function properly. You need to add more slides (or make duplicates, or empty slides)");
+      }
+      initSlides();
+    } else if (shouldFillGrid) {
+      if (params.loopAddBlankSlides) {
+        const slidesToAdd = params.grid.rows - swiper.slides.length % params.grid.rows;
+        addBlankSlides(slidesToAdd);
+        swiper.recalcSlides();
+        swiper.updateSlides();
+      } else {
+        showWarning("Swiper Loop Warning: The number of slides is not even to grid.rows, loop mode may not function properly. You need to add more slides (or make duplicates, or empty slides)");
+      }
+      initSlides();
+    } else {
+      initSlides();
+    }
+    const bothDirections = params.centeredSlides || !!params.slidesOffsetBefore || !!params.slidesOffsetAfter;
+    swiper.loopFix({
+      slideRealIndex,
+      direction: bothDirections ? void 0 : "next",
+      initial
+    });
+  }
+  function loopFix({
+    slideRealIndex,
+    slideTo: slideTo2 = true,
+    direction,
+    setTranslate: setTranslate2,
+    activeSlideIndex,
+    initial,
+    byController,
+    byMousewheel
+  } = {}) {
+    const swiper = this;
+    if (!swiper.params.loop) return;
+    swiper.emit("beforeLoopFix");
+    const {
+      slides,
+      allowSlidePrev,
+      allowSlideNext,
+      slidesEl,
+      params
+    } = swiper;
+    const {
+      centeredSlides,
+      slidesOffsetBefore,
+      slidesOffsetAfter,
+      initialSlide
+    } = params;
+    const bothDirections = centeredSlides || !!slidesOffsetBefore || !!slidesOffsetAfter;
+    swiper.allowSlidePrev = true;
+    swiper.allowSlideNext = true;
+    if (swiper.virtual && params.virtual.enabled) {
+      if (slideTo2) {
+        if (!bothDirections && swiper.snapIndex === 0) {
+          swiper.slideTo(swiper.virtual.slides.length, 0, false, true);
+        } else if (bothDirections && swiper.snapIndex < params.slidesPerView) {
+          swiper.slideTo(swiper.virtual.slides.length + swiper.snapIndex, 0, false, true);
+        } else if (swiper.snapIndex === swiper.snapGrid.length - 1) {
+          swiper.slideTo(swiper.virtual.slidesBefore, 0, false, true);
+        }
+      }
+      swiper.allowSlidePrev = allowSlidePrev;
+      swiper.allowSlideNext = allowSlideNext;
+      swiper.emit("loopFix");
+      return;
+    }
+    let slidesPerView = params.slidesPerView;
+    if (slidesPerView === "auto") {
+      slidesPerView = swiper.slidesPerViewDynamic();
+    } else {
+      slidesPerView = Math.ceil(parseFloat(params.slidesPerView, 10));
+      if (bothDirections && slidesPerView % 2 === 0) {
+        slidesPerView = slidesPerView + 1;
+      }
+    }
+    const slidesPerGroup = params.slidesPerGroupAuto ? slidesPerView : params.slidesPerGroup;
+    let loopedSlides = bothDirections ? Math.max(slidesPerGroup, Math.ceil(slidesPerView / 2)) : slidesPerGroup;
+    if (loopedSlides % slidesPerGroup !== 0) {
+      loopedSlides += slidesPerGroup - loopedSlides % slidesPerGroup;
+    }
+    loopedSlides += params.loopAdditionalSlides;
+    swiper.loopedSlides = loopedSlides;
+    const gridEnabled = swiper.grid && params.grid && params.grid.rows > 1;
+    if (slides.length < slidesPerView + loopedSlides || swiper.params.effect === "cards" && slides.length < slidesPerView + loopedSlides * 2) {
+      showWarning("Swiper Loop Warning: The number of slides is not enough for loop mode, it will be disabled or not function properly. You need to add more slides (or make duplicates) or lower the values of slidesPerView and slidesPerGroup parameters");
+    } else if (gridEnabled && params.grid.fill === "row") {
+      showWarning("Swiper Loop Warning: Loop mode is not compatible with grid.fill = `row`");
+    }
+    const prependSlidesIndexes = [];
+    const appendSlidesIndexes = [];
+    const cols = gridEnabled ? Math.ceil(slides.length / params.grid.rows) : slides.length;
+    const isInitialOverflow = initial && cols - initialSlide < slidesPerView && !bothDirections;
+    let activeIndex = isInitialOverflow ? initialSlide : swiper.activeIndex;
+    if (typeof activeSlideIndex === "undefined") {
+      activeSlideIndex = swiper.getSlideIndex(slides.find((el) => el.classList.contains(params.slideActiveClass)));
+    } else {
+      activeIndex = activeSlideIndex;
+    }
+    const isNext = direction === "next" || !direction;
+    const isPrev = direction === "prev" || !direction;
+    let slidesPrepended = 0;
+    let slidesAppended = 0;
+    const activeColIndex = gridEnabled ? slides[activeSlideIndex].column : activeSlideIndex;
+    const activeColIndexWithShift = activeColIndex + (bothDirections && typeof setTranslate2 === "undefined" ? -slidesPerView / 2 + 0.5 : 0);
+    if (activeColIndexWithShift < loopedSlides) {
+      slidesPrepended = Math.max(loopedSlides - activeColIndexWithShift, slidesPerGroup);
+      for (let i = 0; i < loopedSlides - activeColIndexWithShift; i += 1) {
+        const index = i - Math.floor(i / cols) * cols;
+        if (gridEnabled) {
+          const colIndexToPrepend = cols - index - 1;
+          for (let i2 = slides.length - 1; i2 >= 0; i2 -= 1) {
+            if (slides[i2].column === colIndexToPrepend) prependSlidesIndexes.push(i2);
+          }
+        } else {
+          prependSlidesIndexes.push(cols - index - 1);
+        }
+      }
+    } else if (activeColIndexWithShift + slidesPerView > cols - loopedSlides) {
+      slidesAppended = Math.max(activeColIndexWithShift - (cols - loopedSlides * 2), slidesPerGroup);
+      if (isInitialOverflow) {
+        slidesAppended = Math.max(slidesAppended, slidesPerView - cols + initialSlide + 1);
+      }
+      for (let i = 0; i < slidesAppended; i += 1) {
+        const index = i - Math.floor(i / cols) * cols;
+        if (gridEnabled) {
+          slides.forEach((slide2, slideIndex) => {
+            if (slide2.column === index) appendSlidesIndexes.push(slideIndex);
+          });
+        } else {
+          appendSlidesIndexes.push(index);
+        }
+      }
+    }
+    swiper.__preventObserver__ = true;
+    requestAnimationFrame(() => {
+      swiper.__preventObserver__ = false;
+    });
+    if (swiper.params.effect === "cards" && slides.length < slidesPerView + loopedSlides * 2) {
+      if (appendSlidesIndexes.includes(activeSlideIndex)) {
+        appendSlidesIndexes.splice(appendSlidesIndexes.indexOf(activeSlideIndex), 1);
+      }
+      if (prependSlidesIndexes.includes(activeSlideIndex)) {
+        prependSlidesIndexes.splice(prependSlidesIndexes.indexOf(activeSlideIndex), 1);
+      }
+    }
+    if (isPrev) {
+      prependSlidesIndexes.forEach((index) => {
+        slides[index].swiperLoopMoveDOM = true;
+        slidesEl.prepend(slides[index]);
+        slides[index].swiperLoopMoveDOM = false;
+      });
+    }
+    if (isNext) {
+      appendSlidesIndexes.forEach((index) => {
+        slides[index].swiperLoopMoveDOM = true;
+        slidesEl.append(slides[index]);
+        slides[index].swiperLoopMoveDOM = false;
+      });
+    }
+    swiper.recalcSlides();
+    if (params.slidesPerView === "auto") {
+      swiper.updateSlides();
+    } else if (gridEnabled && (prependSlidesIndexes.length > 0 && isPrev || appendSlidesIndexes.length > 0 && isNext)) {
+      swiper.slides.forEach((slide2, slideIndex) => {
+        swiper.grid.updateSlide(slideIndex, slide2, swiper.slides);
+      });
+    }
+    if (params.watchSlidesProgress) {
+      swiper.updateSlidesOffset();
+    }
+    if (slideTo2) {
+      if (prependSlidesIndexes.length > 0 && isPrev) {
+        if (typeof slideRealIndex === "undefined") {
+          const currentSlideTranslate = swiper.slidesGrid[activeIndex];
+          const newSlideTranslate = swiper.slidesGrid[activeIndex + slidesPrepended];
+          const diff = newSlideTranslate - currentSlideTranslate;
+          if (byMousewheel) {
+            swiper.setTranslate(swiper.translate - diff);
+          } else {
+            swiper.slideTo(activeIndex + Math.ceil(slidesPrepended), 0, false, true);
+            if (setTranslate2) {
+              swiper.touchEventsData.startTranslate = swiper.touchEventsData.startTranslate - diff;
+              swiper.touchEventsData.currentTranslate = swiper.touchEventsData.currentTranslate - diff;
+            }
+          }
+        } else {
+          if (setTranslate2) {
+            const shift = gridEnabled ? prependSlidesIndexes.length / params.grid.rows : prependSlidesIndexes.length;
+            swiper.slideTo(swiper.activeIndex + shift, 0, false, true);
+            swiper.touchEventsData.currentTranslate = swiper.translate;
+          }
+        }
+      } else if (appendSlidesIndexes.length > 0 && isNext) {
+        if (typeof slideRealIndex === "undefined") {
+          const currentSlideTranslate = swiper.slidesGrid[activeIndex];
+          const newSlideTranslate = swiper.slidesGrid[activeIndex - slidesAppended];
+          const diff = newSlideTranslate - currentSlideTranslate;
+          if (byMousewheel) {
+            swiper.setTranslate(swiper.translate - diff);
+          } else {
+            swiper.slideTo(activeIndex - slidesAppended, 0, false, true);
+            if (setTranslate2) {
+              swiper.touchEventsData.startTranslate = swiper.touchEventsData.startTranslate - diff;
+              swiper.touchEventsData.currentTranslate = swiper.touchEventsData.currentTranslate - diff;
+            }
+          }
+        } else {
+          const shift = gridEnabled ? appendSlidesIndexes.length / params.grid.rows : appendSlidesIndexes.length;
+          swiper.slideTo(swiper.activeIndex - shift, 0, false, true);
+        }
+      }
+    }
+    swiper.allowSlidePrev = allowSlidePrev;
+    swiper.allowSlideNext = allowSlideNext;
+    if (swiper.controller && swiper.controller.control && !byController) {
+      const loopParams = {
+        slideRealIndex,
+        direction,
+        setTranslate: setTranslate2,
+        activeSlideIndex,
+        byController: true
+      };
+      if (Array.isArray(swiper.controller.control)) {
+        swiper.controller.control.forEach((c) => {
+          if (!c.destroyed && c.params.loop) c.loopFix({
+            ...loopParams,
+            slideTo: c.params.slidesPerView === params.slidesPerView ? slideTo2 : false
+          });
+        });
+      } else if (swiper.controller.control instanceof swiper.constructor && swiper.controller.control.params.loop) {
+        swiper.controller.control.loopFix({
+          ...loopParams,
+          slideTo: swiper.controller.control.params.slidesPerView === params.slidesPerView ? slideTo2 : false
+        });
+      }
+    }
+    swiper.emit("loopFix");
+  }
+  function loopDestroy() {
+    const swiper = this;
+    const {
+      params,
+      slidesEl
+    } = swiper;
+    if (!params.loop || !slidesEl || swiper.virtual && swiper.params.virtual.enabled) return;
+    swiper.recalcSlides();
+    const newSlidesOrder = [];
+    swiper.slides.forEach((slideEl) => {
+      const index = typeof slideEl.swiperSlideIndex === "undefined" ? slideEl.getAttribute("data-swiper-slide-index") * 1 : slideEl.swiperSlideIndex;
+      newSlidesOrder[index] = slideEl;
+    });
+    swiper.slides.forEach((slideEl) => {
+      slideEl.removeAttribute("data-swiper-slide-index");
+    });
+    newSlidesOrder.forEach((slideEl) => {
+      slidesEl.append(slideEl);
+    });
+    swiper.recalcSlides();
+    swiper.slideTo(swiper.realIndex, 0);
+  }
+  var loop = {
+    loopCreate,
+    loopFix,
+    loopDestroy
+  };
+  function setGrabCursor(moving) {
+    const swiper = this;
+    if (!swiper.params.simulateTouch || swiper.params.watchOverflow && swiper.isLocked || swiper.params.cssMode) return;
+    const el = swiper.params.touchEventsTarget === "container" ? swiper.el : swiper.wrapperEl;
+    if (swiper.isElement) {
+      swiper.__preventObserver__ = true;
+    }
+    el.style.cursor = "move";
+    el.style.cursor = moving ? "grabbing" : "grab";
+    if (swiper.isElement) {
+      requestAnimationFrame(() => {
+        swiper.__preventObserver__ = false;
+      });
+    }
+  }
+  function unsetGrabCursor() {
+    const swiper = this;
+    if (swiper.params.watchOverflow && swiper.isLocked || swiper.params.cssMode) {
+      return;
+    }
+    if (swiper.isElement) {
+      swiper.__preventObserver__ = true;
+    }
+    swiper[swiper.params.touchEventsTarget === "container" ? "el" : "wrapperEl"].style.cursor = "";
+    if (swiper.isElement) {
+      requestAnimationFrame(() => {
+        swiper.__preventObserver__ = false;
+      });
+    }
+  }
+  var grabCursor = {
+    setGrabCursor,
+    unsetGrabCursor
+  };
+  function closestElement(selector, base = this) {
+    function __closestFrom(el) {
+      if (!el || el === getDocument() || el === getWindow()) return null;
+      if (el.assignedSlot) el = el.assignedSlot;
+      const found = el.closest(selector);
+      if (!found && !el.getRootNode) {
+        return null;
+      }
+      return found || __closestFrom(el.getRootNode().host);
+    }
+    return __closestFrom(base);
+  }
+  function preventEdgeSwipe(swiper, event2, startX) {
+    const window2 = getWindow();
+    const {
+      params
+    } = swiper;
+    const edgeSwipeDetection = params.edgeSwipeDetection;
+    const edgeSwipeThreshold = params.edgeSwipeThreshold;
+    if (edgeSwipeDetection && (startX <= edgeSwipeThreshold || startX >= window2.innerWidth - edgeSwipeThreshold)) {
+      if (edgeSwipeDetection === "prevent") {
+        event2.preventDefault();
+        return true;
+      }
+      return false;
+    }
+    return true;
+  }
+  function onTouchStart(event2) {
+    const swiper = this;
+    const document2 = getDocument();
+    let e = event2;
+    if (e.originalEvent) e = e.originalEvent;
+    const data = swiper.touchEventsData;
+    if (e.type === "pointerdown") {
+      if (data.pointerId !== null && data.pointerId !== e.pointerId) {
+        return;
+      }
+      data.pointerId = e.pointerId;
+    } else if (e.type === "touchstart" && e.targetTouches.length === 1) {
+      data.touchId = e.targetTouches[0].identifier;
+    }
+    if (e.type === "touchstart") {
+      preventEdgeSwipe(swiper, e, e.targetTouches[0].pageX);
+      return;
+    }
+    const {
+      params,
+      touches,
+      enabled
+    } = swiper;
+    if (!enabled) return;
+    if (!params.simulateTouch && e.pointerType === "mouse") return;
+    if (swiper.animating && params.preventInteractionOnTransition) {
+      return;
+    }
+    if (!swiper.animating && params.cssMode && params.loop) {
+      swiper.loopFix();
+    }
+    let targetEl = e.target;
+    if (params.touchEventsTarget === "wrapper") {
+      if (!elementIsChildOf(targetEl, swiper.wrapperEl)) return;
+    }
+    if ("which" in e && e.which === 3) return;
+    if ("button" in e && e.button > 0) return;
+    if (data.isTouched && data.isMoved) return;
+    const swipingClassHasValue = !!params.noSwipingClass && params.noSwipingClass !== "";
+    const eventPath = e.composedPath ? e.composedPath() : e.path;
+    if (swipingClassHasValue && e.target && e.target.shadowRoot && eventPath) {
+      targetEl = eventPath[0];
+    }
+    const noSwipingSelector = params.noSwipingSelector ? params.noSwipingSelector : `.${params.noSwipingClass}`;
+    const isTargetShadow = !!(e.target && e.target.shadowRoot);
+    if (params.noSwiping && (isTargetShadow ? closestElement(noSwipingSelector, targetEl) : targetEl.closest(noSwipingSelector))) {
+      swiper.allowClick = true;
+      return;
+    }
+    if (params.swipeHandler) {
+      if (!targetEl.closest(params.swipeHandler)) return;
+    }
+    touches.currentX = e.pageX;
+    touches.currentY = e.pageY;
+    const startX = touches.currentX;
+    const startY = touches.currentY;
+    if (!preventEdgeSwipe(swiper, e, startX)) {
+      return;
+    }
+    Object.assign(data, {
+      isTouched: true,
+      isMoved: false,
+      allowTouchCallbacks: true,
+      isScrolling: void 0,
+      startMoving: void 0
+    });
+    touches.startX = startX;
+    touches.startY = startY;
+    data.touchStartTime = now();
+    swiper.allowClick = true;
+    swiper.updateSize();
+    swiper.swipeDirection = void 0;
+    if (params.threshold > 0) data.allowThresholdMove = false;
+    let preventDefault = true;
+    if (targetEl.matches(data.focusableElements)) {
+      preventDefault = false;
+      if (targetEl.nodeName === "SELECT") {
+        data.isTouched = false;
+      }
+    }
+    if (document2.activeElement && document2.activeElement.matches(data.focusableElements) && document2.activeElement !== targetEl && (e.pointerType === "mouse" || e.pointerType !== "mouse" && !targetEl.matches(data.focusableElements))) {
+      document2.activeElement.blur();
+    }
+    const shouldPreventDefault = preventDefault && swiper.allowTouchMove && params.touchStartPreventDefault;
+    if ((params.touchStartForcePreventDefault || shouldPreventDefault) && !targetEl.isContentEditable) {
+      e.preventDefault();
+    }
+    if (params.freeMode && params.freeMode.enabled && swiper.freeMode && swiper.animating && !params.cssMode) {
+      swiper.freeMode.onTouchStart();
+    }
+    swiper.emit("touchStart", e);
+  }
+  function onTouchMove(event2) {
+    const document2 = getDocument();
+    const swiper = this;
+    const data = swiper.touchEventsData;
+    const {
+      params,
+      touches,
+      rtlTranslate: rtl,
+      enabled
+    } = swiper;
+    if (!enabled) return;
+    if (!params.simulateTouch && event2.pointerType === "mouse") return;
+    let e = event2;
+    if (e.originalEvent) e = e.originalEvent;
+    if (e.type === "pointermove") {
+      if (data.touchId !== null) return;
+      const id = e.pointerId;
+      if (id !== data.pointerId) return;
+    }
+    let targetTouch;
+    if (e.type === "touchmove") {
+      targetTouch = [...e.changedTouches].find((t) => t.identifier === data.touchId);
+      if (!targetTouch || targetTouch.identifier !== data.touchId) return;
+    } else {
+      targetTouch = e;
+    }
+    if (!data.isTouched) {
+      if (data.startMoving && data.isScrolling) {
+        swiper.emit("touchMoveOpposite", e);
+      }
+      return;
+    }
+    const pageX = targetTouch.pageX;
+    const pageY = targetTouch.pageY;
+    if (e.preventedByNestedSwiper) {
+      touches.startX = pageX;
+      touches.startY = pageY;
+      return;
+    }
+    if (!swiper.allowTouchMove) {
+      if (!e.target.matches(data.focusableElements)) {
+        swiper.allowClick = false;
+      }
+      if (data.isTouched) {
+        Object.assign(touches, {
+          startX: pageX,
+          startY: pageY,
+          currentX: pageX,
+          currentY: pageY
+        });
+        data.touchStartTime = now();
+      }
+      return;
+    }
+    if (params.touchReleaseOnEdges && !params.loop) {
+      if (swiper.isVertical()) {
+        if (pageY < touches.startY && swiper.translate <= swiper.maxTranslate() || pageY > touches.startY && swiper.translate >= swiper.minTranslate()) {
+          data.isTouched = false;
+          data.isMoved = false;
+          return;
+        }
+      } else if (rtl && (pageX > touches.startX && -swiper.translate <= swiper.maxTranslate() || pageX < touches.startX && -swiper.translate >= swiper.minTranslate())) {
+        return;
+      } else if (!rtl && (pageX < touches.startX && swiper.translate <= swiper.maxTranslate() || pageX > touches.startX && swiper.translate >= swiper.minTranslate())) {
+        return;
+      }
+    }
+    if (document2.activeElement && document2.activeElement.matches(data.focusableElements) && document2.activeElement !== e.target && e.pointerType !== "mouse") {
+      document2.activeElement.blur();
+    }
+    if (document2.activeElement) {
+      if (e.target === document2.activeElement && e.target.matches(data.focusableElements)) {
+        data.isMoved = true;
+        swiper.allowClick = false;
+        return;
+      }
+    }
+    if (data.allowTouchCallbacks) {
+      swiper.emit("touchMove", e);
+    }
+    touches.previousX = touches.currentX;
+    touches.previousY = touches.currentY;
+    touches.currentX = pageX;
+    touches.currentY = pageY;
+    const diffX = touches.currentX - touches.startX;
+    const diffY = touches.currentY - touches.startY;
+    if (swiper.params.threshold && Math.sqrt(diffX ** 2 + diffY ** 2) < swiper.params.threshold) return;
+    if (typeof data.isScrolling === "undefined") {
+      let touchAngle;
+      if (swiper.isHorizontal() && touches.currentY === touches.startY || swiper.isVertical() && touches.currentX === touches.startX) {
+        data.isScrolling = false;
+      } else {
+        if (diffX * diffX + diffY * diffY >= 25) {
+          touchAngle = Math.atan2(Math.abs(diffY), Math.abs(diffX)) * 180 / Math.PI;
+          data.isScrolling = swiper.isHorizontal() ? touchAngle > params.touchAngle : 90 - touchAngle > params.touchAngle;
+        }
+      }
+    }
+    if (data.isScrolling) {
+      swiper.emit("touchMoveOpposite", e);
+    }
+    if (typeof data.startMoving === "undefined") {
+      if (touches.currentX !== touches.startX || touches.currentY !== touches.startY) {
+        data.startMoving = true;
+      }
+    }
+    if (data.isScrolling || e.type === "touchmove" && data.preventTouchMoveFromPointerMove) {
+      data.isTouched = false;
+      return;
+    }
+    if (!data.startMoving) {
+      return;
+    }
+    swiper.allowClick = false;
+    if (!params.cssMode && e.cancelable) {
+      e.preventDefault();
+    }
+    if (params.touchMoveStopPropagation && !params.nested) {
+      e.stopPropagation();
+    }
+    let diff = swiper.isHorizontal() ? diffX : diffY;
+    let touchesDiff = swiper.isHorizontal() ? touches.currentX - touches.previousX : touches.currentY - touches.previousY;
+    if (params.oneWayMovement) {
+      diff = Math.abs(diff) * (rtl ? 1 : -1);
+      touchesDiff = Math.abs(touchesDiff) * (rtl ? 1 : -1);
+    }
+    touches.diff = diff;
+    diff *= params.touchRatio;
+    if (rtl) {
+      diff = -diff;
+      touchesDiff = -touchesDiff;
+    }
+    const prevTouchesDirection = swiper.touchesDirection;
+    swiper.swipeDirection = diff > 0 ? "prev" : "next";
+    swiper.touchesDirection = touchesDiff > 0 ? "prev" : "next";
+    const isLoop = swiper.params.loop && !params.cssMode;
+    const allowLoopFix = swiper.touchesDirection === "next" && swiper.allowSlideNext || swiper.touchesDirection === "prev" && swiper.allowSlidePrev;
+    if (!data.isMoved) {
+      if (isLoop && allowLoopFix) {
+        swiper.loopFix({
+          direction: swiper.swipeDirection
+        });
+      }
+      data.startTranslate = swiper.getTranslate();
+      swiper.setTransition(0);
+      if (swiper.animating) {
+        const evt = new window.CustomEvent("transitionend", {
+          bubbles: true,
+          cancelable: true,
+          detail: {
+            bySwiperTouchMove: true
+          }
+        });
+        swiper.wrapperEl.dispatchEvent(evt);
+      }
+      data.allowMomentumBounce = false;
+      if (params.grabCursor && (swiper.allowSlideNext === true || swiper.allowSlidePrev === true)) {
+        swiper.setGrabCursor(true);
+      }
+      swiper.emit("sliderFirstMove", e);
+    }
+    let loopFixed;
+    (/* @__PURE__ */ new Date()).getTime();
+    if (params._loopSwapReset !== false && data.isMoved && data.allowThresholdMove && prevTouchesDirection !== swiper.touchesDirection && isLoop && allowLoopFix && Math.abs(diff) >= 1) {
+      Object.assign(touches, {
+        startX: pageX,
+        startY: pageY,
+        currentX: pageX,
+        currentY: pageY,
+        startTranslate: data.currentTranslate
+      });
+      data.loopSwapReset = true;
+      data.startTranslate = data.currentTranslate;
+      return;
+    }
+    swiper.emit("sliderMove", e);
+    data.isMoved = true;
+    data.currentTranslate = diff + data.startTranslate;
+    let disableParentSwiper = true;
+    let resistanceRatio = params.resistanceRatio;
+    if (params.touchReleaseOnEdges) {
+      resistanceRatio = 0;
+    }
+    if (diff > 0) {
+      if (isLoop && allowLoopFix && !loopFixed && data.allowThresholdMove && data.currentTranslate > (params.centeredSlides ? swiper.minTranslate() - swiper.slidesSizesGrid[swiper.activeIndex + 1] - (params.slidesPerView !== "auto" && swiper.slides.length - params.slidesPerView >= 2 ? swiper.slidesSizesGrid[swiper.activeIndex + 1] + swiper.params.spaceBetween : 0) - swiper.params.spaceBetween : swiper.minTranslate())) {
+        swiper.loopFix({
+          direction: "prev",
+          setTranslate: true,
+          activeSlideIndex: 0
+        });
+      }
+      if (data.currentTranslate > swiper.minTranslate()) {
+        disableParentSwiper = false;
+        if (params.resistance) {
+          data.currentTranslate = swiper.minTranslate() - 1 + (-swiper.minTranslate() + data.startTranslate + diff) ** resistanceRatio;
+        }
+      }
+    } else if (diff < 0) {
+      if (isLoop && allowLoopFix && !loopFixed && data.allowThresholdMove && data.currentTranslate < (params.centeredSlides ? swiper.maxTranslate() + swiper.slidesSizesGrid[swiper.slidesSizesGrid.length - 1] + swiper.params.spaceBetween + (params.slidesPerView !== "auto" && swiper.slides.length - params.slidesPerView >= 2 ? swiper.slidesSizesGrid[swiper.slidesSizesGrid.length - 1] + swiper.params.spaceBetween : 0) : swiper.maxTranslate())) {
+        swiper.loopFix({
+          direction: "next",
+          setTranslate: true,
+          activeSlideIndex: swiper.slides.length - (params.slidesPerView === "auto" ? swiper.slidesPerViewDynamic() : Math.ceil(parseFloat(params.slidesPerView, 10)))
+        });
+      }
+      if (data.currentTranslate < swiper.maxTranslate()) {
+        disableParentSwiper = false;
+        if (params.resistance) {
+          data.currentTranslate = swiper.maxTranslate() + 1 - (swiper.maxTranslate() - data.startTranslate - diff) ** resistanceRatio;
+        }
+      }
+    }
+    if (disableParentSwiper) {
+      e.preventedByNestedSwiper = true;
+    }
+    if (!swiper.allowSlideNext && swiper.swipeDirection === "next" && data.currentTranslate < data.startTranslate) {
+      data.currentTranslate = data.startTranslate;
+    }
+    if (!swiper.allowSlidePrev && swiper.swipeDirection === "prev" && data.currentTranslate > data.startTranslate) {
+      data.currentTranslate = data.startTranslate;
+    }
+    if (!swiper.allowSlidePrev && !swiper.allowSlideNext) {
+      data.currentTranslate = data.startTranslate;
+    }
+    if (params.threshold > 0) {
+      if (Math.abs(diff) > params.threshold || data.allowThresholdMove) {
+        if (!data.allowThresholdMove) {
+          data.allowThresholdMove = true;
+          touches.startX = touches.currentX;
+          touches.startY = touches.currentY;
+          data.currentTranslate = data.startTranslate;
+          touches.diff = swiper.isHorizontal() ? touches.currentX - touches.startX : touches.currentY - touches.startY;
+          return;
+        }
+      } else {
+        data.currentTranslate = data.startTranslate;
+        return;
+      }
+    }
+    if (!params.followFinger || params.cssMode) return;
+    if (params.freeMode && params.freeMode.enabled && swiper.freeMode || params.watchSlidesProgress) {
+      swiper.updateActiveIndex();
+      swiper.updateSlidesClasses();
+    }
+    if (params.freeMode && params.freeMode.enabled && swiper.freeMode) {
+      swiper.freeMode.onTouchMove();
+    }
+    swiper.updateProgress(data.currentTranslate);
+    swiper.setTranslate(data.currentTranslate);
+  }
+  function onTouchEnd(event2) {
+    const swiper = this;
+    const data = swiper.touchEventsData;
+    let e = event2;
+    if (e.originalEvent) e = e.originalEvent;
+    let targetTouch;
+    const isTouchEvent = e.type === "touchend" || e.type === "touchcancel";
+    if (!isTouchEvent) {
+      if (data.touchId !== null) return;
+      if (e.pointerId !== data.pointerId) return;
+      targetTouch = e;
+    } else {
+      targetTouch = [...e.changedTouches].find((t) => t.identifier === data.touchId);
+      if (!targetTouch || targetTouch.identifier !== data.touchId) return;
+    }
+    if (["pointercancel", "pointerout", "pointerleave", "contextmenu"].includes(e.type)) {
+      const proceed = ["pointercancel", "contextmenu"].includes(e.type) && (swiper.browser.isSafari || swiper.browser.isWebView);
+      if (!proceed) {
+        return;
+      }
+    }
+    data.pointerId = null;
+    data.touchId = null;
+    const {
+      params,
+      touches,
+      rtlTranslate: rtl,
+      slidesGrid,
+      enabled
+    } = swiper;
+    if (!enabled) return;
+    if (!params.simulateTouch && e.pointerType === "mouse") return;
+    if (data.allowTouchCallbacks) {
+      swiper.emit("touchEnd", e);
+    }
+    data.allowTouchCallbacks = false;
+    if (!data.isTouched) {
+      if (data.isMoved && params.grabCursor) {
+        swiper.setGrabCursor(false);
+      }
+      data.isMoved = false;
+      data.startMoving = false;
+      return;
+    }
+    if (params.grabCursor && data.isMoved && data.isTouched && (swiper.allowSlideNext === true || swiper.allowSlidePrev === true)) {
+      swiper.setGrabCursor(false);
+    }
+    const touchEndTime = now();
+    const timeDiff = touchEndTime - data.touchStartTime;
+    if (swiper.allowClick) {
+      const pathTree = e.path || e.composedPath && e.composedPath();
+      swiper.updateClickedSlide(pathTree && pathTree[0] || e.target, pathTree);
+      swiper.emit("tap click", e);
+      if (timeDiff < 300 && touchEndTime - data.lastClickTime < 300) {
+        swiper.emit("doubleTap doubleClick", e);
+      }
+    }
+    data.lastClickTime = now();
+    nextTick(() => {
+      if (!swiper.destroyed) swiper.allowClick = true;
+    });
+    if (!data.isTouched || !data.isMoved || !swiper.swipeDirection || touches.diff === 0 && !data.loopSwapReset || data.currentTranslate === data.startTranslate && !data.loopSwapReset) {
+      data.isTouched = false;
+      data.isMoved = false;
+      data.startMoving = false;
+      return;
+    }
+    data.isTouched = false;
+    data.isMoved = false;
+    data.startMoving = false;
+    let currentPos;
+    if (params.followFinger) {
+      currentPos = rtl ? swiper.translate : -swiper.translate;
+    } else {
+      currentPos = -data.currentTranslate;
+    }
+    if (params.cssMode) {
+      return;
+    }
+    if (params.freeMode && params.freeMode.enabled) {
+      swiper.freeMode.onTouchEnd({
+        currentPos
+      });
+      return;
+    }
+    const swipeToLast = currentPos >= -swiper.maxTranslate() && !swiper.params.loop;
+    let stopIndex = 0;
+    let groupSize = swiper.slidesSizesGrid[0];
+    for (let i = 0; i < slidesGrid.length; i += i < params.slidesPerGroupSkip ? 1 : params.slidesPerGroup) {
+      const increment2 = i < params.slidesPerGroupSkip - 1 ? 1 : params.slidesPerGroup;
+      if (typeof slidesGrid[i + increment2] !== "undefined") {
+        if (swipeToLast || currentPos >= slidesGrid[i] && currentPos < slidesGrid[i + increment2]) {
+          stopIndex = i;
+          groupSize = slidesGrid[i + increment2] - slidesGrid[i];
+        }
+      } else if (swipeToLast || currentPos >= slidesGrid[i]) {
+        stopIndex = i;
+        groupSize = slidesGrid[slidesGrid.length - 1] - slidesGrid[slidesGrid.length - 2];
+      }
+    }
+    let rewindFirstIndex = null;
+    let rewindLastIndex = null;
+    if (params.rewind) {
+      if (swiper.isBeginning) {
+        rewindLastIndex = params.virtual && params.virtual.enabled && swiper.virtual ? swiper.virtual.slides.length - 1 : swiper.slides.length - 1;
+      } else if (swiper.isEnd) {
+        rewindFirstIndex = 0;
+      }
+    }
+    const ratio = (currentPos - slidesGrid[stopIndex]) / groupSize;
+    const increment = stopIndex < params.slidesPerGroupSkip - 1 ? 1 : params.slidesPerGroup;
+    if (timeDiff > params.longSwipesMs) {
+      if (!params.longSwipes) {
+        swiper.slideTo(swiper.activeIndex);
+        return;
+      }
+      if (swiper.swipeDirection === "next") {
+        if (ratio >= params.longSwipesRatio) swiper.slideTo(params.rewind && swiper.isEnd ? rewindFirstIndex : stopIndex + increment);
+        else swiper.slideTo(stopIndex);
+      }
+      if (swiper.swipeDirection === "prev") {
+        if (ratio > 1 - params.longSwipesRatio) {
+          swiper.slideTo(stopIndex + increment);
+        } else if (rewindLastIndex !== null && ratio < 0 && Math.abs(ratio) > params.longSwipesRatio) {
+          swiper.slideTo(rewindLastIndex);
+        } else {
+          swiper.slideTo(stopIndex);
+        }
+      }
+    } else {
+      if (!params.shortSwipes) {
+        swiper.slideTo(swiper.activeIndex);
+        return;
+      }
+      const isNavButtonTarget = swiper.navigation && (e.target === swiper.navigation.nextEl || e.target === swiper.navigation.prevEl);
+      if (!isNavButtonTarget) {
+        if (swiper.swipeDirection === "next") {
+          swiper.slideTo(rewindFirstIndex !== null ? rewindFirstIndex : stopIndex + increment);
+        }
+        if (swiper.swipeDirection === "prev") {
+          swiper.slideTo(rewindLastIndex !== null ? rewindLastIndex : stopIndex);
+        }
+      } else if (e.target === swiper.navigation.nextEl) {
+        swiper.slideTo(stopIndex + increment);
+      } else {
+        swiper.slideTo(stopIndex);
+      }
+    }
+  }
+  function onResize() {
+    const swiper = this;
+    const {
+      params,
+      el
+    } = swiper;
+    if (el && el.offsetWidth === 0) return;
+    if (params.breakpoints) {
+      swiper.setBreakpoint();
+    }
+    const {
+      allowSlideNext,
+      allowSlidePrev,
+      snapGrid
+    } = swiper;
+    const isVirtual = swiper.virtual && swiper.params.virtual.enabled;
+    swiper.allowSlideNext = true;
+    swiper.allowSlidePrev = true;
+    swiper.updateSize();
+    swiper.updateSlides();
+    swiper.updateSlidesClasses();
+    const isVirtualLoop = isVirtual && params.loop;
+    if ((params.slidesPerView === "auto" || params.slidesPerView > 1) && swiper.isEnd && !swiper.isBeginning && !swiper.params.centeredSlides && !isVirtualLoop) {
+      swiper.slideTo(swiper.slides.length - 1, 0, false, true);
+    } else {
+      if (swiper.params.loop && !isVirtual) {
+        swiper.slideToLoop(swiper.realIndex, 0, false, true);
+      } else {
+        swiper.slideTo(swiper.activeIndex, 0, false, true);
+      }
+    }
+    if (swiper.autoplay && swiper.autoplay.running && swiper.autoplay.paused) {
+      clearTimeout(swiper.autoplay.resizeTimeout);
+      swiper.autoplay.resizeTimeout = setTimeout(() => {
+        if (swiper.autoplay && swiper.autoplay.running && swiper.autoplay.paused) {
+          swiper.autoplay.resume();
+        }
+      }, 500);
+    }
+    swiper.allowSlidePrev = allowSlidePrev;
+    swiper.allowSlideNext = allowSlideNext;
+    if (swiper.params.watchOverflow && snapGrid !== swiper.snapGrid) {
+      swiper.checkOverflow();
+    }
+  }
+  function onClick(e) {
+    const swiper = this;
+    if (!swiper.enabled) return;
+    if (!swiper.allowClick) {
+      if (swiper.params.preventClicks) e.preventDefault();
+      if (swiper.params.preventClicksPropagation && swiper.animating) {
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+      }
+    }
+  }
+  function onScroll() {
+    const swiper = this;
+    const {
+      wrapperEl,
+      rtlTranslate,
+      enabled
+    } = swiper;
+    if (!enabled) return;
+    swiper.previousTranslate = swiper.translate;
+    if (swiper.isHorizontal()) {
+      swiper.translate = -wrapperEl.scrollLeft;
+    } else {
+      swiper.translate = -wrapperEl.scrollTop;
+    }
+    if (swiper.translate === 0) swiper.translate = 0;
+    swiper.updateActiveIndex();
+    swiper.updateSlidesClasses();
+    let newProgress;
+    const translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
+    if (translatesDiff === 0) {
+      newProgress = 0;
+    } else {
+      newProgress = (swiper.translate - swiper.minTranslate()) / translatesDiff;
+    }
+    if (newProgress !== swiper.progress) {
+      swiper.updateProgress(rtlTranslate ? -swiper.translate : swiper.translate);
+    }
+    swiper.emit("setTranslate", swiper.translate, false);
+  }
+  function onLoad(e) {
+    const swiper = this;
+    processLazyPreloader(swiper, e.target);
+    if (swiper.params.cssMode || swiper.params.slidesPerView !== "auto" && !swiper.params.autoHeight) {
+      return;
+    }
+    swiper.update();
+  }
+  function onDocumentTouchStart() {
+    const swiper = this;
+    if (swiper.documentTouchHandlerProceeded) return;
+    swiper.documentTouchHandlerProceeded = true;
+    if (swiper.params.touchReleaseOnEdges) {
+      swiper.el.style.touchAction = "auto";
+    }
+  }
+  var events = (swiper, method) => {
+    const document2 = getDocument();
+    const {
+      params,
+      el,
+      wrapperEl,
+      device
+    } = swiper;
+    const capture = !!params.nested;
+    const domMethod = method === "on" ? "addEventListener" : "removeEventListener";
+    const swiperMethod = method;
+    if (!el || typeof el === "string") return;
+    document2[domMethod]("touchstart", swiper.onDocumentTouchStart, {
+      passive: false,
+      capture
+    });
+    el[domMethod]("touchstart", swiper.onTouchStart, {
+      passive: false
+    });
+    el[domMethod]("pointerdown", swiper.onTouchStart, {
+      passive: false
+    });
+    document2[domMethod]("touchmove", swiper.onTouchMove, {
+      passive: false,
+      capture
+    });
+    document2[domMethod]("pointermove", swiper.onTouchMove, {
+      passive: false,
+      capture
+    });
+    document2[domMethod]("touchend", swiper.onTouchEnd, {
+      passive: true
+    });
+    document2[domMethod]("pointerup", swiper.onTouchEnd, {
+      passive: true
+    });
+    document2[domMethod]("pointercancel", swiper.onTouchEnd, {
+      passive: true
+    });
+    document2[domMethod]("touchcancel", swiper.onTouchEnd, {
+      passive: true
+    });
+    document2[domMethod]("pointerout", swiper.onTouchEnd, {
+      passive: true
+    });
+    document2[domMethod]("pointerleave", swiper.onTouchEnd, {
+      passive: true
+    });
+    document2[domMethod]("contextmenu", swiper.onTouchEnd, {
+      passive: true
+    });
+    if (params.preventClicks || params.preventClicksPropagation) {
+      el[domMethod]("click", swiper.onClick, true);
+    }
+    if (params.cssMode) {
+      wrapperEl[domMethod]("scroll", swiper.onScroll);
+    }
+    if (params.updateOnWindowResize) {
+      swiper[swiperMethod](device.ios || device.android ? "resize orientationchange observerUpdate" : "resize observerUpdate", onResize, true);
+    } else {
+      swiper[swiperMethod]("observerUpdate", onResize, true);
+    }
+    el[domMethod]("load", swiper.onLoad, {
+      capture: true
+    });
+  };
+  function attachEvents() {
+    const swiper = this;
+    const {
+      params
+    } = swiper;
+    swiper.onTouchStart = onTouchStart.bind(swiper);
+    swiper.onTouchMove = onTouchMove.bind(swiper);
+    swiper.onTouchEnd = onTouchEnd.bind(swiper);
+    swiper.onDocumentTouchStart = onDocumentTouchStart.bind(swiper);
+    if (params.cssMode) {
+      swiper.onScroll = onScroll.bind(swiper);
+    }
+    swiper.onClick = onClick.bind(swiper);
+    swiper.onLoad = onLoad.bind(swiper);
+    events(swiper, "on");
+  }
+  function detachEvents() {
+    const swiper = this;
+    events(swiper, "off");
+  }
+  var events$1 = {
+    attachEvents,
+    detachEvents
+  };
+  var isGridEnabled = (swiper, params) => {
+    return swiper.grid && params.grid && params.grid.rows > 1;
+  };
+  function setBreakpoint() {
+    const swiper = this;
+    const {
+      realIndex,
+      initialized,
+      params,
+      el
+    } = swiper;
+    const breakpoints2 = params.breakpoints;
+    if (!breakpoints2 || breakpoints2 && Object.keys(breakpoints2).length === 0) return;
+    const document2 = getDocument();
+    const breakpointsBase = params.breakpointsBase === "window" || !params.breakpointsBase ? params.breakpointsBase : "container";
+    const breakpointContainer = ["window", "container"].includes(params.breakpointsBase) || !params.breakpointsBase ? swiper.el : document2.querySelector(params.breakpointsBase);
+    const breakpoint = swiper.getBreakpoint(breakpoints2, breakpointsBase, breakpointContainer);
+    if (!breakpoint || swiper.currentBreakpoint === breakpoint) return;
+    const breakpointOnlyParams = breakpoint in breakpoints2 ? breakpoints2[breakpoint] : void 0;
+    const breakpointParams = breakpointOnlyParams || swiper.originalParams;
+    const wasMultiRow = isGridEnabled(swiper, params);
+    const isMultiRow = isGridEnabled(swiper, breakpointParams);
+    const wasGrabCursor = swiper.params.grabCursor;
+    const isGrabCursor = breakpointParams.grabCursor;
+    const wasEnabled = params.enabled;
+    if (wasMultiRow && !isMultiRow) {
+      el.classList.remove(`${params.containerModifierClass}grid`, `${params.containerModifierClass}grid-column`);
+      swiper.emitContainerClasses();
+    } else if (!wasMultiRow && isMultiRow) {
+      el.classList.add(`${params.containerModifierClass}grid`);
+      if (breakpointParams.grid.fill && breakpointParams.grid.fill === "column" || !breakpointParams.grid.fill && params.grid.fill === "column") {
+        el.classList.add(`${params.containerModifierClass}grid-column`);
+      }
+      swiper.emitContainerClasses();
+    }
+    if (wasGrabCursor && !isGrabCursor) {
+      swiper.unsetGrabCursor();
+    } else if (!wasGrabCursor && isGrabCursor) {
+      swiper.setGrabCursor();
+    }
+    ["navigation", "pagination", "scrollbar"].forEach((prop) => {
+      if (typeof breakpointParams[prop] === "undefined") return;
+      const wasModuleEnabled = params[prop] && params[prop].enabled;
+      const isModuleEnabled = breakpointParams[prop] && breakpointParams[prop].enabled;
+      if (wasModuleEnabled && !isModuleEnabled) {
+        swiper[prop].disable();
+      }
+      if (!wasModuleEnabled && isModuleEnabled) {
+        swiper[prop].enable();
+      }
+    });
+    const directionChanged = breakpointParams.direction && breakpointParams.direction !== params.direction;
+    const needsReLoop = params.loop && (breakpointParams.slidesPerView !== params.slidesPerView || directionChanged);
+    const wasLoop = params.loop;
+    if (directionChanged && initialized) {
+      swiper.changeDirection();
+    }
+    extend2(swiper.params, breakpointParams);
+    const isEnabled = swiper.params.enabled;
+    const hasLoop = swiper.params.loop;
+    Object.assign(swiper, {
+      allowTouchMove: swiper.params.allowTouchMove,
+      allowSlideNext: swiper.params.allowSlideNext,
+      allowSlidePrev: swiper.params.allowSlidePrev
+    });
+    if (wasEnabled && !isEnabled) {
+      swiper.disable();
+    } else if (!wasEnabled && isEnabled) {
+      swiper.enable();
+    }
+    swiper.currentBreakpoint = breakpoint;
+    swiper.emit("_beforeBreakpoint", breakpointParams);
+    if (initialized) {
+      if (needsReLoop) {
+        swiper.loopDestroy();
+        swiper.loopCreate(realIndex);
+        swiper.updateSlides();
+      } else if (!wasLoop && hasLoop) {
+        swiper.loopCreate(realIndex);
+        swiper.updateSlides();
+      } else if (wasLoop && !hasLoop) {
+        swiper.loopDestroy();
+      }
+    }
+    swiper.emit("breakpoint", breakpointParams);
+  }
+  function getBreakpoint(breakpoints2, base = "window", containerEl) {
+    if (!breakpoints2 || base === "container" && !containerEl) return void 0;
+    let breakpoint = false;
+    const window2 = getWindow();
+    const currentHeight = base === "window" ? window2.innerHeight : containerEl.clientHeight;
+    const points = Object.keys(breakpoints2).map((point) => {
+      if (typeof point === "string" && point.indexOf("@") === 0) {
+        const minRatio = parseFloat(point.substr(1));
+        const value = currentHeight * minRatio;
+        return {
+          value,
+          point
+        };
+      }
+      return {
+        value: point,
+        point
+      };
+    });
+    points.sort((a, b) => parseInt(a.value, 10) - parseInt(b.value, 10));
+    for (let i = 0; i < points.length; i += 1) {
+      const {
+        point,
+        value
+      } = points[i];
+      if (base === "window") {
+        if (window2.matchMedia(`(min-width: ${value}px)`).matches) {
+          breakpoint = point;
+        }
+      } else if (value <= containerEl.clientWidth) {
+        breakpoint = point;
+      }
+    }
+    return breakpoint || "max";
+  }
+  var breakpoints = {
+    setBreakpoint,
+    getBreakpoint
+  };
+  function prepareClasses(entries, prefix) {
+    const resultClasses = [];
+    entries.forEach((item) => {
+      if (typeof item === "object") {
+        Object.keys(item).forEach((classNames) => {
+          if (item[classNames]) {
+            resultClasses.push(prefix + classNames);
+          }
+        });
+      } else if (typeof item === "string") {
+        resultClasses.push(prefix + item);
+      }
+    });
+    return resultClasses;
+  }
+  function addClasses() {
+    const swiper = this;
+    const {
+      classNames,
+      params,
+      rtl,
+      el,
+      device
+    } = swiper;
+    const suffixes = prepareClasses(["initialized", params.direction, {
+      "free-mode": swiper.params.freeMode && params.freeMode.enabled
+    }, {
+      "autoheight": params.autoHeight
+    }, {
+      "rtl": rtl
+    }, {
+      "grid": params.grid && params.grid.rows > 1
+    }, {
+      "grid-column": params.grid && params.grid.rows > 1 && params.grid.fill === "column"
+    }, {
+      "android": device.android
+    }, {
+      "ios": device.ios
+    }, {
+      "css-mode": params.cssMode
+    }, {
+      "centered": params.cssMode && params.centeredSlides
+    }, {
+      "watch-progress": params.watchSlidesProgress
+    }], params.containerModifierClass);
+    classNames.push(...suffixes);
+    el.classList.add(...classNames);
+    swiper.emitContainerClasses();
+  }
+  function removeClasses() {
+    const swiper = this;
+    const {
+      el,
+      classNames
+    } = swiper;
+    if (!el || typeof el === "string") return;
+    el.classList.remove(...classNames);
+    swiper.emitContainerClasses();
+  }
+  var classes = {
+    addClasses,
+    removeClasses
+  };
+  function checkOverflow() {
+    const swiper = this;
+    const {
+      isLocked: wasLocked,
+      params
+    } = swiper;
+    const {
+      slidesOffsetBefore
+    } = params;
+    if (slidesOffsetBefore) {
+      const lastSlideIndex = swiper.slides.length - 1;
+      const lastSlideRightEdge = swiper.slidesGrid[lastSlideIndex] + swiper.slidesSizesGrid[lastSlideIndex] + slidesOffsetBefore * 2;
+      swiper.isLocked = swiper.size > lastSlideRightEdge;
+    } else {
+      swiper.isLocked = swiper.snapGrid.length === 1;
+    }
+    if (params.allowSlideNext === true) {
+      swiper.allowSlideNext = !swiper.isLocked;
+    }
+    if (params.allowSlidePrev === true) {
+      swiper.allowSlidePrev = !swiper.isLocked;
+    }
+    if (wasLocked && wasLocked !== swiper.isLocked) {
+      swiper.isEnd = false;
+    }
+    if (wasLocked !== swiper.isLocked) {
+      swiper.emit(swiper.isLocked ? "lock" : "unlock");
+    }
+  }
+  var checkOverflow$1 = {
+    checkOverflow
+  };
+  var defaults = {
+    init: true,
+    direction: "horizontal",
+    oneWayMovement: false,
+    swiperElementNodeName: "SWIPER-CONTAINER",
+    touchEventsTarget: "wrapper",
+    initialSlide: 0,
+    speed: 300,
+    cssMode: false,
+    updateOnWindowResize: true,
+    resizeObserver: true,
+    nested: false,
+    createElements: false,
+    eventsPrefix: "swiper",
+    enabled: true,
+    focusableElements: "input, select, option, textarea, button, video, label",
+    // Overrides
+    width: null,
+    height: null,
+    //
+    preventInteractionOnTransition: false,
+    // ssr
+    userAgent: null,
+    url: null,
+    // To support iOS's swipe-to-go-back gesture (when being used in-app).
+    edgeSwipeDetection: false,
+    edgeSwipeThreshold: 20,
+    // Autoheight
+    autoHeight: false,
+    // Set wrapper width
+    setWrapperSize: false,
+    // Virtual Translate
+    virtualTranslate: false,
+    // Effects
+    effect: "slide",
+    // 'slide' or 'fade' or 'cube' or 'coverflow' or 'flip'
+    // Breakpoints
+    breakpoints: void 0,
+    breakpointsBase: "window",
+    // Slides grid
+    spaceBetween: 0,
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    slidesPerGroupSkip: 0,
+    slidesPerGroupAuto: false,
+    centeredSlides: false,
+    centeredSlidesBounds: false,
+    slidesOffsetBefore: 0,
+    // in px
+    slidesOffsetAfter: 0,
+    // in px
+    normalizeSlideIndex: true,
+    centerInsufficientSlides: false,
+    snapToSlideEdge: false,
+    // Disable swiper and hide navigation when container not overflow
+    watchOverflow: true,
+    // Round length
+    roundLengths: false,
+    // Touches
+    touchRatio: 1,
+    touchAngle: 45,
+    simulateTouch: true,
+    shortSwipes: true,
+    longSwipes: true,
+    longSwipesRatio: 0.5,
+    longSwipesMs: 300,
+    followFinger: true,
+    allowTouchMove: true,
+    threshold: 5,
+    touchMoveStopPropagation: false,
+    touchStartPreventDefault: true,
+    touchStartForcePreventDefault: false,
+    touchReleaseOnEdges: false,
+    // Unique Navigation Elements
+    uniqueNavElements: true,
+    // Resistance
+    resistance: true,
+    resistanceRatio: 0.85,
+    // Progress
+    watchSlidesProgress: false,
+    // Cursor
+    grabCursor: false,
+    // Clicks
+    preventClicks: true,
+    preventClicksPropagation: true,
+    slideToClickedSlide: false,
+    // loop
+    loop: false,
+    loopAddBlankSlides: true,
+    loopAdditionalSlides: 0,
+    loopPreventsSliding: true,
+    // rewind
+    rewind: false,
+    // Swiping/no swiping
+    allowSlidePrev: true,
+    allowSlideNext: true,
+    swipeHandler: null,
+    // '.swipe-handler',
+    noSwiping: true,
+    noSwipingClass: "swiper-no-swiping",
+    noSwipingSelector: null,
+    // Passive Listeners
+    passiveListeners: true,
+    maxBackfaceHiddenSlides: 10,
+    // NS
+    containerModifierClass: "swiper-",
+    // NEW
+    slideClass: "swiper-slide",
+    slideBlankClass: "swiper-slide-blank",
+    slideActiveClass: "swiper-slide-active",
+    slideVisibleClass: "swiper-slide-visible",
+    slideFullyVisibleClass: "swiper-slide-fully-visible",
+    slideNextClass: "swiper-slide-next",
+    slidePrevClass: "swiper-slide-prev",
+    wrapperClass: "swiper-wrapper",
+    lazyPreloaderClass: "swiper-lazy-preloader",
+    lazyPreloadPrevNext: 0,
+    // Callbacks
+    runCallbacksOnInit: true,
+    // Internals
+    _emitClasses: false
+  };
+  function moduleExtendParams(params, allModulesParams) {
+    return function extendParams(obj = {}) {
+      const moduleParamName = Object.keys(obj)[0];
+      const moduleParams = obj[moduleParamName];
+      if (typeof moduleParams !== "object" || moduleParams === null) {
+        extend2(allModulesParams, obj);
+        return;
+      }
+      if (params[moduleParamName] === true) {
+        params[moduleParamName] = {
+          enabled: true
+        };
+      }
+      if (moduleParamName === "navigation" && params[moduleParamName] && params[moduleParamName].enabled && !params[moduleParamName].prevEl && !params[moduleParamName].nextEl) {
+        params[moduleParamName].auto = true;
+      }
+      if (["pagination", "scrollbar"].indexOf(moduleParamName) >= 0 && params[moduleParamName] && params[moduleParamName].enabled && !params[moduleParamName].el) {
+        params[moduleParamName].auto = true;
+      }
+      if (!(moduleParamName in params && "enabled" in moduleParams)) {
+        extend2(allModulesParams, obj);
+        return;
+      }
+      if (typeof params[moduleParamName] === "object" && !("enabled" in params[moduleParamName])) {
+        params[moduleParamName].enabled = true;
+      }
+      if (!params[moduleParamName]) params[moduleParamName] = {
+        enabled: false
+      };
+      extend2(allModulesParams, obj);
+    };
+  }
+  var prototypes = {
+    eventsEmitter,
+    update,
+    translate,
+    transition,
+    slide,
+    loop,
+    grabCursor,
+    events: events$1,
+    breakpoints,
+    checkOverflow: checkOverflow$1,
+    classes
+  };
+  var extendedDefaults = {};
+  var Swiper = class _Swiper {
+    constructor(...args) {
+      let el;
+      let params;
+      if (args.length === 1 && args[0].constructor && Object.prototype.toString.call(args[0]).slice(8, -1) === "Object") {
+        params = args[0];
+      } else {
+        [el, params] = args;
+      }
+      if (!params) params = {};
+      params = extend2({}, params);
+      if (el && !params.el) params.el = el;
+      const document2 = getDocument();
+      if (params.el && typeof params.el === "string" && document2.querySelectorAll(params.el).length > 1) {
+        const swipers = [];
+        document2.querySelectorAll(params.el).forEach((containerEl) => {
+          const newParams = extend2({}, params, {
+            el: containerEl
+          });
+          swipers.push(new _Swiper(newParams));
+        });
+        return swipers;
+      }
+      const swiper = this;
+      swiper.__swiper__ = true;
+      swiper.support = getSupport();
+      swiper.device = getDevice({
+        userAgent: params.userAgent
+      });
+      swiper.browser = getBrowser();
+      swiper.eventsListeners = {};
+      swiper.eventsAnyListeners = [];
+      swiper.modules = [...swiper.__modules__];
+      if (params.modules && Array.isArray(params.modules)) {
+        params.modules.forEach((mod) => {
+          if (typeof mod === "function" && swiper.modules.indexOf(mod) < 0) {
+            swiper.modules.push(mod);
+          }
+        });
+      }
+      const allModulesParams = {};
+      swiper.modules.forEach((mod) => {
+        mod({
+          params,
+          swiper,
+          extendParams: moduleExtendParams(params, allModulesParams),
+          on: swiper.on.bind(swiper),
+          once: swiper.once.bind(swiper),
+          off: swiper.off.bind(swiper),
+          emit: swiper.emit.bind(swiper)
+        });
+      });
+      const swiperParams = extend2({}, defaults, allModulesParams);
+      swiper.params = extend2({}, swiperParams, extendedDefaults, params);
+      swiper.originalParams = extend2({}, swiper.params);
+      swiper.passedParams = extend2({}, params);
+      if (swiper.params && swiper.params.on) {
+        Object.keys(swiper.params.on).forEach((eventName) => {
+          swiper.on(eventName, swiper.params.on[eventName]);
+        });
+      }
+      if (swiper.params && swiper.params.onAny) {
+        swiper.onAny(swiper.params.onAny);
+      }
+      Object.assign(swiper, {
+        enabled: swiper.params.enabled,
+        el,
+        // Classes
+        classNames: [],
+        // Slides
+        slides: [],
+        slidesGrid: [],
+        snapGrid: [],
+        slidesSizesGrid: [],
+        // isDirection
+        isHorizontal() {
+          return swiper.params.direction === "horizontal";
+        },
+        isVertical() {
+          return swiper.params.direction === "vertical";
+        },
+        // Indexes
+        activeIndex: 0,
+        realIndex: 0,
+        //
+        isBeginning: true,
+        isEnd: false,
+        // Props
+        translate: 0,
+        previousTranslate: 0,
+        progress: 0,
+        velocity: 0,
+        animating: false,
+        cssOverflowAdjustment() {
+          return Math.trunc(this.translate / 2 ** 23) * 2 ** 23;
+        },
+        // Locks
+        allowSlideNext: swiper.params.allowSlideNext,
+        allowSlidePrev: swiper.params.allowSlidePrev,
+        // Touch Events
+        touchEventsData: {
+          isTouched: void 0,
+          isMoved: void 0,
+          allowTouchCallbacks: void 0,
+          touchStartTime: void 0,
+          isScrolling: void 0,
+          currentTranslate: void 0,
+          startTranslate: void 0,
+          allowThresholdMove: void 0,
+          // Form elements to match
+          focusableElements: swiper.params.focusableElements,
+          // Last click time
+          lastClickTime: 0,
+          clickTimeout: void 0,
+          // Velocities
+          velocities: [],
+          allowMomentumBounce: void 0,
+          startMoving: void 0,
+          pointerId: null,
+          touchId: null
+        },
+        // Clicks
+        allowClick: true,
+        // Touches
+        allowTouchMove: swiper.params.allowTouchMove,
+        touches: {
+          startX: 0,
+          startY: 0,
+          currentX: 0,
+          currentY: 0,
+          diff: 0
+        },
+        // Images
+        imagesToLoad: [],
+        imagesLoaded: 0
+      });
+      swiper.emit("_swiper");
+      if (swiper.params.init) {
+        swiper.init();
+      }
+      return swiper;
+    }
+    getDirectionLabel(property) {
+      if (this.isHorizontal()) {
+        return property;
+      }
+      return {
+        "width": "height",
+        "margin-top": "margin-left",
+        "margin-bottom ": "margin-right",
+        "margin-left": "margin-top",
+        "margin-right": "margin-bottom",
+        "padding-left": "padding-top",
+        "padding-right": "padding-bottom",
+        "marginRight": "marginBottom"
+      }[property];
+    }
+    getSlideIndex(slideEl) {
+      const {
+        slidesEl,
+        params
+      } = this;
+      const slides = elementChildren(slidesEl, `.${params.slideClass}, swiper-slide`);
+      const firstSlideIndex = elementIndex(slides[0]);
+      return elementIndex(slideEl) - firstSlideIndex;
+    }
+    getSlideIndexByData(index) {
+      return this.getSlideIndex(this.slides.find((slideEl) => slideEl.getAttribute("data-swiper-slide-index") * 1 === index));
+    }
+    getSlideIndexWhenGrid(index) {
+      if (this.grid && this.params.grid && this.params.grid.rows > 1) {
+        if (this.params.grid.fill === "column") {
+          index = Math.floor(index / this.params.grid.rows);
+        } else if (this.params.grid.fill === "row") {
+          index = index % Math.ceil(this.slides.length / this.params.grid.rows);
+        }
+      }
+      return index;
+    }
+    recalcSlides() {
+      const swiper = this;
+      const {
+        slidesEl,
+        params
+      } = swiper;
+      swiper.slides = elementChildren(slidesEl, `.${params.slideClass}, swiper-slide`);
+    }
+    enable() {
+      const swiper = this;
+      if (swiper.enabled) return;
+      swiper.enabled = true;
+      if (swiper.params.grabCursor) {
+        swiper.setGrabCursor();
+      }
+      swiper.emit("enable");
+    }
+    disable() {
+      const swiper = this;
+      if (!swiper.enabled) return;
+      swiper.enabled = false;
+      if (swiper.params.grabCursor) {
+        swiper.unsetGrabCursor();
+      }
+      swiper.emit("disable");
+    }
+    setProgress(progress, speed) {
+      const swiper = this;
+      progress = Math.min(Math.max(progress, 0), 1);
+      const min = swiper.minTranslate();
+      const max = swiper.maxTranslate();
+      const current = (max - min) * progress + min;
+      swiper.translateTo(current, typeof speed === "undefined" ? 0 : speed);
+      swiper.updateActiveIndex();
+      swiper.updateSlidesClasses();
+    }
+    emitContainerClasses() {
+      const swiper = this;
+      if (!swiper.params._emitClasses || !swiper.el) return;
+      const cls = swiper.el.className.split(" ").filter((className) => {
+        return className.indexOf("swiper") === 0 || className.indexOf(swiper.params.containerModifierClass) === 0;
+      });
+      swiper.emit("_containerClasses", cls.join(" "));
+    }
+    getSlideClasses(slideEl) {
+      const swiper = this;
+      if (swiper.destroyed) return "";
+      return slideEl.className.split(" ").filter((className) => {
+        return className.indexOf("swiper-slide") === 0 || className.indexOf(swiper.params.slideClass) === 0;
+      }).join(" ");
+    }
+    emitSlidesClasses() {
+      const swiper = this;
+      if (!swiper.params._emitClasses || !swiper.el) return;
+      const updates = [];
+      swiper.slides.forEach((slideEl) => {
+        const classNames = swiper.getSlideClasses(slideEl);
+        updates.push({
+          slideEl,
+          classNames
+        });
+        swiper.emit("_slideClass", slideEl, classNames);
+      });
+      swiper.emit("_slideClasses", updates);
+    }
+    slidesPerViewDynamic(view = "current", exact = false) {
+      const swiper = this;
+      const {
+        params,
+        slides,
+        slidesGrid,
+        slidesSizesGrid,
+        size: swiperSize,
+        activeIndex
+      } = swiper;
+      let spv = 1;
+      if (typeof params.slidesPerView === "number") return params.slidesPerView;
+      if (params.centeredSlides) {
+        let slideSize = slides[activeIndex] ? Math.ceil(slides[activeIndex].swiperSlideSize) : 0;
+        let breakLoop;
+        for (let i = activeIndex + 1; i < slides.length; i += 1) {
+          if (slides[i] && !breakLoop) {
+            slideSize += Math.ceil(slides[i].swiperSlideSize);
+            spv += 1;
+            if (slideSize > swiperSize) breakLoop = true;
+          }
+        }
+        for (let i = activeIndex - 1; i >= 0; i -= 1) {
+          if (slides[i] && !breakLoop) {
+            slideSize += slides[i].swiperSlideSize;
+            spv += 1;
+            if (slideSize > swiperSize) breakLoop = true;
+          }
+        }
+      } else {
+        if (view === "current") {
+          for (let i = activeIndex + 1; i < slides.length; i += 1) {
+            const slideInView = exact ? slidesGrid[i] + slidesSizesGrid[i] - slidesGrid[activeIndex] < swiperSize : slidesGrid[i] - slidesGrid[activeIndex] < swiperSize;
+            if (slideInView) {
+              spv += 1;
+            }
+          }
+        } else {
+          for (let i = activeIndex - 1; i >= 0; i -= 1) {
+            const slideInView = slidesGrid[activeIndex] - slidesGrid[i] < swiperSize;
+            if (slideInView) {
+              spv += 1;
+            }
+          }
+        }
+      }
+      return spv;
+    }
+    update() {
+      const swiper = this;
+      if (!swiper || swiper.destroyed) return;
+      const {
+        snapGrid,
+        params
+      } = swiper;
+      if (params.breakpoints) {
+        swiper.setBreakpoint();
+      }
+      [...swiper.el.querySelectorAll('[loading="lazy"]')].forEach((imageEl) => {
+        if (imageEl.complete) {
+          processLazyPreloader(swiper, imageEl);
+        }
+      });
+      swiper.updateSize();
+      swiper.updateSlides();
+      swiper.updateProgress();
+      swiper.updateSlidesClasses();
+      function setTranslate2() {
+        const translateValue = swiper.rtlTranslate ? swiper.translate * -1 : swiper.translate;
+        const newTranslate = Math.min(Math.max(translateValue, swiper.maxTranslate()), swiper.minTranslate());
+        swiper.setTranslate(newTranslate);
+        swiper.updateActiveIndex();
+        swiper.updateSlidesClasses();
+      }
+      let translated;
+      if (params.freeMode && params.freeMode.enabled && !params.cssMode) {
+        setTranslate2();
+        if (params.autoHeight) {
+          swiper.updateAutoHeight();
+        }
+      } else {
+        if ((params.slidesPerView === "auto" || params.slidesPerView > 1) && swiper.isEnd && !params.centeredSlides) {
+          const slides = swiper.virtual && params.virtual.enabled ? swiper.virtual.slides : swiper.slides;
+          translated = swiper.slideTo(slides.length - 1, 0, false, true);
+        } else {
+          translated = swiper.slideTo(swiper.activeIndex, 0, false, true);
+        }
+        if (!translated) {
+          setTranslate2();
+        }
+      }
+      if (params.watchOverflow && snapGrid !== swiper.snapGrid) {
+        swiper.checkOverflow();
+      }
+      swiper.emit("update");
+    }
+    changeDirection(newDirection, needUpdate = true) {
+      const swiper = this;
+      const currentDirection = swiper.params.direction;
+      if (!newDirection) {
+        newDirection = currentDirection === "horizontal" ? "vertical" : "horizontal";
+      }
+      if (newDirection === currentDirection || newDirection !== "horizontal" && newDirection !== "vertical") {
+        return swiper;
+      }
+      swiper.el.classList.remove(`${swiper.params.containerModifierClass}${currentDirection}`);
+      swiper.el.classList.add(`${swiper.params.containerModifierClass}${newDirection}`);
+      swiper.emitContainerClasses();
+      swiper.params.direction = newDirection;
+      swiper.slides.forEach((slideEl) => {
+        if (newDirection === "vertical") {
+          slideEl.style.width = "";
+        } else {
+          slideEl.style.height = "";
+        }
+      });
+      swiper.emit("changeDirection");
+      if (needUpdate) swiper.update();
+      return swiper;
+    }
+    changeLanguageDirection(direction) {
+      const swiper = this;
+      if (swiper.rtl && direction === "rtl" || !swiper.rtl && direction === "ltr") return;
+      swiper.rtl = direction === "rtl";
+      swiper.rtlTranslate = swiper.params.direction === "horizontal" && swiper.rtl;
+      if (swiper.rtl) {
+        swiper.el.classList.add(`${swiper.params.containerModifierClass}rtl`);
+        swiper.el.dir = "rtl";
+      } else {
+        swiper.el.classList.remove(`${swiper.params.containerModifierClass}rtl`);
+        swiper.el.dir = "ltr";
+      }
+      swiper.update();
+    }
+    mount(element) {
+      const swiper = this;
+      if (swiper.mounted) return true;
+      let el = element || swiper.params.el;
+      if (typeof el === "string") {
+        el = document.querySelector(el);
+      }
+      if (!el) {
+        return false;
+      }
+      el.swiper = swiper;
+      if (el.parentNode && el.parentNode.host && el.parentNode.host.nodeName === swiper.params.swiperElementNodeName.toUpperCase()) {
+        swiper.isElement = true;
+      }
+      const getWrapperSelector = () => {
+        return `.${(swiper.params.wrapperClass || "").trim().split(" ").join(".")}`;
+      };
+      const getWrapper = () => {
+        if (el && el.shadowRoot && el.shadowRoot.querySelector) {
+          const res = el.shadowRoot.querySelector(getWrapperSelector());
+          return res;
+        }
+        return elementChildren(el, getWrapperSelector())[0];
+      };
+      let wrapperEl = getWrapper();
+      if (!wrapperEl && swiper.params.createElements) {
+        wrapperEl = createElement("div", swiper.params.wrapperClass);
+        el.append(wrapperEl);
+        elementChildren(el, `.${swiper.params.slideClass}`).forEach((slideEl) => {
+          wrapperEl.append(slideEl);
+        });
+      }
+      Object.assign(swiper, {
+        el,
+        wrapperEl,
+        slidesEl: swiper.isElement && !el.parentNode.host.slideSlots ? el.parentNode.host : wrapperEl,
+        hostEl: swiper.isElement ? el.parentNode.host : el,
+        mounted: true,
+        // RTL
+        rtl: el.dir.toLowerCase() === "rtl" || elementStyle(el, "direction") === "rtl",
+        rtlTranslate: swiper.params.direction === "horizontal" && (el.dir.toLowerCase() === "rtl" || elementStyle(el, "direction") === "rtl"),
+        wrongRTL: elementStyle(wrapperEl, "display") === "-webkit-box"
+      });
+      return true;
+    }
+    init(el) {
+      const swiper = this;
+      if (swiper.initialized) return swiper;
+      const mounted = swiper.mount(el);
+      if (mounted === false) return swiper;
+      swiper.emit("beforeInit");
+      if (swiper.params.breakpoints) {
+        swiper.setBreakpoint();
+      }
+      swiper.addClasses();
+      swiper.updateSize();
+      swiper.updateSlides();
+      if (swiper.params.watchOverflow) {
+        swiper.checkOverflow();
+      }
+      if (swiper.params.grabCursor && swiper.enabled) {
+        swiper.setGrabCursor();
+      }
+      if (swiper.params.loop && swiper.virtual && swiper.params.virtual.enabled) {
+        swiper.slideTo(swiper.params.initialSlide + swiper.virtual.slidesBefore, 0, swiper.params.runCallbacksOnInit, false, true);
+      } else {
+        swiper.slideTo(swiper.params.initialSlide, 0, swiper.params.runCallbacksOnInit, false, true);
+      }
+      if (swiper.params.loop) {
+        swiper.loopCreate(void 0, true);
+      }
+      swiper.attachEvents();
+      const lazyElements = [...swiper.el.querySelectorAll('[loading="lazy"]')];
+      if (swiper.isElement) {
+        lazyElements.push(...swiper.hostEl.querySelectorAll('[loading="lazy"]'));
+      }
+      lazyElements.forEach((imageEl) => {
+        if (imageEl.complete) {
+          processLazyPreloader(swiper, imageEl);
+        } else {
+          imageEl.addEventListener("load", (e) => {
+            processLazyPreloader(swiper, e.target);
+          });
+        }
+      });
+      preload(swiper);
+      swiper.initialized = true;
+      preload(swiper);
+      swiper.emit("init");
+      swiper.emit("afterInit");
+      return swiper;
+    }
+    destroy(deleteInstance = true, cleanStyles = true) {
+      const swiper = this;
+      const {
+        params,
+        el,
+        wrapperEl,
+        slides
+      } = swiper;
+      if (typeof swiper.params === "undefined" || swiper.destroyed) {
+        return null;
+      }
+      swiper.emit("beforeDestroy");
+      swiper.initialized = false;
+      swiper.detachEvents();
+      if (params.loop) {
+        swiper.loopDestroy();
+      }
+      if (cleanStyles) {
+        swiper.removeClasses();
+        if (el && typeof el !== "string") {
+          el.removeAttribute("style");
+        }
+        if (wrapperEl) {
+          wrapperEl.removeAttribute("style");
+        }
+        if (slides && slides.length) {
+          slides.forEach((slideEl) => {
+            slideEl.classList.remove(params.slideVisibleClass, params.slideFullyVisibleClass, params.slideActiveClass, params.slideNextClass, params.slidePrevClass);
+            slideEl.removeAttribute("style");
+            slideEl.removeAttribute("data-swiper-slide-index");
+          });
+        }
+      }
+      swiper.emit("destroy");
+      Object.keys(swiper.eventsListeners).forEach((eventName) => {
+        swiper.off(eventName);
+      });
+      if (deleteInstance !== false) {
+        if (swiper.el && typeof swiper.el !== "string") {
+          swiper.el.swiper = null;
+        }
+        deleteProps(swiper);
+      }
+      swiper.destroyed = true;
+      return null;
+    }
+    static extendDefaults(newDefaults) {
+      extend2(extendedDefaults, newDefaults);
+    }
+    static get extendedDefaults() {
+      return extendedDefaults;
+    }
+    static get defaults() {
+      return defaults;
+    }
+    static installModule(mod) {
+      if (!_Swiper.prototype.__modules__) _Swiper.prototype.__modules__ = [];
+      const modules = _Swiper.prototype.__modules__;
+      if (typeof mod === "function" && modules.indexOf(mod) < 0) {
+        modules.push(mod);
+      }
+    }
+    static use(module) {
+      if (Array.isArray(module)) {
+        module.forEach((m) => _Swiper.installModule(m));
+        return _Swiper;
+      }
+      _Swiper.installModule(module);
+      return _Swiper;
+    }
+  };
+  Object.keys(prototypes).forEach((prototypeGroup) => {
+    Object.keys(prototypes[prototypeGroup]).forEach((protoMethod) => {
+      Swiper.prototype[protoMethod] = prototypes[prototypeGroup][protoMethod];
+    });
+  });
+  Swiper.use([Resize, Observer]);
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/modules/keyboard.mjs
+  function Keyboard({
+    swiper,
+    extendParams,
+    on,
+    emit
+  }) {
+    const document2 = getDocument();
+    const window2 = getWindow();
+    swiper.keyboard = {
+      enabled: false
+    };
+    extendParams({
+      keyboard: {
+        enabled: false,
+        onlyInViewport: true,
+        pageUpDown: true,
+        speed: void 0
+      }
+    });
+    function handle(event2) {
+      if (!swiper.enabled) return;
+      const {
+        rtlTranslate: rtl
+      } = swiper;
+      let e = event2;
+      if (e.originalEvent) e = e.originalEvent;
+      const kc = e.keyCode || e.charCode;
+      const pageUpDown = swiper.params.keyboard.pageUpDown;
+      const isPageUp = pageUpDown && kc === 33;
+      const isPageDown = pageUpDown && kc === 34;
+      const isArrowLeft = kc === 37;
+      const isArrowRight = kc === 39;
+      const isArrowUp = kc === 38;
+      const isArrowDown = kc === 40;
+      if (!swiper.allowSlideNext && (swiper.isHorizontal() && isArrowRight || swiper.isVertical() && isArrowDown || isPageDown)) {
+        return false;
+      }
+      if (!swiper.allowSlidePrev && (swiper.isHorizontal() && isArrowLeft || swiper.isVertical() && isArrowUp || isPageUp)) {
+        return false;
+      }
+      if (e.shiftKey || e.altKey || e.ctrlKey || e.metaKey) {
+        return void 0;
+      }
+      if (document2.activeElement && (document2.activeElement.isContentEditable || document2.activeElement.nodeName && (document2.activeElement.nodeName.toLowerCase() === "input" || document2.activeElement.nodeName.toLowerCase() === "textarea"))) {
+        return void 0;
+      }
+      if (swiper.params.keyboard.onlyInViewport && (isPageUp || isPageDown || isArrowLeft || isArrowRight || isArrowUp || isArrowDown)) {
+        let inView = false;
+        if (elementParents(swiper.el, `.${swiper.params.slideClass}, swiper-slide`).length > 0 && elementParents(swiper.el, `.${swiper.params.slideActiveClass}`).length === 0) {
+          return void 0;
+        }
+        const el = swiper.el;
+        const swiperWidth = el.clientWidth;
+        const swiperHeight = el.clientHeight;
+        const windowWidth = window2.innerWidth;
+        const windowHeight = window2.innerHeight;
+        const swiperOffset = elementOffset(el);
+        if (rtl) swiperOffset.left -= el.scrollLeft;
+        const swiperCoord = [[swiperOffset.left, swiperOffset.top], [swiperOffset.left + swiperWidth, swiperOffset.top], [swiperOffset.left, swiperOffset.top + swiperHeight], [swiperOffset.left + swiperWidth, swiperOffset.top + swiperHeight]];
+        for (let i = 0; i < swiperCoord.length; i += 1) {
+          const point = swiperCoord[i];
+          if (point[0] >= 0 && point[0] <= windowWidth && point[1] >= 0 && point[1] <= windowHeight) {
+            if (point[0] === 0 && point[1] === 0) continue;
+            inView = true;
+          }
+        }
+        if (!inView) return void 0;
+      }
+      const speed = swiper.params.keyboard.speed;
+      if (swiper.isHorizontal()) {
+        if (isPageUp || isPageDown || isArrowLeft || isArrowRight) {
+          if (e.preventDefault) e.preventDefault();
+          else e.returnValue = false;
+        }
+        if ((isPageDown || isArrowRight) && !rtl || (isPageUp || isArrowLeft) && rtl) swiper.slideNext(speed);
+        if ((isPageUp || isArrowLeft) && !rtl || (isPageDown || isArrowRight) && rtl) swiper.slidePrev(speed);
+      } else {
+        if (isPageUp || isPageDown || isArrowUp || isArrowDown) {
+          if (e.preventDefault) e.preventDefault();
+          else e.returnValue = false;
+        }
+        if (isPageDown || isArrowDown) swiper.slideNext(speed);
+        if (isPageUp || isArrowUp) swiper.slidePrev(speed);
+      }
+      emit("keyPress", kc);
+      return void 0;
+    }
+    function enable() {
+      if (swiper.keyboard.enabled) return;
+      document2.addEventListener("keydown", handle);
+      swiper.keyboard.enabled = true;
+    }
+    function disable() {
+      if (!swiper.keyboard.enabled) return;
+      document2.removeEventListener("keydown", handle);
+      swiper.keyboard.enabled = false;
+    }
+    on("init", () => {
+      if (swiper.params.keyboard.enabled) {
+        enable();
+      }
+    });
+    on("destroy", () => {
+      if (swiper.keyboard.enabled) {
+        disable();
+      }
+    });
+    Object.assign(swiper.keyboard, {
+      enable,
+      disable
+    });
+  }
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/shared/create-element-if-not-defined.mjs
+  function createElementIfNotDefined(swiper, originalParams, params, checkProps) {
+    if (swiper.params.createElements) {
+      Object.keys(checkProps).forEach((key) => {
+        if (!params[key] && params.auto === true) {
+          let element = elementChildren(swiper.el, `.${checkProps[key]}`)[0];
+          if (!element) {
+            element = createElement("div", checkProps[key]);
+            element.className = checkProps[key];
+            swiper.el.append(element);
+          }
+          params[key] = element;
+          originalParams[key] = element;
+        }
+      });
+    }
+    return params;
+  }
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/modules/navigation.mjs
+  var arrowSvg = `<svg class="swiper-navigation-icon" width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.38296 20.0762C0.111788 19.805 0.111788 19.3654 0.38296 19.0942L9.19758 10.2796L0.38296 1.46497C0.111788 1.19379 0.111788 0.754138 0.38296 0.482966C0.654131 0.211794 1.09379 0.211794 1.36496 0.482966L10.4341 9.55214C10.8359 9.9539 10.8359 10.6053 10.4341 11.007L1.36496 20.0762C1.09379 20.3474 0.654131 20.3474 0.38296 20.0762Z" fill="currentColor"/></svg>`;
+  function Navigation({
+    swiper,
+    extendParams,
+    on,
+    emit
+  }) {
+    extendParams({
+      navigation: {
+        nextEl: null,
+        prevEl: null,
+        addIcons: true,
+        hideOnClick: false,
+        disabledClass: "swiper-button-disabled",
+        hiddenClass: "swiper-button-hidden",
+        lockClass: "swiper-button-lock",
+        navigationDisabledClass: "swiper-navigation-disabled"
+      }
+    });
+    swiper.navigation = {
+      nextEl: null,
+      prevEl: null,
+      arrowSvg
+    };
+    function getEl(el) {
+      let res;
+      if (el && typeof el === "string" && swiper.isElement) {
+        res = swiper.el.querySelector(el) || swiper.hostEl.querySelector(el);
+        if (res) return res;
+      }
+      if (el) {
+        if (typeof el === "string") res = [...document.querySelectorAll(el)];
+        if (swiper.params.uniqueNavElements && typeof el === "string" && res && res.length > 1 && swiper.el.querySelectorAll(el).length === 1) {
+          res = swiper.el.querySelector(el);
+        } else if (res && res.length === 1) {
+          res = res[0];
+        }
+      }
+      if (el && !res) return el;
+      return res;
+    }
+    function toggleEl(el, disabled) {
+      const params = swiper.params.navigation;
+      el = makeElementsArray(el);
+      el.forEach((subEl) => {
+        if (subEl) {
+          subEl.classList[disabled ? "add" : "remove"](...params.disabledClass.split(" "));
+          if (subEl.tagName === "BUTTON") subEl.disabled = disabled;
+          if (swiper.params.watchOverflow && swiper.enabled) {
+            subEl.classList[swiper.isLocked ? "add" : "remove"](params.lockClass);
+          }
+        }
+      });
+    }
+    function update2() {
+      const {
+        nextEl,
+        prevEl
+      } = swiper.navigation;
+      if (swiper.params.loop) {
+        toggleEl(prevEl, false);
+        toggleEl(nextEl, false);
+        return;
+      }
+      toggleEl(prevEl, swiper.isBeginning && !swiper.params.rewind);
+      toggleEl(nextEl, swiper.isEnd && !swiper.params.rewind);
+    }
+    function onPrevClick(e) {
+      e.preventDefault();
+      if (swiper.isBeginning && !swiper.params.loop && !swiper.params.rewind) return;
+      swiper.slidePrev();
+      emit("navigationPrev");
+    }
+    function onNextClick(e) {
+      e.preventDefault();
+      if (swiper.isEnd && !swiper.params.loop && !swiper.params.rewind) return;
+      swiper.slideNext();
+      emit("navigationNext");
+    }
+    function init() {
+      const params = swiper.params.navigation;
+      swiper.params.navigation = createElementIfNotDefined(swiper, swiper.originalParams.navigation, swiper.params.navigation, {
+        nextEl: "swiper-button-next",
+        prevEl: "swiper-button-prev"
+      });
+      if (!(params.nextEl || params.prevEl)) return;
+      let nextEl = getEl(params.nextEl);
+      let prevEl = getEl(params.prevEl);
+      Object.assign(swiper.navigation, {
+        nextEl,
+        prevEl
+      });
+      nextEl = makeElementsArray(nextEl);
+      prevEl = makeElementsArray(prevEl);
+      const initButton = (el, dir) => {
+        if (el) {
+          if (params.addIcons && el.matches(".swiper-button-next,.swiper-button-prev") && !el.querySelector("svg")) {
+            const tempEl = document.createElement("div");
+            setInnerHTML(tempEl, arrowSvg);
+            el.appendChild(tempEl.querySelector("svg"));
+            tempEl.remove();
+          }
+          el.addEventListener("click", dir === "next" ? onNextClick : onPrevClick);
+        }
+        if (!swiper.enabled && el) {
+          el.classList.add(...params.lockClass.split(" "));
+        }
+      };
+      nextEl.forEach((el) => initButton(el, "next"));
+      prevEl.forEach((el) => initButton(el, "prev"));
+    }
+    function destroy() {
+      let {
+        nextEl,
+        prevEl
+      } = swiper.navigation;
+      nextEl = makeElementsArray(nextEl);
+      prevEl = makeElementsArray(prevEl);
+      const destroyButton = (el, dir) => {
+        el.removeEventListener("click", dir === "next" ? onNextClick : onPrevClick);
+        el.classList.remove(...swiper.params.navigation.disabledClass.split(" "));
+      };
+      nextEl.forEach((el) => destroyButton(el, "next"));
+      prevEl.forEach((el) => destroyButton(el, "prev"));
+    }
+    on("init", () => {
+      if (swiper.params.navigation.enabled === false) {
+        disable();
+      } else {
+        init();
+        update2();
+      }
+    });
+    on("toEdge fromEdge lock unlock", () => {
+      update2();
+    });
+    on("destroy", () => {
+      destroy();
+    });
+    on("enable disable", () => {
+      let {
+        nextEl,
+        prevEl
+      } = swiper.navigation;
+      nextEl = makeElementsArray(nextEl);
+      prevEl = makeElementsArray(prevEl);
+      if (swiper.enabled) {
+        update2();
+        return;
+      }
+      [...nextEl, ...prevEl].filter((el) => !!el).forEach((el) => el.classList.add(swiper.params.navigation.lockClass));
+    });
+    on("click", (_s, e) => {
+      let {
+        nextEl,
+        prevEl
+      } = swiper.navigation;
+      nextEl = makeElementsArray(nextEl);
+      prevEl = makeElementsArray(prevEl);
+      const targetEl = e.target;
+      let targetIsButton = prevEl.includes(targetEl) || nextEl.includes(targetEl);
+      if (swiper.isElement && !targetIsButton) {
+        const path = e.path || e.composedPath && e.composedPath();
+        if (path) {
+          targetIsButton = path.find((pathEl) => nextEl.includes(pathEl) || prevEl.includes(pathEl));
+        }
+      }
+      if (swiper.params.navigation.hideOnClick && !targetIsButton) {
+        if (swiper.pagination && swiper.params.pagination && swiper.params.pagination.clickable && (swiper.pagination.el === targetEl || swiper.pagination.el.contains(targetEl))) return;
+        let isHidden;
+        if (nextEl.length) {
+          isHidden = nextEl[0].classList.contains(swiper.params.navigation.hiddenClass);
+        } else if (prevEl.length) {
+          isHidden = prevEl[0].classList.contains(swiper.params.navigation.hiddenClass);
+        }
+        if (isHidden === true) {
+          emit("navigationShow");
+        } else {
+          emit("navigationHide");
+        }
+        [...nextEl, ...prevEl].filter((el) => !!el).forEach((el) => el.classList.toggle(swiper.params.navigation.hiddenClass));
+      }
+    });
+    const enable = () => {
+      swiper.el.classList.remove(...swiper.params.navigation.navigationDisabledClass.split(" "));
+      init();
+      update2();
+    };
+    const disable = () => {
+      swiper.el.classList.add(...swiper.params.navigation.navigationDisabledClass.split(" "));
+      destroy();
+    };
+    Object.assign(swiper.navigation, {
+      enable,
+      disable,
+      update: update2,
+      init,
+      destroy
+    });
+  }
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/shared/classes-to-selector.mjs
+  function classesToSelector(classes2 = "") {
+    return `.${classes2.trim().replace(/([\.:!+\/()[\]#>~*^$|=,'"@{}\\])/g, "\\$1").replace(/ /g, ".")}`;
+  }
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/modules/pagination.mjs
+  function Pagination({
+    swiper,
+    extendParams,
+    on,
+    emit
+  }) {
+    const pfx = "swiper-pagination";
+    extendParams({
+      pagination: {
+        el: null,
+        bulletElement: "span",
+        clickable: false,
+        hideOnClick: false,
+        renderBullet: null,
+        renderProgressbar: null,
+        renderFraction: null,
+        renderCustom: null,
+        progressbarOpposite: false,
+        type: "bullets",
+        // 'bullets' or 'progressbar' or 'fraction' or 'custom'
+        dynamicBullets: false,
+        dynamicMainBullets: 1,
+        formatFractionCurrent: (number) => number,
+        formatFractionTotal: (number) => number,
+        bulletClass: `${pfx}-bullet`,
+        bulletActiveClass: `${pfx}-bullet-active`,
+        modifierClass: `${pfx}-`,
+        currentClass: `${pfx}-current`,
+        totalClass: `${pfx}-total`,
+        hiddenClass: `${pfx}-hidden`,
+        progressbarFillClass: `${pfx}-progressbar-fill`,
+        progressbarOppositeClass: `${pfx}-progressbar-opposite`,
+        clickableClass: `${pfx}-clickable`,
+        lockClass: `${pfx}-lock`,
+        horizontalClass: `${pfx}-horizontal`,
+        verticalClass: `${pfx}-vertical`,
+        paginationDisabledClass: `${pfx}-disabled`
+      }
+    });
+    swiper.pagination = {
+      el: null,
+      bullets: []
+    };
+    let bulletSize;
+    let dynamicBulletIndex = 0;
+    function isPaginationDisabled() {
+      return !swiper.params.pagination.el || !swiper.pagination.el || Array.isArray(swiper.pagination.el) && swiper.pagination.el.length === 0;
+    }
+    function setSideBullets(bulletEl, position) {
+      const {
+        bulletActiveClass
+      } = swiper.params.pagination;
+      if (!bulletEl) return;
+      bulletEl = bulletEl[`${position === "prev" ? "previous" : "next"}ElementSibling`];
+      if (bulletEl) {
+        bulletEl.classList.add(`${bulletActiveClass}-${position}`);
+        bulletEl = bulletEl[`${position === "prev" ? "previous" : "next"}ElementSibling`];
+        if (bulletEl) {
+          bulletEl.classList.add(`${bulletActiveClass}-${position}-${position}`);
+        }
+      }
+    }
+    function getMoveDirection(prevIndex, nextIndex, length) {
+      prevIndex = prevIndex % length;
+      nextIndex = nextIndex % length;
+      if (nextIndex === prevIndex + 1) {
+        return "next";
+      } else if (nextIndex === prevIndex - 1) {
+        return "previous";
+      }
+      return;
+    }
+    function onBulletClick(e) {
+      const bulletEl = e.target.closest(classesToSelector(swiper.params.pagination.bulletClass));
+      if (!bulletEl) {
+        return;
+      }
+      e.preventDefault();
+      const index = elementIndex(bulletEl) * swiper.params.slidesPerGroup;
+      if (swiper.params.loop) {
+        if (swiper.realIndex === index) return;
+        const moveDirection = getMoveDirection(swiper.realIndex, index, swiper.slides.length);
+        if (moveDirection === "next") {
+          swiper.slideNext();
+        } else if (moveDirection === "previous") {
+          swiper.slidePrev();
+        } else {
+          swiper.slideToLoop(index);
+        }
+      } else {
+        swiper.slideTo(index);
+      }
+    }
+    function update2() {
+      const rtl = swiper.rtl;
+      const params = swiper.params.pagination;
+      if (isPaginationDisabled()) return;
+      let el = swiper.pagination.el;
+      el = makeElementsArray(el);
+      let current;
+      let previousIndex;
+      const slidesLength = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides.length : swiper.slides.length;
+      const total = swiper.params.loop ? Math.ceil(slidesLength / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
+      if (swiper.params.loop) {
+        previousIndex = swiper.previousRealIndex || 0;
+        current = swiper.params.slidesPerGroup > 1 ? Math.floor(swiper.realIndex / swiper.params.slidesPerGroup) : swiper.realIndex;
+      } else if (typeof swiper.snapIndex !== "undefined") {
+        current = swiper.snapIndex;
+        previousIndex = swiper.previousSnapIndex;
+      } else {
+        previousIndex = swiper.previousIndex || 0;
+        current = swiper.activeIndex || 0;
+      }
+      if (params.type === "bullets" && swiper.pagination.bullets && swiper.pagination.bullets.length > 0) {
+        const bullets = swiper.pagination.bullets;
+        let firstIndex;
+        let lastIndex;
+        let midIndex;
+        if (params.dynamicBullets) {
+          bulletSize = elementOuterSize(bullets[0], swiper.isHorizontal() ? "width" : "height", true);
+          el.forEach((subEl) => {
+            subEl.style[swiper.isHorizontal() ? "width" : "height"] = `${bulletSize * (params.dynamicMainBullets + 4)}px`;
+          });
+          if (params.dynamicMainBullets > 1 && previousIndex !== void 0) {
+            dynamicBulletIndex += current - (previousIndex || 0);
+            if (dynamicBulletIndex > params.dynamicMainBullets - 1) {
+              dynamicBulletIndex = params.dynamicMainBullets - 1;
+            } else if (dynamicBulletIndex < 0) {
+              dynamicBulletIndex = 0;
+            }
+          }
+          firstIndex = Math.max(current - dynamicBulletIndex, 0);
+          lastIndex = firstIndex + (Math.min(bullets.length, params.dynamicMainBullets) - 1);
+          midIndex = (lastIndex + firstIndex) / 2;
+        }
+        bullets.forEach((bulletEl) => {
+          const classesToRemove = [...["", "-next", "-next-next", "-prev", "-prev-prev", "-main"].map((suffix) => `${params.bulletActiveClass}${suffix}`)].map((s) => typeof s === "string" && s.includes(" ") ? s.split(" ") : s).flat();
+          bulletEl.classList.remove(...classesToRemove);
+        });
+        if (el.length > 1) {
+          bullets.forEach((bullet) => {
+            const bulletIndex = elementIndex(bullet);
+            if (bulletIndex === current) {
+              bullet.classList.add(...params.bulletActiveClass.split(" "));
+            } else if (swiper.isElement) {
+              bullet.setAttribute("part", "bullet");
+            }
+            if (params.dynamicBullets) {
+              if (bulletIndex >= firstIndex && bulletIndex <= lastIndex) {
+                bullet.classList.add(...`${params.bulletActiveClass}-main`.split(" "));
+              }
+              if (bulletIndex === firstIndex) {
+                setSideBullets(bullet, "prev");
+              }
+              if (bulletIndex === lastIndex) {
+                setSideBullets(bullet, "next");
+              }
+            }
+          });
+        } else {
+          const bullet = bullets[current];
+          if (bullet) {
+            bullet.classList.add(...params.bulletActiveClass.split(" "));
+          }
+          if (swiper.isElement) {
+            bullets.forEach((bulletEl, bulletIndex) => {
+              bulletEl.setAttribute("part", bulletIndex === current ? "bullet-active" : "bullet");
+            });
+          }
+          if (params.dynamicBullets) {
+            const firstDisplayedBullet = bullets[firstIndex];
+            const lastDisplayedBullet = bullets[lastIndex];
+            for (let i = firstIndex; i <= lastIndex; i += 1) {
+              if (bullets[i]) {
+                bullets[i].classList.add(...`${params.bulletActiveClass}-main`.split(" "));
+              }
+            }
+            setSideBullets(firstDisplayedBullet, "prev");
+            setSideBullets(lastDisplayedBullet, "next");
+          }
+        }
+        if (params.dynamicBullets) {
+          const dynamicBulletsLength = Math.min(bullets.length, params.dynamicMainBullets + 4);
+          const bulletsOffset = (bulletSize * dynamicBulletsLength - bulletSize) / 2 - midIndex * bulletSize;
+          const offsetProp = rtl ? "right" : "left";
+          bullets.forEach((bullet) => {
+            bullet.style[swiper.isHorizontal() ? offsetProp : "top"] = `${bulletsOffset}px`;
+          });
+        }
+      }
+      el.forEach((subEl, subElIndex) => {
+        if (params.type === "fraction") {
+          subEl.querySelectorAll(classesToSelector(params.currentClass)).forEach((fractionEl) => {
+            fractionEl.textContent = params.formatFractionCurrent(current + 1);
+          });
+          subEl.querySelectorAll(classesToSelector(params.totalClass)).forEach((totalEl) => {
+            totalEl.textContent = params.formatFractionTotal(total);
+          });
+        }
+        if (params.type === "progressbar") {
+          let progressbarDirection;
+          if (params.progressbarOpposite) {
+            progressbarDirection = swiper.isHorizontal() ? "vertical" : "horizontal";
+          } else {
+            progressbarDirection = swiper.isHorizontal() ? "horizontal" : "vertical";
+          }
+          const scale = (current + 1) / total;
+          let scaleX = 1;
+          let scaleY = 1;
+          if (progressbarDirection === "horizontal") {
+            scaleX = scale;
+          } else {
+            scaleY = scale;
+          }
+          subEl.querySelectorAll(classesToSelector(params.progressbarFillClass)).forEach((progressEl) => {
+            progressEl.style.transform = `translate3d(0,0,0) scaleX(${scaleX}) scaleY(${scaleY})`;
+            progressEl.style.transitionDuration = `${swiper.params.speed}ms`;
+          });
+        }
+        if (params.type === "custom" && params.renderCustom) {
+          setInnerHTML(subEl, params.renderCustom(swiper, current + 1, total));
+          if (subElIndex === 0) emit("paginationRender", subEl);
+        } else {
+          if (subElIndex === 0) emit("paginationRender", subEl);
+          emit("paginationUpdate", subEl);
+        }
+        if (swiper.params.watchOverflow && swiper.enabled) {
+          subEl.classList[swiper.isLocked ? "add" : "remove"](params.lockClass);
+        }
+      });
+    }
+    function render() {
+      const params = swiper.params.pagination;
+      if (isPaginationDisabled()) return;
+      const slidesLength = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides.length : swiper.grid && swiper.params.grid.rows > 1 ? swiper.slides.length / Math.ceil(swiper.params.grid.rows) : swiper.slides.length;
+      let el = swiper.pagination.el;
+      el = makeElementsArray(el);
+      let paginationHTML = "";
+      if (params.type === "bullets") {
+        let numberOfBullets = swiper.params.loop ? Math.ceil(slidesLength / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
+        if (swiper.params.freeMode && swiper.params.freeMode.enabled && numberOfBullets > slidesLength) {
+          numberOfBullets = slidesLength;
+        }
+        for (let i = 0; i < numberOfBullets; i += 1) {
+          if (params.renderBullet) {
+            paginationHTML += params.renderBullet.call(swiper, i, params.bulletClass);
+          } else {
+            paginationHTML += `<${params.bulletElement} ${swiper.isElement ? 'part="bullet"' : ""} class="${params.bulletClass}"></${params.bulletElement}>`;
+          }
+        }
+      }
+      if (params.type === "fraction") {
+        if (params.renderFraction) {
+          paginationHTML = params.renderFraction.call(swiper, params.currentClass, params.totalClass);
+        } else {
+          paginationHTML = `<span class="${params.currentClass}"></span> / <span class="${params.totalClass}"></span>`;
+        }
+      }
+      if (params.type === "progressbar") {
+        if (params.renderProgressbar) {
+          paginationHTML = params.renderProgressbar.call(swiper, params.progressbarFillClass);
+        } else {
+          paginationHTML = `<span class="${params.progressbarFillClass}"></span>`;
+        }
+      }
+      swiper.pagination.bullets = [];
+      el.forEach((subEl) => {
+        if (params.type !== "custom") {
+          setInnerHTML(subEl, paginationHTML || "");
+        }
+        if (params.type === "bullets") {
+          swiper.pagination.bullets.push(...subEl.querySelectorAll(classesToSelector(params.bulletClass)));
+        }
+      });
+      if (params.type !== "custom") {
+        emit("paginationRender", el[0]);
+      }
+    }
+    function init() {
+      swiper.params.pagination = createElementIfNotDefined(swiper, swiper.originalParams.pagination, swiper.params.pagination, {
+        el: "swiper-pagination"
+      });
+      const params = swiper.params.pagination;
+      if (!params.el) return;
+      let el;
+      if (typeof params.el === "string" && swiper.isElement) {
+        el = swiper.el.querySelector(params.el);
+      }
+      if (!el && typeof params.el === "string") {
+        el = [...document.querySelectorAll(params.el)];
+      }
+      if (!el) {
+        el = params.el;
+      }
+      if (!el || el.length === 0) return;
+      if (swiper.params.uniqueNavElements && typeof params.el === "string" && Array.isArray(el) && el.length > 1) {
+        el = [...swiper.el.querySelectorAll(params.el)];
+        if (el.length > 1) {
+          el = el.find((subEl) => {
+            if (elementParents(subEl, ".swiper")[0] !== swiper.el) return false;
+            return true;
+          });
+        }
+      }
+      if (Array.isArray(el) && el.length === 1) el = el[0];
+      Object.assign(swiper.pagination, {
+        el
+      });
+      el = makeElementsArray(el);
+      el.forEach((subEl) => {
+        if (params.type === "bullets" && params.clickable) {
+          subEl.classList.add(...(params.clickableClass || "").split(" "));
+        }
+        subEl.classList.add(params.modifierClass + params.type);
+        subEl.classList.add(swiper.isHorizontal() ? params.horizontalClass : params.verticalClass);
+        if (params.type === "bullets" && params.dynamicBullets) {
+          subEl.classList.add(`${params.modifierClass}${params.type}-dynamic`);
+          dynamicBulletIndex = 0;
+          if (params.dynamicMainBullets < 1) {
+            params.dynamicMainBullets = 1;
+          }
+        }
+        if (params.type === "progressbar" && params.progressbarOpposite) {
+          subEl.classList.add(params.progressbarOppositeClass);
+        }
+        if (params.clickable) {
+          subEl.addEventListener("click", onBulletClick);
+        }
+        if (!swiper.enabled) {
+          subEl.classList.add(params.lockClass);
+        }
+      });
+    }
+    function destroy() {
+      const params = swiper.params.pagination;
+      if (isPaginationDisabled()) return;
+      let el = swiper.pagination.el;
+      if (el) {
+        el = makeElementsArray(el);
+        el.forEach((subEl) => {
+          subEl.classList.remove(params.hiddenClass);
+          subEl.classList.remove(params.modifierClass + params.type);
+          subEl.classList.remove(swiper.isHorizontal() ? params.horizontalClass : params.verticalClass);
+          if (params.clickable) {
+            subEl.classList.remove(...(params.clickableClass || "").split(" "));
+            subEl.removeEventListener("click", onBulletClick);
+          }
+        });
+      }
+      if (swiper.pagination.bullets) swiper.pagination.bullets.forEach((subEl) => subEl.classList.remove(...params.bulletActiveClass.split(" ")));
+    }
+    on("changeDirection", () => {
+      if (!swiper.pagination || !swiper.pagination.el) return;
+      const params = swiper.params.pagination;
+      let {
+        el
+      } = swiper.pagination;
+      el = makeElementsArray(el);
+      el.forEach((subEl) => {
+        subEl.classList.remove(params.horizontalClass, params.verticalClass);
+        subEl.classList.add(swiper.isHorizontal() ? params.horizontalClass : params.verticalClass);
+      });
+    });
+    on("init", () => {
+      if (swiper.params.pagination.enabled === false) {
+        disable();
+      } else {
+        init();
+        render();
+        update2();
+      }
+    });
+    on("activeIndexChange", () => {
+      if (typeof swiper.snapIndex === "undefined") {
+        update2();
+      }
+    });
+    on("snapIndexChange", () => {
+      update2();
+    });
+    on("snapGridLengthChange", () => {
+      render();
+      update2();
+    });
+    on("destroy", () => {
+      destroy();
+    });
+    on("enable disable", () => {
+      let {
+        el
+      } = swiper.pagination;
+      if (el) {
+        el = makeElementsArray(el);
+        el.forEach((subEl) => subEl.classList[swiper.enabled ? "remove" : "add"](swiper.params.pagination.lockClass));
+      }
+    });
+    on("lock unlock", () => {
+      update2();
+    });
+    on("click", (_s, e) => {
+      const targetEl = e.target;
+      const el = makeElementsArray(swiper.pagination.el);
+      if (swiper.params.pagination.el && swiper.params.pagination.hideOnClick && el && el.length > 0 && !targetEl.classList.contains(swiper.params.pagination.bulletClass)) {
+        if (swiper.navigation && (swiper.navigation.nextEl && targetEl === swiper.navigation.nextEl || swiper.navigation.prevEl && targetEl === swiper.navigation.prevEl)) return;
+        const isHidden = el[0].classList.contains(swiper.params.pagination.hiddenClass);
+        if (isHidden === true) {
+          emit("paginationShow");
+        } else {
+          emit("paginationHide");
+        }
+        el.forEach((subEl) => subEl.classList.toggle(swiper.params.pagination.hiddenClass));
+      }
+    });
+    const enable = () => {
+      swiper.el.classList.remove(swiper.params.pagination.paginationDisabledClass);
+      let {
+        el
+      } = swiper.pagination;
+      if (el) {
+        el = makeElementsArray(el);
+        el.forEach((subEl) => subEl.classList.remove(swiper.params.pagination.paginationDisabledClass));
+      }
+      init();
+      render();
+      update2();
+    };
+    const disable = () => {
+      swiper.el.classList.add(swiper.params.pagination.paginationDisabledClass);
+      let {
+        el
+      } = swiper.pagination;
+      if (el) {
+        el = makeElementsArray(el);
+        el.forEach((subEl) => subEl.classList.add(swiper.params.pagination.paginationDisabledClass));
+      }
+      destroy();
+    };
+    Object.assign(swiper.pagination, {
+      enable,
+      disable,
+      render,
+      update: update2,
+      init,
+      destroy
+    });
+  }
+
+  // node_modules/.pnpm/swiper@12.1.2/node_modules/swiper/modules/thumbs.mjs
+  function Thumb({
+    swiper,
+    extendParams,
+    on
+  }) {
+    extendParams({
+      thumbs: {
+        swiper: null,
+        multipleActiveThumbs: true,
+        autoScrollOffset: 0,
+        slideThumbActiveClass: "swiper-slide-thumb-active",
+        thumbsContainerClass: "swiper-thumbs"
+      }
+    });
+    let initialized = false;
+    let swiperCreated = false;
+    swiper.thumbs = {
+      swiper: null
+    };
+    function isVirtualEnabled() {
+      const thumbsSwiper = swiper.thumbs.swiper;
+      if (!thumbsSwiper || thumbsSwiper.destroyed) return false;
+      return thumbsSwiper.params.virtual && thumbsSwiper.params.virtual.enabled;
+    }
+    function onThumbClick() {
+      const thumbsSwiper = swiper.thumbs.swiper;
+      if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+      const clickedIndex = thumbsSwiper.clickedIndex;
+      const clickedSlide = thumbsSwiper.clickedSlide;
+      if (clickedSlide && clickedSlide.classList.contains(swiper.params.thumbs.slideThumbActiveClass)) return;
+      if (typeof clickedIndex === "undefined" || clickedIndex === null) return;
+      let slideToIndex;
+      if (thumbsSwiper.params.loop) {
+        slideToIndex = parseInt(thumbsSwiper.clickedSlide.getAttribute("data-swiper-slide-index"), 10);
+      } else {
+        slideToIndex = clickedIndex;
+      }
+      if (swiper.params.loop) {
+        swiper.slideToLoop(slideToIndex);
+      } else {
+        swiper.slideTo(slideToIndex);
+      }
+    }
+    function init() {
+      const {
+        thumbs: thumbsParams
+      } = swiper.params;
+      if (initialized) return false;
+      initialized = true;
+      const SwiperClass = swiper.constructor;
+      if (thumbsParams.swiper instanceof SwiperClass) {
+        if (thumbsParams.swiper.destroyed) {
+          initialized = false;
+          return false;
+        }
+        swiper.thumbs.swiper = thumbsParams.swiper;
+        Object.assign(swiper.thumbs.swiper.originalParams, {
+          watchSlidesProgress: true,
+          slideToClickedSlide: false
+        });
+        Object.assign(swiper.thumbs.swiper.params, {
+          watchSlidesProgress: true,
+          slideToClickedSlide: false
+        });
+        swiper.thumbs.swiper.update();
+      } else if (isObject2(thumbsParams.swiper)) {
+        const thumbsSwiperParams = Object.assign({}, thumbsParams.swiper);
+        Object.assign(thumbsSwiperParams, {
+          watchSlidesProgress: true,
+          slideToClickedSlide: false
+        });
+        swiper.thumbs.swiper = new SwiperClass(thumbsSwiperParams);
+        swiperCreated = true;
+      }
+      swiper.thumbs.swiper.el.classList.add(swiper.params.thumbs.thumbsContainerClass);
+      swiper.thumbs.swiper.on("tap", onThumbClick);
+      if (isVirtualEnabled()) {
+        swiper.thumbs.swiper.on("virtualUpdate", () => {
+          update2(false, {
+            autoScroll: false
+          });
+        });
+      }
+      return true;
+    }
+    function update2(initial, p) {
+      const thumbsSwiper = swiper.thumbs.swiper;
+      if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+      let thumbsToActivate = 1;
+      const thumbActiveClass = swiper.params.thumbs.slideThumbActiveClass;
+      if (swiper.params.slidesPerView > 1 && !swiper.params.centeredSlides) {
+        thumbsToActivate = swiper.params.slidesPerView;
+      }
+      if (!swiper.params.thumbs.multipleActiveThumbs) {
+        thumbsToActivate = 1;
+      }
+      thumbsToActivate = Math.floor(thumbsToActivate);
+      thumbsSwiper.slides.forEach((slideEl) => slideEl.classList.remove(thumbActiveClass));
+      if (thumbsSwiper.params.loop || isVirtualEnabled()) {
+        for (let i = 0; i < thumbsToActivate; i += 1) {
+          elementChildren(thumbsSwiper.slidesEl, `[data-swiper-slide-index="${swiper.realIndex + i}"]`).forEach((slideEl) => {
+            slideEl.classList.add(thumbActiveClass);
+          });
+        }
+      } else {
+        for (let i = 0; i < thumbsToActivate; i += 1) {
+          if (thumbsSwiper.slides[swiper.realIndex + i]) {
+            thumbsSwiper.slides[swiper.realIndex + i].classList.add(thumbActiveClass);
+          }
+        }
+      }
+      if (p?.autoScroll ?? true) {
+        autoScroll(initial ? 0 : void 0);
+      }
+    }
+    function autoScroll(slideSpeed) {
+      const thumbsSwiper = swiper.thumbs.swiper;
+      if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+      const slidesPerView = thumbsSwiper.params.slidesPerView === "auto" ? thumbsSwiper.slidesPerViewDynamic() : thumbsSwiper.params.slidesPerView;
+      const autoScrollOffset = swiper.params.thumbs.autoScrollOffset;
+      const useOffset = autoScrollOffset && !thumbsSwiper.params.loop;
+      if (swiper.realIndex !== thumbsSwiper.realIndex || useOffset) {
+        const currentThumbsIndex = thumbsSwiper.activeIndex;
+        let newThumbsIndex;
+        let direction;
+        if (thumbsSwiper.params.loop) {
+          const newThumbsSlide = thumbsSwiper.slides.find((slideEl) => slideEl.getAttribute("data-swiper-slide-index") === `${swiper.realIndex}`);
+          newThumbsIndex = thumbsSwiper.slides.indexOf(newThumbsSlide);
+          direction = swiper.activeIndex > swiper.previousIndex ? "next" : "prev";
+        } else {
+          newThumbsIndex = swiper.realIndex;
+          direction = newThumbsIndex > swiper.previousIndex ? "next" : "prev";
+        }
+        if (useOffset) {
+          newThumbsIndex += direction === "next" ? autoScrollOffset : -1 * autoScrollOffset;
+        }
+        if (thumbsSwiper.visibleSlidesIndexes && thumbsSwiper.visibleSlidesIndexes.indexOf(newThumbsIndex) < 0) {
+          if (thumbsSwiper.params.centeredSlides) {
+            if (newThumbsIndex > currentThumbsIndex) {
+              newThumbsIndex = newThumbsIndex - Math.floor(slidesPerView / 2) + 1;
+            } else {
+              newThumbsIndex = newThumbsIndex + Math.floor(slidesPerView / 2) - 1;
+            }
+          } else if (newThumbsIndex > currentThumbsIndex && thumbsSwiper.params.slidesPerGroup === 1) ;
+          thumbsSwiper.slideTo(newThumbsIndex, slideSpeed);
+        }
+      }
+    }
+    on("beforeInit", () => {
+      const {
+        thumbs
+      } = swiper.params;
+      if (!thumbs || !thumbs.swiper) return;
+      if (typeof thumbs.swiper === "string" || thumbs.swiper instanceof HTMLElement) {
+        const document2 = getDocument();
+        const getThumbsElementAndInit = () => {
+          const thumbsElement = typeof thumbs.swiper === "string" ? document2.querySelector(thumbs.swiper) : thumbs.swiper;
+          if (thumbsElement && thumbsElement.swiper) {
+            thumbs.swiper = thumbsElement.swiper;
+            init();
+            update2(true);
+          } else if (thumbsElement) {
+            const eventName = `${swiper.params.eventsPrefix}init`;
+            const onThumbsSwiper = (e) => {
+              thumbs.swiper = e.detail[0];
+              thumbsElement.removeEventListener(eventName, onThumbsSwiper);
+              init();
+              update2(true);
+              thumbs.swiper.update();
+              swiper.update();
+            };
+            thumbsElement.addEventListener(eventName, onThumbsSwiper);
+          }
+          return thumbsElement;
+        };
+        const watchForThumbsToAppear = () => {
+          if (swiper.destroyed) return;
+          const thumbsElement = getThumbsElementAndInit();
+          if (!thumbsElement) {
+            requestAnimationFrame(watchForThumbsToAppear);
+          }
+        };
+        requestAnimationFrame(watchForThumbsToAppear);
+      } else {
+        init();
+        update2(true);
+      }
+    });
+    on("slideChange update resize observerUpdate", () => {
+      update2();
+    });
+    on("setTransition", (_s, duration) => {
+      const thumbsSwiper = swiper.thumbs.swiper;
+      if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+      thumbsSwiper.setTransition(duration);
+    });
+    on("beforeDestroy", () => {
+      const thumbsSwiper = swiper.thumbs.swiper;
+      if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+      if (swiperCreated) {
+        thumbsSwiper.destroy();
+      }
+    });
+    Object.assign(swiper.thumbs, {
+      init,
+      update: update2
+    });
+  }
+
+  // src/utils/mosaic-refreshed-assets.ts
+  var MOSAIC_EXTERIOR_URLS = {
+    "addison|capeDutch|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc2df27c0916a789bf8_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "addison|capeDutch|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc238eaf00f01767e78_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "addison|capeDutch|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc109d104f28ede187d2__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "addison|capeDutch|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc055bb405f1d10beb2b__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "addison|capeDutch|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc058b001558f0f42139__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "addison|transitional|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd23150d47c1d06be2c_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "addison|transitional|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd2193b94d23a3ae893_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "addison|transitional|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd0f884d4a1be4ce3bb_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "addison|transitional|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc192125ef805b71645d__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "addison|transitional|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc117c6fd66c86eac2f0__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "addison|tudor|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc9c7138d528e3bcd56_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "addison|tudor|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdc94a03cba1e86686df_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "addison|tudor|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc19757d8f0d9295c414__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "addison|tudor|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc194a03cba1e864b8de__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "addison|tudor|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc06f884d4a1be4b255a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "bandera|capeDutch|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bddaf884d4a1be4ce984_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "bandera|capeDutch|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdd95bb405f1d10d91c9_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "bandera|capeDutch|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418163890107064db0__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "bandera|capeDutch|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc393da4674c75d1668e__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "bandera|capeDutch|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc398b001558f0f46552__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "bandera|transitional|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdebdf27c0916a78db6b_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "bandera|transitional|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdea3150d47c1d06d522_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "bandera|transitional|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc88f43dc1e9672082fe__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "bandera|transitional|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc41ad56c86481cc9dcf__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "bandera|transitional|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc3914616b12a1b64f9d__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "bandera|tudor|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bde1c8165c307762c4af_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "bandera|tudor|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bde13da4674c75d2ea0c_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "bandera|tudor|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bde04a03cba1e866a39d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "bandera|tudor|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c3da4674c75d158b7__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "bandera|tudor|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c81638901070634b5__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "collin|capeDutch|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdf78c87da4ea9b93928_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "collin|capeDutch|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdf5b5443afc14783129_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "collin|capeDutch|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6be42bb36f4505a969__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "collin|capeDutch|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c193b94d23a39d4c1__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "collin|capeDutch|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc525bb405f1d10c49e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "collin|transitional|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be083da4674c75d303ed_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "collin|transitional|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be06df27c0916a78f4a3_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "collin|transitional|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b323ef39a7a9c707f__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "collin|transitional|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5ce5143ea322519226__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "collin|transitional|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c59d9060ea7ad38a3__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "collin|tudor|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff8b001558f0f67503_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "collin|tudor|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff79cc6cc768b84658_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "collin|tudor|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdff59d9060ea7ae5856_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "collin|tudor|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bdfe79cc6cc768b84625_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "collin|tudor|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b2125ef805b71a18e__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "grayson|capeDutch|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1059d9060ea7ae7bf6_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "grayson|capeDutch|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be0f8d303f8756954a4a_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "grayson|capeDutch|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9124ac5a67c599912c__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "grayson|capeDutch|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc884777aad14617b3f1__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "grayson|capeDutch|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b5e1e0993e9706ca8__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "grayson|transitional|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be25b5443afc14787820_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "grayson|transitional|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9138eaf00f01753d06__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "grayson|transitional|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9139d5fa0524a78d37__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "grayson|transitional|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7bdf27c0916a777006__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "grayson|transitional|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b6bccac03cad99b9f__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "grayson|tudor|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1a14616b12a1b8583b_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "grayson|tudor|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1a9d104f28ede32eac_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "grayson|tudor|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be1a38eaf00f0176e5af_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "grayson|tudor|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc8879cc6cc768b6d94b__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "grayson|tudor|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b438f7b41b4d6147d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "magnolia|capeDutch|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be31a538e0265f7bfda6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "magnolia|capeDutch|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be30a538e0265f7bfd3d_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "magnolia|capeDutch|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca96bccac03cad9dc87__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "magnolia|capeDutch|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca07c6fd66c86eb4e61__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "magnolia|capeDutch|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca05bb405f1d10c770a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "magnolia|transitional|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be45d31a141ebbd9d43d_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "magnolia|transitional|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb337175f386f36ca62__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "magnolia|transitional|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb39d104f28ede1f232__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "magnolia|transitional|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca999359da766fe7cbd__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "magnolia|transitional|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca08c87da4ea9b7b18c__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "magnolia|tudor|2": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c45bdcf80988b39b2_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "magnolia|tudor|3": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3c3da4674c75d32704_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "magnolia|tudor|5": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b39d5fa0524a92348_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "magnolia|tudor|1": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3bd31a141ebbd9c9dc_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "magnolia|tudor|4": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7be3b6bccac03cadb990d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp"
+  };
+
+  // src/utils/park-place-refreshed-exterior-urls.ts
+  var PARK_PLACE_REFRESHED_EXTERIOR_URLS = {
+    "addison.transitional|5|Worldly Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc19757d8f0d9295c414__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "addison.transitional|1|Newport": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc194a03cba1e864b8de__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "addison.transitional|3|Caprock": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc192125ef805b71645d__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "addison.transitional|4|Alabaster": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84071b8045ed415db14a4__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "addison.transitional|2|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84071fa85b49e7f7d3edb__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "addison.tudor|2|Coral Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc117c6fd66c86eac2f0__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "addison.tudor|5|Altitude Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc109d104f28ede187d2__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "addison.tudor|3|Greenblack": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa90750c4c0d23518803722__update_02_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "addison.tudor|1|Colonnade Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa90750377bec32a1a1eb00__update_02_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "addison.tudor|4|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407262d057680bf84f54__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "addison.capeDutch|4|Pure White": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc06f884d4a1be4b255a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "addison.capeDutch|5|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc055bb405f1d10beb2b__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "addison.capeDutch|2|Urbane Bronze": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc058b001558f0f42139__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "addison.capeDutch|1|Everest": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa9074f3cbe7d27e4100879__update_02_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "addison.capeDutch|3|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa9075042fefb4b893ee512__update_02_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "bandera.transitional|5|Worldly Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84072a7e6cc5f9f28aa99__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "bandera.transitional|2|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418b001558f0f487d7__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "bandera.transitional|1|Newport": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc418163890107064db0__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "bandera.transitional|3|Caprock": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc41ad56c86481cc9dcf__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "bandera.transitional|4|Alabaster": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840736cf0f7ab6313d873__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "bandera.tudor|4|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc393da4674c75d1668e__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "bandera.tudor|1|Colonnade Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc3914616b12a1b64f9d__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "bandera.tudor|2|Coral Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc398b001558f0f46552__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "bandera.tudor|5|Altitude Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840731c11cd307f8e2f70__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "bandera.tudor|3|Greenblack": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc36d31a141ebbd7e4c8__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "bandera.capeDutch|4|Pure White": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c3da4674c75d158b7__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "bandera.capeDutch|3|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2c81638901070634b5__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "bandera.capeDutch|1|Everest": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840741c11cd307f8e2fe5__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "bandera.capeDutch|5|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2ac7138d528e3a1052__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "bandera.capeDutch|2|Urbane Bronze": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc2ad90e0d765a30fbc1__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "collin.transitional|1|Newport": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b323ef39a7a9c707f__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "collin.transitional|3|Caprock": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6b2125ef805b71a18e__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "collin.transitional|5|Worldly Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc6be42bb36f4505a969__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "collin.transitional|4|Alabaster": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407462d057680bf85169__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "collin.transitional|2|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc69c7138d528e3a57b0__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "collin.tudor|1|Colonnade Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5ce5143ea322519226__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "collin.tudor|5|Altitude Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c193b94d23a39d4c1__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "collin.tudor|2|Coral Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5c59d9060ea7ad38a3__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "collin.tudor|3|Greenblack": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84075d53f3132b3b5aeb4__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "collin.tudor|4|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840752df5172621f25726__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "collin.capeDutch|1|Everest": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc525bb405f1d10c49e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "collin.capeDutch|5|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5047d62244c9263e79__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "collin.capeDutch|4|Pure White": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa8407628becd398ae5e1e3__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "collin.capeDutch|2|Urbane Bronze": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc5039d5fa0524a76044__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "collin.capeDutch|3|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84076d53f3132b3b5af65__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "grayson.transitional|2|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9138eaf00f01753d06__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "grayson.transitional|3|Caprock": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9139d5fa0524a78d37__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "grayson.transitional|1|Newport": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9124ac5a67c599912c__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "grayson.transitional|4|Alabaster": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84076a7e6cc5f9f28ac76__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "grayson.transitional|5|Worldly Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc908c87da4ea9b7a698__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "grayson.tudor|1|Colonnade Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc8879cc6cc768b6d94b__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "grayson.tudor|3|Greenblack": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc88f43dc1e9672082fe__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "grayson.tudor|4|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc884777aad14617b3f1__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "grayson.tudor|5|Altitude Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840776cf0f7ab6313db87__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "grayson.tudor|2|Coral Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc8714616b12a1b68e63__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "grayson.capeDutch|1|Everest": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b5e1e0993e9706ca8__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "grayson.capeDutch|4|Pure White": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7bdf27c0916a777006__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "grayson.capeDutch|3|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b6bccac03cad99b9f__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "grayson.capeDutch|2|Urbane Bronze": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc7b438f7b41b4d6147d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp",
+    "grayson.capeDutch|5|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84077a348951c4f245d5d__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "magnolia.transitional|2|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb337175f386f36ca62__update_01_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp",
+    "magnolia.transitional|4|Alabaster": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb39d104f28ede1f232__update_01_Transitional%20Color%20Scheme%204%20Alabaster.webp",
+    "magnolia.transitional|3|Caprock": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb238eaf00f0175536f__update_01_Transitional%20Color%20Scheme%203%20Caprock.webp",
+    "magnolia.transitional|1|Newport": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb245bdcf809889c4c7__update_01_Transitional%20Color%20Scheme%201%20Newport.webp",
+    "magnolia.transitional|5|Worldly Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bcb231b62b645e9449f2__update_01_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp",
+    "magnolia.tudor|3|Greenblack": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca999359da766fe7cbd__update_01_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp",
+    "magnolia.tudor|4|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca96bccac03cad9dc87__update_01_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp",
+    "magnolia.tudor|1|Colonnade Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840781c11cd307f8e32c5__update_01_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp",
+    "magnolia.tudor|2|Coral Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa840784b7d133921ae2048__update_01_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp",
+    "magnolia.tudor|5|Altitude Gray": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84078a3fe2c8f9c3bea48__update_01_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp",
+    "magnolia.capeDutch|4|Pure White": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca08c87da4ea9b7b18c__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp",
+    "magnolia.capeDutch|1|Everest": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca07c6fd66c86eb4e61__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp",
+    "magnolia.capeDutch|5|Felted Wool": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bca05bb405f1d10c770a__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp",
+    "magnolia.capeDutch|3|Iron Ore": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bc9f8c87da4ea9b7b0f4__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp",
+    "magnolia.capeDutch|2|Urbane Bronze": "https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa84078a3fe2c8f9c3bea71__update_01_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp"
+  };
+
+  // src/utils/exterior-scheme-modal.ts
+  var NEW_COMMUNITY_EXTERIOR_IMAGE_URLS = {
+    glenview: {
+      spanishContemporary: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22eddb81b67658917d147c_Sch%201%20-%20Sunlit%20Ivory.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd689113f6185fb81bc_Sch%202%20-%20Sandstone%20Villa.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd72ba437a787a12c6e_Sch%203%20-%20Stone%20Garden.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd765053904adda70f1_Sch%204%20-%20Sienna%20Stone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edd754f23ca1aa66fd5c_Sch%205%20-%20Coastal%20Villa.webp"
+      ],
+      transitionalRanch: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edeba8e815ef475c3e2c_Sch%201%20-%20White%20Oak%20Ranch.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edeb74297c1a3021d0b4_Sch%202%20-%20Midnight%20Ridge.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edebb734c9412a1851a1_Sch%203%20-%20Oakstone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edea46c4dce897c622c0_Sch%204%20-%20White%20Mason.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edeaf11078832301af0d_Sch%205%20-%20Black%20Timber.webp"
+      ],
+      coastalColonial: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edad32d82c66475aa7b2_Sch%201%20-%20Saltwood.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac6e6422b45442464d_Sch%202%20-%20Stone%20Harbor.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac9d58911e051d3fba_Sch%203%20-%20Seabreeze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edac8f40d304dd481aec_Sch%204%20-%20Ivory%20%26%20Onyx.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edace365374d2b4c2c3f_Sch%205%20-%20Coastal%20Stone.webp"
+      ],
+      englishCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbd63fae91f151fd9d0_Sch%201%20-%20Ivory%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbe0c3370fb3e35ffaf_Sch%202%20-%20Abbey%20Iron.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbea3771290396ed4df_Sch%203%20-%20Bronze%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbef4494d74c17404a9_Sch%204%20-%20Manor%20Brick.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22edbe2c42ef25e857568f_Sch%205%20-%20Chateau%20Stone.webp"
+      ]
+    },
+    elm: {
+      spanishContemporary: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecc8f3437fec84c633be_Sch%201%20-%20Sunlit%20Ivory.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecc8f4494d74c17399e4_Sch%202%20-%20Sandstone%20Villa.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecca2472a39b3cbd7498_Sch%203%20-%20Stone%20Garden.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22eccaae1ca7e49161fbc8_Sch%204%20-%20Sienna%20Stone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecca872355c22f8eaadf_Sch%205%20-%20Coastal%20Villa.webp"
+      ],
+      transitionalRanch: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecac0c3370fb3e356423_Sch%201%20-%20White%20Oak%20Ranch.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecac269d95cd19e0e026_Sch%202%20-%20Midnight%20Ridge.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecacf110788323011ee1_Sch%203%20-%20Oakstone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecab55c9aaa9438a7a06_Sch%204%20-%20White%20Mason.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecac08f434791bad029e_Sch%205%20-%20Black%20Timber.webp"
+      ],
+      coastalColonial: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7f49422c2f9de17695_Sch%201%20-%20Saltwood.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7e9d58911e051c5dc8_Sch%202%20-%20Stone%20Harbor.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7f2472a39b3cbd5614_Sch%203%20-%20Seabreeze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7e61f18799715386b8_Sch%204%20-%20Ivory%20%26%20Onyx.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec7fb75aee6fe61ebf09_Sch%205%20-%20Coastal%20Stone.webp"
+      ],
+      englishCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec8ff461c0c6633f96a1_Sch%201%20-%20Ivory%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec90872355c22f8e89a8_Sch%202%20-%20Abbey%20Iron.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec9061f1879971538dfd_Sch%203%20-%20Bronze%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec9095a46fd82b1cb0b3_Sch%204%20-%20Manor%20Brick.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ec908f40d304dd4776a6_Sch%205%20-%20Chateau%20Stone.webp"
+      ]
+    },
+    willow: {
+      spanishContemporary: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c220e6f459b8cc97fc_Sch%201%20-%20Sunlit%20Ivory.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c3679eea90bc21737e_Sch%202%20-%20Sandstone%20Villa.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c227f295bf102c73d9_Sch%203%20-%20Stone%20Garden.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c23b306ae798b2d5b7_Sch%204%20-%20Sienna%20Stone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0c207d8f3773f4fde0e_Sch%205%20-%20Coastal%20Villa.webp"
+      ],
+      transitionalRanch: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e02f638a601d29fc82_Sch%201%20-%20White%20Oak%20Ranch.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e02d888efac45336f8_Sch%202%20-%20Midnight%20Ridge.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e0b734c9412a19d579_Sch%203%20-%20Oakstone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0e0cd6d5d498ce2e8ac_Sch%204%20-%20White%20Mason.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0df57edcdcc3c089676_Sch%205%20-%20Black%20Timber.webp"
+      ],
+      coastalColonial: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f085438168dc11d4e604_Sch%201%20-%20Saltwood.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084544db6edddd13c4b_Sch%202%20-%20Stone%20Harbor.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f08420e6f459b8cc8171_Sch%203%20-%20Seabreeze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084ae64905f6a6340f6_Sch%204%20-%20Ivory%20%26%20Onyx.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f084f11078832302fea2_Sch%205%20-%20Coastal%20Stone.webp"
+      ],
+      englishCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a195a46fd82b1ec05a_Sch%201%20-%20Ivory%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a218fa7f2207b9e007_Sch%202%20-%20Abbey%20Iron.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a1a3771290397042a1_Sch%203%20-%20Bronze%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a1ae1ca7e491642775_Sch%204%20-%20Manor%20Brick.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f0a12d888efac453195c_Sch%205%20-%20Chateau%20Stone.webp"
+      ]
+    },
+    vista: {
+      spanishContemporary: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f167939798a0c8459ed2_Sch%201%20-%20Sunlit%20Ivory.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1666982be65b05567c0_Sch%202%20-%20Sandstone%20Villa.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f167f461c0c66341fa0d_Sch%203%20-%20Stone%20Garden.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1672c42ef25e859297c_Sch%204%20-%20Sienna%20Stone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1664ff4597241d8f033_Sch%205%20-%20Coastal%20Villa.webp"
+      ],
+      transitionalRanch: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14f550f4fd0cf5a4561_Sch%201%20-%20White%20Oak%20Ranch.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14e20e6f459b8ccc7ed_Sch%202%20-%20Midnight%20Ridge.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14f52e0fbbd6afa96b4_Sch%203%20-%20Oakstone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14e32d82c66475c84c6_Sch%204%20-%20White%20Mason.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f14f4ff4597241d8e0f7_Sch%205%20-%20Black%20Timber.webp"
+      ],
+      coastalColonial: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b72c42ef25e8594040_Sch%201%20-%20Saltwood.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b73b306ae798b3454e_Sch%202%20-%20Stone%20Harbor.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b7fccec2bd9f7f3bf0_Sch%203%20-%20Seabreeze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b7f3437fec84c94c74_Sch%204%20-%20Ivory%20%26%20Onyx.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1b75d778b0e1d343aec_Sch%205%20-%20Coastal%20Stone.webp"
+      ],
+      englishCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f19257edcdcc3c08ed63_Sch%201%20-%20Ivory%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f193475a005a81e89db1_Sch%202%20-%20Abbey%20Iron.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1939619a764f4d5f48a_Sch%203%20-%20Bronze%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f1939ab120a2472fcc9b_Sch%204%20-%20Manor%20Brick.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22f193f1107883230392a1_Sch%205%20-%20Chateau%20Stone.webp"
+      ]
+    },
+    ambrose: {
+      spanishContemporary: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e9d58911e051cc527_Sch%201%20-%20Sunlit%20Ivory.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e50c5363e89576c23_Sch%202%20-%20Sandstone%20Villa.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e57edcdcc3c06dc7f_Sch%203%20-%20Stone%20Garden.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e55c9aaa9438ac2b6_Sch%204%20-%20Sienna%20Stone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e0c3370fb3e359ffd_Sch%205%20-%20Coastal%20Villa.webp"
+      ],
+      transitionalRanch: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3920e6f459b8caf257_Sch%201%20-%20White%20Oak%20Ranch.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3af8c13be94948c3b2_Sch%202%20-%20Midnight%20Ridge.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3a61f1879971541248_Sch%203%20-%20Oakstone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3a220472fb3ac3475b_Sch%204%20-%20White%20Mason.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed3a939798a0c843907b_Sch%205%20-%20Black%20Timber.webp"
+      ],
+      coastalColonial: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecf02d888efac450f505_Sch%201%20-%20Saltwood.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecef2ba437a787a0b71d_Sch%202%20-%20Stone%20Harbor.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecefc74ccc360e2beea9_Sch%203%20-%20Seabreeze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecf0475a005a81e66998_Sch%204%20-%20Ivory%20%26%20Onyx.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ecef9619a764f4d3abc5_Sch%205%20-%20Coastal%20Stone.webp"
+      ],
+      englishCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed0346c4dce897c5ad7b_Sch%201%20-%20Ivory%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed04269d95cd19e1032b_Sch%202%20-%20Abbey%20Iron.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed048157506f00ae1c15_Sch%203%20-%20Bronze%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed04a8e815ef475bc111_Sch%204%20-%20Manor%20Brick.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed0445c164b3134e1b2d_Sch%205%20-%20Chateau%20Stone.webp"
+      ]
+    },
+    alder: {
+      spanishContemporary: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef9295a46fd82b1e4964_Sch%201%20-%20Sunlit%20Ivory.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e50c5363e89576c23_Sch%202%20-%20Sandstone%20Villa.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e57edcdcc3c06dc7f_Sch%203%20-%20Stone%20Garden.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e55c9aaa9438ac2b6_Sch%204%20-%20Sienna%20Stone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ed1e0c3370fb3e359ffd_Sch%205%20-%20Coastal%20Villa.webp"
+      ],
+      transitionalRanch: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe29d58911e051e60b9_Sch%201%20-%20White%20Oak%20Ranch.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe4f8ae2a21e657e6c5_Sch%202%20-%20Midnight%20Ridge.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe445c164b3134f6b84_Sch%203%20-%20Oakstone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe32d10f7997d7b25c6_Sch%204%20-%20White%20Mason.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22efe227f295bf102bdd5f_Sch%205%20-%20Black%20Timber.webp"
+      ],
+      coastalColonial: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef682f638a601d296658_Sch%201%20-%20Saltwood.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef67cd6d5d498ce2266f_Sch%202%20-%20Stone%20Harbor.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef6a438168dc11d43cdb_Sch%203%20-%20Seabreeze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef682ba437a787a1fdc9_Sch%204%20-%20Ivory%20%26%20Onyx.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef6874297c1a3022840a_Sch%205%20-%20Coastal%20Stone.webp"
+      ],
+      englishCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7b20e6f459b8cc0838_Sch%201%20-%20Ivory%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7cdb1b9afafad4b525_Sch%202%20-%20Abbey%20Iron.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c94fec08c5d9f1fb1_Sch%203%20-%20Bronze%20Meadow.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c679eea90bc20be8b_Sch%204%20-%20Manor%20Brick.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a22ef7c8157506f00af4584_Sch%205%20-%20Chateau%20Stone.webp"
+      ]
+    },
+    "carriage-house-adu": {
+      spanishContemporary: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481b584b9c46e5511c91_Spanish%20Color%20Scheme%201%20Sunlit%20Ivory.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481beb481309db1a7307_Spanish%20Color%20Scheme%202%20Sandstone%20Villa.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481bbef87edeabad2e73_Spanish%20Color%20Scheme%203%20Stone%20Garden.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481b6edcdf3e9d8d46c2_Spanish%20Color%20Scheme%204%20Sienna%20Stone.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74481c6a82a8eed0e08ebd_Spanish%20Color%20Scheme%205%20Coastal%20Villa.png"
+      ],
+      transitionalRanch: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482bc6a80142bb76cf90_Transitional%20Ranch%20Scheme%201%20White%20Oak%20Ranch.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482a11799919800d8f1b_Transitional%20Ranch%20Scheme%202%20Midnight%20Ridge.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482b6edcdf3e9d8d5cb6_Transitional%20Ranch%20Scheme%203%20Oakstone.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482ad39678ec281b4461_Transitional%20Ranch%20Scheme%204%20White%20Mason.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74482b93d8443261da1b0a_Transitional%20Ranch%20Scheme%205%20%20Black%20Timber.png"
+      ],
+      coastalColonial: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fc6a82a8eed0e07b4e_Coastal%20Colonial%20Color%20Scheme%201%20Saltwood.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fcc75a7f8c2ef9e0c3_Coastal%20Colonial%20Color%20Scheme%202%20Stone%20Harbor.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fc23e233e2dda5bf19_Coastal%20Colonial%20Color%20Scheme%203%20Seabreeze.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447fcb6815eb1f05189ed_Coastal%20Colonial%20Color%20Scheme%204%20Ivory%20%26%20Onyx.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7447ffa66dd7f5c7f6a7b1_Coastal%20Colonial%20Color%20Scheme%205%20Coastal%20Stone.png"
+      ],
+      englishCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480bd16c9c5509bf96dc_English%20Cottage%20Scheme%201%20Ivory%20Meadow.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480b72ce27915163d94a_English%20Cottage%20Scheme%202%20Abbey%20Iron.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480bc15cbea785d01665_English%20Cottage%20Scheme%203%20Bronze%20Meadow.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480ce7b264502743ccca_English%20Cottage%20Scheme%204%20Manor%20Brick.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74480b6b926a8c17016811_English%20Cottage%20Scheme%205%20Chateau%20Stone.png"
+      ]
+    },
+    "two-story-adu": {
+      spanishContemporary: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448939b8f033bd6ed4a63_Spanish%20Color%20Scheme%201%20Sunlit%20Ivory.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744893c75a7f8c2efa6206_Spanish%20Color%20Scheme%202%20Sandstone%20Villa.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74489410ccae5bf6232d00_Spanish%20Color%20Scheme%203%20Stone%20Garden.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448939eac13f82c3f13e0_Spanish%20Color%20Scheme%204%20Sienna%20Stone.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744893c75a7f8c2efa620b_Spanish%20Color%20Scheme%205%20Coastal%20Villa.png"
+      ],
+      transitionalRanch: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a172ce2791516456e6_Transitional%20Ranch%20Scheme%201%20White%20Oak%20Ranch.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a13cfff99009c92551_Transitional%20Ranch%20Scheme%202%20Midnight%20Ridge.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a1a39fcd4ef158ec4a_Transitional%20Ranch%20Scheme%203%20Oakstone.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448a27795e2c6a31f4b43_Transitional%20Ranch%20Scheme%204%20%20White%20Mason.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744aa9d1f5b783e659ddf5_missing%20Transitional%20Ranch%20Scheme%205%20Black%20Timber.png"
+      ],
+      coastalColonial: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487bc75a7f8c2efa4a05_Coastal%20Colonial%20Color%20Scheme%201%20Saltwood.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487bc83039285bdf2a72_Coastal%20Colonial%20Color%20Scheme%202%20Stone%20Harbor.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487b204beb02432f65c7_Coastal%20Colonial%20Color%20Scheme%203%20Seabreeze.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487b44a60aa2dd1838f8_Coastal%20Colonial%20Color%20Scheme%204%20Ivory%20%26%20Onyx.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74487b6a82a8eed0e0d222_Coastal%20Colonial%20Color%20Scheme%205%20Coastal%20Stone.png"
+      ],
+      englishCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744886bef87edeabada8d7_English%20Cottage%20Scheme%201%20Ivory%20Meadow.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744886f0f1ba26b2dd2326_English%20Cottage%20Scheme%202%20Abbey%20Iron.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744886b8fb342e82bed943_English%20Cottage%20Scheme%203%20Bronze%20Meadow.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448869b8f033bd6ed2e48_English%20Cottage%20Scheme%204%20Manor%20Brick.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74488611799919800dea42_English%20Cottage%20Scheme%205%20Chateau%20Stone.png"
+      ]
+    }
+  };
+  var STUDIO_ADU_EXTERIOR_IMAGE_URLS = {
+    "studio-adu": {
+      craftsman: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744849c84ff4e8a34d921c_Craftsman%20Color%20Scheme%201%20Classic%20Cream.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74484910ccae5bf622dc3a_Craftsman%20Color%20Scheme%202%20Soft%20Green.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744849638fdaa6197e9142_Craftsman%20Color%20Scheme%203%20Coastal%20Navy.png"
+      ],
+      janesCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448522534f8c0b4c15a8b_Janes%20Cottage%20Color%20Scheme%201%20Warm%20White.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a74485372ce279151640663_Janes%20Cottage%20Color%20Scheme%202%20Dusk%20Gray.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744852565ef7b6637304e1_Janes%20Cottage%20Color%20Scheme%203%20Neutral%20Stone.png"
+      ],
+      spanish: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448628761de8cb0131cec_Spanish%20Scheme%201%20Coastal%20White.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a744862b6815eb1f051dc99_Spanish%20Scheme%202%20Natural%20Gray.png",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6a7448621674b95bdff4ffb4_Spanish%20Scheme%203%20Garden%20Olive.png"
+      ]
+    }
+  };
+  var CRAFTSMAN_NAMES = [
+    "Classic Cream",
+    "Soft Green",
+    "Coastal Navy",
+    "Warm Taupe",
+    "Natural Charcoal"
+  ];
+  var JANES_COTTAGE_NAMES = [
+    "Warm White",
+    "Dusk Gray",
+    "Neutral Stone",
+    "Soft White",
+    "Historic Gray"
+  ];
+  var SPANISH_NAMES = [
+    "Coastal White",
+    "Natural Gray",
+    "Garden Olive",
+    "Rich Bronze",
+    "Warm Earth Clay"
+  ];
+  var SPANISH_CONTEMPORARY_SCHEMES = [
+    { number: 1, name: "Sunlit Ivory" },
+    { number: 2, name: "Sandstone Villa" },
+    { number: 3, name: "Stone Garden" },
+    { number: 4, name: "Sienna Stone" },
+    { number: 5, name: "Coastal Villa" }
+  ];
+  var TRANSITIONAL_RANCH_SCHEMES = [
+    { number: 1, name: "White Oak Ranch" },
+    { number: 2, name: "Midnight Ridge" },
+    { number: 3, name: "Oakstone" },
+    { number: 4, name: "White Mason" },
+    { number: 5, name: "Black Timber" }
+  ];
+  var COASTAL_COLONIAL_SCHEMES = [
+    { number: 1, name: "Saltwood" },
+    { number: 2, name: "Stone Harbor" },
+    { number: 3, name: "Seabreeze" },
+    { number: 4, name: "Ivory & Onyx" },
+    { number: 5, name: "Coastal Stone" }
+  ];
+  var ENGLISH_COTTAGE_SCHEMES = [
+    { number: 1, name: "Ivory Meadow" },
+    { number: 2, name: "Abbey Iron" },
+    { number: 3, name: "Bronze Meadow" },
+    { number: 4, name: "Manor Brick" },
+    { number: 5, name: "Chateau Stone" }
+  ];
+  var PARK_PLACE_CAPE_DUTCH_SCHEMES = [
+    { number: 1, name: "Everest" },
+    { number: 2, name: "Urbane Bronze" },
+    { number: 3, name: "Iron Ore" },
+    { number: 4, name: "Pure White" },
+    { number: 5, name: "Felted Wool" }
+  ];
+  var PARK_PLACE_TRANSITIONAL_SCHEMES = [
+    { number: 1, name: "Newport" },
+    { number: 2, name: "Iron Ore" },
+    { number: 3, name: "Caprock" },
+    { number: 4, name: "Alabaster" },
+    { number: 5, name: "Worldly Gray" }
+  ];
+  var PARK_PLACE_TUDOR_SCHEMES = [
+    { number: 1, name: "Colonnade Gray" },
+    { number: 2, name: "Coral Gray" },
+    { number: 3, name: "Greenblack" },
+    { number: 4, name: "Felted Wool" },
+    { number: 5, name: "Altitude Gray" }
+  ];
+  var EXTERIOR_IMAGE_SETS_BY_PLAN = {
+    echo: {
+      craftsman: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa1179b6b2a0ae1e8ce5be_Eaton5_Craftsman_Sch1_ClassicCream.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa11798c7f61ed170d02c1_Eaton5_Craftsman_Sch2_SoftGreen.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa1178d4e789851d726afd_Eaton5_Craftsman_Sch3_CoastalNavy.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa1179e37e4c9da35dd349_Eaton5_Craftsman_Sch4_WarmTaupe.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69fa117934eb986df4409a80_Eaton5_Craftsman_Sch5_NaturalCharcoal.webp"
+      ],
+      janesCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f967ed46f583c45fb319_Eaton5_Janes_Cottage_Sch1_WarmWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9673f19c0a2d78cbb9e_Eaton5_Janes_Cottage_Sch2_DuskGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f967165e83dd2af826bb_Eaton5_Janes_Cottage_Sch3_NeutralStone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f967a7a2df84652e1078_Eaton5_Janes_Cottage_Sch4_SoftWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9676e59091671c162ac_Eaton5_Janes_Cottage_Sch5_HistoricGray.webp"
+      ],
+      spanish: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f981d8030b85e86c5eee_Eaton5_Spanish_Sch1)CoastalWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9818dfc10b3ad322043_Eaton5_Spanish_Sch2_NaturalGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f981b3fba19edac10345_Eaton5_Spanish_Sch3_GardenOlive.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9818582aeea3838bcd3_Eaton5_Spanish_Sch4_RichBronze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f981af3855fd07a02254_Eaton5_Spanish_Sch5_WarmEarthClay.webp"
+      ]
+    },
+    merrick: {
+      craftsman: [
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d557_69f1f95450b85abd3d949f4e_Eaton4_Craftsman_Sch1_ClassicCream.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d562_69f1f953252b3600fcbe4e80_Eaton4_Craftsman_Sch2_SoftGreen.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003a93c53e9b6387d547_69f1f954f0cccea740cd8b9f_Eaton4_Craftsman_Sch3_CoastalNavy.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d56d_69f1f955180a5af38a774901_Eaton4_Craftsman_Sch4_WarmTaupe.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d581_69f1f953ceb831e555c6f0c2_Eaton4_Craftsman_Sch5_NaturalCharcoal.webp"
+      ],
+      janesCottage: [
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d565_69f1fa3cc74e38671839449b_Eaton4_Janes_Cottage_Sch1_WarmWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d57e_69f1fa3cff957cd5197530f5_Eaton4_Janes_Cottage_Sch2_DuskGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d55d_69f1fa3c848b541b0e090d97_Eaton4_Janes_Cottage_Sch3_NeutralStone.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d578_69f1fa3cf9c32ba7ba62c7e7_Eaton4_Janes_Cottage_Sch4_SoftWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003a93c53e9b6387d54b_69f1fa3c26c535b3fa92955a_Eaton4_Janes_Cottage_Sch5_HistoricGray.webp"
+      ],
+      spanish: [
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d575_69f1fa27d27c3c9e6b23ce8d_Eaton4_Spanish_Sch1_CoastalWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003a93c53e9b6387d54f_69f1fa27b19d1d6237faa1b6_Eaton4_Spanish_Sch2_NaturalGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d589_69f1fa27adcc4b13bfb7229e_Eaton4_Spanish_Sch3_GardenOlive.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003c93c53e9b6387d586_69f1fa2704074b196573ba2a_Eaton4_Spanish_Sch4_RichBronze.webp",
+        "https://cdn.prod.website-files.com/601ca16f9dfe00cc7bb4027c/69f3003b93c53e9b6387d55a_69f1fa27d874fa8f14184b4c_Eaton4_Spanish_Sch5_WarmEarthClay.webp"
+      ]
+    },
+    chaney: {
+      craftsman: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a6a7a2df84652df1c2_Eaton3_Craftsman_Sch1_ClassicCream.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a571c267c5a6d19d59_Eaton3_Craftsman_Sch2_SoftGreen.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a46e59091671c1452c_Eaton3_Craftsman_Sch3_CoastalNavy.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a5151e31161533467a_Eaton3_Craftsman_Sch4_WarmTaupe.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8a5535e1ec75c9ed78b_Eaton3_Craftsman_Sch5_NaturalCharcoal.webp"
+      ],
+      janesCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b8a76017d864898f1c_Eaton3_Janes_Sch1_WarmWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b826f327fe8b8314c3_Eaton3_Janes_Sch2_DuskGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b86e1c34584269d0b4_Eaton3_Janes_Sch3_NeutralStone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b80f8abd2778a65c61_Eaton3_Janes_Sch4_SoftWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8b839d6f0b57222e683_Eaton3_Janes_Sch5_HistoricGray.webp"
+      ],
+      spanish: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d119e08a63bb87a563_Eaton3_Spanish_Sch1_CoastalWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d1c002eece10343349_Eaton3_Spanish_Sch2_NaturalGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d20cb4d186330f5414_Eaton3_Spanish_Sch3_GardenOlive.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d2d0bc4c3d311c6867_Eaton3_Spanish_Sch4_RichBronze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f8d1f3573cd92cb08111_Eaton3_Spanish_Sch5_WArmEarthClay.webp"
+      ]
+    },
+    loma: {
+      craftsman: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f998b885bb7225449c8e_Eaton2_Craftsman_Sch1_ClassicCream.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f998ff957cd519750e2b_Eaton2_Craftsman_Sch2_SoftGreen.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f99867d6924479cbd2bb_Eaton2_Craftsman_Sch3_CoastalNavy.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f99816ad2a104acb7728_Eaton2_Craftsman_Sch4_WarmTaupe.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9987417fe7fb74e6bbd_Eaton2_Craftsman_Sch5_NaturalCharcoal.webp"
+      ],
+      janesCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c94e811fb2f2915ccd_Eaton2_Janes_Sch1_WarmWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c9444f0e9cf3870f8e_Eaton2_Janes_Sch2_DuskGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c9e11203e2617c9946_Eaton2_Janes_Sch3_NeutralStone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c9255e1fbe5ac33217_Eaton2_Janes_Sch4_SoftWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9c9d3067f0a7efe5fd6_Eaton2_Janes_Sch5_HistoricGray.webp"
+      ],
+      spanish: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa0096a959af0bd4ed45_Eaton2_Spanish_Sch1_CoastalWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa00112be277eea18bd4_Eaton2_Spanish_Sch2_NaturalGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1f9ff24369ae8059a02bd_Eaton2_Spanish_Sch3_GardenOlive.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa0052b6244c225fa903_Eaton2_Spanish_Sch4_RichBronze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa079e2ec043052c58e5_Eaton2_Spanish_Sch5_WarmEarthClay.webp"
+      ]
+    },
+    sycamore: {
+      craftsman: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa921c26d9ee20d7557e_Eaton1_Craftsman_Sch1_ClassicCream.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa9346432d98c0974cee_Eaton1_Craftsman_Sch2_SoftGreen.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa93d99dbd042136a8c5_Eaton1_Craftsman_Sch3_CoastalNavy.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa9275c170937d547cda_Eaton1_Craftsman_Sch4_WarmTaupe.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1fa93db5a646b559687d6_Eaton1_Craftsman_Sch5_NaturalCharcoal.webp"
+      ],
+      janesCottage: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faac9a388e1b666a2e9f_Eaton1_Janes_Cottage_Sch1_WarmWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faac4cfe0437b90b4fee_Eaton1_Janes_Cottage_Sch2_DuskGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faac6ce7a3c2af1aee22_Eaton1_Janes_Cottage_Sch3_NeutralStone.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faac00a3f24d2deca82a_Eaton1_Janes_Cottage_Sch4_SoftWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faace73112fa77de5962_Eaton1_Janes_Cottage_Sch5_HistoricGray.webp"
+      ],
+      spanish: [
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1facacf7104f7e2bb4532_Eaton1_Spanish_Sch1_CoastalWhite.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faca832e56e8d1302425_Eaton1_Spanish_Sch2_NaturalGray.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faca7fcd4a25484de868_Eaton1_Spanish_Sch3_GardenOlive.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1facabdcd44c1fee09803_Eaton1_Spanish_Sch4_RichBronze.webp",
+        "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/69f1faca151e31161533c3d7_Eaton1_Spanish_Sch5_WarmEarthClay.webp"
+      ]
+    }
+  };
+  var toSchemes = (names, urls) => names.map((name, index) => ({
+    schemeNumber: index + 1,
+    name,
+    imageUrl: urls[index] ?? ""
+  }));
+  var toNumberedSchemes = (schemes, urls) => schemes.map((scheme, index) => ({
+    schemeNumber: scheme.number,
+    name: scheme.name,
+    imageUrl: urls[index] ?? ""
+  }));
+  var buildNewCommunityExteriors = (planSlug) => {
+    const imageUrls = NEW_COMMUNITY_EXTERIOR_IMAGE_URLS[planSlug];
+    return [
+      {
+        style: "Spanish Contemporary",
+        slug: `${planSlug}-spanish-contemporary`,
+        colorSchemes: toNumberedSchemes(SPANISH_CONTEMPORARY_SCHEMES, [
+          ...imageUrls.spanishContemporary
+        ])
+      },
+      {
+        style: "Transitional Ranch",
+        slug: `${planSlug}-transitional-ranch`,
+        colorSchemes: toNumberedSchemes(TRANSITIONAL_RANCH_SCHEMES, [...imageUrls.transitionalRanch])
+      },
+      {
+        style: "Coastal Colonial",
+        slug: `${planSlug}-coastal-colonial`,
+        colorSchemes: toNumberedSchemes(COASTAL_COLONIAL_SCHEMES, [...imageUrls.coastalColonial])
+      },
+      {
+        style: "English Cottage",
+        slug: `${planSlug}-english-cottage`,
+        colorSchemes: toNumberedSchemes(ENGLISH_COTTAGE_SCHEMES, [...imageUrls.englishCottage])
+      }
+    ];
+  };
+  var buildExteriorsForPlan = (planSlug) => {
+    const imageSet = EXTERIOR_IMAGE_SETS_BY_PLAN[planSlug];
+    return [
+      {
+        style: "Craftsman",
+        slug: "craftsman-style",
+        colorSchemes: toSchemes(CRAFTSMAN_NAMES, imageSet.craftsman)
+      },
+      {
+        style: "Janes Cottage",
+        slug: "janes-cottage",
+        colorSchemes: toSchemes(JANES_COTTAGE_NAMES, imageSet.janesCottage)
+      },
+      {
+        style: "Spanish Transitional",
+        slug: "spanish-transitional",
+        colorSchemes: toSchemes(SPANISH_NAMES, imageSet.spanish)
+      }
+    ];
+  };
+  var buildStudioAduExteriors = (planSlug) => {
+    const imageSet = STUDIO_ADU_EXTERIOR_IMAGE_URLS[planSlug];
+    return [
+      {
+        style: "Craftsman",
+        slug: "craftsman-style",
+        colorSchemes: toSchemes(CRAFTSMAN_NAMES.slice(0, 3), imageSet.craftsman)
+      },
+      {
+        style: "Janes Cottage",
+        slug: "janes-cottage",
+        colorSchemes: toSchemes(JANES_COTTAGE_NAMES.slice(0, 3), imageSet.janesCottage)
+      },
+      {
+        style: "Spanish Transitional",
+        slug: "spanish-transitional",
+        colorSchemes: toSchemes(SPANISH_NAMES.slice(0, 3), imageSet.spanish)
+      }
+    ];
+  };
+  var PARK_PLACE_CDN = "https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0";
+  var PARK_PLACE_EXTERIOR_IMAGE_URLS = {
+    addison: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b1a5b0cd93c94cbe7346_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a583d75ceaa6461dcd_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a5830be1b62868857d_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a56a17c6919f5e0e0e_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a5e570e96c28ac12c4_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b1a7b79122ab8a0f40bd_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a7b8efd49498294990_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a77b6b694595669cd2_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a7f5c02efbf7c77d98_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a7fcc834951e54f4bf_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b1a6af7a129003ace1ec_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a6fcc834951e54f421_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a617cf0f48c34c5058_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a683d75ceaa6461f26_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b1a67b6b694595669ca2_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    },
+    bandera: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b2bc1f53dd3717d85d60_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bc297085014b204e1c_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bcb0cd93c94cbeff9d_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bdb79122ab8a0fb25f_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bd9a92f58d97c26784_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b2c097c77db82ebab4a2_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c004702f83e9ba2ddd_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c004702f83e9ba2e1b_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c017cf0f48c34cdcbf_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c1d62095daa8114600_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b2be9a287322be54c601_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bfe570e96c28ac8d97_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bf573a47599c830a8d_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b2bf165fa1b5bf5bbab9_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b2c008dc2fe1c6cfdb16_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    },
+    collin: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b3c647e218625ded7348_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c73888a4db5685d9d6_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c797c77db82ebaf1bc_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c7668753f061942f10_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c7b79122ab8a107532_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b3c93888a4db5685dad3_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b3ca165fa1b5bf5c40e5_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b3cae570e96c28ad428e_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b3ca6ca32e7649b97267_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b3ca165fa1b5bf5c4159_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b3c7b1357c809573778c_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c855df81cb20fbe5e3_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c8668753f061942fca_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c86ca32e7649b9709d_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b3c9d62095daa8120c5f_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    },
+    grayson: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b4a456716fa5cdfdc6df_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a4d7c17df8a732426f_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a459e59db0530cb29b_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a4573a47599c833035_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a5d7c17df8a73242a1_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b4a6165fa1b5bf5ca597_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a6165fa1b5bf5ca5ca_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a697c77db82ebb267f_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a7b79122ab8a10ff2f_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a76a17c6919f5e4c29_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b4a5573a47599c833061_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a598d45b2c7121e549_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a56ca32e7649b9eae7_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a66a17c6919f5e4ba9_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b4a6d62095daa8129a86_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    },
+    magnolia: {
+      capeDutch: [
+        `${PARK_PLACE_CDN}/6a84b4e5666418f9d40514fd_Modern%20Cape%20Dutch%20Color%20Scheme%201%20Everest.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e6666418f9d405153c_Modern%20Cape%20Dutch%20Color%20Scheme%202%20Urbane%20Bronze.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e6b0cd93c94cc02ab5_Modern%20Cape%20Dutch%20Color%20Scheme%203%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e647323a2b628f5a3b_Modern%20Cape%20Dutch%20Color%20Scheme%204%20Pure%20White.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e6668753f06194cead_Modern%20Cape%20Dutch%20Color%20Scheme%205%20Felted%20Wool.webp`
+      ],
+      transitional: [
+        `${PARK_PLACE_CDN}/6a84b4e8b0cd93c94cc02c4b_Transitional%20Color%20Scheme%201%20Newport.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e808dc2fe1c6d05bb6_Transitional%20Color%20Scheme%202%20Iron%20Ore.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e87b6b694595678e17_Transitional%20Color%20Scheme%203%20Caprock.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e96ca32e7649ba0767_Transitional%20Color%20Scheme%204%20Alabaster.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e917cf0f48c34d6370_Transitional%20Color%20Scheme%205%20Worldly%20Gray.webp`
+      ],
+      tudor: [
+        `${PARK_PLACE_CDN}/6a84b4e717cf0f48c34d62b8_Modern%20Tudor%20Color%20Scheme%201%20Colonnade%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e7b0cd93c94cc02b79_Modern%20Tudor%20Color%20Scheme%202%20Coral%20Gray.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e716910f7fe0fd6e86_Modern%20Tudor%20Color%20Scheme%203%20Greenblack.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e7165fa1b5bf5cc6b0_Modern%20Tudor%20Color%20Scheme%204%20Felted%20Wool.webp`,
+        `${PARK_PLACE_CDN}/6a84b4e747e218625dedae9b_Modern%20Tudor%20Color%20Scheme%205%20Altitude%20Gray.webp`
+      ]
+    }
+  };
+  for (const [key, url] of Object.entries(PARK_PLACE_REFRESHED_EXTERIOR_URLS)) {
+    const [planAndStyle, schemeNumber] = key.split("|");
+    const [planSlug, styleKey] = planAndStyle.split(".");
+    const schemes = PARK_PLACE_EXTERIOR_IMAGE_URLS[planSlug][styleKey];
+    schemes[Number(schemeNumber) - 1] = url;
+  }
+  var PARK_PLACE_STYLE_SLUGS = {
+    addison: {
+      capeDutch: "addison-modern-cape-dutch",
+      transitional: "addison-transitional",
+      tudor: "addison-modern-tudor"
+    },
+    bandera: {
+      capeDutch: "bandera-modern-cape-dutch",
+      transitional: "bandera-transitional",
+      tudor: "bandera-modern-tudor"
+    },
+    collin: {
+      capeDutch: "collin-modern-cape-dutch",
+      transitional: "collin-transitional",
+      tudor: "collin-modern-tudor"
+    },
+    grayson: {
+      capeDutch: "grayson-modern-cape-dutch",
+      transitional: "the-grayson-transitional",
+      tudor: "the-grayson-modern-tudor"
+    },
+    magnolia: {
+      capeDutch: "magnolia-modern-cape-dutch",
+      transitional: "magnolia-transitional",
+      tudor: "magnolia-modern-tudor"
+    }
+  };
+  var buildParkPlaceExteriors = (planSlug) => {
+    const imageUrls = PARK_PLACE_EXTERIOR_IMAGE_URLS[planSlug];
+    const slugs = PARK_PLACE_STYLE_SLUGS[planSlug];
+    return [
+      {
+        style: "Modern Cape Dutch",
+        slug: slugs.capeDutch,
+        colorSchemes: toNumberedSchemes(PARK_PLACE_CAPE_DUTCH_SCHEMES, [...imageUrls.capeDutch])
+      },
+      {
+        style: "Transitional",
+        slug: slugs.transitional,
+        colorSchemes: toNumberedSchemes(PARK_PLACE_TRANSITIONAL_SCHEMES, [...imageUrls.transitional])
+      },
+      {
+        style: "Modern Tudor",
+        slug: slugs.tudor,
+        colorSchemes: toNumberedSchemes(PARK_PLACE_TUDOR_SCHEMES, [...imageUrls.tudor])
+      }
+    ];
+  };
+  var EXTERIORS_BY_PLAN = {
+    echo: buildExteriorsForPlan("echo"),
+    merrick: buildExteriorsForPlan("merrick"),
+    chaney: buildExteriorsForPlan("chaney"),
+    loma: buildExteriorsForPlan("loma"),
+    sycamore: buildExteriorsForPlan("sycamore"),
+    glenview: buildNewCommunityExteriors("glenview"),
+    elm: buildNewCommunityExteriors("elm"),
+    willow: buildNewCommunityExteriors("willow"),
+    vista: buildNewCommunityExteriors("vista"),
+    ambrose: buildNewCommunityExteriors("ambrose"),
+    alder: buildNewCommunityExteriors("alder"),
+    "studio-adu": buildStudioAduExteriors("studio-adu"),
+    "carriage-house-adu": buildNewCommunityExteriors("carriage-house-adu"),
+    "two-story-adu": buildNewCommunityExteriors("two-story-adu"),
+    addison: buildParkPlaceExteriors("addison"),
+    bandera: buildParkPlaceExteriors("bandera"),
+    collin: buildParkPlaceExteriors("collin"),
+    grayson: buildParkPlaceExteriors("grayson"),
+    magnolia: buildParkPlaceExteriors("magnolia")
+  };
+  var MOSAIC_STYLE_KEYS = {
+    "Modern Cape Dutch": "capeDutch",
+    Transitional: "transitional",
+    "Modern Tudor": "tudor"
+  };
+  var buildMosaicExteriors = (planSlug) => EXTERIORS_BY_PLAN[planSlug].map((definition) => ({
+    ...definition,
+    colorSchemes: definition.colorSchemes.map((scheme) => ({
+      ...scheme,
+      imageUrl: MOSAIC_EXTERIOR_URLS[`${planSlug}|${MOSAIC_STYLE_KEYS[definition.style]}|${scheme.schemeNumber}`] ?? scheme.imageUrl
+    }))
+  }));
+  function getHousePlanSlugFromPath() {
+    const maybeSlug = window.location.pathname.toLowerCase().split("/house-plans/")[1]?.split("/")[0] ?? "";
+    const normalizedSlug = maybeSlug.replace(/^the-/, "");
+    const canonicalSlug = normalizedSlug.replace(/---mosaic$/, "");
+    if (canonicalSlug in EXTERIORS_BY_PLAN) {
+      return canonicalSlug;
+    }
+    return null;
+  }
+  function getExteriorImageUrlsForStyle(planSlug, exteriorStyleSlug) {
+    const exteriors = window.location.pathname.toLowerCase().includes("---mosaic") && ["addison", "bandera", "collin", "grayson", "magnolia"].includes(planSlug) ? buildMosaicExteriors(planSlug) : EXTERIORS_BY_PLAN[planSlug];
+    const exterior = exteriors?.find((item) => item.slug === exteriorStyleSlug);
+    if (!exterior) return [];
+    return exterior.colorSchemes.map((scheme) => scheme.imageUrl).filter(Boolean);
+  }
+
+  // src/utils/gallery.ts
+  var GalleryController = class _GalleryController {
+    constructor(configs) {
+      this.configs = configs;
+      this.configs = configs;
+    }
+    static MAX_GALLERY_IMAGES = 25;
+    overlay = null;
+    swiper = null;
+    thumbsSwiper = null;
+    /** Per-config image cache, keyed by {@link GalleryConfig.triggerSelector} */
+    caches = /* @__PURE__ */ new Map();
+    observers = [];
+    init() {
+      this.configs.forEach((config) => {
+        this.caches.set(config.triggerSelector, []);
+        this.observeImages(config);
+        this.bindTrigger(config);
+      });
+      this.bindSlideGalleries();
+      this.bindMobileGallery();
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") this.close();
+      });
+    }
+    /**
+     * Seed and maintain the image cache for a single gallery config.
+     * Observes the Webflow CMS wrapper so images added after page paint are captured.
+     */
+    observeImages(config) {
+      const refresh = () => {
+        this.caches.set(
+          config.triggerSelector,
+          Array.from(document.querySelectorAll(config.imageSelector))
+        );
+      };
+      refresh();
+      const container = document.querySelector(config.containerSelector);
+      if (!container) {
+        console.error(`GalleryController: container not found \u2014 ${config.containerSelector}`);
+        return;
+      }
+      const observer = new MutationObserver(refresh);
+      observer.observe(container, { childList: true, subtree: true });
+      this.observers.push(observer);
+    }
+    /** Attach a click listener to all trigger elements for a config. */
+    bindTrigger(config) {
+      const triggers = document.querySelectorAll(config.triggerSelector);
+      if (!triggers.length) return;
+      triggers.forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+          const imgs = this.caches.get(config.triggerSelector) ?? [];
+          if (!imgs.length) {
+            console.error(
+              `GalleryController: No images cached for trigger ${config.triggerSelector}.`
+            );
+            return;
+          }
+          this.open(imgs, 0);
+        });
+      });
+    }
+    /**
+     * Per-slide gallery: clicking [dev-target="slide-image-wrapper"] opens a gallery
+     * populated from [dev-target="slide-gallery-collection-image"] images on the slide,
+     * or — for Available Homes — from the matching Explore Plans hidden list
+     * (`[dev-target="slide-gallery-collection-list-wrapper"][house-plan="…"]`).
+     * Images are queried at click time so no cache or MutationObserver is needed.
+     */
+    bindSlideGalleries() {
+      document.addEventListener("click", (e) => {
+        const clickTarget = e.target;
+        if (clickTarget.closest('[dev-target="scheme-header"]') || clickTarget.closest('[dev-target="scheme-body"]') || clickTarget.closest('[dev-target="scheme-arrow"]') || clickTarget.closest('[dev-target="scheme-item"]')) {
+          return;
+        }
+        const wrapper = e.target.closest('[dev-target="slide-image-wrapper"]');
+        if (!wrapper) return;
+        const slide2 = wrapper.closest(".swiper-slide");
+        if (!slide2) return;
+        const imgs = this.resolveSlideGalleryImages(slide2);
+        if (!imgs.length) return;
+        this.open(imgs, 0);
+      });
+    }
+    resolveSlideGalleryImages(slide2) {
+      const chooseFrom = slide2.getAttribute("choose-from")?.toLowerCase();
+      const shouldUseExteriorSet = chooseFrom === "exterior-schema" || chooseFrom === "exterior-scheme";
+      if (shouldUseExteriorSet) {
+        const exteriorImages = this.getExteriorImagesForSlide(slide2);
+        if (exteriorImages.length) return exteriorImages;
+      }
+      const inSlide = Array.from(
+        slide2.querySelectorAll('img[dev-target="slide-gallery-collection-image"]')
+      );
+      if (inSlide.length) return inSlide;
+      return this.resolveExplorePlansGalleryByHousePlan(slide2);
+    }
+    /**
+     * Available Homes slides carry `house-plan` on the forward image but no embedded gallery list.
+     * Reuse the Explore Plans tab's hidden CMS repeater for the same slug (still in DOM when tab is hidden).
+     */
+    resolveExplorePlansGalleryByHousePlan(slide2) {
+      const housePlanSlug = slide2.querySelector('[dev-target="forward-image"]')?.getAttribute("house-plan") ?? slide2.getAttribute("house-plan") ?? "";
+      if (!housePlanSlug) return [];
+      const galleryWrapper = document.querySelector(
+        `[dev-target="slide-gallery-collection-list-wrapper"][house-plan="${CSS.escape(housePlanSlug)}"]`
+      );
+      if (!galleryWrapper) return [];
+      return Array.from(
+        galleryWrapper.querySelectorAll(
+          'img[dev-target="slide-gallery-collection-image"]'
+        )
+      );
+    }
+    getExteriorImagesForSlide(slide2) {
+      const planSlug = getHousePlanSlugFromPath();
+      if (!planSlug) return [];
+      const exteriorStyle = slide2.getAttribute("exterior-style")?.toLowerCase() ?? "";
+      const urls = getExteriorImageUrlsForStyle(planSlug, exteriorStyle);
+      return urls.map((url) => this.createImageElement(url));
+    }
+    createImageElement(url) {
+      const img = document.createElement("img");
+      img.src = url;
+      img.alt = "";
+      return img;
+    }
+    /**
+     * Mobile gallery: clicking `[dev-target="mobile-slide-image-wrapper"]` opens a lightbox
+     * with all `[dev-target="mobile-slide-image"]` images from the parent
+     * `[dev-target="mobile-swiper"]`, starting at the clicked slide's index.
+     */
+    bindMobileGallery() {
+      document.addEventListener("click", (e) => {
+        const wrapper = e.target.closest(
+          '[dev-target="mobile-slide-image-wrapper"]'
+        );
+        if (!wrapper) return;
+        const swiper = wrapper.closest('[dev-target="mobile-swiper"]');
+        if (!swiper) return;
+        const allSlides = Array.from(
+          swiper.querySelectorAll('[dev-target="mobile-slide"]')
+        );
+        const clickedSlide = wrapper.closest('[dev-target="mobile-slide"]');
+        const startIndex = clickedSlide ? allSlides.indexOf(clickedSlide) : 0;
+        const imgs = allSlides.map((slide2) => slide2.querySelector('[dev-target="mobile-slide-image"]')).filter((img) => img !== null);
+        if (!imgs.length) return;
+        this.open(imgs, Math.max(0, startIndex));
+      });
+    }
+    open(imgs, startIndex) {
+      const limitedImgs = imgs.slice(0, _GalleryController.MAX_GALLERY_IMAGES);
+      if (!limitedImgs.length) return;
+      const boundedStartIndex = Math.min(Math.max(0, startIndex), limitedImgs.length - 1);
+      this.destroyOverlay();
+      this.overlay = document.createElement("div");
+      this.overlay.className = "hb-gallery-overlay";
+      this.overlay.innerHTML = `
       <button class="hb-gallery-close" aria-label="Close gallery">&#x2715;</button>
       <div class="hb-gallery-main-wrap">
         <div class="swiper hb-gallery-swiper">
@@ -11,4 +6267,115 @@
           <div class="swiper-wrapper"></div>
         </div>
       </div>
-    `;let o=this.overlay.querySelector(".hb-gallery-swiper .swiper-wrapper"),i=this.overlay.querySelector(".hb-gallery-thumbs .swiper-wrapper");s.forEach(p=>{let m=document.createElement("div");m.className="swiper-slide";let c=document.createElement("img");c.src=p.src,c.alt=p.alt,p.srcset&&(c.srcset=p.srcset),p.sizes&&(c.sizes=p.sizes),m.appendChild(c),o.appendChild(m);let g=document.createElement("div");g.className="swiper-slide";let d=document.createElement("img");d.src=p.src,d.alt=p.alt,g.appendChild(d),i.appendChild(g)}),document.body.appendChild(this.overlay),document.body.style.overflow="hidden",this.overlay.querySelector(".hb-gallery-close").addEventListener("click",()=>this.close()),this.overlay.addEventListener("click",p=>{p.target===this.overlay&&this.close()});let l=this.overlay.querySelector(".hb-gallery-swiper"),n=this.overlay.querySelector(".hb-gallery-thumbs");this.thumbsSwiper=new V(n,{slidesPerView:"auto",spaceBetween:8,watchSlidesProgress:!0,freeMode:!0}),this.swiper=new V(l,{modules:[Ie,Le,ze,Ae],initialSlide:r,loop:s.length>1,keyboard:{enabled:!0},navigation:{nextEl:l.querySelector(".swiper-button-next"),prevEl:l.querySelector(".swiper-button-prev")},pagination:{el:l.querySelector(".swiper-pagination"),type:"fraction"},thumbs:{swiper:this.thumbsSwiper}}),requestAnimationFrame(()=>{this.overlay?.classList.add("is-open")})}close(){if(!this.overlay)return;this.overlay.classList.remove("is-open"),document.body.style.overflow="";let{overlay:a}=this,t=()=>{this.destroySwipers(),a.remove(),this.overlay===a&&(this.overlay=null)};a.addEventListener("transitionend",t,{once:!0})}destroySwipers(){this.thumbsSwiper&&typeof this.thumbsSwiper.destroy=="function"&&this.thumbsSwiper.destroy(!0,!0),this.thumbsSwiper=null,this.swiper&&typeof this.swiper.destroy=="function"&&this.swiper.destroy(!0,!0),this.swiper=null}destroyOverlay(){this.destroySwipers(),this.overlay?.remove(),this.overlay=null,document.body.style.overflow=""}destroy(){this.observers.forEach(a=>a.disconnect()),this.observers=[],this.close()}};B(ge,"MAX_GALLERY_IMAGES",25);var he=ge;window.Webflow||(window.Webflow=[]);window.Webflow.push(()=>{new pe({triggerToPanel:{"explore-plans-trigger":"explore-plans-tab","explore-adu-plans-trigger":"explore-adu-plans-tab"}}).init(),new he([]).init()});})();
+    `;
+      const mainWrapper = this.overlay.querySelector(
+        ".hb-gallery-swiper .swiper-wrapper"
+      );
+      const thumbWrapper = this.overlay.querySelector(
+        ".hb-gallery-thumbs .swiper-wrapper"
+      );
+      limitedImgs.forEach((img) => {
+        const slide2 = document.createElement("div");
+        slide2.className = "swiper-slide";
+        const slideImg = document.createElement("img");
+        slideImg.src = img.src;
+        slideImg.alt = img.alt;
+        if (img.srcset) slideImg.srcset = img.srcset;
+        if (img.sizes) slideImg.sizes = img.sizes;
+        slide2.appendChild(slideImg);
+        mainWrapper.appendChild(slide2);
+        const thumbSlide = document.createElement("div");
+        thumbSlide.className = "swiper-slide";
+        const thumbImg = document.createElement("img");
+        thumbImg.src = img.src;
+        thumbImg.alt = img.alt;
+        thumbSlide.appendChild(thumbImg);
+        thumbWrapper.appendChild(thumbSlide);
+      });
+      document.body.appendChild(this.overlay);
+      document.body.style.overflow = "hidden";
+      this.overlay.querySelector(".hb-gallery-close").addEventListener("click", () => this.close());
+      this.overlay.addEventListener("click", (e) => {
+        if (e.target === this.overlay) this.close();
+      });
+      const mainEl = this.overlay.querySelector(".hb-gallery-swiper");
+      const thumbsEl = this.overlay.querySelector(".hb-gallery-thumbs");
+      this.thumbsSwiper = new Swiper(thumbsEl, {
+        slidesPerView: "auto",
+        spaceBetween: 8,
+        watchSlidesProgress: true,
+        freeMode: true
+      });
+      this.swiper = new Swiper(mainEl, {
+        modules: [Navigation, Pagination, Keyboard, Thumb],
+        initialSlide: boundedStartIndex,
+        loop: limitedImgs.length > 1,
+        keyboard: { enabled: true },
+        navigation: {
+          nextEl: mainEl.querySelector(".swiper-button-next"),
+          prevEl: mainEl.querySelector(".swiper-button-prev")
+        },
+        pagination: {
+          el: mainEl.querySelector(".swiper-pagination"),
+          type: "fraction"
+        },
+        thumbs: {
+          swiper: this.thumbsSwiper
+        }
+      });
+      requestAnimationFrame(() => {
+        this.overlay?.classList.add("is-open");
+      });
+    }
+    close() {
+      if (!this.overlay) return;
+      this.overlay.classList.remove("is-open");
+      document.body.style.overflow = "";
+      const { overlay } = this;
+      const onTransitionEnd = () => {
+        this.destroySwipers();
+        overlay.remove();
+        if (this.overlay === overlay) {
+          this.overlay = null;
+        }
+      };
+      overlay.addEventListener("transitionend", onTransitionEnd, { once: true });
+    }
+    destroySwipers() {
+      if (this.thumbsSwiper && typeof this.thumbsSwiper.destroy === "function") {
+        this.thumbsSwiper.destroy(true, true);
+      }
+      this.thumbsSwiper = null;
+      if (this.swiper && typeof this.swiper.destroy === "function") {
+        this.swiper.destroy(true, true);
+      }
+      this.swiper = null;
+    }
+    destroyOverlay() {
+      this.destroySwipers();
+      this.overlay?.remove();
+      this.overlay = null;
+      document.body.style.overflow = "";
+    }
+    destroy() {
+      this.observers.forEach((o) => o.disconnect());
+      this.observers = [];
+      this.close();
+    }
+  };
+
+  // src/rebuild-template.ts
+  window.Webflow ||= [];
+  window.Webflow.push(() => {
+    const exploreTabsController = new ExploreTabsController({
+      triggerToPanel: {
+        "explore-plans-trigger": "explore-plans-tab",
+        "explore-adu-plans-trigger": "explore-adu-plans-tab"
+      }
+    });
+    exploreTabsController.init();
+    const galleryController = new GalleryController([]);
+    galleryController.init();
+  });
+})();
+//# sourceMappingURL=rebuild-template.js.map
