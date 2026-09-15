@@ -859,6 +859,15 @@ export function getExteriorImageUrlsForStyle(
   planSlug: HousePlanSlug,
   exteriorStyleSlug: string
 ): string[] {
+  return getExteriorColorSchemesForStyle(planSlug, exteriorStyleSlug).map(
+    (scheme) => scheme.imageUrl
+  );
+}
+
+export function getExteriorColorSchemesForStyle(
+  planSlug: HousePlanSlug,
+  exteriorStyleSlug: string
+): ExteriorColorScheme[] {
   const exteriors =
     window.location.pathname.toLowerCase().includes('---mosaic') &&
       ['addison', 'bandera', 'collin', 'grayson', 'magnolia'].includes(planSlug)
@@ -867,7 +876,7 @@ export function getExteriorImageUrlsForStyle(
   const exterior = exteriors?.find((item) => item.slug === exteriorStyleSlug);
   if (!exterior) return [];
 
-  return exterior.colorSchemes.map((scheme) => scheme.imageUrl).filter(Boolean);
+  return exterior.colorSchemes.filter((scheme) => Boolean(scheme.imageUrl));
 }
 
 /**

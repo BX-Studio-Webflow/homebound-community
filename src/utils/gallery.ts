@@ -2,7 +2,7 @@ import Swiper from 'swiper';
 import { Keyboard, Navigation, Pagination, Thumbs } from 'swiper/modules';
 
 import {
-  getExteriorImageUrlsForStyle,
+  getExteriorColorSchemesForStyle,
   getHousePlanSlugFromPath,
 } from '$utils/exterior-scheme-modal';
 
@@ -179,14 +179,19 @@ export class GalleryController {
     if (!planSlug) return [];
 
     const exteriorStyle = slide.getAttribute('exterior-style')?.toLowerCase() ?? '';
-    const urls = getExteriorImageUrlsForStyle(planSlug, exteriorStyle);
-    return urls.map((url) => this.createImageElement(url));
+    return getExteriorColorSchemesForStyle(planSlug, exteriorStyle).map((scheme) =>
+      this.createImageElement(
+        scheme.imageUrl,
+        `Scheme ${scheme.schemeNumber}: ${scheme.name}`
+      )
+    );
   }
 
-  private createImageElement(url: string): HTMLImageElement {
+  private createImageElement(url: string, tooltip = ''): HTMLImageElement {
     const img = document.createElement('img');
     img.src = url;
-    img.alt = '';
+    img.alt = tooltip;
+    img.title = tooltip;
     return img;
   }
 
@@ -259,6 +264,7 @@ export class GalleryController {
       const slideImg = document.createElement('img');
       slideImg.src = img.src;
       slideImg.alt = img.alt;
+      slideImg.title = img.title;
       if (img.srcset) slideImg.srcset = img.srcset;
       if (img.sizes) slideImg.sizes = img.sizes;
       slide.appendChild(slideImg);
@@ -269,6 +275,7 @@ export class GalleryController {
       const thumbImg = document.createElement('img');
       thumbImg.src = img.src;
       thumbImg.alt = img.alt;
+      thumbImg.title = img.title;
       thumbSlide.appendChild(thumbImg);
       thumbWrapper.appendChild(thumbSlide);
     });
