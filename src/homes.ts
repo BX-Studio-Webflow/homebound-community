@@ -7,7 +7,7 @@ import '$styles/lot-map.css';
 import { ExploreTabsController } from '$utils/explore-tabs';
 /*import { type GalleryConfig } from '$utils/gallery';*/
 import { HomeMapController } from '$utils/home-map';
-import { type LotMapConfig, LotMapController, lotMapConfigFromLocation } from '$utils/lot-map';
+import { type LotMapConfig, lotMapConfigFromLocation, LotMapController } from '$utils/lot-map';
 import { type StickyNavConfig, StickyNavController } from '$utils/sticky-nav';
 
 /*const galleryConfigs: GalleryConfig[] = [

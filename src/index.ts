@@ -6,8 +6,9 @@ import '$styles/lot-map.css';
 import { AccordionController } from '$utils/accordion';
 import { ExploreTabsController } from '$utils/explore-tabs';
 import { type GalleryConfig, GalleryController } from '$utils/gallery';
+import { type HeroVideoConfig, HeroVideoController } from '$utils/hero-video';
 import { type ColorSchemeBinding, ColorSchemeController } from '$utils/interior-color-scheme';
-import { LotMapController, lotMapConfigFromLocation } from '$utils/lot-map';
+import { lotMapConfigFromLocation, LotMapController } from '$utils/lot-map';
 import { StickyNavController } from '$utils/sticky-nav';
 
 const galleryConfigs: GalleryConfig[] = [
@@ -23,6 +24,17 @@ const galleryConfigs: GalleryConfig[] = [
   },
 ];
 
+const heroVideoConfigs: HeroVideoConfig[] = [
+  {
+    enabled: true,
+    pathname: '/upcoming-communities/lakeside',
+    videoUrl:
+      'https://player.vimeo.com/progressive_redirect/playback/1215584523/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&signature=f98fbf3ab3ee5efe4b1e627cbfc965dbe2f3aa71d2a4fe3eb43102fa1942de2f',
+    title: 'The Villas at Lakeside video',
+    index: 1,
+  },
+];
+
 //confrim the elements are exist in dom before initializing the gallery controller
 galleryConfigs.forEach((config) => {
   const element = document.querySelector(config.triggerSelector);
@@ -34,6 +46,9 @@ galleryConfigs.forEach((config) => {
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
+  const heroVideoController = new HeroVideoController(heroVideoConfigs);
+  heroVideoController.init();
+
   const stickyNavController = new StickyNavController();
   stickyNavController.init();
 
