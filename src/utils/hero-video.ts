@@ -7,7 +7,7 @@ export interface HeroVideoConfig {
 }
 
 interface HeroSwiper {
-    addSlide(index: number, slide: string): void;
+    addSlide(index: number, slide: HTMLElement): void;
     on(event: 'slideChangeTransitionStart' | 'slideChangeTransitionEnd', handler: () => void): void;
 }
 
@@ -73,22 +73,31 @@ export class HeroVideoController {
         if (video) void video.play().catch(() => undefined);
     }
 
-    private createSlide({ videoUrl, title }: HeroVideoConfig): string {
-        return `
-      <div class="swiper-slide is-hero-video" data-hb-hero-video>
-        <div class="one-slide" style="position:relative;width:100%;overflow:hidden">
-          <video
-            class="Verbal-visual"
-            muted
-            playsinline
-            loop
-            aria-label="${title}"
-            style="position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover"
-          >
-            <source src="${videoUrl}" type="video/mp4" />
-          </video>
-        </div>
-      </div>
-    `;
+        private createSlide({ videoUrl, title }: HeroVideoConfig): HTMLElement {
+                const slide = document.createElement('div');
+                slide.className = 'swiper-slide is-hero-video';
+                slide.dataset.hbHeroVideo = '';
+
+                const frame = document.createElement('div');
+                frame.className = 'one-slide';
+                frame.style.cssText = 'position:relative;width:100%;overflow:hidden';
+
+                const video = document.createElement('video');
+                video.className = 'Verbal-visual';
+                video.muted = true;
+                video.playsInline = true;
+                video.loop = true;
+                video.setAttribute('aria-label', title);
+                video.style.cssText =
+                        'position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover';
+
+                const source = document.createElement('source');
+                source.src = videoUrl;
+                source.type = 'video/mp4';
+
+                video.append(source);
+                frame.append(video);
+                slide.append(frame);
+                return slide;
     }
 }

@@ -29,9 +29,9 @@ const heroVideoConfigs: HeroVideoConfig[] = [
     enabled: true,
     pathname: '/upcoming-communities/lakeside',
     videoUrl:
-      'https://player.vimeo.com/progressive_redirect/playback/1180975407/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&signature=2079a861de0de589c730b923f58d52e8ce30e098c37a9c2b8afde2ec25c79236',
+      'https://player.vimeo.com/progressive_redirect/playback/1215584523/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&signature=f98fbf3ab3ee5efe4b1e627cbfc965dbe2f3aa71d2a4fe3eb43102fa1942de2f',
     title: 'The Villas at Lakeside video',
-    index: 0,
+    index: 1,
   },
 ];
 
