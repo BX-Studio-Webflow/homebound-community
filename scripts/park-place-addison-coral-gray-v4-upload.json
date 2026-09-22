@@ -1,0 +1,11 @@
+[
+    {
+        "key": "addison.tudor|2|Coral Gray",
+        "credential": "AKIAQLLHWD6MEJGETLST/20260915/us-east-1/s3/aws4_request",
+        "date": "20260915T155133Z",
+        "s3Key": "601ca16f0bb27e965ee867a0/6aa9698573fd226128416267_addison-tudor-2-coral-gray-v6.webp",
+        "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wOS0xNVQxNjo1MTozM1oiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiRrZXkiLCI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvIl0seyJjYWNoZS1jb250cm9sIjoibWF4LWFnZT0zMTUzNjAwMCJ9LHsiQ29udGVudC1UeXBlIjoiaW1hZ2Uvd2VicCJ9LHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZS93ZWJwIl0sWyJjb250ZW50LWxlbmd0aCIsMCwzMTQ1NzI4MF0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LHsiYnVja2V0Ijoid2ViZmxvdy1wcm9kLWFzc2V0cyJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFRTExIV0Q2TUVKR0VUTFNULzIwMjYwOTE1L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IlgtQW16LURhdGUiOiIyMDI2MDkxNVQxNTUxMzNaIn0seyJrZXkiOiI2MDFjYTE2ZjBiYjI3ZTk2NWVlODY3YTAvNmFhOTY5ODU3M2ZkMjI2MTI4NDE2MjY3X2FkZGlzb24tdHVkb3ItMi1jb3JhbC1ncmF5LXY2LndlYnAifV19",
+        "signature": "3f8794761507d861120ee8b7f53afab1e56972d9a09890f4c8f57f39d859b81e",
+        "webpPath": "src/example-assets/Park Place/exteriors-refresh-3/The Addison/Modern Tudor/_update_06_Modern Tudor Color Scheme 2 Coral Gray.webp"
+    }
+]
