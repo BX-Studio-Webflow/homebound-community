@@ -108,7 +108,7 @@ export const PARK_PLACE_REFRESHED_INTERIOR_URLS: Record<string, string> = {
   'magnolia|pos-2|bathroom-interior':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bac0d90e0d765a3006df__update_01_Primary%20Bathroom.webp',
   'magnolia|pos-3|living-interior':
-    'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6ab62629ea25c199065ee08c_Magnolia-Casual-Organic-Great-Room.png',
+    'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6ab4bbb67756b2920b3d501b_Magnolia-Casual-Organic-Kitchen.png',
   'magnolia|pos-3|kitchen-interior':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bab62125ef805b7018a9__update_01_Kitchen.webp',
   'magnolia|pos-3|bathroom-interior':
