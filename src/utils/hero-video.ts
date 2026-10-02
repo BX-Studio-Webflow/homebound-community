@@ -7,7 +7,10 @@ export interface HeroVideoConfig {
 }
 
 interface HeroSwiper {
+    params: { loop?: boolean };
     addSlide(index: number, slide: HTMLElement): void;
+    slideTo(index: number, speed?: number, runCallbacks?: boolean): void;
+    slideToLoop?(index: number, speed?: number, runCallbacks?: boolean): void;
     on(event: 'slideChangeTransitionStart' | 'slideChangeTransitionEnd', handler: () => void): void;
 }
 
@@ -34,10 +37,19 @@ export class HeroVideoController {
         if (!swiper || heroSwiper.querySelector(HeroVideoController.VIDEO_SLIDE_SELECTOR)) return;
 
         swiper.addSlide(config.index, this.createSlide(config));
+        this.focusSlide(swiper, config.index);
         this.matchVideoHeight(heroSwiper);
         swiper.on('slideChangeTransitionStart', () => this.pauseVideos(heroSwiper));
         swiper.on('slideChangeTransitionEnd', () => this.playActiveVideo(heroSwiper));
         requestAnimationFrame(() => this.playActiveVideo(heroSwiper));
+    }
+
+    private focusSlide(swiper: HeroSwiper, index: number): void {
+        if (swiper.params.loop && swiper.slideToLoop) {
+            swiper.slideToLoop(index, 0, false);
+            return;
+        }
+        swiper.slideTo(index, 0, false);
     }
 
     private matchVideoHeight(heroSwiper: HTMLElement): void {

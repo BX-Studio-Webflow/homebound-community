@@ -31,7 +31,7 @@ const heroVideoConfigs: HeroVideoConfig[] = [
     videoUrl:
       'https://player.vimeo.com/progressive_redirect/playback/1215584523/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&signature=f98fbf3ab3ee5efe4b1e627cbfc965dbe2f3aa71d2a4fe3eb43102fa1942de2f',
     title: 'The Villas at Lakeside video',
-    index: 1,
+    index: 0,
   },
 ];
 
