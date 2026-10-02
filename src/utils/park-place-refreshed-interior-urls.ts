@@ -96,19 +96,19 @@ export const PARK_PLACE_REFRESHED_INTERIOR_URLS: Record<string, string> = {
   'magnolia|pos-1|bedroom-interior':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc7c6fd66c86e9a121__update_01_Primary%20Bedroom.webp',
   'magnolia|pos-1|living-interior':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacc3da4674c75d067ad__update_01_Great%20Room.webp',
+    'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6abfded9dcb8096db709263f_Rectangle%2012.webp',
   'magnolia|pos-1|bathroom-interior':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bacbd31a141ebbd6baae__update_01_Primary%20Bathroom.webp',
   'magnolia|pos-2|bedroom-interior':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bac1f43dc1e9671ef6ed__update_01_Primary%20Bedroom.webp',
   'magnolia|pos-2|living-interior':
-    'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bac1a538e0265f789529__update_01_Great%20Room.webp',
+    'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6abfdfa7659c7366f9e15f47_mordern.webp',
   'magnolia|pos-2|kitchen-interior':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bac099359da766f9f3cb__update_01_Kitchen.webp',
   'magnolia|pos-2|bathroom-interior':
     'https://s3.amazonaws.com/webflow-prod-assets/601ca16f0bb27e965ee867a0/6aa7bac0d90e0d765a3006df__update_01_Primary%20Bathroom.webp',
   'magnolia|pos-3|living-interior':
-    'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aba83105e5a5e6a158a393c_Magnolia-Casual-Organic-Great-Room-3200.png',
+    'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6abfdfa78395da8dbb7c02dd_casual.webp',
   'magnolia|pos-3|kitchen-interior':
     'https://cdn.prod.website-files.com/601ca16f0bb27e965ee867a0/6aba87ac71567477b0a219ce_Magnolia-Casual-Organic-Kitchen.webp',
   'magnolia|pos-3|bathroom-interior':
