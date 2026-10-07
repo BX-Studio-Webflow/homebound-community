@@ -1,17 +1,18 @@
 /**
  * Carto basemap for the homes inventory page.
  *
- * Loads Leaflet, paints CARTO light tiles, and drops a marker for every
- * `.browse-homes-cms-item` that has `div[lat]` / `div[lng]`. Hover and click
- * stay in sync with the matching card.
+ * Loads Leaflet, paints CARTO light tiles, and drops a marker for every nearby
+ * home already rendered in the agent slider. Those cards are the same community,
+ * so the map does not run its own community filter.
  *
  * **Required Webflow attributes**
  *
  * | Element | Attribute | Value |
  * |---|---|---|
  * | Empty map holder | `dev-target` | `map-holder` |
- * | Each home card | class | `browse-homes-cms-item` |
- * | Lat / lng inside the card | `lat`, `lng` | decimal degrees on a `div` |
+ * | Nearby slider | `dev-target` | `agent-swiper` |
+ * | Each home card in that slider | `dev-target` | `home-card` |
+ * | Each home card | `latitude`, `longitude` | decimal degrees |
  * | Optional recenter control | `id` | `recenterBtn` |
  */
 
@@ -98,9 +99,9 @@ export class Carto {
       return;
     }
 
-    const cards = document.querySelectorAll<HTMLElement>('.browse-homes-cms-item');
+    const cards = nearbyHomeCards(mapEl);
     if (!cards.length) {
-      console.error('Carto: No .browse-homes-cms-item cards found.');
+      console.error('Carto: No nearby [dev-target="home-card"] cards found.');
       return;
     }
 
@@ -132,20 +133,21 @@ export class Carto {
     this.bounds = bounds;
 
     cards.forEach((card, idx) => {
-      const lat = Number.parseFloat(card.querySelector('div[lat]')?.getAttribute('lat') ?? '');
-      const lng = Number.parseFloat(card.querySelector('div[lng]')?.getAttribute('lng') ?? '');
-      if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
+      const point = readLatLng(card);
+      if (!point) return;
 
       if (!card.dataset.id) card.dataset.id = String(idx);
       const { id } = card.dataset;
+      const isCurrent =
+        card.classList.contains('w--current') || card.getAttribute('aria-current') === 'page';
 
       const marker = leaflet
-        .marker([lat, lng], {
+        .marker([point.lat, point.lng], {
           icon: leaflet.divIcon({
             html: markerHtml(false),
-            className: '',
-            iconSize: [50, 50],
-            iconAnchor: [25, 25],
+            className: isCurrent ? 'is-current' : '',
+            iconSize: [36, 36],
+            iconAnchor: [18, 18],
           }),
           riseOnHover: true,
         })
@@ -153,21 +155,18 @@ export class Carto {
 
       this.markers.set(id, marker);
       this.cards.set(id, card);
-      bounds.extend([lat, lng]);
+      bounds.extend([point.lat, point.lng]);
 
       marker.on('mouseover', () => this.activate(id));
       marker.on('mouseout', () => this.deactivate(id));
       marker.on('click', () => {
-        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        this.focusCard(card);
+        map.setView(marker.getLatLng(), 16, { animate: true });
         this.activate(id);
       });
 
       card.addEventListener('mouseenter', () => this.activate(id));
       card.addEventListener('mouseleave', () => this.deactivate(id));
-      card.addEventListener('click', () => {
-        map.setView(marker.getLatLng(), 14, { animate: true });
-        this.activate(id);
-      });
     });
 
     this.fitToMarkers();
@@ -190,11 +189,26 @@ export class Carto {
     if (!this.map) return;
 
     if (this.bounds?.isValid()) {
-      this.map.fitBounds(this.bounds, { padding: [20, 20], maxZoom: 12 });
+      this.map.fitBounds(this.bounds, { padding: [48, 48], maxZoom: 16 });
       return;
     }
 
     this.map.setView(DEFAULT_CENTER, DEFAULT_ZOOM);
+  }
+
+  /** Slides the nearby-homes swiper to the card, or scrolls the card into view. */
+  private focusCard(card: HTMLElement): void {
+    const slide = card.closest<HTMLElement>('.swiper-slide');
+    const swiperEl = card.closest<SwiperHost>('[dev-target="agent-swiper"]');
+    const slides = swiperEl ? [...swiperEl.querySelectorAll('.swiper-slide')] : [];
+    const index = slide ? slides.indexOf(slide) : -1;
+
+    if (swiperEl?.swiper && index >= 0) {
+      swiperEl.swiper.slideTo(index);
+      return;
+    }
+
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   }
 
   private refreshSize(): void {
@@ -237,6 +251,31 @@ export class Carto {
 
     if (this.activeId === id) this.activeId = null;
   }
+}
+
+type SwiperHost = HTMLElement & { swiper?: { slideTo: (index: number) => void } };
+
+/** Home cards in the nearby slider. Falls back to the legacy inventory list. */
+function nearbyHomeCards(mapEl: HTMLElement): HTMLElement[] {
+  const section = mapEl.closest('.inv_calculator-inner') ?? mapEl.parentElement ?? document;
+  const nearby = section.querySelectorAll<HTMLElement>(
+    '[dev-target="agent-swiper"] [dev-target="home-card"]'
+  );
+  if (nearby.length) return [...nearby];
+
+  const legacy = document.querySelectorAll<HTMLElement>('.browse-homes-cms-item');
+  return [...legacy];
+}
+
+function readLatLng(card: HTMLElement): { lat: number; lng: number } | null {
+  const lat = Number.parseFloat(
+    card.getAttribute('latitude') ?? card.querySelector('[lat]')?.getAttribute('lat') ?? ''
+  );
+  const lng = Number.parseFloat(
+    card.getAttribute('longitude') ?? card.querySelector('[lng]')?.getAttribute('lng') ?? ''
+  );
+  if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+  return { lat, lng };
 }
 
 function markerHtml(active: boolean): string {

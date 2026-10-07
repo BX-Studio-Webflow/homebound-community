@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../src/styles/carto.css"],
-  "sourcesContent": ["[dev-target='map-holder'] {\n  width: 100%;\n  height: 100%;\n}\n\n[dev-target='map-holder'].leaflet-container {\n  width: 100%;\n  height: 100%;\n  z-index: 0;\n}\n\n.leaflet-marker-icon.hidden {\n  display: none !important;\n}\n"],
-  "mappings": ";AAAA,CAAC;AACC,SAAO;AACP,UAAQ;AACV;AAEA,CAAC,sBAAwB,CAAC;AACxB,SAAO;AACP,UAAQ;AACR,WAAS;AACX;AAEA,CAAC,mBAAmB,CAAC;AACnB,WAAS;AACX;",
+  "sourcesContent": ["[dev-target='map-holder'] {\n  width: 100%;\n  height: 100%;\n}\n\n[dev-target='map-holder'].leaflet-container {\n  width: 100%;\n  height: 100%;\n  z-index: 0;\n}\n\n.leaflet-marker-icon {\n  background: none;\n  border: none;\n}\n\n.leaflet-marker-icon.hidden {\n  display: none !important;\n}\n\n.mm-shadow {\n  display: grid;\n  place-items: center;\n  width: 36px;\n  height: 36px;\n  margin: 0;\n  padding: 0;\n  border: 0;\n  border-radius: 50%;\n  background: #fff;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);\n  cursor: pointer;\n}\n\n.mm-white {\n  display: grid;\n  place-items: center;\n  width: 22px;\n  height: 22px;\n  border-radius: 50%;\n  background: #fff;\n}\n\n.mm-dot {\n  width: 12px;\n  height: 12px;\n  border-radius: 50%;\n  background: #657839;\n}\n\n.leaflet-marker-icon.is-current .mm-dot,\n.mm-shadow.is-active .mm-dot {\n  background: #d17520;\n}\n"],
+  "mappings": ";AAAA,CAAC;AACC,SAAO;AACP,UAAQ;AACV;AAEA,CAAC,sBAAwB,CAAC;AACxB,SAAO;AACP,UAAQ;AACR,WAAS;AACX;AAEA,CAAC;AACC,cAAY;AACZ,UAAQ;AACV;AAEA,CALC,mBAKmB,CAAC;AACnB,WAAS;AACX;AAEA,CAAC;AACC,WAAS;AACT,eAAa;AACb,SAAO;AACP,UAAQ;AACR,UAAQ;AACR,WAAS;AACT,UAAQ;AACR,iBAAe;AACf,cAAY;AACZ,cAAY,EAAE,IAAI,IAAI,KAAK,CAAC,EAAE,CAAC,EAAE,CAAC,EAAE;AACpC,UAAQ;AACV;AAEA,CAAC;AACC,WAAS;AACT,eAAa;AACb,SAAO;AACP,UAAQ;AACR,iBAAe;AACf,cAAY;AACd;AAEA,CAAC;AACC,SAAO;AACP,UAAQ;AACR,iBAAe;AACf,cAAY;AACd;AAEA,CAvCC,mBAuCmB,CAAC,WAAW,CAP/B;AAQD,CA/BC,SA+BS,CAAC,UAAU,CARpB;AASC,cAAY;AACd;",
   "names": []
 }
