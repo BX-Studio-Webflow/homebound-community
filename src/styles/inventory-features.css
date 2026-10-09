@@ -61,9 +61,17 @@
   touch-action: pan-y;
 }
 
-/* Mobile: only the focused feature shows above the image */
+/* Mobile: full list scrolls; arrow and bold stay on the active row only */
 @media (max-width: 767px) {
-  .inv_features-list .w-dyn-item:not(.is-active) {
+  .inv_features-list {
+    max-height: 10.5rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .inv_features-list::-webkit-scrollbar {
     display: none;
   }
 }

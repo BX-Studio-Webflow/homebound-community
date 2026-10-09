@@ -24,6 +24,7 @@
 
 const SWIPE_MIN_PX = 40;
 const FADE_MS = 200;
+const MOBILE_LIST_QUERY = '(max-width: 767px)';
 
 type ImageSource = {
   src: string | null;
@@ -51,6 +52,7 @@ export class InventoryFeaturesController {
   private bindSection(root: HTMLElement): void {
     const items = [...root.querySelectorAll<HTMLElement>('[dev-target="feature-item"]')];
     const display = root.querySelector<HTMLImageElement>('[dev-target="feature-image-display"]');
+    const list = root.querySelector<HTMLElement>('.inv_features-list');
     const nextBtn = root.querySelector<HTMLElement>('.inv_features-cta');
     const media = root.querySelector<HTMLElement>('.inv_features-media');
 
@@ -129,7 +131,10 @@ export class InventoryFeaturesController {
       });
 
       const slide = slides[nextIndex];
-      if (slide) showImage(slide);
+      if (slide) {
+        showImage(slide);
+        this.scrollActiveIntoView(list, slide.wrapper);
+      }
       current = nextIndex;
     };
 
@@ -151,6 +156,19 @@ export class InventoryFeaturesController {
     }
 
     go(0);
+  }
+
+  /** Keeps the active row in the mobile list without scrolling the page. */
+  private scrollActiveIntoView(list: HTMLElement | null, item: HTMLElement): void {
+    if (!list || !window.matchMedia(MOBILE_LIST_QUERY).matches) return;
+
+    const listRect = list.getBoundingClientRect();
+    const itemRect = item.getBoundingClientRect();
+    if (itemRect.top < listRect.top) {
+      list.scrollTop -= listRect.top - itemRect.top;
+    } else if (itemRect.bottom > listRect.bottom) {
+      list.scrollTop += itemRect.bottom - listRect.bottom;
+    }
   }
 
   private readFeatureImage(img: HTMLImageElement | null): ImageSource | null {
