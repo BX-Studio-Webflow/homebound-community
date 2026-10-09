@@ -1,0 +1,77 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   Inventory features
+   Classes are applied by InventoryFeaturesController
+   (src/utils/inventory-features.ts).
+   ───────────────────────────────────────────────────────────────────────── */
+
+.feature-item {
+  gap: 0;
+  cursor: pointer;
+  transition: gap 0.2s ease;
+}
+
+/* Leading arrow icon (not the hidden CMS feature image) */
+.feature-item > img:not([dev-target]) {
+  width: 0;
+  opacity: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition:
+    width 0.2s ease,
+    opacity 0.2s ease;
+}
+
+/* Focused feature: indented, bold, arrow visible */
+.feature-item.is-active {
+  gap: 16px;
+  font-weight: 700;
+}
+
+.feature-item.is-active > img:not([dev-target]) {
+  width: 20px;
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .feature-item:not(.is-active):hover {
+    opacity: 0.7;
+  }
+}
+
+.feature-item:focus-visible,
+.inv_features-cta:focus-visible {
+  outline: 1px solid #fcfcfa;
+  outline-offset: 4px;
+}
+
+.inv_features-cta {
+  cursor: pointer;
+}
+
+.inv_features-image {
+  transition: opacity 0.2s ease;
+}
+
+.inv_features-image.is-swapping {
+  opacity: 0;
+}
+
+/* Allow vertical scroll, capture horizontal swipes */
+.inv_features-media {
+  touch-action: pan-y;
+}
+
+/* Mobile: only the focused feature shows above the image */
+@media (max-width: 767px) {
+  .inv_features-list .w-dyn-item:not(.is-active) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-item,
+  .feature-item > img,
+  .inv_features-image {
+    transition: none;
+  }
+}
