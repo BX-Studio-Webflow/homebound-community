@@ -2,8 +2,10 @@
  * Inventory page features section.
  *
  * Focusing a feature (list click, next arrow, or a horizontal swipe on the
- * image) marks that row active and crossfades the section image. A feature
- * with no CMS image keeps the image that was already on the display.
+ * image) marks that row active and crossfades the section image. On mobile,
+ * scrolling the feature list does the same for whichever feature is at the
+ * left edge, without a tap. A feature with no CMS image keeps the image that
+ * was already on the display.
  *
  * **Required Webflow markup**
  *
@@ -53,6 +55,7 @@ export class InventoryFeaturesController {
     const items = [...root.querySelectorAll<HTMLElement>('[dev-target="feature-item"]')];
     const display = root.querySelector<HTMLImageElement>('[dev-target="feature-image-display"]');
     const list = root.querySelector<HTMLElement>('.inv_features-list');
+    const scrollers = this.featureScrollers(list);
     const nextBtn = root.querySelector<HTMLElement>('.inv_features-cta');
     const media = root.querySelector<HTMLElement>('.inv_features-media');
 
@@ -118,7 +121,7 @@ export class InventoryFeaturesController {
       }, FADE_MS);
     };
 
-    const go = (index: number): void => {
+    const go = (index: number, fromScroll = false): void => {
       const nextIndex = (index + slides.length) % slides.length;
       if (nextIndex === current) return;
 
@@ -131,11 +134,10 @@ export class InventoryFeaturesController {
       });
 
       const slide = slides[nextIndex];
-      if (slide) {
-        showImage(slide);
-        this.scrollActiveIntoView(list, slide.wrapper);
-      }
       current = nextIndex;
+      if (!slide) return;
+      showImage(slide);
+      if (!fromScroll) this.scrollActiveIntoView(scrollers, slide.wrapper);
     };
 
     slides.forEach((slide, n) => {
@@ -155,20 +157,63 @@ export class InventoryFeaturesController {
       this.bindSwipe(media, (direction) => go(current + direction));
     }
 
+    if (scrollers.length && slides.length > 1) {
+      let frame = 0;
+      const syncFromScroll = (scroller: HTMLElement): void => {
+        if (!window.matchMedia(MOBILE_LIST_QUERY).matches) return;
+        if (frame) return;
+        frame = window.requestAnimationFrame(() => {
+          frame = 0;
+          go(this.leadingSlideIndex(scroller, slides), true);
+        });
+      };
+
+      scrollers.forEach((scroller) => {
+        scroller.addEventListener('scroll', () => syncFromScroll(scroller), { passive: true });
+      });
+    }
+
     go(0);
   }
 
-  /** Keeps the active row in the mobile list without scrolling the page. */
-  private scrollActiveIntoView(list: HTMLElement | null, item: HTMLElement): void {
-    if (!list || !window.matchMedia(MOBILE_LIST_QUERY).matches) return;
+  private featureScrollers(list: HTMLElement | null): HTMLElement[] {
+    if (!list) return [];
+    const items = list.querySelector<HTMLElement>('.w-dyn-items');
+    const scrollers = [items, list].filter((el): el is HTMLElement => el instanceof HTMLElement);
+    return [...new Set(scrollers)];
+  }
 
-    const listRect = list.getBoundingClientRect();
+  /**
+   * Feature whose left edge is nearest the start of the horizontal scroller.
+   * Items that have fully scrolled past the left edge are skipped.
+   */
+  private leadingSlideIndex(scroller: HTMLElement, slides: FeatureSlide[]): number {
+    const scrollerLeft = scroller.getBoundingClientRect().left;
+    let bestIndex = 0;
+    let bestDistance = Number.POSITIVE_INFINITY;
+
+    slides.forEach((slide, index) => {
+      const rect = slide.wrapper.getBoundingClientRect();
+      if (rect.right <= scrollerLeft) return;
+      const distance = Math.abs(rect.left - scrollerLeft);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        bestIndex = index;
+      }
+    });
+
+    return bestIndex;
+  }
+
+  /** Parks the active feature at the left edge of the mobile scroller. */
+  private scrollActiveIntoView(scrollers: HTMLElement[], item: HTMLElement): void {
+    if (!window.matchMedia(MOBILE_LIST_QUERY).matches) return;
+    const scroller = scrollers.find((el) => el.scrollWidth > el.clientWidth + 1) ?? scrollers[0];
+    if (!scroller) return;
+
+    const scrollerRect = scroller.getBoundingClientRect();
     const itemRect = item.getBoundingClientRect();
-    if (itemRect.top < listRect.top) {
-      list.scrollTop -= listRect.top - itemRect.top;
-    } else if (itemRect.bottom > listRect.bottom) {
-      list.scrollTop += itemRect.bottom - listRect.bottom;
-    }
+    scroller.scrollLeft += itemRect.left - scrollerRect.left;
   }
 
   private readFeatureImage(img: HTMLImageElement | null): ImageSource | null {
