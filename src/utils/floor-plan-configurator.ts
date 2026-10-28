@@ -390,11 +390,18 @@ export class FloorPlanConfigurator {
       if (desc && !option.desc) desc.style.display = 'none';
 
       const toggle = slide.querySelector<HTMLElement>(target('ifp-option-toggle'));
+      slide.style.cursor = 'pointer';
+      slide.addEventListener('click', () => this.toggle(option));
+      slide.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        this.toggle(option);
+      });
       if (toggle) {
-        toggle.addEventListener('click', () => this.toggle(option));
         toggle.addEventListener('keydown', (event) => {
           if (event.key !== 'Enter' && event.key !== ' ') return;
           event.preventDefault();
+          event.stopPropagation();
           this.toggle(option);
         });
       }
