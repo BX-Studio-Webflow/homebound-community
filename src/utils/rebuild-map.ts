@@ -10,6 +10,8 @@ type MapPoint = {
   label: string;
   x: number;
   y: number;
+  /** Same-tab destination. Absolute (`https://…`) or root-relative (`/rebuild-markets/…`). */
+  url?: string;
 };
 
 const MAP_POINTS: MapPoint[] = [
@@ -28,7 +30,13 @@ const MAP_POINTS: MapPoint[] = [
   },
   { id: 'woolsey-fire', label: 'Woolsey Fire - Malibu, CA', x: 28.69, y: 226.88 },
   { id: 'eaton-fire', label: 'Eaton Fire - Altadena, CA', x: 54.67, y: 225.59 },
-  { id: 'palisades-fire', label: 'Palisades Fire - Pacific Palisades, CA', x: 38.96, y: 236.7 },
+  {
+    id: 'palisades-fire',
+    label: 'Palisades Fire - Pacific Palisades, CA',
+    x: 38.96,
+    y: 236.7,
+    url: '/rebuild-markets/palisades-ca',
+  },
   { id: 'marshall-fire', label: 'Marshall Fire - Boulder County, CO', x: 197.87, y: 188.96 },
   {
     id: 'hurricane-ian',
@@ -150,11 +158,11 @@ export class RebuildMapController {
         (event) => {
           event.preventDefault();
           event.stopPropagation();
-          this.highlight(point.id, true);
+          this.activatePoint(point.id, true);
         },
         { passive: false }
       );
-      marker.addEventListener('click', () => this.highlight(point.id, true));
+      marker.addEventListener('click', () => this.activatePoint(point.id, true));
     });
   }
 
@@ -211,8 +219,19 @@ export class RebuildMapController {
       card.addEventListener('mouseleave', () => this.clearHighlight());
       card.addEventListener('focus', () => this.highlight(pointId));
       card.addEventListener('blur', () => this.clearHighlight());
-      card.addEventListener('click', () => this.highlight(pointId));
+      card.addEventListener('click', () => this.activatePoint(pointId));
     });
+  }
+
+  /** Opens `url` in this tab when the point has one. Otherwise highlights it. */
+  private activatePoint(pointId: string, scrollToCard = false): void {
+    const point = MAP_POINTS.find((entry) => entry.id === pointId);
+    if (point?.url) {
+      window.location.assign(point.url);
+      return;
+    }
+
+    this.highlight(pointId, scrollToCard);
   }
 
   private highlight(pointId: string, scrollToCard = false): void {
