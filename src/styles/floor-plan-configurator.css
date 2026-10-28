@@ -1,0 +1,10 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   Interactive floor plan configurator
+   State classes are applied by FloorPlanConfigurator
+   (src/utils/floor-plan-configurator.ts). Room highlight styles live in
+   home-map.css. Overlay layout is styled in Webflow.
+   ───────────────────────────────────────────────────────────────────────── */
+
+body.ifp-scroll-lock {
+  overflow: hidden;
+}

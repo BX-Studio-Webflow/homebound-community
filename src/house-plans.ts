@@ -1,6 +1,7 @@
 import '$styles/accordion.css';
 import '$styles/exterior-scheme.css';
 import '$styles/explore-tabs.css';
+import '$styles/floor-plan-configurator.css';
 import '$styles/gallery.css';
 import '$styles/home-map.css';
 import '$styles/lot-map.css';
@@ -8,6 +9,7 @@ import '$styles/lot-map.css';
 import { AccordionController } from '$utils/accordion';
 import { ExploreTabsController } from '$utils/explore-tabs';
 import { ExteriorSchemeController, getHousePlanSlugFromPath } from '$utils/exterior-scheme-modal';
+import { FloorPlanConfigurator } from '$utils/floor-plan-configurator';
 import { type GalleryConfig, GalleryController } from '$utils/gallery';
 import { HomeMapController } from '$utils/home-map';
 import { type ColorSchemeBinding, ColorSchemeController } from '$utils/interior-color-scheme';
@@ -1203,6 +1205,8 @@ window.Webflow.push(() => {
   accordionController.init();
 
   HomeMapController.initAll();
+
+  void new FloorPlanConfigurator().init();
 
   const exteriorSchemeController = new ExteriorSchemeController();
   exteriorSchemeController.init();
