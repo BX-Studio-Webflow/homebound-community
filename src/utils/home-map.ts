@@ -58,8 +58,9 @@ export class HomeMapController {
    * Initialises one map instance scoped to the provided root.
    * Must be called after the DOM is ready (e.g. inside `window.Webflow.push`).
    */
-  init(): void {
-    if (!this.injectSvgs()) return;
+  async init(): Promise<void> {
+    const injected = await this.injectSvgs();
+    if (!injected) return;
     this.bindSvgHover();
     this.bindCardHover();
     this.bindCardClick();
@@ -84,11 +85,14 @@ export class HomeMapController {
     );
 
     if (!roots.length) {
-      new HomeMapController(document, floors).init();
+      if (!document.querySelector(holderSelector)) return;
+      void new HomeMapController(document, floors).init();
       return;
     }
 
-    roots.forEach((root) => new HomeMapController(root, floors).init());
+    roots.forEach((root) => {
+      void new HomeMapController(root, floors).init();
+    });
   }
 
   private static escapeRegExp(value: string): string {

@@ -17,8 +17,8 @@
  * | Hidden SVG source (1st / 2nd) | `dev-target` | `first-floor-svg-text-holder` / `second-floor-svg-text-holder` |
  * | Desktop / mobile / overlay SVG mount | `dev-target` | `ifp-desktop-svg` / `ifp-mobile-svg` / `ifp-overlay-svg` |
  * | Desktop card list | `dev-target` | `ifp-desktop` |
- * | Floor group | `dev-target` | `first-tab` / `second-tab` |
- * | Feature card | `dev-target` | `feature-collection-item` |
+ * | Floor group | `dev-target` | `first-tab` / `second-tab` (inactive group gets `.hide`) |
+ * | Feature card | `dev-target` | `feature-collection-item` (selected card gets `.is-selected`) |
  * | Feature card | `feature` | SVG group id, or several comma-separated ids |
  * | Floor tab | `dev-target` | `ifp-tab` (`data-floor="first"` or `"second"`) |
  * | Overlay | `dev-target` | `ifp-overlay` |
@@ -60,6 +60,8 @@ export class FloorPlanConfigurator {
   private views: PlanView[] = [];
   private floor: Floor = 'first';
   private slideIndex = 0;
+  /** Last viewed option on each floor, so switching floors does not reset the other list. */
+  private readonly slideIndexByFloor: Record<Floor, number> = { first: 0, second: 0 };
   private overlay: HTMLElement | null = null;
   private lastFocus: HTMLElement | null = null;
   private readonly floorSvgText: Partial<Record<Floor, string>> = {};
@@ -267,7 +269,7 @@ export class FloorPlanConfigurator {
     });
 
     this.options.forEach((item) => {
-      item.card.classList.toggle('home-map__card--hover', item === option);
+      item.card.classList.remove('home-map__card--hover');
     });
   }
 
@@ -281,9 +283,7 @@ export class FloorPlanConfigurator {
 
       const go = (): void => {
         this.setFloor(floor);
-        if (!tab.closest(target('ifp-overlay'))) return;
-        const index = this.options.findIndex((option) => option.floor === floor);
-        if (index > -1) this.goToSlide(index, false);
+        this.goToSlide(this.slideIndexByFloor[floor]);
       };
 
       tab.addEventListener('click', go);
@@ -311,6 +311,13 @@ export class FloorPlanConfigurator {
         const svg = view.svgs[name];
         if (svg) svg.style.display = name === floor ? 'block' : 'none';
       });
+    });
+
+    root.querySelectorAll<HTMLElement>(target('first-tab')).forEach((panel) => {
+      panel.classList.toggle('hide', floor !== 'first');
+    });
+    root.querySelectorAll<HTMLElement>(target('second-tab')).forEach((panel) => {
+      panel.classList.toggle('hide', floor !== 'second');
     });
   }
 
@@ -399,7 +406,11 @@ export class FloorPlanConfigurator {
       dot.setAttribute('tabindex', '0');
       dot.setAttribute('aria-label', `Option ${index + 1}`);
       dot.style.cursor = 'pointer';
-      dot.addEventListener('click', () => this.goToSlide(index));
+      dot.addEventListener('click', () => {
+        if (option.floor !== this.floor) this.setFloor(option.floor);
+        const localIndex = this.floorOptions().indexOf(option);
+        if (localIndex > -1) this.goToSlide(localIndex);
+      });
       dots.appendChild(dot);
       option.dot = dot;
     });
@@ -407,16 +418,28 @@ export class FloorPlanConfigurator {
     this.bindSwipe(list);
   }
 
-  private goToSlide(index: number, syncFloor = true): void {
-    const count = this.options.length;
+  private floorOptions(): FloorOption[] {
+    return this.options.filter((option) => option.floor === this.floor);
+  }
+
+  /** Moves within the current floor. Selections on the other floor stay in `selected`. */
+  private goToSlide(index: number): void {
+    const floorOptions = this.floorOptions();
+    const count = floorOptions.length;
     if (!count) return;
 
-    this.slideIndex = ((index % count) + count) % count;
-    const option = this.options[this.slideIndex];
+    const localIndex = ((index % count) + count) % count;
+    const option = floorOptions[localIndex];
     if (!option) return;
-    if (syncFloor && option.floor !== this.floor) this.setFloor(option.floor);
+
+    this.slideIndexByFloor[this.floor] = localIndex;
+    this.slideIndex = this.options.indexOf(option);
     this.renderSlides();
     this.hover(option);
+  }
+
+  private stepSlide(delta: number): void {
+    this.goToSlide(this.slideIndexByFloor[this.floor] + delta);
   }
 
   private bindSwipe(list: HTMLElement): void {
@@ -436,7 +459,7 @@ export class FloorPlanConfigurator {
       const dx = event.clientX - startX;
       const dy = event.clientY - startY;
       if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
-      this.goToSlide(this.slideIndex + (dx < 0 ? 1 : -1));
+      this.stepSlide(dx < 0 ? 1 : -1);
     });
     list.addEventListener('pointercancel', () => {
       tracking = false;
@@ -471,18 +494,18 @@ export class FloorPlanConfigurator {
     });
 
     const next = root.querySelector<HTMLElement>(target('ifp-next'));
-    next?.addEventListener('click', () => this.goToSlide(this.slideIndex + 1));
+    next?.addEventListener('click', () => this.stepSlide(1));
     next?.addEventListener('keydown', (event) => {
       if (event.key !== 'Enter' && event.key !== ' ') return;
       event.preventDefault();
-      this.goToSlide(this.slideIndex + 1);
+      this.stepSlide(1);
     });
 
     document.addEventListener('keydown', (event) => {
       if (!this.overlay?.classList.contains('is-open')) return;
       if (event.key === 'Escape') this.closeOverlay();
-      if (event.key === 'ArrowRight') this.goToSlide(this.slideIndex + 1);
-      if (event.key === 'ArrowLeft') this.goToSlide(this.slideIndex - 1);
+      if (event.key === 'ArrowRight') this.stepSlide(1);
+      if (event.key === 'ArrowLeft') this.stepSlide(-1);
     });
 
     window.matchMedia('(min-width: 992px)').addEventListener('change', (query) => {
@@ -494,8 +517,7 @@ export class FloorPlanConfigurator {
     if (!this.overlay) return;
 
     this.lastFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-    const index = this.options.findIndex((option) => option.floor === this.floor);
-    this.goToSlide(index > -1 ? index : 0);
+    this.goToSlide(this.slideIndexByFloor[this.floor]);
     this.overlay.classList.add('is-open');
     document.body.classList.add('ifp-scroll-lock');
     this.overlay.querySelector<HTMLElement>(target('ifp-close'))?.focus({ preventScroll: true });
@@ -558,7 +580,8 @@ export class FloorPlanConfigurator {
 
     this.options.forEach((option) => {
       const on = this.isSelected(option);
-      option.card.classList.toggle('home-map__card--active', on);
+      option.card.classList.remove('home-map__card--active');
+      option.card.classList.toggle('is-selected', on);
       const input = option.card.querySelector<HTMLInputElement>('input[type="checkbox"]');
       const box = option.card.querySelector<HTMLElement>('.w-checkbox-input');
       if (input) input.checked = on;
@@ -572,9 +595,14 @@ export class FloorPlanConfigurator {
     const { root } = this;
     if (!root) return;
 
-    const count = this.options.length;
-    this.options.forEach((option, index) => {
-      const current = index === this.slideIndex;
+    const floorOptions = this.floorOptions();
+    const count = floorOptions.length;
+    const localIndex = count ? this.slideIndexByFloor[this.floor] % count : 0;
+    const currentOption = floorOptions[localIndex];
+
+    this.options.forEach((option) => {
+      const onFloor = option.floor === this.floor;
+      const current = option === currentOption;
       if (option.slide) {
         option.slide.style.display = current ? '' : 'none';
         option.slide.setAttribute('aria-hidden', current ? 'false' : 'true');
@@ -588,6 +616,7 @@ export class FloorPlanConfigurator {
       }
 
       if (option.dot) {
+        option.dot.style.display = onFloor ? '' : 'none';
         option.dot.classList.toggle('is-active', current);
         option.dot.setAttribute('aria-current', current ? 'true' : 'false');
       }
@@ -595,7 +624,7 @@ export class FloorPlanConfigurator {
 
     const counter = root.querySelector(target('ifp-counter'));
     if (counter && count) {
-      counter.textContent = `${this.slideIndex + 1} of ${count} Personalization Options`;
+      counter.textContent = `${localIndex + 1} of ${count} Personalization Options`;
     }
   }
 }

@@ -55,27 +55,31 @@ window.Webflow.push(() => {
   const galleryController = new GalleryController(galleryConfigs);
   galleryController.init();
 
-  const exploreTabsController = new ExploreTabsController({
-    isHousePlansGallery: true,
-    firstTabSelector: '[dev-target="first-tab"]',
-    secondTabSelector: '[dev-target="second-tab"]',
-    triggerToPanel: {
-      'first-tab-trigger': 'first-tab-body',
-      'second-tab-trigger': 'second-tab-body',
-    },
-  });
-  exploreTabsController.init();
+  if (document.querySelector('[dev-target="first-tab-trigger"]')) {
+    const exploreTabsController = new ExploreTabsController({
+      isHousePlansGallery: true,
+      firstTabSelector: '[dev-target="first-tab"]',
+      secondTabSelector: '[dev-target="second-tab"]',
+      triggerToPanel: {
+        'first-tab-trigger': 'first-tab-body',
+        'second-tab-trigger': 'second-tab-body',
+      },
+    });
+    exploreTabsController.init();
+  }
 
-  const mobileExploreTabsController = new ExploreTabsController({
-    isHousePlansGallery: true,
-    firstTabSelector: '[dev-target="mobile-first-tab"]',
-    secondTabSelector: '[dev-target="mobile-second-tab"]',
-    triggerToPanel: {
-      'mobile-first-tab-trigger': 'mobile-first-tab-body',
-      'mobile-second-tab-trigger': 'mobile-second-tab-body',
-    },
-  });
-  mobileExploreTabsController.init();
+  if (document.querySelector('[dev-target="mobile-first-tab-trigger"]')) {
+    const mobileExploreTabsController = new ExploreTabsController({
+      isHousePlansGallery: true,
+      firstTabSelector: '[dev-target="mobile-first-tab"]',
+      secondTabSelector: '[dev-target="mobile-second-tab"]',
+      triggerToPanel: {
+        'mobile-first-tab-trigger': 'mobile-first-tab-body',
+        'mobile-second-tab-trigger': 'mobile-second-tab-body',
+      },
+    });
+    mobileExploreTabsController.init();
+  }
 
   const slideEls = Array.from(
     document.querySelectorAll<HTMLElement>('[dev-target="other-swiper-slide"]')
