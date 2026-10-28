@@ -29,7 +29,13 @@ const MAP_POINTS: MapPoint[] = [
     y: 173.78,
   },
   { id: 'woolsey-fire', label: 'Woolsey Fire - Malibu, CA', x: 28.69, y: 226.88 },
-  { id: 'eaton-fire', label: 'Eaton Fire - Altadena, CA', x: 54.67, y: 225.59 },
+  {
+    id: 'eaton-fire',
+    label: 'Eaton Fire - Altadena, CA',
+    x: 54.67,
+    y: 225.59,
+    url: '/rebuild-markets/altadena-ca',
+  },
   {
     id: 'palisades-fire',
     label: 'Palisades Fire - Pacific Palisades, CA',
