@@ -6,8 +6,8 @@
  * cards and SVG shapes share one selection set. On mobile, an overlay pages
  * through those options.
  *
- * Desktop card clicks cooperate with HomeMapController: the checkbox is the
- * source of truth when that controller also toggles it.
+ * A click anywhere on a feature card toggles that option, including the
+ * heading and the checkbox.
  *
  * **Required Webflow attributes**
  *
@@ -322,36 +322,41 @@ export class FloorPlanConfigurator {
   }
 
   private bindDesktopCards(): void {
-    this.options.forEach((option) => {
-      const input = option.card.querySelector<HTMLInputElement>('input[type="checkbox"]');
-      const box = option.card.querySelector<HTMLElement>('.w-checkbox-input');
-      const readChecked = (): boolean =>
-        box?.classList.contains('w--redirected-checked') ?? !!input?.checked;
+    const { root } = this;
+    if (!root) return;
 
-      let before = false;
-      option.card.addEventListener(
+    root.querySelectorAll<HTMLElement>(target('feature-collection-item')).forEach((card) => {
+      const option = this.optionForCard(card);
+      if (!option) return;
+
+      card.style.cursor = 'pointer';
+      card.addEventListener(
         'click',
-        () => {
-          before = readChecked();
+        (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          this.toggle(option);
         },
         true
       );
-      option.card.addEventListener('click', (event) => {
-        const native = !!(event.target instanceof Element
-          ? event.target.closest('input[type="checkbox"], .w-checkbox-input, label')
-          : null);
-
-        window.setTimeout(() => {
-          const after = readChecked();
-          if (after === before && !native) this.toggle(option);
-          else this.setSelected(option, after);
-        }, 0);
-      });
-
-      input?.addEventListener('change', () => this.setSelected(option, input.checked));
-      option.card.addEventListener('mouseenter', () => this.hover(option));
-      option.card.addEventListener('mouseleave', () => this.hover(null));
+      card.addEventListener('mouseenter', () => this.hover(option));
+      card.addEventListener('mouseleave', () => this.hover(null));
     });
+  }
+
+  private optionForCard(card: HTMLElement): FloorOption | undefined {
+    const direct = this.options.find((option) => option.card === card);
+    if (direct) return direct;
+
+    const featureIds = FloorPlanConfigurator.featureIds(card).join(',');
+    if (!featureIds) return undefined;
+
+    const floor: Floor = card.closest(target('second-tab')) ? 'second' : 'first';
+    return (
+      this.options.find(
+        (option) => option.floor === floor && option.featureIds.join(',') === featureIds
+      ) ?? this.options.find((option) => option.featureIds.join(',') === featureIds)
+    );
   }
 
   private buildSlides(): void {
