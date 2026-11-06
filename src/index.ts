@@ -32,6 +32,13 @@ const heroVideoConfigs: HeroVideoConfig[] = [
       'https://player.vimeo.com/progressive_redirect/playback/1215584523/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&signature=f98fbf3ab3ee5efe4b1e627cbfc965dbe2f3aa71d2a4fe3eb43102fa1942de2f',
     title: 'The Villas at Lakeside video',
     index: 0,
+  },{
+    enabled: true,
+    pathname: '/upcoming-communities/park-place',
+    videoUrl:
+      'https://player.vimeo.com/progressive_redirect/playback/1240797320/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&signature=9e6c443abf3ece515e5e058c31a928bd347908a15d238deca63ef05f7738543b',
+    title: 'The Villas at Park Place video',
+    index: 0,
   },
 ];
 
