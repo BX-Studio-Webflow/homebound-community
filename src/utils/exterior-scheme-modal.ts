@@ -841,18 +841,30 @@ const buildMosaicExteriors = (planSlug: ParkPlacePlanSlug): ExteriorDefinition[]
     })),
   }));
 
-/** Mosaic plan URLs use `the-<plan>---mosaic`; strip that suffix to reuse Park Place assets. */
-export function getHousePlanSlugFromPath(): HousePlanSlug | null {
-  const maybeSlug =
-    window.location.pathname.toLowerCase().split('/house-plans/')[1]?.split('/')[0] ?? '';
-  const normalizedSlug = maybeSlug.replace(/^the-/, '');
-  const canonicalSlug = normalizedSlug.replace(/---mosaic$/, '');
+const HOUSE_PLAN_SLUGS_BY_LENGTH = (Object.keys(EXTERIORS_BY_PLAN) as HousePlanSlug[]).sort(
+  (a, b) => b.length - a.length
+);
+
+/**
+ * Plan URLs are `the-<plan>`, `<plan>---mosaic`, or `<plan>-<community>`
+ * (for example `studio-adu-palisades`, `carriage-house-adu-palisades`,
+ * and `two-story-adu-palisades`).
+ */
+export function resolveHousePlanSlug(pathSegment: string): HousePlanSlug | null {
+  const canonicalSlug = pathSegment.toLowerCase().replace(/^the-/, '').replace(/---mosaic$/, '');
 
   if (canonicalSlug in EXTERIORS_BY_PLAN) {
     return canonicalSlug as HousePlanSlug;
   }
 
-  return null;
+  return HOUSE_PLAN_SLUGS_BY_LENGTH.find((slug) => canonicalSlug.startsWith(`${slug}-`)) ?? null;
+}
+
+export function getHousePlanSlugFromPath(): HousePlanSlug | null {
+  const maybeSlug =
+    window.location.pathname.toLowerCase().split('/house-plans/')[1]?.split('/')[0] ?? '';
+
+  return resolveHousePlanSlug(maybeSlug);
 }
 
 export function getExteriorImageUrlsForStyle(
