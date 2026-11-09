@@ -122,13 +122,13 @@ const PALISADE_SWATCH_FILLS: Record<Exclude<PalisadePackageKey, 'spanish'>, stri
 
 type SchemePosToken = (typeof ADU_INTERIOR_SCHEME_TOKENS)[number];
 
-/** Figma nodes 1:1409, 1:633, 1:2276 — shared ADU interior package order. */
+/** Shared Carriage House and Two-Story ADU interior package order. */
 const ADU_INTERIOR_PACKAGE_BY_POS: Record<SchemePosToken, PalisadePackageKey> = {
   'pos-1': 'modern',
   'pos-2': 'coastalCottage',
-  'pos-3': 'spanish',
-  'pos-4': 'transitionalOrganic',
-  'pos-5': 'pacificContemporary',
+  'pos-3': 'pacificContemporary',
+  'pos-4': 'spanish',
+  'pos-5': 'transitionalOrganic',
 };
 
 /** Figma node 12:3928 — All Park Place Packages legend. */
